@@ -1,0 +1,1044 @@
+//
+//  OMEMessageDetailViewController.m
+//  ToPlay
+//
+//  Created by Ozzie Zhang on 10/5/14.
+//  Copyright (c) 2014 OneME. All rights reserved.
+//
+
+
+static CGFloat const kOMEMessageDetailTableViewFontSize = 12.f;
+static CGFloat const kOMEMessageDetailTableViewCellWidth = 230.f; // subject to change.
+
+// Cell dimension and positioning constants
+static CGFloat const kOMECellPaddingTop = 5.0f;
+static CGFloat const kOMECellPaddingBottom = 1.0f;
+static CGFloat const kOMECellPaddingSides = 0.0f;
+
+static CGFloat const kOMECellTextPaddingTop = 6.0f;
+static CGFloat const kOMECellTextPaddingBottom = 5.0f;
+static CGFloat const kOMECellTextPaddingSides = 5.0f;
+
+static CGFloat const kOMECellUsernameHeight = 15.0f;
+static CGFloat const kOMECellBackgroundHeight = 32.0f;
+static CGFloat const kOMECellBackgroundffset = kOMECellBackgroundHeight - kOMECellUsernameHeight;
+
+static CGFloat const kOMECellReplyTimeWidth = 50.0f;
+static CGFloat const kOMECellReplyTimeHeight = 15.0f;
+static CGFloat const kOMECellReplyTimeBackgroundHeight = 20.f;
+static CGFloat const kOMECellReplyTimeBackgroundOffset = kOMECellReplyTimeBackgroundHeight - kOMECellReplyTimeHeight;
+static CGFloat const kOMECellReplyTimePaddingTop = 2.0f;
+static CGFloat const kOMECellReplyTimePaddingBottom = 1.0f;
+static CGFloat const kOMECellReplyTimePaddingSides = 3.0f;
+
+static CGFloat const KOMECellAvatarPaddingTop = 0.0f;
+static CGFloat const kOMECellAvatarPaddingBottom = 10.0f;
+static CGFloat const kOMECellAvatarPaddingSides = 8.0f;
+static CGFloat const kOMECellAvatarWidth = 40.0f;
+static CGFloat const kOMECellAvatarHeight = 40.0f;
+
+
+// TableViewCell ContentView tags
+static NSInteger kOMECellBackgroundTag = 2;
+static NSInteger kOMECellTextLabelTag = 3;
+static NSInteger kOMECellNameLabelTag = 4;
+
+static NSInteger kOMECellTimeBackgroundTag = 5;
+static NSInteger kOMECellTimeTextLabelTag = 6;
+static NSInteger kOMECellTimeNameLabelTag = 7;
+
+static NSInteger kOMECellUserBackgroundTag = 8;
+
+
+// Message Reply Frame dimension and positioning constants
+static NSInteger kOMEReplyFramePaddingTop = 4.0f;
+static NSInteger kOMEReplyFramePaddingBottom = 4.0f;
+static NSInteger kOMEReplyFramePaddingSlides = 4.0f;
+static NSInteger kOMEReplyFrameHeight = 40.0f;
+
+static NSInteger kOMEReplySendButtonPaddingTop = 4.0f;
+static NSInteger kOMEReplySendButtonPaddingBootom = 4.0f;
+static NSInteger kOMEReplySendButtonPaddingSlides = 4.0f;
+static NSInteger kOMEReplySendButtonHeight = 32.0f;
+static NSInteger kOMEReplySendButtonWidth = 56.0f;
+
+static NSInteger kOMEMessageDetailWindowNavigatorBarHeight = 40.0f;
+static NSInteger kOMEMessageDetailWindowTabBarHeight = 40.0f;
+
+
+static NSUInteger const kOMETableViewMainSection = 0;
+
+
+#import "AppDelegate.h"
+
+#import "OMEConstant.h"
+#import "OMEMessageDetailViewController.h"
+#import "OMEMessageListViewController.h"
+
+#import "OMEMessageCell.h"
+#import "OMEMessage.h"
+#import "OMEInvite.h"
+
+@interface OMEMessageDetailViewController ()
+
+@property (nonatomic, copy) NSString *fromUsername;
+@property (nonatomic, retain) OMEMessage *message;
+
+
+@end
+
+@implementation OMEMessageDetailViewController {
+	BOOL isFirstAppearance;
+	NSInteger readTimeAtIndex;
+	NSString *replyContent;
+	UIView *replyAccessoryView;
+}
+
+
+@synthesize replyTextField;
+@synthesize enteredText;
+@synthesize fromUsername;
+@synthesize delegate;
+@synthesize message;
+//@synthesize inputView;
+@synthesize inputAccessoryView;
+@synthesize inputTextField;
+@synthesize sendButton;
+
+
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+	
+	BOOL isFirstAppearance = YES;
+	
+	// Dedicate variable for setting time cell height
+	readTimeAtIndex = -1;
+	
+	if (NSClassFromString(@"UIRefreshControl")) {
+		// Use the new iOS 6 refresh control.
+		UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+		self.refreshControl = refreshControl;
+		self.refreshControl.tintColor = [UIColor colorWithRed:48.0f/255.0f green:19.0f/255.0f blue:5.0f/255.0f alpha:1.0f];
+		[self.refreshControl addTarget:self action:@selector(refreshControlValueChanged:) forControlEvents:UIControlEventValueChanged];
+		self.pullToRefreshEnabled = NO;
+	}
+	
+	UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
+	[self.view addGestureRecognizer:tap];
+	
+	
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	//self.navigationItem.leftBarButtonItem = self.editButtonItem;
+	
+	//self.navigationItem.hidesBackButton = YES;
+
+	
+	UIImage *originalImage = [UIImage imageNamed:@"backIcon.png"];
+	UIEdgeInsets insets = UIEdgeInsetsMake(0, 5, 0, 5);
+	UIImage *stretchableImage = [originalImage resizableImageWithCapInsets:insets];
+	
+	
+	// define left button "Messages" to back OMEMessageListViewController
+	UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:kOMEMessageTitle style:UIBarButtonItemStyleBordered target:self action:@selector(backToMessageListView:)];
+	[backButton setBackButtonBackgroundImage:stretchableImage forState:UIControlStateNormal barMetrics:0];
+	self.navigationItem.leftBarButtonItem = backButton;
+	
+	// Get fromUsername via delegate
+	self.fromUsername = [self.delegate getFromUsernameDidSelectMessage:self];
+	
+	NSLog(@"OMEMessageDetailViewController toUsername = %@", self.fromUsername);
+	
+	
+	// Display FromUsername at the center of navigation bar
+	self.navigationItem.title = self.fromUsername;
+
+
+	// Define reply corresponding view frame
+	CGRect replyFrame = CGRectMake(0.0, self.view.frame.size.height - kOMEReplyFrameHeight, self.view.frame.size.width, kOMEReplyFrameHeight);
+	replyAccessoryView = [[UIView alloc] initWithFrame:replyFrame];
+	replyAccessoryView.backgroundColor = [UIColor colorWithRed:220/255.0 green:222/255.0 blue:227/255.0 alpha:1];
+	[self.tableView addSubview:replyAccessoryView];
+	
+	// Define reply corresponding textfield
+	
+	replyTextField = [[UITextField alloc] initWithFrame:CGRectMake(kOMEReplyFramePaddingSlides, self.view.frame.size.height - kOMEReplyFrameHeight + kOMEReplyFramePaddingTop, self.view.frame.size.width - kOMEReplyFramePaddingSlides - kOMEReplySendButtonPaddingSlides*2 - kOMEReplySendButtonWidth, kOMEReplyFrameHeight - kOMEReplyFramePaddingTop - kOMEReplyFramePaddingBottom)];
+	replyTextField.placeholder = kOMEMessageInputTextPlacehold;
+	[replyTextField setBackgroundColor:[UIColor whiteColor]];
+	[replyTextField addTarget:self action:@selector(replyMessageToFromUsername:)
+			 forControlEvents:UIControlEventTouchUpInside];
+	
+	//self.replyTextField.inputAccessoryView = inputAccessoryView;
+	[self.tableView addSubview:replyTextField];
+	
+	
+	// define reply corresponding send button
+	
+	UIButton  *replySendButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+	replySendButton.frame = CGRectMake(self.view.frame.size.width - kOMEReplySendButtonPaddingSlides - kOMEReplySendButtonWidth , self.view.frame.size.height - kOMEReplyFrameHeight + kOMEReplyFramePaddingTop, kOMEReplySendButtonWidth, kOMEReplyFrameHeight - kOMEReplyFramePaddingTop - kOMEReplyFramePaddingBottom);
+	[replySendButton setTitle:kOMEMessageSendButtonTitle  forState:UIControlStateNormal];
+	[replySendButton setTitleColor:[UIColor colorWithRed:28.0f/255.0f green:161.0f/255.0f blue:85.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+	//[replySendButton setBackgroundColor:[UIColor colorWithRed:28.0f/255.0f green:161.0f/255.0f blue:85.0f/255.0f alpha:1.0f]];
+	[replySendButton addTarget:self action:@selector(sendReplyMessageToFromUsername:)
+			  forControlEvents:UIControlEventTouchUpInside];
+	[self.tableView addSubview:replySendButton];
+
+	
+	// define navigation property
+	[self.navigationController setNavigationBarHidden:NO animated:NO];
+	
+	//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+	//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(postWasCreated:) name:kOMEInviteCreatedNotification object:nil];
+	//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismissKeyboard:) name:UIKeyboardDidHideNotification object:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:inputTextField];
+	
+	
+	
+	self.tableView.backgroundColor = [UIColor clearColor];
+	self.tableView.separatorColor = [UIColor clearColor];	
+	
+	
+	[self.tableView reloadData];
+	
+}
+
+
+
+- (id)initWithStyle:(UITableViewStyle)style {
+	self = [super initWithStyle:style];
+	if (self) {
+		// Customize the table:
+		
+		// The className to query on
+		self.parseClassName = kOMEParseClassKey;
+		
+		// The key of the PFObject to display in the label of the default cell style
+		self.textKey = kOMEParseTextKey;
+		
+		// Whether the built-in pull-to-refresh is enabled
+		if (NSClassFromString(@"UIRefreshControl")) {
+			self.pullToRefreshEnabled = NO;
+		} else {
+			self.pullToRefreshEnabled = YES;
+		}
+		
+		// Whether the built-in pagination is enabled
+		self.paginationEnabled = YES;
+		
+		//Ozzie Zhang 2014-10-07 disable this line code
+		// The number of objects to show per page
+		// self.objectsPerPage = kOMEInviteSearchLimit;
+	}
+	return self;
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+- (void)backToMessageListView:(id)sender {
+	
+	[[self navigationController] popViewControllerAnimated:NO];
+	
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated {
+
+	[super viewDidAppear:animated];
+	
+	if (isFirstAppearance) {
+		NSLog(@"root view controller is moving to parent");
+		isFirstAppearance = NO;
+	} else {
+		//NSLog(@"root view controller, not moving to parent");
+	}
+	
+	//self.isBeingDismissed for presenting modal view controller
+	if (self.isMovingFromParentViewController || self.isBeingDismissed) {
+		
+		NSLog(@"isMovingFromParentViewController ");
+	}
+	
+	
+	
+}
+
+
+// this viewDidDisapper can execute backing to OMEMessageListViewController
+- (void) viewDidDisappear:(BOOL)animated {
+	
+	if (self.parentViewController == nil) {
+		//NSLog(@"viewDidDisappear doesn't have parent so it's been popped");
+		//release stuff here
+		
+		[[self navigationController] popViewControllerAnimated:NO];
+		
+	} else {
+		NSLog(@"PersonViewController view just hidden");
+	}
+	
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+	//isMovingToParentViewController();
+/*
+	// Define reply corresponding view frame
+	CGRect replyFrame = CGRectMake(0.0, self.view.window.frame.size.height - kOMEReplyFrameHeight, self.view.window.frame.size.width, kOMEReplyFrameHeight);
+	replyAccessoryView = [[UIView alloc] initWithFrame:replyFrame];
+	replyAccessoryView.backgroundColor = [UIColor colorWithRed:220/255.0 green:222/255.0 blue:227/255.0 alpha:1];
+	[self.view.window addSubview:replyAccessoryView];
+	
+	// Define reply corresponding textfield
+	
+	replyTextField = [[UITextField alloc] initWithFrame:CGRectMake(kOMEReplyFramePaddingSlides, self.view.window.frame.size.height - kOMEReplyFrameHeight + kOMEReplyFramePaddingTop, self.view.window.frame.size.width - kOMEReplyFramePaddingSlides - kOMEReplySendButtonPaddingSlides*2 - kOMEReplySendButtonWidth, kOMEReplyFrameHeight - kOMEReplyFramePaddingTop - kOMEReplyFramePaddingBottom)];
+	replyTextField.placeholder = kOMEMessageInputTextPlacehold;
+	[replyTextField setBackgroundColor:[UIColor whiteColor]];
+	[replyTextField addTarget:self action:@selector(sendReplyMessageToFromUsername:)
+			 forControlEvents:UIControlEventTouchUpInside];
+	
+	self.replyTextField.inputAccessoryView = inputAccessoryView;
+	[self.view.window addSubview:replyTextField];
+	
+	
+	// define reply corresponding send button
+	
+	UIButton  *replySendButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+	replySendButton.frame = CGRectMake(self.view.window.frame.size.width - kOMEReplySendButtonPaddingSlides - kOMEReplySendButtonWidth , self.view.window.frame.size.height - kOMEReplyFrameHeight + kOMEReplyFramePaddingTop, kOMEReplySendButtonWidth, kOMEReplyFrameHeight - kOMEReplyFramePaddingTop - kOMEReplyFramePaddingBottom);
+	[replySendButton setTitle:kOMEMessageSendButtonTitle  forState:UIControlStateNormal];
+	[replySendButton setTitleColor:[UIColor colorWithRed:28.0f/255.0f green:161.0f/255.0f blue:85.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+	//[replySendButton setBackgroundColor:[UIColor colorWithRed:28.0f/255.0f green:161.0f/255.0f blue:85.0f/255.0f alpha:1.0f]];
+	[replySendButton addTarget:self action:@selector(sendReplyMessageToFromUsername:)
+			  forControlEvents:UIControlEventTouchUpInside];
+	[self.view.window addSubview:replySendButton];
+	
+*/
+	
+	
+//	[inputTextField becomeFirstResponder];
+ 
+ 
+	
+	
+
+}
+
+
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	
+}
+
+
+- (void)willMoveToParentViewController:(UIViewController *)parent {
+	
+}
+
+/*
+- (void)customedKeyboardDidChange
+{
+//	self.inputTextField.inputView = nil;
+//	[self.inputTextField reloadInputViews];
+}
+
+- (void)systemKeyboardDidChange
+{
+	//self.inputTextField.inputView = _inputView;
+//	[self.inputTextField reloadInputViews];
+}
+
+- (void)numberButtonClicked:(id)sender
+{
+	//[[UIDevice currentDevice] playInputClick];
+}
+
+ 
+- (void)keyboardDidShow:(id)notification
+{
+	_keyboardDefaultView = [self getSystemKeyboardView];
+	if (_keyboardDefaultView && [_numberTextField isFirstResponder])
+	{
+		_switchNumButton = [UIButton buttonWithType:UIButtonTypeCustom];
+		[_switchNumButton setTitle:@"123" forState:UIControlStateNormal];
+		[_switchNumButton setBackgroundImage:[UIImage imageNamed:@"num.png"] forState:UIControlStateNormal];
+		_switchNumButton.frame = CGRectMake(1, 173, 78, 42);
+		[_switchNumButton addTarget:self action:@selector(changeCutomeButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+		[_keyboardDefaultView addSubview:_switchNumButton];
+	}
+	else
+	{
+		if (_switchNumButton) {
+			[_switchNumButton removeFromSuperview];
+		}
+	}
+ 
+}
+
+- (void)keyboardWillShow:(id)notification {
+	
+}
+ */
+
+
+// Override to customize what kind of query to perform on the class. The default is to query for
+// all objects ordered by createdAt descending.
+- (PFQuery *)queryForTable {
+	PFQuery *query = [PFQuery queryWithClassName:kOMEParseClassKey];
+	
+	// If no objects are loaded in memory, we look to the cache first to fill the table
+	// and then subsequently do a query against the network.
+	if ([self.objects count] == 0) {
+		query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+	}
+	
+	// Query for posts near our current location.
+	
+	// Get our current location:
+	AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+	CLLocation *currentLocation = appDelegate.currentLocation;
+	CLLocationAccuracy filterDistance = appDelegate.filterDistance;
+	
+	// And set the query to look by location
+	PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:currentLocation.coordinate.latitude longitude:currentLocation.coordinate.longitude];
+	[query whereKey:kOMEParseLocationKey nearGeoPoint:point withinKilometers:filterDistance / kOMEMetersInAKilometer];
+	[query includeKey:kOMEParseUserKey];
+	
+	return query;
+}
+
+
+
+
+-  (void)dealloc {
+	
+}
+
+- (void)viewDidLayoutSubviews {
+	[super viewDidLayoutSubviews];
+	
+	//self.activityView.frame = self.view.bounds;
+	//self.replyTextField.contentSize = self.backgroundView.bounds.size;
+}
+
+
+
+
+
+
+
+#pragma mark - UITextFieldDelegate methods
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+	
+	//	[replyTextField resignFirstResponder];
+	
+	if (textField == replyTextField) {
+		[inputTextField  becomeFirstResponder];
+	}
+	
+	if (textField == self.inputTextField) {
+		[self.inputTextField resignFirstResponder];
+		[self.replyTextField becomeFirstResponder];
+	//	[textField removeFromSuperview];
+		//return NO;
+		
+	}
+	
+	
+	return YES;
+}
+
+
+- (void)completeCurrentWord:(id)sender {
+	
+	//	NSString *username = usernameField.text;
+	
+	
+	
+}
+
+#pragma mark Keyboard
+
+- (void)dismissKeyboard:(id)sender {
+	
+	if (sender == inputTextField) {
+		[inputTextField resignFirstResponder];
+		[replyTextField becomeFirstResponder];
+	} else if (sender == replyTextField) {
+		[replyTextField resignFirstResponder];
+		[inputTextField becomeFirstResponder];
+		
+	}
+	
+	[self.view endEditing:YES];
+	
+}
+
+- (void)replyMessageToFromUsername:(id)sender {
+	[inputTextField becomeFirstResponder];
+		//inputTextField.hidden = YES;
+
+    self->replyContent = inputTextField.text;
+	
+	[self dismissKeyboard:replyTextField];
+    NSLog(@"replyMessageToFromUsername replyContent = %@", replyContent);
+	
+	self.inputTextField.text = nil;
+}
+
+
+- (void)sendReplyMessageToFromUsername:(id)sender {
+	self->replyContent = inputTextField.text;
+	NSLog(@"sendReplyMessageToFromUsername replyContent = %@", replyContent);
+	
+	[self dismissKeyboard:inputTextField];
+	
+	// set nil to clear the latest input message, so need check the message length
+	// when send message to FromUsername
+	self.inputTextField.text = nil;
+	
+}
+
+
+
+// Define the accessory for keyboard
+- (UIView *)inputAccessoryView {
+	if (!inputAccessoryView) {
+		
+		// Define the frame on keyboard
+		CGRect accessFrame = CGRectMake(0.0, 10.0, 320.0, kOMEReplyFrameHeight);
+		inputAccessoryView = [[UIView alloc] initWithFrame:accessFrame];
+		inputAccessoryView.backgroundColor = [UIColor colorWithRed:220/255.0 green:222/255.0 blue:227/255.0 alpha:1];
+		
+		// Define input textfield to receive user input
+		inputTextField = [[UITextField alloc] init];
+		inputTextField.frame = CGRectMake(4.0, 4.0, self.tableView.frame.size.width - kOMEReplyFramePaddingSlides - kOMEReplySendButtonPaddingSlides*2 - kOMEReplySendButtonWidth, kOMEReplySendButtonHeight);
+		inputTextField.placeholder = kOMEMessageInputTextPlacehold;
+		inputTextField.returnKeyType = UIReturnKeySend;
+		[inputTextField setBackgroundColor:[UIColor whiteColor]];
+		[inputTextField addTarget:self action:@selector(completeCurrentWord:)
+				 forControlEvents:UIControlEventTouchUpInside];
+		
+		self.inputTextField.delegate = self;
+	//	self.inputTextField.keyboardType = UIKeyboardTypeNamePhonePad;
+		self.inputTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+		self.inputTextField.spellCheckingType = UITextSpellCheckingTypeNo;
+		self.inputTextField.returnKeyType = UIReturnKeySend;
+		
+	//	[self.view addSubview:self.inputTextField];
+		[self.inputAccessoryView addSubview:self.inputTextField];
+		
+		//[inputAccessoryView addSubview:inputTextField];
+		
+		//_inputView = [[AZStockKeyboardView alloc] initWithFrame:CGRectMake(0, 0, rect.size.width, 216)];
+		//_inputView.delegate = self;
+		//self.inputTextField.inputView = _inputView;
+		
+		[inputTextField  becomeFirstResponder];
+		// Define send button for submitting user input content
+		sendButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+		sendButton.frame = CGRectMake(260.0, 4.0, kOMEReplySendButtonWidth, kOMEReplySendButtonHeight);
+		[sendButton setTitle:kOMEMessageSendButtonTitle  forState:UIControlStateNormal];
+		[sendButton setTitleColor:[UIColor colorWithRed:28.0f/255.0f green:161.0f/255.0f blue:85.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+		
+	//	[sendButton setTitleColor:[UIColor colorWithRed:220/255.0 green:222/255.0 blue:227/255.0 alpha:1] forState:UIControlStateSelected];
+		//[sendButton setTitleColor:[UIColor blueColor] forState:UIControlStateSelected];
+		//[sendButton setBackgroundColor:[UIColor colorWithRed:28.0f/255.0f green:161.0f/255.0f blue:85.0f/255.0f alpha:1.0f]];
+		[sendButton addTarget:self action:@selector(sendReplyMessageToFromUsername:)
+			 forControlEvents:UIControlEventTouchUpInside];
+		[inputAccessoryView addSubview:self.sendButton];
+	}
+	return inputAccessoryView;
+}
+
+
+
+
+#pragma mark - Table view data source
+
+
+/*
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+#warning Potentially incomplete method implementation.
+    // Return the number of sections.
+    return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+#warning Incomplete method implementation.
+    // Return the number of rows in the section.
+	return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	//return 0;
+}
+
+*/
+
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath {
+	UITableViewCell *cell = [super tableView:tableView cellForNextPageAtIndexPath:indexPath];
+	cell.textLabel.font = [cell.textLabel.font fontWithSize:kOMEMessageDetailTableViewFontSize];
+	return cell;
+}
+
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	// call super because we're a custom subclass.
+	[super tableView:tableView didSelectRowAtIndexPath:indexPath];
+	
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	// Account for the load more cell at the bottom of the tableview if we hit the pagination limit:
+	if ( (NSUInteger)indexPath.row >= [self.objects count]) {
+		return [tableView rowHeight];
+	}
+	
+	// Retrieve the text and username for this row:
+	PFObject *object = [self.objects objectAtIndex:indexPath.row];
+	OMEInvite *inviteFromObject = [[OMEInvite alloc] initWithPFObject:object];
+	NSString *text = inviteFromObject.title;
+	NSString *username = inviteFromObject.user.username;
+	NSString *time = inviteFromObject.time;
+	
+	// Calculate what the frame to fit the post text and the username
+	CGSize textSize = [text sizeWithFont:[UIFont systemFontOfSize:kOMEMessageDetailTableViewFontSize] constrainedToSize:CGSizeMake(kOMEMessageDetailTableViewCellWidth, FLT_MAX) lineBreakMode:UILineBreakModeWordWrap];
+	CGSize nameSize = [username sizeWithFont:[UIFont systemFontOfSize:kOMEMessageDetailTableViewFontSize] forWidth:kOMEMessageDetailTableViewCellWidth lineBreakMode:UILineBreakModeTailTruncation];
+	CGSize timeTextSize = [time sizeWithFont:[UIFont systemFontOfSize:kOMEMessageDetailTableViewFontSize] constrainedToSize:CGSizeMake(kOMEMessageDetailTableViewCellWidth, FLT_MAX) lineBreakMode:UILineBreakModeWordWrap];
+
+	
+	
+//	if (indexPath.row == 1) {
+//
+//		 return 10;
+//
+//	} else {
+	
+	// And return this height plus cell padding and the offset of the bubble image height (without taking into account the text height twice)
+	CGFloat rowHeight = kOMECellPaddingTop + textSize.height + nameSize.height + kOMECellBackgroundffset;
+	
+//	NSLog(@"cell height = %d,  indexPath.section = %d indexPath.row = %d !", rowHeight,indexPath.section, indexPath.row);
+	
+	return rowHeight;
+//	}
+}
+
+
+// Override to customize the look of a cell representing an object. The default is to display
+// a UITableViewCellStyleDefault style cell with the label being the first key in the object.
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
+	
+	// Reuse identifiers for left and right cells
+	static NSString *RightCellIdentifier = @"RightCell";
+	static NSString *LeftCellIdentifier = @"LeftCell";
+	//static NSString *TimeCellIdentifier = @"TimeCell";
+	
+	// Try to reuse a cell
+	BOOL cellIsRight = [[[object objectForKey:kOMEParseUserKey] objectForKey:kOMEParseUsernameKey] isEqualToString:[[PFUser currentUser] username]];
+	BOOL cellIsLeft = [[[object objectForKey:kOMEParseUserKey] objectForKey:kOMEParseUsernameKey] isEqualToString:self.fromUsername];
+	//BOOL cellIsCenter = [[[object objectForKey:kOMEParseUserKey] objectForKey:kOMEParseUsernameKey] objectForKey:kOMEParseReplyTimeKey];
+	
+	UITableViewCell *cell;
+	
+	//[cell.  setTag:indexPath.row];
+	
+	//if (indexPath.row == readTimeAtIndex) {
+	//	cell = ;
+	//}
+	
+	// UITableViewCellSeparatorStyleSingleLine
+	
+		//create cell according to cell type including current user, from user and reply time
+	if (cellIsRight) {
+		//current user use blueBubble
+		cell = [tableView dequeueReusableCellWithIdentifier:RightCellIdentifier];
+		if (cell == nil) {
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:RightCellIdentifier];
+			
+			NSLog(@" this is right cell,  indexPath.section = %d indexPath.row = %d !", indexPath.section, indexPath.row);
+			
+			UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"blueBubble.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(15.0f, 11.0f, 16.0f, 11.0f)]];
+			[backgroundImage setTag:kOMECellBackgroundTag];
+			[cell.contentView addSubview:backgroundImage];
+			
+			UILabel *textLabel = [[UILabel alloc] init];
+			[textLabel setTag:kOMECellTextLabelTag];
+			[cell.contentView addSubview:textLabel];
+			
+			UIImageView *avatarBackgroundImage = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"Icon-Small-40.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(5.0f, 8.0f, 5.0f, 8.0f)]];
+			
+			[avatarBackgroundImage setTag:kOMECellUserBackgroundTag];
+			[cell.contentView addSubview:avatarBackgroundImage];
+			
+			
+			//Ozzie Zhang 2014-10-08 change nameLabel to save time
+			UILabel *nameLabel = [[UILabel alloc] init];
+			[nameLabel setTag:kOMECellNameLabelTag];
+			[cell.contentView addSubview:nameLabel];
+			
+			
+		}
+	} else {
+		cell = [tableView dequeueReusableCellWithIdentifier:LeftCellIdentifier];
+		if (cell == nil) {
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:LeftCellIdentifier];
+			
+			NSLog(@" this is left cell,  indexPath.section = %d indexPath.row = %d !", indexPath.section, indexPath.row);
+			
+			UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"grayBubble.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(15.0f, 11.0f, 16.0f, 11.0f)]];
+			[backgroundImage setTag:kOMECellBackgroundTag];
+			[cell.contentView addSubview:backgroundImage];
+			
+			UILabel *textLabel = [[UILabel alloc] init];
+			[textLabel setTag:kOMECellTextLabelTag];
+			[cell.contentView addSubview:textLabel];
+			
+			UIImageView *avatarBackgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"contactIcon.png"]];
+			[avatarBackgroundImage setTag:kOMECellUserBackgroundTag];
+			[cell.contentView addSubview:avatarBackgroundImage];
+			
+			
+			//Ozzie Zhang 2014-10-08 change nameLabel to save time
+			UILabel *nameLabel = [[UILabel alloc] init];
+			[nameLabel setTag:kOMECellNameLabelTag];
+			[cell.contentView addSubview:nameLabel];
+		}
+	}
+	
+	//Ozzie Zhang 2014-10-08 disable time label because unsolved technology  ssue
+	//set for time section
+	//if (indexPath.row == 1) {
+//	else {
+//		cell = [tableView dequeueReusableCellWithIdentifier:TimeCellIdentifier];
+//		if (cell == nil) {
+//			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:TimeCellIdentifier];
+//			NSLog(@" this is center cell,  indexPath.section = %d indexPath.row = %d !", indexPath.section, indexPath.row);
+			
+//			UIImageView *timeBackgroundImage = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"timeBubble.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(15.0f, 11.0f, 16.0f, 11.0f)]];
+//			[timeBackgroundImage setTag:kOMECellTimeBackgroundTag];
+//			[cell.contentView addSubview:timeBackgroundImage];
+			
+//			UILabel *timetextLabel = [[UILabel alloc] init];
+//			[timetextLabel setTag:kOMECellTimeTextLabelTag];
+//			[cell.contentView addSubview:timetextLabel];
+			
+			//UILabel *timenameLabel = [[UILabel alloc] init];
+			//[timenameLabel setTag:kOMECellTimeNameLabelTag];
+			//[cell.contentView addSubview:timenameLabel];
+//		}
+//	}
+
+	
+	// Configure the cell content
+	UILabel *textLabel = (UILabel*) [cell.contentView viewWithTag:kOMECellTextLabelTag];
+	textLabel.text = [object objectForKey:kOMEParseTextKey];
+	textLabel.lineBreakMode = UILineBreakModeWordWrap;
+	textLabel.numberOfLines = 0;
+	textLabel.font = [UIFont systemFontOfSize:kOMEMessageDetailTableViewFontSize];
+	textLabel.textColor = [UIColor blackColor];
+	textLabel.backgroundColor = [UIColor clearColor];
+	
+	UILabel *timeTextLabel = (UILabel*) [cell.contentView viewWithTag:kOMECellTimeTextLabelTag];
+	timeTextLabel.text = [object objectForKey:kOMEParseReplyTimeKey];
+	timeTextLabel.lineBreakMode = UILineBreakModeWordWrap;
+	timeTextLabel.numberOfLines = 0;
+	timeTextLabel.font = [UIFont systemFontOfSize:kOMEMessageDetailTableViewFontSize];
+	timeTextLabel.textColor = [UIColor blackColor];
+	timeTextLabel.backgroundColor = [UIColor clearColor];
+	
+	
+	NSString *username = [NSString stringWithFormat:@"%@",[[object objectForKey:kOMEParseUserKey] objectForKey:kOMEParseUsernameKey]];
+	UILabel *nameLabel = (UILabel*) [cell.contentView viewWithTag:kOMECellNameLabelTag];
+	//Ozzie Zhang 2014-10-08 use nameLabel to display message reply time
+	//Ozzie Zhang 2014-09-19 disable username
+	nameLabel.text = @"Oct 08, 2014 13:59"; //username
+	nameLabel.font = [UIFont systemFontOfSize:kOMEMessageDetailTableViewFontSize];
+	nameLabel.backgroundColor = [UIColor clearColor];
+	if (cellIsRight) {
+		//nameLabel.textColor = [UIColor colorWithRed:175.0f/255.0f green:172.0f/255.0f blue:172.0f/255.0f alpha:1.0f];
+		nameLabel.textColor = [UIColor blackColor];
+		nameLabel.shadowColor = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.35f];
+		nameLabel.shadowOffset = CGSizeMake(0.0f, 0.5f);
+	} else if (cellIsLeft){
+		nameLabel.textColor = [UIColor blackColor];
+		nameLabel.shadowColor = [UIColor colorWithRed:0.9f green:0.9f blue:0.9f alpha:0.35f];
+		nameLabel.shadowOffset = CGSizeMake(0.0f, 0.5f);
+	} else {
+		nameLabel.textColor = [UIColor blackColor];
+		nameLabel.shadowColor = [UIColor colorWithRed:0.9f green:0.9f blue:0.9f alpha:0.35f];
+		nameLabel.shadowOffset = CGSizeMake(0.0f, 0.5f);
+	}
+	
+	//Place the time content on the center position
+	UIImageView *timeBackgroundImage = (UIImageView*) [cell.contentView viewWithTag:kOMECellTimeBackgroundTag];
+	
+	// Move cell content to the right position
+	// Calculate the size of the post's text and username
+	CGSize textSize = [[object objectForKey:kOMEParseTextKey] sizeWithFont:[UIFont systemFontOfSize:kOMEMessageDetailTableViewFontSize] constrainedToSize:CGSizeMake(kOMEMessageDetailTableViewCellWidth, FLT_MAX) lineBreakMode:UILineBreakModeWordWrap];
+	CGSize nameSize = [nameLabel.text sizeWithFont:[UIFont systemFontOfSize:kOMEMessageDetailTableViewFontSize] forWidth:kOMEMessageDetailTableViewCellWidth lineBreakMode:UILineBreakModeTailTruncation];
+	CGSize timeTextSize = [[object objectForKey:kOMEParseReplyTimeKey] sizeWithFont:[UIFont systemFontOfSize:kOMEMessageDetailTableViewFontSize] constrainedToSize:CGSizeMake(kOMEMessageDetailTableViewCellWidth, FLT_MAX) lineBreakMode:UILineBreakModeWordWrap];
+	
+	
+	CGFloat cellHeight = [self tableView:tableView heightForRowAtIndexPath:indexPath]; // Get the height of the cell
+	CGFloat textWidth = textSize.width > nameSize.width ? textSize.width : nameSize.width; // Set the width to the largest (text of username)
+	
+	//Place the time content in the corrent position
+	//[timeTextLabel setFrame:CGRectMake(self.tableView.frame.size.width/2-kOMECellReplyTimeWidth/2,
+	//							   kOMECellPaddingTop+kOMECellTextPaddingTop,
+	//							   kOMECellReplyTimeWidth,
+	//							   kOMECellReplyTimeHeight)];
+	
+	//timebackgroundImage is center
+	//[timeBackgroundImage setFrame:CGRectMake(self.tableView.frame.size.width/2-kOMECellReplyTimeWidth/2,
+	//										 kOMECellPaddingTop,
+	//									     kOMECellReplyTimeWidth,
+	//										 kOMECellReplyTimeHeight)];
+	
+	UIImageView *backgroundImage = (UIImageView*) [cell.contentView viewWithTag:kOMECellBackgroundTag];
+	
+	UIImageView *avatarBackgroundImage = (UIImageView*) [cell.contentView viewWithTag:kOMECellUserBackgroundTag];
+	
+	// Move cell content to the right position
+	// Calculate the size of the post's text and username
+	//	CGSize textSize = [[object objectForKey:kOMEParseTextKey] sizeWithFont:[UIFont systemFontOfSize:kOMEChatRoomTableViewFontSize] constrainedToSize:CGSizeMake(kOMEChatRoomTableViewCellWidth, FLT_MAX) lineBreakMode:UILineBreakModeWordWrap];
+	//	CGSize nameSize = [username sizeWithFont:[UIFont systemFontOfSize:kOMEChatRoomTableViewFontSize] forWidth:kOMEChatRoomTableViewCellWidth lineBreakMode:UILineBreakModeTailTruncation];
+	
+	
+	//	CGFloat cellHeight = [self tableView:tableView heightForRowAtIndexPath:indexPath]; // Get the height of the cell
+	//	CGFloat textWidth = textSize.width > nameSize.width ? textSize.width : nameSize.width; // Set the width to the largest (text of username)
+	
+	// Place the content in the correct position depending on the type
+	if (cellIsRight) {
+		[nameLabel setFrame:CGRectMake(self.tableView.frame.size.width-kOMECellAvatarPaddingSides-kOMECellAvatarWidth-kOMECellAvatarPaddingSides-nameSize.width,// -textSize.width,
+									   kOMECellPaddingTop+cellHeight-kOMECellPaddingBottom-nameSize .height-kOMECellPaddingTop,
+									   nameSize.width,
+									   nameSize.height)];
+		[textLabel setFrame:CGRectMake(self.tableView.frame.size.width-kOMECellAvatarPaddingSides-kOMECellAvatarWidth-kOMECellAvatarPaddingSides-textSize.width,
+									   kOMECellPaddingTop+kOMECellTextPaddingTop,
+									   textSize.width,
+									   textSize.height)];
+		//[backgroundImage setFrame:CGRectMake(self.tableView.frame.size.width-textWidth-kOMECellTextPaddingSides*2-kOMECellPaddingSides - 70,
+		kOMECellPaddingTop,
+		//									 textWidth+kOMECellTextPaddingSides*2,
+		//									 cellHeight-kOMECellPaddingTop-kOMECellPaddingBottom)];
+		
+		[backgroundImage setFrame:CGRectMake(self.tableView.frame.size.width-kOMECellAvatarPaddingSides-kOMECellAvatarWidth-kOMECellAvatarPaddingSides-kOMECellTextPaddingSides-textSize.width, kOMECellPaddingTop,
+											 textWidth + kOMECellTextPaddingSides*2,
+											 cellHeight - kOMECellPaddingTop - kOMECellPaddingBottom)];
+		
+		[avatarBackgroundImage setFrame:CGRectMake(self.tableView.frame.size.width-kOMECellAvatarPaddingSides-kOMECellAvatarWidth,
+												   kOMECellPaddingTop,
+												   kOMECellAvatarWidth,
+												   cellHeight - kOMECellPaddingTop - kOMECellPaddingBottom - kOMECellAvatarPaddingBottom)];
+		
+	} else  {
+		//[nameLabel setFrame:CGRectMake(kOMECellTextPaddingSides-kOMECellPaddingSides+70,
+		//							   kOMECellPaddingTop+kOMECellTextPaddingTop+textSize.height,
+		//							   nameSize.width,
+		//							   nameSize.height)];
+		[nameLabel setFrame:CGRectMake(kOMECellAvatarPaddingSides+kOMECellAvatarWidth+kOMECellAvatarPaddingSides+kOMECellTextPaddingSides,
+									   kOMECellPaddingTop+cellHeight-kOMECellPaddingBottom-nameSize .height-kOMECellPaddingTop,
+									   nameSize.width,
+									   nameSize.height)];
+		
+		[textLabel setFrame:CGRectMake(kOMECellAvatarPaddingSides+kOMECellAvatarWidth+kOMECellAvatarPaddingSides+kOMECellTextPaddingSides,
+									   kOMECellPaddingTop+kOMECellTextPaddingTop,
+									   textSize.width,
+									   textSize.height)];
+		[backgroundImage setFrame:CGRectMake(kOMECellAvatarPaddingSides+kOMECellAvatarWidth+kOMECellAvatarPaddingSides,
+											 kOMECellPaddingTop,
+											 textWidth + kOMECellTextPaddingSides*2,
+											 cellHeight - kOMECellPaddingTop - kOMECellPaddingBottom)];
+		[avatarBackgroundImage setFrame:CGRectMake(kOMECellAvatarPaddingSides,
+												   kOMECellPaddingTop,
+												   kOMECellAvatarWidth,
+												   cellHeight - kOMECellPaddingTop - kOMECellPaddingBottom - kOMECellAvatarPaddingBottom)];
+	}
+	
+	//Ozzie Zhang 2014-10-08 disable time label because unsolved technology  ssue
+	//set for time section
+	//if (indexPath.row == 1){
+//	else {
+//		[timeTextLabel setFrame:CGRectMake(self.tableView.frame.size.width/2,
+//									   kOMECellPaddingTop+kOMECellTextPaddingTop,
+//									   kOMECellReplyTimeWidth,
+//									   kOMECellReplyTimeHeight)];
+//		[backgroundImage setFrame:CGRectMake(self.tableView.frame.size.width/2 - kOMECellReplyTimePaddingSides,
+//											 kOMECellPaddingTop,
+//											 kOMECellReplyTimeWidth + kOMECellReplyTimePaddingSides*2,
+//											 10)];
+//	}
+	
+	cell.selectionStyle = UITableViewCellSelectionStyleNone;
+	
+	return cell;
+}
+
+
+/*
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	
+	
+	OMEMessageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kOMEMessageCell];
+
+	if (cell == nil) {
+		
+		NSLog(@" cell == nil");
+		
+		cell = [[OMEMessageCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:kOMEMessageCell];
+	}
+	
+    // Configure the cell...
+	
+	cell.nameLabel.text = message.fromUsername;
+	cell.contentLabel.text = @"xx";
+	cell.timeLabel.text = @"xx";
+	
+	
+	NSLog(@"cell.timeLabel.text = %@", cell.timeLabel.text);
+	 
+ 
+
+	
+	UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kOMEMessageCell];
+	
+	if (cell == nil) {
+		
+		NSLog(@" cell == nil");
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:kOMEMessageCell];
+	}
+ 
+	//cell.nameLabel.text = [NSString stringWithFormat:@"%d", ];
+	
+	//self.message = [self.messages objectAtIndex:indexPath.row];
+	
+	
+//	cell.nameLabel.text = message.fromUsername;
+//	cell.contentLabel.text = message.content;
+//	cell.timeLabel.text = message.time;
+//	cell.avatarImageView.image = [[UIImage imageNamed:@"Icon-Small-40.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(8, 54, 8, 54)];
+	
+//	NSLog(@"cell.timeLabel.text = %@", cell.timeLabel.text);
+	
+	cell.detailTextLabel.text = @"test cell";
+	
+	NSLog(@"cell.detailTextLabel.text = %@", cell.detailTextLabel.text);
+	
+    return cell;
+}
+*/
+
+/*
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+*/
+
+/*
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }   
+}
+*/
+
+/*
+// Override to support rearranging the table view.
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+}
+*/
+
+/*
+// Override to support conditional rearranging of the table view.
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the item to be re-orderable.
+    return YES;
+}
+*/
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+
+/*
+
+- (id)initWithTitle:(NSString *)title message:(NSString *)message delegate:(id)delegate cancelButtonTitle:(NSString *)cancelButtonTitle okButtonTitle:(NSString *)okayButtonTitle
+{
+	
+	//if (self = [super initWithTitle:title message:message delegate:delegate cancelButtonTitle:cancelButtonTitle otherButtonTitles:okayButtonTitle, nil])
+	//{
+		UITextField *theTextField = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 45.0, 260.0, 25.0)];
+		[theTextField setBackgroundColor:[UIColor whiteColor]];
+//		[self addSubview:theTextField];
+		self.textField = theTextField;
+//		[theTextField release];
+		CGAffineTransform translate = CGAffineTransformMakeTranslation(0.0, 130.0);
+//		[self setTransform:translate];
+	//}
+	return self;
+}
+
+ */
+
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+	
+//	replyField.inputAccessoryView = self.accessoryToolBar;
+	
+	return YES;
+	
+}
+
+- (void)show
+{
+	[replyTextField becomeFirstResponder];
+//	[super show];
+}
+- (NSString *)enteredText
+{
+	return replyTextField.text;
+}
+
+- (void)postWasCreated:(NSNotification *)note {
+	[self loadObjects];
+}
+
+- (void)refreshControlValueChanged:(UIRefreshControl *)refreshControl {
+	[self loadObjects];
+}
+
+-(BOOL)hidesBottomBarWhenPushed
+{
+	return YES;
+}
+
+@end
