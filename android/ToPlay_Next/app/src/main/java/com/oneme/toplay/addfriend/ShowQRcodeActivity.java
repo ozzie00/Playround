@@ -26,7 +26,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -82,7 +81,7 @@ public final class ShowQRcodeActivity extends FragmentActivity  {
             username.setText(ParseUser.getCurrentUser().getUsername());
         }
 
-        ImageView avatarImageView  = (ImageView)findViewById(R.id.addme_avatar_view);
+        ImageView avatarImageView = (ImageView)findViewById(R.id.addme_avatar_view);
 
         ParseFile mavatarImageFile = null;
 
@@ -98,9 +97,8 @@ public final class ShowQRcodeActivity extends FragmentActivity  {
         file                   = new File(Environment.getExternalStorageDirectory().getPath() + AppConstant.OMETOPLAYUSERQRCODEFILE);
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
 
-        // Ozzie Zhang 2015-01-28 please change this line code to original state, now only for supporting username
-        //generateQR(pref.getString(AppConstant.OMEPARSEUSERIDKEY, ""));
-        generateQR(ParseUser.getCurrentUser().getUsername());
+        //Ozzie Zhang temporarily change to username from useridkey
+        generateQR(pref.getString(ParseUser.getCurrentUser().getUsername(), ""));//AppConstant.OMEPARSEUSERIDKEY, ""));
         Bitmap bmp             = BitmapFactory.decodeFile(file.getAbsolutePath());
 
         ImageView qrCode = (ImageView) findViewById(R.id.show_qr_image);
@@ -129,7 +127,7 @@ public final class ShowQRcodeActivity extends FragmentActivity  {
             Bitmap bitmap = qrCodeEncoder.encodeAsBitmap();
             out           = new FileOutputStream(Environment.getExternalStorageDirectory().getPath()
                     + AppConstant.OMETOPLAYUSERQRCODEFILE);
-            bitmap.compress(Bitmap.CompressFormat.PNG, AppConstant.OMEPARSEUSERAVATARCOMPRESSQUILTY, out);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 90, out);
             out.close();
         } catch (WriterException e) {
             if (Application.APPDEBUG) {

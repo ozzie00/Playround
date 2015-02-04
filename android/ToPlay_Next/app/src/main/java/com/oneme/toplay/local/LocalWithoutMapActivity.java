@@ -83,6 +83,7 @@ import com.squareup.picasso.Picasso;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -166,6 +167,8 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
 
     private ListView localInvitationListView;
 
+    private static ParseGeoPoint mGeoPoint;
+
 
 
     ExpandableListView expListView;
@@ -198,12 +201,16 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
         ParseQueryAdapter.QueryFactory<Invite> factory =
                 new ParseQueryAdapter.QueryFactory<Invite>() {
                     public ParseQuery<Invite> create() {
-                        Location myLoc = (currentLocation == null) ? lastLocation : currentLocation;
+                        // update user newest location
+                        Location myLocation = (currentLocation == null) ? lastLocation : currentLocation;
+                        Application.setCurrentLatitude(Double.toString(myLocation.getLatitude()));
+                        Application.setCurrentLongitude(Double.toString(myLocation.getLongitude()));
+
                         ParseQuery<Invite> query = Invite.getQuery();
                         query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
                         query.include("user");
                         query.orderByDescending("createdAt");
-                        query.whereWithinKilometers("location", geoPointFromLocation(myLoc), radius
+                        query.whereWithinKilometers("location", geoPointFromLocation(myLocation), radius
                                 * METERS_PER_FEET / METERS_PER_KILOMETER);
                         query.setLimit(MAX_POST_SEARCH_RESULTS);
                         return query;
@@ -214,6 +221,9 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
        // final ProgressDialog listLoadDialog = new ProgressDialog(LocalWithoutMapActivity.this);
        // listLoadDialog.setMessage(getString(R.string.progress_local));
        // listLoadDialog.show();
+
+        // get current geo point
+        mGeoPoint = new ParseGeoPoint(Double.valueOf(Application.getCurrentLatitude()), Double.valueOf(Application.getCurrentLongitude()));
 
         // Set up the query adapter
         // Set up the query adapter
@@ -229,8 +239,12 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
 
                 ImageView avatarView        = (ImageView) view.findViewById(R.id.avatar_view);
                 TextView usernameView       = (TextView) view.findViewById(R.id.username_view);
-                TextView contentView        = (TextView) view.findViewById(R.id.content_view);
-                TextView submittimeView     = (TextView) view.findViewById(R.id.duration);
+                //TextView contentView        = (TextView) view.findViewById(R.id.content_view);
+                TextView venueaddressView   = (TextView) view.findViewById(R.id.local_venue_address);
+                TextView playnumberView     = (TextView) view.findViewById(R.id.local_person_number);
+                TextView playtimeView       = (TextView) view.findViewById(R.id.local_play_time);
+                TextView distanceView       = (TextView) view.findViewById(R.id.local_distance_to_me);
+                //TextView submittimeView     = (TextView) view.findViewById(R.id.duration);
                 ImageView sporttypeiconView = (ImageView) view.findViewById(R.id.sport_type_icon);
 
                 // Ozzie Zhang 2014-11-04 need add query for avatar icon for this user
@@ -246,9 +260,31 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
                     Picasso.with(LocalWithoutMapActivity.this).load(imageUri.toString()).into(avatarView);
                 }
 
-                contentView.setText(invite.getText());
+                //contentView.setText(invite.getText());
                 usernameView.setText(invite.getFromUsername());
-                submittimeView.setText(invite.getSubmitTime());
+                //submittimeView.setText(invite.getSubmitTime());
+                venueaddressView.setText(invite.getCourt());
+                playnumberView.setText(invite.getPlayerNumber());
+                playtimeView.setText(invite.getPlayTime());
+
+                // calculate distance between me and venue
+                if (invite.getLocation() != null) {
+                    Double mdistance = mGeoPoint.distanceInMilesTo(invite.getLocation());
+                    DecimalFormat df = new DecimalFormat("##.00");
+                    String distancenote = null;
+                    if (mdistance < 1) {
+                        mdistance = mdistance * AppConstant.OMEMETERSINAKILOMETER;
+                        distancenote = getResources().getString(R.string.OMEPARSEMEMYVENUEDISTANCEMETERNOTE);
+                    } else {
+                        distancenote = getResources().getString(R.string.OMEPARSEMEMYVENUEDISTANCEKMNOTE);
+                    }
+
+                    String mdistancestring = df.format(mdistance) + " " + distancenote;
+                    distanceView.setText(mdistancestring);
+                }
+
+                //distanceView
+
 
                 String sporttypevalue = invite.getSportTypeValue();
                 sporttypeiconView.setImageDrawable(getResources().getDrawable(Sport.msporticonarray[Integer.parseInt(sporttypevalue)]));

@@ -90,14 +90,12 @@ public final class AppConstant {
     public static final int OMEPARSEUSERVENUEASBACKUPRESULT   = 1;
     public static final int OMEPARSEUSERAVATARCOMPRESSQUILTY  = 90;
 
-
     public static final String OMEPARSEUSERLASTTIMEKEY     = "userlasttime";
     public static final String OMEPARSEUSERLASTLOCATIONKEY = "userlastlocation";
     public static final String OMEPARSEUSERQRCODEKEY       = "userqrcode";
     public static final String OMEPARSEUSERTAGKEY          = "usertag";
     public static final String OMEPARSEUSEROTHERKEY        = "userother";
     public static final String OMEPARSEUSERDEVICEIDKEY     = "userDeviceID";
-
 
     // Parse API key constants for user preference
     public static final String OMEPARSEUSERACTIVEACCOUNTSKEY  = "active_account";
@@ -197,20 +195,228 @@ public final class AppConstant {
     public static final String OMEFILTERDISTANCEKEY = "filterDistance";
     public static final String OMELOCATIONKEY       = "location";
 
+    // Notification names:
+    public static final String OMEFILTERDISTANCECHANGENOTIFICATION = "OMEFilterDistanceChangeNotification";
+    public static final String OMELOCATIONCHANGENOTIFICATION       = "OMELocationChangeNotification";
+    public static final String OMEINVITECREATEDNOTIFICATION        = "OMEInviteCreatedNotification";
+    public static final String OMEMESSAGESENDNOTIFICATION          = "OMEMessageSendNotification";
+    public static final String OMEMESSAGEHAVENEWNOTIFICATION       = "OMEMessageListHaveNewNotification";
+    public static final String OMEINTERNETREACHABLENOTIFICATION    = "OMEInternetReachableNotification";
+
+
+    // UI strings:
+    public static final String OMECANNOTVIEWINVITE = "change distance!";
+
+   // #define OMELocationAccuracy double
+
+
    // Define common constant string
-    public static final String OMEPARSENULLSTRING           = "";
-    public static final int OMEPARSEINVITETIMETWOBITDIVIDER = 10;
-    public static final int OMEPARSEINVITEYEARSTART         = 2014;
-    public static final int OMEPARSEINVITEYEAREND            = 2035;
+    public static final String OMEPARSELOGOUT             = "Logout";
+    public static final String OMEPARSELOGIN              = "Login";
+    public static final String OMEPARSESETTING            = "Setting";
+    public static final String OMEPARSECANCEL             = "Cancel";
+    public static final String OMEPARSEERROR              = "Error";
+    public static final String OMEPARSEOK                 = "OK";
+    public static final String OMEPARSENOTLOGIN           = "you did not login.";
+    public static final String OMEPARSENOUSERNAME         = "No username";
+    public static final String OMEPARSEYES                = "Yes";
+    public static final String OMEPARSENO                 = "No";
+    public static final String OMEPARSENULLSTRING         = "";
+    public static final String OMEPARSEAND                = " and ";
+    public static final String OMEPARSEPLEASE             = "Please ";
+    public static final String OMEPARSEENTERUSERNAME      = "enter username";
+    public static final String OMEPARSEENTERPASSWORD      = "enter password";
+    public static final String OMEPARSEENTERPASSWORDAGAIN = "enter the same password again";
+    public static final String OMEPARSEREFRESH            = "Loading";
+    public static final String OMEPARSEINTERNETUNREACHABLE= "No internet connection";
+
+    public static final String OMEPARSENAVIBACKBUTTON          = "back";
+
+    public static final String OMEPARSENAVIBACKUPPERCASEBUTTON = "Back";
+
+    // Define constant string for App Delegate
+    public static final String OMEPARSEINTERNETREACHABLEWEBSITE = "www.parse.com";
+
+    // Define constant string for login view
+    public static final String OMEPARSELOGINUSERNAMEERROR       = "No this user";
+    public static final String OMEPARSELOGINUSERNAMELENGTHERROR = "Username length should not less 6 letters";
+    public static final String OMEPARSELOGINPASSWORDERROR       = "Password does not match";
+    public static final String OMEPARSELOGINPASSWORDLENGTHERROR = "Password length should not less 8 letters";
+    public static final String OMEPARSELOGINNEWUSERCREATEINFO   = "Sign Up new user for you!";
+    public static final String OMEPARSELOGINNEWUSERERROR        = "Sign Up new user error!";
+
+
+    // Define constant string for invite view
+    public static final String OMEPARSEINVITEPLAYBUTTON             = "Invite Play";
+    public static final String OMEPARSEINVITEACCESSRIGHTCHOOSE      = "Pick Type";
+    public static final String OMEPARSEINVITESPORTTYPECHOOSE        = "Pick Type";
+    public static final String OMEPARSEINVITEPLAYERLEVELCHOOSE      = "Pick Level";
+    public static final String OMEPARSEINVITEPLAYERNUMBERCHOOSE     = "Pick Number";
+    public static final String OMEPARSEINVITEPLAYFEECHOOSE          = "Pick Fee";
+    public static final String OMEPARSEINVITEALERTINFO              = "really invite someone to play?";
+    public static final String OMEPARSEINVITELOGINALERT             = "please login or signup!";
+    public static final String OMEPARSEINVITETITLEPLAY              = "play";
+    public static final String OMEPARSEINVITETITLEIN                = "in";
+    public static final String OMEPARSEINVITEREALLYPLAY             = "Do you really invite someone to play?";
+    public static final String OMEPARSEINVITESPORTTYPEDEFAULT       = "Tennis";
+    public static final String OMEPARSEINVITESPORTTYPEDETAILDEFAULT = "Detail";
+    public static final String OMEPARSEINVITEOTHERDEFAULT           = "Good buddy!";
+    public static final String OMEPARSEINVITECOURTDEFAULT           = "MIT court";
+    public static final String OMEPARSEINVITEPLAYERLEVELDEFAULT     = "1";
+    public static final String OMEPARSEINVITEPLAYERNUMBERDEFAULT    = "1";
+    public static final String OMEPARSEINVITEFEEDEFAULT             = "AA";
+    public static final String OMEPARSEINVITEFEEFREE                = "Free";
+    public static final String OMEPARSEINVITEERRORINFO              = "invite player table view error";
+    public static final String OMEPARSEINVITEPLAYERSUBMITSUCCESSALERTINFO = "Successfully submit invitation, please wait someone for join play!";
+    public static final int OMEPARSEINVITETIMETWOBITDIVIDER         = 10;
+    public static final int OMEPARSEINVITEYEARSTART                 = 2014;
+    public static final int OMEPARSEINVITEYEAREND                   = 2035;
+
+
+
+
+
+    // Define constant string for invite sport type
+    public static final String OMEPARSEINVITEACCESSRIGHTPUBLIC      = "Public";
+    public static final String OMEPARSEINVITEACCESSRIGHTFRIEND      = "Friends";
+    public static final String OMEPARSEINVITEACCESSRIGHTONLYME      = "Only me";
+
+    // Define constant string for invite sport type
+    public static final String OMEPARSEINVITESPORTTYPEBADMINTON     = "Badminton";
+    public static final String OMEPARSEINVITESPORTTYPEBASKERBALL    = "Basketball";
+    public static final String OMEPARSEINVITESPORTTYPESNOOKER       = "Snooker";
+    public static final String OMEPARSEINVITESPORTTYPETABLEFOOTBALL = "Table football";
+    public static final String OMEPARSEINVITESPORTTYPETABLETENNIS   = "Table Tennis";
+    public static final String OMEPARSEINVITESPORTTYPETENNIS        = "Tennis";
+    public static final String OMEPARSEINVITESPORTTYPERUNNING       = "Running";
+    public static final String OMEPARSEINVITESPORTTYPECYCLING       = "Cycling";
+    public static final String OMEPARSEINVITESPORTTYPEMAHJONG       = "Mahjong";
+    public static final String OMEPARSEINVITESPORTTYEPOKER          = "Poker";
+    public static final String OMEPARSEINVITESPORTTYPEOTHER         = "Other";
+
+    // Defin constant string for group id
+    // begin from 100
+    public static final int OMEPARSEINVITEACCESSRIGHTGROUPID       = 100;
+    public static final int OMEPARSEINVITESPORTTYPEGROUPID         = 101;
+    public static final int OMEPARSEINVITEPLAYFEEGROUPID           = 102;
+
+    // Define constant string for access right tag
+    // begin from 110
+    public static final int OMEPARSEINVITEACCESSRIGHTPUBLICID      = 110;
+    public static final int OMEPARSEINVITEACCESSRIGHTFRIENDID      = 111;
+    public static final int OMEPARSEINVITEACCESSRIGHTONLYMEID      = 112;
+
+    // Define constant string for invite sport type tag
+    // begin from 110
+    public static final int OMEPARSEINVITESPORTTYPEBADMINTONID     = 110;
+    public static final int OMEPARSEINVITESPORTTYPEBASKERBALLID    = 111;
+    public static final int OMEPARSEINVITESPORTTYPESNOOKERID       = 112;
+    public static final int OMEPARSEINVITESPORTTYPETABLEFOOTBALLID = 113;
+    public static final int OMEPARSEINVITESPORTTYPETABLETENNISID   = 114;
+    public static final int OMEPARSEINVITESPORTTYPETENNISID        = 115;
+    public static final int OMEPARSEINVITESPORTTYPERUNNINGID       = 116;
+    public static final int OMEPARSEINVITESPORTTYPECYCLINGID       = 117;
+    public static final int OMEPARSEINVITESPORTTYPEMAHJONGID       = 118;
+    public static final int OMEPARSEINVITESPORTTYPEPOKERID         = 119;
+    public static final int OMEPARSEINVITESPORTTYPEOTHERID         = 120;
+
+
+    // Define constant string for invite play fee tag
+    public static final int OMEPARSEINVITEFEEDEFAULTID             = 110;
+    public static final int OMEPARSEINVITEFEEFREEID                = 111;
+
+    // Define constant string for invite placehold
+    public static final String OMEPARSEINVITEPLAYTIMEPLACEHOLD     = "DD/MM HH";
+    public static final String OMEPARSEINVITEPLAYCOURTPLACEHOLD    = "input court address";
+    public static final String OMEPARSEINVITEPLAYOTHERPLACEHOLD    = "input other requirement";
+
+    // Define constant string for invite default value
+
+
+
+
+
+
+    // Define constant string for invite requirement
+    public static final String OMEPARSEINVITEPLAYERALERTINFO         = "Do you really join this play?";
+    public static final String OMEPARSEINVITEPLAYERINFOHeader        = "Player Info";
+    public static final String OMEPARSEINVITEPLAYERINFOPLAYERNAME    = "Name";
+    public static final String OMEPARSEINVITEPLAYERINFOPLAYERLEVEL   = "Level";
+    public static final String OMEPARSEINVITEREQUIREMENTHEADER       = "Invite Requirement";
+    public static final String OMEPARSEINVITEREQUIREMENTSPORTTYPE    = "Sport Type";
+    public static final String OMEPARSEINVITEREQUIREMENTPLAYERNUMBER = "Number";
+    public static final String OMEPARSEINVITEREQUIREMENTPLAYERLEVEL  = "Player Level";
+    public static final String OMEPARSEINVITEREQUIREMENTTIME         = "Time";
+    public static final String OMEPARSEINVITEREQUIREMENTCOURT        = "Court";
+    public static final String OMEPARSEINVITEREQUIREMENTFEE          = "Fee";
+    public static final String OMEPARSEINVITEREQUIREMENTOTHER        = "Other";
+    public static final String OMEPARSEINVITEJOINPLAYHEADER          = "";
+    public static final String OMEPARSEINVITEJOINPLAYBUTTON          = "Join Play";
+    public static final String OMEPARSEINVITEPLAYERJOINPLAYSUCCESSALERTINFO = "Successfully submit request, please wait for reply!";
+
+    public static final String OMEPARSEMESSAGEJOINPLAYREQUESTFIRSTPART  = "Hi, ";
+    public static final String OMEPARSEMESSAGEJOINPLAYREQUESTSECONDPART = " want to join play";
+    public static final String OMEPARSEMESSAGEJOINPLAYREQUESTTHIRDPART  = " with you";
+    public static final String OMEPARSEMESSAGEJOINPLAYNOTSELF           = "can not re-join yourself play!";
+
+
+
+
+
+    // Define constant string for Facebook
+    public static final String OMEPARSEFACEBOOKPUBLICPROFILE = "public_profile";
+    public static final String OMEPARSEFACEBOOKEMAIL         = "email";
+    public static final String OMEPARSEFACEBOOKUSERFRIENDS   = "user_friends";
+
+
+    // Define constant string for setting view
+    public static final String OMEPARSESETTINGLOGOUTALERTINFO= "this will not delete any data, You can still log in with this account.";
+    public static final String OMEPARSEME                    = "Me";
+    public static final String OMEPARSEFEEDBACK              = "Feedback";
+
+
+    // Define constant string for login view
+    public static final String OMEPARSELOGINALERTINFO    = "can not log in:\n The username or password is wrong.";
+
+    // Define constant string for new user view
+    public static final String OMEPARSESIGUP             = "Signing Up";
+
+    // Define constant variable for storyboard
+    public static final int OMEMESSAGECELLTAG            = 101;
+    public static final int OMEMESSAGECELLAVATARIMAGETAG = 102;
+    public static final int OMEMESSAGECELLNAMETAG        = 103;
+    public static final int OMEMESSAGECELLCONTENTTAG     = 104;
+    public static final int OMEMESSAGECELLTIMETAG        = 105;
+
+    // Define constant variable for chat view
+    public static final String OMECHATVIEWTITLE             = "Local Invitation";
+
+    // Define constant variable for message view
+    public static final int    OMEMESSAGELISTLIMIT          = 100;
+    public static final int    OMEMESSAGESEARCHLIMIT        = 100000;
+    public static final String OMEMESSAGETITLE              = "Messages";
+    public static final String OMEMESSAGESENDBUTTONTITLE    = "Send";
+    public static final String OMEMESSAGEINPUTTEXTPLACEHOLD = "Reply message";
+    public static final String OMEMESSAGENOUSERINFO         = "This username is null, no message";
+    public static final String OMEMESSAGELISTNOFORUSER      = "No message to you now";
+
+
+    // Define constant variable for cell
+    public static final String OMEMESSAGECELL = "OMEMessageCell";
+    public static final String OMEMEMECELL    = "OMEMemeCell";
+
+    // Define constant variable for feedback view
+    public static final String OMEFEEDBACKTITLE       = "Feedback";
+    public static final String OMEFEEDBACKRECEIVEINFO = "ToPlay Team has received your feedback,Thanks again!";
+    public static final String OMEFEEDBACKPLACEHOLD   = "Thank you for your feedback and suggestion, ToPlay team will follow your feedback and suggestion to improve ToPlay app perfomance!\n\n                   ToPlay Team";
 
     // Define constant variable for me activity
     public static final String OMEPARSEPARENTCLASSNAME              = "ParentClassName";
     public static final String OMEPARSELOCALWITHOUTMAPACTIVITYCLASS = "com.oneme.toplay.local.LocalWithoutMapActivity";
 
-    // Define constant variable for invoke activity
-    public static final String OMEPARSEINVOKECALLPHONE = "tel:";
-
 
     //Your other constants, if you have them..
 
+    // Define constant variable for invoke activity
+    public static final String OMEPARSEINVOKECALLPHONE = "tel:";
 }

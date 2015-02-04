@@ -2,17 +2,17 @@
 <resources>
 
     <string name="app_name">Playround</string>
-    <string name="app_version">Playround Android v.1.0.3.01</string>
+    <string name="app_version">Playround Android v.1.0.2.09</string>
 
     <!-- Strings related to activity -->
     <string name="action_settings">Settings</string>
-   <!-- <string name="slogan">i\'m loving play</string>-->
+    <string name="slogan">i\'m loving play</string>
    <!-- <string name="title_activity_settings">Settings</string> -->
-   <!-- <string name="search_distance">Search Distance</string>-->
+    <string name="search_distance">Search Distance</string>
     <string name="character_count_placeholder">0/200</string>
 
     <!--third id and key -->
-    <!--<string name="facebook_app_id">846009488767381</string>-->
+    <string name="facebook_app_id">846009488767381</string>
 
     <!-- Strings related to activity -->
     <string name="mainactivity_title">Playround</string>
@@ -59,31 +59,16 @@
     <string name="OMEPARSEINVITEPLAYDATE">Date</string>
     <string name="OMEPARSEINVITEPLAYHOUR">Hour</string>
     <string name="OMEPARSEINVITEPLAYBUTTON">Invite Play</string>
-    <!--
     <string name="OMEPARSEINVITESPORTTYPECHOOSE">Choose Sport</string>
     <string name="OMEPARSEINVITEPLAYERLEVELCHOOSE">Choose Level</string>
     <string name="OMEPARSEINVITEPLAYERNUMBERCHOOSE">Choose Number</string>
     <string name="OMEPARSEINVITEPLAYFEECHOOSE">Choose Fee</string>
-    <string name="OMEPARSEINVITEOTHERDEFAULT">Good buddy</string>
-    <string name="OMEPARSEINVITEFEEDEFAULT">AA</string>
-    <string name="OMEPARSEINVITEFEEFREE">Free</string>
-    <string name="OMEPARSEINVITEREQUIREMENTFEE">Fee</string>
-    <string name="OMEPARSEINVITEREQUIREMENTOTHER">Other</string>
-
-    <string name="OMEPARSEINVITEREQUIREMENTSPORTTYPE">Sport Type</string>
-    <string name="OMEPARSEINVITEREQUIREMENTPLAYERNUMBER">Number</string>
-    <string name="OMEPARSEINVITEREQUIREMENTPLAYERLEVEL">Play Level</string>
-    <string name="OMEPARSEINVITEREQUIREMENTTIME">Time</string>
-    <string name="OMEPARSEINVITEREQUIREMENTCOURT">Court</string>
-
-    <string name="OMEPARSEINVITEJOINPLAYHEADER"> </string>
-
-
-
-    -->
     <string name="OMEPARSEINVITELOGINALERT">please login or register!</string>
     <string name="OMEPARSEINVITEREALLYPLAY">Do you really play with someone?</string>
+    <string name="OMEPARSEINVITEOTHERDEFAULT">Good buddy</string>
     <string name="OMEPARSEINVITECOURTDEFAULT">MIT</string>
+    <string name="OMEPARSEINVITEFEEDEFAULT">AA</string>
+    <string name="OMEPARSEINVITEFEEFREE">Free</string>
     <string name="OMEPARSEINVITEPLAYERSUBMITSUCCESSALERTINFO">Successfully submit share, please wait someone for join!</string>
 
 
@@ -112,13 +97,27 @@
     <string name="OMEPARSEINVITEPLAYCOURTPLACEHOLD">Enter court</string>
     <string name="OMEPARSEINVITEPLAYOTHERPLACEHOLD">Enter other requirement</string>
     <string name="OMEPARSEINVITEPLAYERALERTINFO">Do you really join play?</string>
+    <string name="OMEPARSEINVITEREQUIREMENTSPORTTYPE">Sport Type</string>
+    <string name="OMEPARSEINVITEREQUIREMENTPLAYERNUMBER">Number</string>
+    <string name="OMEPARSEINVITEREQUIREMENTPLAYERLEVEL">Play Level</string>
+    <string name="OMEPARSEINVITEREQUIREMENTTIME">Time</string>
+    <string name="OMEPARSEINVITEREQUIREMENTCOURT">Court</string>
+    <string name="OMEPARSEINVITEREQUIREMENTFEE">Fee</string>
+    <string name="OMEPARSEINVITEREQUIREMENTOTHER">Other</string>
+    <string name="OMEPARSEINVITEJOINPLAYHEADER"> </string>
     <string name="OMEPARSEINVITEJOINPLAYBUTTON">Join</string>
     <string name="OMEPARSEINVITEPLAYERJOINPLAYSUCCESSALERTINFO">Successfully submit request, please wait for reply!</string>
     <string name="OMEPARSEMESSAGEJOINPLAYREQUESTFIRSTPART">Hi</string>
     <string name="OMEPARSEMESSAGEJOINPLAYREQUESTSECONDPART">I am</string>
     <string name="OMEPARSEMESSAGEJOINPLAYREQUESTTHIRDPART"> with you</string>
     <string name="OMEPARSEWANTTOKEY">want to</string>
+
+
+
+
     <string name="OMEPARSEINVITETITLEPLAY">play</string>
+
+
 
     <!-- Strings related to login -->
     <string name="title_activity_login">Login</string>
@@ -399,17 +398,12 @@
     <string name="OMEPARSEUSERNAMEMINIMUMLENGTHSHOULDSIX">username length should beyond 6 char!</string>
     <string name="OMEPARSEUSERPASSWORDMINIMUMLENGTHSHOULDSIX">password length should beyond 6 char!</string>
 
-
     <!--Add by playround 1.0.2.12 -->
     <string name="OMEPARSEMEMYVENUEASBACKUPPLACEHOLD">Enter Venue Name</string>
     <string name="myvenueasbackupactivity_title">Add Backup Venue</string>
 
     <!--Add by playround 1.0.3.01 -->
     <string name="OMEPARSECANNOTJOINYOURSELFALERT">You can not re-join yourself match!</string>
-
-
-
-
 
 
 

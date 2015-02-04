@@ -63,6 +63,7 @@ import android.support.v4.app.FragmentActivity;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -208,6 +209,8 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
     // user last location
     private ParseGeoPoint userLastLocation;
 
+    private static ParseGeoPoint mGeoPoint;
+
 
     // locate
     LocationClient mLocClient;
@@ -286,12 +289,16 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
         ParseQueryAdapter.QueryFactory<Invite> factory =
                 new ParseQueryAdapter.QueryFactory<Invite>() {
                     public ParseQuery<Invite> create() {
-                        BDLocation myLoc = (currentLocation == null) ? lastLocation : currentLocation;
+                        // update user newest location
+                        BDLocation myLocation = (currentLocation == null) ? lastLocation : currentLocation;
+                        Application.setCurrentLatitude(Double.toString(myLocation.getLatitude()));
+                        Application.setCurrentLongitude(Double.toString(myLocation.getLongitude()));
+
                         ParseQuery<Invite> query = Invite.getQuery();
                         query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
                         query.include("user");
                         query.orderByDescending("createdAt");
-                        query.whereWithinKilometers("location", geoPointFromLocation(myLoc), radius
+                        query.whereWithinKilometers("location", geoPointFromLocation(myLocation), radius
                                 * METERS_PER_FEET / METERS_PER_KILOMETER);
                         query.setLimit(MAX_Invite_SEARCH_RESULTS);
                         return query;
@@ -301,6 +308,9 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
         // Set up a progress dialog
         final ProgressDialog listLoadDialog = new ProgressDialog(CnLocalWithoutMapActivity.this);
         listLoadDialog.show();
+
+        // get current geo point
+        mGeoPoint = new ParseGeoPoint(Double.valueOf(Application.getCurrentLatitude()), Double.valueOf(Application.getCurrentLongitude()));
 
         // Set up the query adapter
         inviteQueryAdapter = new ParseQueryAdapter<Invite>(CnLocalWithoutMapActivity.this, factory) {
@@ -313,13 +323,15 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
                     view = View.inflate(getContext(), R.layout.ome_activity_local_list, null);
                 }
 
-                ImageView avatarView    = (ImageView) view.findViewById(R.id.avatar_view);
-                TextView usernameView   = (TextView) view.findViewById(R.id.username_view);
-                TextView contentView    = (TextView) view.findViewById(R.id.content_view);
-                TextView submittimeView = (TextView) view.findViewById(R.id.duration);
+                ImageView avatarView        = (ImageView) view.findViewById(R.id.avatar_view);
+                TextView usernameView       = (TextView) view.findViewById(R.id.username_view);
+                //TextView contentView        = (TextView) view.findViewById(R.id.content_view);
+                TextView venueaddressView   = (TextView) view.findViewById(R.id.local_venue_address);
+                TextView playnumberView     = (TextView) view.findViewById(R.id.local_person_number);
+                TextView playtimeView       = (TextView) view.findViewById(R.id.local_play_time);
+                TextView distanceView       = (TextView) view.findViewById(R.id.local_distance_to_me);
+                //TextView submittimeView     = (TextView) view.findViewById(R.id.duration);
                 ImageView sporttypeiconView = (ImageView) view.findViewById(R.id.sport_type_icon);
-                //  ImageView pinView        = (ImageView) view.findViewById(R.id.pin_view);
-                //  ImageView rightarrowView = (ImageView) view.findViewById(R.id.rightarrow_view);
 
                 // Ozzie Zhang 2014-11-04 need add query for avatar icon for this user
                 // show username and invite content
@@ -338,9 +350,29 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
                 }
 
                 //avatarView.setImageDrawable(getResources().getDrawable(R.drawable.ome_map_avataricon));
-                contentView.setText(invite.getText());
+               // contentView.setText(invite.getText());
                 usernameView.setText(invite.getFromUsername());
-                submittimeView.setText(invite.getSubmitTime());
+                //submittimeView.setText(invite.getSubmitTime());
+                venueaddressView.setText(invite.getCourt());
+                playnumberView.setText(invite.getPlayerNumber());
+                playtimeView.setText(invite.getPlayTime());
+
+                // calculate distance between me and venue
+                if (invite.getLocation() != null) {
+                    Double mdistance = mGeoPoint.distanceInMilesTo(invite.getLocation());
+                    DecimalFormat df = new DecimalFormat("##.00");
+                    String distancenote = null;
+                    if (mdistance < 1) {
+                        mdistance = mdistance * AppConstant.OMEMETERSINAKILOMETER;
+                        distancenote = getResources().getString(R.string.OMEPARSEMEMYVENUEDISTANCEMETERNOTE);
+                    } else {
+                        distancenote = getResources().getString(R.string.OMEPARSEMEMYVENUEDISTANCEKMNOTE);
+                    }
+
+                    String mdistancestring = df.format(mdistance) + " " + distancenote;
+                    distanceView.setText(mdistancestring);
+                }
+
 
                 String sporttypevalue = invite.getSportTypeValue();
                 sporttypeiconView.setImageDrawable(getResources().getDrawable(Sport.msporticonarray[Integer.parseInt(sporttypevalue)]));

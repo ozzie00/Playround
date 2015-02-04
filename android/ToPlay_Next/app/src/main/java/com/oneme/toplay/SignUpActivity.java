@@ -25,6 +25,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -124,17 +125,13 @@ public class SignUpActivity extends ActionBarActivity {
         // Validate the sign up data
         boolean validationError = false;
         StringBuilder validationErrorMessage = new StringBuilder(getString(R.string.error_intro));
-        if (username.length() < AppConstant.OMEPARSEUSERNAMEMINIMUMLENGTH) {
+        if (username.length() == 0) {
             validationError = true;
             validationErrorMessage.append(getString(R.string.error_blank_username));
-            Toast.makeText(SignUpActivity.this, getResources().getString(R.string.OMEPARSEUSERNAMEMINIMUMLENGTHSHOULDSIX), Toast.LENGTH_LONG)
-                    .show();
         }
-        if (password.length() < AppConstant.OMEPARSEUSERPASSWORDMINIMUMLENGTH  ) {
+        if (password.length() == 0) {
             if (validationError) {
                 validationErrorMessage.append(getString(R.string.error_join));
-                Toast.makeText(SignUpActivity.this, getResources().getString(R.string.OMEPARSEUSERPASSWORDMINIMUMLENGTHSHOULDSIX) , Toast.LENGTH_LONG)
-                        .show();
             }
             validationError = true;
             validationErrorMessage.append(getString(R.string.error_blank_password));
@@ -148,55 +145,83 @@ public class SignUpActivity extends ActionBarActivity {
         }
         validationErrorMessage.append(getString(R.string.error_end));
 
-        // If there is a validation error, display the error
-        if (validationError) {
-            Toast.makeText(SignUpActivity.this, validationErrorMessage.toString(), Toast.LENGTH_LONG)
-                    .show();
-            return;
-        }
+
+        TelephonyManager telemamanger = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
+        String userNumber             = telemamanger.getSimSerialNumber();
 
         // Set up a progress dialog
         final ProgressDialog dialog = new ProgressDialog(SignUpActivity.this);
         dialog.setMessage(getString(R.string.progress_login));
         dialog.show();
 
-        ParseUser user = new ParseUser();
-        user.setUsername(username);
-        user.setPassword(password);
+        try {
+            ParseQuery<ParseUser> query = ParseUser.getQuery();
+            query.setCachePolicy(ParseQuery.CachePolicy.NETWORK_ONLY);
+            query.whereEqualTo(AppConstant.OMEPARSEUSERDEVICEIDKEY, userNumber);
+            query.setLimit(1);
 
-        // save last location and last time
-        userLastLocation = new ParseGeoPoint(Double.valueOf(Application.getCurrentLatitude()), Double.valueOf(Application.getCurrentLongitude()));
-        user.put(AppConstant.OMEPARSEUSERLASTTIMEKEY, Time.currentTime());
-        user.put(AppConstant.OMEPARSEUSERLASTLOCATIONKEY, userLastLocation);
+            Log.d(TAG, " query.count = " + query.count());
 
-        // Set up a new Parse user in parse cloud
-        user.signUpInBackground(new SignUpCallback() {
+            if (query.count() == 0) {
+                ParseUser user = new ParseUser();
+                user.setUsername(username);
+                user.setPassword(password);
+
+                // save last location and last time
+                userLastLocation = new ParseGeoPoint(Double.valueOf(Application.getCurrentLatitude()), Double.valueOf(Application.getCurrentLongitude()));
+
+                user.put(AppConstant.OMEPARSEUSERDEVICEIDKEY, userNumber);
+                user.put(AppConstant.OMEPARSEUSERLASTTIMEKEY, Time.currentTime());
+                user.put(AppConstant.OMEPARSEUSERLASTLOCATIONKEY, userLastLocation);
+
+                // Set up a new Parse user in parse cloud
+                user.signUpInBackground(new SignUpCallback() {
                     @Override
                     public void done(ParseException e) {
-                    dialog.dismiss();
+                        dialog.dismiss();
                         if (e != null) {
                             // Show the error message
-                            Toast.makeText(SignUpActivity.this, " ", Toast.LENGTH_LONG).show();
+                            Toast.makeText(SignUpActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
                         } else {
 
                             //SignUpMessenger(username);
-
-                            // login app
-                            if (DispatchActivity.getGooglePlayServicesState()) {
-                                Intent invokeLocalActivityIntent = new Intent(SignUpActivity.this, LocalWithoutMapActivity.class);
-                                startActivity(invokeLocalActivityIntent);
-                            } else {
-                                Intent invokeCnLocalActivityIntent = new Intent(SignUpActivity.this, CnLocalWithoutMapActivity.class);
-                                startActivity(invokeCnLocalActivityIntent);
-                            }
-
-                            setResult(RESULT_OK);
-                            finish();
-
                         }
                     }
                 });
 
+                // login app
+                if (DispatchActivity.getGooglePlayServicesState()) {
+                    Intent invokeLocalActivityIntent = new Intent(SignUpActivity.this, LocalWithoutMapActivity.class);
+                    startActivity(invokeLocalActivityIntent);
+                } else {
+                    Intent invokeCnLocalActivityIntent = new Intent(SignUpActivity.this, CnLocalWithoutMapActivity.class);
+                    startActivity(invokeCnLocalActivityIntent);
+                }
+
+                setResult(RESULT_OK);
+                finish();
+
+            } else if (query.count() >= 1) {
+                Toast.makeText(SignUpActivity.this, getResources().getString(R.string.OMEPARSESIGNUPDEVICEREGISTERED), Toast.LENGTH_LONG)
+                        .show();
+            }
+
+        } catch (com.parse.ParseException pe) {
+            // Log.d();
+
+        }
+
+
+
+
+
+
+        // If there is a validation error, display the error
+        if (validationError) {
+            Toast.makeText(SignUpActivity.this, validationErrorMessage.toString(), Toast.LENGTH_LONG)
+                    .show();
+            return;
+        }
 
 
 

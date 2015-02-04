@@ -2,14 +2,18 @@
 <resources>
 
     <string name="app_name">动动</string>
-    <string name="app_version">动动 安卓版 v.1.0.3.01</string>
+    <string name="app_version">动动 安卓版 v.1.0.2.09</string>
     
     <!-- Strings related to activity -->
     <string name="action_settings">设置</string>
+    <string name="slogan">我爱运动</string>
     <!-- <string name="title_activity_settings">Settings</string> -->
+    <string name="search_distance">搜索距离</string>
     <string name="character_count_placeholder">0/200</string>
     
-
+    <!--third id and key -->
+    <string name="facebook_app_id">846009488767381</string>
+    
     <!-- Strings related to activity -->
     <string name="mainactivity_title">动动</string>
     <string name="loginactivity_title">动动</string>
@@ -55,9 +59,16 @@
     <string name="OMEPARSEINVITEPLAYDATE">日期</string>
     <string name="OMEPARSEINVITEPLAYHOUR">时间</string>
     <string name="OMEPARSEINVITEPLAYBUTTON">组局</string>
+    <string name="OMEPARSEINVITESPORTTYPECHOOSE">选择运动</string>
+    <string name="OMEPARSEINVITEPLAYERLEVELCHOOSE">选择级别</string>
+    <string name="OMEPARSEINVITEPLAYERNUMBERCHOOSE">选择人数</string>
+    <string name="OMEPARSEINVITEPLAYFEECHOOSE">选择费用</string>
     <string name="OMEPARSEINVITELOGINALERT">请登录或注册!</string>
     <string name="OMEPARSEINVITEREALLYPLAY">是否真的组局?</string>
+    <string name="OMEPARSEINVITEOTHERDEFAULT">好伙伴</string>
     <string name="OMEPARSEINVITECOURTDEFAULT">国家体育场</string>
+    <string name="OMEPARSEINVITEFEEDEFAULT">平摊</string>
+    <string name="OMEPARSEINVITEFEEFREE">免费</string>
     <string name="OMEPARSEINVITEPLAYERSUBMITSUCCESSALERTINFO">成功发送组局请求，请等待小伙伴捧场!</string>
     
     
@@ -86,7 +97,16 @@
     
     <!-- Strings related to join activity -->
     <string name="OMEPARSEINVITEPLAYCOURTPLACEHOLD">输入场地地址</string>
+    <string name="OMEPARSEINVITEPLAYOTHERPLACEHOLD">输入其他要求</string>
     <string name="OMEPARSEINVITEPLAYERALERTINFO">真的想去捧场?</string>
+    <string name="OMEPARSEINVITEREQUIREMENTSPORTTYPE">类型</string>
+    <string name="OMEPARSEINVITEREQUIREMENTPLAYERNUMBER">人数</string>
+    <string name="OMEPARSEINVITEREQUIREMENTPLAYERLEVEL">水平</string>
+    <string name="OMEPARSEINVITEREQUIREMENTTIME">时间</string>
+    <string name="OMEPARSEINVITEREQUIREMENTCOURT">场地</string>
+    <string name="OMEPARSEINVITEREQUIREMENTFEE">费用</string>
+    <string name="OMEPARSEINVITEREQUIREMENTOTHER">其他</string>
+    <string name="OMEPARSEINVITEJOINPLAYHEADER"> </string>
     <string name="OMEPARSEINVITEJOINPLAYBUTTON">捧场</string>
     <string name="OMEPARSEINVITEPLAYERJOINPLAYSUCCESSALERTINFO">成功提交捧场请求，请等待小伙伴回复!</string>
     <string name="OMEPARSEMESSAGEJOINPLAYREQUESTFIRSTPART">嗨</string>
@@ -313,17 +333,6 @@
     <string name="myvenueashomeactivity_title">添加主要场馆</string>
     <string name="OMEPARSEMEMYVENUEASHOMEPLACEHOLD">输入场馆名字</string>
     <string name="OMEPARSESIGNUPDEVICEREGISTERED">设备已经注册过!</string>
-    <string name="OMEPARSESIGNUPCANNOTGETDEVICEID">无法读取设备号!</string>
-    <string name="OMEPARSEUSERNAMEMINIMUMLENGTHSHOULDSIX">用户名长度不能小于6个字符!</string>
-    <string name="OMEPARSEUSERPASSWORDMINIMUMLENGTHSHOULDSIX">密码长度不能小于6个字符!</string>
-
-
-    <!--Add by playround 1.0.2.12 -->
-    <string name="OMEPARSEMEMYVENUEASBACKUPPLACEHOLD">输入场馆名字</string>
-    <string name="myvenueasbackupactivity_title">添加备用场馆</string>
-
-    <!--Add by playround 1.0.3.01 -->
-    <string name="OMEPARSECANNOTJOINYOURSELFALERT">你不能再次加入自己组局的比赛!</string>
 
 
 </resources>

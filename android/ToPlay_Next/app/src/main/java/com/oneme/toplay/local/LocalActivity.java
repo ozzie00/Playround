@@ -237,7 +237,7 @@ public class LocalActivity extends FragmentActivity implements LocationListener,
 
                 ImageView avatarView = (ImageView) view.findViewById(R.id.avatar_view);
                 TextView usernameView = (TextView) view.findViewById(R.id.username_view);
-                TextView contentView = (TextView) view.findViewById(R.id.content_view);
+                //TextView contentView = (TextView) view.findViewById(R.id.content_view);
                 TextView submittimeView = (TextView) view.findViewById(R.id.duration);
                 //  ImageView pinView        = (ImageView) view.findViewById(R.id.pin_view);
                 //  ImageView rightarrowView = (ImageView) view.findViewById(R.id.rightarrow_view);
@@ -246,7 +246,7 @@ public class LocalActivity extends FragmentActivity implements LocationListener,
                 // Ozzie Zhang 2014-11-04 need add query for avatar icon for this user
                 // show username and invite content
                 avatarView.setImageDrawable(getResources().getDrawable(R.drawable.ome_map_avataricon));
-                contentView.setText(invite.getText());
+                //contentView.setText(invite.getText());
                 usernameView.setText(invite.getFromUsername());
                 submittimeView.setText(invite.getSubmitTime());
 

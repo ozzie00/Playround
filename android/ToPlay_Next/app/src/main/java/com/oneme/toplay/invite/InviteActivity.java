@@ -16,51 +16,15 @@
 
 package com.oneme.toplay.invite;
 
-
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.Gravity;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.Button;
-import android.widget.Filter;
-import android.widget.Filterable;
-import android.widget.LinearLayout;
-import android.widget.Spinner;
-import android.widget.Toast;
-
-import java.io.InputStreamReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Locale;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLEncoder;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.json.JSONException;
-
 import com.oneme.toplay.Application;
+import com.oneme.toplay.R;
 import com.oneme.toplay.adapter.SportTypeAdapter;
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.base.Time;
-import com.oneme.toplay.database.Invite;
 import com.oneme.toplay.database.Sport;
+import com.oneme.toplay.database.Invite;
+
 import com.oneme.toplay.LoginActivity;
-import com.oneme.toplay.R;
 
 import com.parse.ParseACL;
 import com.parse.ParseException;
@@ -73,6 +37,48 @@ import com.fourmob.datetimepicker.date.DatePickerDialog.OnDateSetListener;
 import com.sleepbot.datetimepicker.time.RadialPickerLayout;
 import com.sleepbot.datetimepicker.time.TimePickerDialog;
 
+import android.app.AlertDialog;
+import android.content.Intent;
+import android.location.Location;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
+import android.widget.LinearLayout;
+import android.widget.Button;
+import android.widget.Filter;
+import android.widget.Filterable;
+import android.widget.PopupMenu;
+import android.widget.AutoCompleteTextView;
+import android.graphics.Color;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.view.MenuItem;
+import android.view.View.OnClickListener;
+import android.view.Gravity;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
+
+import java.io.InputStreamReader;
+import java.util.Calendar;
+import java.util.ArrayList;
+import java.util.Locale;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.io.IOException;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.json.JSONException;
 
 public final class InviteActivity extends ActionBarActivity implements TextWatcher, OnDateSetListener, TimePickerDialog.OnTimeSetListener{
 
@@ -85,6 +91,11 @@ public final class InviteActivity extends ActionBarActivity implements TextWatch
     private LinearLayout mInviteLinerLayout;
     private Button minviteplayButton;
 
+    private Button msporttypeButton;
+    private Button mplayerlevelButton;
+    private Button mplayernumberButton;
+    private Button minviteplayfeeButton;
+    private EditText motherText;
     private Button mdateButton;
     private Button mtimeButton;
 
@@ -92,8 +103,12 @@ public final class InviteActivity extends ActionBarActivity implements TextWatch
 
     private String msporttype      = null;
     private String msporttypevalue = null;
+    private String mplayerlevel    = null;
+    private String mplayernumber   = null;
     private String minviteplaytime = null;
     private String mcourt          = null;
+    private String minviteplayfee  = null;
+    private String mother          = null;
     private String msubmittime     = null;
 
     private String mdate           = null;
@@ -113,9 +128,23 @@ public final class InviteActivity extends ActionBarActivity implements TextWatch
 
     AutoCompleteTextView mcourtAutoComplete;
 
+
     // Add spinner for sport type
     String[] msportarray = {
 
+    };
+
+    private int msporticon[] = {
+            R.drawable.ome_badminton_icon,
+            R.drawable.ome_basketball_icon,
+            R.drawable.ome_snooker_icon,
+            R.drawable.ome_table_soccer_icon,
+            R.drawable.ome_table_tennis_icon,
+            R.drawable.ome_tennis_icon,
+            R.drawable.ome_trekking_icon,
+            R.drawable.ome_running_icon,
+            R.drawable.ome_cycling_icon,
+            R.drawable.ome_other_icon
     };
 
 
@@ -211,7 +240,7 @@ public final class InviteActivity extends ActionBarActivity implements TextWatch
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 String clickedCourt = (String) adapterView.getItemAtPosition(position);
-                mcourt              = mcourtAutoComplete.getEditableText().toString();
+                mcourt = mcourtAutoComplete.getEditableText().toString();
             }
         });
 
@@ -229,7 +258,7 @@ public final class InviteActivity extends ActionBarActivity implements TextWatch
             }
         });
 
-        Spinner msportspinner              = (Spinner)findViewById(R.id.sport_spinner);
+        Spinner msportspinner = (Spinner)findViewById(R.id.sport_spinner);
         SportTypeAdapter msportTypeAdapter = new SportTypeAdapter(InviteActivity.this, R.layout.ome_sport_row, msportarray, Sport.msporticonarray);
         msportspinner.setAdapter(msportTypeAdapter);
 
@@ -242,25 +271,47 @@ public final class InviteActivity extends ActionBarActivity implements TextWatch
             }
         });
 
+        // add sport type button
+        //addSportTypeButtonPopup();
+
+        // add player level button
+        addPlayerLevelButtonPopup();
+
+        // add player number button
+        addPlayerNumberButtonPopup();
+
+        // add fee button
+        addInvitePlayFeeButtonPopup();
+
         // add invite play button
         addInvitePlayButton();
+
+        // add invite other
+        addInviteOtherTextField();
+
+        //Ozzie Zhang 2014-11-16 add search
+        //handleIntent(getIntent());
 
     }
 
     private boolean isVibrate() {
+        //return ((CheckBox) findViewById(R.id.checkBoxVibrate)).isChecked();
         return false;
     }
 
     private boolean isCloseOnSingleTapDay() {
+        //  return ((CheckBox) findViewById(R.id.checkBoxCloseOnSingleTapDay)).isChecked();
         return false;
     }
 
     private boolean isCloseOnSingleTapMinute() {
+        // return ((CheckBox) findViewById(R.id.checkBoxCloseOnSingleTapMinute)).isChecked();
         return false;
     }
 
     @Override
     public void onDateSet(DatePickerDialog datePickerDialog, int year, int month, int day) {
+      //  Toast.makeText(InviteActivity.this, "new date:" + year + "-" + month + "-" + day, Toast.LENGTH_LONG).show();
         // change date button text
         int mmonth = month + 1;
         mdateButton.setText(day + "/" + mmonth);
@@ -269,6 +320,8 @@ public final class InviteActivity extends ActionBarActivity implements TextWatch
 
     @Override
     public void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute) {
+       // Toast.makeText(InviteActivity.this, "new time:" + hourOfDay + "-" + minute, Toast.LENGTH_LONG).show();
+
         // change hour button text
         mtimeButton.setText(hourOfDay + ":" + minute);
         if (minute < AppConstant.OMEPARSEINVITETIMETWOBITDIVIDER) {
@@ -278,6 +331,137 @@ public final class InviteActivity extends ActionBarActivity implements TextWatch
             mtimeButton.setText(hourOfDay + ":" + minute);
             mhour = hourOfDay + ":" + minute;
         }
+
+    }
+
+
+    // define player level button popup menu
+    private void addPlayerLevelButtonPopup() {
+
+        mplayerlevelButton = (Button) findViewById(R.id.playerlevelButton);
+        mplayerlevelButton.setText(getResources().getString(R.string.OMEPARSEINVITEPLAYERLEVELCHOOSE));
+
+        // Set default value for player level
+        mplayerlevel = AppConstant.OMEPARSEINVITEPLAYERLEVELDEFAULT;
+
+        mplayerlevelButton.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // Creating the instance of PopupMenu
+                PopupMenu playerlevelpopup = new PopupMenu(InviteActivity.this, mplayerlevelButton);
+                // Inflating the Popup using xml file
+                playerlevelpopup.getMenuInflater().inflate(R.menu.ome_playerlevel_popup, playerlevelpopup.getMenu());
+
+
+                //registering popup with OnMenuItemClickListener
+                playerlevelpopup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    public boolean onMenuItemClick(MenuItem item) {
+                        //  Toast.makeText(InviteActivity.this,"You Clicked : " + item.getTitle(),Toast.LENGTH_SHORT).show();
+
+                        mplayerlevelButton.setText(item.getTitle());
+                        mplayerlevel = item.getTitle().toString();
+                        return true;
+                    }
+                });
+
+                playerlevelpopup.show();//showing popup menu
+            }
+        });//closing the setOnClickListener method
+    }
+
+    // define player number button popup menu
+    private void addPlayerNumberButtonPopup() {
+        mplayernumberButton = (Button) findViewById(R.id.playernumberButton);
+        mplayernumberButton.setText(getResources().getString(R.string.OMEPARSEINVITEPLAYERNUMBERCHOOSE));
+
+        // Set default value for player number
+        mplayernumber = AppConstant.OMEPARSEINVITEPLAYERNUMBERDEFAULT;
+
+        mplayernumberButton.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                //Creating the instance of PopupMenu
+                PopupMenu playernumberpopup = new PopupMenu(InviteActivity.this, mplayernumberButton);
+                //Inflating the Popup using xml file
+                playernumberpopup.getMenuInflater().inflate(R.menu.ome_playernumber_popup, playernumberpopup.getMenu());
+
+                //registering popup with OnMenuItemClickListener
+                playernumberpopup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    public boolean onMenuItemClick(MenuItem item) {
+                        //  Toast.makeText(InviteActivity.this,"You Clicked : " + item.getTitle(),Toast.LENGTH_SHORT).show();
+
+                        mplayernumberButton.setText(item.getTitle());
+                        mplayernumber = item.getTitle().toString();
+
+                        return true;
+                    }
+                });
+
+                playernumberpopup.show();//showing popup menu
+            }
+        });
+
+    }
+
+    // define invite play fee button popup menus
+    private void addInvitePlayFeeButtonPopup() {
+        minviteplayfeeButton = (Button) findViewById(R.id.invitefeeButton);
+        minviteplayfeeButton.setText(getResources().getString(R.string.OMEPARSEINVITEPLAYFEECHOOSE));
+
+        // Set default value for fee
+        minviteplayfee = getResources().getString(R.string.OMEPARSEINVITEFEEDEFAULT);
+
+        minviteplayfeeButton.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                //Creating the instance of PopupMenu
+                PopupMenu feepopup = new PopupMenu(InviteActivity.this, minviteplayfeeButton);
+
+                // add fee type item to popup menu
+                feepopup.getMenu().add(AppConstant.OMEPARSEINVITEPLAYFEEGROUPID,
+                        AppConstant.OMEPARSEINVITEFEEDEFAULTID,
+                        0,
+                        getResources().getString(R.string.OMEPARSEINVITEFEEDEFAULT));
+
+                feepopup.getMenu().add(AppConstant.OMEPARSEINVITEPLAYFEEGROUPID,
+                        AppConstant.OMEPARSEINVITEFEEFREEID,
+                        0,
+                        getResources().getString(R.string.OMEPARSEINVITEFEEFREE));
+
+                //Inflating the Popup using xml file
+                //feepopup.getMenuInflater().inflate(R.menu.inviteplayfee_popup, feepopup.getMenu());
+
+                //registering popup with OnMenuItemClickListener
+                feepopup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    public boolean onMenuItemClick(MenuItem item) {
+                        // Toast.makeText(InviteActivity.this,"You Clicked : " + item.getTitle(),Toast.LENGTH_SHORT).show();
+
+                        minviteplayfeeButton.setText(item.getTitle());
+                        minviteplayfee = item.getTitle().toString();
+
+                        return true;
+                    }
+                });
+
+                feepopup.show();//showing popup menu
+            }
+        });
+    }
+
+
+    // define invite court text field
+    private void addInviteOtherTextField() {
+        motherText = (EditText) findViewById(R.id.inviteotherText);
+
+        motherText.setText(getResources().getString(R.string.OMEPARSEINVITEPLAYOTHERPLACEHOLD));
+
+        // Set default value for other info
+        mother = getResources().getString(R.string.OMEPARSEINVITEOTHERDEFAULT);
+
+        mother = motherText.getText().toString().trim();
 
     }
 
@@ -298,6 +482,8 @@ public final class InviteActivity extends ActionBarActivity implements TextWatch
         minviteplayButton.setTextColor(Color.WHITE);
         minviteplayButton.setLayoutParams(inviteplayButtonParam);
         minviteplayButton.setText(getResources().getString(R.string.OMEPARSEINVITEPLAYBUTTON));
+       // minviteplayButton.setId(5);
+
 
         // add invite play button listener
         minviteplayButton.setOnClickListener(new OnClickListener() {
@@ -309,14 +495,21 @@ public final class InviteActivity extends ActionBarActivity implements TextWatch
                 minviteplayButton.setBackgroundColor(Color.WHITE);
                 minviteplayButton.setTextColor(AppConstant.OMETOPLAYDEFAULTCOLOR);
 
+                // set title
+                // alertDialogBuilder.setTitle("Your Title");
+
                 // set dialog message
                 minviteplayAlertDialogBuilder
-                        .setMessage(getResources().getString(R.string.OMEPARSEINVITEREALLYPLAY))
+                        .setMessage(AppConstant.OMEPARSEINVITEREALLYPLAY)
                         .setCancelable(false)
-                        .setPositiveButton(getResources().getString(R.string.OMEPARSEYES), new DialogInterface.OnClickListener() {
+                        .setPositiveButton(AppConstant.OMEPARSEYES, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
 
                                 if (ParseUser.getCurrentUser() == null) {
+
+                                    //Toast.makeText(InviteActivity.this, getResources().getString(R.string.OMEPARSEINVITELOGINALERT),
+                                    //        Toast.LENGTH_SHORT).show();
+
                                     // jump to login activity
                                     Intent invokeLoginActivityIntent = new Intent(InviteActivity.this, LoginActivity.class);
                                     startActivity(invokeLoginActivityIntent);
@@ -330,7 +523,7 @@ public final class InviteActivity extends ActionBarActivity implements TextWatch
                                 }
                             }
                         })
-                        .setNegativeButton(getResources().getString(R.string.OMEPARSENO), new DialogInterface.OnClickListener() {
+                        .setNegativeButton(AppConstant.OMEPARSENO, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 // if this button is clicked, just close
                                 // the dialog box and do nothing
@@ -355,6 +548,12 @@ public final class InviteActivity extends ActionBarActivity implements TextWatch
     // Ozzie Zhang 10-29-2014 please modify this function
     // define submit invitation to cloud
     private void submitInvitation () {
+
+        // Set up a progress dialog
+     //   final ProgressDialog dialog = new ProgressDialog(InviteActivity.this);
+     //   dialog.setMessage(getString(R.string.progress_invite));
+     //   dialog.show();
+
         msubmittime = Time.currentTime();
 
         // set invite play time
@@ -364,6 +563,9 @@ public final class InviteActivity extends ActionBarActivity implements TextWatch
         if (mcourt == null) {
             mcourt = getResources().getString(R.string.OMEPARSEINVITECOURTDEFAULT);
         }
+
+        //Toast.makeText(InviteActivity.this, "mcourt " + mcourt, Toast.LENGTH_LONG).show();
+
 
         // Create an invitation.
         Invite invite = new Invite();
@@ -379,8 +581,12 @@ public final class InviteActivity extends ActionBarActivity implements TextWatch
                     + " " + getResources().getString(R.string.OMEPARSEINVITETITLEPLAY) + " " + msporttype);
         invite.setSportType(msporttype);
         invite.setSportTypeValue(msporttypevalue);
+        invite.setPlayerLevel(mplayerlevel);
+        invite.setPlayerNumber(mplayernumber);
         invite.setPlayTime(minviteplaytime);
         invite.setCourt(mcourt);
+        invite.setFee(minviteplayfee);
+        invite.setOther(mother);
         invite.setSubmitTime(msubmittime);
 
         ParseACL acl = new ParseACL();
@@ -447,8 +653,10 @@ public final class InviteActivity extends ActionBarActivity implements TextWatch
                 jsonResults.append(buff, 0, read);
             }
         } catch (MalformedURLException e) {
+            Log.e(LOG_TAG, "Error processing Places API URL", e);
             return resultList;
         } catch (IOException e) {
+            Log.e(LOG_TAG, "Error connecting to Places API", e);
             return resultList;
         } finally {
             if (mconnection != null) {
@@ -470,6 +678,7 @@ public final class InviteActivity extends ActionBarActivity implements TextWatch
                 resultList.add(predsJsonArray.getJSONObject(i).getString("description"));
             }
         } catch (JSONException e) {
+            Log.e(LOG_TAG, "Cannot process JSON results", e);
         }
 
         return resultList;
@@ -540,10 +749,17 @@ public final class InviteActivity extends ActionBarActivity implements TextWatch
             mstringBuilder.append("&types=gym|school|stadium|university|amusement_park");
 
             mstringBuilder.append("&location=" + geoPoint.getLatitude()+","+geoPoint.getLongitude());
+
+            // order by distance
+            //mstringBuilder.append("&rankby=distance");
+
             // radius meter
             mstringBuilder.append("&radius=20000" );
 
             mstringBuilder.append("&language=" + mlocale);
+           // mstringBuilder.append("&input=" + URLEncoder.encode(input, "utf8"));
+           // mstringBuilder.append("&input=" + URLEncoder.encode(input, "utf8"));
+
 
             URL murl = new URL(mstringBuilder.toString());
             mconnection = (HttpURLConnection) murl.openConnection();
@@ -556,8 +772,10 @@ public final class InviteActivity extends ActionBarActivity implements TextWatch
                 jsonResults.append(buff, 0, read);
             }
         } catch (MalformedURLException e) {
+            Log.e(LOG_TAG, "Error processing Places API URL", e);
             return resultList;
         } catch (IOException e) {
+            Log.e(LOG_TAG, "Error connecting to Places API", e);
             return resultList;
         } finally {
             if (mconnection != null) {
@@ -579,6 +797,7 @@ public final class InviteActivity extends ActionBarActivity implements TextWatch
                 resultList.add(predsJsonArray.getJSONObject(i).getString("name"));
             }
         } catch (JSONException e) {
+            Log.e(LOG_TAG, "Cannot process JSON results", e);
         }
 
         return resultList;
