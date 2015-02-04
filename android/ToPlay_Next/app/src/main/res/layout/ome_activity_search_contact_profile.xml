@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:layout_width    = "match_parent"
+    android:layout_height   = "wrap_content"
+    android:orientation     = "vertical"
+    android:paddingBottom   = "@dimen/margin_large"
+    android:paddingLeft     = "@dimen/margin_large"
+    android:paddingRight    = "@dimen/margin_large"
+    android:focusableInTouchMode="true"
+    android:paddingTop      = "@dimen/margin_large" >
+
+    <RelativeLayout android:id= "@+id/search_profile_view"
+        android:layout_width  = "match_parent"
+        android:layout_height = "wrap_content"
+        android:orientation   = "horizontal"
+        android:padding       = "5dip">
+
+        <ImageView
+            android:id                 = "@+id/search_profile_avatar_view"
+            android:layout_width       = "60dp"
+            android:layout_height      = "80dp"
+            android:layout_marginRight = "8dp"
+            android:src                = "@drawable/ome_map_avataricon"/>
+
+        <TextView
+            android:id                = "@+id/search_profile_username_view"
+            android:layout_width      = "100dp"
+            android:layout_height     = "wrap_content"
+            android:layout_marginTop  = "8dp"
+            android:layout_marginLeft = "70dp"
+            android:paddingLeft       = "8dp"
+            android:gravity           = "left"
+            android:textAppearance    = "?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id                = "@+id/search_profile_content_view"
+            android:layout_width      = "100dp"
+            android:layout_height     = "wrap_content"
+            android:layout_marginLeft = "70dp"
+            android:layout_below      = "@id/search_profile_username_view"
+            android:gravity           = "left"
+            android:paddingLeft       = "8dp"
+            android:textAppearance    = "?android:attr/textAppearanceSmall" />
+
+    </RelativeLayout>
+
+    <RelativeLayout android:id= "@+id/search_profile_address_block"
+        android:layout_width     = "match_parent"
+        android:layout_height    = "wrap_content"
+        android:orientation      = "horizontal"
+        android:padding          = "5dip"
+        android:background       = "@android:color/white">
+
+        <TextView
+            android:id                      = "@+id/search_profile_address"
+            android:layout_width            = "wrap_content"
+            android:layout_height           = "32dp"
+            android:layout_marginTop        = "8dp"
+            android:layout_marginLeft       = "8dp"
+            android:gravity                 = "left"
+            android:background              = "@android:color/white"
+            android:text                    = "@string/OMEPARSEMEMYCOURTADDRESS"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout android:id= "@+id/search_profile_add_block"
+
+        android:layout_width     = "fill_parent"
+        android:layout_height    = "wrap_content"
+        android:layout_marginTop = "20dp"
+        android:orientation      = "horizontal"
+        android:padding          = "5dip"
+        android:layout_gravity   = "center"
+        android:gravity          = "center"
+        android:background       = "#1DA155">
+
+        <TextView
+            android:id                  = "@+id/search_profile_add"
+            android:layout_width        = "wrap_content"
+            android:layout_height       = "wrap_content"
+            android:text                = "@string/OMEPARSEADDCONTACTEXT"
+            android:layout_marginTop    = "4dp"
+            android:layout_marginBottom = "4dp"
+            android:layout_gravity      = "center"
+            android:gravity             = "center_vertical"
+            android:textColor           = "@color/white_absolute"
+            android:textAppearance      = "?android:attr/textAppearanceMedium"/>
+    </RelativeLayout>
+
+
+</LinearLayout>

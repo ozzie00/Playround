@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/margin_large"
+    android:paddingLeft="@dimen/margin_large"
+    android:paddingRight="@dimen/margin_large"
+    android:focusableInTouchMode="true"
+    android:paddingTop="@dimen/margin_large">
+
+    <RelativeLayout
+        android:id               = "@+id/myvenue_home_block"
+        android:layout_width     = "fill_parent"
+        android:layout_height    = "wrap_content"
+        android:orientation      = "horizontal"
+        android:layout_marginTop = "16dp"
+        android:background       ="@color/white_absolute">
+
+        <ImageView
+            android:id                 = "@+id/myvenue_home_icon_view"
+            android:layout_width       = "48dp"
+            android:layout_height      = "48dp"
+            android:layout_marginLeft  = "8dp"
+            android:layout_marginRight = "8dp"
+            android:layout_marginTop   = "8dp"
+            android:gravity            = "center"
+            android:layout_gravity     = "center_vertical"
+            android:layout_marginBottom= "8dp"
+            android:src                = "@drawable/ome_me_venue"/>
+
+        <TextView
+            android:id               = "@+id/myvenue_home_username_view"
+            android:layout_width     = "180dp"
+            android:layout_height    = "wrap_content"
+            android:layout_marginTop = "24dp"
+            android:layout_toRightOf = "@id/myvenue_home_icon_view"
+            android:text             = "@string/OMEPARSEMYVENUEHOMEVENUE"
+            android:paddingLeft      = "8dp"
+            android:textAppearance   = "?android:attr/textAppearanceSmall" />
+
+        <ImageButton
+            android:id                    = "@+id/myvenue_home_call_button"
+            android:layout_width          = "48dp"
+            android:layout_height         = "48dp"
+            android:layout_marginLeft     = "16dp"
+            android:layout_marginRight    = "8dp"
+            android:layout_gravity        = "right"
+            android:layout_centerVertical = "true"
+            android:layout_toRightOf      = "@+id/myvenue_home_username_view"
+            android:cropToPadding         = "false"
+            android:focusable             = "false"
+            android:adjustViewBounds      = "false"
+            android:baselineAlignBottom   = "false"
+            android:visibility            = "invisible"
+            android:src                   = "@drawable/ome_venue_call"
+            android:background            = "@drawable/ome_venue_call_circle_button" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id               = "@+id/myvenue_backup_block"
+        android:layout_width     = "fill_parent"
+        android:layout_height    = "wrap_content"
+        android:orientation      = "horizontal"
+        android:layout_marginTop = "16dp"
+        android:background       ="@color/white_absolute">
+
+        <ImageView
+            android:id                 = "@+id/myvenue_backup_icon_view"
+            android:layout_width       = "48dp"
+            android:layout_height      = "48dp"
+            android:layout_marginLeft  = "8dp"
+            android:layout_marginRight = "8dp"
+            android:layout_marginTop   = "8dp"
+            android:layout_marginBottom= "8dp"
+            android:src                = "@drawable/ome_me_venue"/>
+
+        <TextView
+            android:id               = "@+id/myvenue_backup_username_view"
+            android:layout_width     = "180dp"
+            android:layout_height    = "wrap_content"
+            android:layout_marginTop = "24dp"
+            android:layout_toRightOf = "@id/myvenue_backup_icon_view"
+            android:text             = "@string/OMEPARSEMYVENUEBACKUPVENUE"
+            android:paddingLeft      = "8dp"
+            android:textAppearance   = "?android:attr/textAppearanceSmall" />
+
+        <ImageButton
+            android:id                    = "@+id/myvenue_backup_call_button"
+            android:layout_width          = "48dp"
+            android:layout_height         = "48dp"
+            android:layout_marginLeft     = "16dp"
+            android:layout_marginRight    = "8dp"
+            android:layout_gravity        = "right"
+            android:layout_centerVertical = "true"
+            android:layout_toRightOf      = "@+id/myvenue_backup_username_view"
+            android:cropToPadding         = "false"
+            android:focusable             = "false"
+            android:adjustViewBounds      = "false"
+            android:baselineAlignBottom   = "false"
+            android:visibility            = "invisible"
+            android:src                   = "@drawable/ome_venue_call"
+            android:background            = "@drawable/ome_venue_call_circle_button" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id               = "@+id/myvenue_radar_block"
+        android:layout_width     = "fill_parent"
+        android:layout_height    = "64dp"
+        android:orientation      = "horizontal"
+        android:layout_marginTop = "16dp"
+        android:background       ="@color/white_absolute">
+
+        <ImageView
+            android:id                 = "@+id/myvenue_radar_view"
+            android:layout_width       = "48dp"
+            android:layout_height      = "48dp"
+            android:layout_marginLeft  = "8dp"
+            android:layout_marginRight = "8dp"
+            android:layout_marginTop   = "8dp"
+            android:layout_marginBottom= "8dp"
+            android:src                = "@drawable/ome_friend_radar"/>
+
+        <TextView
+            android:id               = "@+id/myvenue_radar_text_view"
+            android:layout_width     = "wrap_content"
+            android:layout_height    = "wrap_content"
+            android:layout_marginTop = "24dp"
+            android:layout_toRightOf = "@id/myvenue_radar_view"
+            android:text             = "@string/OMEPARSEMYVENUERADAR"
+            android:paddingLeft      = "8dp"
+            android:textAppearance   = "?android:attr/textAppearanceSmall" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id               = "@+id/myvenue_upload_block"
+        android:layout_width     = "fill_parent"
+        android:layout_height    = "64dp"
+        android:orientation      = "horizontal"
+        android:layout_marginTop = "16dp"
+        android:background       = "@color/white_absolute">
+
+        <ImageView
+            android:id                 = "@+id/myvenue_upload_icon_view"
+            android:layout_width       = "48dp"
+            android:layout_height      = "48dp"
+            android:layout_marginLeft  = "8dp"
+            android:layout_marginRight = "8dp"
+            android:layout_marginTop   = "8dp"
+            android:layout_marginBottom= "8dp"
+            android:src                = "@drawable/ic_action_upload"/>
+
+        <TextView
+            android:id               = "@+id/myvenue_upload_username_view"
+            android:layout_width     = "wrap_content"
+            android:layout_height    = "wrap_content"
+            android:layout_marginTop = "24dp"
+            android:layout_toRightOf = "@id/myvenue_upload_icon_view"
+            android:layout_gravity   = "center_vertical"
+            android:gravity          = "center"
+            android:paddingLeft      = "8dp"
+            android:text             = "@string/OMEPARSEMEMYVENUEUPLOAD"
+            android:textAppearance   = "?android:attr/textAppearanceSmall" />
+
+
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>
+
+

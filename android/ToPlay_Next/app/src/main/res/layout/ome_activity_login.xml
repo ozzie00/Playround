@@ -1,0 +1,80 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".LoginActivity" >
+
+    <!-- Login form -->
+
+    <ScrollView
+        android:id="@+id/login_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            style="@style/LoginFormContainer"
+            android:orientation="vertical"
+            android:layout_width="match_parent">
+
+            <!--
+            <Spinner
+                android:id="@+id/login_account_name"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:background="@drawable/edittextbackground"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:layout_marginTop="50dp"
+                android:singleLine="true" />
+            -->
+
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:hint="@string/prompt_username"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/prompt_password"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:imeActionId="@+id/edittext_action_login"
+                android:imeActionLabel="@string/login"
+                android:imeOptions="actionUnspecified" />
+
+            <Button
+                android:id="@+id/action_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/password"
+                android:layout_below = "@id/password"
+                android:layout_gravity="right"
+                android:layout_marginTop="16dp"
+                android:paddingLeft="32dp"
+                android:paddingRight="32dp"
+                android:text="@string/login" />
+
+            <Button
+                android:id="@+id/action_registerbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf = "@+id/password"
+                android:layout_gravity="end"
+                android:layout_marginTop="16dp"
+                android:paddingLeft="32dp"
+                tools:context           = ".SignUpActivity"
+                android:paddingRight="32dp"
+                android:text="@string/signup" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</merge>

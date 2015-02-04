@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--android:summary="@string/prefs_summ_category_one" -->
+    <Preference
+        android:title="@string/OMEPARSEMEMYSETTINGSNOTIFICATIONSHEADER"
+         >
+        <intent
+            android:targetPackage="com.oneme.toplay"
+            android:targetClass="com.oneme.toplay.me.SettingsActivity"
+            android:action="com.oneme.toplay.me.SettingsActivity.PREFS_ONE" />
+    </Preference>
+    <!-- android:summary="@string/prefs_summ_category_two"-->
+    <Preference
+        android:title="@string/OMEPARSEMEMYSETTINGSGENERALHEADER"
+        >
+        <intent
+            android:targetPackage="com.oneme.toplay"
+            android:targetClass="com.oneme.toplay.me.SettingsActivity"
+            android:action="com.oneme.toplay.me.SettingsActivity.PREFS_TWO" />
+    </Preference>
+
+</PreferenceScreen>

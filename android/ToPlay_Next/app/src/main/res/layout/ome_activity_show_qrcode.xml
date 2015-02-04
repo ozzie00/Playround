@@ -1,0 +1,63 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width  = "wrap_content"
+    android:layout_height = "wrap_content"
+    android:gravity       = "center"
+    android:layout_gravity= "center"
+    android:orientation   = "vertical">
+
+    <RelativeLayout android:id= "@+id/addme_avatar_block"
+        android:layout_width  = "200dp"
+        android:layout_height = "wrap_content"
+        android:orientation   = "horizontal"
+        android:padding       = "5dip"
+        android:background    = "@android:color/white">
+
+    <ImageView
+        android:id                 = "@+id/addme_avatar_view"
+        android:layout_width       = "60dp"
+        android:layout_height      = "80dp"
+        android:layout_marginRight = "8dp"/>
+
+    <TextView
+        android:id                = "@+id/addme_username_view"
+        android:layout_width      = "100dp"
+        android:layout_height     = "wrap_content"
+        android:layout_marginTop  = "8dp"
+        android:layout_marginLeft = "70dp"
+        android:paddingLeft       = "8dp"
+        android:gravity           = "left"
+        android:text              = "username"
+        android:textAppearance    = "?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id                = "@+id/addme_content_view"
+        android:layout_width      = "100dp"
+        android:layout_height     = "wrap_content"
+        android:layout_marginLeft = "70dp"
+        android:layout_below      = "@id/addme_username_view"
+        android:gravity           = "left"
+        android:paddingLeft       = "8dp"
+        android:textAppearance    = "?android:attr/textAppearanceSmall" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id                = "@+id/show_qr_image"
+        android:layout_width      = "200dp"
+        android:layout_height     = "200dp"
+        android:layout_marginTop  = "48dp"
+        android:layout_gravity    = "center_horizontal" />
+
+    <TextView
+        android:id                = "@+id/addme_note_view"
+        android:layout_width      = "wrap_content"
+        android:layout_height     = "wrap_content"
+        android:layout_below      = "@id/show_qr_image"
+        android:gravity           = "center"
+        android:layout_gravity    = "center"
+        android:layout_marginTop  = "24dp"
+        android:paddingLeft       = "8dp"
+        android:text              = "@string/OMEPARSEADDCONTACTADDMENOTE"
+        android:textAppearance    = "?android:attr/textAppearanceSmall" />
+
+</LinearLayout>

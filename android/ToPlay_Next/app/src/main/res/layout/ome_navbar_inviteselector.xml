@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="64dp"
+    android:layout_height="64dp">
+    <item
+        android:state_checked="true"
+        android:drawable="@drawable/ome_navbar_inviteselected"
+        />
+    <item
+        android:state_checked="false"
+        android:drawable="@drawable/ome_navbar_invitenormal"  />
+</selector>

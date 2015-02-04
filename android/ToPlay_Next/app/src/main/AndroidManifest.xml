@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.oneme.toplay"
+    android:versionCode="33"
+    android:versionName="1.0.3.01" >
+
+    <uses-sdk
+        android:minSdkVersion="9"
+        android:targetSdkVersion="21" />
+
+    <permission
+        android:name            = "com.oneme.toplay.permission.MAPS_RECEIVE"
+        android:protectionLevel = "signature" >
+    </permission>
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+
+    <!-- Ozzie Zhang 2014-11-20 add-->
+
+    <!--
+     The following permission is not required to use
+     Google Maps Android API v2, but is recommended.
+    -->
+    <uses-permission android:name = "android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-feature
+        android:glEsVersion = "0x00020000"
+        android:required    = "true" />
+
+    <compatible-screens>
+        <!-- all small size screens -->
+        <screen android:screenSize = "small" android:screenDensity="mdpi" />
+        <screen android:screenSize = "small" android:screenDensity="ldpi" />
+        <screen android:screenSize = "small" android:screenDensity="hdpi" />
+        <screen android:screenSize = "small" android:screenDensity="xhdpi" />
+
+        <screen android:screenSize = "normal" android:screenDensity="ldpi" />
+        <screen android:screenSize = "normal" android:screenDensity="mdpi" />
+        <screen android:screenSize = "normal" android:screenDensity="hdpi" />
+        <screen android:screenSize = "normal" android:screenDensity="xhdpi" />
+
+
+    </compatible-screens>
+
+    <application
+        android:name=".Application"
+        android:allowBackup = "true"
+        android:icon        = "@drawable/ome_ic_launcher"
+        android:logo        = "@drawable/ome_ic_launcher"
+        android:label       = "@string/app_name"
+        android:theme       = "@style/CustomActionBarTheme" >
+
+        <!--
+        <service
+            android:name     = "com.oneme.toplay.service.CoreService"
+            android:enabled  = "true"
+            android:exported = "false"
+            android:label    = "Playround" />
+        -->
+
+        <!--
+        <activity
+            android:uiOptions           = "splitActionBarWhenNarrow"
+            android:name                = "com.oneme.toplay.MainActivity"
+            android:configChanges       = "orientation|screenSize"
+            android:windowSoftInputMode = "stateAlwaysHidden" >
+        -->
+
+            <!--
+            <meta-data
+                android:name="android.support.UI_OPTIONS"
+                android:value="splitActionBarWhenNarrow" />
+
+            <action android:name   = "android.intent.action.MAIN" />
+
+            <category android:name = "android.intent.category.LAUNCHER" />
+
+            -->
+
+        <!--
+        </activity>
+        -->
+
+        <!-- android:theme="@style/Theme.AppCompat.Translucent"
+        -->
+        <activity
+            android:name="com.oneme.toplay.LoginActivity"
+            android:label="@string/app_name" >
+
+        </activity>
+
+
+
+        <!--
+        <activity
+            android:name=".CreateAccountActivity"
+
+            android:label="@string/app_name" />
+        -->
+
+        <!-- android:theme="@style/Theme.AppCompat.Translucent"-->
+        <activity
+            android:name="com.oneme.toplay.SignUpActivity"
+
+            android:label="@string/app_name" >
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
+
+        </activity>
+
+
+
+        <!--
+        <activity
+            android:name=".addfriend.AddFriendActivity"
+            android:label="@string/title_activity_add_friend">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.oneme.toplay.MainActivity" />
+
+
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+               />
+            </intent-filter>
+
+        </activity>
+
+        -->
+
+        <!--
+        <activity
+            android:name=".FriendProfileActivity"
+            android:label="@string/title_activity_friend_profile"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.oneme.toplay.MainActivity" />
+        </activity>
+
+        <receiver
+            android:name="com.oneme.toplay.base.ConnectionChangeReceiver"
+            android:label="NetworkConnection" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        -->
+
+
+
+
+        <!-- come from toplay base -->
+
+        <meta-data android:name = "com.google.android.gms.version"
+            android:value       = "@integer/google_play_services_version" />
+
+        <!--ToPlay Google release key-->
+
+        <meta-data
+            android:name  = "com.google.android.maps.v2.API_KEY"
+            android:value = "AIzaSyCwPhVEURLwyW1C7qi-BNI8j3F4siYPCDI" />
+
+
+        <!--ToPlay Google debug key-->
+        <!--
+        <meta-data
+            android:name  = "com.google.android.maps.v2.API_KEY"
+            android:value = "AIzaSyB1oKFcraix0-A-Fr_DgQPFOqSupmhoJqM" />
+        -->
+
+        <!--ToPlay Amap release key-->
+        <!--
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="4f46e5534eba6dcbbac56745cb75e4e9" />
+        -->
+
+        <!--ToPlay Amap debug key-->
+        <!--
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="e98bee1600272451071bd2fa09e5f3b6" />
+        -->
+
+        <!--ToPlay Baidu release key-->
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="uLS9PD8T26iDgPyfLLxYqcfp" />
+
+
+        <!--ToPlay Baidu debug key-->
+        <!--
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="QqCWKsVTzLPOKRPjdbGIkhf1" />
+        -->
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" >
+        </service>
+
+        <activity
+            android:name       = ".invite.InviteActivity"
+            android:label      = "@string/inviteactivity_title"
+            android:launchMode = "singleTop">
+
+            <intent-filter>
+
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <!-- Points to searchable activity -->
+            <meta-data android:name="android.app.default_searchable"
+                android:value=".invite.InviteActivity" />
+
+            <!-- Points to searchable meta data -->
+            <meta-data android:name="android.app.searchable"
+                android:resource="@xml/ome_searchable"/>
+
+        </activity>
+
+
+
+        <!-- this is the searchable activity; it performs searches -->
+        <activity
+            android:name       = ".addfriend.SearchContactActivity"
+            android:launchMode = "singleTop" >
+
+            <intent-filter>
+                <action android:name = "android.intent.action.SEARCH" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name = "android.intent.action.VIEW" />
+            </intent-filter>
+
+            <!--
+            <meta-data
+                android:name  = "android.support.PARENT_ACTIVITY"
+                android:value = ".addfriend.AddFriendActivity"/>
+            -->
+
+            <meta-data
+                android:name     = "android.app.searchable"
+                android:resource ="@xml/ome_contact_searchable"/>
+        </activity>
+
+        <!-- this activity enables the search dialog to initiate searches in the SearchableActivity -->
+        <activity android:name = ".addfriend.SearchOtherActivity" >
+            <!-- enable the search dialog to send searches to SearchableActivity -->
+            <meta-data
+                android:name  = "android.app.default_searchable"
+                android:value = ".message.ui.addfriend.SearchContactActivity" />
+
+            <meta-data
+                android:name  = "android.support.PARENT_ACTIVITY"
+                android:value = ".addfriend.SearchContactActivity"/>
+        </activity>
+
+        <activity
+            android:name = ".addfriend.ContactProfileActivity" >
+            <!--
+            <meta-data
+                android:name  = "android.support.PARENT_ACTIVITY"
+                android:value = ".message.ui.addfriend.SearchOtherActivity"/>
+            -->
+        </activity>
+
+
+        <activity
+            android:name = ".addfriend.SendFriendRequestActivity" >
+
+            <meta-data
+                android:name  = "android.support.PARENT_ACTIVITY"
+                android:value = ".addfriend.ContactProfileActivity"/>
+        </activity>
+
+
+        <activity
+            android:name = ".addfriend.FriendRadarActivity" >
+
+            <meta-data
+                android:name  = "android.support.PARENT_ACTIVITY"
+                android:value = ".addfriend.AddFriendActivity"/>
+        </activity>
+
+
+        <activity
+            android:name = ".addfriend.ShowQRcodeActivity" >
+
+            <meta-data
+                android:name  = "android.support.PARENT_ACTIVITY"
+                android:value = ".addfriend.AddFriendActivity"/>
+        </activity>
+
+
+
+
+
+        <activity
+            android:name  = ".join.JoinActivity"
+            android:label = "@string/joinactivity_title"/>
+
+        <activity
+            android:name  = ".local.LocalActivity"
+            android:label = "@string/localactivity_title"/>
+
+
+
+        <activity
+            android:name  = ".local.LocalWithoutMapActivity"
+            android:label = "@string/localactivity_title"/>
+
+        <!--
+        <activity
+            android:name  = ".local.CnLocalActivity"
+            android:label = "@string/localactivity_title"/>
+        -->
+
+        <activity
+            android:name  = ".local.CnLocalWithoutMapActivity"
+            android:label = "@string/localactivity_title"/>
+
+
+
+
+
+        <activity
+            android:name = ".me.SettingActivity"
+            android:label="@string/settingactivity_title"/>
+
+        <activity
+            android:name = ".me.MeActivity"
+            android:label="@string/meactivity_title"/>
+
+        <activity
+            android:name = ".me.MySportActivity">
+
+        </activity>
+
+        <activity
+            android:name = ".me.MyVenueActivity"
+            android:label="@string/myvenueactivity_title"/>
+
+        <activity
+            android:name = ".me.VenueAsHomeActivity"
+            android:label="@string/myvenueashomeactivity_title"/>
+
+        <activity
+            android:name = ".me.VenueAsBackUpActivity"
+            android:label="@string/myvenueasbackupactivity_title"/>
+
+
+
+        <activity
+            android:name = ".me.UploadVenueActivity"
+            android:label="@string/myvenueactivity_title"/>
+
+        <!--
+        <activity
+            android:name = ".me.CnVenueSearchActivity"
+            android:label="@string/myvenuesearchactivity_title"/>
+        -->
+
+        <activity
+            android:name = ".me.VenueRadarActivity"
+            android:label="@string/myvenueradaractivity_title"/>
+
+
+
+        <activity
+            android:name = ".me.MatchDetailActivity">
+
+            <meta-data
+                android:name  = "android.support.PARENT_ACTIVITY"
+                android:value = ".me.MySportActivity"/>
+        </activity>
+
+
+        <activity
+            android:name = ".me.ProfileActivity">
+
+            <meta-data
+                android:name  = "android.support.PARENT_ACTIVITY"
+                android:value = ".me.MeActivity"/>
+        </activity>
+
+
+
+        <activity
+            android:name = ".me.FeedbackActivity"/>
+
+        <activity
+            android:name = ".MessageListActivity"
+            android:label = "@string/messagelistactivity_title"/>
+
+        <activity
+            android:name = ".MessageReplyActivity"
+            android:label = "@string/messagereplyactivity_title"/>
+
+
+
+
+        <activity
+            android:name              = ".MapActivity"
+            android:label             = "@string/mainactivity_title"
+            android:screenOrientation = "portrait"
+            />
+        <!--
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        -->
+
+        <activity
+            android:name              = ".CnMapActivity"
+            android:label             = "@string/mainactivity_title"
+            android:screenOrientation = "portrait"
+            />
+
+
+
+
+        <activity
+            android:name               = ".DispatchActivity"
+            android:noHistory          = "true" >
+            <intent-filter>
+                <action android:name   = "android.intent.action.MAIN" />
+
+                <category android:name = "android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+
+
+        <!-- <meta-data android:name = "com.facebook.sdk.ApplicationId"
+             android:value="@string/facebook_app_id"/>
+        -->
+
+        <provider
+            android:name=".base.third.geocoder.PlaceProvider"
+
+            android:authorities="com.oneme.toplay.base.third.geocoder.PlaceProvider"
+            android:enabled="true"
+            android:multiprocess="true"
+            android:exported="false" >
+        </provider>
+
+
+
+
+    </application>
+
+</manifest>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- android:background="@drawable/list_selector"-->
+<RelativeLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:layout_width  = "wrap_content"
+    android:layout_height = "wrap_content"
+    android:orientation   = "horizontal"
+    android:padding       = "5dip" >
+
+    <!--  ListRow Left Thumbnail image -->
+    <LinearLayout android:id           = "@+id/thumbnailimage"
+        android:layout_width           = "wrap_content"
+        android:layout_height          = "wrap_content"
+        android:padding                = "3dip"
+        android:paddingLeft            = "4dp"
+        android:paddingRight           = "4dp"
+        android:layout_alignParentLeft = "true"
+        android:layout_marginRight     = "5dip">
+
+        <ImageView
+            android:id                 = "@+id/avatar_view"
+            android:layout_width       = "40dp"
+            android:layout_height      = "50dp"
+            android:layout_marginRight = "8dp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id               = "@+id/username_view"
+        android:layout_width     = "wrap_content"
+        android:layout_height    = "wrap_content"
+        android:layout_alignTop  = "@+id/thumbnailimage"
+        android:layout_toRightOf = "@id/thumbnailimage"
+        android:layout_marginTop = "1dp"
+        android:paddingLeft      = "8dp"
+        android:textAppearance   = "?android:attr/textAppearanceSmall" />
+
+
+    <TextView
+        android:id               = "@+id/content_view"
+        android:layout_width     = "wrap_content"
+        android:layout_height    = "wrap_content"
+        android:layout_toRightOf = "@+id/thumbnailimage"
+        android:layout_alignBottom= "@id/thumbnailimage"
+        android:layout_below     = "@id/username_view"
+        android:paddingLeft      = "8dp"
+        android:textAppearance   = "?android:attr/textAppearanceSmall" />
+
+
+    <TextView
+        android:id                      = "@+id/newestsendtime"
+        android:layout_width            = "wrap_content"
+        android:layout_height           = "wrap_content"
+        android:layout_alignParentRight = "true"
+        android:layout_alignTop         = "@id/username_view"
+        android:gravity                 = "right"
+        android:layout_marginRight      = "4dip"
+        android:textSize                = "10dip"/>
+
+</RelativeLayout>

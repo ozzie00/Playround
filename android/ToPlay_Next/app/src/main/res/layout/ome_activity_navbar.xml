@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:background="@android:color/white"
+    >
+<RadioGroup
+    android:id="@+id/radiogroup"
+    android:layout_width="fill_parent"
+    android:layout_height="54dp"
+    android:layout_alignParentBottom="true"
+    android:orientation="horizontal"
+    android:background="@layout/ome_navbar_background"
+    android:layout_marginBottom="1dp"
+    android:layout_marginTop="1dp">
+
+    <RadioButton
+        android:id="@+id/home"
+        style="@style/navbar_button"
+        android:drawableTop="@layout/ome_navbar_homeselector"
+        android:layout_marginTop="8dp"
+        android:onClick="callMainActivity"
+        />
+    <RadioButton
+        android:id="@+id/localinvitation"
+        style="@style/navbar_button"
+        android:drawableTop="@layout/ome_navbar_localinvitationselector"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="5dp"
+
+        />
+    <RadioButton
+        android:id="@+id/message"
+        style="@style/navbar_button"
+        android:drawableTop="@layout/ome_navbar_messageselector"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="5dp"
+        />
+    <RadioButton
+        android:id="@+id/me"
+        style="@style/navbar_button"
+        android:drawableTop="@layout/ome_navbar_meselector"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="5dp"
+
+        />
+
+</RadioGroup>
+
+    <!--android:background="@drawable/laysemitransparentwithborders"-->
+<LinearLayout
+    android:id="@+id/floatingmenu"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp"
+
+    android:orientation="vertical"
+    android:layout_marginBottom="-4dp"
+    android:visibility="gone"
+    >
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:text="Contacts"
+        android:textColor="#ffffff"
+        android:textSize="16dp"
+        />
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#ff999999"
+        />
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:text="Calendar"
+        android:textColor="#ffffff"
+        android:textSize="16dp"
+        />
+</LinearLayout>
+</RelativeLayout>

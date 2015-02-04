@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- the theme applied to the application or activity -->
+
+    <style name="CustomActionBarTheme"
+        parent="@style/Theme.AppCompat.Light"> <!--.DarkActionBar"> -->
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+
+        <!-- Support library compatibility -->
+        <item name="actionBarStyle">@style/MyActionBar</item>
+    </style>
+
+    <!-- ActionBar styles -->
+    <style name="MyActionBar"
+        parent="@style/Widget.AppCompat.Light.ActionBar"> <!--.Solid.Inverse">-->
+        <item name="android:background">@drawable/abc_ab_share_pack_holo_light</item>
+
+        <!-- Support library compatibility -->
+        <item name="background">@drawable/abc_ab_share_pack_holo_light</item>
+    </style>
+
+    <style name="Theme.AppCompat.Translucent">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+    </style>
+
+</resources>

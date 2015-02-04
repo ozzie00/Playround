@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:layout_width    = "match_parent"
+    android:layout_height   = "wrap_content"
+    android:orientation     = "vertical"
+    android:paddingBottom   = "@dimen/margin_large"
+    android:paddingLeft     = "@dimen/margin_large"
+    android:paddingRight    = "@dimen/margin_large"
+    android:focusableInTouchMode="true"
+    android:paddingTop      = "@dimen/margin_large" >
+
+    <RelativeLayout android:id= "@+id/me_profile_block"
+        android:layout_width  = "match_parent"
+        android:layout_height = "wrap_content"
+        android:orientation   = "horizontal"
+        android:padding       = "5dip"
+        android:background    = "@android:color/white">
+
+        <!--android:src                = "@drawable/ome_map_avataricon"-->
+        <ImageView
+            android:id                 = "@+id/me_avatar_view"
+            android:layout_width       = "60dp"
+            android:layout_height      = "80dp"
+            android:layout_marginRight = "8dp"
+            android:src                = "@drawable/ome_map_avataricon"/>
+
+        <TextView
+            android:id                = "@+id/me_username_view"
+            android:layout_width      = "100dp"
+            android:layout_height     = "wrap_content"
+            android:layout_marginTop  = "8dp"
+            android:layout_marginLeft = "70dp"
+            android:paddingLeft       = "8dp"
+            android:gravity           = "left"
+            android:textAppearance    = "?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id                = "@+id/me_content_view"
+            android:layout_width      = "100dp"
+            android:layout_height     = "wrap_content"
+            android:layout_marginLeft = "70dp"
+            android:layout_below      = "@id/me_username_view"
+            android:gravity           = "left"
+            android:paddingLeft       = "8dp"
+            android:textAppearance    = "?android:attr/textAppearanceMedium" />
+
+        <ImageView
+            android:id                 = "@+id/me_qrcode_view"
+            android:layout_width       = "64dp"
+            android:layout_height      = "64dp"
+            android:layout_marginLeft  = "70dp"
+            android:layout_marginRight = "8dp"
+            android:layout_alignTop    = "@id/me_username_view"
+            android:layout_toRightOf   = "@+id/me_content_view"
+            android:gravity            = "right"
+            android:clickable          = "true"
+            android:src                = "@drawable/ome_me_barcode"/>
+    </RelativeLayout>
+
+    <RelativeLayout android:id= "@+id/me_sport_block"
+        android:layout_width     = "match_parent"
+        android:layout_height    = "wrap_content"
+        android:orientation      = "horizontal"
+        android:layout_marginTop = "16dp"
+        android:padding          = "5dip"
+        android:background       = "@android:color/white">
+
+        <ImageView
+            android:id                 = "@+id/me_sport_image"
+            android:layout_width       = "32dp"
+            android:layout_height      = "32dp"
+            android:layout_marginTop   = "8dp"
+            android:layout_marginRight = "16dp"
+            android:src                = "@drawable/ome_me_sport"
+            android:layout_marginLeft  ="16dp" />
+
+        <TextView
+            android:id                      = "@+id/me_invitation"
+            android:layout_width            = "wrap_content"
+            android:layout_height           = "32dp"
+            android:layout_marginTop        = "8dp"
+            android:layout_marginLeft       = "70dp"
+            android:layout_alignTop         = "@id/me_sport_image"
+            android:background              = "@android:color/white"
+            android:text                    = "@string/OMEPARSEMEMYSPORT"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width  = "match_parent"
+        android:layout_height = "1dp"
+        android:orientation   = "horizontal"
+        android:background    = "#c0c0c0"/>
+
+    <RelativeLayout android:id= "@+id/me_address_block"
+        android:layout_width     = "match_parent"
+        android:layout_height    = "wrap_content"
+        android:orientation      = "horizontal"
+        android:padding          = "5dip"
+        android:background       = "@android:color/white">
+
+        <ImageView
+            android:id                 = "@+id/me_address_image"
+            android:layout_width       = "32dp"
+            android:layout_height      = "32dp"
+            android:layout_marginTop   = "8dp"
+            android:layout_marginRight = "16dp"
+            android:src                = "@drawable/ome_me_venue"
+            android:layout_marginLeft  = "16dp" />
+
+        <TextView
+            android:id                      = "@+id/me_address"
+            android:layout_width            = "wrap_content"
+            android:layout_height           = "32dp"
+            android:layout_marginTop        = "8dp"
+            android:layout_marginLeft       = "70dp"
+            android:layout_alignTop         = "@id/me_address_image"
+            android:background              = "@android:color/white"
+            android:text                    = "@string/OMEPARSEMEMYCOURTADDRESS"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout android:id= "@+id/me_setting_block"
+
+        android:layout_width     = "match_parent"
+        android:layout_height    = "wrap_content"
+        android:layout_marginTop = "16dp"
+        android:orientation      = "horizontal"
+        android:padding          = "5dip"
+        android:background       = "@android:color/white">
+
+        <ImageView
+            android:id                 = "@+id/me_setting_image"
+            android:layout_width       = "32dp"
+            android:layout_height      = "32dp"
+            android:layout_marginTop   = "8dp"
+            android:layout_marginRight = "16dp"
+            android:src                = "@drawable/ome_me_setting"
+            android:layout_marginLeft  ="16dp" />
+
+        <TextView
+            android:id                      = "@+id/me_setting"
+            android:layout_width            = "wrap_content"
+            android:layout_height           = "32dp"
+            android:layout_marginTop        = "8dp"
+            android:layout_marginLeft       = "70dp"
+            android:layout_alignTop         = "@id/me_setting_image"
+            android:background              = "@android:color/white" />
+    </RelativeLayout>
+
+
+</LinearLayout>

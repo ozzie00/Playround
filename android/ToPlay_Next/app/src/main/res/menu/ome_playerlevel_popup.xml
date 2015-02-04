@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width  = "match_parent"
+    android:layout_height = "match_parent">
+
+    <item
+        android:id="@+id/playerlevel1"
+        android:title="1"/>
+
+    <item
+        android:id="@+id/playerlevel2"
+        android:title="2"/>
+
+    <item
+        android:id="@+id/playerlevel3"
+        android:title="3"/>
+
+    <item
+        android:id="@+id/playerlevel4"
+        android:title="4"/>
+
+    <item
+        android:id="@+id/playerlevel15"
+        android:title="5"/>
+
+    <item
+        android:id="@+id/playerlevel6"
+        android:title="6"/>
+
+    <item
+        android:id="@+id/playerlevel17"
+        android:title="7"/>
+
+    <item
+        android:id="@+id/playerlevel8"
+        android:title="8"/>
+
+    <item
+        android:id="@+id/playerlevel19"
+        android:title="9"/>
+
+
+
+
+</menu>

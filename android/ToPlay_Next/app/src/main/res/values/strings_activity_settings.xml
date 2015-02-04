@@ -1,0 +1,63 @@
+<resources>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Profile -->
+    <string name="pref_header_profile">Profile</string>
+
+    <string name="pref_title_nickname">Name</string>
+    <string name="pref_default_nickname">User</string>
+
+    <string name="pref_title_status">Status</string>
+    <string-array name="pref_status_list_titles">
+        <item>Online</item>
+        <item>Away</item>
+        <item>Busy</item>
+    </string-array>
+    <string-array name="pref_status_list_values" translatable="false">
+        <item>online</item>
+        <item>away</item>
+        <item>busy</item>
+    </string-array>
+
+    <string name="pref_title_status_message">Status Message</string>
+    <string name="pref_default_status_message">Hi! What\'s up</string>
+
+    <string name="OMESETTINGPREFERENCETITLESTATUSMESSAGE">Status Message</string>
+    <string name="OMESETTINGPREFERENCEDEFAULTSTATUSMESSAGE">Hi! What\'s up</string>
+    <string name="OMESETTINGPREFERENCEDENABLEDUDP">enable_udp</string>
+
+    <string name="pref_title_id">ID</string>
+    <string name="pref_default_id">Default ID - You should not see this</string>
+
+    <string name="pref_title_account_name">Profile Name</string>
+    <string name="pref_title_logout">Logout</string>
+
+    <!-- Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_enable_notifications">Enable notifications</string>
+    <string name="pref_title_new_message_notifications">Message notifications</string>
+    <string name="pref_title_new_friend_notifications">Friend request notifications</string>
+
+    <!-- Other -->
+    <string name="pref_header_other">Other</string>
+    <string name="pref_title_connection_status_messages">Online/Offline Messages</string>
+    <string name="pref_title_wifi_only">Wi-Fi Only</string>
+
+    <string name="pref_title_language">Language</string>
+    <string-array name="pref_language_list_titles" translatable="false">
+        <item>English</item>
+    </string-array>
+    <string-array name="pref_language_list_values" translatable="false">
+        <item>en</item>
+    </string-array>
+
+    <!-- Menu strings -->
+    <string name="copy_tox_id">Copy Tox ID</string>
+
+    <!-- Advanced strings -->
+    <string name="pref_udp">Enable UDP</string>
+    <string name="pref_advanced">Advanced</string>
+    <string name="pref_nospam">Generate New Nospam</string>
+
+</resources>

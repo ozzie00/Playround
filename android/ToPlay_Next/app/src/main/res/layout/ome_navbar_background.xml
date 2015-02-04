@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" android:layout_height="40dip" android:layout_width="200dip">
+<item>
+    <shape>
+        <solid android:color="@color/white_absolute" />
+    </shape>
+</item>
+<item android:bottom="64dip"
+      android:top   ="64dip"
+      android:right ="64dip"
+      android:left  ="64dip">
+    <shape>
+        <gradient
+            android:startColor="#2c2c2c"
+            android:endColor="#151515"
+            android:angle="270.0" />
+    </shape>
+
+</item>
+</layer-list>
+

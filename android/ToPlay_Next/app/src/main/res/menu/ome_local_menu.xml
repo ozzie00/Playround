@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:compat="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id              = "@+id/action_map"
+        android:icon            = "@drawable/ic_action_place"
+        android:orderInCategory = "100"
+        compat:showAsAction     = "always"
+        android:title           = "@string/action_map"/>
+
+    <item
+        android:id              = "@+id/action_message"
+        android:icon            = "@drawable/ome_ic_action_message"
+        android:orderInCategory = "100"
+        compat:showAsAction     = "always"
+        android:title           = "@string/action_message" />
+
+    <item
+        android:id              = "@+id/action_invite"
+        android:icon            = "@drawable/ome_ic_action_invite"
+        android:orderInCategory = "100"
+        compat:showAsAction     = "always"
+        android:title           = "@string/action_Invite"/>
+
+
+
+</menu>

@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">动动</string>
+    <string name="app_version">动动 安卓版 v.1.0.3.01</string>
+    
+    <!-- Strings related to activity -->
+    <string name="action_settings">设置</string>
+    <!-- <string name="title_activity_settings">Settings</string> -->
+    <string name="character_count_placeholder">0/200</string>
+    
+
+    <!-- Strings related to activity -->
+    <string name="mainactivity_title">动动</string>
+    <string name="loginactivity_title">动动</string>
+    <string name="meactivity_title">我</string>
+    <string name="mysportactivity_title">我的组局</string>
+    <string name="matchdetailactivity_title">比赛详情</string>
+    <string name="settingactivity_title">设置</string>
+    <string name="inviteactivity_title">组局</string>
+    <string name="joinactivity_title">捧场</string>
+    <string name="localactivity_title">附近的组局</string>
+    <string name="messagelistactivity_title">消息</string>
+    <string name="messagereplyactivity_title">回复</string>
+    
+    <string name="action_Invite">组局</string>
+    <string name="action_search">搜索</string>
+    <string name="action_message">消息</string>
+    <string name="action_map">地图</string>
+    <string name="action_local">附近的组局</string>
+    <string name="search_hint">搜索场馆</string>
+    <string name="search_settings">搜索场馆</string>
+    
+    <!-- Strings related to common -->
+    <string name="action_setting">设置</string>
+    <string name="login">登录</string>
+    <string name="signup">注册</string>
+    <string name="logout_full">退出</string>
+    <string name="post_out_of_range">这里太远.</string>
+    <string name="progress_invite">组局&#8230;</string>
+    <string name="progress_send">发送&#8230;</string>
+    <string name="progress_join">捧场&#8230;</string>
+    <string name="hostplayerusername">用户名</string>
+    <string name="progress_local">加载&#8230;</string>
+    <string name="OMEPARSELOGOUT">退出</string>
+    <string name="OMEPARSELOGIN">登录</string>
+    <string name="OMEPARSESETTING">设置</string>
+    <string name="OMEPARSEOK">好的</string>
+    <string name="OMEPARSEYES">好</string>
+    <string name="OMEPARSENO">不</string>
+    
+    <!-- Strings related to invite activity -->
+    
+    <!-- <string name="OMEPARSEWANTTOKEY">want to </string> -->
+    <string name="OMEPARSEINVITEPLAYDATE">日期</string>
+    <string name="OMEPARSEINVITEPLAYHOUR">时间</string>
+    <string name="OMEPARSEINVITEPLAYBUTTON">组局</string>
+    <string name="OMEPARSEINVITELOGINALERT">请登录或注册!</string>
+    <string name="OMEPARSEINVITEREALLYPLAY">是否真的组局?</string>
+    <string name="OMEPARSEINVITECOURTDEFAULT">国家体育场</string>
+    <string name="OMEPARSEINVITEPLAYERSUBMITSUCCESSALERTINFO">成功发送组局请求，请等待小伙伴捧场!</string>
+    
+    
+    <!-- Strings related to sport type for invite activity -->
+    
+    
+    
+    
+    <string name="OMEPARSEINVITESPORTPROMPT">选择你喜爱的运动</string>
+    
+    
+    <!-- Strings related to car brand -->
+    <string-array name="sport_type_array">
+        <item>羽毛球</item>
+        <item>篮球</item>
+        <item>斯洛克</item>
+        <item>桌上足球</item>
+        <item>乒乓球</item>
+        <item>网球</item>
+        <item>登山</item>
+        <item>跑步</item>
+        <item>骑车</item>
+        <item>其他</item>
+    </string-array>
+    
+    
+    <!-- Strings related to join activity -->
+    <string name="OMEPARSEINVITEPLAYCOURTPLACEHOLD">输入场地地址</string>
+    <string name="OMEPARSEINVITEPLAYERALERTINFO">真的想去捧场?</string>
+    <string name="OMEPARSEINVITEJOINPLAYBUTTON">捧场</string>
+    <string name="OMEPARSEINVITEPLAYERJOINPLAYSUCCESSALERTINFO">成功提交捧场请求，请等待小伙伴回复!</string>
+    <string name="OMEPARSEMESSAGEJOINPLAYREQUESTFIRSTPART">嗨</string>
+    <string name="OMEPARSEMESSAGEJOINPLAYREQUESTSECONDPART">我是</string>
+    <string name="OMEPARSEMESSAGEJOINPLAYREQUESTTHIRDPART"> 和你</string>
+    <string name="OMEPARSEWANTTOKEY">想</string>
+    <string name="OMEPARSEINVITETITLEPLAY">玩</string>
+    
+    <!-- Strings related to login -->
+    <string name="title_activity_login">登录</string>
+    <string name="title_activity_signup">注册</string>
+    <string name="prompt_username">用户</string>
+    <string name="prompt_password">密码</string>
+    <string name="prompt_password_again">再输入密码</string>
+    <string name="error_intro">"请 "</string>
+    <string name="error_blank_username">输入想使用的用户名</string>
+    <string name="error_blank_password">输入想设置的密码</string>
+    <string name="error_mismatched_passwords">再输入一次想使用的密码</string>
+    <string name="error_join">", 和 "</string>
+    <string name="error_end">.</string>
+    <string name="progress_login">登录&#8230;</string>
+    <string name="progress_signup">注册&#8230;</string>
+    
+    
+    
+    <!-- String related to map info -->
+    <string name="current_location_unavailable">请等当前位置出现在地图上以后再尝试.</string>
+    <string name="google_play_service_unavailable">该手机不支持谷歌商店 !</string>
+    <string name="switch_to_china_map">转换地图服务 !</string>
+    <string name="cannot_access_server">不能访问服务器，请重新登录 !</string>
+    <string name="locate_fail">定位失败!</string>
+    <string name="google_map_unavailable">不能访问谷歌地图 !</string>
+    
+    
+    <!-- String related to feedback -->
+    <string name="OMEPARSEFEEDBACK">反馈</string>
+    <string name="OMEPARSEFEEDBACKSENDBUTTON">发送</string>
+    <string name="OMEPARSEFEEDBACKSENDING">发送&#8230;</string>
+    <string name="OMEPARSEFEEDBACKHINT">非常感谢您的反馈，动动产品组将根据您的反馈不断完善产品和提高性能!\n\n                   @动动产品组</string>
+    
+    
+    <!-- String related to message reply -->
+    <string name="OMEPARSEMESSAGEREPLYBUTTON">发送</string>
+    
+    
+    <!--String related to user status-->
+    <string name="OMEPARSEUSERSTATUSONLINE">在线</string>
+    <string name="OMEPARSEUSERSTATUSOFFLINE">下线</string>
+    <string name="OMEPARSEUSERSTATUSAWAY">离开</string>
+    <string name="OMEPARSEUSERSTATUSBUSY">忙碌</string>
+    
+    
+    
+    <!--String related to me activity-->
+    <string name="OMEPARSEMEMYSPORTTITLE">我的比赛</string>
+    <string name="OMEPARSEMEMATCHDETAILTITLE">详情</string>
+    <string name="OMEPARSEMEMYSPORT">我的运动</string>
+    <string name="OMEPARSEMEMYCOURTADDRESS">我的场馆</string>
+    <string name="OMEPARSEMEMYSETTINGS">设置</string>
+    <string name="OMEPARSEMEMYSETTINGSNOTIFICATIONSHEADER">通知</string>
+    <string name="OMEPARSEMEMYSETTINGSGENERALHEADER">一般信息</string>
+    <string name="OMEPARSEMEMYSETTINGMATCHDETAILPLAYERS">加入比赛者</string>
+    <string name="OMEPARSEMEPROFILEPLAYROUNDID">动动号</string>
+    <string name="OMEPARSEMEPROFILEALIAS">别名</string>
+    <string name="OMEPARSEMEPROFILEAVATAR">头像</string>
+    <string name="OMEPARSEMEPROFILEQRCODE">二维码</string>
+    <string name="OMEPARSEMEPROFILECHOOSEIMAGE">选择相片</string>
+    <string name="OMEPARSEMEPROFILETAKEPHOTO">照相</string>
+    <string name="OMEPARSEMESPORTNOONEPLAYER">没有其他参赛者捧场，请继续等待!</string>
+    
+    <!--String related to chat-->
+    <string name="OMEPARSECHATFILETRANMITFINISH">完成</string>
+    <string name="OMEPARSECHATFILETRANMITFAILED">失败</string>
+    <string name="OMEPARSECHATFILETRANMITREQUEST">请求发送文件</string>
+    <string name="OMEPARSECHATFILETRANMITREJECT">拒绝</string>
+    <string name="OMEPARSECHATTYPING">正在输入</string>
+    
+    <!--String related to add contact-->
+    <string name="OMEPARSEADDCONTACTSEARCHHINT">动动号</string>
+    <string name="OMEPARSEADDCONTACTSEARCHSETTING">搜索联系人</string>
+    <string name="OMEPARSEADDCONTACTMYID">我的动动号:</string>
+    <string name="OMEPARSEADDCONTACTFRIENDRADAR">寻找朋友</string>
+    <string name="OMEPARSEADDCONTACTNEARBYNOTE">发现附近的朋友</string>
+    <string name="OMEPARSEADDCONTACTSCANQRCODE">扫描二维码</string>
+    <string name="OMEPARSEADDCONTACTSCANQRCODENOTE">扫描二维码名片</string>
+    <string name="OMEPARSEADDCONTACTSEARCHUSERNAMEERROR">用户名不能为空</string>
+    <string name="OMEPARSEADDCONTACTSEARCHDISPLAYRESULTTITLE">结果</string>
+    <string name="OMEPARSEADDCONTACTSEARCHDISPLAYPROFILE">基本情况</string>
+    <string name="OMEPARSEADDCONTACTEXT">加为好友</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTTITLE">发送请求</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTTEXT">发送</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTMESSAGE">写句话...</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTSUCCESS">成功发送好友请求信息</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTINVALIDFRIENDID">不合适的动动号</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTFRIENDEXIST">好友已经存在</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTADDYOURSELF">不能加自己</string>
+    <string name="OMEPARSEADDCOTACTSHAREQRCODEWITH">和好友分享</string>
+    <string name="OMEPARSEADDCONTACTADDMENOTE">请扫描二维码加我为好友</string>
+    <string name="OMEPARSEADDCONTACTDEFAULTREQUESTMESSAGE">他(她)想成为你好友 !</string>
+    <string name="OMEPARSEADDCONTACTREQUESTNOTEIAM">我是</string>
+    
+    
+    <string name="notifications">显示通知</string>
+    
+    <!-- Activity titles -->
+    <string name="title_activity_add_friend">增加联系人</string>
+    <string name="title_activity_friend_profile">好友信息</string>
+    
+    <!-- Navigation / Action Bar -->
+    <string name="add_friend">增加好友</string>
+    
+    
+    <!-- Main Activity -->
+    <string name="main_no_active_chat">请选择好友聊天.</string>
+    <string name="main_message_no">暂时没有消息</string>
+    <string name="main_no_internet">暂时没有网络信号</string>
+    <string name="main_not_connected">没有检测到网络信号，仅能使用有限的功能</string>
+    <string name="search_all_contacts">搜索</string>
+    
+    <!-- Chat Activity -->
+    <string name="chat_enter_message">发送消息</string>
+    <string name="chat_file_transfer">传送文件</string>
+    
+    <!-- Add Friend Activity -->
+    <string name="addfriend_friend_key">动动号</string>
+    <string name="addfriend_friend_message">发送请求信息</string>
+    <string name="addfriend_button">加为好友</string>
+    <string name="addfriend_friend_added">好友已加</string>
+    <!-- <string name="addfriend_friend_exists">Friend already exists</string>-->
+    <string name="scanqr_button">扫描二维码</string>
+    <!-- <string name="invalid_friend_ID">Invalid ID</string>-->
+    <string name="addfriend_nick_hint">设置昵称</string>
+    <string name="addfriend_optional_title">额外选项</string>
+    <string name="dialog_pin">输入朋友的号</string>
+    <string name="addfriend_invalid_pin">不合适的号</string>
+    <!--  <string name="addfriend_own_key">You cannot add yourself</string> -->
+    <string name="addfriend_friend_pin_title">输入朋友的号</string>
+    <string name="addfriend_friend_pin_text">输入朋友的号</string>
+    <string name="addfriend_default_message">嗨，请接受我的好友请求!</string>
+    
+    <!-- Friend Profile Activity -->
+    <string name="friend_profile_nick">昵称</string>
+    <string name="friend_profile_key">好友号</string>
+    <string name="friend_profile_note">状态</string>
+    <string name="friend_profile_button">更新</string>
+    <string name="friend_profile_updated">用户信息已经更新</string>
+    <string name="friend_profile_copied">复制好友号</string>
+    
+    <!-- Friend request fragment -->
+    <string name="friend_profile_title">%1$s\'s 信息</string>
+    <string name="friendrequest_accept">接受</string>
+    <string name="friendrequest_reject">拒绝</string>
+    <string name="friend_request">好友请求</string>
+    
+    <!-- Contacts Fragment -->
+    <string name="friend_action_profile">用户信息</string>
+    <string name="friend_action_delete">删除好友</string>
+    <string name="friend_action_delete_chat">删除聊天纪录</string>
+    <string name="friend_action_block">阻止</string>
+    <string name="contacts_actions_on">操作</string>
+    <string name="contacts_delimiter_requests">请求</string>
+    <string name="contacts_delimiter_friends">好友</string>
+    <string name="contacts_delimiter_offline">下线</string>
+    <string name="contacts_delimiter_online">上线</string>
+    <string name="contacts_resend_friend_request">重新发送好友请求</string>
+    
+    <!-- Delete Friend Dialog -->
+    <string name="friend_action_delete_friend_confirmation">真的想删掉好友?</string>
+    
+    <!-- Delete Chat Logs Dialog -->
+    <string name="friend_action_delete_chat_confirmation">真的想删掉聊天纪录?</string>
+    
+    <!-- Block Friend Dialog -->
+        <string name="friend_action_block_friend_confirmation">拉黑这个好友，将从好友列表里面删掉他们同时再也不能接收他们的好友请求.\n\n是否真的继续拉黑?</string>
+    
+    <!-- Chat Fragment -->
+    <string name="attachment_photo">附上照片</string>
+    <string name="attachment_file">附上文件</string>
+    <string name="attachment_takephoto">拍照片</string>
+    <string name="message_copy">复制消息</string>
+    <string name="message_delete">删掉消息</string>
+    
+    <!-- Left Pane Fragment -->
+    <string name="titles_recent">消息</string>
+    <string name="titles_contacts">联系人</string>
+    <string name="titles_settings">设置</string>
+    
+    <!-- Misc -->
+    <string name="button_confirm">确认</string>
+    <string name="button_cancel">取消</string>
+    <string name="button_yes">好</string>
+    <string name="button_no">不</string>
+    <string name="button_ok">好</string>
+    <string name="dialog_id">复制动动号</string>
+    <string name="share_with">分享</string>
+    <string name="connection_has">有网络信号</string>
+    <string name="connection_online">即将上线</string>
+    <string name="connection_offline">已经下线</string>
+    
+    
+    <!-- QR -->
+    <string name="qr_default_title">安装二维码扫描软件?</string>
+    <string name="qr_default_message">这个应用要求二维码扫描软件，想安装吗?</string>
+    <string name="qr_button_yes">好</string>
+    <string name="qr_button_no">不</string>
+
+    <!--Add by playround 1.0.2.09 -->
+    <string name="myvenueactivity_title">我的场馆</string>
+    <string name="OMEPARSEMEMYVENUEUPLOAD">上传场馆地址</string>
+    <string name="OMEPARSEMEMYVENUENAME">场馆名字</string>
+    <string name="OMEPARSEMEMYVENUEADDRESS">场馆地址</string>
+    <string name="OMEPARSEMEMYVENUEPHONE">场馆电话</string>
+    <string name="OMEPARSEMEMYVENUENAMEPLACEHOLD">输入名字</string>
+    <string name="OMEPARSEMEMYVENUEADDRESSPLACEHOLD">输入地址</string>
+    <string name="OMEPARSEMEMYVENUEPHONEPLACEHOLD">输入电话</string>
+    <string name="OMEPARSEMEMYVENUESUBMIT">上传</string>
+    <string name="OMEPARSEMYVENUEHOMEVENUE">主要场馆</string>
+    <string name="OMEPARSEMYVENUEBACKUPVENUE">备用场馆</string>
+    <string name="OMEPARSEMYVENUERADAR">附近场馆</string>
+    <string name="myvenueradaractivity_title">附近场馆</string>
+    <string name="OMEPARSEMEMYVENUEDISTANCEKMNOTE">公里远</string>
+    <string name="OMEPARSEMEMYVENUEDISTANCEMETERNOTE">米远</string>
+    <string name="myvenueuploadactivity_title">上传场馆信息</string>
+    <string name="myvenueashomeactivity_title">添加主要场馆</string>
+    <string name="OMEPARSEMEMYVENUEASHOMEPLACEHOLD">输入场馆名字</string>
+    <string name="OMEPARSESIGNUPDEVICEREGISTERED">设备已经注册过!</string>
+    <string name="OMEPARSESIGNUPCANNOTGETDEVICEID">无法读取设备号!</string>
+    <string name="OMEPARSEUSERNAMEMINIMUMLENGTHSHOULDSIX">用户名长度不能小于6个字符!</string>
+    <string name="OMEPARSEUSERPASSWORDMINIMUMLENGTHSHOULDSIX">密码长度不能小于6个字符!</string>
+
+
+    <!--Add by playround 1.0.2.12 -->
+    <string name="OMEPARSEMEMYVENUEASBACKUPPLACEHOLD">输入场馆名字</string>
+    <string name="myvenueasbackupactivity_title">添加备用场馆</string>
+
+    <!--Add by playround 1.0.3.01 -->
+    <string name="OMEPARSECANNOTJOINYOURSELFALERT">你不能再次加入自己组局的比赛!</string>
+
+
+</resources>

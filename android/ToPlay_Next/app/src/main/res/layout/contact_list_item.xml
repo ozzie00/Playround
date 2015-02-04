@@ -1,0 +1,107 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_selector"
+    android:padding="10dp" >
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_height="50dp">
+
+        <RelativeLayout android:id= "@+id/avatar_block"
+            android:layout_width  = "64dp"
+            android:layout_height = "64dp"
+            android:orientation   = "horizontal"
+            android:padding       = "4dip"
+            android:background    = "@android:color/white">
+
+            <ImageView
+                android:id                 = "@+id/icon"
+                android:layout_width       = "48dp"
+                android:layout_height      = "48dp"
+                android:layout_marginLeft  = "8dp"
+                android:layout_marginTop   = "8dp"
+                android:layout_marginRight = "@dimen/margin_medium"
+                android:src                = "@drawable/ome_map_heicon"/>
+
+            <TextView
+                android:id                 = "@+id/unread_messages_count"
+                android:layout_gravity     = "center_vertical"
+                android:textColor          = "@color/white"
+                android:layout_width       = "18dp"
+                android:layout_height      = "18dp"
+                android:layout_marginTop   = "4dp"
+                android:layout_marginLeft  = "36dp"
+                android:gravity            = "center"
+                android:textStyle          = "bold"
+                android:text               = "2"
+                android:background         = "@drawable/ome_unread_message_count_circle"
+                android:clickable          = "false" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:duplicateParentState="true"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:duplicateParentState="true"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5">
+
+
+
+                <TextView
+                    android:id="@+id/friend_name"
+                    android:duplicateParentState="true"
+                    android:textColor="@color/black"
+                    android:layout_width="0dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/last_message_timestamp"
+                    android:duplicateParentState="true"
+                    android:text="10:00 PM"
+                    android:textSize="@dimen/text_small"
+                    android:textColor="@color/gray_darker"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:duplicateParentState="true"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5">
+                <TextView
+                    android:id="@+id/friend_status"
+                    android:duplicateParentState="true"
+                    android:textColor="@color/gray_darker"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="marquee"
+                    android:singleLine="true"
+                    android:layout_marginRight="10dp"
+                    android:textSize="15sp"/>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout> 

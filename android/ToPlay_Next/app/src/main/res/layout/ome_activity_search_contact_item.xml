@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- android:background="@drawable/list_selector"-->
+<RelativeLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:layout_width  = "fill_parent"
+    android:layout_height = "wrap_content"
+    android:orientation   = "horizontal"
+    android:background="@color/white_absolute">
+
+    <ImageView
+        android:id                 = "@+id/search_other_avatar_view"
+        android:layout_width       = "64dp"
+        android:layout_height      = "64dp"
+        android:layout_marginLeft  = "8dp"
+        android:layout_marginRight = "8dp"
+        android:layout_marginTop   = "8dp"
+        android:layout_marginBottom= "8dp"
+        android:src                = "@drawable/ome_map_avataricon"/>
+
+    <TextView
+        android:id               = "@+id/search_other_username_view"
+        android:layout_width     = "wrap_content"
+        android:layout_height    = "wrap_content"
+        android:layout_alignTop  = "@+id/search_other_avatar_view"
+        android:layout_toRightOf = "@id/search_other_avatar_view"
+        android:paddingLeft      = "8dp"
+        android:textAppearance   = "?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id               = "@+id/search_other_content_view"
+        android:layout_width     = "wrap_content"
+        android:layout_height    = "wrap_content"
+        android:layout_below     = "@id/search_other_username_view"
+        android:layout_marginTop = "16dp"
+        android:layout_toRightOf = "@+id/search_other_avatar_view"
+        android:paddingLeft      = "8dp"
+        android:textAppearance   = "?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id                      = "@+id/search_other_lasttime_view"
+        android:layout_width            = "wrap_content"
+        android:layout_height           = "wrap_content"
+        android:layout_alignParentRight = "true"
+        android:layout_alignTop         = "@+id/search_other_content_view"
+        android:layout_toRightOf        = "@+id/search_other_content_view"
+        android:gravity                 = "right"
+        android:layout_marginRight      = "5dip"
+        android:textSize                = "10dip"/>
+
+</RelativeLayout>

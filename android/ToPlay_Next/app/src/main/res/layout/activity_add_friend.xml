@@ -1,0 +1,297 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/margin_large"
+        android:paddingLeft="@dimen/margin_large"
+        android:paddingRight="@dimen/margin_large"
+        android:focusableInTouchMode="true"
+        android:paddingTop="@dimen/margin_large"
+        tools:context=".AddFriendActivity">
+
+
+        <RelativeLayout android:id= "@+id/search_contact_block"
+            android:layout_width  = "match_parent"
+            android:layout_height = "wrap_content"
+            android:orientation   = "horizontal"
+            android:padding       = "5dip"
+            android:gravity       = "center"
+            android:background    = "@android:color/white">
+
+            <ImageView
+                android:id                 = "@+id/search_bar_view"
+                android:layout_width       = "wrap_content"
+                android:layout_height      = "wrap_content"
+                android:layout_marginTop   = "4dp"
+                android:layout_marginLeft  = "8dp"
+                android:layout_marginBottom= "12dp"
+                android:clickable          = "true"
+                android:src                = "@drawable/ic_action_search_contact"/>
+
+            <TextView
+                android:id                = "@+id/search_username_view"
+                android:layout_width      = "wrap_content"
+                android:layout_height     = "wrap_content"
+                android:layout_marginTop  = "8dp"
+                android:layout_marginLeft = "10dp"
+                android:layout_toRightOf  = "@id/search_bar_view"
+                android:layout_marginBottom="8dp"
+                android:paddingLeft       = "8dp"
+                android:textAppearance    = "?android:attr/textAppearanceSmall"
+                android:text              = "@string/OMEPARSEADDCONTACTSEARCHHINT"
+                android:textColor         = "@color/grey"/>
+
+            <View
+                android:layout_width  = "match_parent"
+                android:layout_height = "1dp"
+                android:layout_below  = "@+id/search_username_view"
+                android:layout_marginBottom="4dp"
+                android:orientation   = "horizontal"
+                android:background    = "#1DA155"/>
+
+
+
+        </RelativeLayout>
+
+
+
+        <EditText
+            android:id="@+id/addfriend_key"
+            android:layout_width="0dp"
+            android:inputType="text"
+            android:layout_height="0dp"
+            android:singleLine="true"
+            android:layout_marginTop="0dp"
+            android:gravity="center"
+            android:hint="@string/addfriend_friend_key" />
+
+        <View
+            android:layout_width  = "match_parent"
+            android:layout_height = "1dp"
+            android:orientation   = "horizontal"
+            android:background    = "#c0c0c0"/>
+        <View
+            android:layout_width  = "match_parent"
+            android:layout_height = "8dp"
+            android:orientation   = "horizontal"
+            android:background    = "@color/white"/>
+
+
+        <RelativeLayout android:id= "@+id/addme_block"
+            android:layout_width  = "fill_parent"
+            android:layout_height = "wrap_content"
+            android:orientation   = "horizontal"
+            android:gravity       = "center"
+            android:padding       = "5dip"
+            android:background    = "@android:color/white">
+
+            <TextView
+                android:id                = "@+id/addme_id_note_view"
+                android:layout_width      = "wrap_content"
+                android:layout_height     = "wrap_content"
+                android:layout_marginTop  = "8dp"
+                android:layout_marginLeft = "10dp"
+                android:paddingLeft       = "8dp"
+                android:textAppearance    = "?android:attr/textAppearanceSmall"
+                android:text              = "@string/OMEPARSEADDCONTACTMYID"/>
+
+            <TextView
+                android:id                = "@+id/addme_username_view"
+                android:layout_width      = "wrap_content"
+                android:layout_height     = "wrap_content"
+                android:layout_marginTop  = "8dp"
+                android:layout_marginLeft = "0dp"
+                android:layout_toRightOf  = "@id/addme_id_note_view"
+                android:paddingLeft       = "8dp"
+                android:textAppearance    = "?android:attr/textAppearanceSmall"/>
+
+            <ImageView
+                android:id                 = "@+id/addme_qrcode_view"
+                android:layout_width       = "wrap_content"
+                android:layout_height      = "wrap_content"
+                android:layout_marginTop   = "4dp"
+                android:layout_marginLeft  = "8dp"
+                android:layout_toRightOf   = "@+id/addme_username_view"
+                android:clickable          = "true"
+                android:src                = "@drawable/ome_me_barcode"/>
+        </RelativeLayout>
+
+
+
+        <!--
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:inputType="text"
+            android:layout_marginTop="20dp"
+            android:textSize="25sp"
+            android:text="@string/addfriend_optional_title"
+            android:layout_gravity="center_horizontal"/>
+        -->
+
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:id="@+id/addfriend_friendAlias"
+            android:layout_marginTop="0dp"
+            android:gravity="center"
+
+             />
+
+        <!--android:hint="@string/addfriend_nick_hint"-->
+
+
+        <EditText
+            android:id="@+id/addfriend_message"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:inputType="text"
+            android:layout_marginTop="0dp"
+            android:gravity="center"
+            android:hint="@string/addfriend_friend_message" />
+
+        <Button
+            android:id="@+id/addFriend"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="0dp"
+            android:gravity="center"
+            android:text="@string/addfriend_button"
+            android:onClick="addFriend" />
+
+
+        <View
+            android:layout_width  = "match_parent"
+            android:layout_height = "1dp"
+            android:orientation   = "horizontal"
+            android:background    = "#c0c0c0"/>
+        <View
+            android:layout_width  = "match_parent"
+            android:layout_height = "8dp"
+            android:orientation   = "horizontal"
+            android:background    = "@color/white"/>
+
+
+        <RelativeLayout android:id= "@+id/friend_radar_block"
+            android:layout_width  = "match_parent"
+            android:layout_height = "wrap_content"
+            android:orientation   = "horizontal"
+            android:gravity       = "left"
+            android:clickable     = "true"
+            android:padding       = "5dip"
+            android:background    = "@android:color/white">
+
+            <ImageView
+                android:id                 = "@+id/friend_radar_view"
+                android:layout_width       = "32dp"
+                android:layout_height      = "32dp"
+                android:layout_marginTop   = "8dp"
+                android:layout_marginLeft  = "8dp"
+                android:src                = "@drawable/ome_friend_radar"
+                android:gravity            = "center_vertical"/>
+
+            <TextView
+                android:id                = "@+id/friend_radar_text_view"
+                android:layout_width      = "wrap_content"
+                android:layout_height     = "wrap_content"
+                android:layout_marginTop  = "4dp"
+                android:layout_marginLeft = "10dp"
+                android:layout_toRightOf  = "@id/friend_radar_view"
+                android:paddingLeft       = "8dp"
+                android:textAppearance    = "?android:attr/textAppearanceMedium"
+                android:text              = "@string/OMEPARSEADDCONTACTFRIENDRADAR"
+                android:textColor         = "@color/grey_darkest"/>
+
+            <TextView
+                android:id                = "@+id/friend_radar_note_view"
+                android:layout_width      = "wrap_content"
+                android:layout_height     = "wrap_content"
+                android:layout_marginTop  = "4dp"
+                android:layout_marginLeft = "8dp"
+                android:layout_marginBottom= "4dp"
+                android:layout_toRightOf  = "@id/friend_radar_view"
+                android:layout_below      = "@id/friend_radar_text_view"
+                android:paddingLeft       = "8dp"
+                android:textAppearance    = "?android:attr/textAppearanceSmall"
+                android:text              = "@string/OMEPARSEADDCONTACTNEARBYNOTE"
+                android:textColor         = "@color/grey_dark"/>
+
+
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width  = "match_parent"
+            android:layout_height = "1dp"
+            android:orientation   = "horizontal"
+            android:background    = "#c0c0c0"/>
+        <View
+            android:layout_width  = "match_parent"
+            android:layout_height = "8dp"
+            android:orientation   = "horizontal"
+            android:background    = "@color/white"/>
+
+
+        <RelativeLayout android:id= "@+id/scan_qrcode_block"
+            android:layout_width  = "match_parent"
+            android:layout_height = "wrap_content"
+            android:orientation   = "horizontal"
+            android:gravity       = "left"
+            android:clickable     = "true"
+            android:padding       = "5dip"
+            android:background    = "@android:color/white">
+
+            <ImageView
+                android:id                 = "@+id/scan_qrcode_logo_view"
+                android:layout_width       = "32dp"
+                android:layout_height      = "32dp"
+                android:layout_marginTop   = "8dp"
+                android:layout_marginLeft  = "8dp"
+                android:src                = "@drawable/ome_barcode_logo"
+                android:gravity            = "center_vertical"/>
+
+            <TextView
+                android:id                = "@+id/scan_qrcode_view"
+                android:layout_width      = "wrap_content"
+                android:layout_height     = "wrap_content"
+                android:layout_marginTop  = "4dp"
+                android:layout_marginLeft = "10dp"
+                android:layout_toRightOf  = "@id/scan_qrcode_logo_view"
+                android:paddingLeft       = "8dp"
+                android:textAppearance    = "?android:attr/textAppearanceMedium"
+                android:text              = "@string/OMEPARSEADDCONTACTSCANQRCODE"
+                android:textColor         = "@color/grey_darkest"/>
+
+            <TextView
+                android:id                = "@+id/scan_note_view"
+                android:layout_width      = "wrap_content"
+                android:layout_height     = "wrap_content"
+                android:layout_marginTop  = "4dp"
+                android:layout_marginLeft = "8dp"
+                android:layout_marginBottom= "4dp"
+                android:layout_toRightOf  = "@id/scan_qrcode_logo_view"
+                android:layout_below      = "@id/scan_qrcode_view"
+                android:paddingLeft       = "8dp"
+                android:textAppearance    = "?android:attr/textAppearanceSmall"
+                android:text              = "@string/OMEPARSEADDCONTACTSCANQRCODENOTE"
+                android:textColor         = "@color/grey_dark"/>
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width  = "match_parent"
+            android:layout_height = "1dp"
+            android:orientation   = "horizontal"
+            android:background    = "#c0c0c0"/>
+
+
+    </LinearLayout>
+</ScrollView>

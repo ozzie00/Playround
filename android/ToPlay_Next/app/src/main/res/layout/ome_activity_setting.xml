@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android = "http://schemas.android.com/apk/res/android"
+        android:layout_width         = "match_parent"
+        android:layout_height        = "wrap_content"
+        android:orientation          = "vertical"
+        android:paddingBottom        = "@dimen/margin_large"
+        android:paddingLeft          = "@dimen/margin_large"
+        android:paddingRight         = "@dimen/margin_large"
+        android:focusableInTouchMode = "true"
+        android:paddingTop           = "@dimen/margin_large" >
+
+
+    <RelativeLayout android:id   = "@+id/setting_feedback_block"
+
+        android:layout_width     = "match_parent"
+        android:layout_height    = "wrap_content"
+        android:layout_marginTop = "16dp"
+        android:orientation      = "horizontal"
+        android:padding          = "5dip"
+        android:background       = "@android:color/white">
+
+    <TextView
+        android:id                      = "@+id/setting_Feedback"
+        android:layout_width            = "match_parent"
+        android:layout_height           = "32dp"
+        android:layout_marginTop        = "16dp"
+        android:layout_marginLeft       = "16dp"
+        android:background              = "@android:color/white"
+        android:clickable               = "true"
+        android:onClick                 = "onClickFeedback" />
+
+    </RelativeLayout>
+
+    <RelativeLayout android:id   = "@+id/setting_about_block"
+
+        android:layout_width     = "match_parent"
+        android:layout_height    = "wrap_content"
+        android:layout_marginTop = "16dp"
+        android:orientation      = "horizontal"
+        android:padding          = "5dip"
+        android:background       = "@android:color/white">
+
+        <TextView
+            android:id                      = "@+id/setting_About"
+            android:layout_width            = "match_parent"
+            android:layout_height           = "32dp"
+            android:layout_marginTop        = "16dp"
+            android:layout_marginLeft       = "16dp"
+            android:background              = "@android:color/white"
+            android:clickable               = "true"/>
+    </RelativeLayout>
+
+</LinearLayout>
