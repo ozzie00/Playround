@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">Playround</string>
-    <string name="app_version">Playround Android v.1.0.2.09</string>
+    <string name="app_version">Playround Android v.1.0.4.01</string>
 
     <!-- Strings related to activity -->
     <string name="action_settings">Settings</string>
@@ -80,16 +79,91 @@
 
     <!-- Strings related to car brand -->
     <string-array name="sport_type_array">
+
         <item>Badminton</item>
+        <item>Baseball</item>
         <item>Basketball</item>
-        <item>Snooker</item>
+        <item>Beach Volleyball</item>
+        <item>Bowling</item>
+        <item>Cricket</item>
+        <item>Football American</item>
+        <item>Football Rugby</item>
+        <item>Football,Soccer</item>
+        <item>Golf</item>
+        <item>Handball</item>
+        <item>Hockey</item>
+        <item>Polo</item>
+        <item>Ice Hockey</item>
+        <item>Squash</item>
         <item>Table Soccer</item>
         <item>Table Tennis</item>
         <item>Tennis</item>
-        <item>Trekking</item>
+        <item>Volleyball</item>
+        <item>Water Polo</item>
+        <item>Snooker</item>
+
+        <item>Cycling Mountain Bike</item>
+        <item>Cycling Road</item>
+        <item>Fitness walking</item>
         <item>Running</item>
-        <item>Cycling</item>
+        <item>Walking</item>
+        <item>Treadmill</item>
+        <item>Trekking</item>
+
+        <item>Canoe</item>
+        <item>Diving</item>
+        <item>Kite surfing</item>
+        <item>Rowing</item>
+        <item>Sailing</item>
+        <item>Scuba diving</item>
+        <item>Surfing</item>
+        <item>Swimming</item>
+        <item>Windsurfing</item>
+
+        <item>Canyoning</item>
+        <item>Caving</item>
+        <item>Climbing</item>
+        <item>Ice climbing</item>
+        <item>Orienteering</item>
+        <item>Skateboarding</item>
+
+        <item>Archery</item>
+        <item>Shooting</item>
+        <item>Dart</item>
+
+        <item>Alpine Skiing</item>
+        <item>Bobsleigh</item>
+        <item>Cross country ski</item>
+        <item>Luge</item>
+        <item>Roller skiing</item>
+        <item>Ski Jumping</item>
+        <item>Snowboarding</item>
+        <item>Snowshoeing</item>
+        <item>Speed skating</item>
+        <item>Short Track Speed Skating</item>
+        <item>Skating</item>
+        <item>Skeleton</item>
+        <item>Curling</item>
+
+        <item>Boxing</item>
+        <item>Dancing</item>
+        <item>Elliptical training</item>
+        <item>Fencing</item>
+        <item>Gymnastics</item>
+        <item>Judo</item>
+        <item>Martial arts</item>
+        <item>Pilates</item>
+        <item>Poker</item>
+        <item>Riding</item>
+        <item>Taekwondo</item>
+        <item>Trampoline</item>
+        <item>Weight training</item>
+        <item>Wheelchair</item>
+        <item>Wrestling</item>
+        <item>Yoga</item>
         <item>Other</item>
+
+
     </string-array>
 
 
@@ -165,8 +239,8 @@
 
 
     <!--String related to me activity-->
-    <string name="OMEPARSEMEMYSPORTTITLE">My Match</string>
-    <string name="OMEPARSEMEMATCHDETAILTITLE">Detail</string>
+    <string name="OMEPARSEMEMYSPORTTITLE">My Workout</string>
+    <string name="OMEPARSEMEMATCHDETAILTITLE">Workout Invitation Detail</string>
     <string name="OMEPARSEMEMYSPORT">My Sport</string>
     <string name="OMEPARSEMEMYCOURTADDRESS">My Venue Address</string>
     <string name="OMEPARSEMEMYSETTINGS">Settings</string>

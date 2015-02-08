@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">动动</string>
-    <string name="app_version">动动 安卓版 v.1.0.2.09</string>
+    <string name="app_version">动动 安卓版 v.1.0.4.01</string>
     
     <!-- Strings related to activity -->
     <string name="action_settings">设置</string>
@@ -73,25 +73,98 @@
     
     
     <!-- Strings related to sport type for invite activity -->
-    
-    
-    
-    
+
     <string name="OMEPARSEINVITESPORTPROMPT">选择你喜爱的运动</string>
     
-    
-    <!-- Strings related to car brand -->
+    <!-- Strings related to sport type -->
     <string-array name="sport_type_array">
+
+
         <item>羽毛球</item>
+        <item>棒球</item>
         <item>篮球</item>
-        <item>斯洛克</item>
-        <item>桌上足球</item>
+        <item>沙滩排球</item>
+        <item>保龄球</item>
+        <item>板球</item>
+        <item>美式足球</item>
+        <item>橄榄球</item>
+        <item>足球</item>
+        <item>高尔夫</item>
+        <item>手球</item>
+        <item>曲棍球</item>
+        <item>马球</item>
+        <item>冰球</item>
+        <item>壁球</item>
+        <item>桌式足球</item>
         <item>乒乓球</item>
         <item>网球</item>
-        <item>登山</item>
+        <item>排球</item>
+        <item>水球</item>
+        <item>斯洛克</item>
+
+        <item>山地车越野</item>
+        <item>公路骑行</item>
+        <item>健身行走</item>
         <item>跑步</item>
-        <item>骑车</item>
+        <item>步行</item>
+        <item>跑步机</item>
+        <item>徒步越野</item>
+
+        <item>皮划艇</item>
+        <item>潜水</item>
+        <item>风筝冲浪</item>
+        <item>划船</item>
+        <item>帆船</item>
+        <item>水肺潜水</item>
+        <item>冲浪</item>
+        <item>游泳</item>
+        <item>风帆</item>
+
+        <item>溪降</item>
+        <item>探洞</item>
+        <item>攀岩</item>
+        <item>攀冰</item>
+        <item>定向越野</item>
+        <item>滑板</item>
+
+        <item>射箭</item>
+        <item>射击</item>
+        <item>飞镖</item>
+
+        <item>高山滑雪</item>
+        <item>有舵雪橇</item>
+        <item>越野滑雪</item>
+        <item>无舵雪橇</item>
+        <item>滚轮滑雪</item>
+        <item>跳台滑雪</item>
+        <item>单板滑雪</item>
+        <item>雪鞋徒步</item>
+        <item>速度滑冰</item>
+        <item>短道速滑</item>
+        <item>滑冰</item>
+        <item>俯式冰撬</item>
+        <item>冰壶运动</item>
+
+        <item>拳击</item>
+        <item>跳舞</item>
+        <item>椭圆训练</item>
+        <item>击剑</item>
+        <item>体操</item>
+        <item>柔道</item>
+        <item>武术</item>
+        <item>普拉提</item>
+        <item>扑克</item>
+        <item>马术</item>
+        <item>跆拳道</item>
+        <item>蹦床</item>
+        <item>重量训练</item>
+        <item>轮椅运动</item>
+        <item>摔跤</item>
+        <item>瑜伽</item>
         <item>其他</item>
+
+
+
     </string-array>
     
     
@@ -161,14 +234,14 @@
     
     
     <!--String related to me activity-->
-    <string name="OMEPARSEMEMYSPORTTITLE">我的比赛</string>
-    <string name="OMEPARSEMEMATCHDETAILTITLE">详情</string>
+    <string name="OMEPARSEMEMYSPORTTITLE">我的锻炼</string>
+    <string name="OMEPARSEMEMATCHDETAILTITLE">锻炼组局详情</string>
     <string name="OMEPARSEMEMYSPORT">我的运动</string>
     <string name="OMEPARSEMEMYCOURTADDRESS">我的场馆</string>
     <string name="OMEPARSEMEMYSETTINGS">设置</string>
     <string name="OMEPARSEMEMYSETTINGSNOTIFICATIONSHEADER">通知</string>
     <string name="OMEPARSEMEMYSETTINGSGENERALHEADER">一般信息</string>
-    <string name="OMEPARSEMEMYSETTINGMATCHDETAILPLAYERS">加入比赛者</string>
+    <string name="OMEPARSEMEMYSETTINGMATCHDETAILPLAYERS">加入锻炼的朋友</string>
     <string name="OMEPARSEMEPROFILEPLAYROUNDID">动动号</string>
     <string name="OMEPARSEMEPROFILEALIAS">别名</string>
     <string name="OMEPARSEMEPROFILEAVATAR">头像</string>
@@ -217,8 +290,26 @@
     
     <!-- Navigation / Action Bar -->
     <string name="add_friend">增加好友</string>
-    
-    
+
+
+    <!-- Login Activity -->
+    <string name="login_must_fill_in">You must fill in a profile name</string>
+    <string name="login_login">Login</string>
+    <string name="login_account_hint">Profile Name</string>
+    <string name="login_create_account_text">Create Profile</string>
+    <string name="login_bad_login">no vaild username</string>
+
+    <!-- Create Account Activity -->
+    <string name="create_name_hint">Profile Name</string>
+    <string name="create_text">Slogan Here</string>
+    <string name="create_register">Register</string>
+    <string name="create_register_incog">Register Incognito</string>
+    <string name="create_skip">Allow anyone to add you using your profile name</string>
+    <string name="create_must_fill_in">You must fill in all fields</string>
+    <string name="create_bad_profile_name">Profile name can\'t contain spaces or backslashes/forwardslashes</string>
+
+
+
     <!-- Main Activity -->
     <string name="main_no_active_chat">请选择好友聊天.</string>
     <string name="main_message_no">暂时没有消息</string>
@@ -333,6 +424,20 @@
     <string name="myvenueashomeactivity_title">添加主要场馆</string>
     <string name="OMEPARSEMEMYVENUEASHOMEPLACEHOLD">输入场馆名字</string>
     <string name="OMEPARSESIGNUPDEVICEREGISTERED">设备已经注册过!</string>
+    <string name="myvenuesearchactivity_title">搜索场馆</string>
+    <string name="OMEPARSESIGNUPCANNOTGETDEVICEID">不能取得设备号!</string>
+    <string name="OMEPARSEUSERNAMEMINIMUMLENGTHSHOULDSIX">用户名长度应超过个6个字符!</string>
+    <string name="OMEPARSEUSERPASSWORDMINIMUMLENGTHSHOULDSIX">密码长度应超过6个字符!</string>
+
+    <!--Add by playround 1.0.2.12 -->
+    <string name="OMEPARSEMEMYVENUEASBACKUPPLACEHOLD">输入场馆名</string>
+    <string name="myvenueasbackupactivity_title">添加备用场馆</string>
+
+    <!--Add by playround 1.0.3.01 -->
+    <string name="OMEPARSECANNOTJOINYOURSELFALERT">不能再次加入自己的比赛!</string>
+
+
+
 
 
 </resources>

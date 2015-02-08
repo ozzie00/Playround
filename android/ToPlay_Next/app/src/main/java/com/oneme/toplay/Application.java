@@ -29,7 +29,7 @@ public class Application extends android.app.Application {
     private static final String TAG      = "Application";
 
     // Debugging switch
-    public static final boolean APPDEBUG = true;
+    public static final boolean APPDEBUG = false;
 
     // Debugging tag for the application
     public static final String APPTAG    = "Playround";

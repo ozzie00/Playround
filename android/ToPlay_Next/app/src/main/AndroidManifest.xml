@@ -197,9 +197,11 @@
         -->
 
         <!--ToPlay Amap release key-->
+        <!--
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="4f46e5534eba6dcbbac56745cb75e4e9" />
+        -->
 
         <!--ToPlay Amap debug key-->
         <!--
@@ -374,7 +376,9 @@
             android:name = ".me.VenueAsHomeActivity"
             android:label="@string/myvenueashomeactivity_title"/>
 
-
+        <activity
+            android:name = ".me.VenueAsBackUpActivity"
+            android:label="@string/myvenueasbackupactivity_title"/>
 
         <activity
             android:name = ".me.UploadVenueActivity"

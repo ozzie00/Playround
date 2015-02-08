@@ -37,7 +37,6 @@
             android:layout_below           = "@id/hostplayerusername"
             android:layout_marginTop       = "1dp"
             android:layout_toRightOf       = "@id/join_avatar_view"
-            android:text                   = "Level" 
             android:paddingLeft            = "8dp" />
 
         <TextView
