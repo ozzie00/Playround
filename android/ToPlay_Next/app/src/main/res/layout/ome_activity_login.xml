@@ -48,6 +48,14 @@
                 android:imeActionId="@+id/edittext_action_login"
                 android:imeActionLabel="@string/login"
                 android:imeOptions="actionUnspecified" />
+            <!--
+            <CheckBox
+                android:id="@+id/login_checkbox_venueowner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/OMEPARSELOGINASVENUEOWNERNOTE"
+                android:checked="false" />
+            -->
 
             <Button
                 android:id="@+id/action_button"

@@ -149,7 +149,7 @@ public class MyVenueActivity extends ActionBarActivity {
             }
         });
 
-        // call mysport activity
+        // call upload activity
         RelativeLayout myupload = (RelativeLayout) findViewById(R.id.myvenue_upload_block);
         myupload.setOnClickListener(new View.OnClickListener(){
             @Override

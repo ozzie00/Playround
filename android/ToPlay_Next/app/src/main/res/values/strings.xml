@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Playround</string>
-    <string name="app_version">Playround Android v.1.0.4.01</string>
+    <string name="app_version">Playround Android v.1.0.4.02</string>
 
     <!-- Strings related to activity -->
     <string name="action_settings">Settings</string>
@@ -22,7 +22,7 @@
     <string name="settingactivity_title">Setting</string>
     <string name="inviteactivity_title">Invite</string>
     <string name="joinactivity_title">Join</string>
-    <string name="localactivity_title">Near Invitation</string>
+    <string name="localactivity_title">Invitation</string>
     <string name="messagelistactivity_title">Message</string>
     <string name="messagereplyactivity_title">Reply</string>
 
@@ -86,9 +86,9 @@
         <item>Beach Volleyball</item>
         <item>Bowling</item>
         <item>Cricket</item>
-        <item>Football American</item>
-        <item>Football Rugby</item>
-        <item>Football,Soccer</item>
+        <item>Football, American</item>
+        <item>Football, Rugby</item>
+        <item>Football, Soccer</item>
         <item>Golf</item>
         <item>Handball</item>
         <item>Hockey</item>
@@ -374,7 +374,7 @@
     <string name="addfriend_optional_title">Optional Extras</string>
     <string name="dialog_pin">Enter your friend\'s pin</string>
     <string name="addfriend_invalid_pin">Invalid Pin</string>
-  <!--  <string name="addfriend_own_key">You cannot add yourself</string> -->
+    <!--  <string name="addfriend_own_key">You cannot add yourself</string> -->
     <string name="addfriend_friend_pin_title">Enter Friend\'s Pin</string>
     <string name="addfriend_friend_pin_text">Enter Friend\'s Pin</string>
     <string name="addfriend_default_message">Hi! Please accept my friend request</string>
@@ -452,7 +452,7 @@
     <string name="OMEPARSEMEMYVENUEUPLOAD">Upload Venue Address</string>
     <string name="OMEPARSEMEMYVENUENAME">Venue Name</string>
     <string name="OMEPARSEMEMYVENUEADDRESS">Venue Address</string>
-    <string name="OMEPARSEMEMYVENUEPHONE">Phone</string>
+    <string name="OMEPARSEMEMYVENUEPHONE">Venue Phone</string>
     <string name="OMEPARSEMEMYVENUENAMEPLACEHOLD">Enter Name</string>
     <string name="OMEPARSEMEMYVENUEADDRESSPLACEHOLD">Enter Address</string>
     <string name="OMEPARSEMEMYVENUEPHONEPLACEHOLD">Enter Phone</string>
@@ -478,6 +478,42 @@
 
     <!--Add by playround 1.0.3.01 -->
     <string name="OMEPARSECANNOTJOINYOURSELFALERT">You can not re-join yourself match!</string>
+
+    <!--Add by playround 1.0.4.02 -->
+    <string name="search_venue_hint">Search Venue</string>
+    <string name="search_venue_settings">Search Location</string>
+    <string name="OMEPARSEREGISTERASVENUEOWNERNOTE">Register as Venue</string>
+    <string name="OMEPARSELOGINASVENUEOWNERNOTE">Login as Venue</string>
+    <string name="ownerinfouploadactivity_title">Upload Venue Info </string>
+    <string name="OMEPARSESIGNUPERRORNOTE">Register error</string>
+    <string name="OMEPARSEVENUEOWNERNAME">Venue Name</string>
+    <string name="OMEPARSEVENUEOWNERADDRESS">Venue Address</string>
+    <string name="OMEPARSEVENUEOWNERPHONE">Venue Phone</string>
+    <string name="OMEPARSEVENUEOWNERCONTACTNAME">Contact Name</string>
+    <string name="OMEPARSEVENUEOWNERCONTACTPHONE">Contact Phone</string>
+    <string name="OMEPARSEVENUEOWNERCONTACTEMAIL">Email</string>
+    <string name="OMEPARSEVENUEOWNERLOCATION">Venue Location</string>
+    <string name="OMEPARSEVENUEOWNERNAMEPLACEHOLD">Enter Name</string>
+    <string name="OMEPARSEVENUEOWNERADDRESSPLACEHOLD">Enter Address</string>
+    <string name="OMEPARSEVENUEOWNERPHONEPLACEHOLD">Enter Phone</string>
+    <string name="OMEPARSEVENUEOWNERLOCATIONPLACEHOLD">Venue Location</string>
+    <string name="OMEPARSELOGINUSERNAMEPASSWORDNOTMATCH">username and password are not match</string>
+    <string name="OMEPARSECANNOTGETVENUEINFO">can not get venue info</string>
+    <string name="OMEPARSEVENUEOWNERCONTACTPLACEHOLD">Enter Email</string>
+    <string name="OMEPARSEVENUEOWNERCHOOSEIDCOPY">Choose ID Copy Photo</string>
+    <string name="OMEPARSEVENUEOWNERTAKEIDCOPY">Take Photo for ID Copy</string>
+    <string name="OMEPARSEVENUEOWNERIDCOPY">Owner ID Copy</string>
+    <string name="OMEPARSEVENUEOWNERLICENSECOPY">Venue License Copy</string>
+    <string name="OMEPARSECANNOTSAVEPARSEFILE">Can not save file !</string>
+    <string name="OMEPARSEVENUEOWNERUPDATE">Update Venue Info</string>
+
+
+
+
+
+
+
+
 
 
 

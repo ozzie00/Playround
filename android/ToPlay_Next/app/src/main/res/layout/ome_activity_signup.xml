@@ -44,6 +44,13 @@
                 android:imeActionLabel="@string/signup"
                 android:imeOptions="actionUnspecified" />
 
+            <CheckBox
+                android:id="@+id/signup_checkbox_venueowner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/OMEPARSEREGISTERASVENUEOWNERNOTE"
+                android:checked="false" />
+
             <Button
                 android:id="@+id/action_registerbutton"
                 android:layout_width="wrap_content"

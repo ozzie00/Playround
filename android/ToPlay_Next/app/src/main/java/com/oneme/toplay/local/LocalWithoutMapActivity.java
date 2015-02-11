@@ -17,6 +17,7 @@ package com.oneme.toplay.local;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -61,12 +62,12 @@ import com.oneme.toplay.MessageListActivity;
 import com.oneme.toplay.base.FriendInfo;
 import com.oneme.toplay.base.FriendRequest;
 import com.oneme.toplay.base.Tuple;
-
 import com.oneme.toplay.service.CoreService;
-
 import com.oneme.toplay.MainActivity;
 import com.oneme.toplay.LoginActivity;
 import com.oneme.toplay.me.MeActivity;
+import com.oneme.toplay.SearchActivity;
+
 
 import com.parse.GetDataCallback;
 import com.parse.ParseFile;
@@ -169,6 +170,8 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
 
     private static ParseGeoPoint mGeoPoint;
 
+    private String venuequery = null;
+
 
 
     ExpandableListView expListView;
@@ -183,9 +186,6 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
         lastRadius = radius;
 
         setContentView(R.layout.ome_activity_local);
-
-
-
 
         // Acquire a reference to the system Location Manager
         locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
@@ -431,6 +431,7 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
         });
 
         */
+
 
     }
 
@@ -692,11 +693,32 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
 
 
 
+    @Override
+    public boolean onSearchRequested() {
+        Bundle appData = new Bundle();
+
+        appData.putBoolean(Application.INTENT_EXTRA_VENUESEARCH, true);
+       // appData.putString(Application.INTENT_EXTRA_VENUESEARCH, venuequery);
+        startSearch(null, false, appData, false);
+        return true;
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle presses on the action bar items
         switch (item.getItemId()) {
+            case R.id.action_search_venue:
+                if (ParseUser.getCurrentUser() != null) {
+                    onSearchRequested();
+                } else {
+                    Toast.makeText(LocalWithoutMapActivity.this, getResources().getString(R.string.OMEPARSEINVITELOGINALERT), Toast.LENGTH_SHORT).show();
+                }
+                return true;
+            case R.id.action_map:
+                Intent invokeMapActivityIntent = new Intent(LocalWithoutMapActivity.this, MapActivity.class);
+                invokeMapActivityIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(invokeMapActivityIntent);
+                return true;
             case R.id.action_message:
                 // Check username
                 if (ParseUser.getCurrentUser() == null) {
@@ -709,11 +731,6 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
                     invokeMessageIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(invokeMessageIntent);
                 }
-                return true;
-            case R.id.action_map:
-                Intent invokeMapActivityIntent = new Intent(LocalWithoutMapActivity.this, MapActivity.class);
-                invokeMapActivityIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(invokeMapActivityIntent);
                 return true;
             case R.id.action_invite:
                 invokeInviteActivity();

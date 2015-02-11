@@ -597,6 +597,16 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
 
 
     @Override
+    public boolean onSearchRequested() {
+        Bundle appData = new Bundle();
+
+        appData.putBoolean(Application.INTENT_EXTRA_VENUESEARCH, true);
+        // appData.putString(Application.INTENT_EXTRA_VENUESEARCH, venuequery);
+        startSearch(null, false, appData, false);
+        return true;
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
         MenuInflater menuInflater = getMenuInflater();
@@ -687,6 +697,18 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle presses on the action bar items
         switch (item.getItemId()) {
+            case R.id.action_search_venue:
+                if (ParseUser.getCurrentUser() != null) {
+                    onSearchRequested();
+                } else {
+                    Toast.makeText(CnLocalWithoutMapActivity.this, getResources().getString(R.string.OMEPARSEINVITELOGINALERT), Toast.LENGTH_SHORT).show();
+                }
+                return true;
+            case R.id.action_map:
+                Intent invokeMapActivityIntent = new Intent(CnLocalWithoutMapActivity.this, CnMapActivity.class);
+                invokeMapActivityIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(invokeMapActivityIntent);
+                return true;
             case R.id.action_message:
                 // Check username
                 if (ParseUser.getCurrentUser() == null) {
@@ -699,11 +721,6 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
                     invokeMessageIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(invokeMessageIntent);
                 }
-                return true;
-            case R.id.action_map:
-                Intent invokeMapActivityIntent = new Intent(CnLocalWithoutMapActivity.this, CnMapActivity.class);
-                invokeMapActivityIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(invokeMapActivityIntent);
                 return true;
             case R.id.action_invite:
                 invokeInviteActivity();

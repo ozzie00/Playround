@@ -16,9 +16,16 @@ import android.location.Address;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.ConnectionResult;
 
+import com.oneme.toplay.base.AppConstant;
+import com.oneme.toplay.database.VenueOwner;
 import com.oneme.toplay.local.LocalWithoutMapActivity;
 import com.oneme.toplay.local.CnLocalWithoutMapActivity;
 
+import com.oneme.toplay.venue.OwnerInfoUploadActivity;
+import com.oneme.toplay.venue.OwnerMainActivity;
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 
@@ -41,22 +48,67 @@ public class DispatchActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Check google play service available
-        if (checkGooglePlayServicesAvailable()) {
+        ParseUser user = ParseUser.getCurrentUser();
 
-            // Check if there is current user info
-            if (ParseUser.getCurrentUser() != null) {
-                // Start an intent for the logged in activity
-                startActivity(new Intent(this, LocalWithoutMapActivity.class));
+
+            // Check google play service available
+            if (checkGooglePlayServicesAvailable()) {
+
+                // Check if there is current user info
+                if (user != null) {
+
+                    // check user tag
+                    if (user.getString(AppConstant.OMEPARSEUSERTAGKEY).equalsIgnoreCase(AppConstant.OMEPARSEUSERTAGPLAYER)) {
+
+                        // Start an intent for the logged in activity
+                        startActivity(new Intent(this, LocalWithoutMapActivity.class));
+                        finish();
+                    } else if (user.getString(AppConstant.OMEPARSEUSERTAGKEY).equalsIgnoreCase(AppConstant.OMEPARSEUSERTAGVENUE)) {
+                        ParseQuery<VenueOwner> query = VenueOwner.getQuery();
+                        query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
+                        query.include(AppConstant.OMEPARSEVENUEOWNERCLASSKEY);
+                        query.whereEqualTo(AppConstant.OMEPARSEUSERKEY, user);
+                        query.setLimit(1);
+
+                        query.getFirstInBackground(new GetCallback<VenueOwner>() {
+                            public void done(VenueOwner venueowner, ParseException pe) {
+                                if (pe == null) {
+
+                                    if (venueowner.getVerify() != true) {
+                                        Intent invokeVenueOwnerActivityIntent = new Intent(DispatchActivity.this, OwnerInfoUploadActivity.class);
+                                        startActivity(invokeVenueOwnerActivityIntent);
+                                        finish();
+                                    } else if (venueowner.getVerify() == true) {
+                                        Intent invokeOwnerMainActivityIntent = new Intent(DispatchActivity.this, OwnerMainActivity.class);
+                                        startActivity(invokeOwnerMainActivityIntent);
+                                        Toast.makeText(DispatchActivity.this, "we are building next activity", Toast.LENGTH_LONG)
+                                                .show();
+                                        finish();
+                                    }
+
+                                } else {
+                                    Toast.makeText(DispatchActivity.this, getResources().getString(R.string.OMEPARSECANNOTGETVENUEINFO), Toast.LENGTH_LONG)
+                                            .show();
+                                }
+                            }
+                        });
+
+                    }
+
+                } else {
+                    // Start and intent for the logged out activity
+                    startActivity(new Intent(this, LocalWithoutMapActivity.class));
+                    finish();
+                }
             } else {
-                // Start and intent for the logged out activity
-                startActivity(new Intent(this, LocalWithoutMapActivity.class));
+                //   Toast.makeText(this, getResources().getString(R.string.google_play_service_unavailable), Toast.LENGTH_LONG).show();
+                //   Toast.makeText(this, getResources().getString(R.string.switch_to_china_map), Toast.LENGTH_LONG).show();
+                startActivity(new Intent(this, CnLocalWithoutMapActivity.class));
+                finish();
             }
-        } else {
-         //   Toast.makeText(this, getResources().getString(R.string.google_play_service_unavailable), Toast.LENGTH_LONG).show();
-         //   Toast.makeText(this, getResources().getString(R.string.switch_to_china_map), Toast.LENGTH_LONG).show();
-            startActivity(new Intent(this, CnLocalWithoutMapActivity.class));
-        }
+
+
+
 
     }
 

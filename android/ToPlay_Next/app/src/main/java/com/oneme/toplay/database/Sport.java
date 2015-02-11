@@ -33,9 +33,9 @@ public final class Sport {
             "Beach Volleyball",
             "Bowling",
             "Cricket",
-            "Football American",
-            "Football Rugby",
-            "Football,Soccer",
+            "Football, American",
+            "Football, Rugby",
+            "Football, Soccer",
             "Golf",
             "Handball",
             "Hockey",
@@ -48,7 +48,6 @@ public final class Sport {
             "Volleyball",
             "Water Polo",
             "Snooker",
-
             "Cycling Mountain Bike",
             "Cycling Road",
             "Fitness walking",
@@ -56,7 +55,6 @@ public final class Sport {
             "Walking",
             "Treadmill",
             "Trekking",
-
             "Canoe",
             "Diving",
             "Kite surfing",
@@ -66,18 +64,15 @@ public final class Sport {
             "Surfing",
             "Swimming",
             "Windsurfing",
-
             "Canyoning",
             "Caving",
             "Climbing",
             "Ice climbing",
             "Orienteering",
             "Skateboarding",
-
             "Archery",
             "Shooting",
             "Dart",
-
             "Alpine Skiing",
             "Bobsleigh",
             "Cross country ski",
@@ -91,7 +86,6 @@ public final class Sport {
             "Skating",
             "Skeleton",
             "Curling",
-
             "Boxing",
             "Dancing",
             "Elliptical training",
@@ -133,7 +127,6 @@ public final class Sport {
             R.drawable.ome_volleyball_icon,
             R.drawable.ome_water_polo_icon,
             R.drawable.ome_snooker_icon,
-
             R.drawable.ome_mountain_bike_icon,
             R.drawable.ome_cycling_icon,
             R.drawable.ome_fitness_walk_icon,
@@ -141,7 +134,6 @@ public final class Sport {
             R.drawable.ome_walk_icon,
             R.drawable.ome_treadmill_icon,
             R.drawable.ome_trekking_icon,
-
             R.drawable.ome_canoe_icon,
             R.drawable.ome_diving_icon,
             R.drawable.ome_kite_surfing_icon,
@@ -151,18 +143,15 @@ public final class Sport {
             R.drawable.ome_surfing_icon,
             R.drawable.ome_swimming_icon,
             R.drawable.ome_wind_surfing_icon,
-
             R.drawable.ome_canyoning_icon,
             R.drawable.ome_caving_icon,
             R.drawable.ome_climbing_icon,
             R.drawable.ome_ice_climbing_icon,
             R.drawable.ome_orienteering_icon,
             R.drawable.ome_skateboarding_icon,
-
             R.drawable.ome_archery_icon,
             R.drawable.ome_shooting_icon,
             R.drawable.ome_darts_icon,
-
             R.drawable.ome_alpine_skiing_icon,
             R.drawable.ome_bobsleigh_icon,
             R.drawable.ome_cross_country_ski_icon,
@@ -176,7 +165,6 @@ public final class Sport {
             R.drawable.ome_skating_icon,
             R.drawable.ome_skeleton_icon,
             R.drawable.ome_curling_icon,
-
             R.drawable.ome_boxing_icon,
             R.drawable.ome_dancing_icon,
             R.drawable.ome_elliptical_training_icon,
@@ -194,6 +182,5 @@ public final class Sport {
             R.drawable.ome_wrestling_icon,
             R.drawable.ome_yoga_icon,
             R.drawable.ome_other_icon
-
     };
 }

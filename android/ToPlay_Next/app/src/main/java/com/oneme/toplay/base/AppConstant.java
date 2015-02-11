@@ -61,6 +61,7 @@ public final class AppConstant {
     public static final String OMETOPLAYJOINCLASSKEY       = "ToPlayJoin";
     public static final String OMETOPLAYPLAYERCLASSKEY     = "ToPlayPlayer";
     public static final String OMETOPLAYVENUECLASSKEY      = "ToPlayVenue";
+    public static final String OMEPARSEVENUEOWNERCLASSKEY  = "PlayroundVenueOwner";
 
     // Parse API key constants related to user :
     public static final String OMEPARSEUSERKEY             = "user";
@@ -93,7 +94,9 @@ public final class AppConstant {
     public static final String OMEPARSEUSERLASTTIMEKEY     = "userlasttime";
     public static final String OMEPARSEUSERLASTLOCATIONKEY = "userlastlocation";
     public static final String OMEPARSEUSERQRCODEKEY       = "userqrcode";
-    public static final String OMEPARSEUSERTAGKEY          = "usertag";
+    public static final String OMEPARSEUSERTAGKEY          = "userTag";
+    public static final String OMEPARSEUSERTAGPLAYER       = "player";
+    public static final String OMEPARSEUSERTAGVENUE        = "venue";
     public static final String OMEPARSEUSEROTHERKEY        = "userother";
     public static final String OMEPARSEUSERDEVICEIDKEY     = "userDeviceID";
 
@@ -118,20 +121,49 @@ public final class AppConstant {
     public static final String OMEPARSEPLAYERAVATARKEY     = "playeravatar";
 
     // Parse API Constant for venue
-    public static final String OMETOPLAYVENUENAMEKEY       = "venueName";
-    public static final String OMETOPLAYVENUEICONKEY       = "venueIcon";
-    public static final String OMETOPLAYVENUELEVELKEY      = "venueLevel";
-    public static final String OMETOPLAYVENUETYPEKEY       = "venueType";
-    public static final String OMETOPLAYVENUEADDRESSKEY    = "venueAddress";
-    public static final String OMETOPLAYVENUELOCATIONKEY   = "venueLocation";
-    public static final String OMETOPLAYVENUEPHONEKEY      = "venuePhone";
-    public static final String OMETOPLAYVENUECOURTNUMBERKEY= "venueCourtNumber";
-    public static final String OMETOPLAYVENUELIGHTEDKEY    = "venueLighted";
-    public static final String OMETOPLAYVENUEINDOORKEY     = "venueIndoor";
-    public static final String OMETOPLAYVENUEPUBLICKEY     = "venuePublic";
-    public static final String OMETOPLAYVENUEUPLOADEDBYKEY = "venueUploadedby";
-    public static final String OMETOPLAYVENUEPLAYERASHOMEKEY= "venuePlayerAsHome";
+    public static final String OMETOPLAYVENUENAMEKEY         = "venueName";
+    public static final String OMETOPLAYVENUEICONKEY         = "venueIcon";
+    public static final String OMETOPLAYVENUELEVELKEY        = "venueLevel";
+    public static final String OMETOPLAYVENUETYPEKEY         = "venueType";
+    public static final String OMETOPLAYVENUEADDRESSKEY      = "venueAddress";
+    public static final String OMETOPLAYVENUELOCATIONKEY     = "venueLocation";
+    public static final String OMETOPLAYVENUEPHONEKEY        = "venuePhone";
+    public static final String OMETOPLAYVENUECOURTNUMBERKEY  = "venueCourtNumber";
+    public static final String OMETOPLAYVENUELIGHTEDKEY      = "venueLighted";
+    public static final String OMETOPLAYVENUEINDOORKEY       = "venueIndoor";
+    public static final String OMETOPLAYVENUEPUBLICKEY       = "venuePublic";
+    public static final String OMETOPLAYVENUEUPLOADEDBYKEY   = "venueUploadedby";
+    public static final String OMETOPLAYVENUEPLAYERASHOMEKEY = "venuePlayerAsHome";
+    public static final String OMETOPLAYVENUESEARCHKEY       = "venueSearch";
 
+    // Parse API key constants related to venue owner :
+    public static final String OMEPARSEVENUEOWNERNAMEKEY         = "ownerName";
+    public static final String OMEPARSEVENUEOWNEROMEIDKEY        = "ownerOmeID";
+    public static final String OMEPARSEVENUEOWNERICONKEY         = "ownerIcon";
+    public static final String OMEPARSEVENUEOWNERALIASKEY        = "ownerAlias";
+    public static final String OMEPARSEVENUEOWNERICONFILENAME    = "ownerIcon.png";
+    public static final String OMEPARSEVENUEOWNEROMEIDNULL       = "0";
+    public static final String OMEPARSEVENUEOWNERPHONEKEY        = "ownerPhone";
+    public static final String OMEPARSEVENUEOWNERADDRESSKEY      = "ownerAddress";
+    public static final String OMEPARSEVENUEOWNERLOCATIONKEY     = "ownerLocation";
+    public static final String OMEPARSEVENUEOWNERCOURTNUMBERKEY  = "ownerCourtNumber";
+    public static final String OMEPARSEVENUEOWNERLIGHTEDKEY      = "ownerLighted";
+    public static final String OMEPARSEVENUEOWNERINDOORKEY       = "ownerIndoor";
+    public static final String OMEPARSEVENUEOWNERPUBLICKEY       = "ownerPublic";
+    public static final String OMEPARSEVENUEOWNERVERIFYKEY       = "ownerVerify";
+    public static final String OMEPARSEVENUEOWNERCONTACTNAMEKEY  = "contactname";
+    public static final String OMEPARSEVENUEOWNERCONTACTPHONEKEY = "contactphone";
+    public static final String OMEPARSEVENUEOWNERCONTACTEMAILKEY = "contactemail";
+    public static final String OMEPARSEVENUEOWNERIDCOPYKEY       = "ownerIdCopy";
+    public static final String OMEPARSEVENUEOWNERLICENSECOPYKEY  = "ownerLicense";
+    public static final String OMEPARSEVENUEOWNERIDCOPYFILENAME  = "ownerId.png";
+    public static final String OMEPARSEVENUEOWNERLICENSEFILENAME = "ownerLicense.png";
+
+    // venue owner image and photo result
+    public static final int OMEPARSEVENUOWNERIDCOPYIMAGERESULT      = 0;
+    public static final int OMEPARSEVENUOWNERIDCOPYPHOTORESULT      = 1;
+    public static final int OMEPARSEVENUOWNERLICENSECOPYIMAGERESULT = 2;
+    public static final int OMEPARSEVENUOWNERLICENSECOPYPHOTORESULT = 3;
 
 
     // Parse API Constant corresponding to add friend

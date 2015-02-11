@@ -17,6 +17,7 @@ import com.oneme.toplay.database.Invite;
 import com.oneme.toplay.database.Message;
 import com.oneme.toplay.database.Player;
 import com.oneme.toplay.database.Venue;
+import com.oneme.toplay.database.VenueOwner;
 import com.oneme.toplay.service.Singleton;
 
 import com.parse.Parse;
@@ -75,13 +76,19 @@ public class Application extends android.app.Application {
 
     public static final String INTENT_EXTRA_INVITEOBJECTID = AppConstant.OMEPARSEMESSAGEFOROBJECTIDKEY;
 
-    public static final String INTENT_EXTRA_HOMEVENUE     = AppConstant.OMEPARSEUSERHOMEVENUEKEY;
+    public static final String INTENT_EXTRA_HOMEVENUE      = AppConstant.OMEPARSEUSERHOMEVENUEKEY;
 
-    public static final String INTENT_EXTRA_BACKUPVENUE   = AppConstant.OMEPARSEUSERBACKUPVENUEKEY;
+    public static final String INTENT_EXTRA_BACKUPVENUE    = AppConstant.OMEPARSEUSERBACKUPVENUEKEY;
 
     public static final String INTENT_EXTRA_HOMEVENUEPHONE   = AppConstant.OMEPARSEUSERHOMEVENUEPHONEKEY;
 
     public static final String INTENT_EXTRA_BACKUPVENUEPHONE = AppConstant.OMEPARSEUSERBACKUPVENUEPHONEKEY;
+
+    public static final String INTENT_EXTRA_VENUESEARCH      = AppConstant.OMETOPLAYVENUESEARCHKEY;
+
+
+
+
 
 
     // Key for saving the search distance preference
@@ -122,6 +129,7 @@ public class Application extends android.app.Application {
 
         ParseObject.registerSubclass(Venue.class);
 
+        ParseObject.registerSubclass(VenueOwner.class);
 
         // init baidu map
         SDKInitializer.initialize(getApplicationContext());

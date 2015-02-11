@@ -31,6 +31,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,17 +40,20 @@ import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.base.Time;
 import com.oneme.toplay.database.IdentityDatabase;
 import com.oneme.toplay.database.Venue;
+import com.oneme.toplay.database.VenueOwner;
 import com.oneme.toplay.local.CnLocalWithoutMapActivity;
 import com.oneme.toplay.local.LocalWithoutMapActivity;
 import com.oneme.toplay.base.ClientFriendList;
 import com.oneme.toplay.base.Options;
 import com.oneme.toplay.service.CoreService;
 import com.oneme.toplay.service.DataFile;
+import com.oneme.toplay.venue.OwnerInfoUploadActivity;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseGeoPoint;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 import com.parse.SignUpCallback;
 
 import java.io.File;
@@ -73,6 +77,9 @@ public class SignUpActivity extends ActionBarActivity {
     private EditText usernameEditText;
     private EditText passwordEditText;
     private EditText passwordAgainEditText;
+    private Boolean isVenueOwner;
+
+    //private VenueOwner venueowner;
 
 
     @Override
@@ -106,6 +113,8 @@ public class SignUpActivity extends ActionBarActivity {
             }
         });
 
+
+
         // Set up the submit button click handler
         Button mActionButton = (Button) findViewById(R.id.action_registerbutton);
         mActionButton.setOnClickListener(new View.OnClickListener() {
@@ -121,6 +130,14 @@ public class SignUpActivity extends ActionBarActivity {
         final String username= usernameEditText.getText().toString().trim();
         String password      = passwordEditText.getText().toString().trim();
         String passwordAgain = passwordAgainEditText.getText().toString().trim();
+
+        final CheckBox checkvenueowner = (CheckBox) findViewById(R.id.signup_checkbox_venueowner);
+        if (checkvenueowner.isChecked()) {
+            checkvenueowner.setChecked(false);
+            isVenueOwner = true;
+        } else {
+            isVenueOwner = false;
+        }
 
         // Validate the sign up data
         boolean validationError = false;
@@ -146,33 +163,23 @@ public class SignUpActivity extends ActionBarActivity {
         validationErrorMessage.append(getString(R.string.error_end));
 
 
-        TelephonyManager telemamanger = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
-        String userNumber             = telemamanger.getSimSerialNumber();
 
-        // Set up a progress dialog
-        final ProgressDialog dialog = new ProgressDialog(SignUpActivity.this);
-        dialog.setMessage(getString(R.string.progress_login));
-        dialog.show();
+        // If there is a validation error, display the error
+        if (validationError) {
+            Toast.makeText(SignUpActivity.this, validationErrorMessage.toString(), Toast.LENGTH_LONG)
+                    .show();
+            return;
+        } else {
+            if (!isVenueOwner) {
+                // Set up a progress dialog
+                final ProgressDialog dialog = new ProgressDialog(SignUpActivity.this);
+                dialog.setMessage(getString(R.string.progress_signup));
+                dialog.show();
 
-        try {
-            ParseQuery<ParseUser> query = ParseUser.getQuery();
-            query.setCachePolicy(ParseQuery.CachePolicy.NETWORK_ONLY);
-            query.whereEqualTo(AppConstant.OMEPARSEUSERDEVICEIDKEY, userNumber);
-            query.setLimit(1);
-
-            Log.d(TAG, " query.count = " + query.count());
-
-            if (query.count() == 0) {
                 ParseUser user = new ParseUser();
                 user.setUsername(username);
                 user.setPassword(password);
-
-                // save last location and last time
-                userLastLocation = new ParseGeoPoint(Double.valueOf(Application.getCurrentLatitude()), Double.valueOf(Application.getCurrentLongitude()));
-
-                user.put(AppConstant.OMEPARSEUSERDEVICEIDKEY, userNumber);
-                user.put(AppConstant.OMEPARSEUSERLASTTIMEKEY, Time.currentTime());
-                user.put(AppConstant.OMEPARSEUSERLASTLOCATIONKEY, userLastLocation);
+                user.put(AppConstant.OMEPARSEUSERTAGKEY, AppConstant.OMEPARSEUSERTAGPLAYER);
 
                 // Set up a new Parse user in parse cloud
                 user.signUpInBackground(new SignUpCallback() {
@@ -181,46 +188,75 @@ public class SignUpActivity extends ActionBarActivity {
                         dialog.dismiss();
                         if (e != null) {
                             // Show the error message
-                            Toast.makeText(SignUpActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(SignUpActivity.this, getResources().getString(R.string.OMEPARSESIGNUPERRORNOTE), Toast.LENGTH_LONG).show();
                         } else {
-
-                            //SignUpMessenger(username);
+                            // login app
+                            if (DispatchActivity.getGooglePlayServicesState()) {
+                                Intent invokeLocalActivityIntent = new Intent(SignUpActivity.this, LocalWithoutMapActivity.class);
+                                startActivity(invokeLocalActivityIntent);
+                            } else {
+                                Intent invokeCnLocalActivityIntent = new Intent(SignUpActivity.this, CnLocalWithoutMapActivity.class);
+                                startActivity(invokeCnLocalActivityIntent);
+                            }
+                            setResult(RESULT_OK);
+                            finish();
                         }
                     }
                 });
+            } else {
+                // register as venue owner
+                // Set up a progress dialog
+                final ProgressDialog dialog = new ProgressDialog(SignUpActivity.this);
+                dialog.setMessage(getString(R.string.progress_signup));
+                dialog.show();
 
-                // login app
-                if (DispatchActivity.getGooglePlayServicesState()) {
-                    Intent invokeLocalActivityIntent = new Intent(SignUpActivity.this, LocalWithoutMapActivity.class);
-                    startActivity(invokeLocalActivityIntent);
-                } else {
-                    Intent invokeCnLocalActivityIntent = new Intent(SignUpActivity.this, CnLocalWithoutMapActivity.class);
-                    startActivity(invokeCnLocalActivityIntent);
-                }
+                final ParseUser user = new ParseUser();
+                user.setUsername(username);
+                user.setPassword(password);
+                user.put(AppConstant.OMEPARSEUSERTAGKEY, AppConstant.OMEPARSEUSERTAGVENUE);
 
-                setResult(RESULT_OK);
-                finish();
+                user.signUpInBackground(new SignUpCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        dialog.dismiss();
+                        if (e != null) {
+                            // Show the error message
+                            Toast.makeText(SignUpActivity.this, getResources().getString(R.string.OMEPARSESIGNUPERRORNOTE), Toast.LENGTH_LONG).show();
+                        } else {
+                            VenueOwner venueowner = new VenueOwner();
+                            venueowner.setLighted("1");
+                            venueowner.setIndoor("1");
+                            venueowner.setCourtNumber("1");
+                            venueowner.setVerify(false);
+                            venueowner.setUser(user);
+                            venueowner.saveInBackground(new SaveCallback() {
+                                @Override
+                                public void done(ParseException e) {
+                                    if (e != null) {
+                                        // Show the error message
+                                        Toast.makeText(SignUpActivity.this, getResources().getString(R.string.OMEPARSESIGNUPERRORNOTE), Toast.LENGTH_LONG).show();
+                                    } else {
+                                        Intent invokeVenueOwnerActivityIntent = new Intent(SignUpActivity.this, OwnerInfoUploadActivity.class);
+                                        startActivity(invokeVenueOwnerActivityIntent);
 
-            } else if (query.count() >= 1) {
-                Toast.makeText(SignUpActivity.this, getResources().getString(R.string.OMEPARSESIGNUPDEVICEREGISTERED), Toast.LENGTH_LONG)
-                        .show();
+                                        setResult(RESULT_OK);
+                                        finish();
+
+                                    }
+                                }
+                            });
+
+                           // Intent invokeVenueOwnerActivityIntent = new Intent(SignUpActivity.this, OwnerInfoUploadActivity.class);
+                           // startActivity(invokeVenueOwnerActivityIntent);
+
+                           // setResult(RESULT_OK);
+                           // finish();
+                        }
+
+                    }
+                });
+
             }
-
-        } catch (com.parse.ParseException pe) {
-            // Log.d();
-
-        }
-
-
-
-
-
-
-        // If there is a validation error, display the error
-        if (validationError) {
-            Toast.makeText(SignUpActivity.this, validationErrorMessage.toString(), Toast.LENGTH_LONG)
-                    .show();
-            return;
         }
 
 

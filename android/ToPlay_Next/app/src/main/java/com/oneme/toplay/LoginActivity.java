@@ -15,21 +15,28 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.io.File;
+import java.util.List;
 
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.base.ClientFriendList;
 import com.oneme.toplay.base.Options;
 import com.oneme.toplay.base.Time;
+import com.oneme.toplay.database.VenueOwner;
 import com.oneme.toplay.local.LocalWithoutMapActivity;
 import com.oneme.toplay.local.CnLocalWithoutMapActivity;
 import com.oneme.toplay.database.IdentityDatabase;
 import com.oneme.toplay.service.CoreService;
 import com.oneme.toplay.service.DataFile;
+import com.oneme.toplay.venue.OwnerInfoUploadActivity;
+import com.oneme.toplay.venue.OwnerMainActivity;
 
+import com.parse.FindCallback;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseGeoPoint;
 import com.parse.ParseUser;
+import com.parse.ParseQuery;
+import com.parse.GetCallback;
 
 //import im.tox.jtoxcore.JTox;
 //import im.tox.jtoxcore.ToxException;
@@ -105,6 +112,7 @@ public class LoginActivity extends ActionBarActivity {
 
 
                 dialog.show();
+
                 ParseUser.logInInBackground(musername,mpassword, new LogInCallback() {
                     @Override
                     public void done(ParseUser parseUser, ParseException pe) {
@@ -115,27 +123,61 @@ public class LoginActivity extends ActionBarActivity {
                             //get point according to  current latitude and longitude
                             ParseGeoPoint userLastLocation = new ParseGeoPoint(Double.valueOf(Application.getCurrentLatitude()), Double.valueOf(Application.getCurrentLongitude()));
 
-                            if (ParseUser.getCurrentUser() != null) {
-                                ParseUser.getCurrentUser().put(AppConstant.OMEPARSEUSERLASTTIMEKEY, Time.currentTime());
-                                ParseUser.getCurrentUser().put(AppConstant.OMEPARSEUSERLASTLOCATIONKEY, userLastLocation);
-
-                                ParseUser.getCurrentUser().saveInBackground();
-
+                            ParseUser user = ParseUser.getCurrentUser();
+                            if (user != null) {
+                                user.put(AppConstant.OMEPARSEUSERLASTTIMEKEY, Time.currentTime());
+                                user.put(AppConstant.OMEPARSEUSERLASTLOCATIONKEY, userLastLocation);
+                                user.saveInBackground();
                             }
 
-                            if (DispatchActivity.getGooglePlayServicesState()) {
-                                Intent invokeLocalActivityIntent = new Intent(LoginActivity.this, LocalWithoutMapActivity.class);
-                                startActivity(invokeLocalActivityIntent);
-                            } else {
-                                Intent invokeCnLocalActivityIntent = new Intent(LoginActivity.this, CnLocalWithoutMapActivity.class);
-                                startActivity(invokeCnLocalActivityIntent);
-                            }
+                            // check user tag, according to user tag login respectively main activity
+                            if (user.getString(AppConstant.OMEPARSEUSERTAGKEY).equalsIgnoreCase(AppConstant.OMEPARSEUSERTAGPLAYER)) {
 
-                            dialog.dismiss();
-                            finish();
+                                if (DispatchActivity.getGooglePlayServicesState()) {
+                                    dialog.dismiss();
+                                    Intent invokeLocalActivityIntent = new Intent(LoginActivity.this, LocalWithoutMapActivity.class);
+                                    startActivity(invokeLocalActivityIntent);
+                                    finish();
+                                } else {
+                                    dialog.dismiss();
+                                    Intent invokeCnLocalActivityIntent = new Intent(LoginActivity.this, CnLocalWithoutMapActivity.class);
+                                    startActivity(invokeCnLocalActivityIntent);
+                                    finish();
+                                }
+                            } else if (user.getString(AppConstant.OMEPARSEUSERTAGKEY).equalsIgnoreCase(AppConstant.OMEPARSEUSERTAGVENUE)) {
+                                dialog.dismiss();
+
+                                ParseQuery<VenueOwner> query = VenueOwner.getQuery();
+                                query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
+                                query.include(AppConstant.OMEPARSEVENUEOWNERCLASSKEY);
+                                query.whereEqualTo(AppConstant.OMEPARSEUSERKEY, user);
+                                query.setLimit(1);
+
+                                query.getFirstInBackground(new GetCallback<VenueOwner>() {
+                                    public void done(VenueOwner venueowner, ParseException pe) {
+                                        if (pe == null) {
+
+                                            if (venueowner.getVerify() != true) {
+                                                Intent invokeVenueOwnerActivityIntent = new Intent(LoginActivity.this, OwnerInfoUploadActivity.class);
+                                                startActivity(invokeVenueOwnerActivityIntent);
+                                            } else if (venueowner.getVerify() == true) {
+                                                Intent invokeOwnerMainActivityIntent = new Intent(LoginActivity.this, OwnerMainActivity.class);
+                                                startActivity(invokeOwnerMainActivityIntent);
+                                                Toast.makeText(LoginActivity.this, "we are building next activity", Toast.LENGTH_LONG)
+                                                        .show();
+                                            }
+
+                                        } else {
+                                            Toast.makeText(LoginActivity.this, getResources().getString(R.string.OMEPARSECANNOTGETVENUEINFO), Toast.LENGTH_LONG)
+                                                    .show();
+                                        }
+                                    }
+                                });
+                                finish();
+                            }
                         } else {
                             dialog.dismiss();
-                            Toast.makeText(LoginActivity.this, "username and password are not match", Toast.LENGTH_LONG)
+                            Toast.makeText(LoginActivity.this, getResources().getString(R.string.OMEPARSELOGINUSERNAMEPASSWORDNOTMATCH), Toast.LENGTH_LONG)
                                     .show();
                             finish();
 
