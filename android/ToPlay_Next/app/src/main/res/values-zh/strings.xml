@@ -439,7 +439,41 @@
     <!--Add by playround 1.0.4.02 -->
     <string name="search_venue_hint">搜索场地</string>
     <string name="search_venue_settings">搜索位置</string>
+    <string name="OMEPARSEREGISTERASVENUEOWNERNOTE">场馆注册</string>
+    <string name="ownerinfouploadactivity_title">上传场馆信息</string>
+    <string name="OMEPARSESIGNUPERRORNOTE">注册错误</string>
+    <string name="OMEPARSEVENUEOWNERCONTACTEMAIL">邮箱地址</string>
+    <string name="OMEPARSEVENUEOWNERPHONEPLACEHOLD">输入电话</string>
+    <string name="OMEPARSELOGINUSERNAMEPASSWORDNOTMATCH">用户名和密码不匹配</string>
+    <string name="OMEPARSECANNOTGETVENUEINFO">无法获得场馆信息</string>
+    <string name="OMEPARSEVENUEOWNERCONTACTPLACEHOLD">输入邮箱地址</string>
+    <string name="OMEPARSEVENUEOWNERCHOOSEIDCOPY">选择身份证复印件相片</string>
+    <string name="OMEPARSEVENUEOWNERTAKEIDCOPY">为身份证拍照</string>
+    <string name="OMEPARSEVENUEOWNERIDCOPY">场馆经营者身份证复印件</string>
+    <string name="OMEPARSEVENUEOWNERLICENSECOPY">场馆营业执照复印件</string>
+    <string name="OMEPARSECANNOTSAVEPARSEFILE">无法保存文件!</string>
+    <string name="OMEPARSEVENUEOWNERUPDATE">更新场馆信息</string>
 
+    <string name="OMEPARSEVENUEOWNERWAITINGFORVERIFY">请等待，正在审核过程中</string>
+
+
+    <string name="change_city">更换城市</string>
+
+    <!-- Put your own APP ID here -->
+    <string name="open_weather_maps_app_id">ddc6b650db25f95454deaff67ab9f984</string>
+
+    <string name="OMEPARSEWEATHERSUNNY">&#xf00d;</string>
+    <string name="OMEPARSEWEATHERCLEARNIGHT">&#xf02e;</string>
+
+    <string name="OMEPARSEWEATHERFOGGY">&#xf014;</string>
+    <string name="OMEPARSEWEATHERCLOUDY">&#xf013;</string>
+    <string name="OMEPARSEWEATHERRAINY">&#xf019;</string>
+    <string name="OMEPARSEWEATHERSNOWY">&#xf01b;</string>
+    <string name="OMEPARSEWEATHERTHUNDER">&#xf01e;</string>
+    <string name="OMEPARSEWEATHERDRIZZLE">&#xf01c;</string>
+    <string name="OMWPARSEWEATHERPLACENOTFOUND">对不起，没有获得天气信息.</string>
+    <string name="OMEPARSEWEATHERHUMIDITY">相对湿度</string>
+    <string name="OMEPARSEWEATHERPRESSURE">气压</string>
 
 
 

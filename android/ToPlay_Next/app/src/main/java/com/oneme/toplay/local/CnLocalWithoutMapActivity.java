@@ -23,9 +23,11 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -95,6 +97,8 @@ import com.oneme.toplay.invite.InviteActivity;
 import com.oneme.toplay.join.JoinActivity;
 import com.oneme.toplay.me.MeActivity;
 import com.oneme.toplay.service.CoreService;
+import com.oneme.toplay.weather.RemoteFetch;
+import com.oneme.toplay.weather.WeatherActivity;
 import com.parse.GetDataCallback;
 import com.parse.ParseFile;
 import com.parse.ParseGeoPoint;
@@ -137,6 +141,8 @@ import com.baidu.mapapi.map.SupportMapFragment;
 //import com.shamanland.fab.FloatingActionButton;
 //import com.shamanland.fab.ShowHideOnScroll;
 import com.squareup.picasso.Picasso;
+
+import org.json.JSONObject;
 
 
 public class CnLocalWithoutMapActivity extends ActionBarActivity {
@@ -228,6 +234,8 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
 
     private ListView localInvitationListView;
 
+    Handler handler;
+
 
     public final class SDKReceiver extends BroadcastReceiver {
         public void onReceive(Context context, Intent intent) {
@@ -245,6 +253,10 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
 
     private SDKReceiver mReceiver;
 
+    public CnLocalWithoutMapActivity(){
+        handler = new Handler();
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -257,7 +269,6 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
         registerReceiver(mReceiver, iFilter);
 
         setContentView(R.layout.ome_activity_bd_without_map);
-
 
 
         // init map
@@ -595,7 +606,6 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
         unregisterReceiver(mReceiver);
     }
 
-
     @Override
     public boolean onSearchRequested() {
         Bundle appData = new Bundle();
@@ -606,12 +616,97 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
         return true;
     }
 
+    private void updateWeatherData(final TextView weatherIcon, final String city){
+        new Thread(){
+            public void run(){
+                final JSONObject json = RemoteFetch.getJSON(CnLocalWithoutMapActivity.this, city);
+                if(json == null){
+                    handler.post(new Runnable(){
+                        public void run(){
+                            Toast.makeText(CnLocalWithoutMapActivity.this,
+                                    getResources().getString(R.string.OMWPARSEWEATHERPLACENOTFOUND),
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    });
+                } else {
+                    handler.post(new Runnable(){
+                        public void run(){
+                            renderWeather(weatherIcon, json);
+                        }
+                    });
+                }
+            }
+        }.start();
+    }
+
+    private void newsetWeatherIcon(TextView weatherIcon, int actualId, int day){
+        int id = actualId / 100;
+        String icon = "";
+        if(actualId == 800){
+            long currentTime = new Date().getTime();
+            // if(currentTime>=sunrise && currentTime<sunset) {
+            icon = getResources().getString(R.string.OMEPARSEWEATHERSUNNY);
+            //} else {
+            //    icon = getActivity().getString(R.string.weather_clear_night);
+            //}
+        } else {
+            switch(id) {
+                case 2 : icon = getResources().getString(R.string.OMEPARSEWEATHERTHUNDER);
+                    break;
+                case 3 : icon = getResources().getString(R.string.OMEPARSEWEATHERDRIZZLE);
+                    break;
+                case 7 : icon = getResources().getString(R.string.OMEPARSEWEATHERFOGGY);
+                    break;
+                case 8 : icon = getResources().getString(R.string.OMEPARSEWEATHERCLOUDY);
+                    break;
+                case 6 : icon = getResources().getString(R.string.OMEPARSEWEATHERSNOWY);
+                    break;
+                case 5 : icon = getResources().getString(R.string.OMEPARSEWEATHERRAINY);
+                    break;
+            }
+        }
+        switch(day) {
+            case 0 : weatherIcon.setText(icon);
+                break;
+        }
+    }
+
+    private void renderWeather(TextView weatherIcon, JSONObject json){
+        try {
+            JSONObject detailsindex = json.getJSONArray("list").getJSONObject(0);
+            JSONObject details      = detailsindex.getJSONArray("weather").getJSONObject(0);
+            newsetWeatherIcon(weatherIcon, details.getInt("id"), 0);
+        }catch(Exception e){
+            Log.e("SimpleWeather", "One or more fields not found in the JSON data  " + e.getMessage());
+        }
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
         MenuInflater menuInflater = getMenuInflater();
 
         menuInflater.inflate(R.menu.ome_local_menu, menu);
+
+        Typeface weatherFont;
+        weatherFont = Typeface.createFromAsset(CnLocalWithoutMapActivity.this.getAssets(), "fonts/weather.ttf");
+
+        TextView weathertv = new TextView(this);
+        weathertv.setTypeface(weatherFont);
+        updateWeatherData(weathertv, "beijing");
+        weathertv.setPadding(5, 0, 5, 0);
+        //tv.setTypeface(null, Typeface.BOLD);
+        weathertv.setTextSize(20);
+        weathertv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent invokeWeatherActivityIntent = new Intent(CnLocalWithoutMapActivity.this, WeatherActivity.class);
+                invokeWeatherActivityIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(invokeWeatherActivityIntent);
+            }
+        });
+        menu.add(0, 1001, 1, weathertv.getText()).setActionView(weathertv).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+
 
         if (ParseUser.getCurrentUser() != null) {
             MenuItem settingItem = menu.add(getResources().getString(R.string.meactivity_title));
@@ -680,10 +775,12 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
             loginItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                 public boolean onMenuItemClick(MenuItem item) {
                     startActivity(new Intent(CnLocalWithoutMapActivity.this, LoginActivity.class));
+                    finish();
                     return true;
                 }
             });
         }
+
 
         return super.onCreateOptionsMenu(menu);
 

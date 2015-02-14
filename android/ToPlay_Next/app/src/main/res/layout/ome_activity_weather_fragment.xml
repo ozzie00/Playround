@@ -1,0 +1,223 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+
+    <TextView
+        android:id="@+id/city_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <!--
+    <TextView
+        android:id="@+id/updated_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/city_field"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="13sp" />
+    -->
+
+    <TextView
+        android:id="@+id/weather_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="70sp"
+        android:textColor="@android:color/holo_blue_light"
+        />
+
+    <TextView
+        android:id="@+id/current_temperature_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_alignTop="@id/weather_icon"
+        android:layout_toRightOf="@id/weather_icon"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="40sp"
+        android:textColor="@android:color/holo_blue_light"/>
+
+    <TextView 
+        android:id="@+id/details_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/weather_icon"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/holo_blue_light"
+        />
+
+    <LinearLayout
+        android:id="@+id/weather_rest_four_day_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_below="@id/details_field"
+        android:layout_centerHorizontal="true"
+        android:weightSum="4">
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_weight="1"
+            android:layout_below="@id/weather_rest_four_day_line"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/weather_first_day_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="35sp"
+                android:textColor="@android:color/darker_gray"/>
+
+            <TextView
+                android:id="@+id/weather_first_day_details_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_below="@+id/weather_first_day_icon"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@android:color/holo_blue_light"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_below="@id/weather_rest_four_day_line"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/weather_second_day_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="35sp"
+                android:textColor="@android:color/darker_gray"/>
+
+            <TextView
+                android:id="@+id/weather_second_day_details_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_below="@+id/weather_second_day_icon"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@android:color/holo_blue_light"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_weight="1"
+            android:layout_below="@id/weather_rest_four_day_line"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/weather_third_day_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="35sp"
+                android:textColor="@android:color/darker_gray"/>
+
+            <TextView
+                android:id="@+id/weather_third_day_details_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_below="@+id/weather_third_day_icon"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@android:color/holo_blue_light"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_weight="1"
+            android:layout_below="@id/weather_rest_four_day_line"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/weather_fourth_day_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="35sp"
+                android:textColor="@android:color/darker_gray"/>
+
+            <TextView
+                android:id="@+id/weather_fourth_day_details_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_below="@+id/weather_fourth_day_icon"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@android:color/holo_blue_light"/>
+        </LinearLayout>
+
+
+
+    <!--
+
+        <TextView
+        android:id="@+id/weather_second_day_icon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="35sp"
+        android:textColor="@android:color/darker_gray"
+        />
+
+    <TextView
+        android:id="@+id/weather_third_day_icon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="35sp"
+        android:textColor="@android:color/darker_gray"
+        />
+
+    <TextView
+        android:id="@+id/weather_fourth_day_icon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="35sp"
+        android:textColor="@android:color/darker_gray"
+        />
+
+    -->
+
+    </LinearLayout>
+
+
+</RelativeLayout>

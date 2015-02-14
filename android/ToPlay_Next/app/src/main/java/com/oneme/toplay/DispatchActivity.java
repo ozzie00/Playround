@@ -75,14 +75,17 @@ public class DispatchActivity extends Activity {
                                 if (pe == null) {
 
                                     if (venueowner.getVerify() != true) {
-                                        Intent invokeVenueOwnerActivityIntent = new Intent(DispatchActivity.this, OwnerInfoUploadActivity.class);
-                                        startActivity(invokeVenueOwnerActivityIntent);
-                                        finish();
+                                        if (venueowner.getIdCopyImage() == null) {
+                                            Intent invokeVenueOwnerActivityIntent = new Intent(DispatchActivity.this, OwnerInfoUploadActivity.class);
+                                            startActivity(invokeVenueOwnerActivityIntent);
+                                            finish();
+                                        } else {
+                                            Toast.makeText(DispatchActivity.this, getResources().getString(R.string.OMEPARSEVENUEOWNERWAITINGFORVERIFY), Toast.LENGTH_LONG)
+                                                    .show();
+                                        }
                                     } else if (venueowner.getVerify() == true) {
                                         Intent invokeOwnerMainActivityIntent = new Intent(DispatchActivity.this, OwnerMainActivity.class);
                                         startActivity(invokeOwnerMainActivityIntent);
-                                        Toast.makeText(DispatchActivity.this, "we are building next activity", Toast.LENGTH_LONG)
-                                                .show();
                                         finish();
                                     }
 
@@ -101,14 +104,57 @@ public class DispatchActivity extends Activity {
                     finish();
                 }
             } else {
-                //   Toast.makeText(this, getResources().getString(R.string.google_play_service_unavailable), Toast.LENGTH_LONG).show();
-                //   Toast.makeText(this, getResources().getString(R.string.switch_to_china_map), Toast.LENGTH_LONG).show();
-                startActivity(new Intent(this, CnLocalWithoutMapActivity.class));
-                finish();
+
+                // Check if there is current user info
+                if (user != null) {
+
+                    // check user tag
+                    if (user.getString(AppConstant.OMEPARSEUSERTAGKEY).equalsIgnoreCase(AppConstant.OMEPARSEUSERTAGPLAYER)) {
+
+                        // Start an intent for the logged in activity
+                        startActivity(new Intent(this, CnLocalWithoutMapActivity.class));
+                        finish();
+                    } else if (user.getString(AppConstant.OMEPARSEUSERTAGKEY).equalsIgnoreCase(AppConstant.OMEPARSEUSERTAGVENUE)) {
+                        ParseQuery<VenueOwner> query = VenueOwner.getQuery();
+                        query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
+                        query.include(AppConstant.OMEPARSEVENUEOWNERCLASSKEY);
+                        query.whereEqualTo(AppConstant.OMEPARSEUSERKEY, user);
+                        query.setLimit(1);
+
+                        query.getFirstInBackground(new GetCallback<VenueOwner>() {
+                            public void done(VenueOwner venueowner, ParseException pe) {
+                                if (pe == null) {
+
+                                    if (venueowner.getVerify() != true) {
+                                        if (venueowner.getIdCopyImage() == null) {
+                                            Intent invokeVenueOwnerActivityIntent = new Intent(DispatchActivity.this, OwnerInfoUploadActivity.class);
+                                            startActivity(invokeVenueOwnerActivityIntent);
+                                            finish();
+                                        } else {
+                                            Toast.makeText(DispatchActivity.this, getResources().getString(R.string.OMEPARSEVENUEOWNERWAITINGFORVERIFY), Toast.LENGTH_LONG)
+                                                    .show();
+                                        }
+                                    } else if (venueowner.getVerify() == true) {
+                                        Intent invokeOwnerMainActivityIntent = new Intent(DispatchActivity.this, OwnerMainActivity.class);
+                                        startActivity(invokeOwnerMainActivityIntent);
+                                        finish();
+                                    }
+
+                                } else {
+                                    Toast.makeText(DispatchActivity.this, getResources().getString(R.string.OMEPARSECANNOTGETVENUEINFO), Toast.LENGTH_LONG)
+                                            .show();
+                                }
+                            }
+                        });
+
+                    }
+
+                } else {
+                    // Start and intent for the logged out activity
+                    startActivity(new Intent(this, CnLocalWithoutMapActivity.class));
+                    finish();
+                }
             }
-
-
-
 
     }
 

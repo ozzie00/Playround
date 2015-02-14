@@ -158,13 +158,18 @@ public class LoginActivity extends ActionBarActivity {
                                         if (pe == null) {
 
                                             if (venueowner.getVerify() != true) {
-                                                Intent invokeVenueOwnerActivityIntent = new Intent(LoginActivity.this, OwnerInfoUploadActivity.class);
-                                                startActivity(invokeVenueOwnerActivityIntent);
+                                                if (venueowner.getIdCopyImage() == null) {
+                                                    Intent invokeVenueOwnerActivityIntent = new Intent(LoginActivity.this, OwnerInfoUploadActivity.class);
+                                                    startActivity(invokeVenueOwnerActivityIntent);
+                                                    finish();
+                                                } else {
+                                                    Toast.makeText(LoginActivity.this, getResources().getString(R.string.OMEPARSEVENUEOWNERWAITINGFORVERIFY), Toast.LENGTH_LONG)
+                                                            .show();
+                                                }
                                             } else if (venueowner.getVerify() == true) {
                                                 Intent invokeOwnerMainActivityIntent = new Intent(LoginActivity.this, OwnerMainActivity.class);
                                                 startActivity(invokeOwnerMainActivityIntent);
-                                                Toast.makeText(LoginActivity.this, "we are building next activity", Toast.LENGTH_LONG)
-                                                        .show();
+                                                finish();
                                             }
 
                                         } else {
@@ -173,7 +178,7 @@ public class LoginActivity extends ActionBarActivity {
                                         }
                                     }
                                 });
-                                finish();
+
                             }
                         } else {
                             dialog.dismiss();

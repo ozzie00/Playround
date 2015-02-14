@@ -483,20 +483,10 @@
     <string name="search_venue_hint">Search Venue</string>
     <string name="search_venue_settings">Search Location</string>
     <string name="OMEPARSEREGISTERASVENUEOWNERNOTE">Register as Venue</string>
-    <string name="OMEPARSELOGINASVENUEOWNERNOTE">Login as Venue</string>
     <string name="ownerinfouploadactivity_title">Upload Venue Info </string>
     <string name="OMEPARSESIGNUPERRORNOTE">Register error</string>
-    <string name="OMEPARSEVENUEOWNERNAME">Venue Name</string>
-    <string name="OMEPARSEVENUEOWNERADDRESS">Venue Address</string>
-    <string name="OMEPARSEVENUEOWNERPHONE">Venue Phone</string>
-    <string name="OMEPARSEVENUEOWNERCONTACTNAME">Contact Name</string>
-    <string name="OMEPARSEVENUEOWNERCONTACTPHONE">Contact Phone</string>
     <string name="OMEPARSEVENUEOWNERCONTACTEMAIL">Email</string>
-    <string name="OMEPARSEVENUEOWNERLOCATION">Venue Location</string>
-    <string name="OMEPARSEVENUEOWNERNAMEPLACEHOLD">Enter Name</string>
-    <string name="OMEPARSEVENUEOWNERADDRESSPLACEHOLD">Enter Address</string>
     <string name="OMEPARSEVENUEOWNERPHONEPLACEHOLD">Enter Phone</string>
-    <string name="OMEPARSEVENUEOWNERLOCATIONPLACEHOLD">Venue Location</string>
     <string name="OMEPARSELOGINUSERNAMEPASSWORDNOTMATCH">username and password are not match</string>
     <string name="OMEPARSECANNOTGETVENUEINFO">can not get venue info</string>
     <string name="OMEPARSEVENUEOWNERCONTACTPLACEHOLD">Enter Email</string>
@@ -506,6 +496,29 @@
     <string name="OMEPARSEVENUEOWNERLICENSECOPY">Venue License Copy</string>
     <string name="OMEPARSECANNOTSAVEPARSEFILE">Can not save file !</string>
     <string name="OMEPARSEVENUEOWNERUPDATE">Update Venue Info</string>
+
+    <string name="OMEPARSEVENUEOWNERWAITINGFORVERIFY"> Please waiting for our verification</string>
+
+
+    <string name="change_city">Change city</string>
+
+    <!-- Put your own APP ID here -->
+    <string name="open_weather_maps_app_id">ddc6b650db25f95454deaff67ab9f984</string>
+
+    <string name="OMEPARSEWEATHERSUNNY">&#xf00d;</string>
+    <string name="OMEPARSEWEATHERCLEARNIGHT">&#xf02e;</string>
+
+    <string name="OMEPARSEWEATHERFOGGY">&#xf014;</string>
+    <string name="OMEPARSEWEATHERCLOUDY">&#xf013;</string>
+    <string name="OMEPARSEWEATHERRAINY">&#xf019;</string>
+    <string name="OMEPARSEWEATHERSNOWY">&#xf01b;</string>
+    <string name="OMEPARSEWEATHERTHUNDER">&#xf01e;</string>
+    <string name="OMEPARSEWEATHERDRIZZLE">&#xf01c;</string>
+    <string name="OMWPARSEWEATHERPLACENOTFOUND">Sorry, no weather data found.</string>
+    <string name="OMEPARSEWEATHERHUMIDITY">Humidity</string>
+    <string name="OMEPARSEWEATHERPRESSURE">Pressure</string>
+
+
 
 
 

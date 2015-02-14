@@ -44,6 +44,8 @@ import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
 
 import java.text.DecimalFormat;
+import java.util.List;
+import java.util.ArrayList;
 
 public class SearchActivity extends ActionBarActivity {
 
@@ -94,12 +96,21 @@ public class SearchActivity extends ActionBarActivity {
         // Set up a customized query
         ParseQueryAdapter.QueryFactory<Venue> factory = new ParseQueryAdapter.QueryFactory<Venue>() {
             public ParseQuery<Venue> create() {
-                ParseQuery<Venue> query = Venue.getQuery();
-                query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
-                query.whereContains(AppConstant.OMETOPLAYVENUENAMEKEY, venuequery);
-               // query.orderByDescending(AppConstant.OMEPARSECREATEDAT);
-                query.setLimit(MAX_VENUE_SEARCH_RESULTS);
-                return query;
+                ParseQuery<Venue> queryname = Venue.getQuery();
+                queryname.whereContains(AppConstant.OMETOPLAYVENUENAMEKEY, venuequery);
+
+                ParseQuery<Venue> queryaddress = Venue.getQuery();
+                queryaddress.whereContains(AppConstant.OMETOPLAYVENUEADDRESSKEY, venuequery);
+
+                List<ParseQuery<Venue>> query = new ArrayList<ParseQuery<Venue>>();
+                query.add(queryname);
+                query.add(queryaddress);
+
+                ParseQuery<Venue> mainQuery = ParseQuery.or(query);
+                mainQuery.setCachePolicy(ParseQuery.CachePolicy.NETWORK_ELSE_CACHE);
+                mainQuery.setLimit(MAX_VENUE_SEARCH_RESULTS);
+
+                return mainQuery;
             }
         };
 

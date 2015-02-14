@@ -24,16 +24,19 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,6 +72,8 @@ import com.oneme.toplay.me.MeActivity;
 import com.oneme.toplay.SearchActivity;
 
 
+import com.oneme.toplay.weather.RemoteFetch;
+import com.oneme.toplay.weather.WeatherActivity;
 import com.parse.GetDataCallback;
 import com.parse.ParseFile;
 import com.parse.ParseGeoPoint;
@@ -81,6 +86,8 @@ import com.squareup.picasso.Picasso;
 //import com.shamanland.fab.FloatingActionButton;
 //import com.shamanland.fab.ShowHideOnScroll;
 
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -89,6 +96,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
@@ -172,12 +180,20 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
 
     private String venuequery = null;
 
+    private Menu menu;
+
+    Handler handler;
+
 
 
     ExpandableListView expListView;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
 
+
+    public LocalWithoutMapActivity(){
+        handler = new Handler();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -605,7 +621,70 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
     }
 
 
+    private void updateWeatherData(final TextView weatherIcon, final String city){
+        new Thread(){
+            public void run(){
+                final JSONObject json = RemoteFetch.getJSON(LocalWithoutMapActivity.this, city);
+                if(json == null){
+                    handler.post(new Runnable(){
+                        public void run(){
+                            Toast.makeText(LocalWithoutMapActivity.this,
+                                    getResources().getString(R.string.OMWPARSEWEATHERPLACENOTFOUND),
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    });
+                } else {
+                    handler.post(new Runnable(){
+                        public void run(){
+                            renderWeather(weatherIcon, json);
+                        }
+                    });
+                }
+            }
+        }.start();
+    }
 
+    private void newsetWeatherIcon(TextView weatherIcon, int actualId, int day){
+        int id = actualId / 100;
+        String icon = "";
+        if(actualId == 800){
+            long currentTime = new Date().getTime();
+            // if(currentTime>=sunrise && currentTime<sunset) {
+            icon = getResources().getString(R.string.OMEPARSEWEATHERSUNNY);
+            //} else {
+            //    icon = getActivity().getString(R.string.weather_clear_night);
+            //}
+        } else {
+            switch(id) {
+                case 2 : icon = getResources().getString(R.string.OMEPARSEWEATHERTHUNDER);
+                    break;
+                case 3 : icon = getResources().getString(R.string.OMEPARSEWEATHERDRIZZLE);
+                    break;
+                case 7 : icon = getResources().getString(R.string.OMEPARSEWEATHERFOGGY);
+                    break;
+                case 8 : icon = getResources().getString(R.string.OMEPARSEWEATHERCLOUDY);
+                    break;
+                case 6 : icon = getResources().getString(R.string.OMEPARSEWEATHERSNOWY);
+                    break;
+                case 5 : icon = getResources().getString(R.string.OMEPARSEWEATHERRAINY);
+                    break;
+            }
+        }
+        switch(day) {
+            case 0 : weatherIcon.setText(icon);
+                break;
+        }
+    }
+
+    private void renderWeather(TextView weatherIcon, JSONObject json){
+        try {
+            JSONObject detailsindex = json.getJSONArray("list").getJSONObject(0);
+            JSONObject details      = detailsindex.getJSONArray("weather").getJSONObject(0);
+            newsetWeatherIcon(weatherIcon, details.getInt("id"), 0);
+        }catch(Exception e){
+            Log.e("SimpleWeather", "One or more fields not found in the JSON data  " + e.getMessage());
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -614,8 +693,28 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
 
         menuInflater.inflate(R.menu.ome_local_menu, menu);
 
+        Typeface weatherFont;
+        weatherFont = Typeface.createFromAsset(LocalWithoutMapActivity.this.getAssets(), "fonts/weather.ttf");
+
+        TextView weathertv = new TextView(this);
+        weathertv.setTypeface(weatherFont);
+        updateWeatherData(weathertv, "beijing");
+        weathertv.setPadding(5, 0, 5, 0);
+        //tv.setTypeface(null, Typeface.BOLD);
+        weathertv.setTextSize(20);
+        weathertv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent invokeWeatherActivityIntent = new Intent(LocalWithoutMapActivity.this, WeatherActivity.class);
+                invokeWeatherActivityIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(invokeWeatherActivityIntent);
+            }
+        });
+        menu.add(0, 1001, 1, weathertv.getText()).setActionView(weathertv).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+
         if (ParseUser.getCurrentUser() != null) {
             MenuItem settingItem = menu.add(getResources().getString(R.string.meactivity_title));
+
 
             // menu.findItem(R.id.action_setting).
             settingItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
@@ -681,16 +780,16 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
             loginItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                 public boolean onMenuItemClick(MenuItem item) {
                     startActivity(new Intent(LocalWithoutMapActivity.this, LoginActivity.class));
+                    finish();
                     return true;
                 }
             });
+
         }
 
-        return super.onCreateOptionsMenu(menu);
+    return super.onCreateOptionsMenu(menu);
 
     }
-
-
 
 
     @Override
@@ -707,6 +806,11 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle presses on the action bar items
         switch (item.getItemId()) {
+            //case R.id.action_weather:
+            //    Intent invokeWeatherActivityIntent = new Intent(LocalWithoutMapActivity.this, WeatherActivity.class);
+            //    invokeWeatherActivityIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            //    startActivity(invokeWeatherActivityIntent);
+            //    return true;
             case R.id.action_search_venue:
                 if (ParseUser.getCurrentUser() != null) {
                     onSearchRequested();
