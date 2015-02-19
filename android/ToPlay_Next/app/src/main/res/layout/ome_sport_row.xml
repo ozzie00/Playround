@@ -6,19 +6,30 @@
     android:padding="3dip"
     >
     <ImageView
-        android:id="@+id/sport_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:src="@drawable/ome_other_icon"/>
+        android:id                    = "@+id/sport_icon"
+        android:layout_width          = "32dp"
+        android:layout_height         = "32dp"
+        android:layout_marginTop      = "8dp"
+        android:layout_marginBottom   = "8dp"
+        android:layout_marginLeft     = "8dp"
+        android:layout_centerVertical = "true"
+        android:src                   = "@drawable/ome_other_icon"/>
+
     <TextView
-        android:id="@+id/sport_type_name"
-        android:layout_toRightOf="@+id/sport_icon"
-        android:padding="3dip"
-        android:layout_marginTop="2dip"
-        android:textStyle="bold"
-        android:text="sport type"
-        android:layout_marginLeft="5dip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:id                    = "@+id/sport_type_name"
+        android:layout_width          = "wrap_content"
+        android:layout_height         = "wrap_content"
+        android:layout_toRightOf      = "@+id/sport_icon"
+        android:padding               = "3dip"
+        android:layout_marginTop      = "4dp"
+        android:layout_marginBottom   = "4dp"
+        android:textStyle             = "bold"
+        android:layout_marginLeft     = "8dip"
+        android:layout_centerVertical = "true"
+       />
+
+    <View
+        android:layout_width  = "fill_parent"
+        android:layout_height = "2dp"
+        android:background    = "@android:color/white"/>
 </RelativeLayout>

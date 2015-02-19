@@ -26,20 +26,28 @@ import com.parse.ParseUser;
 import com.parse.ParseFile;
 
 
-/**
- * Data model for an invitation.
- */
+//
+// Data model for an invitation.
+//
 @ParseClassName(AppConstant.OMETOPLAYINVITECLASSKEY)
 public final class Invite extends ParseObject {
 
     private static final String TAG = "Invite";
 
     public String getText() {
-        return getString("text");
+        if (getString(AppConstant.OMEPARSETEXTKEY) != null) {
+            return getString(AppConstant.OMEPARSETEXTKEY);
+        } else {
+            return AppConstant.OMEPARSENULLSTRING;
+        }
     }
 
     public void setText(String value) {
-        put("text", value);
+        if (value != null) {
+            put(AppConstant.OMEPARSETEXTKEY, value);
+        } else {
+            put(AppConstant.OMEPARSETEXTKEY, AppConstant.OMEPARSENULLSTRING);
+        }
     }
 
     public ParseUser getUser() {
@@ -66,13 +74,37 @@ public final class Invite extends ParseObject {
         put(AppConstant.OMEPARSEUSERICONKEY, file);
     }
 
-    public String getUserLevel() {return getString(AppConstant.OMEPARSEUSERLEVELKEY);}
+    public String getUserLevel() {
+        if (getString(AppConstant.OMEPARSEUSERLEVELKEY) != null) {
+            return getString(AppConstant.OMEPARSEUSERLEVELKEY);
+        } else {
+            return AppConstant.OMEPARSENULLSTRING;
+        }
+    }
 
-    public void setUserLevel(String value) {put(AppConstant.OMEPARSEUSERLEVELKEY, value);}
+    public void setUserLevel(String value) {
+        if (value != null) {
+            put(AppConstant.OMEPARSEUSERLEVELKEY, value);
+        } else {
+            put(AppConstant.OMEPARSEUSERLEVELKEY, AppConstant.OMEPARSENULLSTRING);
+        }
+    }
 
-    public String getSportType() {return getString(AppConstant.OMEPARSEINVITESPORTTYPEKEY);}
+    public String getSportType() {
+        if (getString(AppConstant.OMEPARSEINVITESPORTTYPEKEY) != null) {
+            return getString(AppConstant.OMEPARSEINVITESPORTTYPEKEY);
+        } else {
+            return AppConstant.OMEPARSENULLSTRING;
+        }
+    }
 
-    public void setSportType(String value) {put(AppConstant.OMEPARSEINVITESPORTTYPEKEY, value);}
+    public void setSportType(String value) {
+        if (value != null) {
+            put(AppConstant.OMEPARSEINVITESPORTTYPEKEY, value);
+        } else {
+            put(AppConstant.OMEPARSEINVITESPORTTYPEKEY, AppConstant.OMEPARSENULLSTRING);
+        }
+    }
 
     public String getSportTypeValue() {
 
@@ -80,54 +112,163 @@ public final class Invite extends ParseObject {
         if (getString(AppConstant.OMEPARSEINVITESPORTTYPEVALUEKEY) != null)  {
             return getString(AppConstant.OMEPARSEINVITESPORTTYPEVALUEKEY);
         } else {
-            return "0";
+            return AppConstant.OMEPARSEINVITESPORTVALUENULL;
         }
     }
 
-    public void setSportTypeValue(String value) {put(AppConstant.OMEPARSEINVITESPORTTYPEVALUEKEY, value);}
+    public void setSportTypeValue(String value) {
+        if (value != null) {
+            put(AppConstant.OMEPARSEINVITESPORTTYPEVALUEKEY, value);
+        } else {
+            put(AppConstant.OMEPARSEINVITESPORTTYPEVALUEKEY, AppConstant.OMEPARSEINVITESPORTVALUENULL);
+        }
+    }
 
-    public String getPlayerLevel() {return getString(AppConstant.OMEPARSEINVITEPLAYERLEVELKEY);}
+    public String getPlayerLevel() {
+        if (getString(AppConstant.OMEPARSEINVITEPLAYERLEVELKEY) != null) {
+            return getString(AppConstant.OMEPARSEINVITEPLAYERLEVELKEY);
+        } else {
+            return AppConstant.OMEPARSENULLSTRING;
+        }
+    }
 
-    public void setPlayerLevel(String value) {put(AppConstant.OMEPARSEINVITEPLAYERLEVELKEY, value);}
+    public void setPlayerLevel(String value) {
+        if (value != null) {
+            put(AppConstant.OMEPARSEINVITEPLAYERLEVELKEY, value);
+        } else {
+            put(AppConstant.OMEPARSEINVITEPLAYERLEVELKEY, AppConstant.OMEPARSENULLSTRING);
+        }
+    }
 
-    public String getPlayerNumber() {return getString(AppConstant.OMEPARSEINVITEPLAYERNUMBERKEY);}
+    public String getPlayerNumber() {
+        if (getString(AppConstant.OMEPARSEINVITEPLAYERNUMBERKEY) != null) {
+            return getString(AppConstant.OMEPARSEINVITEPLAYERNUMBERKEY);
+        } else {
+            return AppConstant.OMEPARSENULLSTRING;
+        }
+    }
 
-    public void setPlayerNumber(String value) {put(AppConstant.OMEPARSEINVITEPLAYERNUMBERKEY, value);}
+    public void setPlayerNumber(String value) {
+        if (value != null) {
+            put(AppConstant.OMEPARSEINVITEPLAYERNUMBERKEY, value);
+        } else {
+            put(AppConstant.OMEPARSEINVITEPLAYERNUMBERKEY, AppConstant.OMEPARSENULLSTRING);
+        }
+    }
 
-    public String getPlayTime() {return getString(AppConstant.OMEPARSEINVITETIMEKEY);}
+    public String getPlayTime() {
+        if (getString(AppConstant.OMEPARSEINVITETIMEKEY) != null) {
+            return getString(AppConstant.OMEPARSEINVITETIMEKEY);
+        } else {
+            return AppConstant.OMEPARSENULLSTRING;
+        }
+    }
 
-    public void setPlayTime(String value) {put(AppConstant.OMEPARSEINVITETIMEKEY, value);}
+    public void setPlayTime(String value) {
+        if (value != null) {
+            put(AppConstant.OMEPARSEINVITETIMEKEY, value);
+        } else {
+            put(AppConstant.OMEPARSEINVITETIMEKEY, AppConstant.OMEPARSENULLSTRING);
+        }
+    }
 
-    public String getCourt() {return getString(AppConstant.OMEPARSEINVITECOURTKEY);}
+    public String getCourt() {
+        if (getString(AppConstant.OMEPARSEINVITECOURTKEY) != null) {
+            return getString(AppConstant.OMEPARSEINVITECOURTKEY);
+        } else {
+            return AppConstant.OMEPARSENULLSTRING;
+        }
+    }
 
-    public void setCourt(String value) {put(AppConstant.OMEPARSEINVITECOURTKEY, value);}
+    public void setCourt(String value) {
+        if (value != null) {
+            put(AppConstant.OMEPARSEINVITECOURTKEY, value);
+        } else {
+            put(AppConstant.OMEPARSEINVITECOURTKEY, AppConstant.OMEPARSENULLSTRING);
+        }
+    }
 
-    public String getFee() {return getString(AppConstant.OMEPARSEINVITEFEEKEY);}
+    public String getFee() {
+        if (getString(AppConstant.OMEPARSEINVITEFEEKEY) != null) {
+            return getString(AppConstant.OMEPARSEINVITEFEEKEY);
+        } else {
+            return AppConstant.OMEPARSENULLSTRING;
+        }
+    }
 
-    public void setFee(String value) {put(AppConstant.OMEPARSEINVITEFEEKEY, value);}
+    public void setFee(String value) {
+        if (value != null) {
+            put(AppConstant.OMEPARSEINVITEFEEKEY, value);
+        } else {
+            put(AppConstant.OMEPARSEINVITEFEEKEY, AppConstant.OMEPARSENULLSTRING);
+        }
+    }
 
-    public String getOther() {return getString(AppConstant.OMEPARSEINVITEOTHERINFOKEY);}
+    public String getOther() {
+        if (getString(AppConstant.OMEPARSEINVITEOTHERINFOKEY) != null) {
+            return getString(AppConstant.OMEPARSEINVITEOTHERINFOKEY);
+        } else {
+            return AppConstant.OMEPARSENULLSTRING;
+        }
+    }
 
-    public void setOther(String value) {put(AppConstant.OMEPARSEINVITEOTHERINFOKEY, value);}
+    public void setOther(String value) {
+        if (value != null) {
+            put(AppConstant.OMEPARSEINVITEOTHERINFOKEY, value);
+        } else {
+            put(AppConstant.OMEPARSEINVITEOTHERINFOKEY, AppConstant.OMEPARSENULLSTRING);
+        }
+    }
 
     public ParseUser getFromUser() {return getParseUser(AppConstant.OMEPARSEINVITEFROMUSERKEY);}
 
     public void setFromUser(ParseUser value) {put(AppConstant.OMEPARSEINVITEFROMUSERKEY, value);}
 
-    public String getFromUsername() {return getString(AppConstant.OMEPARSEINVITEFROMUSERNAMEKEY);}
+    public String getFromUsername() {
+        if (getString(AppConstant.OMEPARSEINVITEFROMUSERNAMEKEY) != null) {
+            return getString(AppConstant.OMEPARSEINVITEFROMUSERNAMEKEY);
+        } else {
+            return AppConstant.OMEPARSENULLSTRING;
+        }
+    }
 
-    public void setFromUsername(String value) {put(AppConstant.OMEPARSEINVITEFROMUSERNAMEKEY, value);}
+    public void setFromUsername(String value) {
+        if (value != null) {
+            put(AppConstant.OMEPARSEINVITEFROMUSERNAMEKEY, value);
+        } else {
+            put(AppConstant.OMEPARSEINVITEFROMUSERNAMEKEY, AppConstant.OMEPARSENULLSTRING);
+        }
+    }
 
-    public String getSubmitTime() {return getString(AppConstant.OMEPARSEINVITESUBMITTIMEKEY);}
+    public String getSubmitTime() {
+        if (getString(AppConstant.OMEPARSEINVITESUBMITTIMEKEY) != null) {
+            return getString(AppConstant.OMEPARSEINVITESUBMITTIMEKEY);
+        } else {
+            return AppConstant.OMEPARSENULLSTRING;
+        }
+    }
 
-    public void setSubmitTime(String value) {put(AppConstant.OMEPARSEINVITESUBMITTIMEKEY, value);}
+    public void setSubmitTime(String value) {
+        if (value != null) {
+            put(AppConstant.OMEPARSEINVITESUBMITTIMEKEY, value);
+        } else {
+            put(AppConstant.OMEPARSEINVITESUBMITTIMEKEY, AppConstant.OMEPARSENULLSTRING);
+        }
+    }
 
+    public Boolean getPublic() {
+        return getBoolean(AppConstant.OMEPARSEINVITEPUBLICKEY);}
+
+    public void setPulic(Boolean value) {
+        if (value != null) {
+            put(AppConstant.OMEPARSEINVITEPUBLICKEY, value);
+        } else {
+            put(AppConstant.OMEPARSEINVITEPUBLICKEY, false);
+        }
+    }
 
     public static ParseQuery<Invite> getQuery() {
         return ParseQuery.getQuery(Invite.class);
     }
 
-  //  public static ParseQuery<Invite> getQuery() {
-  //      return ParseQuery.getQuery(AppConstant.OMETOPLAYINVITECLASSKEY);
-  //  }
 }

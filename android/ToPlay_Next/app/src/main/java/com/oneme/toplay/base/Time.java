@@ -31,6 +31,22 @@ public final class Time {
         return mgmtCurrentTime;
     }
 
+    public static final String currentDay() {
+        DateFormat mdateFormat = new SimpleDateFormat("EEE, MMM dd");
+        Calendar mcalendar = Calendar.getInstance();
+
+        String mgmtCurrentTime= mdateFormat.format(mcalendar.getTime());
+        return mgmtCurrentTime;
+    }
+
+    public static final String currentHour() {
+        DateFormat mdateFormat = new SimpleDateFormat("HH:mm");
+        Calendar mcalendar = Calendar.getInstance();
+
+        String mgmtCurrentTime= mdateFormat.format(mcalendar.getTime());
+        return mgmtCurrentTime;
+    }
+
     public static final String tomorrowTime() {
         int onedaysecond        = 24*60*60;
 

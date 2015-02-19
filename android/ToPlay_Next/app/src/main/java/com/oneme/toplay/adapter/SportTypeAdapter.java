@@ -63,7 +63,7 @@ public class SportTypeAdapter extends ArrayAdapter<String>{
         TextView label          = (TextView)row.findViewById(R.id.sport_type_name);
         label.setText(msportarray[position]);
 
-        ImageView icon = (ImageView)row.findViewById(R.id.sport_icon);
+        ImageView icon          = (ImageView)row.findViewById(R.id.sport_icon);
         icon.setImageResource(msporticon[position]);
 
         return row;

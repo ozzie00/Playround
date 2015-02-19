@@ -31,12 +31,13 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.LoaderManager;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
 
-public class SearchActivity extends FragmentActivity implements LoaderManager.LoaderCallbacks<Cursor>  {
+public class SearchActivity extends ActionBarActivity implements LoaderManager.LoaderCallbacks<Cursor>  {
 
 
     // Places Listview
@@ -45,7 +46,7 @@ public class SearchActivity extends FragmentActivity implements LoaderManager.Lo
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ome_activity_search);
+        setContentView(R.layout.ome_activity_search_location);
       //  handleIntent(getIntent());
 
         // Get the intent, verify the action and get the query
@@ -98,26 +99,6 @@ public class SearchActivity extends FragmentActivity implements LoaderManager.Lo
         Bundle data = new Bundle();
         data.putString("query", query);
         // getSupportLoaderManager().restartLoader(1, data, this);
-    }
-
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-  // Inflate the menu
-        getMenuInflater().inflate(R.menu.ome_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onMenuItemSelected(int featureId, MenuItem item) {
-        switch(item.getItemId()){
-            case R.id.action_search:
-                onSearchRequested();
-                break;
-        }
-        return super.onMenuItemSelected(featureId, item);
     }
 
     @Override

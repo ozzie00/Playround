@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/margin_large"
+    android:paddingLeft="@dimen/margin_large"
+    android:paddingRight="@dimen/margin_large"
+    android:focusableInTouchMode="true"
+    android:paddingTop="@dimen/margin_large">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width  ="fill_parent"
+        android:layout_height = "48dp"
+        android:orientation   = "horizontal"
+        android:padding       = "2dp"
+        android:background    = "@drawable/ome_textfield_rectangle_background" >
+
+        <RelativeLayout
+            android:layout_width     = "wrap_content"
+            android:layout_height    = "wrap_content"
+            android:orientation      = "horizontal">
+
+        <ImageView
+            android:id                 = "@+id/invite_title_icon_view"
+            android:layout_width       = "32dp"
+            android:layout_height      = "32dp"
+            android:layout_marginTop   = "8dp"
+            android:layout_marginBottom= "8dp"
+            android:layout_marginLeft  = "8dp"
+            android:layout_marginRight = "8dp"
+            android:layout_gravity     = "center_vertical"
+            android:src                = "@drawable/ome_invite_title_icon"/>
+
+        <EditText
+            android:id                  = "@+id/invite_content_text_view"
+            android:layout_width        = "wrap_content"
+            android:layout_height       = "wrap_content"
+            android:layout_marginLeft   = "6dp"
+            android:layout_toRightOf    = "@id/invite_title_icon_view"
+            android:layout_centerVertical="true"
+            android:hint                = "@string/OMEPARSEINVITECONTENTPLACEHOLD"
+            android:textAppearance      = "?android:attr/textAppearanceSmall"
+            android:textColor           = "@android:color/black"
+            android:background          = "@null"
+            android:focusable           = "true">
+            <requestFocus />
+        </EditText>
+
+        <ImageView
+            android:id                      = "@+id/invite_content_voice_view"
+            android:layout_width            = "wrap_content"
+            android:layout_height           = "wrap_content"
+            android:layout_marginTop        = "8dp"
+            android:layout_marginBottom     = "8dp"
+            android:layout_alignParentRight = "true"
+            android:paddingRight            = "16dp"
+            android:src                     = "@drawable/ome_voice_icon"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id               = "@+id/invite_sport_block"
+        android:layout_width     = "fill_parent"
+        android:layout_height    = "48dp"
+        android:orientation      = "horizontal"
+        android:layout_marginTop = "12dp"
+        android:background       ="@color/white_absolute">
+
+        <ImageView
+            android:id                 = "@+id/invite_sport_icon_view"
+            android:layout_width       = "32dp"
+            android:layout_height      = "32dp"
+            android:layout_marginLeft  = "8dp"
+            android:layout_marginRight = "8dp"
+            android:layout_marginTop   = "8dp"
+            android:gravity            = "center"
+            android:layout_gravity     = "center_vertical"
+            android:layout_marginBottom= "8dp"
+            android:src                = "@drawable/ome_sport_icon"/>
+
+        <TextView
+            android:id               = "@+id/invite_sport_text_view"
+            android:layout_width     = "100dp"
+            android:layout_height    = "wrap_content"
+            android:layout_marginTop = "8dp"
+            android:layout_alignTop  = "@id/invite_sport_icon_view"
+            android:layout_toRightOf = "@id/invite_sport_icon_view"
+            android:text             = "@string/OMEPARSEINVITESPORT"
+            android:paddingLeft      = "8dp"
+            android:textAppearance   = "?android:attr/textAppearanceSmall" />
+
+        <Spinner
+            android:id                      = "@+id/invite_sport_spinner"
+            android:layout_width            = "wrap_content"
+            android:layout_height           = "wrap_content"
+            android:layout_marginTop        = "8dp"
+            android:dropDownWidth           = "fill_parent"
+            android:layout_gravity          = "center"
+            android:layout_toRightOf        = "@id/invite_sport_text_view"
+            android:layout_alignParentRight = "true"
+            android:layout_marginRight      = "16dp"
+            android:prompt                  = "@string/OMEPARSEINVITESPORTPROMPT"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id               = "@+id/invite_location_block"
+        android:layout_width     = "fill_parent"
+        android:layout_height    = "wrap_content"
+        android:orientation      = "horizontal"
+        android:layout_marginTop = "12dp"
+        android:background       ="@color/white_absolute">
+
+        <ImageView
+            android:id                 = "@+id/invite_location_icon_view"
+            android:layout_width       = "32dp"
+            android:layout_height      = "32dp"
+            android:layout_marginLeft  = "8dp"
+            android:layout_marginRight = "8dp"
+            android:layout_marginTop   = "8dp"
+            android:layout_marginBottom= "8dp"
+            android:src                = "@drawable/ome_small_distance"/>
+
+        <TextView
+            android:id               = "@+id/invite_location_text_view"
+            android:layout_width     = "wrap_content"
+            android:layout_height    = "wrap_content"
+            android:layout_marginTop = "8dp"
+            android:layout_alignTop  = "@id/invite_location_icon_view"
+            android:layout_toRightOf = "@id/invite_location_icon_view"
+            android:text             = "@string/OMEPARSEINVITELOCATION"
+            android:paddingLeft      = "8dp"
+            android:paddingRight     = "8dp"
+            android:textAppearance   = "?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id                      = "@+id/invite_location_address_view"
+            android:layout_width            = "wrap_content"
+            android:layout_height           = "20dp"
+            android:layout_alignTop         = "@id/invite_location_text_view"
+            android:layout_alignParentRight = "true"
+            android:paddingRight            = "16dp"
+            android:textAppearance          = "?android:attr/textAppearanceSmall"
+            android:textColor               = "@android:color/black"/>
+    </RelativeLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="2dp">
+
+        <RelativeLayout
+            android:id               = "@+id/invite_date_block"
+            android:layout_width     = "wrap_content"
+            android:layout_height    = "64dp"
+            android:orientation      = "horizontal"
+            android:layout_marginTop = "12dp"
+            android:background       ="@color/white_absolute">
+
+            <ImageView
+                android:id                 = "@+id/invite_date_view"
+                android:layout_width       = "32dp"
+                android:layout_height      = "32dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft  = "8dp"
+                android:layout_marginRight = "8dp"
+                android:layout_marginTop   = "8dp"
+                android:layout_marginBottom= "8dp"
+                android:src                = "@drawable/ome_small_clock"/>
+
+            <TextView
+                android:id               = "@+id/invite_date_text_view"
+                android:layout_width     = "wrap_content"
+                android:layout_height    = "wrap_content"
+                android:layout_marginTop = "12dp"
+                android:layout_toRightOf = "@id/invite_date_view"
+                android:text             = "@string/OMEPARSEINVITESTART"
+                android:paddingLeft      = "8dp"
+                android:textAppearance   = "?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id               = "@+id/invite_date_detail_text_view"
+                android:layout_width     = "180dp"
+                android:layout_height    = "wrap_content"
+                android:layout_toRightOf = "@id/invite_date_view"
+                android:layout_below     = "@id/invite_date_text_view"
+                android:paddingLeft      = "8dp"
+                android:textAppearance   = "?android:attr/textAppearanceSmall"
+                android:textColor        = "@android:color/black" />
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width     = "1dp"
+            android:layout_height    = "64dp"
+            android:layout_marginTop = "12dp"
+            android:layout_alignTop  = "@id/invite_date_block"
+            android:layout_toRightOf = "@id/invite_date_block"
+            android:background       = "#F3F3F3"/>
+
+        <RelativeLayout
+            android:id               = "@+id/invite_time_block"
+            android:layout_width     = "fill_parent"
+            android:layout_height    = "64dp"
+            android:layout_marginTop = "12dp"
+            android:layout_alignTop  = "@id/invite_date_block"
+            android:layout_toRightOf = "@id/invite_date_block"
+            android:background       = "@color/white_absolute">
+
+
+            <TextView
+                android:id                      = "@+id/invite_time_text_view"
+                android:layout_width            = "wrap_content"
+                android:layout_height           = "wrap_content"
+                android:layout_marginTop        = "30dp"
+                android:layout_alignParentRight = "true"
+                android:paddingRight            = "16dp"
+                android:textAppearance          = "?android:attr/textAppearanceSmall"
+                android:textColor               = "@android:color/black" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!--
+    <RelativeLayout
+        android:id               = "@+id/invite_group_block"
+        android:layout_width     = "fill_parent"
+        android:layout_height    = "48dp"
+        android:orientation      = "horizontal"
+        android:layout_marginTop = "12dp"
+        android:background       = "@color/white_absolute">
+
+        <ImageView
+            android:id                 = "@+id/invite_group_view"
+            android:layout_width       = "32dp"
+            android:layout_height      = "32dp"
+            android:layout_marginLeft  = "8dp"
+            android:layout_marginRight = "8dp"
+            android:layout_marginTop   = "8dp"
+            android:layout_marginBottom= "8dp"
+            android:src                = "@drawable/ome_group_icon"/>
+
+        <TextView
+            android:id               = "@+id/invite_group_text_view"
+            android:layout_width     = "wrap_content"
+            android:layout_height    = "wrap_content"
+            android:layout_marginTop = "8dp"
+            android:layout_alignTop  = "@id/invite_group_view"
+            android:layout_toRightOf = "@id/invite_group_view"
+            android:text             = "@string/OMEPARSEINVITEPARTICIPANT"
+            android:paddingLeft      = "8dp"
+            android:textAppearance   = "?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id               = "@+id/invite_group_name_text_view"
+            android:layout_width     = "wrap_content"
+            android:layout_height    = "wrap_content"
+            android:layout_marginTop = "8dp"
+            android:layout_alignTop  = "@id/invite_group_view"
+            android:layout_toRightOf = "@id/invite_group_text_view"
+            android:paddingLeft      = "8dp"
+            android:textAppearance   = "?android:attr/textAppearanceSmall" />
+
+
+    </RelativeLayout>
+    -->
+
+    <RelativeLayout
+        android:id               = "@+id/invite_description_block"
+        android:layout_width     = "fill_parent"
+        android:layout_height    = "48dp"
+        android:orientation      = "horizontal"
+        android:layout_marginTop = "12dp"
+        android:background       = "@color/white_absolute">
+
+        <ImageView
+            android:id                 = "@+id/invite_description_ImageView"
+            android:layout_width       = "32dp"
+            android:layout_height      = "32dp"
+            android:layout_marginLeft  = "8dp"
+            android:layout_marginRight = "8dp"
+            android:layout_marginTop   = "8dp"
+            android:layout_marginBottom= "8dp"
+            android:src                = "@drawable/ome_description_icon"/>
+
+        <TextView
+            android:id               = "@+id/invite_description_view"
+            android:layout_width     = "wrap_content"
+            android:layout_height    = "wrap_content"
+            android:layout_marginTop = "8dp"
+            android:layout_alignTop  = "@id/invite_description_ImageView"
+            android:layout_toRightOf = "@id/invite_description_ImageView"
+            android:paddingLeft      = "8dp"
+            android:paddingRight     = "8dp"
+            android:text             = "@string/OMEPARSEINVITEDESCRIPTION"
+            android:textAppearance   = "?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id                      = "@+id/invite_descritpion_text_view"
+            android:layout_width            = "180dp"
+            android:layout_height           = "20dp"
+            android:layout_alignTop         = "@id/invite_description_view"
+            android:layout_toRightOf        = "@id/invite_description_view"
+            android:layout_alignParentRight = "true"
+            android:paddingRight            = "16dp"
+            android:textAppearance          = "?android:attr/textAppearanceSmall"
+            android:textColor               = "@android:color/black" />
+
+    </RelativeLayout>
+
+    <!--
+    <RelativeLayout
+        android:id               = "@+id/invite_alert_block"
+        android:layout_width     = "fill_parent"
+        android:layout_height    = "48dp"
+        android:orientation      = "horizontal"
+        android:layout_marginTop = "12dp"
+        android:background       = "@color/white_absolute">
+
+        <ImageView
+            android:id                 = "@+id/invite_alert_ImageView"
+            android:layout_width       = "32dp"
+            android:layout_height      = "32dp"
+            android:layout_marginLeft  = "8dp"
+            android:layout_marginRight = "8dp"
+            android:layout_marginTop   = "8dp"
+            android:layout_marginBottom= "8dp"
+            android:src                = "@drawable/ome_alert_icon"/>
+
+        <TextView
+            android:id               = "@+id/invite_alert_view"
+            android:layout_width     = "wrap_content"
+            android:layout_height    = "wrap_content"
+            android:layout_marginTop = "8dp"
+            android:layout_alignTop  = "@id/invite_alert_ImageView"
+            android:layout_toRightOf = "@id/invite_alert_ImageView"
+            android:text             = "@string/OMEPARSEINVITEALERT"
+            android:paddingLeft      = "8dp"
+            android:textAppearance   = "?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id               = "@+id/invite_alert_text_view"
+            android:layout_width     = "wrap_content"
+            android:layout_height    = "wrap_content"
+            android:layout_marginTop = "8dp"
+            android:layout_alignTop  = "@id/invite_alert_ImageView"
+            android:layout_toRightOf = "@id/invite_alert_view"
+            android:paddingLeft      = "8dp"
+            android:textAppearance   = "?android:attr/textAppearanceSmall" />
+
+
+    </RelativeLayout>
+    -->
+
+</LinearLayout>

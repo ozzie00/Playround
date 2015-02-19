@@ -198,7 +198,7 @@ public final class VenueOwner extends ParseObject {
         if (value != null) {
             put(AppConstant.OMEPARSEVENUEOWNERVERIFYKEY, value);
         } else {
-            put(AppConstant.OMEPARSEVENUEOWNERVERIFYKEY, AppConstant.OMEPARSENULLSTRING);
+            put(AppConstant.OMEPARSEVENUEOWNERVERIFYKEY, false);
         }
     }
 
