@@ -29,6 +29,9 @@ public final class AppConstant {
     public static final String OMETOPLAYFACEBOOKAPPID      = "846009488767381";
     public static final String OMETOPLAYGOOGLEPLACEKEY     = "AIzaSyAWF807dWOPwod6y9-GIlnQgeARbA2BKug";//"AIzaSyDoh6RGtWqEro0UtA2BqSur-GESBuFngss";
 
+    // Note:  web server key, not mobile client key
+    public static final String OMETOPLAYBAIDUPLACEKEY      = "7E72D397164211b08faadefec04b612a";
+
     public static final int OMEINVITEOTHERMAXIMUMCHARACTERCOUNT = 140;
 
     public static final double OMEFEETTOMETERS                = 0.3048; // this is an exact value.
@@ -87,8 +90,6 @@ public final class AppConstant {
     public static final String OMEPARSEUSERPROFILEAVATARKEY  = "userprofileavatar";
     public static final int OMEPARSEUSERNAMEMINIMUMLENGTH     = 6;
     public static final int OMEPARSEUSERPASSWORDMINIMUMLENGTH = 6;
-    public static final int OMEPARSEUSERVENUEASHOMERESULT     = 0;
-    public static final int OMEPARSEUSERVENUEASBACKUPRESULT   = 1;
     public static final int OMEPARSEUSERAVATARCOMPRESSQUILTY  = 90;
 
     public static final String OMEPARSEUSERLASTTIMEKEY     = "userlasttime";
@@ -159,11 +160,14 @@ public final class AppConstant {
     public static final String OMEPARSEVENUEOWNERIDCOPYFILENAME  = "ownerId.png";
     public static final String OMEPARSEVENUEOWNERLICENSEFILENAME = "ownerLicense.png";
 
-    // venue owner image and photo result
-    public static final int OMEPARSEVENUOWNERIDCOPYIMAGERESULT      = 0;
-    public static final int OMEPARSEVENUOWNERIDCOPYPHOTORESULT      = 1;
-    public static final int OMEPARSEVENUOWNERLICENSECOPYIMAGERESULT = 2;
-    public static final int OMEPARSEVENUOWNERLICENSECOPYPHOTORESULT = 3;
+    // Invoke activity return result
+    public static final int OMEPARSEUSERVENUEASHOMERESULT           = 0;
+    public static final int OMEPARSEUSERVENUEASBACKUPRESULT         = 1;
+    public static final int OMEPARSEVENUOWNERIDCOPYIMAGERESULT      = 2;
+    public static final int OMEPARSEVENUOWNERIDCOPYPHOTORESULT      = 3;
+    public static final int OMEPARSEVENUOWNERLICENSECOPYIMAGERESULT = 4;
+    public static final int OMEPARSEVENUOWNERLICENSECOPYPHOTORESULT = 5;
+    public static final int OMEPARSEINVITESEARCHLOCATIONRESULT      = 6;
 
 
     // Parse API Constant corresponding to add friend
@@ -454,4 +458,29 @@ public final class AppConstant {
 
     // Define constant variable for invoke activity
     public static final String OMEPARSEINVOKECALLPHONE = "tel:";
+
+    // Define constant variable for Map
+
+    public static final String PLACES_API_BASE           = "https://maps.googleapis.com/maps/api/place";
+    public static final String PLACE_TYPE_AUTOCOMPLETE   = "/autocomplete";
+    public static final String PLACE_KEY                 = "?key=";
+    public static final String PLACE_INPUT               = "&input=";
+    public static final String PLACE_RESPONSE_PREDICTION = "predictions";
+    public static final String PLACE_PREDICTION_TERM     = "terms";
+    public static final String PLACE_TERM_VALUE          = "value";
+    public static final String PLACE_OUT_JSON            = "/json";
+    public static final String PLACE_OUT_ENCODE          = "utf8";
+    public static final String PLACE_API_KEY             = AppConstant.OMETOPLAYGOOGLEPLACEKEY;
+
+    public static final String BD_PLACES_API_BASE        = "http://api.map.baidu.com/place/v2/suggestion";
+    public static final String BD_PLACE_API_KEY          = AppConstant.OMETOPLAYBAIDUPLACEKEY;
+    public static final String BD_PLACE_OUT_JSON         = "&output=json";
+    public static final String BD_PLACE_REGION           = "&region=全国";
+    public static final String BD_PLACE_QUERY            = "?query=";
+    public static final String BD_PLACE_KEY              = "&ak=";
+    public static final String BD_PLACE_RESULT           = "result";
+    public static final String BD_PLACE_NAME             = "name";
+    public static final String BD_PLACE_CITY             = "city";
+    public static final String BD_PLACE_DISTRICT         = "district";
+
 }

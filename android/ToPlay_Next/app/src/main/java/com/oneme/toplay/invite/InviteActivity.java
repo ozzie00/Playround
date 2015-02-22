@@ -734,12 +734,12 @@ public final class InviteActivity extends ActionBarActivity implements TextWatch
 
 
     private ArrayList<String> NearBy(String input) {
-        ArrayList<String> resultList = null;
+        ArrayList<String> resultList  = null;
 
         HttpURLConnection mconnection = null;
-        StringBuilder jsonResults = new StringBuilder();
+        StringBuilder jsonResults     = new StringBuilder();
 
-        String mlocale = Locale.getDefault().getLanguage();
+        String mlocale                = Locale.getDefault().getLanguage();
 
         try {
             StringBuilder mstringBuilder = new StringBuilder(PLACES_API_BASE + TYPE_NEARBY + OUT_JSON);

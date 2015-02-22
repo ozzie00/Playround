@@ -86,6 +86,8 @@ public class Application extends android.app.Application {
 
     public static final String INTENT_EXTRA_VENUESEARCH      = AppConstant.OMETOPLAYVENUESEARCHKEY;
 
+    public static final String INTENT_EXTRA_SEARCHLOCATION   = AppConstant.OMEPARSEINVITECOURTKEY;
+
 
 
 

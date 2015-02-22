@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/margin_large"
-    android:paddingLeft="@dimen/margin_large"
-    android:paddingRight="@dimen/margin_large"
-    android:focusableInTouchMode="true"
-    android:paddingTop="@dimen/margin_large">
+    android:layout_width         = "fill_parent"
+    android:layout_height        = "wrap_content"
+    android:orientation          = "vertical"
+    android:paddingBottom        = "@dimen/margin_large"
+    android:paddingLeft          = "@dimen/margin_large"
+    android:paddingRight         = "@dimen/margin_large"
+    android:focusableInTouchMode = "true"
+    android:paddingTop           = "@dimen/margin_large">
 
 
     <LinearLayout
@@ -19,21 +19,23 @@
         android:background    = "@drawable/ome_textfield_rectangle_background" >
 
         <RelativeLayout
-            android:layout_width     = "wrap_content"
-            android:layout_height    = "wrap_content"
-            android:orientation      = "horizontal">
+            android:layout_width  = "fill_parent"
+            android:layout_height = "48dp"
+            android:orientation   = "horizontal">
 
             <EditText
-                android:id                  = "@+id/invite_search_content_text_view"
-                android:layout_width        = "wrap_content"
-                android:layout_height       = "wrap_content"
-                android:layout_marginLeft   = "8dp"
-                android:layout_centerVertical="true"
-                android:hint                = "@string/OMEPARSEINVITESEARCHLOCATIONPLACEHOLD"
-                android:textAppearance      = "?android:attr/textAppearanceSmall"
-                android:textColor           = "@android:color/black"
-                android:background          = "@null"
-                android:focusable           = "true">
+                android:id                    = "@+id/invite_search_content_text_view"
+                android:layout_width          = "240dp"
+                android:layout_height         = "20dp"
+                android:layout_weight         = "1"
+                android:layout_marginLeft     = "8dp"
+                android:layout_centerVertical = "true"
+                android:hint                  = "@string/OMEPARSEINVITESEARCHLOCATIONPLACEHOLD"
+                android:singleLine            = "true"
+                android:textAppearance        = "?android:attr/textAppearanceSmall"
+                android:textColor             = "@android:color/black"
+                android:background            = "@null"
+                android:focusable             = "true">
                 <requestFocus />
             </EditText>
 
@@ -44,6 +46,7 @@
                 android:layout_marginTop        = "8dp"
                 android:layout_marginBottom     = "8dp"
                 android:layout_alignParentRight = "true"
+                android:paddingLeft             = "8dp"
                 android:paddingRight            = "16dp"
                 android:src                     = "@drawable/ome_voice_icon"/>
         </RelativeLayout>
@@ -52,14 +55,24 @@
 
     <!--  List view -->
     <ListView
-        android:id="@+id/invite_search_location_list"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/invite_search_input_block"
-        android:layout_weight="1"
-        android:divider="#F3F3F3"
-        android:dividerHeight="5.0sp"/>
+        android:id               = "@+id/invite_search_location_list"
+        android:layout_width     = "fill_parent"
+        android:layout_height    = "wrap_content"
+        android:layout_marginTop = "8dp"
+        android:layout_below     = "@id/invite_search_input_block"
+        android:layout_weight    = "1"
+        android:divider          = "#F3F3F3"
+        android:dividerHeight    = "1.0sp"/>
 
+    <ImageView
+        android:id                      = "@+id/invite_search_google_logo"
+        android:layout_width            = "fill_parent"
+        android:layout_height           = "wrap_content"
+        android:layout_below            = "@id/invite_search_location_list"
+        android:layout_marginTop        = "16dp"
+        android:layout_centerHorizontal = "true"
+        android:src                     = "@drawable/powered_by_google_on_white"
+        android:visibility              = "invisible"/>
 
 
 </RelativeLayout>

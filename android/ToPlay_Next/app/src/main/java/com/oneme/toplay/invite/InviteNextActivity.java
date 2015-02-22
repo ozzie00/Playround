@@ -16,6 +16,7 @@
 
 package com.oneme.toplay.invite;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -132,20 +133,6 @@ public final class InviteNextActivity extends ActionBarActivity implements OnDat
     private String mdate           = null;
     private String mhour           = null;
 
-
-    private static final String LOG_TAG           = "InviteActivity";
-
-    private static final String PLACES_API_BASE   = "https://maps.googleapis.com/maps/api/place";
-    private static final String TYPE_AUTOCOMPLETE = "/autocomplete";
-    private static final String TYPE_NEARBY       = "/nearbysearch";
-
-
-    private static final String OUT_JSON          = "/json";
-
-    private static final String PLACE_API_KEY     = AppConstant.OMETOPLAYGOOGLEPLACEKEY;
-
-    AutoCompleteTextView mcourtAutoComplete;
-
     public MenuItem minviteadd;
 
 
@@ -172,7 +159,7 @@ public final class InviteNextActivity extends ActionBarActivity implements OnDat
         mworkoutnameText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                minviteadd.setIcon(R.drawable.ome_invite_add);
+               // minviteadd.setIcon(R.drawable.ome_invite_add);
             }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -221,8 +208,8 @@ public final class InviteNextActivity extends ActionBarActivity implements OnDat
         locationblock.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                 Intent invokeWitActivityIntent = new Intent(InviteNextActivity.this, SearchActivity.class);
-                 startActivity(invokeWitActivityIntent);
+                 Intent invokeSearchActivityIntent = new Intent(InviteNextActivity.this, SearchActivity.class);
+                 startActivityForResult(invokeSearchActivityIntent, AppConstant.OMEPARSEINVITESEARCHLOCATIONRESULT);
 
             }
         });
@@ -412,6 +399,16 @@ public final class InviteNextActivity extends ActionBarActivity implements OnDat
         shareIntent.setType(AppConstant.OMEPARSESHARETEXTFILE);
         startActivity(Intent.createChooser(shareIntent, getResources().getString(R.string.OMEPARSEADDCOTACTSHAREQRCODEWITH)));
 
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == AppConstant.OMEPARSEINVITESEARCHLOCATIONRESULT && resultCode == Activity.RESULT_OK) {
+            mcourtText.setText(data.getStringExtra(Application.INTENT_EXTRA_SEARCHLOCATION));
+            mcourt = mcourtText.getText().toString();
+        }
     }
 
     private void submitInvitation () {

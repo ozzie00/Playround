@@ -34,12 +34,13 @@
 
         <EditText
             android:id                  = "@+id/invite_content_text_view"
-            android:layout_width        = "wrap_content"
+            android:layout_width        = "180dp"
             android:layout_height       = "wrap_content"
             android:layout_marginLeft   = "6dp"
             android:layout_toRightOf    = "@id/invite_title_icon_view"
             android:layout_centerVertical="true"
             android:hint                = "@string/OMEPARSEINVITECONTENTPLACEHOLD"
+            android:singleLine          = "true"
             android:textAppearance      = "?android:attr/textAppearanceSmall"
             android:textColor           = "@android:color/black"
             android:background          = "@null"

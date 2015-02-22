@@ -531,7 +531,13 @@
     <string name="OMETOPLAYINWORD">in</string>
     <string name="OMETOPLAYDONEWORD">DONE</string>
 
+    <string name="invitesearchactivity_title">Location</string>
     <string name="OMEPARSEINVITESEARCHLOCATIONPLACEHOLD">Enter a location</string>
+    <string name="OMEPARSEINVITESEARCHLOCATIONCUSTOM"> Custom Location</string>
+
+
+
+
 
 
 

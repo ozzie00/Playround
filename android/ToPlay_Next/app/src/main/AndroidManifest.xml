@@ -256,7 +256,13 @@
 
         <activity
             android:name       = ".invite.SearchActivity"
-            android:label      = "@string/inviteactivity_title"/>
+            android:label      = "@string/invitesearchactivity_title"
+            android:parentActivityName="com.oneme.toplay.invite.InviteNextActivity" >
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.oneme.toplay.invite.InviteNextActivity" />
+        </activity>
 
         <activity
             android:name       = ".voice.WitActivity"/>
