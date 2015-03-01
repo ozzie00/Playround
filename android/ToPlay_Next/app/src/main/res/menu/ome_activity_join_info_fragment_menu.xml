@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:compat="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id              = "@+id/action_search_venue"
+        android:icon            = "@drawable/ome_join_icon"
+        android:orderInCategory = "100"
+        compat:showAsAction     = "always"
+        android:title           = "join"/>
+
+</menu>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Playround</string>
-    <string name="app_version">Playround Android v.1.0.4.03</string>
+    <string name="app_version">Playround Android v.1.0.4.05</string>
 
     <!-- Strings related to activity -->
     <string name="action_settings">Settings</string>
@@ -518,7 +518,7 @@
     <string name="OMEPARSEWEATHERHUMIDITY">Humidity</string>
     <string name="OMEPARSEWEATHERPRESSURE">Pressure</string>
 
-    <!--Add by playround 1.0.4.03 -->
+    <!--Add by playround 1.0.4.05 -->
     <string name="OMEPARSEINVITECONTENTPLACEHOLD">Workout Name</string>
     <string name="OMEPARSEINVITESPORT">Sport</string>
     <string name="OMEPARSEINVITELOCATION">Location</string>
@@ -534,6 +534,17 @@
     <string name="invitesearchactivity_title">Location</string>
     <string name="OMEPARSEINVITESEARCHLOCATIONPLACEHOLD">Enter a location</string>
     <string name="OMEPARSEINVITESEARCHLOCATIONCUSTOM"> Custom Location</string>
+
+    <string name="joininfofragment_title">Info</string>
+    <string name="joinscoreboardfragment_title">Scoreboard</string>
+    <string name="joincommentfragment_title">Comments</string>
+
+    <string name="OMEPARSEJOININFOPLAYERTEXT">PLAYERS</string>
+    <string name="OMEPARSEJOININFOICECREAMTEXT">ICECREAMS</string>
+    <string name="OMEPARSEJOININFODAYLEFTTEXT">DAYS LEFT</string>
+
+
+
 
 
 

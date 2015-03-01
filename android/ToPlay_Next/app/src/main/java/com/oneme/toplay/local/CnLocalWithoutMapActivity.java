@@ -71,6 +71,10 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+
+import org.json.JSONObject;
+
+
 import com.oneme.toplay.Application;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.third.GetOutputMediaFile;
@@ -78,7 +82,9 @@ import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.database.Invite;
 import com.oneme.toplay.database.Sport;
 import com.oneme.toplay.invite.InviteActivity;
+import com.oneme.toplay.invite.InviteNextActivity;
 import com.oneme.toplay.join.JoinActivity;
+import com.oneme.toplay.join.JoinNextActivity;
 import com.oneme.toplay.local.CnLocalActivity;
 import com.oneme.toplay.local.LocalActivity;
 import com.oneme.toplay.me.SettingActivity;
@@ -99,6 +105,7 @@ import com.oneme.toplay.me.MeActivity;
 import com.oneme.toplay.service.CoreService;
 import com.oneme.toplay.weather.RemoteFetch;
 import com.oneme.toplay.weather.WeatherActivity;
+
 import com.parse.GetDataCallback;
 import com.parse.ParseFile;
 import com.parse.ParseGeoPoint;
@@ -141,8 +148,6 @@ import com.baidu.mapapi.map.SupportMapFragment;
 //import com.shamanland.fab.FloatingActionButton;
 //import com.shamanland.fab.ShowHideOnScroll;
 import com.squareup.picasso.Picasso;
-
-import org.json.JSONObject;
 
 
 public class CnLocalWithoutMapActivity extends ActionBarActivity {
@@ -466,7 +471,7 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
                 passLocation.setLatitude(invite.getLocation().getLatitude());
                 passLocation.setLongitude(invite.getLocation().getLongitude());
 
-                Intent invokeJoinActivityIntent = new Intent(getBaseContext(), JoinActivity.class);//LocalActivity.this, JoinActivity.class);
+                Intent invokeJoinActivityIntent = new Intent(getBaseContext(), JoinNextActivity.class);//LocalActivity.this, JoinActivity.class);
 
                 if (tmpAvatarImageUri != null) {
                     // Add avatar Uri instance to an Intent
@@ -859,7 +864,7 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
             Application.setCurrentLongitude(Double.toString(mLocation.getLongitude()));
 
             //Ozzie Zhang 10-29-2014 please change JoinActivity to InviteActivity, now only for test
-            Intent intent = new Intent(CnLocalWithoutMapActivity.this, InviteActivity.class);
+            Intent intent = new Intent(CnLocalWithoutMapActivity.this, InviteNextActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         }
@@ -879,6 +884,7 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
             }
         }
 
+        intent.putExtra(Application.INTENT_EXTRA_WORKOUTNAME, invite.getWorkoutName());
         intent.putExtra(Application.INTENT_EXTRA_SPORTTYPEVALUE, invite.getSportTypeValue());
         intent.putExtra(Application.INTENT_EXTRA_SPORTTYPE, invite.getSportType());
         intent.putExtra(Application.INTENT_EXTRA_PLAYERNUMBER, invite.getPlayerNumber());

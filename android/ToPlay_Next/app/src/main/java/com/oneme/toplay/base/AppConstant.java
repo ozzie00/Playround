@@ -213,6 +213,7 @@ public final class AppConstant {
     public static final String OMEPARSEINVITEPUBLICKEY           = "invitePublic";
     public static final String OMEPARSEINVITESPORTVALUENULL      = "0";
     public static final String OMEPARSESHARETEXTFILE             = "text/plain";
+    public static final String OMEPARSEINVITEWORKNAMEKEY         = "inviteWorkoutName";
 
     // Parse API key corresponding to message
     public static final String OMEPARSEMESSAGEFROMUSERKEY     = "messageFromUser";

@@ -446,7 +446,7 @@ public final class InviteNextActivity extends ActionBarActivity implements OnDat
 
         // Ozzie Zhang 2015-02-19 use text key to workout name
         if (mworkoutname != null) {
-            invite.setText(mworkoutname);
+            invite.setWorkoutName(mworkoutname);
         }
 
         if (msporttype != null) {

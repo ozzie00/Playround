@@ -42,43 +42,43 @@ public class Application extends android.app.Application {
 
    // public static final ParseUser INTENT_EXTRA_USER      = AppConstant.OMEPARSEUSERKEY;
 
-    public static final String INTENT_EXTRA_USEROBJECTID = AppConstant.OMETOPLAYINVITECLASSKEY;
+    public static final String INTENT_EXTRA_USEROBJECTID     = AppConstant.OMETOPLAYINVITECLASSKEY;
 
-    public static final String INTENT_EXTRA_USERNAME     = AppConstant.OMEPARSEUSERNAMEKEY;
+    public static final String INTENT_EXTRA_USERNAME         = AppConstant.OMEPARSEUSERNAMEKEY;
 
-    public static final String INTENT_EXTRA_USEROMEID    = AppConstant.OMEPARSEUSEROMEIDKEY;
+    public static final String INTENT_EXTRA_USEROMEID        = AppConstant.OMEPARSEUSEROMEIDKEY;
 
-    public static final String INTENT_EXTRA_USERLEVEL    = AppConstant.OMEPARSEUSERLEVELKEY;
+    public static final String INTENT_EXTRA_USERLEVEL        = AppConstant.OMEPARSEUSERLEVELKEY;
 
-    public static final String INTENT_EXTRA_USERICONPATH = AppConstant.OMEPARSEUSERICONKEY;
+    public static final String INTENT_EXTRA_USERICONPATH     = AppConstant.OMEPARSEUSERICONKEY;
 
-    public static final String INTENT_EXTRA_SPORTTYPE    = AppConstant.OMEPARSEINVITESPORTTYPEKEY;
+    public static final String INTENT_EXTRA_SPORTTYPE        = AppConstant.OMEPARSEINVITESPORTTYPEKEY;
 
-    public static final String INTENT_EXTRA_SPORTTYPEVALUE= AppConstant.OMEPARSEINVITESPORTTYPEVALUEKEY;
+    public static final String INTENT_EXTRA_SPORTTYPEVALUE   = AppConstant.OMEPARSEINVITESPORTTYPEVALUEKEY;
 
-    public static final String INTENT_EXTRA_PLAYERNUMBER = AppConstant.OMEPARSEINVITEPLAYERNUMBERKEY;
+    public static final String INTENT_EXTRA_PLAYERNUMBER     = AppConstant.OMEPARSEINVITEPLAYERNUMBERKEY;
 
-    public static final String INTENT_EXTRA_PLAYERLEVEL  = AppConstant.OMEPARSEINVITEPLAYERLEVELKEY;
+    public static final String INTENT_EXTRA_PLAYERLEVEL      = AppConstant.OMEPARSEINVITEPLAYERLEVELKEY;
 
-    public static final String INTENT_EXTRA_TIME         = AppConstant.OMEPARSEINVITETIMEKEY;
+    public static final String INTENT_EXTRA_TIME             = AppConstant.OMEPARSEINVITETIMEKEY;
 
-    public static final String INTENT_EXTRA_COURT        = AppConstant.OMEPARSEINVITECOURTKEY;
+    public static final String INTENT_EXTRA_COURT            = AppConstant.OMEPARSEINVITECOURTKEY;
 
-    public static final String INTENT_EXTRA_FEE          = AppConstant.OMEPARSEINVITEFEEKEY;
+    public static final String INTENT_EXTRA_FEE              = AppConstant.OMEPARSEINVITEFEEKEY;
 
-    public static final String INTENT_EXTRA_OTHER        = AppConstant.OMEPARSEINVITEOTHERINFOKEY;
+    public static final String INTENT_EXTRA_OTHER            = AppConstant.OMEPARSEINVITEOTHERINFOKEY;
 
-    public static final String INTENT_EXTRA_FROMUSER     = AppConstant.OMEPARSEINVITEFROMUSERKEY;
+    public static final String INTENT_EXTRA_FROMUSER         = AppConstant.OMEPARSEINVITEFROMUSERKEY;
 
-    public static final String INTENT_EXTRA_FROMUSERNAME = AppConstant.OMEPARSEINVITEFROMUSERNAMEKEY;
+    public static final String INTENT_EXTRA_FROMUSERNAME     = AppConstant.OMEPARSEINVITEFROMUSERNAMEKEY;
 
-    public static final String INTENT_EXTRA_SUBMITTIME   = AppConstant.OMEPARSEINVITESUBMITTIMEKEY;
+    public static final String INTENT_EXTRA_SUBMITTIME       = AppConstant.OMEPARSEINVITESUBMITTIMEKEY;
 
-    public static final String INTENT_EXTRA_INVITEOBJECTID = AppConstant.OMEPARSEMESSAGEFOROBJECTIDKEY;
+    public static final String INTENT_EXTRA_INVITEOBJECTID   = AppConstant.OMEPARSEMESSAGEFOROBJECTIDKEY;
 
-    public static final String INTENT_EXTRA_HOMEVENUE      = AppConstant.OMEPARSEUSERHOMEVENUEKEY;
+    public static final String INTENT_EXTRA_HOMEVENUE        = AppConstant.OMEPARSEUSERHOMEVENUEKEY;
 
-    public static final String INTENT_EXTRA_BACKUPVENUE    = AppConstant.OMEPARSEUSERBACKUPVENUEKEY;
+    public static final String INTENT_EXTRA_BACKUPVENUE      = AppConstant.OMEPARSEUSERBACKUPVENUEKEY;
 
     public static final String INTENT_EXTRA_HOMEVENUEPHONE   = AppConstant.OMEPARSEUSERHOMEVENUEPHONEKEY;
 
@@ -87,6 +87,10 @@ public class Application extends android.app.Application {
     public static final String INTENT_EXTRA_VENUESEARCH      = AppConstant.OMETOPLAYVENUESEARCHKEY;
 
     public static final String INTENT_EXTRA_SEARCHLOCATION   = AppConstant.OMEPARSEINVITECOURTKEY;
+
+    public static final String INTENT_EXTRA_WORKOUTNAME      = AppConstant.OMEPARSEINVITEWORKNAMEKEY;
+
+
 
 
 

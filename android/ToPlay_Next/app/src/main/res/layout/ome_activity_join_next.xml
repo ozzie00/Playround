@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+    xmlns:app               = "http://schemas.android.com/apk/res-auto"
+    xmlns:tools             = "http://schemas.android.com/tools"
+    android:id              = "@+id/left_pane_linear"
+    android:layout_width    = "fill_parent"
+    android:layout_height   = "fill_parent"
+    android:orientation     = "vertical">
+
+    <com.astuetz.PagerSlidingTabStrip
+        android:id                  = "@+id/join_next_fragment_tab"
+        android:layout_width        = "match_parent"
+        android:background          = "@color/white_absolute"
+        app:pstsDividerColor        = "@color/grey"
+        app:pstsIndicatorColor      = "#1DA155"
+        app:pstsUnderlineHeight     = "1dp"
+        app:pstsIndicatorHeight     = "2dp"
+        app:pstsShouldExpand        = "true"
+        app:pstsTabPaddingLeftRight = "5dp"
+        app:pstsTabBackground       = "@drawable/ome_activity_join_next_tab_background"
+        android:layout_height       = "48dip"/>
+
+    <android.support.v4.view.ViewPager
+        android:id            = "@+id/join_next_pager"
+        android:background    = "@color/white"
+        android:layout_width  = "match_parent"
+        android:layout_height = "match_parent">
+    </android.support.v4.view.ViewPager>
+</LinearLayout>
+
+
+

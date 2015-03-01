@@ -35,4 +35,7 @@
     <color name="tab_selected">@color/white</color>
     <color name="tab_highlight">#aaaaaaaa</color>
 
+    <color name="tab_pressed">#1DE34A</color>
+    <color name="tab_focus">#1DA155</color>
+
 </resources>

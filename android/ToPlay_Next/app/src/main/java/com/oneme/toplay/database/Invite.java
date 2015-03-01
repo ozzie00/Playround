@@ -34,6 +34,7 @@ public final class Invite extends ParseObject {
 
     private static final String TAG = "Invite";
 
+    // text for workout name
     public String getText() {
         if (getString(AppConstant.OMEPARSETEXTKEY) != null) {
             return getString(AppConstant.OMEPARSETEXTKEY);
@@ -264,6 +265,22 @@ public final class Invite extends ParseObject {
             put(AppConstant.OMEPARSEINVITEPUBLICKEY, value);
         } else {
             put(AppConstant.OMEPARSEINVITEPUBLICKEY, false);
+        }
+    }
+
+    public String getWorkoutName() {
+        if (getString(AppConstant.OMEPARSEINVITEWORKNAMEKEY) != null) {
+            return getString(AppConstant.OMEPARSEINVITEWORKNAMEKEY);
+        } else {
+            return AppConstant.OMEPARSENULLSTRING;
+        }
+    }
+
+    public void setWorkoutName(String value) {
+        if (value != null) {
+            put(AppConstant.OMEPARSEINVITEWORKNAMEKEY, value);
+        } else {
+            put(AppConstant.OMEPARSEINVITEWORKNAMEKEY, AppConstant.OMEPARSENULLSTRING);
         }
     }
 

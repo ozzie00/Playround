@@ -61,6 +61,7 @@ import com.oneme.toplay.database.Sport;
 import com.oneme.toplay.invite.InviteActivity;
 import com.oneme.toplay.invite.InviteNextActivity;
 import com.oneme.toplay.join.JoinActivity;
+import com.oneme.toplay.join.JoinNextActivity;
 import com.oneme.toplay.MapActivity;
 import com.oneme.toplay.MessageListActivity;
 import com.oneme.toplay.base.FriendInfo;
@@ -75,6 +76,8 @@ import com.oneme.toplay.SearchActivity;
 
 import com.oneme.toplay.weather.RemoteFetch;
 import com.oneme.toplay.weather.WeatherActivity;
+
+
 import com.parse.GetDataCallback;
 import com.parse.ParseFile;
 import com.parse.ParseGeoPoint;
@@ -378,7 +381,7 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
                     });
                 }
 
-                Intent invokeJoinActivityIntent = new Intent(LocalWithoutMapActivity.this, JoinActivity.class);
+                Intent invokeJoinActivityIntent = new Intent(LocalWithoutMapActivity.this, JoinNextActivity.class);
 
                 if (tmpAvatarImageUri != null) {
                     // Add avatar Uri instance to an Intent
@@ -937,6 +940,7 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
             }
         }
 
+        intent.putExtra(Application.INTENT_EXTRA_WORKOUTNAME, invite.getWorkoutName());
         intent.putExtra(Application.INTENT_EXTRA_SPORTTYPEVALUE, invite.getSportTypeValue());
         intent.putExtra(Application.INTENT_EXTRA_SPORTTYPE, invite.getSportType());
         intent.putExtra(Application.INTENT_EXTRA_PLAYERNUMBER, invite.getPlayerNumber());

@@ -72,6 +72,7 @@ import com.oneme.toplay.base.third.GetOutputMediaFile;
 import com.oneme.toplay.database.Invite;
 import com.oneme.toplay.database.Sport;
 import com.oneme.toplay.invite.InviteActivity;
+import com.oneme.toplay.invite.InviteNextActivity;
 import com.oneme.toplay.join.JoinActivity;
 import com.oneme.toplay.service.CoreService;
 
@@ -387,7 +388,7 @@ public class CnVenueWithoutMapActivity extends ActionBarActivity {
             Application.setCurrentLongitude(Double.toString(mLocation.getLongitude()));
 
             //Ozzie Zhang 10-29-2014 please change JoinActivity to InviteActivity, now only for test
-            Intent intent = new Intent(CnVenueWithoutMapActivity.this, InviteActivity.class);
+            Intent intent = new Intent(CnVenueWithoutMapActivity.this, InviteNextActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         }
