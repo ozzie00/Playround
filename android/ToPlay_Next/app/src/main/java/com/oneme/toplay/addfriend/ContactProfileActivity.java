@@ -87,7 +87,7 @@ public class ContactProfileActivity extends ActionBarActivity {
         ParseQuery<ParseUser> query = ParseUser.getQuery();
         query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
         query.whereContains(AppConstant.OMEPARSEUSERNAMEKEY, mUsername);
-        query.orderByDescending(AppConstant.OMEPARSECREATEDAT);
+        query.orderByDescending(AppConstant.OMEPARSECREATEDATKEY);
         query.setLimit(1);
         query.findInBackground(new FindCallback<ParseUser>() {
             public void done(List<ParseUser> user, ParseException e) {

@@ -22,13 +22,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.oneme.toplay.Application;
 import com.oneme.toplay.R;
 
 public class ScoreboardFragment extends Fragment {
+    private String minviteObjectID = null;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.ome_activity_join_scoreboard_fragment, container, false);
+
+        Bundle bundle   = this.getArguments();
+        minviteObjectID = bundle.getString(Application.INTENT_EXTRA_INVITEOBJECTID);
+
+        View rootView   = inflater.inflate(R.layout.ome_activity_join_scoreboard_fragment, container, false);
         return rootView;
     }
 

@@ -500,9 +500,9 @@ public final class InviteActivity extends ActionBarActivity implements TextWatch
 
                 // set dialog message
                 minviteplayAlertDialogBuilder
-                        .setMessage(AppConstant.OMEPARSEINVITEREALLYPLAY)
+                        .setMessage(getResources().getString(R.string.OMEPARSEINVITEREALLYPLAY))
                         .setCancelable(false)
-                        .setPositiveButton(AppConstant.OMEPARSEYES, new DialogInterface.OnClickListener() {
+                        .setPositiveButton(getResources().getString(R.string.OMEPARSEYES), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
 
                                 if (ParseUser.getCurrentUser() == null) {
@@ -523,7 +523,7 @@ public final class InviteActivity extends ActionBarActivity implements TextWatch
                                 }
                             }
                         })
-                        .setNegativeButton(AppConstant.OMEPARSENO, new DialogInterface.OnClickListener() {
+                        .setNegativeButton(getResources().getString(R.string.OMEPARSENO), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 // if this button is clicked, just close
                                 // the dialog box and do nothing

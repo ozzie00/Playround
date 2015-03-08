@@ -76,7 +76,7 @@ public class MessageListActivity extends ActionBarActivity {
                      ParseQuery<Message> query = Message.getQuery();
                      query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
                      query.whereEqualTo(AppConstant.OMEPARSEMESSAGETOUSERNAMEKEY, ParseUser.getCurrentUser().getUsername());
-                     query.orderByDescending(AppConstant.OMEPARSECREATEDAT);
+                     query.orderByDescending(AppConstant.OMEPARSECREATEDATKEY);
                      query.setLimit(MAX_MESSAGE_SEARCH_RESULTS);
                      return query;
                  }

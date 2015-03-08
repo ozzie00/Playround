@@ -632,7 +632,7 @@ public class MapActivity extends ActionBarActivity  implements LocationListener,
         // Set up additional query filters
         mapQuery.whereWithinKilometers(AppConstant.OMEPARSELOCATIONKEY, myPoint, MAX_Invite_SEARCH_DISTANCE);
         mapQuery.include(AppConstant.OMEPARSEUSERKEY);
-        mapQuery.orderByDescending(AppConstant.OMEPARSECREATEDAT);
+        mapQuery.orderByDescending(AppConstant.OMEPARSECREATEDATKEY);
         mapQuery.setLimit(MAX_Invite_SEARCH_RESULTS);
         // Kick off the query in the background
         mapQuery.findInBackground(new FindCallback<Invite>() {

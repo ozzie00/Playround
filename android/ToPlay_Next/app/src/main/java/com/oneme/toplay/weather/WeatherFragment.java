@@ -117,9 +117,9 @@ public class WeatherFragment extends Fragment {
     			if(json == null){
     				handler.post(new Runnable(){
     					public void run(){
-    						Toast.makeText(getActivity(),
-                                    getActivity().getString(R.string.OMWPARSEWEATHERPLACENOTFOUND),
-                                    Toast.LENGTH_LONG).show();
+    						//Toast.makeText(getActivity(),
+                            //        getActivity().getString(R.string.OMWPARSEWEATHERPLACENOTFOUND),
+                            //        Toast.LENGTH_LONG).show();
     					}
     				});
     			} else {

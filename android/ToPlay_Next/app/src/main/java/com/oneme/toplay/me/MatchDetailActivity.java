@@ -163,7 +163,7 @@ public class MatchDetailActivity extends ActionBarActivity {
             public ParseQuery<Message> create() {
                 ParseQuery<Message> query = Message.getQuery();
                 query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
-                query.orderByDescending(AppConstant.OMEPARSECREATEDAT);
+                query.orderByDescending(AppConstant.OMEPARSECREATEDATKEY);
                 query.whereEqualTo(AppConstant.OMEPARSEMESSAGEFOROBJECTIDKEY, minviteObjectID);
                 query.setLimit(MAX_REQUEST_MESSAGE_SEARCH_RESULTS);
                 return query;

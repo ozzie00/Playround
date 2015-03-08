@@ -66,7 +66,7 @@ public class DispatchActivity extends Activity {
                     } else if (user.getString(AppConstant.OMEPARSEUSERTAGKEY).equalsIgnoreCase(AppConstant.OMEPARSEUSERTAGVENUE)) {
                         ParseQuery<VenueOwner> query = VenueOwner.getQuery();
                         query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
-                        query.include(AppConstant.OMEPARSEVENUEOWNERCLASSKEY);
+                        query.include(AppConstant.OMETOPLAYVENUEOWNERCLASSKEY);
                         query.whereEqualTo(AppConstant.OMEPARSEUSERKEY, user);
                         query.setLimit(1);
 
@@ -117,7 +117,7 @@ public class DispatchActivity extends Activity {
                     } else if (user.getString(AppConstant.OMEPARSEUSERTAGKEY).equalsIgnoreCase(AppConstant.OMEPARSEUSERTAGVENUE)) {
                         ParseQuery<VenueOwner> query = VenueOwner.getQuery();
                         query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
-                        query.include(AppConstant.OMEPARSEVENUEOWNERCLASSKEY);
+                        query.include(AppConstant.OMETOPLAYVENUEOWNERCLASSKEY);
                         query.whereEqualTo(AppConstant.OMEPARSEUSERKEY, user);
                         query.setLimit(1);
 

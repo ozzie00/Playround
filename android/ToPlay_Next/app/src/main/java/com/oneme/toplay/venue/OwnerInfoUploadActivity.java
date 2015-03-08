@@ -423,7 +423,7 @@ public class OwnerInfoUploadActivity extends ActionBarActivity {
                     ParseUser user = ParseUser.getCurrentUser();
                     ParseQuery<VenueOwner> query = VenueOwner.getQuery();
                     query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
-                    query.include(AppConstant.OMEPARSEVENUEOWNERCLASSKEY);
+                    query.include(AppConstant.OMETOPLAYVENUEOWNERCLASSKEY);
                     query.whereEqualTo(AppConstant.OMEPARSEUSERKEY, user);
                     query.setLimit(1);
 
@@ -478,7 +478,7 @@ public class OwnerInfoUploadActivity extends ActionBarActivity {
                     ParseUser user = ParseUser.getCurrentUser();
                     ParseQuery<VenueOwner> query = VenueOwner.getQuery();
                     query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
-                    query.include(AppConstant.OMEPARSEVENUEOWNERCLASSKEY);
+                    query.include(AppConstant.OMETOPLAYVENUEOWNERCLASSKEY);
                     query.whereEqualTo(AppConstant.OMEPARSEUSERKEY, user);
                     query.setLimit(1);
 
@@ -542,7 +542,7 @@ public class OwnerInfoUploadActivity extends ActionBarActivity {
         ParseUser user = ParseUser.getCurrentUser();
         ParseQuery<VenueOwner> query = VenueOwner.getQuery();
         query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
-        query.include(AppConstant.OMEPARSEVENUEOWNERCLASSKEY);
+        query.include(AppConstant.OMETOPLAYVENUEOWNERCLASSKEY);
         query.whereEqualTo(AppConstant.OMEPARSEUSERKEY, user);
         query.setLimit(1);
 

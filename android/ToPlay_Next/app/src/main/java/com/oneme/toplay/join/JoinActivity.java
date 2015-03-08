@@ -242,10 +242,10 @@ public class JoinActivity extends ActionBarActivity {
         AlertDialog.Builder minviteplayAlert = new AlertDialog.Builder(JoinActivity.this);
 
         // Setting Dialog Message
-        minviteplayAlert.setMessage(AppConstant.OMEPARSEINVITEREALLYPLAY);
+        minviteplayAlert.setMessage(getResources().getString(R.string.OMEPARSEINVITEREALLYPLAY));
 
         // Setting Positive "Yes" Btn
-        minviteplayAlert.setPositiveButton(AppConstant.OMEPARSEYES,
+        minviteplayAlert.setPositiveButton(getResources().getString(R.string.OMEPARSEYES),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // Write your code here to execute after dialog
@@ -256,7 +256,7 @@ public class JoinActivity extends ActionBarActivity {
 
                 });
         // Setting Negative "NO" Btn
-        minviteplayAlert.setNegativeButton(AppConstant.OMEPARSENO,
+        minviteplayAlert.setNegativeButton(getResources().getString(R.string.OMEPARSENO),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // Write your code here to execute after dialog
@@ -455,7 +455,7 @@ public class JoinActivity extends ActionBarActivity {
                 mjoinplayAlertDialogBuilder
                         .setMessage(getResources().getString(R.string.OMEPARSEINVITEPLAYERALERTINFO))
                         .setCancelable(false)
-                        .setPositiveButton(AppConstant.OMEPARSEYES, new DialogInterface.OnClickListener() {
+                        .setPositiveButton(getResources().getString(R.string.OMEPARSEYES), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
 
                                 if (ParseUser.getCurrentUser() == null) {
@@ -478,7 +478,7 @@ public class JoinActivity extends ActionBarActivity {
                                 }
                             }
                         })
-                        .setNegativeButton(AppConstant.OMEPARSENO, new DialogInterface.OnClickListener() {
+                        .setNegativeButton(getResources().getString(R.string.OMEPARSENO), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 // if this button is clicked, just close
                                 // the dialog box and do nothing

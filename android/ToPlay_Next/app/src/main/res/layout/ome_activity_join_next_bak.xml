@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+    xmlns:app               = "http://schemas.android.com/apk/res-auto"
+    xmlns:tools             = "http://schemas.android.com/tools"
+    android:id              = "@+id/left_pane_linear"
+    android:layout_width    = "fill_parent"
+    android:layout_height   = "wrap_content"
+    android:orientation     = "vertical">
+<!--
+    <com.astuetz.PagerSlidingTabStrip
+        android:id                  = "@+id/join_next_fragment_tab"
+        android:layout_width        = "match_parent"
+        app:pstsDividerColor        = "@color/white_absolute"
+        app:pstsDividerPadding      = "2dp"
+        app:pstsIndicatorColor      = "@color/green_dark"
+        app:pstsIndicatorHeight     = "1dp"
+        app:pstsUnderlineHeight     = "2dp"
+        app:pstsUnderlineColor      = "@color/red"
+        app:pstsShouldExpand        = "true"
+        app:pstsTabPaddingLeftRight = "5dp"
+        app:pstsTabBackground       = "@drawable/ome_activity_join_next_tab_background"
+        android:layout_height       = "48dip"/>
+    -->
+
+    <com.astuetz.PagerSlidingTabStrip
+        android:id                  = "@+id/join_next_fragment_tab"
+        android:layout_width        = "match_parent"
+        android:layout_height       = "48dip"
+        android:background          = "#ffffff"
+        app:pstsDividerPadding      = "2dp"
+        app:pstsDividerColor        = "@color/white_absolute"
+        app:pstsIndicatorColor      = "@color/tab_focus"
+        app:pstsIndicatorHeight     = "2dp"
+        app:pstsUnderlineHeight     = "1dp"
+        app:pstsUnderlineColor      = "@color/white_absolute"
+        app:pstsShouldExpand        = "true"
+        app:pstsTabPaddingLeftRight = "5dp"
+               />
+
+
+    <!--
+
+        app:pstsDividerPadding      = "2dp"
+        app:pstsDividerColor        = "@color/white_absolute"
+        app:pstsIndicatorColor      = "@color/tab_focus"
+        app:pstsIndicatorHeight     = "2dp"
+        app:pstsUnderlineHeight     = "1dp"
+        app:pstsUnderlineColor      = "@color/white_absolute"
+        app:pstsShouldExpand        = "true"
+        app:pstsTabPaddingLeftRight = "5dp"
+
+     -->
+
+    <android.support.v4.view.ViewPager
+        android:id            = "@+id/join_next_pager"
+        android:background    = "@color/white"
+        android:layout_width  = "match_parent"
+        android:layout_height = "match_parent">
+    </android.support.v4.view.ViewPager>
+</LinearLayout>
+
+
+

@@ -1152,7 +1152,7 @@ public class CnMapActivity extends ActionBarActivity {
         mapQuery.whereWithinKilometers(AppConstant.OMEPARSELOCATIONKEY, myPoint, radius
                 * METERS_PER_FEET / METERS_PER_KILOMETER);
         mapQuery.include(AppConstant.OMEPARSEUSERKEY);
-        mapQuery.orderByDescending(AppConstant.OMEPARSECREATEDAT);
+        mapQuery.orderByDescending(AppConstant.OMEPARSECREATEDATKEY);
         mapQuery.setLimit(MAX_Invite_SEARCH_RESULTS);
         // Kick off the query in the background
         mapQuery.findInBackground(new FindCallback<Invite>() {

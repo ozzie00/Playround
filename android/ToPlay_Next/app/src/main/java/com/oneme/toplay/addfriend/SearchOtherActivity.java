@@ -77,7 +77,7 @@ public class SearchOtherActivity extends ActionBarActivity {
                 ParseQuery<ParseUser> query = ParseUser.getQuery();
                 query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
                 query.whereContains(AppConstant.OMEPARSEUSERNAMEKEY, mUsername);
-                query.orderByDescending(AppConstant.OMEPARSECREATEDAT);
+                query.orderByDescending(AppConstant.OMEPARSECREATEDATKEY);
                 query.setLimit(MAX_USER_SEARCH_RESULTS);
                 return query;
             }

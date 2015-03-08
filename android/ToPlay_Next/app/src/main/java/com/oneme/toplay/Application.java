@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.database.Invite;
+import com.oneme.toplay.database.InviteLike;
+import com.oneme.toplay.database.InviteComment;
 import com.oneme.toplay.database.Message;
 import com.oneme.toplay.database.Player;
 import com.oneme.toplay.database.Venue;
@@ -136,6 +138,10 @@ public class Application extends android.app.Application {
         ParseObject.registerSubclass(Venue.class);
 
         ParseObject.registerSubclass(VenueOwner.class);
+
+        ParseObject.registerSubclass(InviteComment.class);
+
+        ParseObject.registerSubclass(InviteLike.class);
 
         // init baidu map
         SDKInitializer.initialize(getApplicationContext());

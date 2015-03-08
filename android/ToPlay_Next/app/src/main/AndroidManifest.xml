@@ -379,6 +379,21 @@
             android:name  = ".join.JoinNextActivity"
             android:label = "@string/joinactivity_title"/>
 
+        <activity
+            android:name  = ".join.CommentActivity"
+            android:label = "@string/joincommentactivity_title"/>
+
+        <activity
+            android:name  = ".join.LikeActivity"
+            android:label = "@string/joinlikeactivity_title"/>
+
+        <activity
+            android:name  = ".join.MessageListActivity"
+            android:label = "@string/joincommentactivity_title"/>
+
+
+
+
 
 
         <activity

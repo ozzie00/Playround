@@ -477,7 +477,6 @@ public final class InviteNextActivity extends ActionBarActivity implements OnDat
             invite.setOther(mother);
         }
 
-
         ParseACL acl = new ParseACL();
 
         // Give public read access

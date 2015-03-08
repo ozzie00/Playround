@@ -240,7 +240,7 @@
 
     <!--String related to me activity-->
     <string name="OMEPARSEMEMYSPORTTITLE">My Workout</string>
-    <string name="OMEPARSEMEMATCHDETAILTITLE">Workout Invitation Detail</string>
+    <string name="OMEPARSEMEMATCHDETAILTITLE">Workout Detail</string>
     <string name="OMEPARSEMEMYSPORT">My Sport</string>
     <string name="OMEPARSEMEMYCOURTADDRESS">My Venue Address</string>
     <string name="OMEPARSEMEMYSETTINGS">Settings</string>
@@ -497,7 +497,7 @@
     <string name="OMEPARSECANNOTSAVEPARSEFILE">Can not save file !</string>
     <string name="OMEPARSEVENUEOWNERUPDATE">Update Venue Info</string>
 
-    <string name="OMEPARSEVENUEOWNERWAITINGFORVERIFY"> Please waiting for our verification</string>
+    <string name="OMEPARSEVENUEOWNERWAITINGFORVERIFY">Please waiting for our verification</string>
 
 
     <string name="change_city">Change city</string>
@@ -533,7 +533,7 @@
 
     <string name="invitesearchactivity_title">Location</string>
     <string name="OMEPARSEINVITESEARCHLOCATIONPLACEHOLD">Enter a location</string>
-    <string name="OMEPARSEINVITESEARCHLOCATIONCUSTOM"> Custom Location</string>
+    <string name="OMEPARSEINVITESEARCHLOCATIONCUSTOM">Custom Location</string>
 
     <string name="joininfofragment_title">Info</string>
     <string name="joinscoreboardfragment_title">Scoreboard</string>
@@ -542,6 +542,26 @@
     <string name="OMEPARSEJOININFOPLAYERTEXT">PLAYERS</string>
     <string name="OMEPARSEJOININFOICECREAMTEXT">ICECREAMS</string>
     <string name="OMEPARSEJOININFODAYLEFTTEXT">DAYS LEFT</string>
+
+    <string name="joincommentactivity_title">Comments</string>
+    <string name="joinlikeactivity_title">Likes</string>
+
+    <string name="OMEPARSEJOINCOMMENTS">comments</string>
+    <string name="OMEPARSEJOINSCOREBOARD">Scoreboard</string>
+
+    <string name="OMEPARSEVENUEOWNERBOOKMANAGEMENT">Venue Booking Management</string>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

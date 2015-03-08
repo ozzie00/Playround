@@ -35,7 +35,7 @@
             android:layout_height    = "wrap_content"
             android:layout_marginTop = "24dp"
             android:layout_toRightOf = "@id/ownermain_booking_icon_view"
-            android:text             = "Venue Booking Management "
+            android:text             = "@string/OMEPARSEVENUEOWNERBOOKMANAGEMENT"
             android:paddingLeft      = "8dp"
             android:textAppearance   = "?android:attr/textAppearanceSmall" />
 

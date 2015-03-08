@@ -73,7 +73,7 @@ public class MySportActivity extends ActionBarActivity {
             public ParseQuery<Invite> create() {
                 ParseQuery<Invite> query = Invite.getQuery();
                 query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
-                query.orderByDescending(AppConstant.OMEPARSECREATEDAT);
+                query.orderByDescending(AppConstant.OMEPARSECREATEDATKEY);
                 query.whereEqualTo(AppConstant.OMEPARSEINVITEFROMUSERNAMEKEY, mUsername);
                 query.setLimit(MAX_USER_SEARCH_RESULTS);
                 return query;

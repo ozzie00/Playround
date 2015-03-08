@@ -10,18 +10,12 @@
     android:paddingTop="@dimen/margin_large">
 
 
-
-<!--  List view -->
-<ListView
-    android:id            = "@+id/my_sport_list"
-    android:layout_width  = "fill_parent"
-    android:layout_height = "wrap_content"
-    android:layout_weight = "1"
-    android:divider       = "@color/white"
-    android:dividerHeight = "5.0sp"/>
-
-
+    <ListView
+        android:id="@+id/join_like_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:divider="@color/white"
+        android:dividerHeight="5.0sp"/>
 
 </RelativeLayout>
-
-

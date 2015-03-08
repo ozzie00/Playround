@@ -18,20 +18,20 @@
     <string name="mainactivity_title">动动</string>
     <string name="loginactivity_title">动动</string>
     <string name="meactivity_title">我</string>
-    <string name="mysportactivity_title">我的组局</string>
+    <string name="mysportactivity_title">我的邀请</string>
     <string name="matchdetailactivity_title">比赛详情</string>
     <string name="settingactivity_title">设置</string>
-    <string name="inviteactivity_title">组局</string>
-    <string name="joinactivity_title">捧场</string>
-    <string name="localactivity_title">附近组局</string>
+    <string name="inviteactivity_title">邀请</string>
+    <string name="joinactivity_title">加入</string>
+    <string name="localactivity_title">附近邀请</string>
     <string name="messagelistactivity_title">消息</string>
     <string name="messagereplyactivity_title">回复</string>
     
-    <string name="action_Invite">组局</string>
+    <string name="action_Invite">邀请</string>
     <string name="action_search">搜索</string>
     <string name="action_message">消息</string>
     <string name="action_map">地图</string>
-    <string name="action_local">附近的组局</string>
+    <string name="action_local">附近的邀请</string>
     <string name="search_hint">搜索场馆</string>
     <string name="search_settings">搜索场馆</string>
     
@@ -41,35 +41,35 @@
     <string name="signup">注册</string>
     <string name="logout_full">退出</string>
     <string name="post_out_of_range">这里太远.</string>
-    <string name="progress_invite">组局&#8230;</string>
+    <string name="progress_invite">邀请&#8230;</string>
     <string name="progress_send">发送&#8230;</string>
-    <string name="progress_join">捧场&#8230;</string>
+    <string name="progress_join">加入&#8230;</string>
     <string name="hostplayerusername">用户名</string>
     <string name="progress_local">加载&#8230;</string>
     <string name="OMEPARSELOGOUT">退出</string>
     <string name="OMEPARSELOGIN">登录</string>
     <string name="OMEPARSESETTING">设置</string>
-    <string name="OMEPARSEOK">好的</string>
-    <string name="OMEPARSEYES">好</string>
-    <string name="OMEPARSENO">不</string>
+    <string name="OMEPARSEOK">是</string>
+    <string name="OMEPARSEYES">是</string>
+    <string name="OMEPARSENO">否</string>
     
     <!-- Strings related to invite activity -->
     
     <!-- <string name="OMEPARSEWANTTOKEY">want to </string> -->
     <string name="OMEPARSEINVITEPLAYDATE">日期</string>
     <string name="OMEPARSEINVITEPLAYHOUR">时间</string>
-    <string name="OMEPARSEINVITEPLAYBUTTON">组局</string>
+    <string name="OMEPARSEINVITEPLAYBUTTON">邀请</string>
     <string name="OMEPARSEINVITESPORTTYPECHOOSE">选择运动</string>
     <string name="OMEPARSEINVITEPLAYERLEVELCHOOSE">选择级别</string>
     <string name="OMEPARSEINVITEPLAYERNUMBERCHOOSE">选择人数</string>
     <string name="OMEPARSEINVITEPLAYFEECHOOSE">选择费用</string>
     <string name="OMEPARSEINVITELOGINALERT">请登录或注册!</string>
-    <string name="OMEPARSEINVITEREALLYPLAY">是否真的组局?</string>
+    <string name="OMEPARSEINVITEREALLYPLAY">是否真的邀请?</string>
     <string name="OMEPARSEINVITEOTHERDEFAULT">好伙伴</string>
     <string name="OMEPARSEINVITECOURTDEFAULT">国家体育场</string>
     <string name="OMEPARSEINVITEFEEDEFAULT">平摊</string>
     <string name="OMEPARSEINVITEFEEFREE">免费</string>
-    <string name="OMEPARSEINVITEPLAYERSUBMITSUCCESSALERTINFO">成功发送组局请求，请等待小伙伴捧场!</string>
+    <string name="OMEPARSEINVITEPLAYERSUBMITSUCCESSALERTINFO">成功发送邀请，请等待小伙伴加入!</string>
     
     
     <!-- Strings related to sport type for invite activity -->
@@ -171,7 +171,7 @@
     <!-- Strings related to join activity -->
     <string name="OMEPARSEINVITEPLAYCOURTPLACEHOLD">输入场地地址</string>
     <string name="OMEPARSEINVITEPLAYOTHERPLACEHOLD">输入其他要求</string>
-    <string name="OMEPARSEINVITEPLAYERALERTINFO">真的想去捧场?</string>
+    <string name="OMEPARSEINVITEPLAYERALERTINFO">真的想加入?</string>
     <string name="OMEPARSEINVITEREQUIREMENTSPORTTYPE">类型</string>
     <string name="OMEPARSEINVITEREQUIREMENTPLAYERNUMBER">人数</string>
     <string name="OMEPARSEINVITEREQUIREMENTPLAYERLEVEL">水平</string>
@@ -180,8 +180,8 @@
     <string name="OMEPARSEINVITEREQUIREMENTFEE">费用</string>
     <string name="OMEPARSEINVITEREQUIREMENTOTHER">其他</string>
     <string name="OMEPARSEINVITEJOINPLAYHEADER"> </string>
-    <string name="OMEPARSEINVITEJOINPLAYBUTTON">捧场</string>
-    <string name="OMEPARSEINVITEPLAYERJOINPLAYSUCCESSALERTINFO">成功提交捧场请求，请等待小伙伴回复!</string>
+    <string name="OMEPARSEINVITEJOINPLAYBUTTON">加入</string>
+    <string name="OMEPARSEINVITEPLAYERJOINPLAYSUCCESSALERTINFO">成功提交加入请求，请等待小伙伴回复!</string>
     <string name="OMEPARSEMESSAGEJOINPLAYREQUESTFIRSTPART">嗨</string>
     <string name="OMEPARSEMESSAGEJOINPLAYREQUESTSECONDPART">我是</string>
     <string name="OMEPARSEMESSAGEJOINPLAYREQUESTTHIRDPART"> 和你</string>
@@ -235,7 +235,7 @@
     
     <!--String related to me activity-->
     <string name="OMEPARSEMEMYSPORTTITLE">我的锻炼</string>
-    <string name="OMEPARSEMEMATCHDETAILTITLE">锻炼组局详情</string>
+    <string name="OMEPARSEMEMATCHDETAILTITLE">锻炼邀请详情</string>
     <string name="OMEPARSEMEMYSPORT">我的运动</string>
     <string name="OMEPARSEMEMYCOURTADDRESS">我的场馆</string>
     <string name="OMEPARSEMEMYSETTINGS">设置</string>
@@ -248,7 +248,7 @@
     <string name="OMEPARSEMEPROFILEQRCODE">二维码</string>
     <string name="OMEPARSEMEPROFILECHOOSEIMAGE">选择相片</string>
     <string name="OMEPARSEMEPROFILETAKEPHOTO">照相</string>
-    <string name="OMEPARSEMESPORTNOONEPLAYER">没有其他参赛者捧场，请继续等待!</string>
+    <string name="OMEPARSEMESPORTNOONEPLAYER">没有其他参赛者加入，请继续等待!</string>
     
     <!--String related to chat-->
     <string name="OMEPARSECHATFILETRANMITFINISH">完成</string>

@@ -1,32 +1,409 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
-    xmlns:app               = "http://schemas.android.com/apk/res-auto"
-    xmlns:tools             = "http://schemas.android.com/tools"
-    android:id              = "@+id/left_pane_linear"
-    android:layout_width    = "fill_parent"
-    android:layout_height   = "fill_parent"
-    android:orientation     = "vertical">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width         = "fill_parent"
+    android:layout_height        = "wrap_content"
+    android:orientation          = "vertical"
+    android:paddingBottom        = "@dimen/margin_large"
+    android:paddingLeft          = "@dimen/margin_medium"
+    android:paddingRight         = "@dimen/margin_medium"
+    android:focusableInTouchMode = "true"
+    android:paddingTop           = "@dimen/margin_medium">
 
-    <com.astuetz.PagerSlidingTabStrip
-        android:id                  = "@+id/join_next_fragment_tab"
-        android:layout_width        = "match_parent"
-        android:background          = "@color/white_absolute"
-        app:pstsDividerColor        = "@color/grey"
-        app:pstsIndicatorColor      = "#1DA155"
-        app:pstsUnderlineHeight     = "1dp"
-        app:pstsIndicatorHeight     = "2dp"
-        app:pstsShouldExpand        = "true"
-        app:pstsTabPaddingLeftRight = "5dp"
-        app:pstsTabBackground       = "@drawable/ome_activity_join_next_tab_background"
-        android:layout_height       = "48dip"/>
+    <LinearLayout
+        android:id                 = "@+id/join_next_info_block"
+        android:layout_width       = "fill_parent"
+        android:layout_height      = "wrap_content"
+        android:layout_marginLeft  = "8dp"
+        android:layout_marginRight = "8dp"
+        android:layout_marginTop   = "8dp"
+        android:orientation        = "vertical"
+        android:background         = "@android:color/white">
 
-    <android.support.v4.view.ViewPager
-        android:id            = "@+id/join_next_pager"
-        android:background    = "@color/white"
-        android:layout_width  = "match_parent"
-        android:layout_height = "match_parent">
-    </android.support.v4.view.ViewPager>
+        <LinearLayout
+            android:id                 = "@+id/join_next_info_header_block"
+            android:baselineAligned    = "false"
+            android:layout_width       = "match_parent"
+            android:layout_height      = "wrap_content"
+            android:layout_marginLeft  = "4dp"
+            android:layout_marginRight = "4dp"
+            android:layout_marginTop   = "4dp"
+            android:weightSum          = "4">
+
+            <LinearLayout
+                android:layout_width     = "0dp"
+                android:layout_height    = "wrap_content"
+                android:layout_marginTop = "8dp"
+                android:layout_weight    = "1"
+                android:orientation      = "vertical">
+
+                <ImageView
+                    android:id                 = "@+id/join_next_info_header_player_icon"
+                    android:layout_width       = "wrap_content"
+                    android:layout_height      = "wrap_content"
+                    android:layout_gravity     = "center_horizontal"
+                    android:src                = "@drawable/ome_player_icon"
+                    android:contentDescription = "player icon"/>
+
+                <TextView
+                    android:id               = "@+id/join_next_info_header_player_number"
+                    android:layout_width     = "wrap_content"
+                    android:layout_height    = "wrap_content"
+                    android:layout_marginTop = "4dp"
+                    android:layout_gravity   = "center_horizontal"
+                    android:textAppearance   = "?android:attr/textAppearanceSmall"
+                    android:text             = "1"
+                    android:textColor        = "@android:color/darker_gray"/>
+
+                <TextView
+                    android:id                  = "@+id/join_next_info_header_player_title"
+                    android:layout_width        = "wrap_content"
+                    android:layout_height       = "wrap_content"
+                    android:layout_marginTop    = "4dp"
+                    android:layout_gravity      = "center_horizontal"
+                    android:layout_marginBottom = "8dp"
+                    android:textAppearance      = "?android:attr/textAppearanceSmall"
+                    android:text                = "@string/OMEPARSEJOININFOPLAYERTEXT"
+                    android:textColor           = "@android:color/darker_gray"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width     = "0dp"
+                android:layout_height    = "wrap_content"
+                android:layout_marginTop = "8dp"
+                android:layout_weight    = "1"
+                android:orientation      = "vertical">
+
+                <ImageView
+                    android:id                 = "@+id/join_next_info_header_icecream_icon"
+                    android:layout_width       = "wrap_content"
+                    android:layout_height      = "wrap_content"
+                    android:layout_gravity     = "center_horizontal"
+                    android:src                = "@drawable/ome_icecream_icon"
+                    android:contentDescription = "prize icon"/>
+
+                <TextView
+                    android:id               = "@+id/join_next_info_header_icecream_number"
+                    android:layout_width     = "wrap_content"
+                    android:layout_height    = "wrap_content"
+                    android:layout_marginTop = "4dp"
+                    android:layout_gravity   = "center_horizontal"
+                    android:textAppearance   = "?android:attr/textAppearanceSmall"
+                    android:text             = "1"
+                    android:textColor        = "@android:color/darker_gray"/>
+
+                <TextView
+                    android:id                  = "@+id/join_next_info_header_icecream_title"
+                    android:layout_width        = "wrap_content"
+                    android:layout_height       = "wrap_content"
+                    android:layout_marginTop    = "4dp"
+                    android:layout_gravity      = "center_horizontal"
+                    android:layout_marginBottom = "8dp"
+                    android:textAppearance      = "?android:attr/textAppearanceSmall"
+                    android:text                = "@string/OMEPARSEJOININFOICECREAMTEXT"
+                    android:textColor           = "@android:color/darker_gray"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width       = "match_parent"
+            android:layout_height      = "1dp"
+            android:orientation        = "horizontal"
+            android:layout_marginLeft  = "8dp"
+            android:layout_marginRight = "8dp"
+            android:background         = "@android:color/darker_gray"/>
+
+        <LinearLayout
+            android:id                 = "@+id/join_next_info_name_block"
+            android:layout_width       = "fill_parent"
+            android:layout_height      = "wrap_content"
+            android:layout_marginLeft  = "8dp"
+            android:layout_marginRight = "8dp"
+            android:layout_marginTop   = "4dp"
+            android:orientation        = "horizontal"
+            android:weightSum          = "6">
+
+            <LinearLayout
+                android:layout_width     = "wrap_content"
+                android:layout_height    = "wrap_content"
+                android:layout_marginTop = "4dp"
+                android:layout_weight    = "5"
+                android:orientation      = "vertical">
+
+                <TextView
+                    android:id               = "@+id/join_next_info_workout_name"
+                    android:layout_width     = "wrap_content"
+                    android:layout_height    = "wrap_content"
+                    android:layout_marginTop = "4dp"
+                    android:textAppearance   = "?android:attr/textAppearanceSmall"
+                    android:textColor        = "@android:color/darker_gray"/>
+
+                <TextView
+                    android:id               = "@+id/join_next_info_workout_propose"
+                    android:layout_width     = "wrap_content"
+                    android:layout_height    = "wrap_content"
+                    android:layout_marginTop = "4dp"
+                    android:textAppearance   = "?android:attr/textAppearanceSmall"
+                    android:textColor        = "@android:color/darker_gray"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width        = "1dp"
+                android:layout_height       = "match_parent"
+                android:orientation         = "vertical"
+                android:layout_marginTop    = "8dp"
+                android:layout_marginBottom = "8dp"
+                android:background          = "@android:color/darker_gray"/>
+
+            <LinearLayout
+                android:layout_width     = "wrap_content"
+                android:layout_height    = "wrap_content"
+                android:layout_marginTop = "4dp"
+                android:layout_weight    = "1"
+                android:orientation      = "vertical">
+
+                <TextView
+                    android:id             = "@+id/join_next_info_workout_time"
+                    android:layout_width   = "wrap_content"
+                    android:layout_height  = "wrap_content"
+                    android:layout_gravity = "center"
+                    android:textAppearance = "?android:attr/textAppearanceMedium"
+                    android:textSize       = "24sp"
+                    android:text           = "2"
+                    android:textColor      = "@android:color/darker_gray"/>
+
+                <TextView
+                    android:id                  = "@+id/join_next_info_workout_time_note"
+                    android:layout_width        = "wrap_content"
+                    android:layout_height       = "wrap_content"
+                    android:layout_marginTop    = "4dp"
+                    android:layout_marginBottom = "4dp"
+                    android:layout_gravity      = "center"
+                    android:textAppearance      = "?android:attr/textAppearanceMedium"
+                    android:text                = "@string/OMEPARSEJOININFODAYLEFTTEXT"
+                    android:textColor           = "@android:color/darker_gray"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width       = "match_parent"
+            android:layout_height      = "1dp"
+            android:orientation        = "horizontal"
+            android:layout_marginLeft  = "8dp"
+            android:layout_marginRight = "8dp"
+            android:background         = "@android:color/darker_gray"/>
+
+        <LinearLayout
+            android:layout_width     = "wrap_content"
+            android:layout_height    = "wrap_content"
+            android:layout_marginTop = "8dp"
+            android:orientation      = "vertical">
+
+            <ImageView
+                android:id                 = "@+id/join_next_info_workout_sport"
+                android:layout_width       = "wrap_content"
+                android:layout_height      = "wrap_content"
+                android:layout_marginLeft  = "8dp"
+                android:layout_marginRight = "8dp"
+                android:src                = "@drawable/ome_tennis_icon"
+                android:contentDescription = "sport type icon"/>
+
+            <TextView
+                android:id                 = "@+id/join_next_info_workout_location"
+                android:layout_width       = "wrap_content"
+                android:layout_height      = "wrap_content"
+                android:layout_marginTop   = "8dp"
+                android:layout_marginLeft  = "8dp"
+                android:layout_marginRight = "8dp"
+                android:textAppearance     = "?android:attr/textAppearanceSmall"
+                android:textColor          = "@android:color/darker_gray"/>
+
+            <TextView
+                android:id                 = "@+id/join_next_info_workout_description"
+                android:layout_width       = "wrap_content"
+                android:layout_height      = "wrap_content"
+                android:layout_marginTop   = "16dp"
+                android:layout_marginLeft  = "8dp"
+                android:layout_marginRight = "8dp"
+                android:textAppearance     = "?android:attr/textAppearanceSmall"
+                android:text               = "@string/OMEPARSEINVITEDESCRIPTION"
+                android:textColor          = "@android:color/darker_gray"/>
+
+            <TextView
+                android:id                 = "@+id/join_next_info_workout_description_content"
+                android:layout_width       = "wrap_content"
+                android:layout_height      = "wrap_content"
+                android:layout_marginTop   = "4dp"
+                android:layout_marginLeft  = "8dp"
+                android:layout_marginRight = "8dp"
+                android:layout_marginBottom= "8dp"
+                android:textAppearance     = "?android:attr/textAppearanceSmall"
+                android:textColor          = "@android:color/darker_gray"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width       = "match_parent"
+            android:layout_height      = "1dp"
+            android:orientation        = "horizontal"
+            android:layout_marginLeft  = "8dp"
+            android:layout_marginRight = "8dp"
+            android:background         = "@color/white"/>
+
+        <LinearLayout
+            android:id                 = "@+id/join_next_info_workout_scoreboard_block"
+            android:layout_width       = "match_parent"
+            android:layout_height      = "48dp"
+            android:layout_marginLeft  = "8dp"
+            android:layout_marginRight = "8dp"
+            android:orientation        = "horizontal"
+            android:background         = "@drawable/ome_activity_join_touch_selector">
+
+            <TextView
+                android:id             = "@+id/join_next_info_workout_scoreboard_text"
+                android:layout_width   = "wrap_content"
+                android:layout_height  = "wrap_content"
+                android:layout_gravity = "center_vertical"
+                android:textAppearance = "?android:attr/textAppearanceSmall"
+                android:text           = "@string/OMEPARSEJOINSCOREBOARD"
+                android:textColor      = "@android:color/darker_gray" />
+        </LinearLayout>
+
+        <View
+            android:layout_width       = "match_parent"
+            android:layout_height      = "1dp"
+            android:orientation        = "horizontal"
+            android:layout_marginLeft  = "8dp"
+            android:layout_marginRight = "8dp"
+            android:background         = "@color/white"/>
+
+        <LinearLayout
+            android:layout_width        = "match_parent"
+            android:layout_height       = "wrap_content"
+            android:layout_marginTop    = "8dp"
+            android:layout_marginBottom ="8dp"
+            android:layout_marginLeft   = "8dp"
+            android:orientation         = "horizontal"
+            android:weightSum           = "6">
+
+            <LinearLayout
+                android:id            = "@+id/join_next_info_workout_comment_block"
+                android:layout_width  = "0dp"
+                android:layout_height = "wrap_content"
+                android:orientation   = "horizontal"
+                android:background    = "@drawable/ome_activity_join_touch_selector"
+                android:layout_weight = "4">
+
+                <TextView
+                    android:id                  = "@+id/join_next_info_workout_comment_number"
+                    android:layout_width        = "wrap_content"
+                    android:layout_height       = "wrap_content"
+                    android:layout_marginTop    = "8dp"
+                    android:layout_marginBottom = "8dp"
+                    android:layout_gravity      = "center_vertical"
+                    android:textAppearance      = "?android:attr/textAppearanceSmall"
+                    android:text                = "0"
+                    android:textColor           = "@android:color/darker_gray"/>
+
+                <TextView
+                    android:id                = "@+id/join_next_info_workout_comment_note"
+                    android:layout_width      = "wrap_content"
+                    android:layout_height     = "wrap_content"
+                    android:layout_gravity    = "center_vertical"
+                    android:layout_marginLeft = "8dp"
+                    android:textAppearance    = "?android:attr/textAppearanceSmall"
+                    android:text              = "@string/OMEPARSEJOINCOMMENTS"
+                    android:textColor         = "@android:color/darker_gray" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id                 = "@+id/join_next_info_workout_like_block"
+                android:layout_width       = "0dp"
+                android:layout_height      = "wrap_content"
+                android:layout_marginRight = "8dp"
+                android:orientation        = "horizontal"
+                android:background         = "@drawable/ome_activity_join_touch_selector"
+                android:layout_weight      = "2">
+
+                <ImageView
+                    android:id                 = "@+id/join_next_info_workout_like_icon"
+                    android:layout_width       = "wrap_content"
+                    android:layout_height      = "wrap_content"
+                    android:layout_gravity     = "center_vertical"
+                    android:src                = "@drawable/ic_menu_star"
+                    android:contentDescription = "like icon"/>
+
+                <TextView
+                    android:id                = "@+id/join_next_info_workout_like_number"
+                    android:layout_width      = "wrap_content"
+                    android:layout_height     = "wrap_content"
+                    android:layout_marginLeft = "8dp"
+                    android:layout_gravity    = "center_vertical"
+                    android:textAppearance    = "?android:attr/textAppearanceSmall"
+                    android:textColor         = "@android:color/darker_gray"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width       = "match_parent"
+            android:layout_height      = "1dp"
+            android:orientation        = "horizontal"
+            android:layout_marginLeft  = "8dp"
+            android:layout_marginRight = "8dp"
+            android:background         = "@color/white"/>
+
+        <LinearLayout
+            android:layout_width  = "match_parent"
+            android:layout_height = "wrap_content"
+            android:orientation   = "horizontal"
+            android:background    = "@color/white_absolute">
+
+            <LinearLayout
+                android:id                  = "@+id/join_next_info_workout_share_linearlayout"
+                android:layout_width        = "match_parent"
+                android:layout_height       = "wrap_content"
+                android:layout_marginTop    = "8dp"
+                android:layout_marginBottom = "8dp"
+                android:orientation         = "horizontal"
+                android:weightSum           = "3">
+
+                <ImageView
+                    android:id                 = "@+id/join_next_info_workout_share_like"
+                    android:layout_width       = "0dp"
+                    android:layout_height      = "wrap_content"
+                    android:layout_marginLeft  = "8dp"
+                    android:layout_weight      = "1"
+                    android:src                = "@drawable/ic_menu_star"
+                    android:contentDescription = "like icon"
+                    android:background         = "@drawable/ome_activity_join_touch_selector"/>
+
+                <ImageView
+                    android:id                 = "@+id/join_next_info_workout_share_friend"
+                    android:layout_width       = "0dp"
+                    android:layout_height      = "wrap_content"
+                    android:layout_weight      = "1"
+                    android:src                = "@drawable/ic_menu_send"
+                    android:contentDescription = "email icon"
+                    android:background         = "@drawable/ome_activity_join_touch_selector"/>
+
+                <ImageView
+                    android:id                 = "@+id/join_next_info_workout_share_share"
+                    android:layout_width       = "0dp"
+                    android:layout_height      = "wrap_content"
+                    android:layout_marginRight = "8dp"
+                    android:layout_weight      = "1"
+                    android:src                = "@drawable/ic_menu_share"
+                    android:contentDescription = "share icon"
+                    android:background         = "@drawable/ome_activity_join_touch_selector"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 </LinearLayout>
-
-
-

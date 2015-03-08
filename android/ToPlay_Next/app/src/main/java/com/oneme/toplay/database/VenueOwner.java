@@ -29,7 +29,7 @@ import java.util.Arrays;
 //
 // define data model for venue owner
 //
-@ParseClassName(AppConstant.OMEPARSEVENUEOWNERCLASSKEY)
+@ParseClassName(AppConstant.OMETOPLAYVENUEOWNERCLASSKEY)
 public final class VenueOwner extends ParseObject {
 
     private static final String TAG = "VenueOwner";

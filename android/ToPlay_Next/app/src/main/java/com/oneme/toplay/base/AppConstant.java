@@ -59,12 +59,15 @@ public final class AppConstant {
     public static final double OMEDEFAULTMESSAGECELLHEIGHT    = 70.0;
 
     // Parse API key constants for class
-    public static final String OMETOPLAYINVITECLASSKEY     = "ToPlayInvite";
-    public static final String OMETOPLAYMESSAGECLASSKEY    = "ToPlayMessage";
-    public static final String OMETOPLAYJOINCLASSKEY       = "ToPlayJoin";
-    public static final String OMETOPLAYPLAYERCLASSKEY     = "ToPlayPlayer";
-    public static final String OMETOPLAYVENUECLASSKEY      = "ToPlayVenue";
-    public static final String OMEPARSEVENUEOWNERCLASSKEY  = "PlayroundVenueOwner";
+    public static final String OMETOPLAYINVITECLASSKEY         = "ToPlayInvite";
+    public static final String OMETOPLAYMESSAGECLASSKEY        = "ToPlayMessage";
+    public static final String OMETOPLAYJOINCLASSKEY           = "ToPlayJoin";
+    public static final String OMETOPLAYPLAYERCLASSKEY         = "ToPlayPlayer";
+    public static final String OMETOPLAYVENUECLASSKEY          = "ToPlayVenue";
+    public static final String OMETOPLAYVENUEOWNERCLASSKEY     = "PlayroundVenueOwner";
+    public static final String OMETOPLAYINVITECOMMENTCLASSKEY  = "PlayroundInviteComment";
+    public static final String OMETOPLAYINVITELIKECLASSKEY     = "PlayroundInviteLike";
+    public static final String OMETOPLAYINVITESCORECLASSKEY    = "PlayroundInviteScore";
 
     // Parse API key constants related to user :
     public static final String OMEPARSEUSERKEY             = "user";
@@ -73,7 +76,7 @@ public final class AppConstant {
     public static final String OMEPARSEUSERNAMEKEY         = "username";
     public static final String OMEPARSEUSERLEVELKEY        = "userLevel";
     public static final String OMEPARSEUSERICONKEY         = "userIcon";
-    public static final String OMEPARSECREATEDAT           = "createdAt";
+    public static final String OMEPARSECREATEDATKEY        = "createdAt";
     public static final String OMEPARSEUSERPASSWORDKEY     = "password";
     public static final String OMEPARSEUSERALIASKEY        = "userAlias";
     public static final String OMEPARSEUSERICONFILENAME    = "userIcon.png";
@@ -230,6 +233,24 @@ public final class AppConstant {
     public static final String OMEPARSEMESSAGEFOROBJECTIDKEY  = "messageForObjectIDKey";
     public static final String OMEPARSEMESSAGEFROMOMEIDKEY    = "messageFromOmeIDKey";
 
+    // Parse API key corresponding to invite comment key
+    public static final String OMEPARSEINVITECOMMENTAUTHORKEY      = "inviteCommentAuthor";
+    public static final String OMEPARSEINVITECOMMENTAUTHORNAMEKEY  = "inviteCommentAuthorName";
+    public static final String OMEPARSEINVITECOMMENTCONTENTKEY     = "inviteCommentContent";
+    public static final String OMEPARSEINVITECOMMENTPARENTIDKEY    = "inviteCommentParentId";
+    public static final String OMEPARSEINVITECOMMENTPUBLICKEY      = "inviteCommentPublic";
+    public static final String OMEPARSEINVITECOMMENTSUBMITTIMEKEY  = "inviteCommentSubmitTime";
+
+    // Parse API key corresponding to invite like key
+    public static final String OMEPARSEINVITELIKEAUTHORKEY      = "inviteLikeAuthor";
+    public static final String OMEPARSEINVITELIKEAUTHORNAMEKEY  = "inviteLikeAuthorName";
+    public static final String OMEPARSEINVITELIKEPARENTIDKEY    = "inviteLikeParentId";
+
+    // Parse API key corresponding to invite score key
+    public static final String OMEPARSEINVITESCOREAUTHORKEY      = "inviteScoreAuthor";
+    public static final String OMEPARSEINVITESCOREAUTHORNAMEKEY  = "inviteScoreAuthorName";
+    public static final String OMEPARSEINVITESCORECONTENTKEY     = "inviteScoreContent";
+    public static final String OMEPARSEINVITESCOREPARENTIDKEY    = "inviteScoreParentId";
 
     // NSNotification userInfo keys:
     public static final String OMEFILTERDISTANCEKEY = "filterDistance";
