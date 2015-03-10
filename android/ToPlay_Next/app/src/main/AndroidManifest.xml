@@ -388,6 +388,17 @@
             android:label = "@string/joinlikeactivity_title"/>
 
         <activity
+            android:name  = ".join.ScoreboardActivity"
+            android:label = "@string/joinscoreactivity_title"/>
+
+        <activity
+            android:name  = ".join.PlayerActivity"
+            android:label = "@string/joinplayeractivity_title"/>
+
+
+
+
+        <activity
             android:name  = ".join.MessageListActivity"
             android:label = "@string/joincommentactivity_title"/>
 

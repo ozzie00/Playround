@@ -43,6 +43,8 @@ import android.widget.Toast;
 
 import com.oneme.toplay.Application;
 import com.oneme.toplay.LoginActivity;
+import com.oneme.toplay.database.Group;
+import com.oneme.toplay.database.InviteScore;
 import com.oneme.toplay.join.MessageListActivity;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
@@ -94,8 +96,10 @@ public class JoinNextActivity extends ActionBarActivity {
     private String musername         = null;
     private ParseQueryAdapter<InviteComment> commentQueryAdapter;
 
-    private int mcommentnumber = 0;
-    private int mlikenumber    = 0;
+    private int mgroupplayernumber  = 0;
+    private int mcommentnumber      = 0;
+    private int mlikenumber         = 0;
+    private TextView mgroup;
     private TextView mcomment;
     private TextView mlike;
     private ImageView mlikeimage;
@@ -138,12 +142,57 @@ public class JoinNextActivity extends ActionBarActivity {
             minviteObjectID   = extras.getString(Application.INTENT_EXTRA_INVITEOBJECTID);
         }
 
+        mgroup = (TextView)findViewById(R.id.join_next_info_header_player_number);
+        ParseQuery<Group> groupquery = Group.getQuery();
+        groupquery.whereEqualTo(AppConstant.OMEPARSEGROUPPARENTIDKEY, minviteObjectID);
+        groupquery.whereEqualTo(AppConstant.OMEPARSEGROUPADMINNAMEKEY, mhostUsername);
+        groupquery.countInBackground(new CountCallback() {
+            public void done(int count, ParseException e) {
+                if (e == null) {
+                    mgroupplayernumber = count;
+                    mgroup.setText(Integer.toString(mgroupplayernumber));
+                } else {
+                    mgroupplayernumber = 0;
+                    mgroup.setText(Integer.toString(mgroupplayernumber));
+                }
+            }
+        });
+
+
+        LinearLayout mheaderplayerblock = (LinearLayout)findViewById(R.id.join_next_info_hearder_player_block);
+        mheaderplayerblock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent invokeCommentActivityIntent = new Intent(JoinNextActivity.this, PlayerActivity.class);
+                invokeCommentActivityIntent.putExtra(Application.INTENT_EXTRA_INVITEOBJECTID, minviteObjectID);
+                invokeCommentActivityIntent.putExtra(Application.INTENT_EXTRA_USERNAME, mhostUsername);
+                startActivity(invokeCommentActivityIntent);
+
+            }
+        });
+
+
+
+
+        LinearLayout mheaderscoreblock = (LinearLayout)findViewById(R.id.join_next_info_hearder_score_block);
+        mheaderscoreblock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent invokeCommentActivityIntent = new Intent(JoinNextActivity.this, ScoreboardActivity.class);
+                invokeCommentActivityIntent.putExtra(Application.INTENT_EXTRA_INVITEOBJECTID, minviteObjectID);
+                invokeCommentActivityIntent.putExtra(Application.INTENT_EXTRA_SPORTTYPE, msporttype);
+                startActivity(invokeCommentActivityIntent);
+
+            }
+        });
+
+
         TextView mworkoutView = (TextView)findViewById(R.id.join_next_info_workout_name);
         mworkoutView.setText(mworkoutname);
 
-        ImageView msporttype = (ImageView)findViewById(R.id.join_next_info_workout_sport);
+        ImageView msportimage = (ImageView)findViewById(R.id.join_next_info_workout_sport);
         if (msporttypevalue != null) {
-            msporttype.setImageDrawable(getResources().getDrawable(Sport.msporticonarray[Integer.parseInt(msporttypevalue)]));
+            msportimage.setImageDrawable(getResources().getDrawable(Sport.msporticonarray[Integer.parseInt(msporttypevalue)]));
         }
 
         TextView mworkoutlocation = (TextView)findViewById(R.id.join_next_info_workout_location);
@@ -153,16 +202,17 @@ public class JoinNextActivity extends ActionBarActivity {
         mworkoutdescription.setText(mother);
 
 
-        LinearLayout mscoreblock = (LinearLayout)findViewById(R.id.join_next_info_workout_scoreboard_block);
-        mscoreblock.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent invokeCommentActivityIntent = new Intent(JoinNextActivity.this, CommentActivity.class);
-                invokeCommentActivityIntent.putExtra(Application.INTENT_EXTRA_INVITEOBJECTID, minviteObjectID);
-                startActivity(invokeCommentActivityIntent);
+        //LinearLayout mscoreblock = (LinearLayout)findViewById(R.id.join_next_info_workout_scoreboard_block);
+        //mscoreblock.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View v) {
+        //        Intent invokeCommentActivityIntent = new Intent(JoinNextActivity.this, ScoreboardActivity.class);
+        //        invokeCommentActivityIntent.putExtra(Application.INTENT_EXTRA_INVITEOBJECTID, minviteObjectID);
+        //        invokeCommentActivityIntent.putExtra(Application.INTENT_EXTRA_SPORTTYPE, msporttype);
+        //        startActivity(invokeCommentActivityIntent);
 
-            }
-        });
+        //    }
+        //});
 
         // set comment number
         mcomment = (TextView)findViewById(R.id.join_next_info_workout_comment_number);
@@ -308,42 +358,72 @@ public class JoinNextActivity extends ActionBarActivity {
 
 
     private void submitjoinworkout() {
-        AlertDialog.Builder mjoinplayAlertDialogBuilder = new AlertDialog.Builder(JoinNextActivity.this);
+        // create group record for this join
+        ParseQuery<Group> groupquery = Group.getQuery();
+        groupquery.whereEqualTo(AppConstant.OMEPARSEGROUPPARENTIDKEY, minviteObjectID);
+        groupquery.whereEqualTo(AppConstant.OMEPARSEGROUPADMINNAMEKEY, mhostUsername);
+        groupquery.whereEqualTo(AppConstant.OMEPARSEGROUPMEMBERUSERKEY, muser);
+        groupquery.whereEqualTo(AppConstant.OMEPARSEGROUPMEMBERUSERNAMEKEY, musername);
+        groupquery.findInBackground(new FindCallback<Group>() {
+            @Override
+            public void done(List<Group> grouplist, ParseException e) {
+                if (e == null) {
+                    // found user has joined this group, then do nothing, else let user join
+                    if (grouplist == null || grouplist.size() == 0) {
 
-        // set dialog message
-        mjoinplayAlertDialogBuilder
-                .setMessage(getResources().getString(R.string.OMEPARSEINVITEPLAYERALERTINFO))
-                .setCancelable(false)
-                .setPositiveButton(getResources().getString(R.string.OMEPARSEYES), new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
+                        AlertDialog.Builder mjoinplayAlertDialogBuilder = new AlertDialog.Builder(JoinNextActivity.this);
 
-                        if (ParseUser.getCurrentUser() == null) {
+                        // set dialog message
+                        mjoinplayAlertDialogBuilder
+                                .setMessage(getResources().getString(R.string.OMEPARSEINVITEPLAYERALERTINFO))
+                                .setCancelable(false)
+                                .setPositiveButton(getResources().getString(R.string.OMEPARSEYES), new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
 
-                            // jump to login activity
-                            Intent invokeLoginActivityIntent = new Intent(JoinNextActivity.this, LoginActivity.class);
-                            startActivity(invokeLoginActivityIntent);
-                        } else {
-                            // submit join request
-                            joinInvitation();
+                                        if (ParseUser.getCurrentUser() == null) {
 
-                            Toast.makeText(JoinNextActivity.this, getResources().getString(R.string.OMEPARSEINVITEPLAYERJOINPLAYSUCCESSALERTINFO),
-                                    Toast.LENGTH_SHORT).show();
-                        }
+                                            // jump to login activity
+                                            Intent invokeLoginActivityIntent = new Intent(JoinNextActivity.this, LoginActivity.class);
+                                            startActivity(invokeLoginActivityIntent);
+                                        } else {
+                                            // submit join request
+                                            joinInvitation();
+
+                                            Toast.makeText(JoinNextActivity.this, getResources().getString(R.string.OMEPARSEINVITEPLAYERJOINPLAYSUCCESSALERTINFO),
+                                                    Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                })
+                                .setNegativeButton(getResources().getString(R.string.OMEPARSENO), new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        // if this button is clicked, just close
+                                        // the dialog box and do nothing
+                                        dialog.cancel();
+                                    }
+                                });
+
+                        // create alert dialog
+                        AlertDialog minviteplayAlertDialog = mjoinplayAlertDialogBuilder.create();
+
+                        // show it
+                        minviteplayAlertDialog.show();
+
+                    } else {
+                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.OMEPARSECANNOTJOINYOURSELFALERT), Toast.LENGTH_SHORT).show();
+                        return;
                     }
-                })
-                .setNegativeButton(getResources().getString(R.string.OMEPARSENO), new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // if this button is clicked, just close
-                        // the dialog box and do nothing
-                        dialog.cancel();
+
+                } else {
+                    if ((grouplist != null || grouplist.size() > 0)) {
+                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.OMEPARSECANNOTJOINYOURSELFALERT), Toast.LENGTH_SHORT).show();
+                        return;
                     }
-                });
+                }
 
-        // create alert dialog
-        AlertDialog minviteplayAlertDialog = mjoinplayAlertDialogBuilder.create();
+            }
+        });
 
-        // show it
-        minviteplayAlertDialog.show();
+
 
     }
 
@@ -355,26 +435,25 @@ public class JoinNextActivity extends ActionBarActivity {
         // Check user, then submit invitation
         if (ParseUser.getCurrentUser() == null) {
 
-            android.widget.Toast.makeText(JoinNextActivity.this, getResources().getString(R.string.OMEPARSEINVITELOGINALERT),
-                    android.widget.Toast.LENGTH_SHORT).show();
-
+            Toast.makeText(JoinNextActivity.this, getResources().getString(R.string.OMEPARSEINVITELOGINALERT),
+                    Toast.LENGTH_SHORT).show();
             return;
         } else {
 
-            String msubmittime = Time.currentTime();
+            final String msubmittime = Time.currentTime();
 
             // Create a post.
             Message message = new Message();
 
             // Set the location to the current user's location
-            message.setUser(ParseUser.getCurrentUser());
-            message.setUsername(ParseUser.getCurrentUser().getUsername());
+            message.setUser(muser);
+            message.setUsername(musername);
 
             //message.setToUser(ParseUser.getCurrentUser());
 
             message.setToUsername(mhostUsername);
-            message.setMessageFromUser(ParseUser.getCurrentUser());
-            message.setFromUsername(ParseUser.getCurrentUser().getUsername());
+            message.setMessageFromUser(muser);
+            message.setFromUsername(musername);
 
             if (minviteObjectID != null) {
                 message.setReplyForObjectID(minviteObjectID);
@@ -385,7 +464,7 @@ public class JoinNextActivity extends ActionBarActivity {
             }
 
             mrequest = getResources().getString(R.string.OMEPARSEMESSAGEJOINPLAYREQUESTFIRSTPART) + " " + mhostUsername
-                    + " " + getResources().getString(R.string.OMEPARSEMESSAGEJOINPLAYREQUESTSECONDPART) + " " + ParseUser.getCurrentUser().getUsername()
+                    + " " + getResources().getString(R.string.OMEPARSEMESSAGEJOINPLAYREQUESTSECONDPART) + " " + musername
                     + " " + getResources().getString(R.string.OMEPARSEWANTTOKEY) + " " + getResources().getString(R.string.OMEPARSEMESSAGEJOINPLAYREQUESTTHIRDPART) + " "
                     + getResources().getString(R.string.OMEPARSEINVITETITLEPLAY) + " " + msporttype;
 
@@ -406,6 +485,51 @@ public class JoinNextActivity extends ActionBarActivity {
                 message.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {
+                        if (e == null) {
+                            // create group record
+                            Group record = new Group();
+                            record.setGroupAdminUsername(mhostUsername);
+                            record.setParentObjectId(minviteObjectID);
+                            record.setMemberUser(muser);
+                            record.setMemberUsername(musername);
+                            record.setMemberJoinTime(Time.currentTime());
+
+                            if (msporttype != null) {
+                                record.setSportType(msporttype);
+                            }
+
+                            if (msporttypevalue != null) {
+                                record.setSportTypeValue(msporttypevalue);
+                            }
+
+                            ParseACL gacl = new ParseACL();
+                            gacl.setPublicReadAccess(true);
+                            gacl.setWriteAccess(muser,true);
+                            record.saveInBackground();
+
+                            // create initial score
+                            InviteScore score = new InviteScore();
+
+                            score.setAuthor(muser);
+                            score.setAuthorUsername(musername);
+                            score.setParentObjectId(minviteObjectID);
+                            score.setContent(Integer.toString(AppConstant.OMEPARSEINVITESCOREZERO));
+                            score.setRate(AppConstant.OMEPARSEINVITESCOREZERO);
+
+                            if (msporttype != null) {
+                                score.setSport(msporttype);
+                            }
+
+                            if (msporttypevalue != null) {
+                                score.setSportValue(msporttypevalue);
+                            }
+
+                            ParseACL macl = new ParseACL();
+                            macl.setPublicReadAccess(true);
+                            macl.setWriteAccess(muser,true);
+                            score.saveInBackground();
+
+                        }
                         // submitDialog.dismiss();
                     }
                 });
@@ -458,7 +582,6 @@ public class JoinNextActivity extends ActionBarActivity {
                                 @Override
                                 public void done(ParseException e) {
                                     // submitDialog.dismiss();
-                                    android.util.Log.d(" add like username ", musername);
                                 }
                             });
                         }

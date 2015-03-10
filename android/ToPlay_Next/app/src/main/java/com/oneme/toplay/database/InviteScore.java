@@ -77,6 +77,50 @@ public final class InviteScore extends ParseObject {
     public final void setParentObjectId(String value) {put(AppConstant.OMEPARSEINVITESCOREPARENTIDKEY, value);}
 
 
+    public int getRate() {
+        return AppConstant.OMEPARSEINVITESCOREZERO;
+    }
+
+    public void setRate(int value) {
+        if (value >= 0) {
+            put(AppConstant.OMEPARSEINVITESCORERATEKEY, value);
+        } else {
+            put(AppConstant.OMEPARSEINVITESCORERATEKEY, AppConstant.OMEPARSEINVITESCOREZERO);
+        }
+    }
+
+    public String getSport() {
+        if (getString(AppConstant.OMEPARSEINVITESCOREWORKOUTTYPEKEY) != null) {
+            return getString(AppConstant.OMEPARSEINVITESCOREWORKOUTTYPEKEY);
+        } else {
+            return Sport.msportarraylist.get(0);
+        }
+    }
+
+    public void setSport(String value) {
+        if (value != null) {
+            put(AppConstant.OMEPARSEINVITESCOREWORKOUTVALUEKEY, value);
+        } else {
+            put(AppConstant.OMEPARSEINVITESCOREWORKOUTVALUEKEY, Sport.msportarraylist.get(0));
+        }
+    }
+
+    public String getSportValue() {
+        if (getString(AppConstant.OMEPARSEINVITESCOREWORKOUTVALUEKEY) != null)  {
+            return getString(AppConstant.OMEPARSEINVITESCOREWORKOUTVALUEKEY);
+        } else {
+            return AppConstant.OMEPARSESPORTVALUENULL;
+        }
+    }
+
+    public void setSportValue(String value) {
+        if (value != null) {
+            put(AppConstant.OMEPARSEINVITESPORTTYPEVALUEKEY, value);
+        } else {
+            put(AppConstant.OMEPARSEINVITESPORTTYPEVALUEKEY, AppConstant.OMEPARSESPORTVALUENULL);
+        }
+    }
+
     public static ParseQuery<InviteScore> getQuery() {
         return ParseQuery.getQuery(InviteScore.class);
     }

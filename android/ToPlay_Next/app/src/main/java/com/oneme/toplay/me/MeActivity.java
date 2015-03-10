@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -46,11 +47,15 @@ import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.addfriend.ShowQRcodeActivity;
 
 import com.oneme.toplay.base.third.GetOutputMediaFile;
+import com.oneme.toplay.base.third.RoundedTransformationBuilder;
 import com.parse.ParseImageView;
 import com.parse.ParseUser;
 import com.parse.ParseFile;
 import com.parse.GetDataCallback;
+
+
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 //import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -66,13 +71,12 @@ public class MeActivity extends ActionBarActivity {
     private Button mloginButton;
 
     private TextView mUsernameText;
-
-    private String mUsername     = null;
-
-
     private TextView mAboutText;
-
-    private String mAbout     = null;
+    private String mUsername               = null;
+    private String mAbout                  = null;
+    private ParseUser muser                = ParseUser.getCurrentUser();
+    private Transformation mtransformation = null;
+    private ParseFile mfile                = null;
 
 
     private List<Float> availableOptions = Application.getConfigHelper().getSearchDistanceAvailableOptions();
@@ -95,55 +99,26 @@ public class MeActivity extends ActionBarActivity {
        // addAboutText();
         addSetting();
 
+        mtransformation = new RoundedTransformationBuilder()
+                .borderColor(Color.WHITE)
+                .borderWidthDp(1)
+                .cornerRadiusDp(AppConstant.OMEPARSEUSERICONRADIUS)
+                .oval(false)
+                .build();
+
+
         // call profile activity
-        RelativeLayout profile = (RelativeLayout) findViewById(R.id.me_profile_block);
+        RelativeLayout profile          = (RelativeLayout) findViewById(R.id.me_profile_block);
 
         final ImageView avatarImageView = (ImageView)findViewById(R.id.me_avatar_view);
 
-        ParseFile mavatarImageFile = null;
-
-        if (ParseUser.getCurrentUser() != null) {
-            mavatarImageFile = ParseUser.getCurrentUser().getParseFile(AppConstant.OMEPARSEUSERICONKEY);
-        }
-
-
-        if (mavatarImageFile != null) {
-            Uri imageUri = Uri.parse(mavatarImageFile.getUrl());
-            Picasso.with(MeActivity.this).load(imageUri.toString()).into(avatarImageView);
-        }
-
-        // create tmp file for avatar
-        File file                   = GetOutputMediaFile.newFile(AppConstant.OMEPARSEAVATARFILETYPEPNG);
-        final File avatarTmpFile    = file;
-        final Uri tmpAvatarImageUri = Uri.fromFile(avatarTmpFile);
-
-        // fetch user avatar from parse cloud, save it tmp file
-        if (mavatarImageFile != null && avatarTmpFile != null) {
-
-            mavatarImageFile.getDataInBackground(new GetDataCallback() {
-                @Override
-                public void done(byte[] bytes, com.parse.ParseException pe) {
-                    if (pe == null) {
-                        try {
-                            // data has the bytes for the resume
-                            Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                            avatarImageView.setImageBitmap(bmp);
-
-                            // output image to file
-                            FileOutputStream fos = new FileOutputStream(avatarTmpFile);
-                            bmp.compress(Bitmap.CompressFormat.PNG, 90, fos);
-                            fos.close();
-                        } catch (Exception e) {
-                            if (Application.APPDEBUG) {
-                                e.printStackTrace();
-                            }
-                        }
-                    } else {
-
-                    }
-
-                }
-            });
+        if (muser != null) {
+            mfile = muser.getParseFile(AppConstant.OMEPARSEUSERICONKEY);
+            Picasso.with(MeActivity.this)
+                    .load(mfile.getUrl())
+                    .fit()
+                    .transform(mtransformation)
+                    .into(avatarImageView);
         }
 
         // transfer file path to invoked activity
@@ -151,11 +126,6 @@ public class MeActivity extends ActionBarActivity {
             @Override
             public void onClick(View v){
                 Intent invokeProfileActivityIntent = new Intent(MeActivity.this, ProfileActivity.class);
-
-                if (tmpAvatarImageUri != null) {
-                    // Add avatar Uri instance to an Intent
-                    invokeProfileActivityIntent.putExtra(Application.INTENT_EXTRA_USERICONPATH, tmpAvatarImageUri.toString());
-                }
                 startActivity(invokeProfileActivityIntent);
             }
         });

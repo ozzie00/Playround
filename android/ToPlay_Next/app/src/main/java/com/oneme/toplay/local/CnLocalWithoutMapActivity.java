@@ -32,6 +32,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
@@ -79,6 +80,7 @@ import com.oneme.toplay.Application;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.third.GetOutputMediaFile;
 import com.oneme.toplay.base.AppConstant;
+import com.oneme.toplay.base.third.RoundedTransformationBuilder;
 import com.oneme.toplay.database.Invite;
 import com.oneme.toplay.database.Sport;
 import com.oneme.toplay.invite.InviteActivity;
@@ -148,6 +150,7 @@ import com.baidu.mapapi.map.SupportMapFragment;
 //import com.shamanland.fab.FloatingActionButton;
 //import com.shamanland.fab.ShowHideOnScroll;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 
 public class CnLocalWithoutMapActivity extends ActionBarActivity {
@@ -221,6 +224,8 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
     private ParseGeoPoint userLastLocation;
 
     private static ParseGeoPoint mGeoPoint;
+
+    private Transformation mtransformation = null;
 
 
     // locate
@@ -325,6 +330,14 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
         final ProgressDialog listLoadDialog = new ProgressDialog(CnLocalWithoutMapActivity.this);
         listLoadDialog.show();
 
+        mtransformation = new RoundedTransformationBuilder()
+                .borderColor(Color.WHITE)
+                .borderWidthDp(1)
+                .cornerRadiusDp(AppConstant.OMEPARSEUSERICONRADIUS)
+                .oval(false)
+                .build();
+
+
         // get current geo point
         mGeoPoint = new ParseGeoPoint(Double.valueOf(Application.getCurrentLatitude()), Double.valueOf(Application.getCurrentLongitude()));
 
@@ -339,11 +352,11 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
                     view = View.inflate(getContext(), R.layout.ome_activity_local_list, null);
                 }
 
-                ImageView avatarView        = (ImageView) view.findViewById(R.id.avatar_view);
+                ImageView avatarView        = (ImageView) view.findViewById(R.id.local_avatar_view);
                 TextView usernameView       = (TextView) view.findViewById(R.id.username_view);
                 //TextView contentView        = (TextView) view.findViewById(R.id.content_view);
                 TextView venueaddressView   = (TextView) view.findViewById(R.id.local_venue_address);
-                TextView playnumberView     = (TextView) view.findViewById(R.id.local_person_number);
+                //TextView playnumberView     = (TextView) view.findViewById(R.id.local_person_number);
                 TextView playtimeView       = (TextView) view.findViewById(R.id.local_play_time);
                 TextView distanceView       = (TextView) view.findViewById(R.id.local_distance_to_me);
                 //TextView submittimeView     = (TextView) view.findViewById(R.id.duration);
@@ -353,24 +366,20 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
                 // show username and invite content
 
                 // Ozzie Zhang 2014-11-04 need add query for avatar icon for this user
-                ParseUser user             = invite.getUser();
-                ParseFile mavatarImageFile =  null;
+                ParseFile mfile  = invite.getUser().getParseFile(AppConstant.OMEPARSEUSERICONKEY);
+                Picasso.with(CnLocalWithoutMapActivity.this)
+                        .load(mfile.getUrl())
+                        .fit()
+                        .transform(mtransformation)
+                        .into(avatarView);
 
-                if (user != null) {
-                    mavatarImageFile = user.getParseFile(AppConstant.OMEPARSEUSERICONKEY);
-                }
-
-                if (mavatarImageFile != null) {
-                    Uri imageUri = Uri.parse(mavatarImageFile.getUrl());
-                    Picasso.with(CnLocalWithoutMapActivity.this).load(imageUri.toString()).into(avatarView);
-                }
 
                 //avatarView.setImageDrawable(getResources().getDrawable(R.drawable.ome_map_avataricon));
                // contentView.setText(invite.getText());
                 usernameView.setText(invite.getFromUsername());
                 //submittimeView.setText(invite.getSubmitTime());
                 venueaddressView.setText(invite.getCourt());
-                playnumberView.setText(invite.getPlayerNumber());
+                //playnumberView.setText(invite.getPlayerNumber());
                 playtimeView.setText(invite.getPlayTime());
 
                 // calculate distance between me and venue
@@ -420,49 +429,6 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
                 ParseUser hostuser       = invite.getFromUser();
                 selectedInviteObjectId   = invite.getObjectId();
 
-                ParseUser user             = invite.getUser();
-                ParseFile mavatarImageFile = null;
-
-                if (user != null) {
-                    mavatarImageFile = user.getParseFile(AppConstant.OMEPARSEUSERICONKEY);
-                }
-
-                File file                   = GetOutputMediaFile.newFile(AppConstant.OMEPARSEAVATARFILETYPEPNG);
-                final File avatarTmpFile    = file;
-                final Uri tmpAvatarImageUri = Uri.fromFile(avatarTmpFile);
-
-                // fetch user avatar from parse cloud, save it tmp file
-                if (mavatarImageFile != null && avatarTmpFile != null) {
-
-                    mavatarImageFile.getDataInBackground(new GetDataCallback() {
-                        @Override
-                        public void done(byte[] bytes, com.parse.ParseException pe) {
-                            if (pe == null) {
-                                try {
-                                    // data has the bytes for the resume
-                                    Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                                    // avatarImageView.setImageBitmap(bmp);
-
-                                    // output image to file
-                                    FileOutputStream fos = new FileOutputStream(avatarTmpFile);
-                                    bmp.compress(Bitmap.CompressFormat.PNG, 90, fos);
-                                    fos.close();
-                                } catch (Exception e) {
-                                    if (Application.APPDEBUG) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                            } else {
-                                // something went wrong
-                                //
-
-                            }
-
-                        }
-                    });
-                }
-
-
                 BDLocation clickedItemUserLocation = (currentLocation == null) ? lastLocation : currentLocation;
                 clickedItemUserLocation.setLatitude(invite.getLocation().getLatitude());
                 clickedItemUserLocation.setLongitude(invite.getLocation().getLongitude());
@@ -472,11 +438,6 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
                 passLocation.setLongitude(invite.getLocation().getLongitude());
 
                 Intent invokeJoinActivityIntent = new Intent(getBaseContext(), JoinNextActivity.class);//LocalActivity.this, JoinActivity.class);
-
-                if (tmpAvatarImageUri != null) {
-                    // Add avatar Uri instance to an Intent
-                    invokeJoinActivityIntent.putExtra(Application.INTENT_EXTRA_USERICONPATH, tmpAvatarImageUri.toString());
-                }
 
                 invokeJoinActivityIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 invokeJoinActivityIntent.putExtra(Application.INTENT_EXTRA_LOCATION, passLocation);

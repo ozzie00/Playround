@@ -477,7 +477,7 @@
     <string name="myvenueasbackupactivity_title">Add Backup Venue</string>
 
     <!--Add by playround 1.0.3.01 -->
-    <string name="OMEPARSECANNOTJOINYOURSELFALERT">You can not re-join yourself match!</string>
+    <string name="OMEPARSECANNOTJOINYOURSELFALERT">You can not rejoin this workout!</string>
 
     <!--Add by playround 1.0.4.02 -->
     <string name="search_venue_hint">Search Venue</string>
@@ -539,12 +539,17 @@
     <string name="joinscoreboardfragment_title">Scoreboard</string>
     <string name="joincommentfragment_title">Comments</string>
 
-    <string name="OMEPARSEJOININFOPLAYERTEXT">PLAYERS</string>
-    <string name="OMEPARSEJOININFOICECREAMTEXT">ICECREAMS</string>
+    <string name="OMEPARSEJOININFOPLAYERTEXT">PLAYER</string>
+    <string name="OMEPARSEJOININFOICECREAMTEXT">ICECREAM</string>
+    <string name="OMEPARSEJOININFOPRIZETEXT">PRIZE</string>
+    <string name="OMEPARSEJOININFOSCOREBOARDTEXT">SCORE</string>
     <string name="OMEPARSEJOININFODAYLEFTTEXT">DAYS LEFT</string>
+
 
     <string name="joincommentactivity_title">Comments</string>
     <string name="joinlikeactivity_title">Likes</string>
+    <string name="joinscoreactivity_title">Scores</string>
+    <string name="joinplayeractivity_title">Players</string>
 
     <string name="OMEPARSEJOINCOMMENTS">comments</string>
     <string name="OMEPARSEJOINSCOREBOARD">Scoreboard</string>

@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.Matrix;
 import android.hardware.Camera;
 import android.net.Uri;
@@ -47,6 +48,7 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
+import com.oneme.toplay.base.third.RoundedTransformationBuilder;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
@@ -58,8 +60,9 @@ import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.base.Constants;
 import com.oneme.toplay.base.FileDialog;
 import com.oneme.toplay.addfriend.ShowQRcodeActivity;
+
 import com.squareup.picasso.Picasso;
-//import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 
 /**
@@ -98,6 +101,9 @@ public class ProfileActivity extends ActionBarActivity {
 
     private ParseFile userIconFile;
 
+    private ParseUser muser                = ParseUser.getCurrentUser();
+    private Transformation mtransformation = null;
+
     private List<Float> availableOptions = Application.getConfigHelper().getSearchDistanceAvailableOptions();
 
     @Override
@@ -109,12 +115,9 @@ public class ProfileActivity extends ActionBarActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            userOldAvatarUri = Uri.parse(extras.getString(Application.INTENT_EXTRA_USERICONPATH));
-        }
 
-        if (ParseUser.getCurrentUser() != null) {
-            mUsername     = ParseUser.getCurrentUser().getUsername();
+        if (muser != null) {
+            mUsername     = muser.getUsername();
             addaliasText();
             addplayroundid();
            // addUsernameText();
@@ -123,16 +126,23 @@ public class ProfileActivity extends ActionBarActivity {
             //         Toast.LENGTH_SHORT).show();
         }
 
-        mavatarImage = (ImageView)findViewById(R.id.profile_avatar_image);
+        mtransformation = new RoundedTransformationBuilder()
+                .borderColor(Color.WHITE)
+                .borderWidthDp(1)
+                .cornerRadiusDp(AppConstant.OMEPARSEUSERICONRADIUS)
+                .oval(false)
+                .build();
 
-        if (userOldAvatarUri != null) {
-            try {
-                mavatarImage.setImageBitmap(getBitmapFromUri(userOldAvatarUri));
-            } catch (IOException ioe) {
-                if (Application.APPDEBUG) {
-                    ioe.printStackTrace();
-                }
-            }
+        mavatarImage    = (ImageView)findViewById(R.id.profile_avatar_image);
+
+        if (muser != null) {
+            ParseFile mfile = muser.getParseFile(AppConstant.OMEPARSEUSERICONKEY);
+
+            Picasso.with(ProfileActivity.this)
+                    .load(mfile.getUrl())
+                    .fit()
+                    .transform(mtransformation)
+                    .into(mavatarImage);
         }
 
         RelativeLayout avatar = (RelativeLayout) findViewById(R.id.profile_avatar_block);

@@ -7,33 +7,17 @@
         android:orientation   = "horizontal"
         android:padding       = "5dip" >
 
-    <!--  ListRow Left Thumbnail image -->
-    <LinearLayout android:id           = "@+id/local_avatar_line_block"
-        android:layout_width           = "wrap_content"
-        android:layout_height          = "wrap_content"
-        android:padding                = "3dip"
-        android:paddingLeft            = "8dp"
-        android:paddingRight           = "8dp"
-        android:layout_alignParentLeft = "true"
-        android:background             = "@layout/ome_map_avatarbackground"
-        android:layout_marginRight     = "5dip"
-        android:layout_centerVertical = "true">
-
-        <ImageView
-            android:id                 = "@+id/avatar_view"
-            android:layout_width       = "48dp"
-            android:layout_height      = "48dp"
-            android:layout_marginRight = "8dp"
-            android:src                = "@drawable/ome_map_avataricon"/>
-
-    </LinearLayout>
+    <ImageView
+        android:id                 = "@+id/local_avatar_view"
+        android:layout_width       = "64dp"
+        android:layout_height      = "64dp"/>
 
     <TextView
         android:id               = "@+id/username_view"
         android:layout_width     = "wrap_content"
         android:layout_height    = "wrap_content"
-        android:layout_alignTop  = "@+id/local_avatar_line_block"
-        android:layout_toRightOf = "@id/local_avatar_line_block"
+        android:layout_alignTop  = "@+id/local_avatar_view"
+        android:layout_toRightOf = "@id/local_avatar_view"
         android:paddingLeft      = "8dp"
         android:textAppearance   = "?android:attr/textAppearanceSmall" />
 
@@ -58,7 +42,7 @@
         android:layout_marginRight = "2dp"
         android:layout_marginTop   = "4dp"
         android:layout_marginBottom= "2dp"
-        android:layout_toRightOf   = "@id/local_avatar_line_block"
+        android:layout_toRightOf   = "@id/local_avatar_view"
         android:layout_below       = "@id/username_view"
         android:src                = "@drawable/ome_small_venue" />
 
@@ -73,6 +57,7 @@
         android:paddingLeft      = "4dp"
         android:textSize         = "12dip" />
 
+    <!--
     <ImageView
         android:id                 = "@+id/local_person_icon_view"
         android:layout_width       = "20dp"
@@ -84,6 +69,7 @@
         android:layout_toRightOf   = "@id/local_avatar_line_block"
         android:layout_below       = "@id/local_venue_icon_view"
         android:src                = "@drawable/ome_small_person" />
+
 
     <TextView
         android:id                  = "@+id/local_person_number"
@@ -97,15 +83,18 @@
         android:layout_below        = "@id/local_venue_icon_view"
         android:textSize            = "12dip"/>
 
+          android:layout_toRightOf   = "@id/local_person_number"
+    -->
+
     <ImageView
         android:id                 = "@+id/local_clock_icon_view"
         android:layout_width       = "20dp"
         android:layout_height      = "20dp"
-        android:layout_marginLeft  = "4dp"
+        android:layout_marginLeft  = "8dp"
         android:layout_marginRight = "2dp"
         android:layout_marginTop   = "8dp"
         android:layout_marginBottom= "2dp"
-        android:layout_toRightOf   = "@id/local_person_number"
+        android:layout_toRightOf   = "@id/local_avatar_view"
         android:layout_below       = "@id/local_venue_icon_view"
         android:src                = "@drawable/ome_small_clock" />
 

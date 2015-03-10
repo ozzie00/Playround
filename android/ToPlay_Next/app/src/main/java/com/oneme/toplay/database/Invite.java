@@ -113,7 +113,7 @@ public final class Invite extends ParseObject {
         if (getString(AppConstant.OMEPARSEINVITESPORTTYPEVALUEKEY) != null)  {
             return getString(AppConstant.OMEPARSEINVITESPORTTYPEVALUEKEY);
         } else {
-            return AppConstant.OMEPARSEINVITESPORTVALUENULL;
+            return AppConstant.OMEPARSESPORTVALUENULL;
         }
     }
 
@@ -121,7 +121,7 @@ public final class Invite extends ParseObject {
         if (value != null) {
             put(AppConstant.OMEPARSEINVITESPORTTYPEVALUEKEY, value);
         } else {
-            put(AppConstant.OMEPARSEINVITESPORTTYPEVALUEKEY, AppConstant.OMEPARSEINVITESPORTVALUENULL);
+            put(AppConstant.OMEPARSEINVITESPORTTYPEVALUEKEY, AppConstant.OMEPARSESPORTVALUENULL);
         }
     }
 

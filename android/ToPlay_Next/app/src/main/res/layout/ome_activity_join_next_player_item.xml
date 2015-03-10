@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- android:background="@drawable/list_selector"-->
+<RelativeLayout
+    xmlns:android         = "http://schemas.android.com/apk/res/android"
+    android:layout_width  = "fill_parent"
+    android:layout_height = "wrap_content"
+    android:orientation   = "horizontal"
+    android:background    = "@color/white_absolute">
+
+    <ImageView
+        android:id                 = "@+id/join_next_player_avatar_icon_view"
+        android:layout_width       = "64dp"
+        android:layout_height      = "64dp"
+        android:layout_marginLeft  = "8dp"
+        android:layout_marginRight = "8dp"
+        android:layout_marginTop   = "8dp"
+        android:layout_marginBottom= "8dp"
+        android:src                = "@drawable/ome_badminton_icon"/>
+
+    <TextView
+        android:id                    = "@+id/join_next_player_username_view"
+        android:layout_width          = "wrap_content"
+        android:layout_height         = "wrap_content"
+        android:layout_centerVertical = "true"
+        android:layout_toRightOf      = "@id/join_next_player_avatar_icon_view"
+        android:paddingLeft           = "8dp"
+        android:textAppearance        = "?android:attr/textAppearanceSmall"
+        android:textColor             = "@color/grey_darkest"
+        android:textStyle             = "bold"/>
+
+    <TextView
+        android:id               = "@+id/join_next_player_description_view"
+        android:layout_width     = "wrap_content"
+        android:layout_height    = "wrap_content"
+        android:layout_below     = "@id/join_next_player_username_view"
+        android:layout_toRightOf = "@id/join_next_player_avatar_icon_view"
+        android:paddingLeft      = "8dp"
+        android:textAppearance   = "?android:attr/textAppearanceSmall"
+        android:textColor        = "@color/grey_darkest"/>
+
+
+</RelativeLayout>

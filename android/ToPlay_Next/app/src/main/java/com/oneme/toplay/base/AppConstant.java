@@ -41,6 +41,10 @@ public final class AppConstant {
     public static final int OMEINVITESEARCHLIMIT              = 50; // query limit for pins and tableviewcells
     public static final int OMEINVITEREQUIREMENTSEARCHLIMIT   = 100;
     public static final int OMEPHONEMINIMUMLENGTH             = 3;
+    public static final String OMEPARSESPORTVALUENULL         = "0";
+    public static final int OMEPARSEUSERICONRADIUS            = 30;
+
+
 
     // default color value
     public static final int OMETOPLAYDEFAULTCOLOR             = 0xFF1DA155;
@@ -61,13 +65,14 @@ public final class AppConstant {
     // Parse API key constants for class
     public static final String OMETOPLAYINVITECLASSKEY         = "ToPlayInvite";
     public static final String OMETOPLAYMESSAGECLASSKEY        = "ToPlayMessage";
-    public static final String OMETOPLAYJOINCLASSKEY           = "ToPlayJoin";
+    public static final String OMETOPLAYGROUPCLASSKEY          = "PlayroundGroup";
     public static final String OMETOPLAYPLAYERCLASSKEY         = "ToPlayPlayer";
     public static final String OMETOPLAYVENUECLASSKEY          = "ToPlayVenue";
     public static final String OMETOPLAYVENUEOWNERCLASSKEY     = "PlayroundVenueOwner";
     public static final String OMETOPLAYINVITECOMMENTCLASSKEY  = "PlayroundInviteComment";
     public static final String OMETOPLAYINVITELIKECLASSKEY     = "PlayroundInviteLike";
     public static final String OMETOPLAYINVITESCORECLASSKEY    = "PlayroundInviteScore";
+    public static final String OMETOPLAYFOLLOWINGCLASSKEY      = "PlayroundFollowing";
 
     // Parse API key constants related to user :
     public static final String OMEPARSEUSERKEY             = "user";
@@ -214,7 +219,6 @@ public final class AppConstant {
     public static final String OMEPARSEINVITESUBMITTIMEKEY       = "inviteSubmitTime";
     public static final String OMEPARSEINVITEJOINPLAYOBJECTIDKEY = "inviteObjectID";
     public static final String OMEPARSEINVITEPUBLICKEY           = "invitePublic";
-    public static final String OMEPARSEINVITESPORTVALUENULL      = "0";
     public static final String OMEPARSESHARETEXTFILE             = "text/plain";
     public static final String OMEPARSEINVITEWORKNAMEKEY         = "inviteWorkoutName";
 
@@ -234,23 +238,44 @@ public final class AppConstant {
     public static final String OMEPARSEMESSAGEFROMOMEIDKEY    = "messageFromOmeIDKey";
 
     // Parse API key corresponding to invite comment key
-    public static final String OMEPARSEINVITECOMMENTAUTHORKEY      = "inviteCommentAuthor";
-    public static final String OMEPARSEINVITECOMMENTAUTHORNAMEKEY  = "inviteCommentAuthorName";
-    public static final String OMEPARSEINVITECOMMENTCONTENTKEY     = "inviteCommentContent";
-    public static final String OMEPARSEINVITECOMMENTPARENTIDKEY    = "inviteCommentParentId";
-    public static final String OMEPARSEINVITECOMMENTPUBLICKEY      = "inviteCommentPublic";
-    public static final String OMEPARSEINVITECOMMENTSUBMITTIMEKEY  = "inviteCommentSubmitTime";
+    public static final String OMEPARSEINVITECOMMENTAUTHORKEY     = "inviteCommentAuthor";
+    public static final String OMEPARSEINVITECOMMENTAUTHORNAMEKEY = "inviteCommentAuthorName";
+    public static final String OMEPARSEINVITECOMMENTCONTENTKEY    = "inviteCommentContent";
+    public static final String OMEPARSEINVITECOMMENTPARENTIDKEY   = "inviteCommentParentId";
+    public static final String OMEPARSEINVITECOMMENTPUBLICKEY     = "inviteCommentPublic";
+    public static final String OMEPARSEINVITECOMMENTSUBMITTIMEKEY = "inviteCommentSubmitTime";
 
     // Parse API key corresponding to invite like key
-    public static final String OMEPARSEINVITELIKEAUTHORKEY      = "inviteLikeAuthor";
-    public static final String OMEPARSEINVITELIKEAUTHORNAMEKEY  = "inviteLikeAuthorName";
-    public static final String OMEPARSEINVITELIKEPARENTIDKEY    = "inviteLikeParentId";
+    public static final String OMEPARSEINVITELIKEAUTHORKEY     = "inviteLikeAuthor";
+    public static final String OMEPARSEINVITELIKEAUTHORNAMEKEY = "inviteLikeAuthorName";
+    public static final String OMEPARSEINVITELIKEPARENTIDKEY   = "inviteLikeParentId";
 
     // Parse API key corresponding to invite score key
-    public static final String OMEPARSEINVITESCOREAUTHORKEY      = "inviteScoreAuthor";
-    public static final String OMEPARSEINVITESCOREAUTHORNAMEKEY  = "inviteScoreAuthorName";
-    public static final String OMEPARSEINVITESCORECONTENTKEY     = "inviteScoreContent";
-    public static final String OMEPARSEINVITESCOREPARENTIDKEY    = "inviteScoreParentId";
+    public static final String OMEPARSEINVITESCOREAUTHORKEY       = "inviteScoreAuthor";
+    public static final String OMEPARSEINVITESCOREAUTHORNAMEKEY   = "inviteScoreAuthorName";
+    public static final String OMEPARSEINVITESCORECONTENTKEY      = "inviteScoreContent";
+    public static final String OMEPARSEINVITESCORERATEKEY         = "inviteScoreRate";
+    public static final String OMEPARSEINVITESCOREPARENTIDKEY     = "inviteScoreParentId";
+    public static final String OMEPARSEINVITESCOREWORKOUTTYPEKEY  = "inviteScoreSportType";
+    public static final String OMEPARSEINVITESCOREWORKOUTVALUEKEY = "inviteScoreSportValue";
+
+    // Parse API key corresponding to group key
+    public static final String OMEPARSEGROUPADMINKEY          = "GroupAdmin";
+    public static final String OMEPARSEGROUPADMINNAMEKEY      = "GroupAdminUserName";
+    public static final String OMEPARSEGROUPWORKOUTNAMEKEY    = "GroupWorkoutName";
+    public static final String OMEPARSEGROUPPARENTIDKEY       = "GroupParentId";
+    public static final String OMEPARSEGROUPPUBLICKEY         = "GroupPublic";
+    public static final String OMEPARSEGROUPSPORTKEY          = "GroupSport";
+    public static final String OMEPARSEGROUPSPORVALUETKEY     = "GroupSportValue";
+    public static final String OMEPARSEGROUPICONKEY           = "GroupIcon";
+    public static final String OMEPARSEGROUPMEMBERUSERKEY     = "MemberUser";
+    public static final String OMEPARSEGROUPMEMBERUSERNAMEKEY = "MemberUserName";
+    public static final String OMEPARSEGROUPMEMBERJOINTIMEKEY = "MemberJoinTime";
+
+    // Parse API default value for invite score
+    public static final int OMEPARSEINVITESCOREZERO            = 0;
+    public static final int OMEPARSEINVITESCOREPERFECT         = 100;
+
 
     // NSNotification userInfo keys:
     public static final String OMEFILTERDISTANCEKEY = "filterDistance";

@@ -16,13 +16,11 @@
         android:padding       = "5dip"
         android:background    = "@android:color/white">
 
-        <!--android:src                = "@drawable/ome_map_avataricon"-->
         <ImageView
             android:id                 = "@+id/me_avatar_view"
-            android:layout_width       = "60dp"
-            android:layout_height      = "80dp"
-            android:layout_marginRight = "8dp"
-            android:src                = "@drawable/ome_map_avataricon"/>
+            android:layout_width       = "64dp"
+            android:layout_height      = "64dp"
+            android:layout_marginRight = "8dp"/>
 
         <TextView
             android:id                = "@+id/me_username_view"

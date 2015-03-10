@@ -80,6 +80,8 @@ import com.oneme.toplay.adapter.SportTypeAdapter;
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.base.Time;
 import com.oneme.toplay.database.Invite;
+import com.oneme.toplay.database.InviteScore;
+import com.oneme.toplay.database.Group;
 import com.oneme.toplay.database.Sport;
 import com.oneme.toplay.voice.WitActivity;
 import com.oneme.toplay.invite.SearchActivity;
@@ -118,6 +120,7 @@ public final class InviteNextActivity extends ActionBarActivity implements OnDat
     private TextView mdescriptionText;
 
     private ParseGeoPoint geoPoint;
+    private ParseUser muser = ParseUser.getCurrentUser();
 
     private String mworkoutname    = null;
     private String msporttype      = null;
@@ -195,14 +198,12 @@ public final class InviteNextActivity extends ActionBarActivity implements OnDat
         RelativeLayout locationblock = (RelativeLayout)findViewById(R.id.invite_location_block);
         mcourtText                   = (TextView)findViewById(R.id.invite_location_address_view);
 
-        ParseUser user = ParseUser.getCurrentUser();
-
-        if (user.getString(AppConstant.OMEPARSEUSERHOMEVENUEKEY) != null) {
-            mcourtText.setText(user.getString(AppConstant.OMEPARSEUSERHOMEVENUEKEY));
-            mcourt = user.getString(AppConstant.OMEPARSEUSERHOMEVENUEKEY);
-        } else if (user.getString(AppConstant.OMEPARSEUSERBACKUPVENUEKEY) != null) {
-            mcourtText.setText(user.getString(AppConstant.OMEPARSEUSERBACKUPVENUEKEY));
-            mcourt = user.getString(AppConstant.OMEPARSEUSERBACKUPVENUEKEY);
+        if (muser.getString(AppConstant.OMEPARSEUSERHOMEVENUEKEY) != null) {
+            mcourtText.setText(muser.getString(AppConstant.OMEPARSEUSERHOMEVENUEKEY));
+            mcourt = muser.getString(AppConstant.OMEPARSEUSERHOMEVENUEKEY);
+        } else if (muser.getString(AppConstant.OMEPARSEUSERBACKUPVENUEKEY) != null) {
+            mcourtText.setText(muser.getString(AppConstant.OMEPARSEUSERBACKUPVENUEKEY));
+            mcourt = muser.getString(AppConstant.OMEPARSEUSERBACKUPVENUEKEY);
         }
 
         locationblock.setOnClickListener(new OnClickListener() {
@@ -432,7 +433,7 @@ public final class InviteNextActivity extends ActionBarActivity implements OnDat
 
 
         // Create an invitation.
-        Invite invite = new Invite();
+        final Invite invite = new Invite();
 
         // Set the location to the current user's location
         invite.setLocation(geoPoint);
@@ -487,10 +488,68 @@ public final class InviteNextActivity extends ActionBarActivity implements OnDat
         invite.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
+                if (e == null) {
+                    // create join group for this invite
+                    String musername = muser.getUsername();
+                    Group group      = new Group();
+                    group.setGroupAdmin(muser);
+                    group.setGroupAdminUsername(musername);
+                    group.setParentObjectId(invite.getObjectId());
+                    group.setGroupPulic(true);
+                    group.setMemberUser(muser);
+                    group.setMemberUsername(musername);
+
+                    if (mworkoutname != null) {
+                        group.setGroupWorkout(mworkoutname);
+                    }
+
+                    if (msporttype != null) {
+                        group.setSportType(msporttype);
+                    }
+
+                    if (msporttypevalue != null) {
+                        group.setSportTypeValue(msporttypevalue);
+                    }
+
+                    if (msubmittime != null) {
+                        group.setMemberJoinTime(msubmittime);
+                    }
+
+                    ParseACL gacl = new ParseACL();
+                    gacl.setPublicReadAccess(true);
+                    gacl.setWriteAccess(muser,true);
+                    group.saveInBackground();
+
+                    // create score record for this invite
+                    InviteScore score = new InviteScore();
+
+                    score.setAuthor(muser);
+                    score.setAuthorUsername(muser.getUsername());
+                    score.setParentObjectId(invite.getObjectId());
+                    score.setContent(Integer.toString(0));
+                    score.setRate(0);
+
+                    if (msporttype != null) {
+                        score.setSport(msporttype);
+                    }
+
+                    if (msporttypevalue != null) {
+                        score.setSportValue(msporttypevalue);
+                    }
+
+                    ParseACL macl = new ParseACL();
+                    macl.setPublicReadAccess(true);
+                    macl.setWriteAccess(muser,true);
+                    score.saveInBackground();
+                }
                 //      dialog.dismiss();
                 finish();
             }
         });
+
+
+
+
 
         return;
 

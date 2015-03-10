@@ -48,9 +48,6 @@ public class CommentActivity extends ActionBarActivity {
 
     private ParseUser muser        = ParseUser.getCurrentUser();
 
-
-    private static final int MAX_MESSAGE_SEARCH_RESULTS = 100;
-
     private String minviteObjectID = null;
 
     private String mcontent        = null;
@@ -82,7 +79,6 @@ public class CommentActivity extends ActionBarActivity {
                 //query.whereEqualTo(AppConstant.OMEPARSEINVITECOMMENTAUTHORNAMEKEY, ParseUser.getCurrentUser().getUsername());
                 query.whereEqualTo(AppConstant.OMEPARSEINVITECOMMENTPARENTIDKEY, minviteObjectID);
                 query.orderByDescending(AppConstant.OMEPARSECREATEDATKEY);
-                query.setLimit(MAX_MESSAGE_SEARCH_RESULTS);
                 return query;
             }
         };
