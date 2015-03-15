@@ -17,10 +17,9 @@
 
         <ImageView
             android:id                 = "@+id/search_profile_avatar_view"
-            android:layout_width       = "60dp"
-            android:layout_height      = "80dp"
-            android:layout_marginRight = "8dp"
-            android:src                = "@drawable/ome_map_avataricon"/>
+            android:layout_width       = "48dp"
+            android:layout_height      = "48dp"
+            android:layout_marginRight = "8dp"/>
 
         <TextView
             android:id                = "@+id/search_profile_username_view"

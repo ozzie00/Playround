@@ -9,13 +9,12 @@
 
     <ImageView
         android:id                 = "@+id/join_comment_avatar_icon_view"
-        android:layout_width       = "64dp"
-        android:layout_height      = "64dp"
+        android:layout_width       = "48dp"
+        android:layout_height      = "48dp"
         android:layout_marginLeft  = "8dp"
         android:layout_marginRight = "8dp"
         android:layout_marginTop   = "8dp"
-        android:layout_marginBottom= "8dp"
-        android:src                = "@drawable/ome_badminton_icon"/>
+        android:layout_marginBottom= "8dp"/>
 
     <TextView
         android:id               = "@+id/join_comment_username_view"

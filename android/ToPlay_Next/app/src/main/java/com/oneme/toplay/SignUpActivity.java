@@ -180,6 +180,7 @@ public class SignUpActivity extends ActionBarActivity {
                 user.setUsername(username);
                 user.setPassword(password);
                 user.put(AppConstant.OMEPARSEUSERTAGKEY, AppConstant.OMEPARSEUSERTAGPLAYER);
+                //user.put(AppConstant.OMEPARSEUSERICONKEY, );
 
                 // Set up a new Parse user in parse cloud
                 user.signUpInBackground(new SignUpCallback() {

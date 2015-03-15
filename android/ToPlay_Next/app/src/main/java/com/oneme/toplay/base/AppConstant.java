@@ -43,6 +43,18 @@ public final class AppConstant {
     public static final int OMEPHONEMINIMUMLENGTH             = 3;
     public static final String OMEPARSESPORTVALUENULL         = "0";
     public static final int OMEPARSEUSERICONRADIUS            = 30;
+    public static final int OMEPARSEBUFFERLENGTH              = 1024;
+
+    // define special symbol
+    public static final String OMEPARSESLASHSTRING            = "/";
+    public static final String OMEPARSESPACESTRING            = " ";
+    public static final String OMEPARSECOLONSTRING            = ":";
+    public static final String OMEPARSECOLONZEROSTRING        = ":0";
+    public static final String OMEPARSEDISTANCEFORMATSTRING   = "##.00";
+    public static final String OMEPARSEZEROSTRING             = "0";
+
+
+
 
 
 
@@ -89,6 +101,8 @@ public final class AppConstant {
     public static final int OMEPARSEAVATARFILETYPEPNG      = 1;
     public static final String OMEPARSEUSERHOMEVENUEKEY    = "userHomeVenue";
     public static final String OMEPARSEUSERBACKUPVENUEKEY  = "userBackupVenue";
+    public static final String OMEPARSEUSERHOMESPORTKEY    = "userHomeSport";
+    public static final String OMEPARSEUSERBACKUPSPORTKEY  = "userBackupSport";
     public static final String OMEPARSEUSERHOMEVENUEPHONEKEY    = "userHomeVenuePhone";
     public static final String OMEPARSEUSERBACKUPVENUEPHONEKEY  = "userBackupVenuePhone";
 

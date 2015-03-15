@@ -34,17 +34,22 @@ import android.widget.TextView;
 import com.oneme.toplay.Application;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
+import com.oneme.toplay.base.LoadImageFromParseCloud;
 import com.oneme.toplay.base.Time;
 import com.oneme.toplay.base.third.CircleDisplay;
+import com.oneme.toplay.base.third.RoundedTransformationBuilder;
 import com.oneme.toplay.database.InviteComment;
 import com.oneme.toplay.database.InviteScore;
 
 import com.parse.ParseACL;
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 public class ScoreboardActivity extends ActionBarActivity {
 
@@ -59,6 +64,7 @@ public class ScoreboardActivity extends ActionBarActivity {
     private String msporttype      = null;
 
     private String mcontent        = null;
+    private Transformation mtransformation = null;
 
     // Adapter for the Parse query
     private ParseQueryAdapter<InviteScore> scoreQueryAdapter;
@@ -78,29 +84,11 @@ public class ScoreboardActivity extends ActionBarActivity {
             msporttype      = extras.getString(Application.INTENT_EXTRA_SPORTTYPE);
         }
 
-        /*
-        CircleDisplay cd = (CircleDisplay) findViewById(R.id.join_score_circleDisplay);
-        cd.setAnimDuration(3000);
-        cd.setValueWidthPercent(55f);
-        cd.setTextSize(36f);
-        cd.setColor(Color.GREEN);
-        cd.setDrawText(true);
-        cd.setDrawInnerCircle(true);
-        cd.setFormatDigits(1);
-       // cd.setTouchEnabled(true);
-        //cd.setSelectionListener(this);
-        cd.setUnit("%");
-        cd.setStepSize(0.5f);
-        // cd.setCustomText(...); // sets a custom array of text
-        cd.showValue(75f, 100f, true);
-        */
-
-
         // Set up a customized query
         ParseQueryAdapter.QueryFactory<InviteScore> factory = new ParseQueryAdapter.QueryFactory<InviteScore>() {
             public ParseQuery<InviteScore> create() {
                 ParseQuery<InviteScore> query = InviteScore.getQuery();
-                query.setCachePolicy(ParseQuery.CachePolicy.NETWORK_ELSE_CACHE);
+                query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
                 query.include(AppConstant.OMEPARSEINVITESCOREAUTHORKEY);
                 query.whereEqualTo(AppConstant.OMEPARSEINVITESCOREPARENTIDKEY, minviteObjectID);
                 query.orderByDescending(AppConstant.OMEPARSEINVITESCORERATEKEY);
@@ -114,6 +102,13 @@ public class ScoreboardActivity extends ActionBarActivity {
         final ProgressDialog scoreListLoadDialog = new ProgressDialog(ScoreboardActivity.this);
         scoreListLoadDialog.show();
 
+        mtransformation = new RoundedTransformationBuilder()
+                .borderColor(Color.WHITE)
+                .borderWidthDp(1)
+                .cornerRadiusDp(AppConstant.OMEPARSEUSERICONRADIUS)
+                .oval(true)
+                .build();
+
         // Set up the query adapter
         scoreQueryAdapter = new ParseQueryAdapter<InviteScore>(ScoreboardActivity.this, factory) {
             @Override
@@ -123,13 +118,24 @@ public class ScoreboardActivity extends ActionBarActivity {
                 }
 
                 ImageView avatarView    = (ImageView)view.findViewById(R.id.join_score_avatar_icon_view);
+                TextView rankView       = (TextView)view.findViewById(R.id.join_score_rank_view);
                 TextView usernameView   = (TextView)view.findViewById(R.id.join_score_username_view);
                 TextView contentView    = (TextView)view.findViewById(R.id.join_score_content_view);
                 //TextView submittimeView = (TextView)view.findViewById(R.id.join_score_submit_time_view);
 
+                LoadImageFromParseCloud.getAvatar(ScoreboardActivity.this, score.getAuthor(), avatarView);
+
+                //ParseFile mfile = score.getAuthor().getParseFile(AppConstant.OMEPARSEUSERICONKEY);
+                //Picasso.with(ScoreboardActivity.this)
+                //        .load(mfile.getUrl())
+                //        .fit()
+                //        .transform(mtransformation)
+                //        .into(avatarView);
+
                 // Ozzie Zhang 2014-11-04 need add query for avatar icon for this user
                 // show username and invite content
                 // avatarView.setImageDrawable(getResources().getDrawable(R.drawable.ome_map_avataricon));
+                //rankView.setText();
                 usernameView.setText(score.getAuthorUsername());
                 contentView.setText(score.getContent());
                 //submittimeView.setText(comment.getSubmitTime());

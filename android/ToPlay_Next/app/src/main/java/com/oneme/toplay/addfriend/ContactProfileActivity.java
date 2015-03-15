@@ -17,6 +17,7 @@
 package com.oneme.toplay.addfriend;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -29,6 +30,8 @@ import android.widget.Toast;
 import com.oneme.toplay.Application;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
+import com.oneme.toplay.base.LoadImageFromParseCloud;
+import com.oneme.toplay.base.third.RoundedTransformationBuilder;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -36,6 +39,7 @@ import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 import java.util.List;
 
@@ -51,6 +55,8 @@ public class ContactProfileActivity extends ActionBarActivity {
     private static String mUsername = null;
 
     private static String mOMEID = null;
+
+    private Transformation mtransformation = null;
 
     // Adapter for the Parse query
     private ParseQueryAdapter<ParseUser> userQueryAdapter;
@@ -76,6 +82,14 @@ public class ContactProfileActivity extends ActionBarActivity {
             return;
         }
 
+        mtransformation = new RoundedTransformationBuilder()
+                .borderColor(Color.WHITE)
+                .borderWidthDp(1)
+                .cornerRadiusDp(AppConstant.OMEPARSEUSERICONRADIUS)
+                .oval(true)
+                .build();
+
+
         final RelativeLayout searchprofile = (RelativeLayout) findViewById(R.id.search_profile_view);
 
         TextView usernameView = (TextView) searchprofile.findViewById(R.id.search_profile_username_view);
@@ -94,13 +108,21 @@ public class ContactProfileActivity extends ActionBarActivity {
                 if (e == null) {
                     // The query was successful.
                     ImageView avatarView       = (ImageView) searchprofile.findViewById(R.id.search_profile_avatar_view);
-                    ParseFile mavatarImageFile = user.get(0).getParseFile(AppConstant.OMEPARSEUSERICONKEY);
 
+                    LoadImageFromParseCloud.getAvatar(ContactProfileActivity.this, user.get(0), avatarView);
+
+                    //ParseFile mavatarImageFile = user.get(0).getParseFile(AppConstant.OMEPARSEUSERICONKEY);
                     // check if user set avatar
-                    if (mavatarImageFile != null) {
-                        Uri imageUri = Uri.parse(mavatarImageFile.getUrl());
-                        Picasso.with(ContactProfileActivity.this).load(imageUri.toString()).into(avatarView);
-                    }
+                    //if (mavatarImageFile != null) {
+                        //Uri imageUri = Uri.parse(mavatarImageFile.getUrl());
+                        //Picasso.with(ContactProfileActivity.this).load(imageUri.toString()).into(avatarView);
+
+                    //    Picasso.with(ContactProfileActivity.this)
+                    //            .load(mavatarImageFile.getUrl())
+                    //            .fit()
+                    //            .transform(mtransformation)
+                    //            .into(avatarView);
+                    //}
                 } else {
                     // Something went wrong. Look at the ParseException to see what's up.
                 }

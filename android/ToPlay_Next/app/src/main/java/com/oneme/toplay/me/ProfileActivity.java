@@ -48,6 +48,7 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
+import com.oneme.toplay.base.LoadImageFromParseCloud;
 import com.oneme.toplay.base.third.RoundedTransformationBuilder;
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -136,13 +137,16 @@ public class ProfileActivity extends ActionBarActivity {
         mavatarImage    = (ImageView)findViewById(R.id.profile_avatar_image);
 
         if (muser != null) {
-            ParseFile mfile = muser.getParseFile(AppConstant.OMEPARSEUSERICONKEY);
 
-            Picasso.with(ProfileActivity.this)
-                    .load(mfile.getUrl())
-                    .fit()
-                    .transform(mtransformation)
-                    .into(mavatarImage);
+            LoadImageFromParseCloud.getAvatar(ProfileActivity.this, muser, mavatarImage);
+
+            //ParseFile mfile = muser.getParseFile(AppConstant.OMEPARSEUSERICONKEY);
+
+            //Picasso.with(ProfileActivity.this)
+            //        .load(mfile.getUrl())
+            //        .fit()
+            //        .transform(mtransformation)
+            //        .into(mavatarImage);
         }
 
         RelativeLayout avatar = (RelativeLayout) findViewById(R.id.profile_avatar_block);

@@ -67,9 +67,6 @@ public class SearchActivity extends ActionBarActivity  {
         String mAddress;
     }
 
-    private static Handler mhandler;
-    private static Boolean maccess = false;
-
     // Places Listview
     ListView msearchresult;
     LocationData mselectlocation;
@@ -106,22 +103,6 @@ public class SearchActivity extends ActionBarActivity  {
             }
         });
 
-        // check if can access google service
-     //   mhandler = new Handler() {
-     //       @Override
-     //       public void handleMessage(Message msg) {
-     //
-     //           if (msg.what != 1) { // code if not connected
-     //               maccess = true;
-     //           } else { // code if connected
-     //               maccess = false;
-     //           }
-     //       }
-     //   };
-
-        // this parameter 2000 is 2000 ms
-     //   IfCanAccessGoogleService.isNetworkAvailable(mhandler, 2000);
-
         final Boolean isAvailable = DispatchActivity.getGooglePlayServicesState();
 
         ImageView mlogo = (ImageView)findViewById(R.id.invite_search_google_logo);
@@ -153,11 +134,11 @@ public class SearchActivity extends ActionBarActivity  {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String newText  = s.toString();
                 if (isAvailable == true) {
-                    //new getPlaceAutocomplete().execute(newText);
                     new getPlaceAutocomplete().execute(newText);
+                    //new getPlaceAutocomplete().execute(newText);
                 } else {
-                    //new getBdPlaceAutocomplete().execute(newText);
                     new getBdPlaceAutocomplete().execute(newText);
+                    //new getPlaceAutocomplete().execute(newText);
                 }
             }
 
@@ -165,7 +146,6 @@ public class SearchActivity extends ActionBarActivity  {
             public void afterTextChanged(Editable s) {
             }
         });
-
 
     }
 

@@ -67,6 +67,7 @@ import java.util.Locale;
 import com.oneme.toplay.R;
 import com.oneme.toplay.Application;
 import com.oneme.toplay.base.AppConstant;
+import com.oneme.toplay.base.LoadImageFromParseCloud;
 import com.oneme.toplay.base.Time;
 import com.oneme.toplay.base.third.GetOutputMediaFile;
 import com.oneme.toplay.base.third.RoundedTransformationBuilder;
@@ -85,11 +86,13 @@ import com.oneme.toplay.service.CoreService;
 import com.oneme.toplay.MainActivity;
 import com.oneme.toplay.LoginActivity;
 import com.oneme.toplay.me.MeActivity;
-import com.oneme.toplay.SearchActivity;
+import com.oneme.toplay.SearchVenueActivity;
 import com.oneme.toplay.weather.RemoteFetch;
 import com.oneme.toplay.weather.WeatherActivity;
 
+import com.parse.CountCallback;
 import com.parse.GetDataCallback;
+import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseGeoPoint;
 import com.parse.ParseQuery;
@@ -159,6 +162,13 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
     // Maximum post search radius for map in kilometers
     private static final int MAX_POST_SEARCH_DISTANCE = 10;
 
+    // Minimum interval time
+    private static final int MIN_INTERVAL_TIME = 3000;
+
+    // Minimum distance for update location
+    private static final int MIN_DISTANCE_METER = 10;
+
+
 
     // Fields for the map radius in feet
     private float radius;
@@ -188,7 +198,15 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
 
     private static ParseGeoPoint mGeoPoint;
 
+    private int mcount        = 0;
+
+    private int hourpart      = 3;
+
     private String venuequery = null;
+
+    private ParseUser muser   = ParseUser.getCurrentUser();
+
+    private String musername  = null;
 
     private Menu menu;
 
@@ -220,8 +238,7 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
         String locationProvider = LocationManager.NETWORK_PROVIDER;
         lastLocation            = locationManager.getLastKnownLocation(locationProvider);
 
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 3000, 10, this);
-
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_INTERVAL_TIME, MIN_DISTANCE_METER, this);
 
         // Set up a customized query
         ParseQueryAdapter.QueryFactory<Invite> factory =
@@ -234,19 +251,21 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
 
                         ParseQuery<Invite> query = Invite.getQuery();
                         query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
-                        query.include("user");
-                        query.orderByDescending("createdAt");
-                        query.whereWithinKilometers("location", geoPointFromLocation(myLocation), radius
+                        query.include(AppConstant.OMEPARSEUSERKEY);
+                        query.orderByDescending(AppConstant.OMEPARSECREATEDATKEY);
+                        query.whereWithinKilometers(AppConstant.OMEPARSELOCATIONKEY, geoPointFromLocation(myLocation), radius
                                 * METERS_PER_FEET / METERS_PER_KILOMETER);
                         query.setLimit(MAX_POST_SEARCH_RESULTS);
+
                         return query;
                     }
                 };
 
+
         // Set up a progress dialog
-       // final ProgressDialog listLoadDialog = new ProgressDialog(LocalWithoutMapActivity.this);
-       // listLoadDialog.setMessage(getString(R.string.progress_local));
-       // listLoadDialog.show();
+        // final ProgressDialog listLoadDialog = new ProgressDialog(LocalWithoutMapActivity.this);
+        // listLoadDialog.setMessage(getString(R.string.progress_local));
+        // listLoadDialog.show();
 
         mtransformation = new RoundedTransformationBuilder()
                 .borderColor(Color.WHITE)
@@ -272,33 +291,58 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
 
                 ImageView avatarView        = (ImageView) view.findViewById(R.id.local_avatar_view);
                 TextView usernameView       = (TextView) view.findViewById(R.id.username_view);
-                //TextView contentView        = (TextView) view.findViewById(R.id.content_view);
+                //TextView contentView      = (TextView) view.findViewById(R.id.content_view);
                 TextView venueaddressView   = (TextView) view.findViewById(R.id.local_venue_address);
-                //TextView playnumberView     = (TextView) view.findViewById(R.id.local_person_number);
+                //TextView playnumberView   = (TextView) view.findViewById(R.id.local_person_number);
                 TextView playtimeView       = (TextView) view.findViewById(R.id.local_play_time);
                 TextView distanceView       = (TextView) view.findViewById(R.id.local_distance_to_me);
-                //TextView submittimeView     = (TextView) view.findViewById(R.id.duration);
+                //TextView submittimeView   = (TextView) view.findViewById(R.id.duration);
                 ImageView sporttypeiconView = (ImageView) view.findViewById(R.id.sport_type_icon);
 
                 // Ozzie Zhang 2014-11-04 need add query for avatar icon for this user
-                ParseFile mfile  = invite.getUser().getParseFile(AppConstant.OMEPARSEUSERICONKEY);
-                Picasso.with(LocalWithoutMapActivity.this)
-                        .load(mfile.getUrl())
-                        .fit()
-                        .transform(mtransformation)
-                        .into(avatarView);
+                //if (invite.getUser().getParseFile(AppConstant.OMEPARSEUSERICONKEY) != null) {
+                //    ParseFile mfile = invite.getUser().getParseFile(AppConstant.OMEPARSEUSERICONKEY);
+                //    Picasso.with(LocalWithoutMapActivity.this)
+                //            .load(mfile.getUrl())
+                //            .fit()
+                //            .transform(mtransformation)
+                //            .into(avatarView);
+                //} else {
+                //    Picasso.with(LocalWithoutMapActivity.this)
+                //            .load(R.drawable.ome_default_avatar)
+                //            .fit()
+                //            .transform(mtransformation)
+                //            .into(avatarView);
+                // }
 
+                LoadImageFromParseCloud.getAvatar(LocalWithoutMapActivity.this, invite.getUser(), avatarView);
+
+
+                String mplaytime = invite.getPlayTime();
                 //contentView.setText(invite.getText());
                 usernameView.setText(invite.getFromUsername());
                 //submittimeView.setText(invite.getSubmitTime());
                 venueaddressView.setText(invite.getCourt());
                 //playnumberView.setText(invite.getPlayerNumber());
-                playtimeView.setText(invite.getPlayTime());
+
+                if (mplaytime.contains(AppConstant.OMEPARSESLASHSTRING)) {
+                    // the old version time format contains slash
+                    playtimeView.setText(invite.getPlayTime());
+                } else {
+                    // the new version time format contains space
+                    // reformat the play time, original format is MMM dd yyyy HH:mm
+                    String[] mpart   = mplaytime.split(AppConstant.OMEPARSESPACESTRING);
+                    // MMM's first month january is 0, then when show it, need add 1
+                    String mmonth    = Integer.toString(Integer.parseInt(mpart[0]) + 1);
+                    String mday      = mpart[1];
+                    String mhour     = mpart[hourpart];
+                    playtimeView.setText(mday + AppConstant.OMEPARSESLASHSTRING + mmonth + AppConstant.OMEPARSESPACESTRING + mhour);
+                }
 
                 // calculate distance between me and venue
                 if (invite.getLocation() != null) {
                     Double mdistance = mGeoPoint.distanceInMilesTo(invite.getLocation());
-                    DecimalFormat df = new DecimalFormat("##.00");
+                    DecimalFormat df = new DecimalFormat(AppConstant.OMEPARSEDISTANCEFORMATSTRING);
                     String distancenote = null;
                     if (mdistance < 1) {
                         mdistance = mdistance * AppConstant.OMEMETERSINAKILOMETER;
@@ -307,17 +351,14 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
                         distancenote = getResources().getString(R.string.OMEPARSEMEMYVENUEDISTANCEKMNOTE);
                     }
 
-                    String mdistancestring = df.format(mdistance) + " " + distancenote;
+                    String mdistancestring = df.format(mdistance) + AppConstant.OMEPARSESPACESTRING + distancenote;
                     distanceView.setText(mdistancestring);
                 }
-
-                //distanceView
-
 
                 String sporttypevalue = invite.getSportTypeValue();
                 sporttypeiconView.setImageDrawable(getResources().getDrawable(Sport.msporticonarray[Integer.parseInt(sporttypevalue)]));
 
-               // listLoadDialog.dismiss();
+                // listLoadDialog.dismiss();
 
                 return view;
             }
@@ -335,20 +376,18 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
         localInvitationListView.setAdapter(inviteQueryAdapter);
 
 
-
-
         // Set up the handler for an item's selection
         localInvitationListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                final Invite invite    = inviteQueryAdapter.getItem(position);
+                final Invite invite = inviteQueryAdapter.getItem(position);
                 selectedInviteObjectId = invite.getObjectId();
 
                 Location clickedItemUserLocation = (currentLocation == null) ? lastLocation : currentLocation;
                 clickedItemUserLocation.setLatitude(invite.getLocation().getLatitude());
                 clickedItemUserLocation.setLongitude(invite.getLocation().getLongitude());
 
-                ParseUser user             = invite.getUser();
+                ParseUser user = invite.getUser();
                 ParseFile mavatarImageFile = null;
 
                 if (user != null) {
@@ -369,28 +408,28 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
 
                 startActivity(invokeJoinActivityIntent);
 
-                /*
-                // Set up the handler for the invite button click
-                Button inviteButton = (Button) findViewById(R.id.inviteplay_button);
-                inviteButton.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        // Only allow posts if we have a location
-                        Location myLoc = (currentLocation == null) ? lastLocation : currentLocation;
-                        if (myLoc == null) {
-                            Toast.makeText(LocalWithoutMapActivity.this,
-                                    "Please try again after your location appears on the map.", Toast.LENGTH_LONG).show();
-                            return;
-                        }
-
-                        //Ozzie Zhang 10-29-2014 please change JoinActivity to InviteActivity, now only for test
-                        Intent intent = new Intent(LocalWithoutMapActivity.this, InviteActivity.class);
-                        intent.putExtra(Application.INTENT_EXTRA_LOCATION, myLoc);
-                        startActivity(intent);
-
+            /*
+            // Set up the handler for the invite button click
+            Button inviteButton = (Button) findViewById(R.id.inviteplay_button);
+            inviteButton.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    // Only allow posts if we have a location
+                    Location myLoc = (currentLocation == null) ? lastLocation : currentLocation;
+                    if (myLoc == null) {
+                        Toast.makeText(LocalWithoutMapActivity.this,
+                                "Please try again after your location appears on the map.", Toast.LENGTH_LONG).show();
+                        return;
                     }
-                });
 
-                */
+                    //Ozzie Zhang 10-29-2014 please change JoinActivity to InviteActivity, now only for test
+                    Intent intent = new Intent(LocalWithoutMapActivity.this, InviteActivity.class);
+                    intent.putExtra(Application.INTENT_EXTRA_LOCATION, myLoc);
+                    startActivity(intent);
+
+                }
+            });
+
+            */
             }
         });
 
@@ -623,7 +662,7 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
     }
 
     private void newsetWeatherIcon(TextView weatherIcon, int actualId, int day){
-        int id = actualId / 100;
+        int id      = actualId / 100;
         String icon = "";
         if(actualId == 800){
             long currentTime = new Date().getTime();
@@ -690,7 +729,7 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
         });
         menu.add(0, 1001, 1, weathertv.getText()).setActionView(weathertv).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 
-        if (ParseUser.getCurrentUser() != null) {
+        if (muser != null) {
             MenuItem settingItem = menu.add(getResources().getString(R.string.meactivity_title));
 
 
@@ -711,7 +750,7 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
 
         }
 
-        if (ParseUser.getCurrentUser() != null){
+        if (muser != null){
             MenuItem logoutItem = menu.add(getResources().getString(R.string.OMEPARSELOGOUT));
             //menu.findItem(R.id.action_login)
             logoutItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
@@ -722,11 +761,11 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
                     //get point according to  current latitude and longitude
                     userLastLocation = new ParseGeoPoint(Double.valueOf(Application.getCurrentLatitude()), Double.valueOf(Application.getCurrentLongitude()));
 
-                    if (ParseUser.getCurrentUser() != null) {
-                        ParseUser.getCurrentUser().put(AppConstant.OMEPARSEUSERLASTTIMEKEY, Time.currentTime());
-                        ParseUser.getCurrentUser().put(AppConstant.OMEPARSEUSERLASTLOCATIONKEY, userLastLocation);
+                    if (muser != null) {
+                        muser.put(AppConstant.OMEPARSEUSERLASTTIMEKEY, Time.currentTime());
+                        muser.put(AppConstant.OMEPARSEUSERLASTLOCATIONKEY, userLastLocation);
 
-                        ParseUser.getCurrentUser().saveInBackground();
+                        muser.saveInBackground();
 
                     }
 
@@ -784,17 +823,8 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle presses on the action bar items
         switch (item.getItemId()) {
-            //case R.id.action_weather:
-            //    Intent invokeWeatherActivityIntent = new Intent(LocalWithoutMapActivity.this, WeatherActivity.class);
-            //    invokeWeatherActivityIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            //    startActivity(invokeWeatherActivityIntent);
-            //    return true;
             case R.id.action_search_venue:
-                if (ParseUser.getCurrentUser() != null) {
-                    onSearchRequested();
-                } else {
-                    Toast.makeText(LocalWithoutMapActivity.this, getResources().getString(R.string.OMEPARSEINVITELOGINALERT), Toast.LENGTH_SHORT).show();
-                }
+                onSearchRequested();
                 return true;
             case R.id.action_map:
                 Intent invokeMapActivityIntent = new Intent(LocalWithoutMapActivity.this, MapActivity.class);
@@ -803,16 +833,9 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
                 return true;
             case R.id.action_message:
                 // Check username
-                if (ParseUser.getCurrentUser() == null) {
-                    Toast.makeText(LocalWithoutMapActivity.this, getResources().getString(R.string.OMEPARSEINVITELOGINALERT), Toast.LENGTH_SHORT).show();
-                    // jump to login activity
-                    Intent invokeLoginActivityIntent = new Intent(LocalWithoutMapActivity.this, LoginActivity.class);
-                    startActivity(invokeLoginActivityIntent);
-                } else {
-                    Intent invokeMessageIntent = new Intent(LocalWithoutMapActivity.this, MessageListActivity.class);//MainActivity.class);
-                    invokeMessageIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(invokeMessageIntent);
-                }
+                Intent invokeMessageIntent = new Intent(LocalWithoutMapActivity.this, MessageListActivity.class);//MainActivity.class);
+                invokeMessageIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(invokeMessageIntent);
                 return true;
             case R.id.action_invite:
                 invokeInviteActivity();
@@ -828,23 +851,11 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
      */
     private void invokeInviteActivity() {
 
-        // check the user if login
-        if (ParseUser.getCurrentUser() == null) {
-
-            //Toast.makeText(JoinActivity.this, getResources().getString(R.string.OMEPARSEINVITELOGINALERT),
-            //        Toast.LENGTH_SHORT).show();
-
-            // jump to login activity
-            Intent invokeLoginActivityIntent = new Intent(LocalWithoutMapActivity.this, LoginActivity.class);
-            startActivity(invokeLoginActivityIntent);
-            //finish();
-        } else {
-
             // Only allow posts if we have a location
             Location mLocation = (currentLocation == null) ? lastLocation : currentLocation;
             if (mLocation == null) {
-                //Toast.makeText(LocalActivity.this,
-                //        getResources().getString(R.string.current_location_unavailable), Toast.LENGTH_LONG).show();
+                Toast.makeText(LocalWithoutMapActivity.this,
+                        getResources().getString(R.string.current_location_unavailable), Toast.LENGTH_LONG).show();
                 return;
             }
 
@@ -857,7 +868,6 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
             invokeInviteActivityIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(invokeInviteActivityIntent);
 
-        }
 
     }
 

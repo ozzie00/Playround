@@ -10,19 +10,19 @@
 
     <ImageView
         android:id                 = "@+id/join_next_player_avatar_icon_view"
-        android:layout_width       = "64dp"
-        android:layout_height      = "64dp"
+        android:layout_width       = "48dp"
+        android:layout_height      = "48dp"
         android:layout_marginLeft  = "8dp"
         android:layout_marginRight = "8dp"
         android:layout_marginTop   = "8dp"
-        android:layout_marginBottom= "8dp"
-        android:src                = "@drawable/ome_badminton_icon"/>
+        android:layout_marginBottom= "8dp"/>
 
     <TextView
         android:id                    = "@+id/join_next_player_username_view"
         android:layout_width          = "wrap_content"
         android:layout_height         = "wrap_content"
         android:layout_centerVertical = "true"
+        android:layout_alignTop       = "@id/join_next_player_avatar_icon_view"
         android:layout_toRightOf      = "@id/join_next_player_avatar_icon_view"
         android:paddingLeft           = "8dp"
         android:textAppearance        = "?android:attr/textAppearanceSmall"

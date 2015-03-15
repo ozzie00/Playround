@@ -253,7 +253,6 @@
                     android:layout_gravity = "center"
                     android:textAppearance = "?android:attr/textAppearanceMedium"
                     android:textSize       = "24sp"
-                    android:text           = "2"
                     android:textColor      = "@android:color/darker_gray"/>
 
                 <TextView

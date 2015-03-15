@@ -40,7 +40,7 @@ public class Application extends android.app.Application {
     public static final String APPTAG    = "Playround";
 
     // Used to pass location from MainActivity to InviteActivity, LocalActivity
-    public static final String INTENT_EXTRA_LOCATION     = AppConstant.OMELOCATIONKEY;
+    public static final String INTENT_EXTRA_LOCATION     = AppConstant.OMEPARSELOCATIONKEY;
 
     // Used to pass location from MainActivity to InviteActivity, LocalActivity
 
@@ -80,26 +80,17 @@ public class Application extends android.app.Application {
 
     public static final String INTENT_EXTRA_INVITEOBJECTID   = AppConstant.OMEPARSEMESSAGEFOROBJECTIDKEY;
 
-    public static final String INTENT_EXTRA_HOMEVENUE        = AppConstant.OMEPARSEUSERHOMEVENUEKEY;
-
-    public static final String INTENT_EXTRA_BACKUPVENUE      = AppConstant.OMEPARSEUSERBACKUPVENUEKEY;
-
-    public static final String INTENT_EXTRA_HOMEVENUEPHONE   = AppConstant.OMEPARSEUSERHOMEVENUEPHONEKEY;
-
-    public static final String INTENT_EXTRA_BACKUPVENUEPHONE = AppConstant.OMEPARSEUSERBACKUPVENUEPHONEKEY;
-
     public static final String INTENT_EXTRA_VENUESEARCH      = AppConstant.OMETOPLAYVENUESEARCHKEY;
 
     public static final String INTENT_EXTRA_SEARCHLOCATION   = AppConstant.OMEPARSEINVITECOURTKEY;
 
     public static final String INTENT_EXTRA_WORKOUTNAME      = AppConstant.OMEPARSEINVITEWORKNAMEKEY;
 
+    public static final String INTENT_EXTRA_VENUE            = AppConstant.OMETOPLAYVENUENAMEKEY;
 
+    public static final String INTENT_EXTRA_VENUETYPE        = AppConstant.OMETOPLAYVENUETYPEKEY;
 
-
-
-
-
+    public static final String INTENT_EXTRA_VENUEPHONE       = AppConstant.OMETOPLAYVENUEPHONEKEY;
 
     // Key for saving the search distance preference
     private static final String KEY_SEARCH_DISTANCE    = "searchDistance";

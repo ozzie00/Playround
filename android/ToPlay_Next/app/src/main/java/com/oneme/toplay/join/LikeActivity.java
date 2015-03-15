@@ -17,6 +17,7 @@
 package com.oneme.toplay.join;
 
 import android.app.ProgressDialog;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
@@ -29,18 +30,27 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.oneme.toplay.Application;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
+import com.oneme.toplay.base.LoadImageFromParseCloud;
 import com.oneme.toplay.base.Time;
+import com.oneme.toplay.base.third.RoundedTransformationBuilder;
 import com.oneme.toplay.database.InviteLike;
+
 import com.parse.ParseACL;
+import com.parse.CountCallback;
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
+
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 public class LikeActivity extends ActionBarActivity {
 
@@ -49,6 +59,10 @@ public class LikeActivity extends ActionBarActivity {
     private ParseUser muser        = ParseUser.getCurrentUser();
 
     private String minviteObjectID = null;
+
+    private Transformation mtransformation = null;
+
+    private int mcount = 0;
 
     // Adapter for the Parse query
     private ParseQueryAdapter<InviteLike> likeQueryAdapter;
@@ -72,6 +86,7 @@ public class LikeActivity extends ActionBarActivity {
             public ParseQuery<InviteLike> create() {
                 ParseQuery<InviteLike> query = InviteLike.getQuery();
                 query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
+                query.include(AppConstant.OMEPARSEINVITELIKEAUTHORKEY);
                 query.whereEqualTo(AppConstant.OMEPARSEINVITELIKEPARENTIDKEY, minviteObjectID);
                 query.orderByDescending(AppConstant.OMEPARSECREATEDATKEY);
                 return query;
@@ -81,6 +96,13 @@ public class LikeActivity extends ActionBarActivity {
         // Set up a progress dialog
         final ProgressDialog commentListLoadDialog = new ProgressDialog(LikeActivity.this);
         commentListLoadDialog.show();
+
+        mtransformation = new RoundedTransformationBuilder()
+                .borderColor(Color.WHITE)
+                .borderWidthDp(1)
+                .cornerRadiusDp(AppConstant.OMEPARSEUSERICONRADIUS)
+                .oval(true)
+                .build();
 
         // Set up the query adapter
         likeQueryAdapter = new ParseQueryAdapter<InviteLike>(LikeActivity.this, factory) {
@@ -93,6 +115,15 @@ public class LikeActivity extends ActionBarActivity {
                 ImageView avatarView = (ImageView) view.findViewById(R.id.join_like_avatar_icon_view);
                 TextView usernameView = (TextView) view.findViewById(R.id.join_like_username_view);
                 TextView whatsupView = (TextView) view.findViewById(R.id.join_like_whatsup_view);
+
+                LoadImageFromParseCloud.getAvatar(LikeActivity.this, like.getAuthor(), avatarView);
+
+                //ParseFile mfile = like.getAuthor().getParseFile(AppConstant.OMEPARSEUSERICONKEY);
+                //Picasso.with(LikeActivity.this)
+                //        .load(mfile.getUrl())
+                //        .fit()
+                //        .transform(mtransformation)
+                //        .into(avatarView);
 
                 // Ozzie Zhang 2014-11-04 need add query for avatar icon for this user
                 // show username and invite content
@@ -126,6 +157,7 @@ public class LikeActivity extends ActionBarActivity {
         });
 
     }
+
 
 
 

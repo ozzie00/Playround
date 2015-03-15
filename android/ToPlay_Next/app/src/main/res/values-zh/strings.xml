@@ -431,7 +431,6 @@
 
     <!--Add by playround 1.0.2.12 -->
     <string name="OMEPARSEMEMYVENUEASBACKUPPLACEHOLD">输入场馆名</string>
-    <string name="myvenueasbackupactivity_title">添加备用场馆</string>
 
     <!--Add by playround 1.0.3.01 -->
     <string name="OMEPARSECANNOTJOINYOURSELFALERT">不能再次加入自己的比赛!</string>
@@ -474,6 +473,48 @@
     <string name="OMWPARSEWEATHERPLACENOTFOUND">对不起，没有获得天气信息.</string>
     <string name="OMEPARSEWEATHERHUMIDITY">相对湿度</string>
     <string name="OMEPARSEWEATHERPRESSURE">气压</string>
+
+    <!--Add by playround 1.0.4.05 -->
+    <string name="OMEPARSEINVITECONTENTPLACEHOLD">锻炼名称</string>
+    <string name="OMEPARSEINVITESPORT">运动</string>
+    <string name="OMEPARSEINVITELOCATION">地点</string>
+    <string name="OMEPARSEINVITESTART">开始</string>
+    <string name="OMEPARSEINVITEDESCRIPTION">内容</string>
+    <string name="action_invite_share">分享邀请</string>
+    <string name="action_invite_add">添加邀请</string>
+    <string name="OMETOPLAYATWORD">在</string>
+    <string name="OMETOPLAYINWORD">于</string>
+    <string name="OMETOPLAYDONEWORD">完成</string>
+
+    <string name="invitesearchactivity_title">地点</string>
+    <string name="OMEPARSEINVITESEARCHLOCATIONPLACEHOLD">输入地点</string>
+    <string name="OMEPARSEINVITESEARCHLOCATIONCUSTOM">自定地点</string>
+
+    <string name="joininfofragment_title">详情</string>
+    <string name="joinscoreboardfragment_title">成绩榜</string>
+    <string name="joincommentfragment_title">评论</string>
+
+    <string name="OMEPARSEJOININFOPLAYERTEXT">选手</string>
+    <string name="OMEPARSEJOININFOICECREAMTEXT">冰淇淋</string>
+    <string name="OMEPARSEJOININFOPRIZETEXT">奖品</string>
+    <string name="OMEPARSEJOININFOSCOREBOARDTEXT">成绩榜</string>
+    <string name="OMEPARSEJOININFODAYLEFTTEXT">天剩余</string>
+    <string name="OMEPARSEJOININFOHOURLEFTTEXT">小时剩余</string>
+
+
+    <string name="joincommentactivity_title">评论</string>
+    <string name="joinlikeactivity_title">赞</string>
+    <string name="joinscoreactivity_title">成绩</string>
+    <string name="joinplayeractivity_title">选手</string>
+    <string name="meprofilreactivity_title">个人信息</string>
+
+    <string name="OMEPARSEJOINCOMMENTS">评论</string>
+
+    <string name="OMEPARSEVENUEOWNERBOOKMANAGEMENT">场馆预定管理</string>
+
+   <string name="OMEPARSEINVITEFILLWORKOUTNAME">请填写锻炼名称!</string>
+
+    <string name="venuesearchactivity_title">搜索</string>
 
 
 

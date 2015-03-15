@@ -43,6 +43,8 @@ public class MyVenueActivity extends ActionBarActivity {
     View homephonebutton;
     View backupphonebutton;
 
+    ParseUser muser = ParseUser.getCurrentUser();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -124,7 +126,7 @@ public class MyVenueActivity extends ActionBarActivity {
         myhome.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent invokeVenueAsHomeActivityIntent = new Intent(MyVenueActivity.this, VenueAsHomeActivity.class);
+                Intent invokeVenueAsHomeActivityIntent = new Intent(MyVenueActivity.this, VenueSearchActivity.class);
                 startActivityForResult(invokeVenueAsHomeActivityIntent, AppConstant.OMEPARSEUSERVENUEASHOMERESULT);
             }
         });
@@ -134,7 +136,7 @@ public class MyVenueActivity extends ActionBarActivity {
         mysecond.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent invokeVenueAsBackupActivityIntent = new Intent(MyVenueActivity.this, VenueAsBackUpActivity.class);//CnVenueSearchActivity.class);
+                Intent invokeVenueAsBackupActivityIntent = new Intent(MyVenueActivity.this, VenueSearchActivity.class);//CnVenueSearchActivity.class);
                 startActivityForResult(invokeVenueAsBackupActivityIntent, AppConstant.OMEPARSEUSERVENUEASBACKUPRESULT);
             }
         });
@@ -166,11 +168,19 @@ public class MyVenueActivity extends ActionBarActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == AppConstant.OMEPARSEUSERVENUEASHOMERESULT  && resultCode == Activity.RESULT_OK) {
-            homevenueText.setText(data.getStringExtra(Application.INTENT_EXTRA_HOMEVENUE));
-            homephone = data.getStringExtra(Application.INTENT_EXTRA_HOMEVENUEPHONE);
+            String mhomevenue = data.getStringExtra(Application.INTENT_EXTRA_VENUE);
+            String mhometype  = data.getStringExtra(Application.INTENT_EXTRA_VENUETYPE);
+            homephone         = data.getStringExtra(Application.INTENT_EXTRA_VENUEPHONE);
+            homevenueText.setText(mhomevenue);
 
             // set home hone button
             if (homephone != null && !homephone.equals(AppConstant.OMEPARSENULLSTRING)) {
+
+                if (muser != null) {
+                    muser.put(AppConstant.OMEPARSEUSERHOMEVENUEPHONEKEY, homephone);
+                    muser.put(AppConstant.OMEPARSEUSERHOMEVENUEKEY, mhomevenue);
+                    muser.saveInBackground();
+                }
 
                 // set home phone
                 if (homephone.length() > AppConstant.OMEPHONEMINIMUMLENGTH){
@@ -190,8 +200,16 @@ public class MyVenueActivity extends ActionBarActivity {
         }
 
         if(requestCode==AppConstant.OMEPARSEUSERVENUEASBACKUPRESULT && resultCode==Activity.RESULT_OK){
-            backupvenueText.setText(data.getStringExtra(Application.INTENT_EXTRA_BACKUPVENUE));
-            backupphone = data.getStringExtra(Application.INTENT_EXTRA_BACKUPVENUEPHONE);
+            String mbackupvenue = data.getStringExtra(Application.INTENT_EXTRA_VENUE);
+            String mbackuptype  = data.getStringExtra(Application.INTENT_EXTRA_VENUETYPE);
+            backupphone         = data.getStringExtra(Application.INTENT_EXTRA_VENUEPHONE);
+            backupvenueText.setText(mbackupvenue);
+
+            if (muser != null) {
+                muser.put(AppConstant.OMEPARSEUSERBACKUPVENUEPHONEKEY, backupphone);
+                muser.put(AppConstant.OMEPARSEUSERBACKUPVENUEKEY, mbackupvenue);
+                muser.saveInBackground();
+            }
 
             // set home hone button
             if (backupphone != null && !backupphone.equals(AppConstant.OMEPARSENULLSTRING)) {

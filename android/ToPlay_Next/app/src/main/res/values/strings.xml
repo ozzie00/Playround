@@ -457,7 +457,6 @@
     <string name="OMEPARSEMEMYVENUEADDRESSPLACEHOLD">Enter Address</string>
     <string name="OMEPARSEMEMYVENUEPHONEPLACEHOLD">Enter Phone</string>
     <string name="OMEPARSEMEMYVENUESUBMIT">Upload</string>
-    <string name="myvenuesearchactivity_title">Search Venue</string>
     <string name="OMEPARSEMYVENUEHOMEVENUE">Home Field</string>
     <string name="OMEPARSEMYVENUEBACKUPVENUE">Backup</string>
     <string name="OMEPARSEMYVENUERADAR">Venue Radar</string>
@@ -465,7 +464,6 @@
     <string name="OMEPARSEMEMYVENUEDISTANCEKMNOTE">kilometers away</string>
     <string name="OMEPARSEMEMYVENUEDISTANCEMETERNOTE">meters away</string>
     <string name="myvenueuploadactivity_title">Upload Venue</string>
-    <string name="myvenueashomeactivity_title">Add Home Field</string>
     <string name="OMEPARSEMEMYVENUEASHOMEPLACEHOLD">Enter Venue Name</string>
     <string name="OMEPARSESIGNUPDEVICEREGISTERED">this device has registered!</string>
     <string name="OMEPARSESIGNUPCANNOTGETDEVICEID">can not get device id!</string>
@@ -474,13 +472,13 @@
 
     <!--Add by playround 1.0.2.12 -->
     <string name="OMEPARSEMEMYVENUEASBACKUPPLACEHOLD">Enter Venue Name</string>
-    <string name="myvenueasbackupactivity_title">Add Backup Venue</string>
+
 
     <!--Add by playround 1.0.3.01 -->
     <string name="OMEPARSECANNOTJOINYOURSELFALERT">You can not rejoin this workout!</string>
 
     <!--Add by playround 1.0.4.02 -->
-    <string name="search_venue_hint">Search Venue</string>
+    <string name="search_venue_hint">Enter Venue</string>
     <string name="search_venue_settings">Search Location</string>
     <string name="OMEPARSEREGISTERASVENUEOWNERNOTE">Register as Venue</string>
     <string name="ownerinfouploadactivity_title">Upload Venue Info </string>
@@ -544,17 +542,29 @@
     <string name="OMEPARSEJOININFOPRIZETEXT">PRIZE</string>
     <string name="OMEPARSEJOININFOSCOREBOARDTEXT">SCORE</string>
     <string name="OMEPARSEJOININFODAYLEFTTEXT">DAYS LEFT</string>
+    <string name="OMEPARSEJOININFOHOURLEFTTEXT">HOURS LEFT</string>
 
 
     <string name="joincommentactivity_title">Comments</string>
     <string name="joinlikeactivity_title">Likes</string>
     <string name="joinscoreactivity_title">Scores</string>
     <string name="joinplayeractivity_title">Players</string>
+    <string name="meprofilreactivity_title">Profile</string>
 
     <string name="OMEPARSEJOINCOMMENTS">comments</string>
-    <string name="OMEPARSEJOINSCOREBOARD">Scoreboard</string>
 
     <string name="OMEPARSEVENUEOWNERBOOKMANAGEMENT">Venue Booking Management</string>
+
+    <string name="OMEPARSEJOINCOMMENTSUBMITFIRST">you can submit the first comment</string>
+    <string name="OMEPARSEJOINLIKESUBMITFIRST">you can be the first user who likes this invitation</string>
+    <string name="OMEPARSEMESSAGELISTFIRST">no message for you now</string>
+
+    <string name="OMEPARSEINVITEFILLWORKOUTNAME">please fill workout name!</string>
+
+    <string name="venuesearchactivity_title">Search</string>
+
+
+
 
 
 

@@ -120,8 +120,7 @@ public final class InviteNextActivity extends ActionBarActivity implements OnDat
     private TextView mdescriptionText;
 
     private ParseGeoPoint geoPoint;
-    private ParseUser muser = ParseUser.getCurrentUser();
-
+    private ParseUser muser        = ParseUser.getCurrentUser();
     private String mworkoutname    = null;
     private String msporttype      = null;
     private String msporttypevalue = null;
@@ -198,12 +197,14 @@ public final class InviteNextActivity extends ActionBarActivity implements OnDat
         RelativeLayout locationblock = (RelativeLayout)findViewById(R.id.invite_location_block);
         mcourtText                   = (TextView)findViewById(R.id.invite_location_address_view);
 
-        if (muser.getString(AppConstant.OMEPARSEUSERHOMEVENUEKEY) != null) {
-            mcourtText.setText(muser.getString(AppConstant.OMEPARSEUSERHOMEVENUEKEY));
-            mcourt = muser.getString(AppConstant.OMEPARSEUSERHOMEVENUEKEY);
-        } else if (muser.getString(AppConstant.OMEPARSEUSERBACKUPVENUEKEY) != null) {
-            mcourtText.setText(muser.getString(AppConstant.OMEPARSEUSERBACKUPVENUEKEY));
-            mcourt = muser.getString(AppConstant.OMEPARSEUSERBACKUPVENUEKEY);
+        if (muser != null) {
+            if (muser.getString(AppConstant.OMEPARSEUSERHOMEVENUEKEY) != null) {
+                mcourtText.setText(muser.getString(AppConstant.OMEPARSEUSERHOMEVENUEKEY));
+                mcourt = muser.getString(AppConstant.OMEPARSEUSERHOMEVENUEKEY);
+            } else if (muser.getString(AppConstant.OMEPARSEUSERBACKUPVENUEKEY) != null) {
+                mcourtText.setText(muser.getString(AppConstant.OMEPARSEUSERBACKUPVENUEKEY));
+                mcourt = muser.getString(AppConstant.OMEPARSEUSERBACKUPVENUEKEY);
+            }
         }
 
         locationblock.setOnClickListener(new OnClickListener() {
@@ -230,15 +231,15 @@ public final class InviteNextActivity extends ActionBarActivity implements OnDat
         mdateText.setText(Time.currentDay());
         mtimeText.setText(Time.currentHour());
 
-        mdate =  calendar.get(Calendar.DAY_OF_MONTH) + "/" + calendar.get(Calendar.MONTH);
+        mdate =  calendar.get(Calendar.DAY_OF_MONTH) + AppConstant.OMEPARSESLASHSTRING + calendar.get(Calendar.MONTH);
 
 
         // add zero in minute or hour, for example change 21:5 to 21:05
         if (calendar.get(Calendar.MINUTE) < AppConstant.OMEPARSEINVITETIMETWOBITDIVIDER) {
 
-            mhour = calendar.get(Calendar.HOUR_OF_DAY) + ":0" + calendar.get(Calendar.MINUTE);
+            mhour = calendar.get(Calendar.HOUR_OF_DAY) + AppConstant.OMEPARSECOLONZEROSTRING + calendar.get(Calendar.MINUTE);
         } else {
-            mhour = calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE);
+            mhour = calendar.get(Calendar.HOUR_OF_DAY) + AppConstant.OMEPARSECOLONSTRING + calendar.get(Calendar.MINUTE);
         }
 
         final DatePickerDialog datePickerDialog = DatePickerDialog.newInstance(this, calendar.get(Calendar.YEAR),
@@ -313,25 +314,23 @@ public final class InviteNextActivity extends ActionBarActivity implements OnDat
 
     @Override
     public void onDateSet(DatePickerDialog datePickerDialog, int year, int month, int day) {
-        //  Toast.makeText(InviteActivity.this, "new date:" + year + "-" + month + "-" + day, Toast.LENGTH_LONG).show();
-        // change date button text
-        int mmonth = month + 1;
-        mdateText.setText(day + "/" + mmonth);
-        mdate = day + "/" + mmonth;
+        // change date text
+        int mmonth = month;
+        // in calendar JANUARY = 0, when show month, need plus 1
+        mdateText.setText(day + AppConstant.OMEPARSESLASHSTRING + mmonth + 1);
+        mdate = Integer.toString(mmonth) +  AppConstant.OMEPARSESPACESTRING + Integer.toString(day) + AppConstant.OMEPARSESPACESTRING + Integer.toString(year);
     }
 
     @Override
     public void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute) {
-        // Toast.makeText(InviteActivity.this, "new time:" + hourOfDay + "-" + minute, Toast.LENGTH_LONG).show();
-
-        // change hour button text
-        mtimeText.setText(hourOfDay + ":" + minute);
+        // change hour  text
+        mtimeText.setText(hourOfDay + AppConstant.OMEPARSECOLONSTRING + minute);
         if (minute < AppConstant.OMEPARSEINVITETIMETWOBITDIVIDER) {
-            mtimeText.setText(hourOfDay + ":0" + minute);
-            mhour = hourOfDay + ":0" + minute;
+            mtimeText.setText(hourOfDay + AppConstant.OMEPARSECOLONZEROSTRING + minute);
+            mhour = hourOfDay + AppConstant.OMEPARSECOLONZEROSTRING + minute;
         } else {
-            mtimeText.setText(hourOfDay + ":" + minute);
-            mhour = hourOfDay + ":" + minute;
+            mtimeText.setText(hourOfDay + AppConstant.OMEPARSECOLONSTRING + minute);
+            mhour = Integer.toString(hourOfDay) + AppConstant.OMEPARSECOLONSTRING + Integer.toString(minute);
         }
 
     }
@@ -358,6 +357,8 @@ public final class InviteNextActivity extends ActionBarActivity implements OnDat
             case R.id.action_invite_add:
                 if (mworkoutname.length() > 0) {
                     submitInvitation();
+                } else {
+                    Toast.makeText(InviteNextActivity.this, getResources().getString(R.string.OMEPARSEINVITEFILLWORKOUTNAME), Toast.LENGTH_SHORT).show();
                 }
                 return true;
             default:
@@ -413,6 +414,12 @@ public final class InviteNextActivity extends ActionBarActivity implements OnDat
     }
 
     private void submitInvitation () {
+
+        if (muser == null) {
+            Toast.makeText(InviteNextActivity.this, getResources().getString(R.string.OMEPARSEINVITELOGINALERT), Toast.LENGTH_SHORT).show();
+            // jump to login activity
+            return;
+        }
 
         // Set up a progress dialog
         //   final ProgressDialog dialog = new ProgressDialog(InviteActivity.this);

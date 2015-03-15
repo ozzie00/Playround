@@ -46,6 +46,7 @@ import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.addfriend.ShowQRcodeActivity;
 
+import com.oneme.toplay.base.LoadImageFromParseCloud;
 import com.oneme.toplay.base.third.GetOutputMediaFile;
 import com.oneme.toplay.base.third.RoundedTransformationBuilder;
 import com.parse.ParseImageView;
@@ -112,13 +113,16 @@ public class MeActivity extends ActionBarActivity {
 
         final ImageView avatarImageView = (ImageView)findViewById(R.id.me_avatar_view);
 
+
         if (muser != null) {
-            mfile = muser.getParseFile(AppConstant.OMEPARSEUSERICONKEY);
-            Picasso.with(MeActivity.this)
-                    .load(mfile.getUrl())
-                    .fit()
-                    .transform(mtransformation)
-                    .into(avatarImageView);
+            LoadImageFromParseCloud.getAvatar(MeActivity.this, muser, avatarImageView);
+
+           // mfile = muser.getParseFile(AppConstant.OMEPARSEUSERICONKEY);
+           // Picasso.with(MeActivity.this)
+           //         .load(mfile.getUrl())
+           //         .fit()
+           //         .transform(mtransformation)
+           //         .into(avatarImageView);
         }
 
         // transfer file path to invoked activity

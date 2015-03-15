@@ -10,44 +10,62 @@
 
     <ImageView
         android:id                 = "@+id/join_score_avatar_icon_view"
-        android:layout_width       = "64dp"
-        android:layout_height      = "64dp"
+        android:layout_width       = "48dp"
+        android:layout_height      = "48dp"
         android:layout_marginLeft  = "8dp"
         android:layout_marginRight = "8dp"
         android:layout_marginTop   = "8dp"
-        android:layout_marginBottom= "8dp"
-        android:src                = "@drawable/ome_badminton_icon"/>
+        android:layout_marginBottom= "8dp"/>
 
     <TextView
-        android:id               = "@+id/join_score_username_view"
-        android:layout_width     = "wrap_content"
-        android:layout_height    = "wrap_content"
-        android:layout_alignTop  = "@id/join_score_avatar_icon_view"
-        android:layout_toRightOf = "@id/join_score_avatar_icon_view"
-        android:paddingLeft      = "8dp"
-        android:textAppearance   = "?android:attr/textAppearanceSmall"
-        android:textColor        = "@color/grey_darkest"
-        android:textStyle        = "bold"/>
+        android:id                    = "@+id/join_score_rank_view"
+        android:layout_width          = "wrap_content"
+        android:layout_height         = "wrap_content"
+        android:layout_alignTop       = "@id/join_score_avatar_icon_view"
+        android:layout_toRightOf      = "@id/join_score_avatar_icon_view"
+        android:layout_centerVertical = "true"
+        android:paddingLeft           = "8dp"
+        android:textAppearance        = "?android:attr/textAppearanceSmall"
+        android:textColor             = "@color/gray_darker"/>
+
 
     <TextView
-        android:id               = "@+id/join_score_content_view"
-        android:layout_width     = "wrap_content"
-        android:layout_height    = "wrap_content"
-        android:layout_below     = "@id/join_score_username_view"
-        android:layout_toRightOf = "@id/join_score_avatar_icon_view"
-        android:paddingLeft      = "8dp"
-        android:textAppearance   = "?android:attr/textAppearanceSmall"
-        android:textColor        = "@color/grey_darkest"/>
+        android:id                    = "@+id/join_score_username_view"
+        android:layout_width          = "wrap_content"
+        android:layout_height         = "wrap_content"
+        android:layout_alignTop       = "@id/join_score_rank_view"
+        android:layout_toRightOf      = "@id/join_score_rank_view"
+        android:paddingLeft           = "8dp"
+        android:textAppearance        = "?android:attr/textAppearanceSmall"
+        android:textColor             = "@color/gray_darker"/>
+
+    <ProgressBar
+        android:id                    = "@+id/join_score_progressbar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width          = "fill_parent"
+        android:layout_height         = "wrap_content"
+        android:layout_marginTop      = "2dp"
+        android:layout_toRightOf      = "@id/join_score_avatar_icon_view"
+        android:layout_below          = "@id/join_score_username_view"
+        android:layout_marginRight    = "32dp"
+        android:paddingLeft           = "8dp"
+        android:layout_centerVertical = "true"
+        android:indeterminate         = "false"
+        android:maxHeight             = "6dip"
+        android:minHeight             = "6dip"
+        android:progress              = "25"
+        android:progressDrawable      = "@drawable/ome_join_score_progressbar" />
 
     <TextView
-        android:id               = "@+id/join_score_rank_view"
-        android:layout_width     = "wrap_content"
-        android:layout_height    = "wrap_content"
-        android:layout_below     = "@id/join_score_content_view"
-        android:layout_toRightOf = "@id/join_score_avatar_icon_view"
-        android:paddingLeft      = "8dp"
-        android:textSize         = "12sp"
-        android:textColor        = "@color/grey_dark"/>
+        android:id                      = "@+id/join_score_content_view"
+        android:layout_width            = "wrap_content"
+        android:layout_height           = "wrap_content"
+        android:layout_alignTop         = "@id/join_score_avatar_icon_view"
+        android:layout_alignParentRight = "true"
+        android:paddingRight            = "8dp"
+        android:textAppearance          = "?android:attr/textAppearanceSmall"
+        android:textColor               = "@color/gray_darker"/>
+
 
 
 

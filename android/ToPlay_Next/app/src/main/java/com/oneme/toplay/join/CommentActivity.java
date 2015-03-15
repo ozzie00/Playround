@@ -17,6 +17,7 @@
 package com.oneme.toplay.join;
 
 import android.app.ProgressDialog;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
@@ -29,18 +30,25 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.oneme.toplay.Application;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
+import com.oneme.toplay.base.LoadImageFromParseCloud;
 import com.oneme.toplay.base.Time;
+import com.oneme.toplay.base.third.RoundedTransformationBuilder;
 import com.oneme.toplay.database.InviteComment;
+import com.parse.CountCallback;
 import com.parse.ParseACL;
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 public class CommentActivity extends ActionBarActivity {
 
@@ -51,6 +59,10 @@ public class CommentActivity extends ActionBarActivity {
     private String minviteObjectID = null;
 
     private String mcontent        = null;
+
+    private Transformation mtransformation = null;
+
+    private int mcount = 0;
 
     // Adapter for the Parse query
     private ParseQueryAdapter<InviteComment> commentQueryAdapter;
@@ -69,12 +81,20 @@ public class CommentActivity extends ActionBarActivity {
             minviteObjectID = extras.getString(Application.INTENT_EXTRA_INVITEOBJECTID);
         }
 
+        ParseQuery<InviteComment> countquery = InviteComment.getQuery();
+        countquery.whereEqualTo(AppConstant.OMEPARSEINVITECOMMENTPARENTIDKEY, minviteObjectID);
+        countquery.countInBackground(new CountCallback() {
+            @Override
+            public void done(int i, ParseException e) {
+                mcount = i;
+            }
+        });
 
         // Set up a customized query
         ParseQueryAdapter.QueryFactory<InviteComment> factory = new ParseQueryAdapter.QueryFactory<InviteComment>() {
             public ParseQuery<InviteComment> create() {
                 ParseQuery<InviteComment> query = InviteComment.getQuery();
-                query.setCachePolicy(ParseQuery.CachePolicy.NETWORK_ELSE_CACHE);
+                query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
                 query.include(AppConstant.OMEPARSEINVITECOMMENTAUTHORKEY);
                 //query.whereEqualTo(AppConstant.OMEPARSEINVITECOMMENTAUTHORNAMEKEY, ParseUser.getCurrentUser().getUsername());
                 query.whereEqualTo(AppConstant.OMEPARSEINVITECOMMENTPARENTIDKEY, minviteObjectID);
@@ -88,6 +108,13 @@ public class CommentActivity extends ActionBarActivity {
         final ProgressDialog commentListLoadDialog = new ProgressDialog(CommentActivity.this);
         commentListLoadDialog.show();
 
+        mtransformation = new RoundedTransformationBuilder()
+                .borderColor(Color.WHITE)
+                .borderWidthDp(1)
+                .cornerRadiusDp(AppConstant.OMEPARSEUSERICONRADIUS)
+                .oval(true)
+                .build();
+
         // Set up the query adapter
         commentQueryAdapter = new ParseQueryAdapter<InviteComment>(CommentActivity.this, factory) {
             @Override
@@ -96,10 +123,19 @@ public class CommentActivity extends ActionBarActivity {
                     view = View.inflate(getContext(), R.layout.ome_activity_join_comment_item, null);
                 }
 
-                ImageView avatarView    = (ImageView)view.findViewById(R.id.join_comment_avatar_icon_view);
-                TextView usernameView   = (TextView)view.findViewById(R.id.join_comment_username_view);
-                TextView contentView    = (TextView)view.findViewById(R.id.join_comment_content_view);
-                TextView submittimeView = (TextView)view.findViewById(R.id.join_comment_submit_time_view);
+                ImageView avatarView    = (ImageView) view.findViewById(R.id.join_comment_avatar_icon_view);
+                TextView usernameView   = (TextView) view.findViewById(R.id.join_comment_username_view);
+                TextView contentView    = (TextView) view.findViewById(R.id.join_comment_content_view);
+                TextView submittimeView = (TextView) view.findViewById(R.id.join_comment_submit_time_view);
+
+                //ParseFile mfile = comment.getAuthor().getParseFile(AppConstant.OMEPARSEUSERICONKEY);
+                //Picasso.with(CommentActivity.this)
+                //        .load(mfile.getUrl())
+                //        .fit()
+                //        .transform(mtransformation)
+                //        .into(avatarView);
+
+                LoadImageFromParseCloud.getAvatar(CommentActivity.this, comment.getAuthor(), avatarView);
 
                 // Ozzie Zhang 2014-11-04 need add query for avatar icon for this user
                 // show username and invite content
@@ -129,14 +165,11 @@ public class CommentActivity extends ActionBarActivity {
 
         // Set up the handler for an item's selection
         commentListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
 
             }
         });
-
-
-
 
         // set comment input
         final EditText mcomment = (EditText)findViewById(R.id.join_next_comment_input_text);

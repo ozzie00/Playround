@@ -21,111 +21,59 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Typeface;
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.Environment;
-import android.util.Log;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ListView;
-import android.widget.RadioGroup.OnCheckedChangeListener;
-
-
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.location.Location;
+import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.support.v4.app.DialogFragment;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import android.app.Activity;
-import android.app.PendingIntent;
-import android.content.Intent;
-import android.graphics.Color;
-import android.location.Location;
-import android.os.Bundle;
-import android.os.Handler;
-import android.support.v4.app.FragmentActivity;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-
 import org.json.JSONObject;
 
-
 import com.oneme.toplay.Application;
-import com.oneme.toplay.R;
-import com.oneme.toplay.base.third.GetOutputMediaFile;
 import com.oneme.toplay.base.AppConstant;
+import com.oneme.toplay.base.LoadImageFromParseCloud;
 import com.oneme.toplay.base.third.RoundedTransformationBuilder;
+import com.oneme.toplay.base.Time;
+import com.oneme.toplay.CnMapActivity;
 import com.oneme.toplay.database.Invite;
 import com.oneme.toplay.database.Sport;
-import com.oneme.toplay.invite.InviteActivity;
 import com.oneme.toplay.invite.InviteNextActivity;
-import com.oneme.toplay.join.JoinActivity;
 import com.oneme.toplay.join.JoinNextActivity;
-import com.oneme.toplay.local.CnLocalActivity;
-import com.oneme.toplay.local.LocalActivity;
-import com.oneme.toplay.me.SettingActivity;
-import com.oneme.toplay.MessageListActivity;
-
-
-import com.oneme.toplay.Application;
-import com.oneme.toplay.CnMapActivity;
 import com.oneme.toplay.LoginActivity;
-import com.oneme.toplay.MainActivity;
-import com.oneme.toplay.R;
-import com.oneme.toplay.base.AppConstant;
-import com.oneme.toplay.base.Time;
-import com.oneme.toplay.database.Invite;
-import com.oneme.toplay.invite.InviteActivity;
-import com.oneme.toplay.join.JoinActivity;
 import com.oneme.toplay.me.MeActivity;
+import com.oneme.toplay.MessageListActivity;
+import com.oneme.toplay.R;
 import com.oneme.toplay.service.CoreService;
 import com.oneme.toplay.weather.RemoteFetch;
 import com.oneme.toplay.weather.WeatherActivity;
 
-import com.parse.GetDataCallback;
 import com.parse.ParseFile;
 import com.parse.ParseGeoPoint;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
 
-import com.oneme.toplay.LoginActivity;
-
-import com.parse.ParseQuery;
-import com.parse.ParseQueryAdapter;
-import com.parse.FindCallback;
-import com.parse.ParseException;
-import com.parse.ParseGeoPoint;
-import com.parse.ParseUser;
-
-
-//import com.oneme.toplay.SDKReceiver;
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
@@ -147,8 +95,7 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.SupportMapFragment;
-//import com.shamanland.fab.FloatingActionButton;
-//import com.shamanland.fab.ShowHideOnScroll;
+
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 
@@ -227,6 +174,7 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
 
     private Transformation mtransformation = null;
 
+    private int mcount = 0;
 
     // locate
     LocationClient mLocClient;
@@ -241,6 +189,12 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
     OnCheckedChangeListener radioButtonListener;
     Button requestLocButton;
     boolean isFirstLoc = true;
+
+    private int hourpart      = 3;
+
+    private ParseUser muser   = ParseUser.getCurrentUser();
+
+    private String musername  = null;
 
     private ListView localInvitationListView;
 
@@ -295,18 +249,19 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
         LocationClientOption option = new LocationClientOption();
         option.setOpenGps(true);
         option.setCoorType("bd09ll");
-        // time span  1s = 1000 * 1000 ms
-        option.setScanSpan(1000000*60);
+        // time span  1s = 1000 ms
+        option.setScanSpan(1000*60*5);
         mLocClient.setLocOption(option);
         mLocClient.start();
+
+
 
         // query data from parse cloud
 
         radius     = 3 * Application.getSearchDistance();
         lastRadius = radius;
 
-
-        // Set up a customized query
+            // Set up a customized query
         ParseQueryAdapter.QueryFactory<Invite> factory =
                 new ParseQueryAdapter.QueryFactory<Invite>() {
                     public ParseQuery<Invite> create() {
@@ -317,9 +272,9 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
 
                         ParseQuery<Invite> query = Invite.getQuery();
                         query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
-                        query.include("user");
-                        query.orderByDescending("createdAt");
-                        query.whereWithinKilometers("location", geoPointFromLocation(myLocation), radius
+                        query.include(AppConstant.OMEPARSEUSERKEY);
+                        query.orderByDescending(AppConstant.OMEPARSECREATEDATKEY);
+                        query.whereWithinKilometers(AppConstant.OMEPARSELOCATIONKEY, geoPointFromLocation(myLocation), radius
                                 * METERS_PER_FEET / METERS_PER_KILOMETER);
                         query.setLimit(MAX_Invite_SEARCH_RESULTS);
                         return query;
@@ -354,38 +309,62 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
 
                 ImageView avatarView        = (ImageView) view.findViewById(R.id.local_avatar_view);
                 TextView usernameView       = (TextView) view.findViewById(R.id.username_view);
-                //TextView contentView        = (TextView) view.findViewById(R.id.content_view);
+                //TextView contentView      = (TextView) view.findViewById(R.id.content_view);
                 TextView venueaddressView   = (TextView) view.findViewById(R.id.local_venue_address);
-                //TextView playnumberView     = (TextView) view.findViewById(R.id.local_person_number);
+                //TextView playnumberView   = (TextView) view.findViewById(R.id.local_person_number);
                 TextView playtimeView       = (TextView) view.findViewById(R.id.local_play_time);
                 TextView distanceView       = (TextView) view.findViewById(R.id.local_distance_to_me);
-                //TextView submittimeView     = (TextView) view.findViewById(R.id.duration);
+                //TextView submittimeView   = (TextView) view.findViewById(R.id.duration);
                 ImageView sporttypeiconView = (ImageView) view.findViewById(R.id.sport_type_icon);
 
                 // Ozzie Zhang 2014-11-04 need add query for avatar icon for this user
                 // show username and invite content
 
                 // Ozzie Zhang 2014-11-04 need add query for avatar icon for this user
-                ParseFile mfile  = invite.getUser().getParseFile(AppConstant.OMEPARSEUSERICONKEY);
-                Picasso.with(CnLocalWithoutMapActivity.this)
-                        .load(mfile.getUrl())
-                        .fit()
-                        .transform(mtransformation)
-                        .into(avatarView);
+                //if (invite.getUser().getParseFile(AppConstant.OMEPARSEUSERICONKEY) != null) {
+                //    ParseFile mfile = invite.getUser().getParseFile(AppConstant.OMEPARSEUSERICONKEY);
+                //    Picasso.with(CnLocalWithoutMapActivity.this)
+                //            .load(mfile.getUrl())
+                //            .fit()
+                //            .transform(mtransformation)
+                //            .into(avatarView);
+                //} else {
+                //    Picasso.with(CnLocalWithoutMapActivity.this)
+                //            .load(R.drawable.ome_default_avatar)
+                //            .fit()
+                //            .transform(mtransformation)
+                //            .into(avatarView);
+                //}
 
+                LoadImageFromParseCloud.getAvatar(CnLocalWithoutMapActivity.this, invite.getUser(), avatarView);
 
+                String mplaytime = invite.getPlayTime();
                 //avatarView.setImageDrawable(getResources().getDrawable(R.drawable.ome_map_avataricon));
-               // contentView.setText(invite.getText());
+                // contentView.setText(invite.getText());
                 usernameView.setText(invite.getFromUsername());
                 //submittimeView.setText(invite.getSubmitTime());
                 venueaddressView.setText(invite.getCourt());
                 //playnumberView.setText(invite.getPlayerNumber());
                 playtimeView.setText(invite.getPlayTime());
 
+                if (mplaytime.contains(AppConstant.OMEPARSESLASHSTRING)) {
+                    // the old version time format contains slash
+                    playtimeView.setText(invite.getPlayTime());
+                } else {
+                    // the new version time format contains space
+                    // reformat the play time, original format is MMM dd yyyy HH:mm
+                    String[] mpart   = mplaytime.split(AppConstant.OMEPARSESPACESTRING);
+                    // MMM's first month january is 0, then when show it, need add 1
+                    String mmonth    = Integer.toString(Integer.parseInt(mpart[0]) + 1);
+                    String mday      = mpart[1];
+                    String mhour     = mpart[hourpart];
+                    playtimeView.setText(mday + AppConstant.OMEPARSESLASHSTRING + mmonth + AppConstant.OMEPARSESPACESTRING + mhour);
+                }
+
                 // calculate distance between me and venue
                 if (invite.getLocation() != null) {
                     Double mdistance = mGeoPoint.distanceInMilesTo(invite.getLocation());
-                    DecimalFormat df = new DecimalFormat("##.00");
+                    DecimalFormat df = new DecimalFormat(AppConstant.OMEPARSEDISTANCEFORMATSTRING);
                     String distancenote = null;
                     if (mdistance < 1) {
                         mdistance = mdistance * AppConstant.OMEMETERSINAKILOMETER;
@@ -394,7 +373,7 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
                         distancenote = getResources().getString(R.string.OMEPARSEMEMYVENUEDISTANCEKMNOTE);
                     }
 
-                    String mdistancestring = df.format(mdistance) + " " + distancenote;
+                    String mdistancestring = df.format(mdistance) + AppConstant.OMEPARSESPACESTRING + distancenote;
                     distanceView.setText(mdistancestring);
                 }
 
@@ -425,9 +404,9 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
         localInvitationListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                final Invite invite      = inviteQueryAdapter.getItem(position);
-                ParseUser hostuser       = invite.getFromUser();
-                selectedInviteObjectId   = invite.getObjectId();
+                final Invite invite    = inviteQueryAdapter.getItem(position);
+                ParseUser hostuser     = invite.getFromUser();
+                selectedInviteObjectId = invite.getObjectId();
 
                 BDLocation clickedItemUserLocation = (currentLocation == null) ? lastLocation : currentLocation;
                 clickedItemUserLocation.setLatitude(invite.getLocation().getLatitude());
@@ -449,9 +428,6 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
             }
 
         });
-
-
-
 
     }
 
@@ -674,7 +650,7 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
         menu.add(0, 1001, 1, weathertv.getText()).setActionView(weathertv).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 
 
-        if (ParseUser.getCurrentUser() != null) {
+        if (muser != null) {
             MenuItem settingItem = menu.add(getResources().getString(R.string.meactivity_title));
 
             // menu.findItem(R.id.action_setting).
@@ -694,7 +670,7 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
 
         }
 
-        if (ParseUser.getCurrentUser() != null){
+        if (muser != null){
             MenuItem logoutItem = menu.add(getResources().getString(R.string.OMEPARSELOGOUT));
             //menu.findItem(R.id.action_login)
             logoutItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
@@ -705,11 +681,11 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
                     //get point according to  current latitude and longitude
                     userLastLocation = new ParseGeoPoint(Double.valueOf(Application.getCurrentLatitude()), Double.valueOf(Application.getCurrentLongitude()));
 
-                    if (ParseUser.getCurrentUser() != null) {
-                        ParseUser.getCurrentUser().put(AppConstant.OMEPARSEUSERLASTTIMEKEY, Time.currentTime());
-                        ParseUser.getCurrentUser().put(AppConstant.OMEPARSEUSERLASTLOCATIONKEY, userLastLocation);
+                    if (muser != null) {
+                        muser.put(AppConstant.OMEPARSEUSERLASTTIMEKEY, Time.currentTime());
+                        muser.put(AppConstant.OMEPARSEUSERLASTLOCATIONKEY, userLastLocation);
 
-                        ParseUser.getCurrentUser().saveInBackground();
+                        muser.saveInBackground();
 
                     }
 
@@ -761,11 +737,7 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
         // Handle presses on the action bar items
         switch (item.getItemId()) {
             case R.id.action_search_venue:
-                if (ParseUser.getCurrentUser() != null) {
-                    onSearchRequested();
-                } else {
-                    Toast.makeText(CnLocalWithoutMapActivity.this, getResources().getString(R.string.OMEPARSEINVITELOGINALERT), Toast.LENGTH_SHORT).show();
-                }
+                 onSearchRequested();
                 return true;
             case R.id.action_map:
                 Intent invokeMapActivityIntent = new Intent(CnLocalWithoutMapActivity.this, CnMapActivity.class);
@@ -774,16 +746,9 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
                 return true;
             case R.id.action_message:
                 // Check username
-                if (ParseUser.getCurrentUser() == null) {
-                    Toast.makeText(CnLocalWithoutMapActivity.this, getResources().getString(R.string.OMEPARSEINVITELOGINALERT), Toast.LENGTH_SHORT).show();
-                    // jump to login activity
-                    Intent invokeLoginActivityIntent = new Intent(CnLocalWithoutMapActivity.this, LoginActivity.class);
-                    startActivity(invokeLoginActivityIntent);
-                } else {
-                    Intent invokeMessageIntent = new Intent(CnLocalWithoutMapActivity.this, MessageListActivity.class);
-                    invokeMessageIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(invokeMessageIntent);
-                }
+                Intent invokeMessageIntent = new Intent(CnLocalWithoutMapActivity.this, MessageListActivity.class);
+                invokeMessageIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(invokeMessageIntent);
                 return true;
             case R.id.action_invite:
                 invokeInviteActivity();
@@ -799,18 +764,6 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
     // invoke Map activity intent.
     //
     private void invokeInviteActivity() {
-
-        // check the user if login
-        if (ParseUser.getCurrentUser() == null) {
-
-            //Toast.makeText(JoinActivity.this, getResources().getString(R.string.OMEPARSEINVITELOGINALERT),
-            //        Toast.LENGTH_SHORT).show();
-
-            // jump to login activity
-            Intent invokeLoginActivityIntent = new Intent(CnLocalWithoutMapActivity.this, LoginActivity.class);
-            startActivity(invokeLoginActivityIntent);
-            finish();
-        } else {
 
             // Only allow posts if we have a location
             BDLocation mLocation = (currentLocation == null) ? lastLocation : currentLocation;
@@ -828,7 +781,6 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
             Intent intent = new Intent(CnLocalWithoutMapActivity.this, InviteNextActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
-        }
 
     }
 

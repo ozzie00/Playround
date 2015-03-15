@@ -183,18 +183,18 @@
             android:value       = "@integer/google_play_services_version" />
 
         <!--ToPlay Google release key-->
-        <!--
+
         <meta-data
             android:name  = "com.google.android.maps.v2.API_KEY"
             android:value = "AIzaSyCwPhVEURLwyW1C7qi-BNI8j3F4siYPCDI" />
-        -->
+
 
         <!--ToPlay Google debug key-->
-
+        <!--
         <meta-data
             android:name  = "com.google.android.maps.v2.API_KEY"
             android:value = "AIzaSyB1oKFcraix0-A-Fr_DgQPFOqSupmhoJqM" />
-
+        -->
 
         <!--ToPlay Amap release key-->
         <!--
@@ -211,24 +211,27 @@
         -->
 
         <!--ToPlay Baidu release key-->
-        <!--
+
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="uLS9PD8T26iDgPyfLLxYqcfp" />
-        -->
+
 
         <!--ToPlay Baidu debug key-->
-
+        <!--
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="QqCWKsVTzLPOKRPjdbGIkhf1" />
-
+        -->
 
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=":remote" >
         </service>
+
+
+
 
         <activity
             android:name       = ".invite.InviteActivity"
@@ -273,7 +276,7 @@
 
         <!-- this is the searchable activity; it performs searches -->
         <activity
-            android:name       = ".SearchActivity"
+            android:name       = ".SearchVenueActivity"
             android:launchMode = "singleTop" >
 
             <intent-filter>
@@ -395,18 +398,6 @@
             android:name  = ".join.PlayerActivity"
             android:label = "@string/joinplayeractivity_title"/>
 
-
-
-
-        <activity
-            android:name  = ".join.MessageListActivity"
-            android:label = "@string/joincommentactivity_title"/>
-
-
-
-
-
-
         <activity
             android:name  = ".local.LocalActivity"
             android:label = "@string/localactivity_title"/>
@@ -419,7 +410,7 @@
             <!-- enable the search dialog to send searches to SearchableActivity -->
             <meta-data
                 android:name  = "android.app.default_searchable"
-                android:value = ".SearchActivity" />
+                android:value = ".SearchVenueActivity" />
         </activity>
 
         <!--
@@ -434,11 +425,8 @@
             <!-- enable the search dialog to send searches to SearchableActivity -->
             <meta-data
                 android:name  = "android.app.default_searchable"
-                android:value = ".SearchActivity" />
+                android:value = ".SearchVenueActivity" />
         </activity>
-
-
-
 
 
         <activity
@@ -459,16 +447,14 @@
             android:label="@string/myvenueactivity_title"/>
 
         <activity
-            android:name = ".me.VenueAsHomeActivity"
-            android:label="@string/myvenueashomeactivity_title"/>
-
-        <activity
-            android:name = ".me.VenueAsBackUpActivity"
-            android:label="@string/myvenueasbackupactivity_title"/>
+            android:name = ".me.VenueSearchActivity"
+            android:label="@string/venuesearchactivity_title"/>
 
         <activity
             android:name = ".me.UploadVenueActivity"
             android:label="@string/myvenueactivity_title"/>
+
+
 
         <!--
         <activity
@@ -492,7 +478,8 @@
 
 
         <activity
-            android:name = ".me.ProfileActivity">
+            android:name = ".me.ProfileActivity"
+            android:label="@string/meprofilreactivity_title">
 
             <meta-data
                 android:name  = "android.support.PARENT_ACTIVITY"

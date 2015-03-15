@@ -41,11 +41,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Calendar;
+import java.util.List;
+
 import com.oneme.toplay.Application;
 import com.oneme.toplay.LoginActivity;
 import com.oneme.toplay.database.Group;
 import com.oneme.toplay.database.InviteScore;
-import com.oneme.toplay.join.MessageListActivity;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.base.Time;
@@ -64,8 +66,6 @@ import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
-
-import java.util.List;
 
 
 public class JoinNextActivity extends ActionBarActivity {
@@ -96,6 +96,8 @@ public class JoinNextActivity extends ActionBarActivity {
     private String musername         = null;
     private ParseQueryAdapter<InviteComment> commentQueryAdapter;
 
+    private int yearpart            = 2;
+    private int hourpart            = 3;
     private int mgroupplayernumber  = 0;
     private int mcommentnumber      = 0;
     private int mlikenumber         = 0;
@@ -125,7 +127,7 @@ public class JoinNextActivity extends ActionBarActivity {
         Bundle extras     = getIntent().getExtras();
 
         if (extras != null) {
-            muserAvatarUri    = Uri.parse(extras.getString(Application.INTENT_EXTRA_USERICONPATH));
+           // muserAvatarUri    = Uri.parse(extras.getString(Application.INTENT_EXTRA_USERICONPATH));
             mhostUser         = extras.getString(Application.INTENT_EXTRA_USEROBJECTID);
             mhostUsername     = extras.getString(Application.INTENT_EXTRA_USERNAME);
             mOMEID            = extras.getString(Application.INTENT_EXTRA_USEROMEID);
@@ -189,6 +191,46 @@ public class JoinNextActivity extends ActionBarActivity {
 
         TextView mworkoutView = (TextView)findViewById(R.id.join_next_info_workout_name);
         mworkoutView.setText(mworkoutname);
+
+        TextView mtimeleftView = (TextView)findViewById(R.id.join_next_info_workout_time);
+        TextView mtimenoteView = (TextView)findViewById(R.id.join_next_info_workout_time_note);
+
+        if (minviteplaytime != null) {
+            // new time format is MMM dd yyy HH:mm, not contains slash
+            if (!minviteplaytime.contains(AppConstant.OMEPARSESLASHSTRING)) {
+                String mplaytime   = minviteplaytime;
+                String[] mpart     = mplaytime.split(AppConstant.OMEPARSESPACESTRING);
+                String mmonth      = mpart[0];
+                String mday        = mpart[1];
+                String myear       = mpart[yearpart];
+                String mhourpart   = mpart[hourpart];
+                String[] mparthour = mhourpart.split(AppConstant.OMEPARSECOLONSTRING);
+                String mhour       = mparthour[0];
+
+                final Calendar mplaytimecalendar = Time.setCalendar(Integer.parseInt(myear), Integer.parseInt(mmonth),
+                        Integer.parseInt(mday));
+                final Calendar mcurrentcalendar = Calendar.getInstance();
+
+                Double mdayleft = Time.timeDifferenceInDays(mplaytimecalendar,mcurrentcalendar);
+
+                if (mdayleft > 1) {
+                    mtimeleftView.setText(Integer.toString(mdayleft.intValue()));
+                    mtimenoteView.setText(getResources().getString(R.string.OMEPARSEJOININFODAYLEFTTEXT));
+                } else if (mdayleft >= 0) {
+                    Double mhourleft = Time.timeDifferenceInHours(mplaytimecalendar,mcurrentcalendar);
+                    mtimeleftView.setText(Integer.toString(mhourleft.intValue()));
+                    mtimenoteView.setText(getResources().getString(R.string.OMEPARSEJOININFOHOURLEFTTEXT));
+                } else {
+                    mtimeleftView.setText(AppConstant.OMEPARSEZEROSTRING);
+                    mtimenoteView.setText(getResources().getString(R.string.OMEPARSEJOININFODAYLEFTTEXT));
+                }
+
+            } else {
+                //old time format DD/MM HH:mm
+            }
+        }
+
+
 
         ImageView msportimage = (ImageView)findViewById(R.id.join_next_info_workout_sport);
         if (msporttypevalue != null) {

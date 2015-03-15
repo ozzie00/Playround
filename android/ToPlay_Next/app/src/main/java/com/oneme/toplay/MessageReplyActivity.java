@@ -110,6 +110,9 @@ public class MessageReplyActivity extends ActionBarActivity {
     private void reply () {
         String text = postEditText.getText().toString().trim();
 
+        ParseUser muser  = ParseUser.getCurrentUser();
+        String musername =  muser.getUsername();
+
         // Set up a progress dialog
         final ProgressDialog dialog = new ProgressDialog(MessageReplyActivity.this);
         dialog.setMessage(getString(R.string.progress_send));
@@ -119,22 +122,22 @@ public class MessageReplyActivity extends ActionBarActivity {
         Message reply = new Message();
 
         // Set the location to the current user's location
-        reply.setUser(ParseUser.getCurrentUser());
-        reply.setUsername(ParseUser.getCurrentUser().getUsername());
+        reply.setUser(muser);
+        reply.setUsername(musername);
         //   join.setLocation(geoPoint);
         //Ozzie Zhang 2014-11-12 this setToUser should be host User, technology issue
         reply.setToUser(ParseUser.getCurrentUser());
         //  join.setMessageFromUser();
 
         reply.setToUsername(replyToUsername);
-        reply.setMessageFromUser(ParseUser.getCurrentUser());
-        reply.setFromUsername(ParseUser.getCurrentUser().getUsername());
+        reply.setMessageFromUser(muser);
+        reply.setFromUsername(musername);
         reply.setContent(text);
         reply.setSendTime(Time.currentTime());
 
         // Set the location to the current user's location
        // post.setLocation(geoPoint);
-        reply.setUser(ParseUser.getCurrentUser());
+        reply.setUser(muser);
         ParseACL acl = new ParseACL();
 
         // Do not give public read access

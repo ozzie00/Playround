@@ -18,32 +18,35 @@ package com.oneme.toplay.base;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.text.ParseException;
 import java.util.Calendar;
+import java.util.Date;
 import java.sql.Timestamp;
 
 public final class Time {
 
+    // time format is "MMM dd yyyy HH:mm" in playround
     public static final String currentTime() {
         DateFormat mdateFormat = new SimpleDateFormat("MMM dd yyyy HH:mm");
-        Calendar mcalendar = Calendar.getInstance();
+        Calendar mcalendar     = Calendar.getInstance();
 
-        String mgmtCurrentTime= mdateFormat.format(mcalendar.getTime());
+        String mgmtCurrentTime = mdateFormat.format(mcalendar.getTime());
         return mgmtCurrentTime;
     }
 
     public static final String currentDay() {
         DateFormat mdateFormat = new SimpleDateFormat("EEE, MMM dd");
-        Calendar mcalendar = Calendar.getInstance();
+        Calendar mcalendar     = Calendar.getInstance();
 
-        String mgmtCurrentTime= mdateFormat.format(mcalendar.getTime());
+        String mgmtCurrentTime = mdateFormat.format(mcalendar.getTime());
         return mgmtCurrentTime;
     }
 
     public static final String currentHour() {
         DateFormat mdateFormat = new SimpleDateFormat("HH:mm");
-        Calendar mcalendar = Calendar.getInstance();
+        Calendar mcalendar     = Calendar.getInstance();
 
-        String mgmtCurrentTime= mdateFormat.format(mcalendar.getTime());
+        String mgmtCurrentTime = mdateFormat.format(mcalendar.getTime());
         return mgmtCurrentTime;
     }
 
@@ -62,5 +65,60 @@ public final class Time {
         String mgmtTomorrowTime = mdateFormat.format(mcalendar.getTime().getTime());
         return mgmtTomorrowTime;
     }
+
+    public static final Date stringToTime(String mtime) {
+
+        SimpleDateFormat  mformat = new SimpleDateFormat("MMM dd yyy HH:mm");
+        try {
+            Date mdate = mformat.parse(mtime);
+            return  mdate;
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static String setFormattedTimeString(final String formatExpr,
+                                                     final long timeStampInSeconds) {
+        final Date dateFromTimeStamp        = new Date(timeStampInSeconds);
+        final SimpleDateFormat simpleformat = new SimpleDateFormat(formatExpr);
+        final String formattedDateInString  = simpleformat.format(dateFromTimeStamp);
+        return formattedDateInString;
+    }
+
+    public static Calendar setCalendar(final int year, final int month,
+                                            final int day) {
+        final Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.DAY_OF_MONTH, day);
+        calendar.set(Calendar.MONTH, month);
+        calendar.set(Calendar.YEAR, year);
+        return calendar;
+    }
+
+    public static double timeDifferenceInDays(final Calendar firstDate,
+                                                   final Calendar secondDate) {
+        final long firstDateMilli  = firstDate.getTimeInMillis();
+        final long secondDateMilli = secondDate.getTimeInMillis();
+        final long diff            = firstDateMilli - secondDateMilli;
+
+        // 24 * 60 * 60 * 1000 in days. can Change to hour
+        final double diffDays = (double) diff / (double) (24 * 60 * 60 * 1000);
+
+        return diffDays;
+    }
+
+    public static double timeDifferenceInHours(final Calendar firstDate,
+                                              final Calendar secondDate) {
+        final long firstDateMilli  = firstDate.getTimeInMillis();
+        final long secondDateMilli = secondDate.getTimeInMillis();
+        final long diff            = firstDateMilli - secondDateMilli;
+
+        // 24 * 60 * 60 * 1000 in days. can Change to hour
+        final double diffDays = (double) diff / (double) (60 * 60 * 1000);
+
+        return diffDays;
+    }
+
 
 }

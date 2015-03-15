@@ -37,6 +37,7 @@ import com.oneme.toplay.QR.Contents;
 import com.oneme.toplay.QR.QRCodeEncode;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
+import com.oneme.toplay.base.LoadImageFromParseCloud;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
 import com.squareup.picasso.Picasso;
@@ -49,6 +50,10 @@ import java.io.IOException;
 public final class ShowQRcodeActivity extends FragmentActivity  {
 
     static Context context;
+
+    private ParseUser muser  = ParseUser.getCurrentUser();
+
+    private String musername = null;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,28 +82,31 @@ public final class ShowQRcodeActivity extends FragmentActivity  {
 
         TextView username = (TextView)findViewById(R.id.addme_username_view);
 
-        if (ParseUser.getCurrentUser() != null) {
-            username.setText(ParseUser.getCurrentUser().getUsername());
+        if (muser != null) {
+            musername = muser.getUsername();
+            username.setText(musername);
         }
 
         ImageView avatarImageView = (ImageView)findViewById(R.id.addme_avatar_view);
 
         ParseFile mavatarImageFile = null;
 
-        if (ParseUser.getCurrentUser() != null) {
-            mavatarImageFile = ParseUser.getCurrentUser().getParseFile(AppConstant.OMEPARSEUSERICONKEY);
+        if (muser != null) {
+            LoadImageFromParseCloud.getAvatar(ShowQRcodeActivity.this, muser, avatarImageView);
+
+           // mavatarImageFile = muser.getParseFile(AppConstant.OMEPARSEUSERICONKEY);
         }
 
-        if (mavatarImageFile != null) {
-            Uri imageUri = Uri.parse(mavatarImageFile.getUrl());
-            Picasso.with(ShowQRcodeActivity.this).load(imageUri.toString()).into(avatarImageView);
-        }
+       // if (mavatarImageFile != null) {
+       //     Uri imageUri = Uri.parse(mavatarImageFile.getUrl());
+       //     Picasso.with(ShowQRcodeActivity.this).load(imageUri.toString()).into(avatarImageView);
+       // }
 
         file                   = new File(Environment.getExternalStorageDirectory().getPath() + AppConstant.OMETOPLAYUSERQRCODEFILE);
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
 
         //Ozzie Zhang temporarily change to username from useridkey
-        generateQR(pref.getString(ParseUser.getCurrentUser().getUsername(), ""));//AppConstant.OMEPARSEUSERIDKEY, ""));
+        generateQR(pref.getString(musername, ""));//AppConstant.OMEPARSEUSERIDKEY, ""));
         Bitmap bmp             = BitmapFactory.decodeFile(file.getAbsolutePath());
 
         ImageView qrCode = (ImageView) findViewById(R.id.show_qr_image);

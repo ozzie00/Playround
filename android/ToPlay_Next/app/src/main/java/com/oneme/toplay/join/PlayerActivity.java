@@ -30,6 +30,7 @@ import android.widget.TextView;
 import com.oneme.toplay.Application;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
+import com.oneme.toplay.base.LoadImageFromParseCloud;
 import com.oneme.toplay.base.third.RoundedTransformationBuilder;
 import com.oneme.toplay.database.Group;
 import com.oneme.toplay.database.InviteScore;
@@ -98,7 +99,7 @@ public class PlayerActivity extends ActionBarActivity {
         ParseQueryAdapter.QueryFactory<Group> factory = new ParseQueryAdapter.QueryFactory<Group>() {
             public ParseQuery<Group> create() {
                 ParseQuery<Group> query = Group.getQuery();
-                query.setCachePolicy(ParseQuery.CachePolicy.NETWORK_ELSE_CACHE);
+                query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
                 query.include(AppConstant.OMEPARSEGROUPMEMBERUSERKEY);
                 query.whereEqualTo(AppConstant.OMEPARSEGROUPPARENTIDKEY, minviteObjectID);
                 query.whereEqualTo(AppConstant.OMEPARSEGROUPADMINNAMEKEY, mgroupAdminUsername);
@@ -116,7 +117,7 @@ public class PlayerActivity extends ActionBarActivity {
                 .borderColor(Color.WHITE)
                 .borderWidthDp(1)
                 .cornerRadiusDp(AppConstant.OMEPARSEUSERICONRADIUS)
-                .oval(false)
+                .oval(true)
                 .build();
 
 
@@ -134,12 +135,14 @@ public class PlayerActivity extends ActionBarActivity {
                 //TextView submittimeView = (TextView)view.findViewById(R.id.join_score_submit_time_view);
 
 
-                ParseFile mfile  = group.getMemberUser().getParseFile(AppConstant.OMEPARSEUSERICONKEY);
-                Picasso.with(PlayerActivity.this)
-                        .load(mfile.getUrl())
-                        .fit()
-                        .transform(mtransformation)
-                        .into(avatarView);
+                LoadImageFromParseCloud.getAvatar(PlayerActivity.this, group.getMemberUser(), avatarView);
+
+                //ParseFile mfile  = group.getMemberUser().getParseFile(AppConstant.OMEPARSEUSERICONKEY);
+                //Picasso.with(PlayerActivity.this)
+                //        .load(mfile.getUrl())
+                //        .fit()
+                //        .transform(mtransformation)
+                //        .into(avatarView);
 
 
                 //ParseQuery<ParseUser> userQuery = ParseUser.getQuery();

@@ -1042,8 +1042,8 @@ public class CnMapActivity extends ActionBarActivity {
         LocationClientOption option = new LocationClientOption();
         option.setOpenGps(true);
         option.setCoorType("bd09ll");
-        // time span  1s = 1000 * 1000 ms
-        option.setScanSpan(1000000*60*5);
+        // time span  1s = 1000 ms
+        option.setScanSpan(1000*60*5);
         mLocClient.setLocOption(option);
         mLocClient.start();
 
@@ -1229,8 +1229,10 @@ public class CnMapActivity extends ActionBarActivity {
                     // check getMap for preventing null pointer crash
                     if (mapFragment.getBaiduMap() != null) {
                         // Add a new marker
-                        Marker marker = (Marker)mapFragment.getBaiduMap().addOverlay(markerOpts);  //addMarker(markerOpts);
-                        mapMarkers.put(invite.getObjectId(), marker);
+                        if (markerOpts != null) {
+                            Marker marker = (Marker) mapFragment.getBaiduMap().addOverlay(markerOpts);  //addMarker(markerOpts);
+                            mapMarkers.put(invite.getObjectId(), marker);
+                        }
                         if (invite.getObjectId().equals(selectedInviteObjectId)) {
               //              marker.showInfoWindow();
                             selectedInviteObjectId = null;
