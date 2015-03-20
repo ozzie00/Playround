@@ -6,7 +6,7 @@
     <!-- Strings related to activity -->
     <string name="action_settings">Settings</string>
     <string name="slogan">i\'m loving play</string>
-   <!-- <string name="title_activity_settings">Settings</string> -->
+    <!-- <string name="title_activity_settings">Settings</string> -->
     <string name="search_distance">Search Distance</string>
     <string name="character_count_placeholder">0/200</string>
 
@@ -367,9 +367,9 @@
     <string name="addfriend_friend_message">Send a message with your request</string>
     <string name="addfriend_button">Add Friend</string>
     <string name="addfriend_friend_added">Friend Added</string>
-   <!-- <string name="addfriend_friend_exists">Friend already exists</string>-->
+    <!-- <string name="addfriend_friend_exists">Friend already exists</string>-->
     <string name="scanqr_button">Scan a QR code</string>
-   <!-- <string name="invalid_friend_ID">Invalid ID</string>-->
+    <!-- <string name="invalid_friend_ID">Invalid ID</string>-->
     <string name="addfriend_nick_hint">Set a nickname for your friend</string>
     <string name="addfriend_optional_title">Optional Extras</string>
     <string name="dialog_pin">Enter your friend\'s pin</string>

@@ -301,7 +301,8 @@ public class RoundedDrawable extends Drawable {
     invalidateSelf();
   }
 
-  @Override public ColorFilter getColorFilter() {
+  @Override
+  public ColorFilter getColorFilter() {
     return mBitmapPaint.getColorFilter();
   }
 

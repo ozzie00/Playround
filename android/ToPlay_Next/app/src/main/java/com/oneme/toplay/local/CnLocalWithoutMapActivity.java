@@ -274,8 +274,8 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
                         query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
                         query.include(AppConstant.OMEPARSEUSERKEY);
                         query.orderByDescending(AppConstant.OMEPARSECREATEDATKEY);
-                        query.whereWithinKilometers(AppConstant.OMEPARSELOCATIONKEY, geoPointFromLocation(myLocation), radius
-                                * METERS_PER_FEET / METERS_PER_KILOMETER);
+                        //query.whereWithinKilometers(AppConstant.OMEPARSELOCATIONKEY, geoPointFromLocation(myLocation), radius
+                        //        * METERS_PER_FEET / METERS_PER_KILOMETER);
                         query.setLimit(MAX_Invite_SEARCH_RESULTS);
                         return query;
                     }
@@ -727,9 +727,6 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
         return super.onCreateOptionsMenu(menu);
 
     }
-
-
-
 
 
     @Override

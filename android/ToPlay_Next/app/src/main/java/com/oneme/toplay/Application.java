@@ -102,7 +102,7 @@ public class Application extends android.app.Application {
     private static final String KEY_CURRENT_LATITUDE   = "currentLatitude";
 
     //Ozzie Zhang change default search distance from 250.0f to 6560.0f
-    private static final float DEFAULT_SEARCH_DISTANCE = 3*6560.0f;
+    private static final float DEFAULT_SEARCH_DISTANCE = 30*6560.0f;
 
     private static double CURRENT_LONGITUDE            = 42.3598f;
 

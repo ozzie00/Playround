@@ -48,19 +48,21 @@ public final class LoadImageFromParseCloud {
                 .build();
 
 
-        if (user.getParseFile(AppConstant.OMEPARSEUSERICONKEY) != null) {
-            ParseFile mfile = user.getParseFile(AppConstant.OMEPARSEUSERICONKEY);
-            Picasso.with(context)
-                    .load(mfile.getUrl())
-                    .fit()
-                    .transform(mtransformation)
-                    .into(imageview);
-        } else {
-            Picasso.with(context)
-                    .load(R.drawable.ome_default_avatar)
-                    .fit()
-                    .transform(mtransformation)
-                    .into(imageview);
+        if (user != null) {
+            if (user.getParseFile(AppConstant.OMEPARSEUSERICONKEY) != null) {
+                ParseFile mfile = user.getParseFile(AppConstant.OMEPARSEUSERICONKEY);
+                Picasso.with(context)
+                        .load(mfile.getUrl())
+                        .fit()
+                        .transform(mtransformation)
+                        .into(imageview);
+            } else {
+                Picasso.with(context)
+                        .load(R.drawable.ome_default_avatar)
+                        .fit()
+                        .transform(mtransformation)
+                        .into(imageview);
+            }
         }
     }
 }

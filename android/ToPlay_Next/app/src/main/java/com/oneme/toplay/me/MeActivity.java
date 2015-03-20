@@ -16,15 +16,9 @@
 
 package com.oneme.toplay.me;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -32,13 +26,7 @@ import android.widget.LinearLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.io.FileOutputStream;
-import java.io.File;
-import java.io.IOException;
-import java.text.ParseException;
-import java.util.Date;
 import java.util.List;
 
 import com.oneme.toplay.Application;
@@ -47,15 +35,11 @@ import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.addfriend.ShowQRcodeActivity;
 
 import com.oneme.toplay.base.LoadImageFromParseCloud;
-import com.oneme.toplay.base.third.GetOutputMediaFile;
 import com.oneme.toplay.base.third.RoundedTransformationBuilder;
-import com.parse.ParseImageView;
 import com.parse.ParseUser;
 import com.parse.ParseFile;
-import com.parse.GetDataCallback;
 
 
-import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 
 //import com.nostra13.universalimageloader.core.ImageLoader;

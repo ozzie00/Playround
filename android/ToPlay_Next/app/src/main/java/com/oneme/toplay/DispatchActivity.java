@@ -20,9 +20,10 @@ import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.database.VenueOwner;
 import com.oneme.toplay.local.LocalWithoutMapActivity;
 import com.oneme.toplay.local.CnLocalWithoutMapActivity;
-
+import com.oneme.toplay.local.LocalAsyncActivity;
 import com.oneme.toplay.venue.OwnerInfoUploadActivity;
 import com.oneme.toplay.venue.OwnerMainActivity;
+
 import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;

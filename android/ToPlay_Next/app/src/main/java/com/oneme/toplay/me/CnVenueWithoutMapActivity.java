@@ -16,32 +16,14 @@
 
 package com.oneme.toplay.me;
 
-import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.location.Location;
-import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.RadioGroup.OnCheckedChangeListener;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
@@ -62,31 +44,16 @@ import com.baidu.mapapi.model.LatLng;
 
 
 import com.oneme.toplay.Application;
-import com.oneme.toplay.CnMapActivity;
 import com.oneme.toplay.LoginActivity;
-import com.oneme.toplay.MessageListActivity;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
-import com.oneme.toplay.base.Time;
-import com.oneme.toplay.base.third.GetOutputMediaFile;
 import com.oneme.toplay.database.Invite;
-import com.oneme.toplay.database.Sport;
-import com.oneme.toplay.invite.InviteActivity;
 import com.oneme.toplay.invite.InviteNextActivity;
-import com.oneme.toplay.join.JoinActivity;
-import com.oneme.toplay.service.CoreService;
 
-import com.parse.GetDataCallback;
-import com.parse.ParseException;
-import com.parse.ParseFile;
 import com.parse.ParseGeoPoint;
-import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
-import com.squareup.picasso.Picasso;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 

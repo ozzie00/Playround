@@ -317,7 +317,7 @@ public final class InviteNextActivity extends ActionBarActivity implements OnDat
         // change date text
         int mmonth = month;
         // in calendar JANUARY = 0, when show month, need plus 1
-        mdateText.setText(day + AppConstant.OMEPARSESLASHSTRING + mmonth + 1);
+        mdateText.setText(Integer.toString(day) + AppConstant.OMEPARSESLASHSTRING + Integer.toString(mmonth + 1));
         mdate = Integer.toString(mmonth) +  AppConstant.OMEPARSESPACESTRING + Integer.toString(day) + AppConstant.OMEPARSESPACESTRING + Integer.toString(year);
     }
 
@@ -326,10 +326,10 @@ public final class InviteNextActivity extends ActionBarActivity implements OnDat
         // change hour  text
         mtimeText.setText(hourOfDay + AppConstant.OMEPARSECOLONSTRING + minute);
         if (minute < AppConstant.OMEPARSEINVITETIMETWOBITDIVIDER) {
-            mtimeText.setText(hourOfDay + AppConstant.OMEPARSECOLONZEROSTRING + minute);
-            mhour = hourOfDay + AppConstant.OMEPARSECOLONZEROSTRING + minute;
+            mtimeText.setText(Integer.toString(hourOfDay) + AppConstant.OMEPARSECOLONZEROSTRING + Integer.toString(minute));
+            mhour = Integer.toString(hourOfDay) + AppConstant.OMEPARSECOLONZEROSTRING + Integer.toString(minute);
         } else {
-            mtimeText.setText(hourOfDay + AppConstant.OMEPARSECOLONSTRING + minute);
+            mtimeText.setText(Integer.toString(hourOfDay) + AppConstant.OMEPARSECOLONSTRING + Integer.toString(minute));
             mhour = Integer.toString(hourOfDay) + AppConstant.OMEPARSECOLONSTRING + Integer.toString(minute);
         }
 
@@ -445,9 +445,9 @@ public final class InviteNextActivity extends ActionBarActivity implements OnDat
         // Set the location to the current user's location
         invite.setLocation(geoPoint);
 
-        invite.setUser(ParseUser.getCurrentUser());
-        invite.setFromUser(ParseUser.getCurrentUser());
-        invite.setFromUsername(ParseUser.getCurrentUser().getUsername());
+        invite.setUser(muser);
+        invite.setFromUser(muser);
+        invite.setFromUsername(muser.getUsername());
         // Ozzie Zhang 2014-11-02 please modify this line code
         //invite.setText(ParseUser.getCurrentUser().getUsername() + " "+ getResources().getString(R.string.OMEPARSEWANTTOKEY)
         //        + " " + getResources().getString(R.string.OMEPARSEINVITETITLEPLAY) + " " + msporttype);

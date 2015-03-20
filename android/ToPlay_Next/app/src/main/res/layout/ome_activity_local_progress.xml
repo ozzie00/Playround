@@ -110,6 +110,13 @@
         android:paddingTop      = "@dimen/activity_vertical_margin"
         android:weightSum       = "1">
 
+        <fr.castorflex.android.smoothprogressbar.SmoothProgressBar
+            android:id="@+id/google_now"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            style="@style/GNowProgressBar"
+            android:indeterminate="true"/>
+
         <ListView
             android:id="@+id/local_listview"
             android:layout_width="fill_parent"

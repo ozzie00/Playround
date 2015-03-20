@@ -103,7 +103,7 @@ public class SearchActivity extends ActionBarActivity  {
             }
         });
 
-        final Boolean isAvailable = DispatchActivity.getGooglePlayServicesState();
+        final Boolean isAvailable = true;// DispatchActivity.getGooglePlayServicesState();
 
         ImageView mlogo = (ImageView)findViewById(R.id.invite_search_google_logo);
         if (isAvailable) {
@@ -135,10 +135,8 @@ public class SearchActivity extends ActionBarActivity  {
                 String newText  = s.toString();
                 if (isAvailable == true) {
                     new getPlaceAutocomplete().execute(newText);
-                    //new getPlaceAutocomplete().execute(newText);
                 } else {
                     new getBdPlaceAutocomplete().execute(newText);
-                    //new getPlaceAutocomplete().execute(newText);
                 }
             }
 
@@ -174,7 +172,7 @@ public class SearchActivity extends ActionBarActivity  {
 
                 // Load the results into a StringBuilder
                 int read;
-                char[] buff = new char[1024];
+                char[] buff = new char[AppConstant.OMEPARSEBUFFERLENGTH];
                 while ((read = in.read(buff)) != -1) {
                     jsonResults.append(buff, 0, read);
                 }
@@ -272,7 +270,7 @@ public class SearchActivity extends ActionBarActivity  {
 
                 // Load the results into a StringBuilder
                 int read;
-                char[] buff = new char[1024];
+                char[] buff = new char[AppConstant.OMEPARSEBUFFERLENGTH];
                 while ((read = in.read(buff)) != -1) {
                     jsonResults.append(buff, 0, read);
                 }
