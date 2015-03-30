@@ -64,7 +64,7 @@
             android:layout_alignParentBottom = "true"
             android:layout_alignParentRight  = "true"
             android:background               = "@drawable/ome_join_comment_button"
-            android:text                     = "ADD"
+            android:text                     = "@string/OMEPARSEADDTEXT"
             android:textStyle                = "bold"
             android:visibility               = "gone"
             android:clickable                = "true">
@@ -75,7 +75,7 @@
             android:layout_height             = "wrap_content"
             android:layout_toLeftOf           = "@id/join_next_comment_add_text"
             android:layout_alignParentBottom  = "true"
-            android:hint                      = "Add Comment"
+            android:hint                      = "@string/OMEPARSEADDCOMMENTTEXT"
             android:background                = "@drawable/ome_textfield_input_rectangle_background"
             android:visibility                = "gone">
         </EditText>

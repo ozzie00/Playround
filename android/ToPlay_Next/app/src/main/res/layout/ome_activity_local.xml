@@ -1,101 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout
     xmlns:android         = "http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width  = "fill_parent"
     android:layout_height = "wrap_content"
     android:background    = "@android:color/white"
-    android:orientation="vertical"
-    >
-
-    <!--
-    <RadioGroup
-        android:id                       = "@+id/radiogroup"
-        android:layout_width             = "fill_parent"
-        android:layout_height            = "54dp"
-        android:layout_alignParentBottom = "true"
-        android:orientation              = "horizontal"
-        android:background               = "@layout/ome_navbar_background"
-        android:layout_marginTop         = "0dp"
-        android:layout_marginBottom      = "4dp">
-    -->
-
-        <!--
-        <RadioButton
-            android:id                 = "@+id/home"
-            style                      = "@style/navbar_button"
-            android:drawableTop        = "@layout/ome_navbar_homeselector"
-            android:layout_width       = "50dp"
-            android:layout_height      = "52dp"
-            android:gravity            = "center"
-            android:layout_marginTop   = "8dp"
-            android:layout_marginBottom= "8dp"
-            android:layout_marginLeft  = "2dp"
-            android:layout_marginRight = "2dp"/>
-            -->
-
-        <!--
-        <RadioButton
-            android:id                 = "@+id/localinvitation"
-            style                      = "@style/navbar_button"
-            android:drawableTop        = "@layout/ome_navbar_localinvitationselector"
-            android:layout_width       = "50dp"
-            android:layout_height      = "52dp"
-            android:gravity            = "center"
-            android:layout_marginTop   = "8dp"
-            android:layout_marginBottom= "8dp"
-            android:layout_marginLeft  = "2dp"
-            android:layout_marginRight = "2dp"/>
-
-
-
-        <RadioButton
-            android:id                 = "@+id/message_button"
-            style                      = "@style/navbar_button"
-            android:drawableTop        = "@layout/ome_navbar_messageselector"
-            android:layout_width       = "50dp"
-            android:layout_height      = "52dp"
-            android:gravity            = "center"
-            android:layout_marginTop   = "8dp"
-            android:layout_marginBottom= "8dp"
-            android:layout_marginLeft  = "2dp"
-            android:layout_marginRight = "2dp" />
-
-        <TextView
-            android:id                 = "@+id/unread_messages_count"
-            android:textColor          = "@color/white"
-            android:layout_width       = "wrap_content"
-            android:layout_height      = "18dp"
-            android:layout_marginTop   = "4dp"
-            android:layout_marginLeft  = "0dp"
-            android:layout_marginBottom= "16dp"
-            android:gravity            = "center"
-            android:textStyle          = "bold"
-            android:text               = "3"
-            android:background         = "@drawable/ome_unread_message_count_circle"
-            android:clickable          = "false" />
-        -->
-
-
-
-        <!--
-        <RadioButton
-            android:id                 = "@+id/inviteplay_button"
-            style                      = "@style/navbar_button"
-            android:drawableTop        = "@layout/ome_navbar_inviteselector"
-            android:layout_width       = "50dp"
-            android:layout_height      = "52dp"
-            android:gravity            = "center"
-            android:layout_marginTop   = "8dp"
-            android:layout_marginBottom= "8dp"
-            android:layout_marginLeft  = "2dp"
-            android:layout_marginRight = "2dp" />
-        -->
-
-    <!--
-    </RadioGroup>
-    -->
+    android:orientation   = "vertical">
 
 
     <LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
@@ -115,47 +25,9 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:divider="#F3F3F3"
-            android:dividerHeight="5.0sp"/>
-
-
-        <!-- android:onClick="onClickAddFriend"-->
-        <!--  app:floatingActionButtonColor="@color/fab_colors_list"-->
-
-        <!--
-        <com.shamanland.fab.FloatingActionButton
-            android:id="@+id/local_fab"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center"
-            android:layout_margin="@dimen/margin_medium"
-            android:background="@drawable/ome_circle_button"
-            />
-        -->
-
-
-        <!--
-        <ImageButton
-            android:id="@+id/btnSpeak"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/mic"
-            android:cropToPadding="false"
-            android:clickable="true"
-            android:layout_gravity="right"
-            android:focusable="false"
-            android:adjustViewBounds="false"
-            android:baselineAlignBottom="false"
-            android:background="@drawable/ome_circle_button"
-            android:onClick="toggle"/>
-
-            -->
-
+            android:divider="#FFFFFF"
+            android:dividerHeight="1.0sp"/>
 
     </LinearLayout>
-
-
-
-
 
 </RelativeLayout>

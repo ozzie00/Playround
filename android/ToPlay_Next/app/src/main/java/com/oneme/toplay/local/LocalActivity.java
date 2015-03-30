@@ -238,7 +238,7 @@ public class LocalActivity extends FragmentActivity implements LocationListener,
                 ImageView avatarView = (ImageView) view.findViewById(R.id.avatar_view);
                 TextView usernameView = (TextView) view.findViewById(R.id.username_view);
                 //TextView contentView = (TextView) view.findViewById(R.id.content_view);
-                TextView submittimeView = (TextView) view.findViewById(R.id.duration);
+                //TextView submittimeView = (TextView) view.findViewById(R.id.duration);
                 //  ImageView pinView        = (ImageView) view.findViewById(R.id.pin_view);
                 //  ImageView rightarrowView = (ImageView) view.findViewById(R.id.rightarrow_view);
 
@@ -248,7 +248,7 @@ public class LocalActivity extends FragmentActivity implements LocationListener,
                 avatarView.setImageDrawable(getResources().getDrawable(R.drawable.ome_map_avataricon));
                 //contentView.setText(invite.getText());
                 usernameView.setText(invite.getFromUsername());
-                submittimeView.setText(invite.getSubmitTime());
+                //submittimeView.setText(invite.getSubmitTime());
 
                 listLoadDialog.dismiss();
 

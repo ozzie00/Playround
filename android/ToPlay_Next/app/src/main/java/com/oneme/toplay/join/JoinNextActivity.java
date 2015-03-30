@@ -120,10 +120,9 @@ public class JoinNextActivity extends ActionBarActivity {
         }
 
         // fetch the clicked location
-        Intent joinintent = getIntent();
-        Location location = joinintent.getParcelableExtra(Application.INTENT_EXTRA_LOCATION);
-        geoPoint          = new ParseGeoPoint(location.getLatitude(), location.getLongitude());
-
+        //Intent joinintent = getIntent();
+        //Location location = joinintent.getParcelableExtra(Application.INTENT_EXTRA_LOCATION);
+        //geoPoint          = new ParseGeoPoint(location.getLatitude(), location.getLongitude());
         Bundle extras     = getIntent().getExtras();
 
         if (extras != null) {
@@ -160,7 +159,6 @@ public class JoinNextActivity extends ActionBarActivity {
             }
         });
 
-
         LinearLayout mheaderplayerblock = (LinearLayout)findViewById(R.id.join_next_info_hearder_player_block);
         mheaderplayerblock.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -169,12 +167,8 @@ public class JoinNextActivity extends ActionBarActivity {
                 invokeCommentActivityIntent.putExtra(Application.INTENT_EXTRA_INVITEOBJECTID, minviteObjectID);
                 invokeCommentActivityIntent.putExtra(Application.INTENT_EXTRA_USERNAME, mhostUsername);
                 startActivity(invokeCommentActivityIntent);
-
             }
         });
-
-
-
 
         LinearLayout mheaderscoreblock = (LinearLayout)findViewById(R.id.join_next_info_hearder_score_block);
         mheaderscoreblock.setOnClickListener(new View.OnClickListener() {
@@ -187,7 +181,6 @@ public class JoinNextActivity extends ActionBarActivity {
 
             }
         });
-
 
         TextView mworkoutView = (TextView)findViewById(R.id.join_next_info_workout_name);
         mworkoutView.setText(mworkoutname);
@@ -206,31 +199,39 @@ public class JoinNextActivity extends ActionBarActivity {
                 String mhourpart   = mpart[hourpart];
                 String[] mparthour = mhourpart.split(AppConstant.OMEPARSECOLONSTRING);
                 String mhour       = mparthour[0];
+                String mminute     = mparthour[1];
 
                 final Calendar mplaytimecalendar = Time.setCalendar(Integer.parseInt(myear), Integer.parseInt(mmonth),
-                        Integer.parseInt(mday));
-                final Calendar mcurrentcalendar = Calendar.getInstance();
+                        Integer.parseInt(mday), Integer.parseInt(mhour), Integer.parseInt(mminute));
+                final Calendar mcurrentcalendar  = Calendar.getInstance();
 
-                Double mdayleft = Time.timeDifferenceInDays(mplaytimecalendar,mcurrentcalendar);
+                Double mdayleft    = Time.timeDifferenceInDays(mplaytimecalendar, mcurrentcalendar);
 
-                if (mdayleft > 1) {
+                if (mdayleft >= 1) {
                     mtimeleftView.setText(Integer.toString(mdayleft.intValue()));
-                    mtimenoteView.setText(getResources().getString(R.string.OMEPARSEJOININFODAYLEFTTEXT));
-                } else if (mdayleft >= 0) {
-                    Double mhourleft = Time.timeDifferenceInHours(mplaytimecalendar,mcurrentcalendar);
-                    mtimeleftView.setText(Integer.toString(mhourleft.intValue()));
-                    mtimenoteView.setText(getResources().getString(R.string.OMEPARSEJOININFOHOURLEFTTEXT));
+                    mtimenoteView.setText(getResources().getString(R.string.OMEPARSEDAYLEFTTEXT));
                 } else {
-                    mtimeleftView.setText(AppConstant.OMEPARSEZEROSTRING);
-                    mtimenoteView.setText(getResources().getString(R.string.OMEPARSEJOININFODAYLEFTTEXT));
+                    Double mhourleft   = Time.timeDifferenceInHours(mplaytimecalendar, mcurrentcalendar);
+                    if (mhourleft >= 1) {
+                        mtimeleftView.setText(Integer.toString(mhourleft.intValue()));
+                        mtimenoteView.setText(getResources().getString(R.string.OMEPARSEHOURLEFTTEXT));
+                    } else {
+                        Double mminuteleft = Time.timeDifferenceInMinutes(mplaytimecalendar, mcurrentcalendar);
+                        if (mminuteleft >= 1) {
+                            mtimeleftView.setText(Integer.toString(mminuteleft.intValue()));
+                            mtimenoteView.setText(getResources().getString(R.string.OMEPARSEMINUTELEFTTEXT));
+                        } else {
+                            mtimenoteView.setText(getResources().getString(R.string.OMEPARSEWAITTILLNEXTTEXT));
+                        }
+
+                    }
+
                 }
 
             } else {
                 //old time format DD/MM HH:mm
             }
         }
-
-
 
         ImageView msportimage = (ImageView)findViewById(R.id.join_next_info_workout_sport);
         if (msporttypevalue != null) {
@@ -347,13 +348,15 @@ public class JoinNextActivity extends ActionBarActivity {
             public void onClick(View v) {
                 if (musername != null) {
                     if (mylike == false) {
+                        mylike = true;
                         joinlike();
                         mlike.setText(Integer.toString(mlikenumber + 1));
                         mlikeimage.setImageDrawable(getResources().getDrawable(R.drawable.ic_menu_star_enable));
                     } else {
+                        mylike = false;
+                        removelike();
                         mlike.setText(Integer.toString(mlikenumber - 1));
                         mlikeimage.setImageDrawable(getResources().getDrawable(R.drawable.ic_menu_star));
-                        removelike();
                     }
                 }
             }
@@ -537,7 +540,7 @@ public class JoinNextActivity extends ActionBarActivity {
                             record.setMemberJoinTime(Time.currentTime());
 
                             if (msporttype != null) {
-                                record.setSportType(msporttype);
+                                record.setGroupSport(msporttype);
                             }
 
                             if (msporttypevalue != null) {

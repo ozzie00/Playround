@@ -28,7 +28,7 @@
         android:text             = "@string/OMETOPLAYDONEWORD"
         android:textColor        = "@color/white_absolute"
         android:layout_toRightOf = "@id/invite_description_dialog_title"
-        android:background       = "#1da155"/>
+        android:background       = "@color/playround_default"/>
 
     <View
         android:id            = "@+id/invite_description_dialog_divider"

@@ -85,7 +85,7 @@ public final class Group extends ParseObject {
         }
     }
 
-    public void setSportType(String value) {
+    public void setGroupSport(String value) {
         if (value != null) {
             put(AppConstant.OMEPARSEGROUPSPORTKEY, value);
         } else {

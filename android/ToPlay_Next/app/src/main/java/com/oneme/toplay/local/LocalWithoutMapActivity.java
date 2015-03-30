@@ -54,6 +54,7 @@ import java.util.List;
 import com.oneme.toplay.R;
 import com.oneme.toplay.Application;
 import com.oneme.toplay.base.AppConstant;
+import com.oneme.toplay.base.InviteToIntentExtra;
 import com.oneme.toplay.base.LoadImageFromParseCloud;
 import com.oneme.toplay.base.Time;
 import com.oneme.toplay.base.third.RoundedTransformationBuilder;
@@ -158,9 +159,7 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
     // Adapter for the Parse query
     private ParseQueryAdapter<Invite> inviteQueryAdapter;
 
-    private Transformation mtransformation = null;
-
-    // user last location
+     // user last location
     private ParseGeoPoint userLastLocation;
 
 
@@ -181,13 +180,6 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
     private Menu menu;
 
     Handler handler;
-
-
-
-    ExpandableListView expListView;
-    List<String> listDataHeader;
-    HashMap<String, List<String>> listDataChild;
-
 
     public LocalWithoutMapActivity(){
         handler = new Handler();
@@ -237,13 +229,6 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
         listLoadDialog.setMessage(getString(R.string.progress_local));
         listLoadDialog.show();
 
-        mtransformation = new RoundedTransformationBuilder()
-                .borderColor(Color.WHITE)
-                .borderWidthDp(1)
-                .cornerRadiusDp(AppConstant.OMEPARSEUSERICONRADIUS)
-                .oval(false)
-                .build();
-
         // get current geo point
         mGeoPoint = new ParseGeoPoint(Double.valueOf(Application.getCurrentLatitude()), Double.valueOf(Application.getCurrentLongitude()));
 
@@ -259,41 +244,15 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
                     view = View.inflate(getContext(), R.layout.ome_activity_local_list, null);
                 }
 
-                ImageView avatarView        = (ImageView) view.findViewById(R.id.local_avatar_view);
-                TextView usernameView       = (TextView) view.findViewById(R.id.username_view);
-                //TextView contentView      = (TextView) view.findViewById(R.id.content_view);
+                ImageView sporttypeiconView = (ImageView) view.findViewById(R.id.local_sport_type_icon);
+                TextView workoutnameView    = (TextView) view.findViewById(R.id.local_workoutname_view);
                 TextView venueaddressView   = (TextView) view.findViewById(R.id.local_venue_address);
-                //TextView playnumberView   = (TextView) view.findViewById(R.id.local_person_number);
                 TextView playtimeView       = (TextView) view.findViewById(R.id.local_play_time);
                 TextView distanceView       = (TextView) view.findViewById(R.id.local_distance_to_me);
-                //TextView submittimeView   = (TextView) view.findViewById(R.id.duration);
-                ImageView sporttypeiconView = (ImageView) view.findViewById(R.id.sport_type_icon);
-
-                // Ozzie Zhang 2014-11-04 need add query for avatar icon for this user
-                //if (invite.getUser().getParseFile(AppConstant.OMEPARSEUSERICONKEY) != null) {
-                //    ParseFile mfile = invite.getUser().getParseFile(AppConstant.OMEPARSEUSERICONKEY);
-                //    Picasso.with(LocalWithoutMapActivity.this)
-                //            .load(mfile.getUrl())
-                //            .fit()
-                //            .transform(mtransformation)
-                //            .into(avatarView);
-                //} else {
-                //    Picasso.with(LocalWithoutMapActivity.this)
-                //            .load(R.drawable.ome_default_avatar)
-                //            .fit()
-                //            .transform(mtransformation)
-                //            .into(avatarView);
-                // }
-
-                LoadImageFromParseCloud.getAvatar(LocalWithoutMapActivity.this, invite.getUser(), avatarView);
-
 
                 String mplaytime = invite.getPlayTime();
-                //contentView.setText(invite.getText());
-                usernameView.setText(invite.getFromUsername());
-                //submittimeView.setText(invite.getSubmitTime());
+                workoutnameView.setText(invite.getWorkoutName());
                 venueaddressView.setText(invite.getCourt());
-                //playnumberView.setText(invite.getPlayerNumber());
 
                 if (mplaytime.contains(AppConstant.OMEPARSESLASHSTRING)) {
                     // the old version time format contains slash
@@ -353,14 +312,14 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
                 final Invite invite = inviteQueryAdapter.getItem(position);
                 selectedInviteObjectId = invite.getObjectId();
 
-                Location clickedItemUserLocation = (currentLocation == null) ? lastLocation : currentLocation;
-                clickedItemUserLocation.setLatitude(invite.getLocation().getLatitude());
-                clickedItemUserLocation.setLongitude(invite.getLocation().getLongitude());
+                //Location clickedItemUserLocation = (currentLocation == null) ? lastLocation : currentLocation;
+                //clickedItemUserLocation.setLatitude(invite.getLocation().getLatitude());
+                //clickedItemUserLocation.setLongitude(invite.getLocation().getLongitude());
 
                 Intent invokeJoinActivityIntent = new Intent(LocalWithoutMapActivity.this, JoinNextActivity.class);
 
-                invokeJoinActivityIntent.putExtra(Application.INTENT_EXTRA_LOCATION, clickedItemUserLocation);
-                putInviteToIntentExtra(invokeJoinActivityIntent, invite);
+                //invokeJoinActivityIntent.putExtra(Application.INTENT_EXTRA_LOCATION, clickedItemUserLocation);
+                InviteToIntentExtra.putExtra(invokeJoinActivityIntent, invite);
 
                 // Log.d("LocalActivity", "selectedInviteObjectId " + selectedInviteObjectId);
 
@@ -818,33 +777,6 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
 
     }
 
-    private void putInviteToIntentExtra(Intent intent, Invite invite) {
-
-        ParseUser minviteuser = invite.getUser();
-
-        if (minviteuser != null) {
-            intent.putExtra(Application.INTENT_EXTRA_USEROBJECTID, minviteuser.getObjectId());
-            intent.putExtra(Application.INTENT_EXTRA_USERNAME, minviteuser.getUsername());
-            // check user omeID
-            if (minviteuser.getString(AppConstant.OMEPARSEUSEROMEIDKEY) == null) {
-                intent.putExtra(Application.INTENT_EXTRA_USEROMEID, AppConstant.OMEPARSEUSEROMEIDNULL);
-            } else {
-                intent.putExtra(Application.INTENT_EXTRA_USEROMEID, minviteuser.getString(AppConstant.OMEPARSEUSEROMEIDKEY));
-            }
-        }
-
-        intent.putExtra(Application.INTENT_EXTRA_WORKOUTNAME, invite.getWorkoutName());
-        intent.putExtra(Application.INTENT_EXTRA_SPORTTYPEVALUE, invite.getSportTypeValue());
-        intent.putExtra(Application.INTENT_EXTRA_SPORTTYPE, invite.getSportType());
-        intent.putExtra(Application.INTENT_EXTRA_PLAYERNUMBER, invite.getPlayerNumber());
-        intent.putExtra(Application.INTENT_EXTRA_PLAYERLEVEL, invite.getPlayerLevel());
-        intent.putExtra(Application.INTENT_EXTRA_TIME, invite.getPlayTime());
-        intent.putExtra(Application.INTENT_EXTRA_COURT, invite.getCourt());
-        intent.putExtra(Application.INTENT_EXTRA_FEE, invite.getFee());
-        intent.putExtra(Application.INTENT_EXTRA_OTHER, invite.getOther());
-        intent.putExtra(Application.INTENT_EXTRA_SUBMITTIME, invite.getSubmitTime());
-        intent.putExtra(Application.INTENT_EXTRA_INVITEOBJECTID, invite.getObjectId());
-    }
 
 }
 

@@ -19,6 +19,7 @@ package com.oneme.toplay.join;
 import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -32,6 +33,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import android.view.Menu;
+import android.view.MenuItem;
+
+
 import com.oneme.toplay.Application;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
@@ -39,6 +44,7 @@ import com.oneme.toplay.base.LoadImageFromParseCloud;
 import com.oneme.toplay.base.Time;
 import com.oneme.toplay.base.third.RoundedTransformationBuilder;
 import com.oneme.toplay.database.InviteComment;
+
 import com.parse.CountCallback;
 import com.parse.ParseACL;
 import com.parse.ParseException;
@@ -47,6 +53,7 @@ import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
+
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 
@@ -67,12 +74,19 @@ public class CommentActivity extends ActionBarActivity {
     // Adapter for the Parse query
     private ParseQueryAdapter<InviteComment> commentQueryAdapter;
 
+    private MenuItem menuItem;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ome_activity_join_next_comment);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME
+                | ActionBar.DISPLAY_SHOW_TITLE | ActionBar.DISPLAY_SHOW_CUSTOM);
+
 
         // fetch input extra
         Bundle extras = getIntent().getExtras();
@@ -238,6 +252,29 @@ public class CommentActivity extends ActionBarActivity {
 
             }
         }
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.ome_activity_comment_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_load:
+                menuItem = item;
+                menuItem.setActionView(R.layout.ome_activity_comment_progressbar);
+                menuItem.expandActionView();
+                //TestTask task = new TestTask();
+                //task.execute("test");
+                break;
+            default:
+                break;
+        }
+        return true;
     }
 
 }

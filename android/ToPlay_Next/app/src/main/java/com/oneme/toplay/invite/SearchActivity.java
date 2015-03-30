@@ -26,6 +26,7 @@ import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,6 +50,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -59,6 +61,7 @@ import com.oneme.toplay.DispatchActivity;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.base.third.IfCanAccessGoogleService;
+import com.parse.ParseGeoPoint;
 
 public class SearchActivity extends ActionBarActivity  {
 
@@ -66,6 +69,8 @@ public class SearchActivity extends ActionBarActivity  {
         String mName;
         String mAddress;
     }
+
+    private ParseGeoPoint geoPoint;
 
     // Places Listview
     ListView msearchresult;
@@ -80,6 +85,8 @@ public class SearchActivity extends ActionBarActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ome_activity_search_location);
 
+        final Boolean isAvailable = true;// DispatchActivity.getGooglePlayServicesState();
+
         msuggest        = new ArrayList<LocationData>();
         mselectlocation = new LocationData();
 
@@ -89,6 +96,16 @@ public class SearchActivity extends ActionBarActivity  {
         }
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        // get point according to  current latitude and longitude
+        geoPoint = new ParseGeoPoint(Double.valueOf(Application.getCurrentLatitude()), Double.valueOf(Application.getCurrentLongitude()));
+
+        if (isAvailable) {
+            // show nearby place for user
+            new getNearbyPlace().execute(AppConstant.OMEPARSENULLSTRING);
+        } else {
+            new getBdNearbyPlace().execute(AppConstant.OMEPARSENULLSTRING);
+        }
 
         final EditText searchedittext = (EditText) findViewById(R.id.invite_search_content_text_view);
         searchedittext.setOnKeyListener(new OnKeyListener() {
@@ -103,7 +120,6 @@ public class SearchActivity extends ActionBarActivity  {
             }
         });
 
-        final Boolean isAvailable = true;// DispatchActivity.getGooglePlayServicesState();
 
         ImageView mlogo = (ImageView)findViewById(R.id.invite_search_google_logo);
         if (isAvailable) {
@@ -159,7 +175,7 @@ public class SearchActivity extends ActionBarActivity  {
             HttpURLConnection mconnection = null;
             StringBuilder jsonResults     = new StringBuilder();
             try {
-                StringBuilder mstringBuilder = new StringBuilder(AppConstant.BD_PLACES_API_BASE);
+                StringBuilder mstringBuilder = new StringBuilder(AppConstant.BD_PLACES_API_SUGGESTION);
                 mstringBuilder.append(AppConstant.BD_PLACE_QUERY + newText);
                 mstringBuilder.append(AppConstant.BD_PLACE_REGION);
                 mstringBuilder.append(AppConstant.BD_PLACE_OUT_JSON);
@@ -260,7 +276,7 @@ public class SearchActivity extends ActionBarActivity  {
             HttpURLConnection mconnection = null;
             StringBuilder jsonResults     = new StringBuilder();
             try {
-                StringBuilder mstringBuilder = new StringBuilder(AppConstant.PLACES_API_BASE + AppConstant.PLACE_TYPE_AUTOCOMPLETE + AppConstant.PLACE_OUT_JSON);
+                StringBuilder mstringBuilder = new StringBuilder(AppConstant.PLACE_API_BASE + AppConstant.PLACE_TYPE_AUTOCOMPLETE + AppConstant.PLACE_OUT_JSON);
                 mstringBuilder.append(AppConstant.PLACE_KEY + AppConstant.PLACE_API_KEY);
                 mstringBuilder.append(AppConstant.PLACE_INPUT + URLEncoder.encode(newText, AppConstant.PLACE_OUT_ENCODE));
 
@@ -291,7 +307,7 @@ public class SearchActivity extends ActionBarActivity  {
 
                 // Extract the Place descriptions from the results
                 if (mpredJsonArray != null) {
-                    // this one for user input string
+                    // this one for user input string as customize location
                     msuggest = new ArrayList<LocationData>(mpredJsonArray.length() + 1);
                 }
 
@@ -441,8 +457,6 @@ public class SearchActivity extends ActionBarActivity  {
             return position;
         }
 
-
-
         @Override
         public Filter getFilter() {
             Filter myFilter = new Filter() {
@@ -479,6 +493,188 @@ public class SearchActivity extends ActionBarActivity  {
             };
             return myFilter;
         }
+    }
+
+    class getNearbyPlace extends AsyncTask<String,String,String> {
+
+        @Override
+        protected String doInBackground(String... key) {
+            HttpURLConnection mconnection   = null;
+            StringBuilder jsonResults       = new StringBuilder();
+            String mlocale                  = Locale.getDefault().getLanguage();
+
+            try {
+                StringBuilder mstringBuilder = new StringBuilder(AppConstant.PLACE_API_BASE + AppConstant.PLACE_TYPE_NEARBY + AppConstant.PLACE_OUT_JSON);
+                mstringBuilder.append(AppConstant.PLACE_KEY + AppConstant.PLACE_API_KEY);
+                mstringBuilder.append(AppConstant.PLACE_LOCATION + geoPoint.getLatitude()+ AppConstant.OMEPARSECOMMASTRING +geoPoint.getLongitude());
+                mstringBuilder.append(AppConstant.PLACE_RADIUS + AppConstant.OME_RADIUS);
+                mstringBuilder.append(AppConstant.PLACE_TYPE_KEY + AppConstant.PLACE_TYPES);
+                mstringBuilder.append(AppConstant.PLACE_LANGUAGE + mlocale);
+
+                URL murl    = new URL(mstringBuilder.toString());
+                mconnection = (HttpURLConnection) murl.openConnection();
+                InputStreamReader in = new InputStreamReader(mconnection.getInputStream());
+
+                // Load the results into a StringBuilder
+                int read;
+                char[] buff = new char[AppConstant.OMEPARSEBUFFERLENGTH];
+                while ((read = in.read(buff)) != -1) {
+                    jsonResults.append(buff, 0, read);
+                }
+
+                try {
+                    // Create a JSON object hierarchy from the results
+                    JSONObject mjsonObject = new JSONObject(jsonResults.toString());
+                    String isSuccessful    = mjsonObject.getString(AppConstant.PLACE_SEARCH_STATUS);
+
+                    if (isSuccessful.equals(AppConstant.PLACE_SEARH_OK)) {
+                        JSONArray mresultJsonArray = mjsonObject.getJSONArray(AppConstant.PLACE_RESPONSE_RESULTS);
+
+                        // Extract the Place descriptions from the results
+                        if (mresultJsonArray != null) {
+                            msuggest = new ArrayList<LocationData>(mresultJsonArray.length());
+                        }
+
+                        for (int i = 0; i < mresultJsonArray.length(); i++) {
+                            LocationData mlocationdata = new LocationData();
+                            JSONObject mresultObject   = mresultJsonArray.getJSONObject(i);
+                            String mname               = mresultObject.getString(AppConstant.PLACE_RESULTS_NAME);
+                            String maddress            = mresultObject.getString(AppConstant.PLACE_RESULTS_VICINITY);
+
+                            mlocationdata.mName    = mname;
+                            mlocationdata.mAddress = maddress;
+                            msuggest.add(mlocationdata);
+                        }
+                    }
+
+                } catch (JSONException e) {
+
+                }
+
+                runOnUiThread(new Runnable(){
+                    public void run(){
+                        if (msuggest.size() >= 1) {
+                            madapter = new resultListAdapter(SearchActivity.this, msuggest);
+                            msearchresult.setAdapter(madapter);
+                            madapter.notifyDataSetChanged();
+                        }
+                    }
+                });
+
+                return null;
+
+            } catch (MalformedURLException e) {
+
+                return null;
+            } catch (IOException e) {
+
+                return null;
+            } finally {
+                if (mconnection != null) {
+                    mconnection.disconnect();
+                }
+            }
+
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+        }
+
+    }
+
+    class getBdNearbyPlace extends AsyncTask<String,String,String> {
+
+        @Override
+        protected String doInBackground(String... key) {
+            HttpURLConnection mbdconnection = null;
+            StringBuilder jsonResults       = new StringBuilder();
+            String mlocale                  = Locale.getDefault().getLanguage();
+
+            // if access google place fails, then use baidu place api
+            try {
+                StringBuilder mbdstringBuilder = new StringBuilder(AppConstant.BD_PLACES_API_SEARCH);
+                mbdstringBuilder.append(AppConstant.BD_PLACE_QUERY + AppConstant.BD_PLACE_NEARBY_SEARCH );
+                mbdstringBuilder.append(AppConstant.BD_PLACE_LOCATION + geoPoint.getLatitude()+ AppConstant.OMEPARSECOMMASTRING +geoPoint.getLongitude());
+                mbdstringBuilder.append(AppConstant.BD_PLACE_RADIUS + AppConstant.OME_RADIUS);
+                mbdstringBuilder.append(AppConstant.BD_PLACE_OUT_JSON);
+                mbdstringBuilder.append(AppConstant.BD_PLACE_KEY);
+                mbdstringBuilder.append(AppConstant.BD_PLACE_API_KEY);
+
+                URL mbdurl             = new URL(mbdstringBuilder.toString());
+                mbdconnection          = (HttpURLConnection) mbdurl.openConnection();
+                InputStreamReader inbd = new InputStreamReader(mbdconnection.getInputStream());
+
+                // Load the results into a StringBuilder
+                int read;
+                char[] buff = new char[AppConstant.OMEPARSEBUFFERLENGTH];
+                while ((read = inbd.read(buff)) != -1) {
+                    jsonResults.append(buff, 0, read);
+                }
+
+                try {
+                    // Create a JSON object hierarchy from the results
+                    JSONObject mjsonObject = new JSONObject(jsonResults.toString());
+                    String isSuccessful    = mjsonObject.getString(AppConstant.BD_PLACE_STATUS);
+
+
+                    if (isSuccessful.equals(AppConstant.OMEPARSEZEROSTRING)) {
+                        JSONArray mresultJsonArray = mjsonObject.getJSONArray(AppConstant.BD_PLACE_RESULTS);
+
+                        // Extract the Place descriptions from the results
+                        if (mresultJsonArray != null) {
+                            msuggest = new ArrayList<LocationData>(mresultJsonArray.length());
+                        }
+
+                        for (int i = 0; i < mresultJsonArray.length(); i++) {
+                            LocationData mlocationdata = new LocationData();
+                            JSONObject mresultObject   = mresultJsonArray.getJSONObject(i);
+                            String mname               = mresultObject.getString(AppConstant.BD_PLACE_NAME);
+                            String maddress            = mresultObject.getString(AppConstant.BD_PLACE_ADDRESS);
+
+                            mlocationdata.mName    = mname;
+                            mlocationdata.mAddress = maddress;
+                            msuggest.add(mlocationdata);
+                        }
+                    }
+
+                } catch (JSONException je) {
+
+                }
+
+                runOnUiThread(new Runnable(){
+                    public void run(){
+                        if (msuggest.size() >= 1) {
+                            madapter = new resultListAdapter(SearchActivity.this, msuggest);
+                            msearchresult.setAdapter(madapter);
+                            madapter.notifyDataSetChanged();
+                        }
+                    }
+                });
+
+                return null;
+
+            } catch (MalformedURLException me) {
+
+            } catch (IOException ie) {
+
+            } finally {
+                if (mbdconnection != null) {
+                    mbdconnection.disconnect();
+                }
+            }
+
+            return null;
+
+
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+        }
+
     }
 
 }

@@ -913,12 +913,11 @@ public class LocalAsyncActivity extends ActionBarActivity implements LocationLis
                 // Creates a ViewHolder and store references to the two children views
                 // we want to bind data to.
                 holder                   = new ViewHolder();
-                holder.avatarView        = (ImageView) convertView.findViewById(R.id.local_avatar_view);
                 holder.usernameView      = (TextView) convertView.findViewById(R.id.username_view);
                 holder.locationView      = (TextView) convertView.findViewById(R.id.local_venue_address);
                 holder.playtimeView      = (TextView) convertView.findViewById(R.id.local_play_time);
                 holder.distanceView      = (TextView) convertView.findViewById(R.id.local_distance_to_me);
-                holder.sporttypeiconView = (ImageView) convertView.findViewById(R.id.sport_type_icon);
+                holder.sporttypeiconView = (ImageView) convertView.findViewById(R.id.local_sport_type_icon);
 
                 convertView.setTag(holder);
             } else {
@@ -929,7 +928,7 @@ public class LocalAsyncActivity extends ActionBarActivity implements LocationLis
             minvite = getItem(position);
 
             if (minvite.getUser() != null) {
-                LoadImageFromParseCloud.getAvatar(LocalAsyncActivity.this, minvite.getUser(), holder.avatarView);
+               // LoadImageFromParseCloud.getAvatar(LocalAsyncActivity.this, minvite.getUser(), holder.avatarView);
             }
 
             if (minvite.getFromUsername() != null) {

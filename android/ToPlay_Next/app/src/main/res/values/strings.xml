@@ -5,10 +5,6 @@
 
     <!-- Strings related to activity -->
     <string name="action_settings">Settings</string>
-    <string name="slogan">i\'m loving play</string>
-   <!-- <string name="title_activity_settings">Settings</string> -->
-    <string name="search_distance">Search Distance</string>
-    <string name="character_count_placeholder">0/200</string>
 
     <!--third id and key -->
     <string name="facebook_app_id">846009488767381</string>
@@ -18,7 +14,7 @@
     <string name="loginactivity_title">Playround</string>
     <string name="meactivity_title">Me</string>
     <string name="mysportactivity_title">My Invitation</string>
-    <string name="matchdetailactivity_title">Match Detail</string>
+    <string name="matchdetailactivity_title">Workout Detail</string>
     <string name="settingactivity_title">Setting</string>
     <string name="inviteactivity_title">Invite</string>
     <string name="joinactivity_title">Join</string>
@@ -541,8 +537,8 @@
     <string name="OMEPARSEJOININFOICECREAMTEXT">ICECREAM</string>
     <string name="OMEPARSEJOININFOPRIZETEXT">PRIZE</string>
     <string name="OMEPARSEJOININFOSCOREBOARDTEXT">SCORE</string>
-    <string name="OMEPARSEJOININFODAYLEFTTEXT">DAYS LEFT</string>
-    <string name="OMEPARSEJOININFOHOURLEFTTEXT">HOURS LEFT</string>
+    <string name="OMEPARSEDAYLEFTTEXT">DAYS LEFT</string>
+    <string name="OMEPARSEHOURLEFTTEXT">HOURS LEFT</string>
 
 
     <string name="joincommentactivity_title">Comments</string>
@@ -563,6 +559,17 @@
 
     <string name="venuesearchactivity_title">Search</string>
 
+
+    <!--Add by playround 1.0.4.07 -->
+    <string name="OMEPARSEFOLLOWING">FOLLOWING</string>
+    <string name="OMEPARSEFOLLOWERS">FOLLOWERS</string>
+    <string name="OMEPARSEFOLLOW">FOLLOW</string>
+    <string name="OMEPARSEMINUTELEFTTEXT">MINUTES LEFT</string>
+    <string name="OMEPARSEWAITTILLNEXTTEXT">WAIT TILL NEXT</string>
+    <string name="OMEPARSEADDTEXT">ADD</string>
+    <string name="OMEPARSEADDCOMMENTTEXT">Add Comment</string>
+    <string name="OMEPARSEFOLLOWINGLOWERCASE">following</string>
+    <string name="OMEPARSEFOLLOWERLOWERCASE">followers</string>
 
 
 

@@ -151,7 +151,7 @@ public class SearchVenueActivity extends ActionBarActivity {
                 public void run(){
 
                     ParseQuery<Venue> query = Venue.getQuery();
-                    query.setCachePolicy(ParseQuery.CachePolicy.NETWORK_ELSE_CACHE);
+                    query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
                     query.whereContains(AppConstant.OMETOPLAYVENUENAMEKEY, mnameKey);
                     query.setLimit(MAX_VENUE_SEARCH_RESULTS);
                     query.findInBackground(new FindCallback<Venue>() {
@@ -176,7 +176,7 @@ public class SearchVenueActivity extends ActionBarActivity {
                     });
 
                     ParseQuery<Venue> addressquery = Venue.getQuery();
-                    addressquery.setCachePolicy(ParseQuery.CachePolicy.NETWORK_ELSE_CACHE);
+                    addressquery.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
                     addressquery.whereContains(AppConstant.OMETOPLAYVENUEADDRESSKEY, mnameKey);
                     addressquery.setLimit(MAX_VENUE_SEARCH_RESULTS);
                     addressquery.findInBackground(new FindCallback<Venue>() {
@@ -286,7 +286,9 @@ public class SearchVenueActivity extends ActionBarActivity {
 
             if (mvenue.mType != null) {
                 int index = Sport.msportarraylist.indexOf(mvenue.mType);
-                holder.type.setImageResource(Sport.msporticonarray[index]);
+                if (index >= 0) {
+                    holder.type.setImageResource(Sport.msporticonarray[index]);
+                }
             }
             if (mvenue.mName!=null) {
                 holder.name.setText(mvenue.mName);

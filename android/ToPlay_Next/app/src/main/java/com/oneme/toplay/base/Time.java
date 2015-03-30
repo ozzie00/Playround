@@ -88,11 +88,13 @@ public final class Time {
     }
 
     public static Calendar setCalendar(final int year, final int month,
-                                            final int day) {
+                                            final int day, final int hour, final int minute) {
         final Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.DAY_OF_MONTH, day);
         calendar.set(Calendar.MONTH, month);
         calendar.set(Calendar.YEAR, year);
+        calendar.set(Calendar.HOUR, hour);
+        calendar.set(Calendar.MINUTE, minute);
         return calendar;
     }
 
@@ -115,9 +117,33 @@ public final class Time {
         final long diff            = firstDateMilli - secondDateMilli;
 
         // 24 * 60 * 60 * 1000 in days. can Change to hour
-        final double diffDays = (double) diff / (double) (60 * 60 * 1000);
+        final double diffHours = (double) diff / (double) (60 * 60 * 1000);
 
-        return diffDays;
+        return diffHours;
+    }
+
+    public static double timeDifferenceInMinutes(final Calendar firstDate,
+                                               final Calendar secondDate) {
+        final long firstDateMilli  = firstDate.getTimeInMillis();
+        final long secondDateMilli = secondDate.getTimeInMillis();
+        final long diff            = firstDateMilli - secondDateMilli;
+
+        // 24 * 60 * 60 * 1000 in days. can Change to minute
+        final double diffMinutes = (double) diff / (double) (60 * 1000);
+
+        return diffMinutes;
+    }
+
+    public static double timeDifferenceInSecond(final Calendar firstDate,
+                                                 final Calendar secondDate) {
+        final long firstDateMilli  = firstDate.getTimeInMillis();
+        final long secondDateMilli = secondDate.getTimeInMillis();
+        final long diff            = firstDateMilli - secondDateMilli;
+
+        // 24 * 60 * 60 * 1000 in days. can Change to second
+        final double diffSeconds = (double) diff / (double) (1000);
+
+        return diffSeconds;
     }
 
 

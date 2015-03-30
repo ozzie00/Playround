@@ -24,6 +24,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
@@ -99,7 +100,7 @@ import com.fourmob.datetimepicker.date.DatePickerDialog.OnDateSetListener;
 
 public final class InviteNextActivity extends ActionBarActivity implements OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
-    private static final String TAG           = "InviteActivity";
+    private static final String TAG           = "InviteNextActivity";
 
     public static final String DATEPICKER_TAG = "datepicker";
     public static final String TIMEPICKER_TAG = "timepicker";
@@ -151,8 +152,19 @@ public final class InviteNextActivity extends ActionBarActivity implements OnDat
         // Note: msportarray items are correponding to msporticonarray of Sport Class
         msportarray = getResources().getStringArray(R.array.sport_type_array);
 
+        final Boolean isAvailable = true;// DispatchActivity.getGooglePlayServicesState();
+
+
         //get point according to  current latitude and longitude
         geoPoint = new ParseGeoPoint(Double.valueOf(Application.getCurrentLatitude()), Double.valueOf(Application.getCurrentLongitude()));
+
+        if (isAvailable) {
+            // show nearby place for user
+            new getNearbyPlace().execute(AppConstant.OMEPARSENULLSTRING);
+        } else {
+            new getBdNearbyPlace().execute(AppConstant.OMEPARSENULLSTRING);
+        }
+
 
         // set workout name
         mworkoutnameText = (EditText)findViewById(R.id.invite_content_text_view);
@@ -231,7 +243,10 @@ public final class InviteNextActivity extends ActionBarActivity implements OnDat
         mdateText.setText(Time.currentDay());
         mtimeText.setText(Time.currentHour());
 
-        mdate =  calendar.get(Calendar.DAY_OF_MONTH) + AppConstant.OMEPARSESLASHSTRING + calendar.get(Calendar.MONTH);
+        // reformat the play time, original format is MMM dd yyyy HH:mm
+        mdate =  Integer.toString(calendar.get(Calendar.MONTH)) + AppConstant.OMEPARSESPACESTRING
+                + Integer.toString(calendar.get(Calendar.DAY_OF_MONTH)) + AppConstant.OMEPARSESPACESTRING
+                + Integer.toString(calendar.get(Calendar.YEAR));
 
 
         // add zero in minute or hour, for example change 21:5 to 21:05
@@ -511,7 +526,7 @@ public final class InviteNextActivity extends ActionBarActivity implements OnDat
                     }
 
                     if (msporttype != null) {
-                        group.setSportType(msporttype);
+                        group.setGroupSport(msporttype);
                     }
 
                     if (msporttypevalue != null) {
@@ -554,13 +569,176 @@ public final class InviteNextActivity extends ActionBarActivity implements OnDat
             }
         });
 
-
-
-
-
         return;
 
     }
+
+
+    class getNearbyPlace extends AsyncTask<String,String,String> {
+
+        ArrayList<String> resultList    = null;
+
+        @Override
+        protected String doInBackground(String... key) {
+           // ArrayList<String> resultList    = null;
+            HttpURLConnection mconnection   = null;
+            StringBuilder jsonResults       = new StringBuilder();
+            String mlocale                  = Locale.getDefault().getLanguage();
+
+            try {
+                StringBuilder mstringBuilder = new StringBuilder(AppConstant.PLACE_API_BASE + AppConstant.PLACE_TYPE_NEARBY + AppConstant.PLACE_OUT_JSON);
+                mstringBuilder.append(AppConstant.PLACE_KEY + AppConstant.PLACE_API_KEY);
+                mstringBuilder.append(AppConstant.PLACE_LOCATION + geoPoint.getLatitude()+ AppConstant.OMEPARSECOMMASTRING +geoPoint.getLongitude());
+                mstringBuilder.append(AppConstant.PLACE_RADIUS + AppConstant.OME_RADIUS);
+                mstringBuilder.append(AppConstant.PLACE_TYPE_KEY + AppConstant.PLACE_TYPES);
+                mstringBuilder.append(AppConstant.PLACE_LANGUAGE + mlocale);
+
+
+                URL murl    = new URL(mstringBuilder.toString());
+                mconnection = (HttpURLConnection) murl.openConnection();
+                InputStreamReader in = new InputStreamReader(mconnection.getInputStream());
+
+                // Load the results into a StringBuilder
+                int read;
+                char[] buff = new char[AppConstant.OMEPARSEBUFFERLENGTH];
+                while ((read = in.read(buff)) != -1) {
+                    jsonResults.append(buff, 0, read);
+                }
+
+
+            } catch (MalformedURLException e) {
+                Log.e(TAG, "Error processing Places API URL", e);
+
+            } catch (IOException e) {
+                Log.e(TAG, "Error connecting to Places API", e);
+
+            } finally {
+                if (mconnection != null) {
+                    mconnection.disconnect();
+                }
+            }
+
+            try {
+                // Create a JSON object hierarchy from the results
+                JSONObject jsonObj = new JSONObject(jsonResults.toString());
+                JSONArray predsJsonArray = jsonObj.getJSONArray(AppConstant.PLACE_RESPONSE_RESULTS);
+
+                // Extract the Place descriptions from the results
+                if (predsJsonArray != null) {
+                    resultList = new ArrayList<String>(predsJsonArray.length());
+                }
+
+                for (int i = 0; i < predsJsonArray.length(); i++) {
+                    resultList.add(predsJsonArray.getJSONObject(i).getString(AppConstant.PLACE_RESULTS_NAME));
+                }
+
+            } catch (JSONException e) {
+
+            }
+
+            // checkt result list, because offline result list will be null
+            if (resultList != null && resultList.size() > 0) {
+                return resultList.get(0);
+            } else {
+                return null;
+            }
+
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            if (result != null) {
+                mcourtText.setText(result);
+                mcourt = result;
+            }
+        }
+
+    }
+
+    class getBdNearbyPlace extends AsyncTask<String,String,String> {
+
+        ArrayList<String> resultList    = null;
+
+        @Override
+        protected String doInBackground(String... key) {
+            // ArrayList<String> resultList    = null;
+            HttpURLConnection mbdconnection = null;
+            StringBuilder jsonResults       = new StringBuilder();
+            String mlocale                  = Locale.getDefault().getLanguage();
+
+            try {
+                StringBuilder mbdstringBuilder = new StringBuilder(AppConstant.BD_PLACES_API_SEARCH);
+                mbdstringBuilder.append(AppConstant.BD_PLACE_QUERY + AppConstant.BD_PLACE_NEARBY_SEARCH );
+                mbdstringBuilder.append(AppConstant.BD_PLACE_LOCATION + geoPoint.getLatitude()+ AppConstant.OMEPARSECOMMASTRING +geoPoint.getLongitude());
+                mbdstringBuilder.append(AppConstant.BD_PLACE_RADIUS + AppConstant.OME_RADIUS);
+                mbdstringBuilder.append(AppConstant.BD_PLACE_OUT_JSON);
+                mbdstringBuilder.append(AppConstant.BD_PLACE_KEY);
+                mbdstringBuilder.append(AppConstant.BD_PLACE_API_KEY);
+
+                URL mbdurl             = new URL(mbdstringBuilder.toString());
+                mbdconnection          = (HttpURLConnection) mbdurl.openConnection();
+                InputStreamReader inbd = new InputStreamReader(mbdconnection.getInputStream());
+
+                // Load the results into a StringBuilder
+                int read;
+                char[] buff = new char[AppConstant.OMEPARSEBUFFERLENGTH];
+                while ((read = inbd.read(buff)) != -1) {
+                    jsonResults.append(buff, 0, read);
+                }
+            } catch (MalformedURLException me) {
+
+            } catch (IOException ie) {
+
+            } finally {
+                if (mbdconnection != null) {
+                    mbdconnection.disconnect();
+                }
+            }
+
+            try {
+                // Create a JSON object hierarchy from the results
+                JSONObject jsonObj  = new JSONObject(jsonResults.toString());
+                String isSuccessful = jsonObj.getString(AppConstant.BD_PLACE_STATUS);
+
+                if (isSuccessful.equals(AppConstant.OMEPARSEZEROSTRING)) {
+                    JSONArray predsJsonArray = jsonObj.getJSONArray(AppConstant.BD_PLACE_RESULTS);
+
+                    // Extract the Place descriptions from the results
+                    if (predsJsonArray != null) {
+                        resultList = new ArrayList<String>(predsJsonArray.length());
+                    }
+
+                    for (int i = 0; i < predsJsonArray.length(); i++) {
+                        resultList.add(predsJsonArray.getJSONObject(i).getString(AppConstant.BD_PLACE_NAME));
+                    }
+                }
+
+            } catch (JSONException je) {
+
+            }
+
+            if (resultList != null && resultList.size() > 0) {
+                return resultList.get(0);
+            } else {
+                return null;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            if (result != null) {
+                mcourtText.setText(result);
+                mcourt = result;
+            }
+        }
+
+    }
+
+
 
 
 }

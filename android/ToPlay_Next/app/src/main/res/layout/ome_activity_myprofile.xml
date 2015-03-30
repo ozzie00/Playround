@@ -22,20 +22,49 @@
         android:layout_height       = "48dip"/>
     -->
 
+    <RelativeLayout
+        android:id            = "@+id/myprofile_avatar_block"
+        android:layout_width  = "fill_parent"
+        android:layout_height = "wrap_content"
+        android:orientation   = "horizontal"
+        android:background    = "@color/white_absolute">
+
+        <ImageView
+            android:id                 = "@+id/myprofile_avatar_icon_view"
+            android:layout_width       = "48dp"
+            android:layout_height      = "48dp"
+            android:layout_marginLeft  = "8dp"
+            android:layout_marginRight = "8dp"
+            android:layout_marginTop   = "8dp"
+            android:layout_marginBottom= "8dp"/>
+
+        <TextView
+            android:id                    = "@+id/myprofile_username_view"
+            android:layout_width          = "wrap_content"
+            android:layout_height         = "wrap_content"
+            android:layout_centerVertical = "true"
+            android:layout_toRightOf      = "@id/myprofile_avatar_icon_view"
+            android:paddingLeft           = "8dp"
+            android:textAppearance        = "?android:attr/textAppearanceMedium"
+            android:textColor             = "@color/grey_darkest"
+            android:textStyle             = "bold"/>
+    </RelativeLayout>
+
     <com.astuetz.PagerSlidingTabStrip
-        android:id                  = "@+id/join_next_fragment_tab"
-        android:layout_width        = "match_parent"
+        android:id                  = "@+id/myprofile_fragment_tab"
+        android:layout_width        = "fill_parent"
         android:layout_height       = "48dip"
-        android:background          = "#ffffff"
-        app:pstsDividerPadding      = "2dp"
+        android:background          = "@android:color/white"
+        android:textColor           = "@color/ome_tab_text_color"
+        app:pstsDividerPadding      = "4dp"
         app:pstsDividerColor        = "@color/white_absolute"
         app:pstsIndicatorColor      = "@color/playround_default"
-        app:pstsIndicatorHeight     = "2dp"
-        app:pstsUnderlineHeight     = "1dp"
+        app:pstsIndicatorHeight     = "4dp"
+        app:pstsUnderlineHeight     = "2dp"
         app:pstsUnderlineColor      = "@color/white_absolute"
         app:pstsShouldExpand        = "true"
-        app:pstsTabPaddingLeftRight = "5dp"
-               />
+        app:pstsTabPaddingLeftRight = "16dp"
+        style="@style/PagerSlidingTabStripStyle"/>
 
 
     <!--
@@ -52,10 +81,10 @@
      -->
 
     <android.support.v4.view.ViewPager
-        android:id            = "@+id/join_next_pager"
+        android:id            = "@+id/myprofile_pager"
         android:background    = "@color/white"
         android:layout_width  = "match_parent"
-        android:layout_height = "match_parent">
+        android:layout_height = "wrap_content">
     </android.support.v4.view.ViewPager>
 </LinearLayout>
 

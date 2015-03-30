@@ -27,7 +27,7 @@ public final class AppConstant {
     public static final String OMETOPLAYPARSEAPPLICATIONID = "E7Vla8ducchhXCBxbjTi1GfiqKJsHKZKa1TdGIke";
     public static final String OMETOPLAYPARSECLIENTKEY     = "B5cNapwaiststrI47QfZlKAxKBUxQggKOu7wfMtW";
     public static final String OMETOPLAYFACEBOOKAPPID      = "846009488767381";
-    public static final String OMETOPLAYGOOGLEPLACEKEY     = "AIzaSyAWF807dWOPwod6y9-GIlnQgeARbA2BKug";//"AIzaSyDoh6RGtWqEro0UtA2BqSur-GESBuFngss";
+    public static final String OMETOPLAYGOOGLEPLACEKEY     = "AIzaSyAWF807dWOPwod6y9-GIlnQgeARbA2BKug";//"AIzaSyDUyn7GO-5sI0h8Q507DCBiIGgzRUNi0NY";//"AIzaSyDoh6RGtWqEro0UtA2BqSur-GESBuFngss";
 
     // Note:  web server key, not mobile client key
     public static final String OMETOPLAYBAIDUPLACEKEY      = "7E72D397164211b08faadefec04b612a";
@@ -52,6 +52,7 @@ public final class AppConstant {
     public static final String OMEPARSECOLONZEROSTRING        = ":0";
     public static final String OMEPARSEDISTANCEFORMATSTRING   = "##.00";
     public static final String OMEPARSEZEROSTRING             = "0";
+    public static final String OMEPARSECOMMASTRING            = ",";
 
 
 
@@ -59,7 +60,7 @@ public final class AppConstant {
 
 
     // default color value
-    public static final int OMETOPLAYDEFAULTCOLOR             = 0xFF1DA155;
+    public static final int OMETOPLAYDEFAULTCOLOR             = 0xFFF3B64D;
     public static final String OMETOPLAYOLYMPICBLUE           = "247291";
     public static final String OMETOPLAYOLYMPICGREEN          = "1DA155";
     public static final String OMETOPLAYOLYMPICRED            = "DF354A";
@@ -263,6 +264,8 @@ public final class AppConstant {
     public static final String OMEPARSEINVITELIKEAUTHORKEY     = "inviteLikeAuthor";
     public static final String OMEPARSEINVITELIKEAUTHORNAMEKEY = "inviteLikeAuthorName";
     public static final String OMEPARSEINVITELIKEPARENTIDKEY   = "inviteLikeParentId";
+    public static final String OMEPARSEINVITELIKETYPEKEY       = "inviteLikeType";
+    public static final String OMEPARSEINVITELIKEOTHERKEY      = "inviteLikeOther";
 
     // Parse API key corresponding to invite score key
     public static final String OMEPARSEINVITESCOREAUTHORKEY       = "inviteScoreAuthor";
@@ -285,6 +288,13 @@ public final class AppConstant {
     public static final String OMEPARSEGROUPMEMBERUSERKEY     = "MemberUser";
     public static final String OMEPARSEGROUPMEMBERUSERNAMEKEY = "MemberUserName";
     public static final String OMEPARSEGROUPMEMBERJOINTIMEKEY = "MemberJoinTime";
+
+    // Parse API key corresponding to following player key
+    public static final String OMEPARSEFOLLOWINGPLAYERUSERKEY     = "followingUser";
+    public static final String OMEPARSEFOLLOWINGPLAYERUSERNAMEKEY = "followingUserName";
+    public static final String OMEPARSEFOLLOWERPLAYERUSERKEY      = "followerUser";
+    public static final String OMEPARSEFOLLOWERPLAYERUSERNAMEKEY  = "followerUsername";
+    public static final String OMEPARSEFOLLOWINGPLAYEROTHERKEY    = "followingOther";
 
     // Parse API default value for invite score
     public static final int OMEPARSEINVITESCOREZERO            = 0;
@@ -522,8 +532,9 @@ public final class AppConstant {
 
     // Define constant variable for Map
 
-    public static final String PLACES_API_BASE           = "https://maps.googleapis.com/maps/api/place";
+    public static final String PLACE_API_BASE           = "https://maps.googleapis.com/maps/api/place";
     public static final String PLACE_TYPE_AUTOCOMPLETE   = "/autocomplete";
+    public static final String PLACE_TYPE_NEARBY         = "/nearbysearch";
     public static final String PLACE_KEY                 = "?key=";
     public static final String PLACE_INPUT               = "&input=";
     public static final String PLACE_RESPONSE_PREDICTION = "predictions";
@@ -532,16 +543,40 @@ public final class AppConstant {
     public static final String PLACE_OUT_JSON            = "/json";
     public static final String PLACE_OUT_ENCODE          = "utf8";
     public static final String PLACE_API_KEY             = AppConstant.OMETOPLAYGOOGLEPLACEKEY;
+    public static final String PLACE_LOCATION            = "&location=";
+    public static final String PLACE_LANGUAGE            = "&language=";
+    public static final String PLACE_RADIUS              = "&radius=";
+    public static final String OME_RADIUS                = "5000";
+    public static final String PLACE_RESPONSE_RESULTS    = "results";
+    public static final String PLACE_RESULTS_NAME        = "name";
+    public static final String PLACE_RESULTS_VICINITY    = "vicinity";
+    public static final String PLACE_SEARCH_STATUS       = "status";
+    public static final String PLACE_SEARH_OK            = "OK";
+    public static final String PLACE_TYPE_KEY            = "&types=";
+    public static final String PLACE_TYPES               = "gym|stadium|amusement_park|university|park";
 
-    public static final String BD_PLACES_API_BASE        = "http://api.map.baidu.com/place/v2/suggestion";
+
+
+
+
+    public static final String BD_PLACES_API_SUGGESTION  = "http://api.map.baidu.com/place/v2/suggestion";
+    public static final String BD_PLACES_API_SEARCH      = "http://api.map.baidu.com/place/v2/search";
     public static final String BD_PLACE_API_KEY          = AppConstant.OMETOPLAYBAIDUPLACEKEY;
     public static final String BD_PLACE_OUT_JSON         = "&output=json";
     public static final String BD_PLACE_REGION           = "&region=全国";
     public static final String BD_PLACE_QUERY            = "?query=";
     public static final String BD_PLACE_KEY              = "&ak=";
     public static final String BD_PLACE_RESULT           = "result";
+    public static final String BD_PLACE_RESULTS          = "results";
     public static final String BD_PLACE_NAME             = "name";
+    public static final String BD_PLACE_STATUS           = "status";
     public static final String BD_PLACE_CITY             = "city";
     public static final String BD_PLACE_DISTRICT         = "district";
+    public static final String BD_PLACE_LOCATION         = "&location=";
+    public static final String BD_PLACE_RADIUS           = "&radius=";
+    public static final String BD_PLACE_NEARBY_SEARCH    = "运动$羽毛球$网球$健身$篮球$台球$山$森林$公园";//"小区$公司$街$路$银行$酒店$区";
+    public static final String BD_PLACE_ADDRESS          = "address";
+
+
 
 }

@@ -3,11 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/margin_large"
-    android:paddingLeft="@dimen/margin_large"
-    android:paddingRight="@dimen/margin_large"
-    android:focusableInTouchMode="true"
-    android:paddingTop="@dimen/margin_large">
+    android:focusableInTouchMode="true">
 
 
     <ListView
@@ -16,6 +12,6 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:divider="@color/white"
-        android:dividerHeight="5.0sp"/>
+        android:dividerHeight="1.0sp"/>
 
 </RelativeLayout>

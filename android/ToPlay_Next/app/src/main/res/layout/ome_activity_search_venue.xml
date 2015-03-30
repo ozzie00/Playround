@@ -60,8 +60,8 @@
     android:layout_marginTop="8dp"
     android:layout_below="@id/search_venue_input_block"
     android:layout_weight="1"
-    android:divider="#F3F3F3"
-    android:dividerHeight="5.0sp"/>
+    android:divider="@color/white"
+    android:dividerHeight="1.0sp"/>
 
 
 

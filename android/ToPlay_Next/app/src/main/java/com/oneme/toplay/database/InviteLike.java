@@ -56,9 +56,43 @@ public final class InviteLike extends ParseObject {
         }
     }
 
+
+
     public String  getParentObjectId() {return getString(AppConstant.OMEPARSEINVITELIKEPARENTIDKEY);}
 
     public final void setParentObjectId(String value) {put(AppConstant.OMEPARSEINVITELIKEPARENTIDKEY, value);}
+
+    public String getType() {
+        if (getString(AppConstant.OMEPARSEINVITELIKETYPEKEY) != null) {
+            return getString(AppConstant.OMEPARSEINVITELIKETYPEKEY);
+        } else {
+            return AppConstant.OMEPARSENULLSTRING;
+        }
+    }
+
+    public void setType(String value) {
+        if (value != null) {
+            put(AppConstant.OMEPARSEINVITELIKETYPEKEY, value);
+        } else {
+            put(AppConstant.OMEPARSEINVITELIKETYPEKEY, AppConstant.OMEPARSENULLSTRING);
+        }
+    }
+
+    public String getOther() {
+        if (getString(AppConstant.OMEPARSEINVITELIKEOTHERKEY) != null) {
+            return getString(AppConstant.OMEPARSEINVITELIKEOTHERKEY);
+        } else {
+            return AppConstant.OMEPARSENULLSTRING;
+        }
+    }
+
+    public void setOther(String value) {
+        if (value != null) {
+            put(AppConstant.OMEPARSEINVITELIKEOTHERKEY, value);
+        } else {
+            put(AppConstant.OMEPARSEINVITELIKEOTHERKEY, AppConstant.OMEPARSENULLSTRING);
+        }
+    }
 
     public static ParseQuery<InviteLike> getQuery() {
         return ParseQuery.getQuery(InviteLike.class);

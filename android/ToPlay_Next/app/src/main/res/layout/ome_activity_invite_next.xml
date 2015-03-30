@@ -123,26 +123,31 @@
             android:layout_marginRight = "8dp"
             android:layout_marginTop   = "8dp"
             android:layout_marginBottom= "8dp"
+            android:layout_centerVertical="true"
             android:src                = "@drawable/ome_small_distance"/>
 
         <TextView
-            android:id               = "@+id/invite_location_text_view"
-            android:layout_width     = "wrap_content"
-            android:layout_height    = "wrap_content"
-            android:layout_marginTop = "8dp"
-            android:layout_alignTop  = "@id/invite_location_icon_view"
-            android:layout_toRightOf = "@id/invite_location_icon_view"
-            android:text             = "@string/OMEPARSEINVITELOCATION"
-            android:paddingLeft      = "8dp"
-            android:paddingRight     = "8dp"
-            android:textAppearance   = "?android:attr/textAppearanceSmall" />
+            android:id                    = "@+id/invite_location_text_view"
+            android:layout_width          = "wrap_content"
+            android:layout_height         = "wrap_content"
+            android:layout_marginTop      = "8dp"
+            android:layout_marginRight    = "8dp"
+            android:layout_toRightOf      = "@id/invite_location_icon_view"
+            android:layout_centerVertical = "true"
+            android:text                  = "@string/OMEPARSEINVITELOCATION"
+            android:paddingLeft           = "8dp"
+            android:paddingRight          = "8dp"
+            android:textAppearance        = "?android:attr/textAppearanceSmall" />
 
         <TextView
             android:id                      = "@+id/invite_location_address_view"
             android:layout_width            = "wrap_content"
-            android:layout_height           = "20dp"
+            android:layout_height           = "wrap_content"
+            android:layout_marginLeft       = "112dp"
+            android:layout_marginTop        = "8dp"
             android:layout_alignTop         = "@id/invite_location_text_view"
             android:layout_alignParentRight = "true"
+            android:paddingLeft             = "8dp"
             android:paddingRight            = "16dp"
             android:textAppearance          = "?android:attr/textAppearanceSmall"
             android:textColor               = "@android:color/black"/>

@@ -497,6 +497,10 @@
                 android:value = ".me.MeActivity"/>
         </activity>
 
+        <activity
+            android:name = ".me.MyProfileActivity">
+        </activity>
+
 
 
         <activity

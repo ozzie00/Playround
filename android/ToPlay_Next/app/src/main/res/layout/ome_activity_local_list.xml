@@ -8,31 +8,20 @@
         android:padding       = "5dip" >
 
     <ImageView
-        android:id                    = "@+id/local_avatar_view"
-        android:layout_width          = "48dp"
-        android:layout_height         = "48dp"
+        android:id                      = "@+id/local_sport_type_icon"
+        android:layout_width            = "wrap_content"
+        android:layout_height           = "wrap_content"
+        android:src                     = "@drawable/ome_other_icon"
         android:layout_centerVertical = "true"/>
 
+
     <TextView
-        android:id                = "@+id/username_view"
+        android:id                = "@+id/local_workoutname_view"
         android:layout_width      = "wrap_content"
         android:layout_height     = "wrap_content"
-        android:layout_marginLeft = "8dp"
-        android:layout_toRightOf  = "@id/local_avatar_view"
+        android:layout_marginLeft = "12dp"
+        android:layout_toRightOf  = "@id/local_sport_type_icon"
         android:textAppearance    = "?android:attr/textAppearanceSmall" />
-
-    <!--
-    <TextView
-        android:id               = "@+id/content_view"
-        android:layout_width     = "wrap_content"
-        android:layout_height    = "wrap_content"
-        android:layout_below     = "@id/username_view"
-        android:layout_marginTop = "1dp"
-        android:layout_toRightOf = "@+id/local_avatar_line_block"
-        android:paddingLeft      = "8dp"
-        android:textAppearance   = "?android:attr/textAppearanceSmall" />
-    -->
-
 
     <ImageView
         android:id                 = "@+id/local_venue_icon_view"
@@ -42,8 +31,8 @@
         android:layout_marginRight = "2dp"
         android:layout_marginTop   = "4dp"
         android:layout_marginBottom= "2dp"
-        android:layout_toRightOf   = "@id/local_avatar_view"
-        android:layout_below       = "@id/username_view"
+        android:layout_toRightOf   = "@id/local_sport_type_icon"
+        android:layout_below       = "@id/local_workoutname_view"
         android:src                = "@drawable/ome_small_venue" />
 
     <TextView
@@ -53,38 +42,9 @@
         android:layout_marginTop = "1dp"
         android:layout_alignTop  = "@id/local_venue_icon_view"
         android:layout_toRightOf = "@+id/local_venue_icon_view"
-        android:layout_below     = "@id/username_view"
+        android:layout_below     = "@id/local_workoutname_view"
         android:paddingLeft      = "4dp"
         android:textSize         = "12dip" />
-
-    <!--
-    <ImageView
-        android:id                 = "@+id/local_person_icon_view"
-        android:layout_width       = "20dp"
-        android:layout_height      = "20dp"
-        android:layout_marginLeft  = "8dp"
-        android:layout_marginRight = "2dp"
-        android:layout_marginTop   = "8dp"
-        android:layout_marginBottom= "2dp"
-        android:layout_toRightOf   = "@id/local_avatar_line_block"
-        android:layout_below       = "@id/local_venue_icon_view"
-        android:src                = "@drawable/ome_small_person" />
-
-
-    <TextView
-        android:id                  = "@+id/local_person_number"
-        android:layout_width        = "wrap_content"
-        android:layout_height       = "wrap_content"
-        android:layout_marginLeft   = "4dp"
-        android:layout_marginRight  = "4dp"
-        android:layout_marginBottom = "2dp"
-        android:layout_alignTop     ="@+id/local_person_icon_view"
-        android:layout_toRightOf    = "@+id/local_person_icon_view"
-        android:layout_below        = "@id/local_venue_icon_view"
-        android:textSize            = "12dip"/>
-
-          android:layout_toRightOf   = "@id/local_person_number"
-    -->
 
     <ImageView
         android:id                 = "@+id/local_clock_icon_view"
@@ -94,8 +54,8 @@
         android:layout_marginRight = "2dp"
         android:layout_marginTop   = "8dp"
         android:layout_marginBottom= "2dp"
-        android:layout_toRightOf   = "@id/local_avatar_view"
-        android:layout_below       = "@id/local_venue_icon_view"
+        android:layout_toRightOf   = "@id/local_sport_type_icon"
+        android:layout_below       = "@id/local_venue_address"
         android:src                = "@drawable/ome_small_clock" />
 
     <TextView
@@ -106,7 +66,7 @@
         android:layout_marginRight = "4dp"
         android:layout_alignTop    = "@id/local_clock_icon_view"
         android:layout_toRightOf   = "@+id/local_clock_icon_view"
-        android:layout_below       = "@id/local_venue_icon_view"
+        android:layout_below       = "@id/local_venue_address"
         android:textSize           = "12dip"/>
 
     <ImageView
@@ -118,7 +78,7 @@
         android:layout_marginTop   = "8dp"
         android:layout_marginBottom= "2dp"
         android:layout_toRightOf   = "@id/local_play_time"
-        android:layout_below       = "@id/local_venue_icon_view"
+        android:layout_below       = "@id/local_venue_address"
         android:src                = "@drawable/ome_small_distance" />
 
     <TextView
@@ -129,39 +89,7 @@
         android:layout_marginRight = "4dp"
         android:layout_alignTop    = "@id/local_distance_icon_view"
         android:layout_toRightOf   = "@+id/local_distance_icon_view"
-        android:layout_below       = "@id/local_venue_icon_view"
+        android:layout_below       = "@id/local_venue_address"
         android:textSize           = "12dip"/>
-
-
-
-    <!-- Rightend Duration -->
-    <TextView
-        android:id                      = "@+id/duration"
-        android:layout_width            = "wrap_content"
-        android:layout_height           = "wrap_content"
-        android:layout_alignParentRight = "true"
-        android:layout_alignTop         = "@id/username_view"
-        android:gravity                 = "right"
-        android:layout_marginRight      = "5dip"
-        android:textSize                = "10dip"/>
-<!--
-    <ImageView
-        android:id                 = "@+id/pin_view"
-        android:layout_width       = "24dp"
-        android:layout_height      = "24dp"
-        android:layout_alignParentRight = "true"
-        android:layout_alignTop    = "@id/content_view"
-        android:layout_below       = "@id/duration"
-        android:layout_marginRight = "8dp"/>
--->
-    <!-- Rightend Arrow -->
-    <ImageView
-        android:id                      = "@+id/sport_type_icon"
-        android:layout_width            = "wrap_content"
-        android:layout_height           = "wrap_content"
-        android:layout_below            = "@id/duration"
-        android:src                     = "@drawable/ome_other_icon"
-        android:layout_alignParentRight = "true"
-        android:layout_centerVertical   = "true"/>
 
 </RelativeLayout>

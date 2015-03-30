@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width  = "fill_parent"
+    android:layout_height = "wrap_content"
+    android:orientation   = "vertical"
+    android:focusableInTouchMode="true">
+
+    <RelativeLayout
+        android:id                  = "@+id/myprofile_count_block"
+        android:layout_width        = "match_parent"
+        android:layout_height       = "wrap_content"
+        android:layout_marginTop    = "8dp"
+        android:layout_marginBottom = "8dp"
+        android:background          = "@color/white_absolute">
+
+        <ImageView
+            android:id                    = "@+id/myprofile_count_icon"
+            android:layout_width          = "wrap_content"
+            android:layout_height         = "wrap_content"
+            android:layout_marginLeft     = "8dp"
+            android:layout_marginRight    = "8dp"
+            android:layout_marginTop      = "8dp"
+            android:layout_marginBottom   = "8dp"
+            android:layout_centerVertical = "true"
+            android:src                   = "@drawable/ome_follow_icon">
+        </ImageView>
+        <TextView
+            android:id                    = "@+id/myprofile_count_number"
+            android:layout_width          = "wrap_content"
+            android:layout_height         = "wrap_content"
+            android:layout_marginLeft     = "8dp"
+            android:layout_marginRight    = "8dp"
+            android:layout_marginTop      = "8dp"
+            android:layout_marginBottom   = "8dp"
+            android:layout_centerVertical = "true"
+            android:layout_toRightOf      = "@id/myprofile_count_icon">
+        </TextView>
+        <TextView
+            android:id                    = "@+id/myprofile_count_text"
+            android:layout_width          = "wrap_content"
+            android:layout_height         = "wrap_content"
+            android:layout_marginTop      = "8dp"
+            android:layout_marginBottom   = "8dp"
+            android:layout_toRightOf      = "@id/myprofile_count_number"
+            android:layout_centerVertical = "true">
+        </TextView>
+    </RelativeLayout>
+
+    <ListView
+        android:id                  = "@+id/myprofile_follow_list"
+        android:layout_width        = "fill_parent"
+        android:layout_height       = "wrap_content"
+        android:layout_marginTop    = "8dp"
+        android:layout_marginBottom = "8dp"
+        android:layout_weight       = "1"
+        android:divider             = "@color/white"
+        android:dividerHeight       = "1.0sp"/>
+
+</LinearLayout>

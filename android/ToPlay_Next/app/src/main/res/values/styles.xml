@@ -96,6 +96,9 @@
         <item name="spb_generate_background_with_colors">false</item>
     </style>
 
+    <style name="PagerSlidingTabStripStyle" parent="">
+        <item name="android:textColorPrimary">@color/playround_default</item>
+    </style>
 
 
 </resources>

@@ -6,10 +6,6 @@
     
     <!-- Strings related to activity -->
     <string name="action_settings">设置</string>
-    <string name="slogan">我爱运动</string>
-    <!-- <string name="title_activity_settings">Settings</string> -->
-    <string name="search_distance">搜索距离</string>
-    <string name="character_count_placeholder">0/200</string>
     
     <!--third id and key -->
     <string name="facebook_app_id">846009488767381</string>
@@ -506,16 +502,23 @@
     <string name="joinscoreactivity_title">成绩</string>
     <string name="joinplayeractivity_title">选手</string>
     <string name="meprofilreactivity_title">个人信息</string>
-
     <string name="OMEPARSEJOINCOMMENTS">评论</string>
-
     <string name="OMEPARSEVENUEOWNERBOOKMANAGEMENT">场馆预定管理</string>
-
-   <string name="OMEPARSEINVITEFILLWORKOUTNAME">请填写锻炼名称!</string>
+    <string name="OMEPARSEINVITEFILLWORKOUTNAME">请填写锻炼名称!</string>
 
     <string name="venuesearchactivity_title">搜索</string>
 
 
+    <!--Add by playround 1.0.4.07 -->
+    <string name="OMEPARSEFOLLOWING">关注</string>
+    <string name="OMEPARSEFOLLOWERS">关注者</string>
+    <string name="OMEPARSEFOLLOW">关注</string>
+    <string name="OMEPARSEMINUTELEFTTEXT">分钟剩余</string>
+    <string name="OMEPARSEWAITTILLNEXTTEXT">等待下一次</string>
+    <string name="OMEPARSEADDTEXT">添加</string>
+    <string name="OMEPARSEADDCOMMENTTEXT">添加评论</string>
+    <string name="OMEPARSEFOLLOWINGLOWERCASE">关注</string>
+    <string name="OMEPARSEFOLLOWERLOWERCASE">关注者</string>
 
 
 </resources>

@@ -37,6 +37,10 @@
 
     <color name="tab_pressed">#1DE34A</color>
     <color name="tab_focus">#1DA155</color>
+    <color name="actionbar_background">#ffffff</color>
+    <color name="playround_default">#f3b64d</color>
+
+
 
     <color name="transparent">#00000000</color>
 

@@ -3,18 +3,12 @@
     android:layout_width         = "fill_parent"
     android:layout_height        = "wrap_content"
     android:orientation          = "vertical"
-    android:paddingBottom        = "@dimen/margin_large"
-    android:paddingLeft          = "@dimen/margin_medium"
-    android:paddingRight         = "@dimen/margin_medium"
-    android:focusableInTouchMode = "true"
-    android:paddingTop           = "@dimen/margin_medium">
+    android:focusableInTouchMode = "true">
 
     <LinearLayout
         android:id                 = "@+id/join_next_info_block"
         android:layout_width       = "fill_parent"
         android:layout_height      = "wrap_content"
-        android:layout_marginLeft  = "8dp"
-        android:layout_marginRight = "8dp"
         android:orientation        = "vertical"
         android:background         = "@android:color/white">
 
@@ -201,8 +195,6 @@
             android:id                 = "@+id/join_next_info_name_block"
             android:layout_width       = "fill_parent"
             android:layout_height      = "wrap_content"
-            android:layout_marginLeft  = "8dp"
-            android:layout_marginRight = "8dp"
             android:layout_marginTop   = "4dp"
             android:orientation        = "horizontal"
             android:weightSum          = "6">
@@ -215,12 +207,14 @@
                 android:orientation      = "vertical">
 
                 <TextView
-                    android:id               = "@+id/join_next_info_workout_name"
-                    android:layout_width     = "wrap_content"
-                    android:layout_height    = "wrap_content"
-                    android:layout_marginTop = "4dp"
-                    android:textAppearance   = "?android:attr/textAppearanceSmall"
-                    android:textColor        = "@android:color/darker_gray"/>
+                    android:id                 = "@+id/join_next_info_workout_name"
+                    android:layout_width       = "wrap_content"
+                    android:layout_height      = "wrap_content"
+                    android:layout_marginLeft  = "8dp"
+                    android:layout_marginRight = "8dp"
+                    android:layout_marginTop   = "4dp"
+                    android:textAppearance     = "?android:attr/textAppearanceSmall"
+                    android:textColor          = "@android:color/darker_gray"/>
 
                 <TextView
                     android:id               = "@+id/join_next_info_workout_propose"
@@ -263,7 +257,6 @@
                     android:layout_marginBottom = "4dp"
                     android:layout_gravity      = "center"
                     android:textAppearance      = "?android:attr/textAppearanceMedium"
-                    android:text                = "@string/OMEPARSEJOININFODAYLEFTTEXT"
                     android:textColor           = "@android:color/darker_gray"/>
             </LinearLayout>
         </LinearLayout>
@@ -324,35 +317,6 @@
                 android:textColor          = "@android:color/darker_gray"/>
         </LinearLayout>
 
-        <!--
-        <View
-            android:layout_width       = "match_parent"
-            android:layout_height      = "1dp"
-            android:orientation        = "horizontal"
-            android:layout_marginLeft  = "8dp"
-            android:layout_marginRight = "8dp"
-            android:background         = "@color/white"/>
-
-        <LinearLayout
-            android:id                 = "@+id/join_next_info_workout_scoreboard_block"
-            android:layout_width       = "match_parent"
-            android:layout_height      = "48dp"
-            android:layout_marginLeft  = "8dp"
-            android:layout_marginRight = "8dp"
-            android:orientation        = "horizontal"
-            android:background         = "@drawable/ome_activity_join_touch_selector">
-
-            <TextView
-                android:id             = "@+id/join_next_info_workout_scoreboard_text"
-                android:layout_width   = "wrap_content"
-                android:layout_height  = "wrap_content"
-                android:layout_gravity = "center_vertical"
-                android:textAppearance = "?android:attr/textAppearanceSmall"
-                android:text           = "@string/OMEPARSEJOINSCOREBOARD"
-                android:textColor      = "@android:color/darker_gray" />
-        </LinearLayout>
-        -->
-
         <View
             android:layout_width       = "match_parent"
             android:layout_height      = "1dp"
@@ -404,7 +368,7 @@
             <LinearLayout
                 android:id                 = "@+id/join_next_info_workout_like_block"
                 android:layout_width       = "0dp"
-                android:layout_height      = "wrap_content"
+                android:layout_height      = "fill_parent"
                 android:paddingTop         = "8dp"
                 android:paddingBottom      = "8dp"
                 android:layout_marginRight = "8dp"
@@ -446,19 +410,19 @@
             android:background    = "@color/white_absolute">
 
             <LinearLayout
-                android:id                  = "@+id/join_next_info_workout_share_linearlayout"
-                android:layout_width        = "match_parent"
-                android:layout_height       = "wrap_content"
-                android:orientation         = "horizontal"
-                android:weightSum           = "3">
+                android:id            = "@+id/join_next_info_workout_share_linearlayout"
+                android:layout_width  = "match_parent"
+                android:layout_height = "wrap_content"
+                android:orientation   = "horizontal"
+                android:weightSum     = "3">
 
                 <ImageView
                     android:id                 = "@+id/join_next_info_workout_share_like"
                     android:layout_width       = "0dp"
                     android:layout_height      = "wrap_content"
                     android:layout_marginLeft  = "8dp"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
+                    android:paddingTop         = "8dp"
+                    android:paddingBottom      = "8dp"
                     android:layout_weight      = "1"
                     android:src                = "@drawable/ic_menu_star"
                     android:contentDescription = "like icon"
@@ -468,9 +432,8 @@
                     android:id                 = "@+id/join_next_info_workout_share_friend"
                     android:layout_width       = "0dp"
                     android:layout_height      = "wrap_content"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-
+                    android:paddingTop         = "8dp"
+                    android:paddingBottom      = "8dp"
                     android:layout_weight      = "1"
                     android:src                = "@drawable/ic_menu_send"
                     android:contentDescription = "email icon"
@@ -481,9 +444,8 @@
                     android:layout_width       = "0dp"
                     android:layout_height      = "wrap_content"
                     android:layout_marginRight = "8dp"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-
+                    android:paddingTop         = "8dp"
+                    android:paddingBottom      = "8dp"
                     android:layout_weight      = "1"
                     android:src                = "@drawable/ic_menu_share"
                     android:contentDescription = "share icon"
