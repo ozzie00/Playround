@@ -39,9 +39,13 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.oneme.toplay.adapter.VenueAdapter;
 import com.oneme.toplay.base.AppConstant;
+import com.oneme.toplay.base.VenueToIntentExtra;
 import com.oneme.toplay.database.Sport;
 import com.oneme.toplay.database.Venue;
+import com.oneme.toplay.venue.DetailInfoActivity;
+
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
@@ -53,14 +57,6 @@ public class SearchVenueActivity extends ActionBarActivity {
 
     private static final String TAG = "SearchVenueActivity";
 
-    class VenueData {
-        String mType;
-        String mName;
-        String mAddress;
-        String mPhone;
-    }
-
-
     private static final int MAX_VENUE_SEARCH_RESULTS = 5;
 
     private Bundle appData;
@@ -70,8 +66,8 @@ public class SearchVenueActivity extends ActionBarActivity {
     private ListView msearchresult;
 
     //public String data;
-    public ArrayList<VenueData> msuggest;
-    public ArrayAdapter<VenueData> madapter;
+    public ArrayList<Venue> msuggest;
+    public ArrayAdapter<Venue> madapter;
 
     private String mnameKey = null;
 
@@ -81,7 +77,7 @@ public class SearchVenueActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ome_activity_search_venue);
 
-        msuggest   = new ArrayList<VenueData>();
+        msuggest   = new ArrayList<Venue>();
 
         appData = getIntent().getBundleExtra(SearchManager.APP_DATA);
         if (appData != null) {
@@ -95,6 +91,16 @@ public class SearchVenueActivity extends ActionBarActivity {
 
         // setting search name list view
         msearchresult = (ListView) findViewById(R.id.search_venue_list);
+        msearchresult.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                final Venue venue = madapter.getItem(position);
+
+                Intent invokeVenueDetailInfoActivityIntent = new Intent(SearchVenueActivity.this, DetailInfoActivity.class);
+                VenueToIntentExtra.putExtra(invokeVenueDetailInfoActivityIntent, venue);
+                startActivity(invokeVenueDetailInfoActivityIntent);
+            }
+        });
 
         final EditText searchedittext = (EditText) findViewById(R.id.search_venue_content_text_view);
         searchedittext.setOnKeyListener(new View.OnKeyListener() {
@@ -143,12 +149,12 @@ public class SearchVenueActivity extends ActionBarActivity {
         protected String doInBackground(String... key) {
             mnameKey = key[0];
             mnameKey = mnameKey.trim();
-            msuggest = new ArrayList<VenueData>();
+            msuggest = new ArrayList<Venue>();
 
             final int mlimit = MAX_VENUE_SEARCH_RESULTS + MAX_VENUE_SEARCH_RESULTS;
 
-            runOnUiThread(new Runnable(){
-                public void run(){
+            runOnUiThread(new Runnable() {
+                public void run() {
 
                     ParseQuery<Venue> query = Venue.getQuery();
                     query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
@@ -158,11 +164,18 @@ public class SearchVenueActivity extends ActionBarActivity {
                         public void done(List<Venue> venueList, ParseException e) {
                             if (e == null) {
                                 for (Venue venue : venueList) {
-                                    VenueData mvenue = new VenueData();
-                                    mvenue.mType = venue.getType();
-                                    mvenue.mName = venue.getName();
-                                    mvenue.mAddress = venue.getAddress();
-                                    mvenue.mPhone = venue.getPhone();
+                                    Venue mvenue = new Venue();
+                                    mvenue.setName(venue.getName());
+                                    mvenue.setLevel(venue.getLevel());
+                                    mvenue.setType(venue.getType());
+                                    mvenue.setAddress(venue.getAddress());
+                                    // mvenue.setLocation(venue.getLocation());
+                                    mvenue.setPhone(venue.getPhone());
+                                    mvenue.setCourtNumber(venue.getCourtNumber());
+                                    mvenue.setLighted(venue.getLighted());
+                                    mvenue.setIndoor(venue.getIndoor());
+                                    mvenue.setPublic(venue.getPublic());
+                                    mvenue.setObjectId(venue.getObjectId());
 
                                     if (msuggest.size() < mlimit) {
                                         msuggest.add(mvenue);
@@ -183,19 +196,29 @@ public class SearchVenueActivity extends ActionBarActivity {
                         public void done(List<Venue> venueList, ParseException e) {
                             if (e == null) {
                                 for (Venue venue : venueList) {
-                                    VenueData mvenue = new VenueData();
-                                    mvenue.mType     = venue.getType();
-                                    mvenue.mName     = venue.getName();
-                                    mvenue.mAddress  = venue.getAddress();
-                                    mvenue.mPhone    = venue.getPhone();
+                                    Venue mvenue = new Venue();
+                                    mvenue.setName(venue.getName());
+                                    mvenue.setLevel(venue.getLevel());
+                                    mvenue.setType(venue.getType());
+                                    mvenue.setAddress(venue.getAddress());
+                                   // mvenue.setLocation(venue.getLocation());
+                                    mvenue.setPhone(venue.getPhone());
+                                    mvenue.setCourtNumber(venue.getCourtNumber());
+                                    mvenue.setLighted(venue.getLighted());
+                                    mvenue.setIndoor(venue.getIndoor());
+                                    mvenue.setPublic(venue.getPublic());
+                                    mvenue.setObjectId(venue.getObjectId());
 
                                     if (msuggest.size() < mlimit) {
                                         msuggest.add(mvenue);
                                     }
                                 }
-                                madapter = new resultListAdapter(SearchVenueActivity.this, msuggest);
-                                msearchresult.setAdapter(madapter);
-                                madapter.notifyDataSetChanged();
+
+                                if (msuggest.size() >= 1) {
+                                    madapter = new VenueAdapter(SearchVenueActivity.this, msuggest);
+                                    msearchresult.setAdapter(madapter);
+                                    madapter.notifyDataSetChanged();
+                                }
 
                             } else {
 
@@ -217,14 +240,16 @@ public class SearchVenueActivity extends ActionBarActivity {
 
     }
 
-    class resultListAdapter extends ArrayAdapter<VenueData> {
+
+    /*
+    class resultListAdapter extends ArrayAdapter<Venue> {
 
         LayoutInflater mInflater;
 
-        VenueData mvenue;
-        ArrayList<VenueData> mdata;
+        Venue mvenue;
+        ArrayList<Venue> mdata;
 
-        public resultListAdapter(Context c, ArrayList<VenueData> data){
+        public resultListAdapter(Context c, ArrayList<Venue> data){
             super(c, 0);
             this.mInflater = (LayoutInflater)c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             this.mdata     = data;
@@ -240,13 +265,13 @@ public class SearchVenueActivity extends ActionBarActivity {
             }
         }
 
-        public void setData(ArrayList<VenueData> mPpst) {
+        public void setData(ArrayList<Venue> mPpst) {
             //contains class items data.
             mdata = mPpst;
         }
 
         @Override
-        public VenueData getItem(int arg0) {
+        public Venue getItem(int arg0) {
             // TODO Auto-generated method stub
             //return arg0;
             return mdata.get(arg0);
@@ -284,28 +309,28 @@ public class SearchVenueActivity extends ActionBarActivity {
             // mlocation = mPostingData.get(position);
             mvenue = getItem(position);
 
-            if (mvenue.mType != null) {
-                int index = Sport.msportarraylist.indexOf(mvenue.mType);
+            if (mvenue.getType() != null) {
+                int index = Sport.msportarraylist.indexOf(mvenue.getType());
                 if (index >= 0) {
                     holder.type.setImageResource(Sport.msporticonarray[index]);
                 }
             }
-            if (mvenue.mName!=null) {
-                holder.name.setText(mvenue.mName);
+            if (mvenue.getName()!=null) {
+                holder.name.setText(mvenue.getName());
             }
 
-            if (mvenue.mAddress!=null){
-                holder.address.setText(mvenue.mAddress);
+            if (mvenue.getAddress()!=null){
+                holder.address.setText(mvenue.getAddress());
             }
 
-            if (mvenue.mPhone!=null && mvenue.mPhone.length() > AppConstant.OMEPHONEMINIMUMLENGTH){
+            if (mvenue.getPhone()!=null && mvenue.getPhone().length() > AppConstant.OMEPHONEMINIMUMLENGTH){
                 holder.phone.setVisibility(View.VISIBLE);
 
                 holder.phone.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent invokePhoneCall = new Intent(Intent.ACTION_CALL);
-                        invokePhoneCall.setData(Uri.parse(AppConstant.OMEPARSEINVOKECALLPHONE + mvenue.mPhone));
+                        invokePhoneCall.setData(Uri.parse(AppConstant.OMEPARSEINVOKECALLPHONE + mvenue.getPhone()));
                         startActivity(invokePhoneCall);
                     }
                 });
@@ -348,11 +373,11 @@ public class SearchVenueActivity extends ActionBarActivity {
 
                 @Override
                 protected void publishResults(CharSequence contraint, FilterResults results) {
-                    ArrayList<VenueData> filteredList = (ArrayList<VenueData>) results.values;
+                    ArrayList<Venue> filteredList = (ArrayList<Venue>) results.values;
                     if(results != null && results.count > 0) {
                         clear();
                         notifyDataSetChanged();
-                        for (VenueData string : filteredList) {
+                        for (Venue string : filteredList) {
                             add(string);
                         }
                     }
@@ -364,6 +389,7 @@ public class SearchVenueActivity extends ActionBarActivity {
             return myFilter;
         }
     }
+    */
 
 
 }

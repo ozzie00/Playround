@@ -25,6 +25,19 @@
 
     </style>
 
+    <!-- ActionBar title text -->
+    <style name="MyActionBarTitleText"
+        parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/playround_default</item>
+        <!-- The textColor property is backward compatible with the Support Library -->
+    </style>
+
+    <style name="MyTheme.ActionBar.TitleTextStyle"
+        parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/playround_default</item>
+    </style>
+
+
     <style name="Theme.AppCompat.Translucent">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:colorBackgroundCacheHint">@null</item>

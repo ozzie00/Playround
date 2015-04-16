@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/margin_large"
+    android:paddingLeft="@dimen/margin_large"
+    android:paddingRight="@dimen/margin_large"
+    android:focusableInTouchMode="true"
+    android:paddingTop="@dimen/margin_large">
+
+
+    <ListView
+        android:id="@+id/join_comment_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:divider="#F3F3F3"
+        android:dividerHeight="5.0sp"/>
+
+</RelativeLayout>
+
+-->
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/margin_large"
+    android:paddingLeft="@dimen/margin_large"
+    android:paddingRight="@dimen/margin_large"
+    android:focusableInTouchMode="true"
+    android:paddingTop="@dimen/margin_large"
+    android:background="@color/white">
+
+    <!--
+       android:layout_weight = "1"
+        android:divider       = "#F3F3F3"
+        android:dividerHeight = "1.0sp"
+    -->
+
+
+    <ListView
+        android:id            = "@+id/venue_comment_list"
+        android:layout_width  = "fill_parent"
+        android:layout_height = "wrap_content"
+        android:layout_weight = "1"
+        android:divider       = "@color/white"
+        android:dividerHeight = "5.0sp"/>
+
+    <RelativeLayout
+        android:id            = "@+id/venue_input_block"
+        android:layout_width  = "match_parent"
+        android:layout_height = "match_parent">
+        <Button
+            android:id                       = "@+id/venue_comment_add_text"
+            android:layout_width             = "wrap_content"
+            android:layout_height            = "wrap_content"
+            android:layout_marginLeft        = "8dp"
+            android:layout_marginRight       = "8dp"
+            android:layout_alignParentBottom = "true"
+            android:layout_alignParentRight  = "true"
+            android:background               = "@drawable/ome_join_comment_button"
+            android:text                     = "@string/OMEPARSEADDTEXT"
+            android:textStyle                = "bold"
+            android:visibility               = "gone"
+            android:clickable                = "true">
+        </Button>
+        <EditText
+            android:id                        = "@+id/venue_comment_input_text"
+            android:layout_width              = "match_parent"
+            android:layout_height             = "wrap_content"
+            android:layout_toLeftOf           = "@id/venue_comment_add_text"
+            android:layout_alignParentBottom  = "true"
+            android:hint                      = "@string/OMEPARSEADDCOMMENTTEXT"
+            android:background                = "@drawable/ome_textfield_input_rectangle_background"
+            android:visibility                = "gone">
+        </EditText>
+    </RelativeLayout>
+
+</RelativeLayout>

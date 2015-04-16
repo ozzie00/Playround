@@ -130,9 +130,9 @@ public class LikeActivity extends ActionBarActivity {
             }
         });
 
-        if (muser != null) {
+        //if (muser != null) {
             new getInviteLikeRecord().execute(muser);
-        }
+        //}
 
     }
 
@@ -377,6 +377,25 @@ public class LikeActivity extends ActionBarActivity {
                     }
                 });
 
+            } else {
+                // current user does not login
+                holder.follow.setText(getResources().getString(R.string.OMEPARSEFOLLOWING));
+                holder.follow.setTextColor(getResources().getColor(R.color.white_absolute));
+
+                // compatible for android version prior to api 16
+                if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN ) {
+                    holder.follow.setBackground(mfollowingdrawable);
+                } else {
+                    holder.follow.setBackgroundDrawable(mfollowingdrawable);
+                }
+
+                holder.follow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        android.widget.Toast.makeText(LikeActivity.this, getResources().getString(R.string.OMEPARSEINVITELOGINALERT),
+                                android.widget.Toast.LENGTH_LONG).show();
+                    }
+                });
 
             }
 

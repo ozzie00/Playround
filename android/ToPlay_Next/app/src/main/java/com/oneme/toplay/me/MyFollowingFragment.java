@@ -19,7 +19,9 @@ package com.oneme.toplay.me;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.app.Activity;
@@ -52,6 +54,7 @@ import com.parse.ParseUser;
 
 public class MyFollowingFragment extends Fragment {
     private String mmemberusername = null;
+    private ParseUser muser        = ParseUser.getCurrentUser();
 
     private TextView mfollowingnumber = null;
     private TextView mfollowingtext   = null;
@@ -63,9 +66,11 @@ public class MyFollowingFragment extends Fragment {
 
     private static final int MAX_FOLLOWING_SEARCH_RESULTS = 1000;
 
-    private String mnameKey     = null;
-    private int mcount          = 0;
-    private Boolean isFollowing = false;
+    private String mnameKey             = null;
+    private int mcount                  = 0;
+    private Boolean isFollowing         = false;
+    private Drawable mfollowingdrawable = null;
+    private Drawable mfollowdrawable    = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -98,8 +103,11 @@ public class MyFollowingFragment extends Fragment {
 
         View rootView   = inflater.inflate(R.layout.ome_activity_myfollowing_fragment, container, false);
 
+        mfollowingdrawable = getResources().getDrawable(R.drawable.ome_activity_following_background);
+        mfollowdrawable    = getResources().getDrawable(R.drawable.ome_activity_follow_background);
+
         msuggest        = new ArrayList<FollowingPlayer>();
-        madapter        = new resultListAdapter(getActivity(), msuggest, ParseUser.getCurrentUser());
+        madapter        = new resultListAdapter(getActivity(), msuggest, muser);
 
         // setting search name list view
         msearchresult = (ListView)rootView.findViewById(R.id.myprofile_follow_list);
@@ -158,7 +166,7 @@ public class MyFollowingFragment extends Fragment {
             getActivity().runOnUiThread(new Runnable() {
                 public void run() {
                     ParseQuery<FollowingPlayer> followingquery = FollowingPlayer.getQuery();
-                    followingquery.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
+                    followingquery.setCachePolicy(ParseQuery.CachePolicy.NETWORK_ELSE_CACHE);
                     followingquery.include(AppConstant.OMEPARSEFOLLOWINGPLAYERUSERKEY);
                     followingquery.include(AppConstant.OMEPARSEFOLLOWERPLAYERUSERKEY);
                     followingquery.whereEqualTo(AppConstant.OMEPARSEFOLLOWERPLAYERUSERNAMEKEY, mnameKey);
@@ -271,9 +279,9 @@ public class MyFollowingFragment extends Fragment {
                 holder = (ViewHolder) convertView.getTag();
             }
 
-            mfollowing                    = getItem(position);
+            mfollowing                     = getItem(position);
             final ParseUser mfollowingUser = mfollowing.getFollowingUser();
-            String mfollowerUsename       = mfollowingUser.getUsername();
+            String mfollowerUsename        = mfollowingUser.getUsername();
 
             if (mfollowingUser != null) {
                 LoadImageFromParseCloud.getAvatar(getActivity(), mfollowingUser, holder.avatar);
@@ -282,6 +290,7 @@ public class MyFollowingFragment extends Fragment {
                 holder.name.setText(mfollowerUsename);
             }
 
+            // check if current user is null
             if (mfollowingUser != null && user != null) {
                 ParseQuery<FollowingPlayer> query = FollowingPlayer.getQuery();
                 query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
@@ -296,7 +305,14 @@ public class MyFollowingFragment extends Fragment {
                             isFollowing = true;
                             holder.follow.setText(getResources().getString(R.string.OMEPARSEFOLLOWING));
                             holder.follow.setTextColor(getResources().getColor(R.color.white_absolute));
-                            holder.follow.setBackground(getResources().getDrawable(R.drawable.ome_activity_following_background));
+
+                            // compatible for android version prior to api 16
+                            if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN ) {
+                                holder.follow.setBackground(mfollowingdrawable);
+                            } else {
+                                holder.follow.setBackgroundDrawable(mfollowingdrawable);
+                            }
+
                             holder.follow.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
@@ -305,13 +321,28 @@ public class MyFollowingFragment extends Fragment {
                                         Following.unfollowPlayer(mfollowingUser, user);
                                         holder.follow.setText(getResources().getString(R.string.OMEPARSEFOLLOW));
                                         holder.follow.setTextColor(getResources().getColor(R.color.playround_default));
-                                        holder.follow.setBackground(getResources().getDrawable(R.drawable.ome_activity_follow_background));
+
+                                        // compatible for android version prior to api 16
+                                        if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN ) {
+                                            holder.follow.setBackground(mfollowdrawable);
+                                        } else {
+                                            holder.follow.setBackgroundDrawable(mfollowdrawable);
+                                        }
+
                                     } else {
                                         isFollowing = true;
                                         Following.followingPlayer(mfollowingUser, user);
                                         holder.follow.setText(getResources().getString(R.string.OMEPARSEFOLLOWING));
                                         holder.follow.setTextColor(getResources().getColor(R.color.white_absolute));
                                         holder.follow.setBackground(getResources().getDrawable(R.drawable.ome_activity_following_background));
+
+                                        // compatible for android version prior to api 16
+                                        if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN ) {
+                                            holder.follow.setBackground(mfollowingdrawable);
+                                        } else {
+                                            holder.follow.setBackgroundDrawable(mfollowingdrawable);
+                                        }
+
                                     }
                                 }
                             });
@@ -319,7 +350,14 @@ public class MyFollowingFragment extends Fragment {
                             isFollowing = false;
                             holder.follow.setText(getResources().getString(R.string.OMEPARSEFOLLOW));
                             holder.follow.setTextColor(getResources().getColor(R.color.playround_default));
-                            holder.follow.setBackground(getResources().getDrawable(R.drawable.ome_activity_follow_background));
+
+                            // compatible for android version prior to api 16
+                            if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN ) {
+                                holder.follow.setBackground(mfollowdrawable);
+                            } else {
+                                holder.follow.setBackgroundDrawable(mfollowdrawable);
+                            }
+
                             holder.follow.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
@@ -328,13 +366,26 @@ public class MyFollowingFragment extends Fragment {
                                         Following.followingPlayer(mfollowingUser, user);
                                         holder.follow.setText(getResources().getString(R.string.OMEPARSEFOLLOWING));
                                         holder.follow.setTextColor(getResources().getColor(R.color.white_absolute));
-                                        holder.follow.setBackground(getResources().getDrawable(R.drawable.ome_activity_following_background));
+
+                                        // compatible for android version prior to api 16
+                                        if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN ) {
+                                            holder.follow.setBackground(mfollowingdrawable);
+                                        } else {
+                                            holder.follow.setBackgroundDrawable(mfollowingdrawable);
+                                        }
+
                                     } else {
                                         isFollowing = false;
                                         Following.unfollowPlayer(mfollowingUser, user);
                                         holder.follow.setText(getResources().getString(R.string.OMEPARSEFOLLOW));
                                         holder.follow.setTextColor(getResources().getColor(R.color.playround_default));
-                                        holder.follow.setBackground(getResources().getDrawable(R.drawable.ome_activity_follow_background));
+
+                                        // compatible for android version prior to api 16
+                                        if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN ) {
+                                            holder.follow.setBackground(mfollowdrawable);
+                                        } else {
+                                            holder.follow.setBackgroundDrawable(mfollowdrawable);
+                                        }
 
                                     }
                                 }
@@ -344,6 +395,26 @@ public class MyFollowingFragment extends Fragment {
                     }
                 });
 
+
+            } else if (mfollowingUser != null && user == null) {
+                // current user does not login
+                holder.follow.setText(getResources().getString(R.string.OMEPARSEFOLLOWING));
+                holder.follow.setTextColor(getResources().getColor(R.color.white_absolute));
+
+                // compatible for android version prior to api 16
+                if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN ) {
+                    holder.follow.setBackground(mfollowingdrawable);
+                } else {
+                    holder.follow.setBackgroundDrawable(mfollowingdrawable);
+                }
+
+                holder.follow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        android.widget.Toast.makeText(getActivity(), getResources().getString(R.string.OMEPARSEINVITELOGINALERT),
+                                android.widget.Toast.LENGTH_LONG).show();
+                    }
+                });
 
             }
 

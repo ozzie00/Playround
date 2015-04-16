@@ -15,13 +15,16 @@ import android.widget.TextView;
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.database.FollowingPlayer;
 import com.oneme.toplay.database.Invite;
-import com.oneme.toplay.database.InviteLike;
 import com.oneme.toplay.database.InviteComment;
+import com.oneme.toplay.database.InviteLike;
+import com.oneme.toplay.database.VenueComment;
+import com.oneme.toplay.database.VenueLike;
 import com.oneme.toplay.database.InviteScore;
 import com.oneme.toplay.database.Group;
 import com.oneme.toplay.database.Message;
 import com.oneme.toplay.database.Player;
 import com.oneme.toplay.database.Venue;
+import com.oneme.toplay.database.VenueAsHome;
 import com.oneme.toplay.database.VenueOwner;
 import com.oneme.toplay.service.Singleton;
 
@@ -89,9 +92,32 @@ public class Application extends android.app.Application {
 
     public static final String INTENT_EXTRA_VENUE            = AppConstant.OMETOPLAYVENUENAMEKEY;
 
+    public static final String INTENT_EXTRA_VENUELEVEL       = AppConstant.OMETOPLAYVENUELEVELKEY;
+
     public static final String INTENT_EXTRA_VENUETYPE        = AppConstant.OMETOPLAYVENUETYPEKEY;
 
+    public static final String INTENT_EXTRA_VENUEADDRESS     = AppConstant.OMETOPLAYVENUEADDRESSKEY;
+
     public static final String INTENT_EXTRA_VENUEPHONE       = AppConstant.OMETOPLAYVENUEPHONEKEY;
+
+    public static final String INTENT_EXTRA_VENUECOURTNUMBER = AppConstant.OMETOPLAYVENUECOURTNUMBERKEY;
+
+    public static final String INTENT_EXTRA_VENUELIGHTED     = AppConstant.OMETOPLAYVENUELIGHTEDKEY;
+
+    public static final String INTENT_EXTRA_VENUEINDOOR      = AppConstant.OMETOPLAYVENUEINDOORKEY;
+
+    public static final String INTENT_EXTRA_VENUEPUBLIC      = AppConstant.OMETOPLAYVENUEPUBLICKEY;
+
+
+
+
+
+
+
+    public static final String INTENT_EXTRA_LATITUDE         = "TOPLAYLATITUDE";
+
+    public static final String INTENT_EXTRA_LONGITUDE        = "TOPLAYLONGITUDE";
+
 
     // Key for saving the search distance preference
     private static final String KEY_SEARCH_DISTANCE    = "searchDistance";
@@ -141,6 +167,13 @@ public class Application extends android.app.Application {
         ParseObject.registerSubclass(Group.class);
 
         ParseObject.registerSubclass(FollowingPlayer.class);
+
+        ParseObject.registerSubclass(VenueComment.class);
+
+        ParseObject.registerSubclass(VenueLike.class);
+
+        ParseObject.registerSubclass(VenueAsHome.class);
+
 
         // init baidu map
         SDKInitializer.initialize(getApplicationContext());

@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">动动</string>
-    <string name="app_version">动动 安卓版 v.1.0.4.07</string>
+    <string name="app_version">动动 安卓版 v.1.0.4.08</string>
     
     <!-- Strings related to activity -->
     <string name="action_settings">设置</string>
@@ -498,8 +498,8 @@
 
 
     <string name="joincommentactivity_title">评论</string>
-    <string name="joinlikeactivity_title">赞</string>
-    <string name="joinscoreactivity_title">成绩</string>
+    <string name="joinlikeactivity_title">称赞者</string>
+    <string name="joinscoreactivity_title">成绩排行榜</string>
     <string name="joinplayeractivity_title">选手</string>
     <string name="meprofilreactivity_title">个人信息</string>
     <string name="OMEPARSEJOINCOMMENTS">评论</string>
@@ -519,6 +519,23 @@
     <string name="OMEPARSEADDCOMMENTTEXT">添加评论</string>
     <string name="OMEPARSEFOLLOWINGLOWERCASE">关注</string>
     <string name="OMEPARSEFOLLOWERLOWERCASE">关注者</string>
+
+    <!--Add by playround 1.0.4.08 -->
+    <string name="venuedetailinfoactivity_title">场馆信息</string>
+    <string name="myfollowingfragment_title">关注</string>
+    <string name="myfollowerfragment_title">关注者</string>
+    <string name="venuecommentactivity_title">评论</string>
+
+    <string name="OMEPARSECOURTSTEXT">场地</string>
+    <string name="OMEPARSELIGHTEDTEXT">夜间灯光</string>
+    <string name="OMEPARSEINDOORTEXT">室内</string>
+    <string name="OMEPARSEPLAYERSTEXT">选手</string>
+    <string name="OMEPARSEACCESSTEXT">对外公开</string>
+
+    <string name="OMEPARSESELECTASHOMEFIELD">选择作为主场</string>
+    <string name="OMEPARSEMYHOMEFIELD">我的主场</string>
+
+
 
 
 </resources>

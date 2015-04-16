@@ -46,7 +46,7 @@ public class MyProfileActivity extends ActionBarActivity {
 
     public class LeftPagerAdapter extends FragmentPagerAdapter {
 
-        private final String[] TITLES = {getResources().getString(R.string.OMEPARSEFOLLOWING), getResources().getString(R.string.OMEPARSEFOLLOWERS)};
+        private final String[] TITLES = {getResources().getString(R.string.myfollowingfragment_title), getResources().getString(R.string.myfollowerfragment_title)};
 
         public LeftPagerAdapter(FragmentManager fm) {
             super(fm);

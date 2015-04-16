@@ -266,8 +266,12 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
                     public ParseQuery<Invite> create() {
                         // update user newest location
                         BDLocation myLocation = (currentLocation == null) ? lastLocation : currentLocation;
-                        Application.setCurrentLatitude(Double.toString(myLocation.getLatitude()));
-                        Application.setCurrentLongitude(Double.toString(myLocation.getLongitude()));
+
+                        // check mylocation is null
+                        if (myLocation != null) {
+                            Application.setCurrentLatitude(Double.toString(myLocation.getLatitude()));
+                            Application.setCurrentLongitude(Double.toString(myLocation.getLongitude()));
+                        }
 
                         ParseQuery<Invite> query = Invite.getQuery();
                         query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
@@ -298,16 +302,20 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
                     view = View.inflate(getContext(), R.layout.ome_activity_local_list, null);
                 }
 
-                ImageView sporttypeiconView = (ImageView) view.findViewById(R.id.local_sport_type_icon);
+                ImageView avatarView        = (ImageView) view.findViewById(R.id.local_avatar_view);
+                TextView usernameView       = (TextView) view.findViewById(R.id.local_username_view);
                 TextView workoutnameView    = (TextView) view.findViewById(R.id.local_workoutname_view);
                 TextView venueaddressView   = (TextView) view.findViewById(R.id.local_venue_address);
                 TextView playtimeView       = (TextView) view.findViewById(R.id.local_play_time);
                 TextView distanceView       = (TextView) view.findViewById(R.id.local_distance_to_me);
+                ImageView sporttypeiconView = (ImageView) view.findViewById(R.id.local_sport_type_icon);
+
+                LoadImageFromParseCloud.getAvatar(CnLocalWithoutMapActivity.this, invite.getUser(), avatarView);
 
                 String mplaytime = invite.getPlayTime();
+                usernameView.setText(invite.getFromUsername());
                 workoutnameView.setText(invite.getWorkoutName());
                 venueaddressView.setText(invite.getCourt());
-                playtimeView.setText(invite.getPlayTime());
 
                 if (mplaytime.contains(AppConstant.OMEPARSESLASHSTRING)) {
                     // the old version time format contains slash

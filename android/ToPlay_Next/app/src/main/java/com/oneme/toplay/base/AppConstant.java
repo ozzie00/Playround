@@ -86,6 +86,10 @@ public final class AppConstant {
     public static final String OMETOPLAYINVITELIKECLASSKEY     = "PlayroundInviteLike";
     public static final String OMETOPLAYINVITESCORECLASSKEY    = "PlayroundInviteScore";
     public static final String OMETOPLAYFOLLOWINGCLASSKEY      = "PlayroundFollowing";
+    public static final String OMETOPLAYVENUECOMMENTCLASSKEY   = "PlayroundVenueComment";
+    public static final String OMETOPLAYVENUELIKECLASSKEY      = "PlayroundVenueLike";
+    public static final String OMETOPLAYVENUEASHOMECLASSKEY    = "PlayroundVenueAsHome";
+
 
     // Parse API key constants related to user :
     public static final String OMEPARSEUSERKEY             = "user";
@@ -159,6 +163,7 @@ public final class AppConstant {
     public static final String OMETOPLAYVENUEUPLOADEDBYKEY   = "venueUploadedby";
     public static final String OMETOPLAYVENUEPLAYERASHOMEKEY = "venuePlayerAsHome";
     public static final String OMETOPLAYVENUESEARCHKEY       = "venueSearch";
+    public static final String OMETOPLAYVENUEDESCRIPTIONKEY  = "venueDescriprion";
 
     // Parse API key constants related to venue owner :
     public static final String OMEPARSEVENUEOWNERNAMEKEY         = "ownerName";
@@ -295,6 +300,26 @@ public final class AppConstant {
     public static final String OMEPARSEFOLLOWERPLAYERUSERKEY      = "followerUser";
     public static final String OMEPARSEFOLLOWERPLAYERUSERNAMEKEY  = "followerUsername";
     public static final String OMEPARSEFOLLOWINGPLAYEROTHERKEY    = "followingOther";
+
+    // Parse API key corresponding to venue comment key
+    public static final String OMEPARSEVENUECOMMENTAUTHORKEY     = "venueCommentAuthor";
+    public static final String OMEPARSEVENUECOMMENTAUTHORNAMEKEY = "venueCommentAuthorName";
+    public static final String OMEPARSEVENUECOMMENTCONTENTKEY    = "venueCommentContent";
+    public static final String OMEPARSEVENUECOMMENTPARENTIDKEY   = "venueCommentParentId";
+    public static final String OMEPARSEVENUECOMMENTPUBLICKEY     = "venueCommentPublic";
+    public static final String OMEPARSEVENUECOMMENTSUBMITTIMEKEY = "venueCommentSubmitTime";
+
+    // Parse API key corresponding to venue like key
+    public static final String OMEPARSEVENUELIKEAUTHORKEY     = "venueLikeAuthor";
+    public static final String OMEPARSEVENUELIKEAUTHORNAMEKEY = "venueLikeAuthorName";
+    public static final String OMEPARSEVENUELIKEPARENTIDKEY   = "venueLikeParentId";
+    public static final String OMEPARSEVENUELIKEOTHERKEY      = "venueLikeOther";
+
+    // Parse API key corresponding to venue as home key
+    public static final String OMEPARSEVENUEHOMEAUTHORKEY     = "venueAsHomeAuthor";
+    public static final String OMEPARSEVENUEHOMEAUTHORNAMEKEY = "venueAsHomeAuthorName";
+    public static final String OMEPARSEVENUEHOMEPARENTIDKEY   = "venueAsHomeParentId";
+    public static final String OMEPARSEVENUEHOMEOTHERKEY      = "venueAsHomeOther";
 
     // Parse API default value for invite score
     public static final int OMEPARSEINVITESCOREZERO            = 0;

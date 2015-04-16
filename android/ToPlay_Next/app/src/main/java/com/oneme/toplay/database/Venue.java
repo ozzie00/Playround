@@ -111,7 +111,9 @@ public final class Venue extends ParseObject {
     }
 
     public void setLocation(ParseGeoPoint value) {
-        put(AppConstant.OMETOPLAYVENUELOCATIONKEY, value);
+        if (value != null) {
+            put(AppConstant.OMETOPLAYVENUELOCATIONKEY, value);
+        }
     }
 
     public String getPhone() {
@@ -223,6 +225,25 @@ public final class Venue extends ParseObject {
             addUnique(AppConstant.OMETOPLAYVENUEPLAYERASHOMEKEY, Arrays.asList(value));
         }
     }
+
+    public String getDescription() {
+        if (getString(AppConstant.OMETOPLAYVENUEDESCRIPTIONKEY) != null) {
+            return getString(AppConstant.OMETOPLAYVENUEDESCRIPTIONKEY);
+        } else {
+            return AppConstant.OMEPARSENULLSTRING;
+        }
+    }
+
+    public void setDescription(String value) {
+        if (value != null) {
+            put(AppConstant.OMETOPLAYVENUEDESCRIPTIONKEY, value);
+        } else {
+            put(AppConstant.OMETOPLAYVENUEDESCRIPTIONKEY, AppConstant.OMEPARSENULLSTRING);
+        }
+    }
+
+
+
 
     public static ParseQuery<Venue> getQuery() {
         return ParseQuery.getQuery(Venue.class);

@@ -300,6 +300,11 @@ public class VenueSearchActivity extends ActionBarActivity  {
 
             if (mvenue.mType != null) {
                 int index = Sport.msportarraylist.indexOf(mvenue.mType);
+
+                // check exception
+                if (index < 0) {
+                    index = 0;
+                }
                 holder.type.setImageResource(Sport.msporticonarray[index]);
             }
             if (mvenue.mName!=null) {

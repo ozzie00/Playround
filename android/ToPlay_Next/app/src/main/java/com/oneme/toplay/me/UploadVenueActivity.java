@@ -174,6 +174,7 @@ public class UploadVenueActivity extends ActionBarActivity {
         venue.setCourtNumber("1");
         venue.setIndoor("1");
         venue.setLighted("1");
+        venue.setPublic("Public");
 
         venue.setUploadedBy(ParseUser.getCurrentUser().getUsername());
         ParseACL acl = new ParseACL();

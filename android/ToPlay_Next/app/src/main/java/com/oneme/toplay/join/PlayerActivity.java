@@ -120,9 +120,9 @@ public class PlayerActivity extends ActionBarActivity {
         });
 
         //new getGroupRecord().execute(AppConstant.OMEPARSENULLSTRING);
-        if (muser != null) {
+       // if (muser != null) {
             new getGroupRecord().execute(muser);
-        }
+       // }
 
     }
 
@@ -266,9 +266,9 @@ public class PlayerActivity extends ActionBarActivity {
                 holder = (ViewHolder) convertView.getTag();
             }
 
-            mgroup = getItem(position);
+            mgroup                      = getItem(position);
             final ParseUser mmemberUser = mgroup.getMemberUser();
-            String mmemeberUsername = mmemberUser.getUsername();
+            String mmemeberUsername     = mmemberUser.getUsername();
 
             if (mmemberUser != null) {
                 LoadImageFromParseCloud.getAvatar(PlayerActivity.this, mmemberUser, holder.avatar);
@@ -278,6 +278,7 @@ public class PlayerActivity extends ActionBarActivity {
                 holder.name.setText(mmemeberUsername);
             }
 
+            // check if current user is null
             if (mmemberUser != null && user != null) {
                 ParseQuery<FollowingPlayer> query = FollowingPlayer.getQuery();
                 query.setCachePolicy(ParseQuery.CachePolicy.NETWORK_ELSE_CACHE);
@@ -375,6 +376,27 @@ public class PlayerActivity extends ActionBarActivity {
                             });
                         }
 
+                    }
+                });
+
+
+            } else if (mmemberUser != null && user == null) {
+                // current user does not login
+                holder.follow.setText(getResources().getString(R.string.OMEPARSEFOLLOWING));
+                holder.follow.setTextColor(getResources().getColor(R.color.white_absolute));
+
+                // compatible for android version prior to api 16
+                if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN ) {
+                    holder.follow.setBackground(mfollowingdrawable);
+                } else {
+                    holder.follow.setBackgroundDrawable(mfollowingdrawable);
+                }
+
+                holder.follow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        android.widget.Toast.makeText(PlayerActivity.this, getResources().getString(R.string.OMEPARSEINVITELOGINALERT),
+                                android.widget.Toast.LENGTH_LONG).show();
                     }
                 });
 

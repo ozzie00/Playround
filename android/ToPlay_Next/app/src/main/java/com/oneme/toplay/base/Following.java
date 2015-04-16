@@ -58,6 +58,7 @@ public class Following {
                             macl.setPublicReadAccess(true);
                             macl.setWriteAccess(mfolloweruser, true);
 
+                            mfollowing.setACL(macl);
                             mfollowing.saveInBackground();
                         }
                     }

@@ -365,9 +365,11 @@ public class SearchActivity extends ActionBarActivity  {
 
             runOnUiThread(new Runnable(){
                 public void run(){
-                    madapter = new resultListAdapter(SearchActivity.this, msuggest);
-                    msearchresult.setAdapter(madapter);
-                    madapter.notifyDataSetChanged();
+                    if (msuggest.size() >= 1) {
+                        madapter = new resultListAdapter(SearchActivity.this, msuggest);
+                        msearchresult.setAdapter(madapter);
+                        madapter.notifyDataSetChanged();
+                    }
                 }
             });
 

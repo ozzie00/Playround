@@ -77,8 +77,10 @@
         android:layout_toRightOf      = "@+id/venue_radar_address_view"
         android:cropToPadding         = "false"
         android:focusable             = "false"
+        android:focusableInTouchMode  = "false"
         android:adjustViewBounds      = "false"
         android:baselineAlignBottom   = "false"
+        android:clickable             = "false"
         android:visibility            = "invisible"
         android:src                   = "@drawable/ome_venue_call"
         android:background            = "@drawable/ome_venue_call_circle_button" />

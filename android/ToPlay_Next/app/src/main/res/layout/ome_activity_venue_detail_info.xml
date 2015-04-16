@@ -2,32 +2,91 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width         = "fill_parent"
     android:layout_height        = "wrap_content"
-    android:paddingBottom        = "@dimen/margin_large"
-    android:paddingLeft          = "@dimen/margin_large"
-    android:paddingRight         = "@dimen/margin_large"
+    android:paddingBottom        = "@dimen/margin_zero"
+    android:paddingLeft          = "@dimen/margin_zero"
+    android:paddingRight         = "@dimen/margin_zero"
     android:focusableInTouchMode = "true"
-    android:paddingTop           = "@dimen/margin_large"
+    android:paddingTop           = "@dimen/margin_zero"
     android:orientation          = "vertical"
     android:background           = "@color/white">
 
     <LinearLayout
-        android:id                 = "@+id/join_next_info_block"
+        android:id                 = "@+id/venue_detail_info_block"
         android:layout_width       = "fill_parent"
         android:layout_height      = "wrap_content"
         android:orientation        = "vertical"
         android:background         = "@android:color/white">
 
         <LinearLayout
-            android:id                 = "@+id/join_next_info_header_block"
+            android:layout_width     = "wrap_content"
+            android:layout_height    = "wrap_content"
+            android:layout_marginTop = "8dp"
+            android:orientation      = "horizontal">
+
+            <TextView
+                android:id                 = "@+id/venue_detail_info_name"
+                android:layout_width       = "wrap_content"
+                android:layout_height      = "wrap_content"
+                android:layout_marginTop   = "8dp"
+                android:layout_marginLeft  = "8dp"
+                android:layout_marginRight = "8dp"
+                android:textAppearance     = "?android:attr/textAppearanceMedium"
+                android:textColor          = "@color/grey_darkest"/>
+
+            <ImageView
+                android:id                 = "@+id/venue_detail_info_sport"
+                android:layout_width       = "wrap_content"
+                android:layout_height      = "wrap_content"
+                android:layout_marginLeft  = "8dp"
+                android:layout_marginRight = "8dp"
+                android:layout_alignParentRight = "true"
+                android:contentDescription = "sport type icon"/>
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width     = "wrap_content"
+            android:layout_height    = "wrap_content"
+            android:layout_marginTop = "8dp"
+            android:orientation      = "horizontal">
+
+            <TextView
+                android:id                 = "@+id/venue_detail_info_location"
+                android:layout_width       = "wrap_content"
+                android:layout_height      = "wrap_content"
+                android:layout_marginLeft  = "8dp"
+                android:layout_marginRight = "8dp"
+                android:textAppearance     = "?android:attr/textAppearanceSmall"
+                android:textColor          = "@android:color/darker_gray"
+                android:text               = "beijing olympic park"/>
+
+            <ImageButton
+                android:id                    = "@+id/venue_detail_info_phone_button"
+                android:layout_width          = "48dp"
+                android:layout_height         = "48dp"
+                android:layout_marginLeft     = "8dp"
+                android:layout_marginRight    = "8dp"
+                android:layout_marginBottom   = "8dp"
+                android:layout_alignParentRight = "true"
+                android:cropToPadding         = "false"
+                android:focusable             = "false"
+                android:adjustViewBounds      = "false"
+                android:baselineAlignBottom   = "false"
+                android:visibility            = "invisible"
+                android:src                   = "@drawable/ome_venue_call"
+                android:background            = "@drawable/ome_venue_call_circle_button" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id                 = "@+id/venue_detail_info_header_block"
             android:baselineAligned    = "false"
             android:layout_width       = "match_parent"
             android:layout_height      = "wrap_content"
-            android:layout_marginLeft  = "4dp"
-            android:layout_marginRight = "4dp"
-            android:weightSum          = "4">
+            android:weightSum          = "5">
 
             <LinearLayout
-                android:id            = "@+id/join_next_info_hearder_player_block"
+                android:id            = "@+id/venue_detail_info_hearder_court_block"
                 android:layout_width  = "0dp"
                 android:layout_height = "wrap_content"
                 android:paddingTop    = "8dp"
@@ -36,15 +95,15 @@
                 android:background    = "@drawable/ome_activity_join_touch_selector">
 
                 <ImageView
-                    android:id                 = "@+id/join_next_info_header_player_icon"
+                    android:id                 = "@+id/venue_detail_info_header_court_icon"
                     android:layout_width       = "wrap_content"
                     android:layout_height      = "wrap_content"
                     android:layout_gravity     = "center_horizontal"
-                    android:src                = "@drawable/ome_player_icon"
+                    android:src                = "@drawable/ome_court_icon"
                     android:contentDescription = "player icon"/>
 
                 <TextView
-                    android:id               = "@+id/join_next_info_header_player_number"
+                    android:id               = "@+id/venue_detail_info_header_court_number"
                     android:layout_width     = "wrap_content"
                     android:layout_height    = "wrap_content"
                     android:layout_marginTop = "4dp"
@@ -53,20 +112,20 @@
                     android:textColor        = "@android:color/darker_gray"/>
 
                 <TextView
-                    android:id                  = "@+id/join_next_info_header_player_title"
+                    android:id                  = "@+id/venue_detail_info_header_court_title"
                     android:layout_width        = "wrap_content"
                     android:layout_height       = "wrap_content"
                     android:layout_marginTop    = "4dp"
                     android:layout_gravity      = "center_horizontal"
                     android:layout_marginBottom = "8dp"
                     android:textAppearance      = "?android:attr/textAppearanceSmall"
-                    android:text                = "@string/OMEPARSEJOININFOPLAYERTEXT"
+                    android:text                = "@string/OMEPARSECOURTSTEXT"
                     android:textColor           = "@android:color/darker_gray"/>
 
             </LinearLayout>
 
             <LinearLayout
-                android:id               = "@+id/join_next_info_hearder_icecream_block"
+                android:id               = "@+id/venue_detail_info_hearder_lighted_block"
                 android:layout_width     = "0dp"
                 android:layout_height    = "wrap_content"
                 android:paddingTop       = "8dp"
@@ -74,15 +133,15 @@
                 android:orientation      = "vertical">
 
                 <ImageView
-                    android:id                 = "@+id/join_next_info_header_icecream_icon"
+                    android:id                 = "@+id/venue_detail_info_header_lighted_icon"
                     android:layout_width       = "wrap_content"
                     android:layout_height      = "wrap_content"
                     android:layout_gravity     = "center_horizontal"
-                    android:src                = "@drawable/ome_icecream_icon"
+                    android:src                = "@drawable/ome_lighted_icon"
                     android:contentDescription = "prize icon"/>
 
                 <TextView
-                    android:id               = "@+id/join_next_info_header_icecream_number"
+                    android:id               = "@+id/venue_detail_info_header_lighted_number"
                     android:layout_width     = "wrap_content"
                     android:layout_height    = "wrap_content"
                     android:layout_marginTop = "4dp"
@@ -92,20 +151,20 @@
                     android:textColor        = "@android:color/darker_gray"/>
 
                 <TextView
-                    android:id                  = "@+id/join_next_info_header_icecream_title"
+                    android:id                  = "@+id/venue_detail_info_header_lighted_title"
                     android:layout_width        = "wrap_content"
                     android:layout_height       = "wrap_content"
                     android:layout_marginTop    = "4dp"
                     android:layout_gravity      = "center_horizontal"
                     android:layout_marginBottom = "8dp"
                     android:textAppearance      = "?android:attr/textAppearanceSmall"
-                    android:text                = "@string/OMEPARSEJOININFOICECREAMTEXT"
+                    android:text                = "@string/OMEPARSELIGHTEDTEXT"
                     android:textColor           = "@android:color/darker_gray"/>
 
             </LinearLayout>
 
             <LinearLayout
-                android:id               = "@+id/join_next_info_hearder_trophy_block"
+                android:id               = "@+id/venue_detail_info_hearder_indoor_block"
                 android:layout_width     = "0dp"
                 android:layout_height    = "wrap_content"
                 android:paddingTop       = "8dp"
@@ -113,15 +172,15 @@
                 android:orientation      = "vertical">
 
                 <ImageView
-                    android:id                 = "@+id/join_next_info_header_trophy_icon"
+                    android:id                 = "@+id/venue_detail_info_header_indoor_icon"
                     android:layout_width       = "wrap_content"
                     android:layout_height      = "wrap_content"
                     android:layout_gravity     = "center_horizontal"
-                    android:src                = "@drawable/ome_trophy_icon"
+                    android:src                = "@drawable/ome_indoor_icon"
                     android:contentDescription = "trophy icon"/>
 
                 <TextView
-                    android:id               = "@+id/join_next_info_header_trophy_number"
+                    android:id               = "@+id/venue_detail_info_header_indoor_number"
                     android:layout_width     = "wrap_content"
                     android:layout_height    = "wrap_content"
                     android:layout_marginTop = "4dp"
@@ -131,20 +190,20 @@
                     android:textColor        = "@android:color/darker_gray"/>
 
                 <TextView
-                    android:id                  = "@+id/join_next_info_header_trophy_title"
+                    android:id                  = "@+id/venue_detail_info_header_indoor_title"
                     android:layout_width        = "wrap_content"
                     android:layout_height       = "wrap_content"
                     android:layout_marginTop    = "4dp"
                     android:layout_gravity      = "center_horizontal"
                     android:layout_marginBottom = "8dp"
                     android:textAppearance      = "?android:attr/textAppearanceSmall"
-                    android:text                = "@string/OMEPARSEJOININFOPRIZETEXT"
+                    android:text                = "@string/OMEPARSEINDOORTEXT"
                     android:textColor           = "@android:color/darker_gray"/>
 
             </LinearLayout>
 
             <LinearLayout
-                android:id               = "@+id/join_next_info_hearder_score_block"
+                android:id               = "@+id/venue_detail_info_hearder_player_block"
                 android:layout_width     = "0dp"
                 android:layout_height    = "wrap_content"
                 android:paddingTop       = "8dp"
@@ -153,15 +212,15 @@
                 android:background       = "@drawable/ome_activity_join_touch_selector">
 
                 <ImageView
-                    android:id                 = "@+id/join_next_info_header_score_icon"
+                    android:id                 = "@+id/venue_detail_info_header_player_icon"
                     android:layout_width       = "wrap_content"
                     android:layout_height      = "wrap_content"
                     android:layout_gravity     = "center_horizontal"
-                    android:src                = "@drawable/ome_scoreboard_icon"
+                    android:src                = "@drawable/ome_player_icon"
                     android:contentDescription = "score icon"/>
 
                 <TextView
-                    android:id               = "@+id/join_next_info_header_score_number"
+                    android:id               = "@+id/venue_detail_info_header_player_number"
                     android:layout_width     = "wrap_content"
                     android:layout_height    = "wrap_content"
                     android:layout_marginTop = "4dp"
@@ -171,99 +230,61 @@
                     android:textColor        = "@android:color/darker_gray"/>
 
                 <TextView
-                    android:id                  = "@+id/join_next_info_header_score_title"
+                    android:id                  = "@+id/venue_detail_info_header_player_title"
                     android:layout_width        = "wrap_content"
                     android:layout_height       = "wrap_content"
                     android:layout_marginTop    = "4dp"
                     android:layout_gravity      = "center_horizontal"
                     android:layout_marginBottom = "8dp"
                     android:textAppearance      = "?android:attr/textAppearanceSmall"
-                    android:text                = "@string/OMEPARSEJOININFOSCOREBOARDTEXT"
+                    android:text                = "@string/OMEPARSEPLAYERSTEXT"
                     android:textColor           = "@android:color/darker_gray"/>
 
             </LinearLayout>
 
-
-
-
-        </LinearLayout>
-
-        <View
-            android:layout_width       = "match_parent"
-            android:layout_height      = "1dp"
-            android:orientation        = "horizontal"
-            android:layout_marginLeft  = "8dp"
-            android:layout_marginRight = "8dp"
-            android:background         = "@android:color/darker_gray"/>
-
-        <LinearLayout
-            android:id                 = "@+id/join_next_info_name_block"
-            android:layout_width       = "fill_parent"
-            android:layout_height      = "wrap_content"
-            android:layout_marginTop   = "4dp"
-            android:orientation        = "horizontal"
-            android:weightSum          = "6">
-
             <LinearLayout
-                android:layout_width     = "wrap_content"
+                android:id               = "@+id/venue_detail_info_access_block"
+                android:layout_width     = "0dp"
                 android:layout_height    = "wrap_content"
-                android:layout_marginTop = "4dp"
-                android:layout_weight    = "5"
-                android:orientation      = "vertical">
+                android:paddingTop       = "8dp"
+                android:layout_weight    = "1"
+                android:orientation      = "vertical"
+                android:background       = "@drawable/ome_activity_join_touch_selector">
 
-                <TextView
-                    android:id                 = "@+id/join_next_info_workout_name"
+                <ImageView
+                    android:id                 = "@+id/venue_detail_info_access_icon"
                     android:layout_width       = "wrap_content"
                     android:layout_height      = "wrap_content"
-                    android:layout_marginLeft  = "8dp"
-                    android:layout_marginRight = "8dp"
-                    android:layout_marginTop   = "4dp"
-                    android:textAppearance     = "?android:attr/textAppearanceSmall"
-                    android:textColor          = "@android:color/darker_gray"/>
+                    android:layout_gravity     = "center_horizontal"
+                    android:src                = "@drawable/ome_access_icon"
+                    android:contentDescription = "score icon"/>
 
                 <TextView
-                    android:id               = "@+id/join_next_info_workout_propose"
+                    android:id               = "@+id/venue_detail_info_header_access"
                     android:layout_width     = "wrap_content"
                     android:layout_height    = "wrap_content"
                     android:layout_marginTop = "4dp"
+                    android:layout_gravity   = "center_horizontal"
                     android:textAppearance   = "?android:attr/textAppearanceSmall"
+                    android:text             = "1"
                     android:textColor        = "@android:color/darker_gray"/>
-            </LinearLayout>
-
-            <View
-                android:layout_width        = "1dp"
-                android:layout_height       = "match_parent"
-                android:orientation         = "vertical"
-                android:layout_marginTop    = "8dp"
-                android:layout_marginBottom = "8dp"
-                android:background          = "@android:color/darker_gray"/>
-
-            <LinearLayout
-                android:layout_width     = "wrap_content"
-                android:layout_height    = "wrap_content"
-                android:layout_marginTop = "4dp"
-                android:layout_weight    = "1"
-                android:orientation      = "vertical">
 
                 <TextView
-                    android:id             = "@+id/join_next_info_workout_time"
-                    android:layout_width   = "wrap_content"
-                    android:layout_height  = "wrap_content"
-                    android:layout_gravity = "center"
-                    android:textAppearance = "?android:attr/textAppearanceMedium"
-                    android:textSize       = "24sp"
-                    android:textColor      = "@android:color/darker_gray"/>
-
-                <TextView
-                    android:id                  = "@+id/join_next_info_workout_time_note"
+                    android:id                  = "@+id/venue_detail_info_access_title"
                     android:layout_width        = "wrap_content"
                     android:layout_height       = "wrap_content"
                     android:layout_marginTop    = "4dp"
-                    android:layout_marginBottom = "4dp"
-                    android:layout_gravity      = "center"
-                    android:textAppearance      = "?android:attr/textAppearanceMedium"
+                    android:layout_gravity      = "center_horizontal"
+                    android:layout_marginBottom = "8dp"
+                    android:textAppearance      = "?android:attr/textAppearanceSmall"
+                    android:text                = "@string/OMEPARSEACCESSTEXT"
                     android:textColor           = "@android:color/darker_gray"/>
+
             </LinearLayout>
+
+
+
+
         </LinearLayout>
 
         <View
@@ -272,7 +293,7 @@
             android:orientation        = "horizontal"
             android:layout_marginLeft  = "8dp"
             android:layout_marginRight = "8dp"
-            android:background         = "@android:color/darker_gray"/>
+            android:background         = "@color/white"/>
 
         <LinearLayout
             android:layout_width     = "wrap_content"
@@ -280,38 +301,8 @@
             android:layout_marginTop = "8dp"
             android:orientation      = "vertical">
 
-            <ImageView
-                android:id                 = "@+id/join_next_info_workout_sport"
-                android:layout_width       = "wrap_content"
-                android:layout_height      = "wrap_content"
-                android:layout_marginLeft  = "8dp"
-                android:layout_marginRight = "8dp"
-                android:src                = "@drawable/ome_tennis_icon"
-                android:contentDescription = "sport type icon"/>
-
             <TextView
-                android:id                 = "@+id/join_next_info_workout_location"
-                android:layout_width       = "wrap_content"
-                android:layout_height      = "wrap_content"
-                android:layout_marginTop   = "8dp"
-                android:layout_marginLeft  = "8dp"
-                android:layout_marginRight = "8dp"
-                android:textAppearance     = "?android:attr/textAppearanceSmall"
-                android:textColor          = "@android:color/darker_gray"/>
-
-            <TextView
-                android:id                 = "@+id/join_next_info_workout_description"
-                android:layout_width       = "wrap_content"
-                android:layout_height      = "wrap_content"
-                android:layout_marginTop   = "16dp"
-                android:layout_marginLeft  = "8dp"
-                android:layout_marginRight = "8dp"
-                android:textAppearance     = "?android:attr/textAppearanceSmall"
-                android:text               = "@string/OMEPARSEINVITEDESCRIPTION"
-                android:textColor          = "@android:color/darker_gray"/>
-
-            <TextView
-                android:id                 = "@+id/join_next_info_workout_description_content"
+                android:id                 = "@+id/venue_detail_info_description_content"
                 android:layout_width       = "wrap_content"
                 android:layout_height      = "wrap_content"
                 android:layout_marginTop   = "4dp"
@@ -338,7 +329,7 @@
             android:weightSum           = "6">
 
             <LinearLayout
-                android:id            = "@+id/join_next_info_workout_comment_block"
+                android:id            = "@+id/venue_detail_info_comment_block"
                 android:layout_width  = "0dp"
                 android:layout_height = "wrap_content"
                 android:paddingTop    = "8dp"
@@ -348,7 +339,7 @@
                 android:layout_weight = "4">
 
                 <TextView
-                    android:id                  = "@+id/join_next_info_workout_comment_number"
+                    android:id                  = "@+id/venue_detail_info_comment_number"
                     android:layout_width        = "wrap_content"
                     android:layout_height       = "wrap_content"
                     android:layout_marginTop    = "8dp"
@@ -359,7 +350,7 @@
                     android:textColor           = "@android:color/darker_gray"/>
 
                 <TextView
-                    android:id                = "@+id/join_next_info_workout_comment_note"
+                    android:id                = "@+id/venue_detail_info_comment_note"
                     android:layout_width      = "wrap_content"
                     android:layout_height     = "wrap_content"
                     android:layout_gravity    = "center_vertical"
@@ -371,18 +362,19 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id                 = "@+id/join_next_info_workout_like_block"
+                android:id                 = "@+id/venue_detail_info_like_block"
                 android:layout_width       = "0dp"
                 android:layout_height      = "fill_parent"
                 android:paddingTop         = "8dp"
                 android:paddingBottom      = "8dp"
                 android:layout_marginRight = "8dp"
                 android:orientation        = "horizontal"
+                android:visibility         = "invisible"
                 android:background         = "@drawable/ome_activity_join_touch_selector"
                 android:layout_weight      = "2">
 
                 <ImageView
-                    android:id                 = "@+id/join_next_info_workout_like_icon"
+                    android:id                 = "@+id/venue_detail_info_like_icon"
                     android:layout_width       = "wrap_content"
                     android:layout_height      = "wrap_content"
                     android:layout_gravity     = "center_vertical"
@@ -390,7 +382,7 @@
                     android:contentDescription = "like icon"/>
 
                 <TextView
-                    android:id                = "@+id/join_next_info_workout_like_number"
+                    android:id                = "@+id/venue_detail_info_like_number"
                     android:layout_width      = "wrap_content"
                     android:layout_height     = "wrap_content"
                     android:layout_marginLeft = "8dp"
@@ -415,47 +407,39 @@
             android:background    = "@color/white_absolute">
 
             <LinearLayout
-                android:id            = "@+id/join_next_info_workout_share_linearlayout"
+                android:id            = "@+id/venue_detail_info_book_linearlayout"
                 android:layout_width  = "match_parent"
                 android:layout_height = "wrap_content"
                 android:orientation   = "horizontal"
-                android:weightSum     = "3">
+                android:weightSum     = "2">
 
-                <ImageView
-                    android:id                 = "@+id/join_next_info_workout_share_like"
+                <TextView
+                    android:id                 = "@+id/venue_detail_info_as_home"
                     android:layout_width       = "0dp"
                     android:layout_height      = "wrap_content"
                     android:layout_marginLeft  = "8dp"
-                    android:paddingTop         = "8dp"
-                    android:paddingBottom      = "8dp"
-                    android:layout_weight      = "1"
-                    android:src                = "@drawable/ic_menu_star"
-                    android:contentDescription = "like icon"
-                    android:background         = "@drawable/ome_activity_join_touch_selector"/>
-
-                <ImageView
-                    android:id                 = "@+id/join_next_info_workout_share_friend"
-                    android:layout_width       = "0dp"
-                    android:layout_height      = "wrap_content"
-                    android:paddingTop         = "8dp"
-                    android:paddingBottom      = "8dp"
-                    android:layout_weight      = "1"
-                    android:src                = "@drawable/ic_menu_send"
-                    android:contentDescription = "email icon"
-                    android:background         = "@drawable/ome_activity_join_touch_selector"/>
-
-                <ImageView
-                    android:id                 = "@+id/join_next_info_workout_share_share"
-                    android:layout_width       = "0dp"
-                    android:layout_height      = "wrap_content"
                     android:layout_marginRight = "8dp"
                     android:paddingTop         = "8dp"
                     android:paddingBottom      = "8dp"
                     android:layout_weight      = "1"
-                    android:src                = "@drawable/ic_menu_share"
-                    android:contentDescription = "share icon"
-                    android:background         = "@drawable/ome_activity_join_touch_selector"/>
+                    android:gravity            = "center"
+                    android:contentDescription = "selet s home venue" />
 
+                <TextView
+                    android:id                 = "@+id/venue_detail_info_booking"
+                    android:layout_width       = "0dp"
+                    android:layout_height      = "wrap_content"
+                    android:layout_marginLeft  = "8dp"
+                    android:layout_marginRight = "8dp"
+                    android:paddingTop         = "8dp"
+                    android:paddingBottom      = "8dp"
+                    android:layout_weight      = "1"
+                    android:gravity            = "center"
+                    android:visibility         = "invisible"
+                    android:text               = "Booking"
+                    android:textColor          = "@color/white_absolute"
+                    android:contentDescription = "booking venue"
+                    android:background         = "@drawable/ome_activity_following_background"/>
             </LinearLayout>
 
 

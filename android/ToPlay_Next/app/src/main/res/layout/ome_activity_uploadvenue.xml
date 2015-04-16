@@ -62,15 +62,15 @@
             android:layout_marginLeft      = "8dp" />
 
         <EditText
-            android:id                     = "@+id/uploadvenue_name_Text"
-            android:layout_width           = "match_parent"
-            android:layout_height          = "40dp"
-            android:layout_marginLeft      = "20dp"
-            android:layout_marginRight     = "8dp"
-            android:layout_marginTop       = "16dp"
-            android:layout_weight          = "1"
-            android:textSize               = "15sp"
-            android:textColor  = "@android:color/secondary_text_dark"/>
+            android:id                 = "@+id/uploadvenue_name_Text"
+            android:layout_width       = "match_parent"
+            android:layout_height      = "40dp"
+            android:layout_marginLeft  = "20dp"
+            android:layout_marginRight = "8dp"
+            android:layout_marginTop   = "16dp"
+            android:layout_weight      = "1"
+            android:textSize           = "15sp"
+            android:textColor          = "@android:color/secondary_text_dark"/>
 
         <requestFocus />
 
@@ -98,15 +98,15 @@
             android:layout_marginLeft      = "8dp" />
 
         <EditText
-            android:id                     = "@+id/uploadvenue_address_Text"
-            android:layout_width           = "match_parent"
-            android:layout_height          = "40dp"
-            android:layout_marginLeft      = "20dp"
-            android:layout_marginRight     = "8dp"
-            android:layout_marginTop       = "16dp"
-            android:layout_weight          = "1"
-            android:textSize               = "15sp"
-            android:textColor  = "@android:color/secondary_text_dark"/>
+            android:id                 = "@+id/uploadvenue_address_Text"
+            android:layout_width       = "match_parent"
+            android:layout_height      = "40dp"
+            android:layout_marginLeft  = "20dp"
+            android:layout_marginRight = "8dp"
+            android:layout_marginTop   = "16dp"
+            android:layout_weight      = "1"
+            android:textSize           = "15sp"
+            android:textColor          = "@android:color/secondary_text_dark"/>
     </LinearLayout>
 
     <View
@@ -131,15 +131,15 @@
             android:layout_marginLeft      = "8dp" />
 
         <EditText
-            android:id                     = "@+id/uploadvenue_phone_Text"
-            android:layout_width           = "match_parent"
-            android:layout_height          = "40dp"
-            android:layout_marginLeft      = "20dp"
-            android:layout_marginRight     = "8dp"
-            android:layout_marginTop       = "16dp"
-            android:layout_weight          = "1"
-            android:textSize               = "15sp"
-            android:textColor  = "@android:color/secondary_text_dark"/>
+            android:id                 = "@+id/uploadvenue_phone_Text"
+            android:layout_width       = "match_parent"
+            android:layout_height      = "40dp"
+            android:layout_marginLeft  = "20dp"
+            android:layout_marginRight = "8dp"
+            android:layout_marginTop   = "16dp"
+            android:layout_weight      = "1"
+            android:textSize           = "15sp"
+            android:textColor          = "@android:color/secondary_text_dark"/>
 
     </LinearLayout>
 
@@ -163,7 +163,7 @@
         android:text                = "@string/OMEPARSEMEMYVENUESUBMIT"
         android:textColor           = "@android:color/white"
         android:textSize            = "15sp"
-        android:background          = "#1DA155"/>
+        android:background          = "@color/playround_default"/>
 
 
 </LinearLayout>
