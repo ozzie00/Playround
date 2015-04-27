@@ -18,6 +18,8 @@ package com.oneme.toplay.me;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.CursorLoader;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -34,7 +36,9 @@ import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -71,16 +75,23 @@ import com.squareup.picasso.Transformation;
  */
 public class ProfileActivity extends ActionBarActivity {
 
-    private final String TAG = "ProfileActivity";
+    private final String TAG      = "ProfileActivity";
+    private final Context context = ProfileActivity.this;
 
     private LinearLayout msettingLinerLayout;
     private Button mloginButton;
 
     private TextView maliasText;
 
+    private TextView mmobileText;
+
     private ImageView mavatarImage;
 
     private String mUsername     = null;
+
+    private String mphonenumber  = null;
+
+    private EditText mmobileedit;
 
 
     private TextView mplayroundidText;
@@ -103,7 +114,6 @@ public class ProfileActivity extends ActionBarActivity {
     private ParseFile userIconFile;
 
     private ParseUser muser                = ParseUser.getCurrentUser();
-    private Transformation mtransformation = null;
 
     private List<Float> availableOptions = Application.getConfigHelper().getSearchDistanceAvailableOptions();
 
@@ -119,6 +129,10 @@ public class ProfileActivity extends ActionBarActivity {
 
         if (muser != null) {
             mUsername     = muser.getUsername();
+
+            if (muser.getString(AppConstant.OMEPARSEUSERPHONEKEY) != null) {
+                mphonenumber = muser.getString(AppConstant.OMEPARSEUSERPHONEKEY);
+            }
             addaliasText();
             addplayroundid();
            // addUsernameText();
@@ -127,26 +141,10 @@ public class ProfileActivity extends ActionBarActivity {
             //         Toast.LENGTH_SHORT).show();
         }
 
-        mtransformation = new RoundedTransformationBuilder()
-                .borderColor(Color.WHITE)
-                .borderWidthDp(1)
-                .cornerRadiusDp(AppConstant.OMEPARSEUSERICONRADIUS)
-                .oval(false)
-                .build();
-
         mavatarImage    = (ImageView)findViewById(R.id.profile_avatar_image);
 
         if (muser != null) {
-
             LoadImageFromParseCloud.getAvatar(ProfileActivity.this, muser, mavatarImage);
-
-            //ParseFile mfile = muser.getParseFile(AppConstant.OMEPARSEUSERICONKEY);
-
-            //Picasso.with(ProfileActivity.this)
-            //        .load(mfile.getUrl())
-            //        .fit()
-            //        .transform(mtransformation)
-            //        .into(mavatarImage);
         }
 
         RelativeLayout avatar = (RelativeLayout) findViewById(R.id.profile_avatar_block);
@@ -224,8 +222,53 @@ public class ProfileActivity extends ActionBarActivity {
             }
         });
 
+        RelativeLayout mobileblock = (RelativeLayout) findViewById(R.id.profile_mobile_block);
+        mmobileText = (TextView) findViewById(R.id.profile_mobile_text);
 
+        if (muser != null) {
 
+            if (mphonenumber != null && !mphonenumber.equals(AppConstant.OMEPARSENULLSTRING)) {
+                mmobileText.setText(mphonenumber);
+            }
+
+            mobileblock.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // custom descritpion dialog
+                    final Dialog descriptiondialog = new Dialog(context);
+                    descriptiondialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                    descriptiondialog.setContentView(R.layout.ome_activity_me_profile_mobile_dialog);
+
+                    mmobileedit = (EditText) descriptiondialog.findViewById(R.id.me_mobile_dialog_edittext);
+
+                    // set the custom dialog components - text, image and button
+                    TextView mobiletitle = (TextView) descriptiondialog.findViewById(R.id.me_mobile_dialog_title);
+                    mobiletitle.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            descriptiondialog.dismiss();
+                        }
+                    });
+
+                    TextView mobiledone = (TextView) descriptiondialog.findViewById(R.id.me_mobile_dialog_OK);
+                    // if TextView is clicked, close the custom dialog
+                    mobiledone.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            String mother = mmobileedit.getText().toString();
+                            muser.put(AppConstant.OMEPARSEUSERPHONEKEY, mother);
+
+                            muser.saveInBackground();
+                            descriptiondialog.dismiss();
+                            mmobileText.setText(mother);
+
+                        }
+                    });
+
+                    descriptiondialog.show();
+                }
+            });
+        }
 
 
     }
@@ -406,7 +449,6 @@ public class ProfileActivity extends ActionBarActivity {
         mplayroundidText = (TextView) findViewById(R.id.profile_ID_text);
         mplayroundidText.setText(mUsername);
     }
-
 
     /*
     @Override

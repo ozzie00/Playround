@@ -199,7 +199,6 @@
                     android:layout_gravity      = "center"
                     android:layout_below        = "@id/join_info_workout_time"
                     android:textAppearance      = "?android:attr/textAppearanceMedium"
-                    android:text                = "@string/OMEPARSEJOININFODAYLEFTTEXT"
                     android:textColor           = "@android:color/darker_gray"/>
             </LinearLayout>
         </LinearLayout>

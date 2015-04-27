@@ -18,31 +18,25 @@ package com.oneme.toplay;
 
 import android.app.ProgressDialog;
 import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.Filter;
-import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.oneme.toplay.adapter.VenueAdapter;
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.base.VenueToIntentExtra;
-import com.oneme.toplay.database.Sport;
 import com.oneme.toplay.database.Venue;
 import com.oneme.toplay.venue.DetailInfoActivity;
 
@@ -71,11 +65,16 @@ public class SearchVenueActivity extends ActionBarActivity {
 
     private String mnameKey = null;
 
+    private MenuItem menuItem;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ome_activity_search_venue);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME
+                | ActionBar.DISPLAY_SHOW_TITLE | ActionBar.DISPLAY_SHOW_CUSTOM);
 
         msuggest   = new ArrayList<Venue>();
 
@@ -86,7 +85,8 @@ public class SearchVenueActivity extends ActionBarActivity {
         }
 
         // fetch query result
-        venuequery      = getIntent().getStringExtra(SearchManager.QUERY);
+        venuequery = getIntent().getStringExtra(SearchManager.QUERY);
+
         new getVenueNameAutocomplete().execute(venuequery);
 
         // setting search name list view
@@ -132,6 +132,27 @@ public class SearchVenueActivity extends ActionBarActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.ome_search_venue_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_load:
+                menuItem = item;
+                menuItem.setActionView(R.layout.ome_activity_search_venue_progressbar);
+                //menuItem.expandActionView();
+                //new getVenueNameAutocomplete().execute(venuequery);
+                break;
+            default:
+                break;
+        }
+        return true;
     }
 
 

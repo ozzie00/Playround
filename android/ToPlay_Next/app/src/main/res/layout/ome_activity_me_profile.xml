@@ -178,5 +178,45 @@
 
     </RelativeLayout>
 
+    <View
+        android:layout_width  = "match_parent"
+        android:layout_height = "1dp"
+        android:orientation   = "horizontal"
+        android:background    = "#c0c0c0"/>
+
+    <RelativeLayout android:id= "@+id/profile_mobile_block"
+        android:layout_width     = "match_parent"
+        android:layout_height    = "wrap_content"
+        android:orientation      = "horizontal"
+        android:padding          = "5dip"
+        android:background       = "@android:color/white">
+
+
+        <TextView
+            android:id                      = "@+id/profile_mobile"
+            android:layout_width            = "wrap_content"
+            android:layout_height           = "40dp"
+            android:layout_marginTop        = "8dp"
+            android:layout_marginLeft       = "8dp"
+            android:layout_gravity          = "center_vertical"
+            android:gravity                 = "center"
+            android:background              = "@android:color/white"
+            android:text                    = "@string/OMEPARSEPHONENUMBERTEXT"/>
+
+        <TextView
+            android:id                      = "@+id/profile_mobile_text"
+            android:layout_width            = "wrap_content"
+            android:layout_height           = "40dp"
+            android:layout_marginTop        = "8dp"
+            android:layout_marginRight      = "8dp"
+            android:layout_alignTop         = "@id/profile_mobile"
+            android:layout_toRightOf        = "@id/profile_mobile"
+            android:gravity                 = "right"
+            android:layout_alignParentRight = "true"
+            android:background              = "@android:color/white"/>
+
+
+    </RelativeLayout>
+
 
 </LinearLayout>

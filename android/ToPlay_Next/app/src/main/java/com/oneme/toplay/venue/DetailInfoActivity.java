@@ -27,12 +27,14 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.oneme.toplay.Application;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.base.Homeing;
 import com.oneme.toplay.base.IntentExtraToVenue;
+import com.oneme.toplay.base.VenueToIntentExtra;
 import com.oneme.toplay.database.Sport;
 import com.oneme.toplay.database.Venue;
 import com.oneme.toplay.database.VenueAsHome;
@@ -57,8 +59,11 @@ public class DetailInfoActivity extends ActionBarActivity {
     private ParseQueryAdapter<VenueComment> commentQueryAdapter;
 
     private Boolean isAsHome           = false;
+    private Boolean isBooked           = false;
     private Drawable mashomedrawable   = null;
     private Drawable mmyhomedrawable   = null;
+    private Drawable mbookingdrawable  = null;
+    private Drawable mbookeddrawable   = null;
 
     private int mcommentnumber      = 0;
     private int mcount              = 0;
@@ -79,6 +84,9 @@ public class DetailInfoActivity extends ActionBarActivity {
 
         mashomedrawable = getResources().getDrawable(R.drawable.ome_activity_following_background);
         mmyhomedrawable = getResources().getDrawable(R.drawable.ome_activity_follow_background);
+
+        mbookingdrawable = getResources().getDrawable(R.drawable.ome_activity_following_background);
+        mbookeddrawable  = getResources().getDrawable(R.drawable.ome_activity_follow_background);
 
         if (muser != null) {
             musername = muser.getUsername();
@@ -294,26 +302,25 @@ public class DetailInfoActivity extends ActionBarActivity {
 
             }
 
+            // set booking textview
+            final TextView bookingvenue = (TextView) findViewById(R.id.venue_detail_info_booking);
 
+            // check if current user is null
+            if (muser != null && mvenue != null) {
 
+                bookingvenue.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent invokeBookingVenueActivityIntent = new Intent(DetailInfoActivity.this, BookingActivity.class);
+                        VenueToIntentExtra.putExtra(invokeBookingVenueActivityIntent, mvenue);
+                        startActivity(invokeBookingVenueActivityIntent);
+                    }
+                });
 
+            } else {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                Toast.makeText(DetailInfoActivity.this, getResources().getString(R.string.OMEPARSEINVITELOGINALERT), Toast.LENGTH_LONG).show();
+            }
 
         }
 

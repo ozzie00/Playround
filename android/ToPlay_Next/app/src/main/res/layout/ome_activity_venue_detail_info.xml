@@ -423,7 +423,10 @@
                     android:paddingBottom      = "8dp"
                     android:layout_weight      = "1"
                     android:gravity            = "center"
-                    android:contentDescription = "selet s home venue" />
+                    android:text               = "@string/OMEPARSESELECTASHOMEFIELD"
+                    android:textColor          = "@color/white_absolute"
+                    android:contentDescription = "selet s home venue"
+                    android:background         = "@drawable/ome_activity_following_background" />
 
                 <TextView
                     android:id                 = "@+id/venue_detail_info_booking"
@@ -435,8 +438,8 @@
                     android:paddingBottom      = "8dp"
                     android:layout_weight      = "1"
                     android:gravity            = "center"
-                    android:visibility         = "invisible"
-                    android:text               = "Booking"
+                    android:visibility         = "visible"
+                    android:text               = "@string/OMEPARSEVENUEBOOKINGTHISVENUE"
                     android:textColor          = "@color/white_absolute"
                     android:contentDescription = "booking venue"
                     android:background         = "@drawable/ome_activity_following_background"/>

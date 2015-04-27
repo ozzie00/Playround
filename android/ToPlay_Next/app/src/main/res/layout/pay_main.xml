@@ -1,0 +1,227 @@
+<!--
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/msp_demo_title_bg"
+        android:scaleType="center"
+        android:src="@drawable/msp_demo_title"
+        tools:ignore="ContentDescription" />
+
+    <fragment
+        android:id="@+id/fragment"
+        android:name="com.oneme.toplay.pay.ExternalFragment"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width         = "fill_parent"
+    android:layout_height        = "wrap_content"
+    android:paddingBottom        = "@dimen/margin_large"
+    android:paddingLeft          = "@dimen/margin_zero"
+    android:paddingRight         = "@dimen/margin_zero"
+    android:focusableInTouchMode = "true"
+    android:paddingTop           = "@dimen/margin_large"
+    android:orientation          = "vertical"
+    android:background           = "@color/white">
+
+    <LinearLayout
+        android:layout_width  = "fill_parent"
+        android:layout_height = "wrap_content"
+        android:orientation   = "vertical"
+        android:background    = "@color/white_absolute">
+    
+        <LinearLayout
+            android:layout_width        = "fill_parent"
+            android:layout_height       = "wrap_content"
+            android:gravity             = "center_vertical"
+            android:orientation         = "horizontal"
+            android:layout_marginTop    = "12dp"
+            android:layout_marginBottom = "12dp">
+    
+            <TextView
+                android:layout_width       = "wrap_content"
+                android:layout_height      = "wrap_content"
+                android:layout_marginLeft  = "12dp"
+                android:layout_marginRight = "12dp"
+                android:text               = "@string/OMEPARSECOURTSTEXT"
+                android:textColor          = "#777777"
+                tools:ignore               = "HardcodedText" />
+    
+            <TextView
+                android:id            = "@+id/pay_venue"
+                android:layout_width  = "wrap_content"
+                android:layout_height = "wrap_content"
+                android:textColor     = "#333333"
+                tools:ignore          = "HardcodedText" />
+        </LinearLayout>
+    
+        <LinearLayout
+            android:layout_width        = "fill_parent"
+            android:layout_height       = "wrap_content"
+            android:orientation         = "horizontal"
+            android:layout_marginBottom = "12dp">
+    
+            <TextView
+                android:layout_width       = "wrap_content"
+                android:layout_height      = "wrap_content"
+                android:layout_marginLeft  = "12dp"
+                android:layout_marginRight = "12dp"
+                android:text               = "@string/OMEPARSEDATETEXT"
+                android:textColor          = "#777777"
+                tools:ignore               = "HardcodedText" />
+    
+            <TextView
+                android:id            = "@+id/pay_booking_time"
+                android:layout_width  = "wrap_content"
+                android:layout_height = "wrap_content"
+                android:textColor     = "#333333"
+                tools:ignore          = "HardcodedText" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width        = "fill_parent"
+        android:layout_height       = "wrap_content"
+        android:orientation         = "horizontal"
+        android:layout_marginTop    = "12dp"
+        android:layout_marginBottom = "12dp"
+        android:background          = "@color/white_absolute">
+
+        <TextView
+            android:layout_width        = "wrap_content"
+            android:layout_height       = "wrap_content"
+            android:layout_marginLeft   = "12dp"
+            android:layout_marginRight  = "12dp"
+            android:layout_marginTop    = "12dp"
+            android:layout_marginBottom = "12dp"
+            android:text                = "@string/OMEPARSEVENUEBOOKINGDEPOSIT"
+            android:textColor           = "#777777"
+            tools:ignore                = "HardcodedText" />
+
+        <RelativeLayout
+            android:layout_width        = "match_parent"
+            android:layout_height       = "wrap_content"
+            android:orientation         = "horizontal"
+            android:layout_marginTop    = "12dp"
+            android:layout_marginBottom = "12dp"
+            android:layout_marginRight  = "12dp"
+            android:gravity             = "right"
+            android:background          = "@color/white_absolute">
+
+            <TextView
+                android:id            = "@+id/pay_currency"
+                android:layout_width  = "wrap_content"
+                android:layout_height = "wrap_content"
+                android:textStyle     = "bold"
+                android:textColor     = "@color/playround_default"
+                android:visibility    = "visible"/>
+
+            <TextView
+                android:id                 = "@+id/pay_price"
+                android:layout_width       = "wrap_content"
+                android:layout_height      = "wrap_content"
+                android:layout_toRightOf   = "@id/pay_currency"
+                android:textStyle          = "bold"
+                android:textColor          = "@color/playround_default"
+                tools:ignore               = "HardcodedText" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width        = "fill_parent"
+        android:layout_height       = "wrap_content"
+        android:gravity             = "center_vertical"
+        android:orientation         = "horizontal"
+        android:background          = "@color/white_absolute">
+
+        <TextView
+            android:layout_width        = "wrap_content"
+            android:layout_height       = "wrap_content"
+            android:layout_marginLeft   = "12dp"
+            android:layout_marginRight  = "12dp"
+            android:layout_marginTop    = "12dp"
+            android:layout_marginBottom = "12dp"
+            android:text                = "@string/OMEPARSEPHONENUMBERTEXT"
+            android:textColor           = "#777777"
+            tools:ignore                = "HardcodedText" />
+
+        <TextView
+            android:id                  = "@+id/pay_phone_number"
+            android:layout_width        = "fill_parent"
+            android:layout_height       = "wrap_content"
+            android:layout_marginLeft   = "12dp"
+            android:layout_marginRight  = "12dp"
+            android:layout_marginTop    = "12dp"
+            android:layout_marginBottom = "12dp"
+            android:textColor           = "@color/black"
+            tools:ignore                = "HardcodedText" />
+    </LinearLayout>
+
+    <Button
+        android:id            = "@+id/pay"
+        android:layout_width  = "fill_parent"
+        android:layout_height = "wrap_content"
+        android:layout_margin = "10dp"
+        android:onClick       = "pay"
+        android:text          = "@string/OMEPARSEPAYUSEMETHODTEXT"
+        android:textColor     = "@color/white_absolute"
+        tools:ignore          = "HardcodedText"
+        android:background    = "@color/playround_default"/>
+
+    <!--
+    <Button
+        android:id            = "@+id/check"
+        android:layout_width  = "fill_parent"
+        android:layout_height = "wrap_content"
+        android:layout_margin = "10dp"
+        android:onClick       = "check"
+        android:text          = "检查账户"
+        tools:ignore          = "HardcodedText" />
+    -->
+
+    <TextView
+        android:id                 = "@+id/venue_pay_must_know_note"
+        android:layout_width       = "wrap_content"
+        android:layout_height      = "wrap_content"
+        android:layout_marginLeft  = "12dp"
+        android:layout_marginRight = "12dp"
+        android:layout_marginTop   = "12dp"
+        android:text               = "@string/OMEPARSEBOOKINGPAYMUSTKNOW"
+        android:textAppearance     = "?android:attr/textAppearanceSmall"
+        android:visibility         = "visible"/>
+
+    <TextView
+        android:id                 = "@+id/venue_pay_must_know_one"
+        android:layout_width       = "wrap_content"
+        android:layout_height      = "wrap_content"
+        android:layout_marginLeft  = "12dp"
+        android:layout_marginRight = "12dp"
+        android:layout_marginTop   = "4dp"
+        android:text               = "@string/OMEPARSEBOOKINGPAYMUSTKNOWONE"
+        android:textAppearance     = "?android:attr/textAppearanceSmall"
+        android:visibility         = "visible"/>
+
+    <TextView
+        android:id                 = "@+id/venue_pay_must_know_two"
+        android:layout_width       = "wrap_content"
+        android:layout_height      = "wrap_content"
+        android:layout_marginLeft  = "12dp"
+        android:layout_marginRight = "12dp"
+        android:layout_marginTop   = "4dp"
+        android:text               = "@string/OMEPARSEBOOKINGPAYMUSTKNOWTWO"
+        android:textAppearance     = "?android:attr/textAppearanceSmall"
+        android:visibility         = "visible"/>
+
+
+</LinearLayout>

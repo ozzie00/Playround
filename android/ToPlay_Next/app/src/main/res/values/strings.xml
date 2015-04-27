@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Playround</string>
-    <string name="app_version">Playround Android v.1.0.4.08</string>
+    <string name="app_version">Playround Android v.1.0.4.09</string>
 
     <!-- Strings related to activity -->
     <string name="action_settings">Settings</string>
@@ -584,6 +584,41 @@
     <string name="OMEPARSEACCESSTEXT">Access</string>
     <string name="OMEPARSESELECTASHOMEFIELD">Select as home field</string>
     <string name="OMEPARSEMYHOMEFIELD">My home field</string>
+
+    <!--Add by playround 1.0.4.09 -->
+    <string name="bookingactivity_title">Booking Venue</string>
+    <string name="OMEPARSEDATETEXT">Date</string>
+    <string name="OMEPARSETIMETEXT">Time</string>
+    <string name="OMEPARSEVENUEBOOKINGDEPOSIT">Advance Deposit</string>
+    <string name="OMEPARSEVENUEBOOKINGTHISVENUE">Booking this venue</string>
+    <string name="OMEPARSECONFIRMTEXT">Confirm booking</string>
+    <string name="OMEPARSEREMARK">Remark</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOW">Must know for booking :</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWONE">1. touch the above every option to set date, time and remark</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWTWO">2. This 20 is advance deposit</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWTHREE">3. This advance deposit will refund after you finish workout in the venue</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWFOUR">4. This advance deposit will refund if booking venue is not be successful </string>
+    <string name="OMEPARSEINVITEMUSTKNOW"> Must know for invitation :</string>
+    <string name="OMEPARSEINVITEMUSTKNOWONE">1. touch the above every option to set sport, location, date, time and description</string>
+    <string name="OMEPARSEBOOKINGCONFIRMTITLE">Confirm this order</string>
+    <string name="OMEPARSEVENUEBOOKINGDESCRIPTION">According to the contract, refund this advance deposit after finishing workout in venue</string>
+    <string name="OMEPARSEPAYSUCCESS">Pay successfully</string>
+    <string name="OMEPARSEPAYFAIL">Pay failed</string>
+    <string name="OMEPARSEPAYINPROGRESS">Pay in progress</string>
+    <string name="OMEPARSEBOOKINGPAYMUSTKNOW">Must know for payment :</string>
+    <string name="OMEPARSEBOOKINGPAYMUSTKNOWONE">1. Please check venue, time and mobile phone number</string>
+    <string name="OMEPARSEBOOKINGPAYMUSTKNOWTWO">2. Please check payment account if the same as user setting payment account, refund will pay to user setting payment account</string>
+    <string name="OMEPARSEBOOKINGRESULTNOTIFICATION">We will notify booking result and refund advance deposit</string>
+    <string name="OMEPARSEPHONENUMBERTEXT">Mobile Number</string>
+    <string name="OMEPARSEPAYUSEMETHODTEXT">Using Alipay to pay</string>
+
+
+
+
+
+
+
+
 
 
 

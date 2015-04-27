@@ -46,6 +46,7 @@ public final class AppConstant {
     public static final int OMEPARSEBUFFERLENGTH              = 1024;
 
     // define special symbol
+    public static final String OMEPARSEHYPHENSTRING           = "-";
     public static final String OMEPARSESLASHSTRING            = "/";
     public static final String OMEPARSESPACESTRING            = " ";
     public static final String OMEPARSECOLONSTRING            = ":";
@@ -89,6 +90,8 @@ public final class AppConstant {
     public static final String OMETOPLAYVENUECOMMENTCLASSKEY   = "PlayroundVenueComment";
     public static final String OMETOPLAYVENUELIKECLASSKEY      = "PlayroundVenueLike";
     public static final String OMETOPLAYVENUEASHOMECLASSKEY    = "PlayroundVenueAsHome";
+    public static final String OMETOPLAYBOOKINGVENUECLASSKEY   = "PlayroundBookingVenue";
+
 
 
     // Parse API key constants related to user :
@@ -110,6 +113,16 @@ public final class AppConstant {
     public static final String OMEPARSEUSERBACKUPSPORTKEY  = "userBackupSport";
     public static final String OMEPARSEUSERHOMEVENUEPHONEKEY    = "userHomeVenuePhone";
     public static final String OMEPARSEUSERBACKUPVENUEPHONEKEY  = "userBackupVenuePhone";
+
+    public static final String OMEPARSEUSERPHONEKEY          = "userPhone";
+    public static final String OMEPARSEUSERPAYMENTMETHODKEY  = "userPayment";
+    public static final String OMEPARSEUSERPAYMENTACCOUNTKEY = "userPaymentAccount";
+
+    // Parse API key corresponding to user payment method enum
+    public static final String OMEPARSEUSERPAYMENTMETHODALIPAY = "ALIPAY";
+    public static final String OMEPARSEUSERPAYMENTMETHODPAYPAL = "PAYPAL";
+    public static final String OMEPARSEUSERPAYMENTMETHODCREDIT = "CREDIT";
+
 
     // Parse API key constants for user
     public static final String OMEPARSEUSERPROFILENAMEKEY  = "userprofilename";
@@ -196,6 +209,7 @@ public final class AppConstant {
     public static final int OMEPARSEVENUOWNERLICENSECOPYIMAGERESULT = 4;
     public static final int OMEPARSEVENUOWNERLICENSECOPYPHOTORESULT = 5;
     public static final int OMEPARSEINVITESEARCHLOCATIONRESULT      = 6;
+    public static final int OMEPARSEBOOKINGVENUEPAYRESULT           = 7;
 
 
     // Parse API Constant corresponding to add friend
@@ -321,9 +335,39 @@ public final class AppConstant {
     public static final String OMEPARSEVENUEHOMEPARENTIDKEY   = "venueAsHomeParentId";
     public static final String OMEPARSEVENUEHOMEOTHERKEY      = "venueAsHomeOther";
 
+    // Parse API key corresponding to booking venue key
+    public static final String OMEPARSEBOOKINGAUTHORKEY        = "bookingAuthor";
+    public static final String OMEPARSEBOOKINGAUTHORNAMEKEY    = "bookingAuthorName";
+    public static final String OMEPARSEBOOKINGVENUEOBJECTIDKEY = "bookingVenueId";
+    public static final String OMEPARSEBOOKINGVENUENAMEKEY     = "bookingVenueName";
+    public static final String OMEPARSEBOOKINGTIMEKEY          = "bookingTime";
+    public static final String OMEPARSEBOOKINGSUBMITTIMEKEY    = "bookingSubmitTime";
+    public static final String OMEPARSEBOOKINGPAYSTATUSKEY     = "bookingPayStatus";
+    public static final String OMEPARSEBOOKINGPAYNUMBERKEY     = "bookingPayNumber";
+    public static final String OMEPARSEBOOKINGREFUNDSTATUSKEY  = "bookingRefundStatus";
+    public static final String OMEPARSEBOOKINGFINISHSTATUSKEY  = "bookingFinishStatus";
+    public static final String OMEPARSEBOOKINGOTHERKEY         = "bookingOther";
+
+    // Parse API key corresponding to booking status enum
+    public static final String OMEPARSEBOOKINGPAYSUCCESS       = "SUCCESS";
+    public static final String OMEPARSEBOOKINGPAYFAIL          = "FAIL";
+    public static final String OMEPARSEBOOKINGPAYINPROGRESS    = "INPROGRESS";
+    public static final String OMEPARSEBOOKINGREFUNDSUCCESS    = "SUCCESS";
+    public static final String OMEPARSEBOOKINGREFUNDFAIL       = "FAIL";
+    public static final String OMEPARSEBOOKINGREFUNDINPROGRESS = "INPROGRESS";
+    public static final String OMEPARSEBOOKINGREFUNDNOTSTART   = "NOTSTART";
+    public static final String OMEPARSEBOOKINGFININSHED        = "FINISHED";
+    public static final String OMEPARSEBOOKINGFINISHNOTSTART   = "NOTSTART";
+    public static final String OMEPARSEBOOKINGFINISHCANCEL     = "CANCEL";
+    public static final String OMEPARSEBOOKINGFINISHOTHER      = "OTHER";
+
+
     // Parse API default value for invite score
     public static final int OMEPARSEINVITESCOREZERO            = 0;
     public static final int OMEPARSEINVITESCOREPERFECT         = 100;
+
+    // Parse API default value for booking venue
+    public static final String OMEPARSEBOOKINGVENUEADVANCEDEPOSIT = "20.00";
 
 
     // NSNotification userInfo keys:

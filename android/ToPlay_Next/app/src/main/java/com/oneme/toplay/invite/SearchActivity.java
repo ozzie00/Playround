@@ -85,7 +85,7 @@ public class SearchActivity extends ActionBarActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ome_activity_search_location);
 
-        final Boolean isAvailable = true;// DispatchActivity.getGooglePlayServicesState();
+        final Boolean isAvailable = false;// DispatchActivity.getGooglePlayServicesState();
 
         msuggest        = new ArrayList<LocationData>();
         mselectlocation = new LocationData();

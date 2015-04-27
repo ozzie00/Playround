@@ -1,18 +1,10 @@
 package com.oneme.toplay;
 
-
-
-
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.util.Log;
-import android.widget.TextView;
-
 
 import com.oneme.toplay.base.AppConstant;
+import com.oneme.toplay.database.BookingVenue;
 import com.oneme.toplay.database.FollowingPlayer;
 import com.oneme.toplay.database.Invite;
 import com.oneme.toplay.database.InviteComment;
@@ -26,7 +18,6 @@ import com.oneme.toplay.database.Player;
 import com.oneme.toplay.database.Venue;
 import com.oneme.toplay.database.VenueAsHome;
 import com.oneme.toplay.database.VenueOwner;
-import com.oneme.toplay.service.Singleton;
 
 import com.parse.Parse;
 import com.parse.ParseObject;
@@ -108,6 +99,11 @@ public class Application extends android.app.Application {
 
     public static final String INTENT_EXTRA_VENUEPUBLIC      = AppConstant.OMETOPLAYVENUEPUBLICKEY;
 
+    public static final String INTENT_EXTRA_VENUEPAYNO       = AppConstant.OMEPARSEBOOKINGPAYNUMBERKEY;
+
+
+
+
 
 
 
@@ -174,6 +170,7 @@ public class Application extends android.app.Application {
 
         ParseObject.registerSubclass(VenueAsHome.class);
 
+        ParseObject.registerSubclass(BookingVenue.class);
 
         // init baidu map
         SDKInitializer.initialize(getApplicationContext());

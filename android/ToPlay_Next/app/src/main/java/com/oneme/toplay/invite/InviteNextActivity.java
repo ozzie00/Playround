@@ -152,7 +152,7 @@ public final class InviteNextActivity extends ActionBarActivity implements OnDat
         // Note: msportarray items are correponding to msporticonarray of Sport Class
         msportarray = getResources().getStringArray(R.array.sport_type_array);
 
-        final Boolean isAvailable = true;// DispatchActivity.getGooglePlayServicesState();
+        final Boolean isAvailable = false;// DispatchActivity.getGooglePlayServicesState();
 
 
         //get point according to  current latitude and longitude
@@ -235,7 +235,6 @@ public final class InviteNextActivity extends ActionBarActivity implements OnDat
 
         mdateText = (TextView)findViewById(R.id.invite_date_detail_text_view);
         mtimeText = (TextView)findViewById(R.id.invite_time_text_view);
-
 
         // set for date and time picker
         final Calendar calendar = Calendar.getInstance();

@@ -184,7 +184,7 @@
                 android:layout_height    = "wrap_content"
                 android:layout_marginTop = "12dp"
                 android:layout_toRightOf = "@id/invite_date_view"
-                android:text             = "@string/OMEPARSEINVITESTART"
+                android:text             = "@string/OMEPARSEDATETEXT"
                 android:paddingLeft      = "8dp"
                 android:textAppearance   = "?android:attr/textAppearanceSmall" />
 
@@ -207,7 +207,7 @@
             android:layout_marginTop = "12dp"
             android:layout_alignTop  = "@id/invite_date_block"
             android:layout_toRightOf = "@id/invite_date_block"
-            android:background       = "#F3F3F3"/>
+            android:background       = "@color/playround_default"/>
 
         <RelativeLayout
             android:id               = "@+id/invite_time_block"
@@ -218,14 +218,21 @@
             android:layout_toRightOf = "@id/invite_date_block"
             android:background       = "@color/white_absolute">
 
+            <TextView
+                android:id                      = "@+id/invite_time_text"
+                android:layout_width            = "wrap_content"
+                android:layout_height           = "wrap_content"
+                android:layout_marginTop        = "12dp"
+                android:layout_centerHorizontal = "true"
+                android:text                    = "@string/OMEPARSETIMETEXT"
+                android:textAppearance          = "?android:attr/textAppearanceSmall" />
 
             <TextView
                 android:id                      = "@+id/invite_time_text_view"
                 android:layout_width            = "wrap_content"
                 android:layout_height           = "wrap_content"
-                android:layout_marginTop        = "30dp"
-                android:layout_alignParentRight = "true"
-                android:paddingRight            = "16dp"
+                android:layout_below            = "@id/invite_time_text"
+                android:layout_centerHorizontal = "true"
                 android:textAppearance          = "?android:attr/textAppearanceSmall"
                 android:textColor               = "@android:color/black" />
 
@@ -318,6 +325,23 @@
             android:textColor               = "@android:color/black" />
 
     </RelativeLayout>
+
+    <TextView
+        android:id                = "@+id/invite_must_know_note"
+        android:layout_width      = "wrap_content"
+        android:layout_height     = "wrap_content"
+        android:layout_marginTop  = "12dp"
+        android:layout_marginLeft = "8dp"
+        android:text              = "@string/OMEPARSEINVITEMUSTKNOW"
+        android:visibility        = "visible"/>
+
+    <TextView
+        android:id                = "@+id/invite_must_know_one"
+        android:layout_width      = "wrap_content"
+        android:layout_height     = "wrap_content"
+        android:layout_marginLeft = "8dp"
+        android:text              = "@string/OMEPARSEINVITEMUSTKNOWONE"
+        android:visibility        = "visible"/>
 
     <!--
     <RelativeLayout

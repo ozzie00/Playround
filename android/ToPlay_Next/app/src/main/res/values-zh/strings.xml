@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">动动</string>
-    <string name="app_version">动动 安卓版 v.1.0.4.08</string>
+    <string name="app_version">动动 安卓版 v.1.0.4.09</string>
     
     <!-- Strings related to activity -->
     <string name="action_settings">设置</string>
@@ -493,8 +493,8 @@
     <string name="OMEPARSEJOININFOICECREAMTEXT">冰淇淋</string>
     <string name="OMEPARSEJOININFOPRIZETEXT">奖品</string>
     <string name="OMEPARSEJOININFOSCOREBOARDTEXT">成绩榜</string>
-    <string name="OMEPARSEJOININFODAYLEFTTEXT">天剩余</string>
-    <string name="OMEPARSEJOININFOHOURLEFTTEXT">小时剩余</string>
+    <string name="OMEPARSEDAYLEFTTEXT">天剩余</string>
+    <string name="OMEPARSEHOURLEFTTEXT">小时剩余</string>
 
 
     <string name="joincommentactivity_title">评论</string>
@@ -534,6 +534,36 @@
 
     <string name="OMEPARSESELECTASHOMEFIELD">选择作为主场</string>
     <string name="OMEPARSEMYHOMEFIELD">我的主场</string>
+
+    <!--Add by playround 1.0.4.09 -->
+    <string name="bookingactivity_title">预定场馆</string>
+    <string name="OMEPARSEDATETEXT">日期</string>
+    <string name="OMEPARSETIMETEXT">时间</string>
+    <string name="OMEPARSEVENUEBOOKINGDEPOSIT">场馆预定押金</string>
+    <string name="OMEPARSEVENUEBOOKINGTHISVENUE">预定这个场馆</string>
+    <string name="OMEPARSECONFIRMTEXT">确认预定</string>
+    <string name="OMEPARSEREMARK">留言</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOW">预定须知 :</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWONE">1. 触摸上面的每一项，来设置日期，时间和留言</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWTWO">2. 这个20元是场馆预定押金</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWTHREE">3. 用户按约在场馆完成比赛，现场支付场馆费用，预定押金将原额返还</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWFOUR">4. 场馆预定不成功，预定押金将原额返还</string>
+    <string name="OMEPARSEINVITEMUSTKNOW">邀请须知:</string>
+    <string name="OMEPARSEINVITEMUSTKNOWONE">1. 触摸上面的每一项，来设置运动类型，地点，时间和内容</string>
+    <string name="OMEPARSEBOOKINGCONFIRMTITLE">确认订单</string>
+    <string name="OMEPARSEVENUEBOOKINGDESCRIPTION">根据双方约定，在场馆完成运动以后，场馆预定押金将原额返还</string>
+    <string name="OMEPARSEPAYSUCCESS">支付成功</string>
+    <string name="OMEPARSEPAYFAIL">支付失败</string>
+    <string name="OMEPARSEPAYINPROGRESS">支付结果确认中</string>
+    <string name="OMEPARSEBOOKINGPAYMUSTKNOW">付款须知 :</string>
+    <string name="OMEPARSEBOOKINGPAYMUSTKNOWONE">1. 请确认场馆，时间和手机号码</string>
+    <string name="OMEPARSEBOOKINGPAYMUSTKNOWTWO">2. 场馆预定押金将被返还到支付账户</string>
+    <string name="OMEPARSEBOOKINGRESULTNOTIFICATION">我们将通知您预定结果和原额返还您的预定场馆押金</string>
+    <string name="OMEPARSEPHONENUMBERTEXT">手机号码</string>
+    <string name="OMEPARSEPAYUSEMETHODTEXT">用支付宝付款</string>
+
+
+
 
 
 
