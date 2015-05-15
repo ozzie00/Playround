@@ -111,6 +111,22 @@ public final class BookingVenue extends ParseObject {
         }
     }
 
+    public String getRemark() {
+        if (getString(AppConstant.OMEPARSEBOOKINGREMARKKEY) != null) {
+            return getString(AppConstant.OMEPARSEBOOKINGREMARKKEY);
+        } else {
+            return AppConstant.OMEPARSENULLSTRING;
+        }
+    }
+
+    public void setRemark(String value) {
+        if (value != null) {
+            put(AppConstant.OMEPARSEBOOKINGREMARKKEY, value);
+        } else {
+            put(AppConstant.OMEPARSEBOOKINGREMARKKEY, AppConstant.OMEPARSENULLSTRING);
+        }
+    }
+
     public String getPayStatus() {
         if (getString(AppConstant.OMEPARSEBOOKINGPAYSTATUSKEY) != null) {
             return getString(AppConstant.OMEPARSEBOOKINGPAYSTATUSKEY);

@@ -17,6 +17,7 @@
 package com.oneme.toplay.join;
 
 import android.app.ProgressDialog;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -24,7 +25,9 @@ import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.content.IntentCompat;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -51,6 +54,7 @@ import com.oneme.toplay.database.Group;
 import com.oneme.toplay.database.InviteLike;
 
 import com.oneme.toplay.me.MyProfileActivity;
+import com.oneme.toplay.ui.BaseActivity;
 import com.parse.FindCallback;
 import com.parse.ParseACL;
 import com.parse.CountCallback;
@@ -67,7 +71,7 @@ import com.squareup.picasso.Transformation;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LikeActivity extends ActionBarActivity {
+public class LikeActivity extends BaseActivity {
 
     private static final String TAG = "LikeActivity";
 
@@ -100,7 +104,18 @@ public class LikeActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ome_activity_join_like);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Toolbar toolbar = getActionBarToolbar();
+        toolbar.setNavigationIcon(R.drawable.ic_up);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // finish();
+                navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(LikeActivity.this,
+                        JoinNextActivity.class)));
+            }
+        });
+
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mfollowingdrawable = getResources().getDrawable(R.drawable.ome_activity_following_background);
         mfollowdrawable    = getResources().getDrawable(R.drawable.ome_activity_follow_background);

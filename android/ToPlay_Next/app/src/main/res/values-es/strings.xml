@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Playround</string>
-    <string name="app_version">Playround Android v.1.0.4.09</string>
+    <string name="app_version">Playround Android v.1.0.4.10</string>
 
     <!-- Strings related to activity -->
     <string name="action_settings">Settings</string>
@@ -610,6 +610,16 @@
     <string name="OMEPARSEBOOKINGRESULTNOTIFICATION">We will notify booking result and refund advance deposit</string>
     <string name="OMEPARSEPHONENUMBERTEXT">Mobile Number</string>
     <string name="OMEPARSEPAYUSEMETHODTEXT">Using Alipay to pay</string>
+
+    <!--Add by playround 1.0.4.10 -->
+    <string name="navdrawer_item_explore">Explore</string>
+    <string name="navdrawer_item_venue">Venue</string>
+    <string name="navdrawer_item_workout">Workout</string>
+    <string name="navdrawer_item_map">Map</string>
+    <string name="navdrawer_item_setting">Settings</string>
+    <string name="navdrawer_item_message">Messages</string>
+    <string name="OMEPARSEVENUEACCESSPUBLIC">Public</string>
+    <string name="OMEPARSEVENUEACCESSPRIVATE">Private</string>
 
 
 

@@ -127,10 +127,10 @@ public class MatchDetailActivity extends ActionBarActivity {
 
         setContentView(R.layout.ome_activity_match_detail);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       // getSupportActionBar().setHomeButtonEnabled(true);
         // getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setTitle(getResources().getString(R.string.OMEPARSEMEMATCHDETAILTITLE));
+       // getSupportActionBar().setTitle(getResources().getString(R.string.OMEPARSEMEMATCHDETAILTITLE));
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {

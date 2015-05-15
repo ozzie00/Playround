@@ -17,9 +17,12 @@
 package com.oneme.toplay.me;
 
 import android.app.ProgressDialog;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.content.IntentCompat;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -35,12 +38,13 @@ import com.oneme.toplay.database.Invite;
 import com.oneme.toplay.database.Sport;
 import com.oneme.toplay.addfriend.ContactProfileActivity;
 
+import com.oneme.toplay.ui.BaseActivity;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
 
 
-public class MySportActivity extends ActionBarActivity {
+public class MySportActivity extends BaseActivity {
 
     private static final String TAG = "MySportActivity";
 
@@ -56,10 +60,22 @@ public class MySportActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ome_activity_mysport);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
+        Toolbar toolbar = getActionBarToolbar();
+        toolbar.setNavigationIcon(R.drawable.ic_up);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //finish();
+                navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(MySportActivity.this,
+                        MeActivity.class)));
+            }
+        });
+
+
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setHomeButtonEnabled(true);
         // getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setTitle(getResources().getString(R.string.OMEPARSEMEMYSPORTTITLE));
+        //getSupportActionBar().setTitle(getResources().getString(R.string.OMEPARSEMEMYSPORTTITLE));
 
         // fetch username
         Bundle extras = getIntent().getExtras();

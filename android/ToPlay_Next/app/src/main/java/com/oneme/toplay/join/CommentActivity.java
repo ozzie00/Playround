@@ -17,10 +17,13 @@
 package com.oneme.toplay.join;
 
 import android.app.ProgressDialog;
+import android.content.ComponentName;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.content.IntentCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -45,6 +48,7 @@ import com.oneme.toplay.base.Time;
 import com.oneme.toplay.base.third.RoundedTransformationBuilder;
 import com.oneme.toplay.database.InviteComment;
 
+import com.oneme.toplay.ui.BaseActivity;
 import com.parse.CountCallback;
 import com.parse.ParseACL;
 import com.parse.ParseException;
@@ -57,7 +61,7 @@ import com.parse.SaveCallback;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 
-public class CommentActivity extends ActionBarActivity {
+public class CommentActivity extends BaseActivity {
 
     private static final String TAG = "CommentActivity";
 
@@ -81,11 +85,22 @@ public class CommentActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ome_activity_join_next_comment);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Toolbar toolbar = getActionBarToolbar();
+        toolbar.setNavigationIcon(R.drawable.ic_up);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // finish();
+                navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(CommentActivity.this,
+                        JoinNextActivity.class)));
+            }
+        });
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME
-                | ActionBar.DISPLAY_SHOW_TITLE | ActionBar.DISPLAY_SHOW_CUSTOM);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME
+//                | ActionBar.DISPLAY_SHOW_TITLE | ActionBar.DISPLAY_SHOW_CUSTOM);
 
 
         // fetch input extra

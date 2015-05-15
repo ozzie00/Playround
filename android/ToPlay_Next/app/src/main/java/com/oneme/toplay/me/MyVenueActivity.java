@@ -17,10 +17,13 @@
 package com.oneme.toplay.me;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.content.IntentCompat;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
@@ -31,9 +34,10 @@ import android.widget.Toast;
 import com.oneme.toplay.Application;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
+import com.oneme.toplay.ui.BaseActivity;
 import com.parse.ParseUser;
 
-public class MyVenueActivity extends ActionBarActivity {
+public class MyVenueActivity extends BaseActivity {
 
     TextView homevenueText;
     TextView backupvenueText;
@@ -51,7 +55,18 @@ public class MyVenueActivity extends ActionBarActivity {
 
         setContentView(R.layout.ome_activity_myvenue);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Toolbar toolbar = getActionBarToolbar();
+        toolbar.setNavigationIcon(R.drawable.ic_up);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //finish();
+                navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(MyVenueActivity.this,
+                        MeActivity.class)));
+            }
+        });
+
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ParseUser user     = ParseUser.getCurrentUser();
 

@@ -41,7 +41,7 @@ public class FriendProfileActivity extends ActionBarActivity {
         editFriendNote.setText("\""+friendNote+"\"");
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
-            getSupportActionBar().setIcon(R.drawable.ic_actionbar);
+          //  getSupportActionBar().setIcon(R.drawable.ic_actionbar);
         }
     }
 

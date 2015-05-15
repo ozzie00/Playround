@@ -44,6 +44,13 @@ public final class AppConstant {
     public static final String OMEPARSESPORTVALUENULL         = "0";
     public static final int OMEPARSEUSERICONRADIUS            = 30;
     public static final int OMEPARSEBUFFERLENGTH              = 1024;
+    public static final Double OMEPARSEMAXLATITUDE            = 90.0D;
+    public static final Double OMEPARSEMINLATITUDE            = -90.0D;
+    public static final Double OMEPARSEMAXLONGITUDE           = 180.0D;
+    public static final Double OMEPARSEMINLONGITUDE           = -180.0D;
+
+
+
 
     // define special symbol
     public static final String OMEPARSEHYPHENSTRING           = "-";
@@ -335,6 +342,11 @@ public final class AppConstant {
     public static final String OMEPARSEVENUEHOMEPARENTIDKEY   = "venueAsHomeParentId";
     public static final String OMEPARSEVENUEHOMEOTHERKEY      = "venueAsHomeOther";
 
+    // Parse API key corresponding to venue access
+    public static final String OMEPARSEVENUEACCESSPUBLIC      = "Public";
+    public static final String OMEPARSEVENUEACCESSPRIVATE     = "Private";
+
+
     // Parse API key corresponding to booking venue key
     public static final String OMEPARSEBOOKINGAUTHORKEY        = "bookingAuthor";
     public static final String OMEPARSEBOOKINGAUTHORNAMEKEY    = "bookingAuthorName";
@@ -342,6 +354,7 @@ public final class AppConstant {
     public static final String OMEPARSEBOOKINGVENUENAMEKEY     = "bookingVenueName";
     public static final String OMEPARSEBOOKINGTIMEKEY          = "bookingTime";
     public static final String OMEPARSEBOOKINGSUBMITTIMEKEY    = "bookingSubmitTime";
+    public static final String OMEPARSEBOOKINGREMARKKEY        = "bookingRemark";
     public static final String OMEPARSEBOOKINGPAYSTATUSKEY     = "bookingPayStatus";
     public static final String OMEPARSEBOOKINGPAYNUMBERKEY     = "bookingPayNumber";
     public static final String OMEPARSEBOOKINGREFUNDSTATUSKEY  = "bookingRefundStatus";
@@ -360,7 +373,6 @@ public final class AppConstant {
     public static final String OMEPARSEBOOKINGFINISHNOTSTART   = "NOTSTART";
     public static final String OMEPARSEBOOKINGFINISHCANCEL     = "CANCEL";
     public static final String OMEPARSEBOOKINGFINISHOTHER      = "OTHER";
-
 
     // Parse API default value for invite score
     public static final int OMEPARSEINVITESCOREZERO            = 0;

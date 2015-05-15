@@ -17,9 +17,12 @@
 package com.oneme.toplay.me;
 
 import android.app.ProgressDialog;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.content.IntentCompat;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -35,6 +38,7 @@ import com.oneme.toplay.base.Time;
 import com.oneme.toplay.database.Invite;
 import com.oneme.toplay.database.Venue;
 
+import com.oneme.toplay.ui.BaseActivity;
 import com.parse.ParseACL;
 import com.parse.ParseException;
 import com.parse.ParseGeoPoint;
@@ -43,8 +47,7 @@ import com.parse.SaveCallback;
 
 import org.w3c.dom.Text;
 
-public class UploadVenueActivity extends ActionBarActivity {
-
+public class UploadVenueActivity extends BaseActivity {
 
     private final String TAG= "UploadVenueActivity";
 
@@ -61,7 +64,17 @@ public class UploadVenueActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.ome_activity_uploadvenue);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Toolbar toolbar = getActionBarToolbar();
+        toolbar.setNavigationIcon(R.drawable.ic_up);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //finish();
+                navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(UploadVenueActivity.this,
+                        MyVenueActivity.class)));
+            }
+        });
 
         // add name
         mnameText = (EditText) findViewById(R.id.uploadvenue_name_Text);

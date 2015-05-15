@@ -92,7 +92,7 @@ public class OwnerInfoUploadActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.ome_activity_venue_owner_upload_info);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         owneridcopyImage = (ImageView)findViewById(R.id.owner_info_upload_id_ImageView);

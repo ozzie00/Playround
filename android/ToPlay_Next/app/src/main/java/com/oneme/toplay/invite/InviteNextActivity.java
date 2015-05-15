@@ -28,6 +28,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -84,6 +85,7 @@ import com.oneme.toplay.database.Invite;
 import com.oneme.toplay.database.InviteScore;
 import com.oneme.toplay.database.Group;
 import com.oneme.toplay.database.Sport;
+import com.oneme.toplay.ui.BaseActivity;
 import com.oneme.toplay.voice.WitActivity;
 import com.oneme.toplay.invite.SearchActivity;
 
@@ -98,7 +100,7 @@ import com.sleepbot.datetimepicker.time.TimePickerDialog;
 import com.fourmob.datetimepicker.date.DatePickerDialog;
 import com.fourmob.datetimepicker.date.DatePickerDialog.OnDateSetListener;
 
-public final class InviteNextActivity extends ActionBarActivity implements OnDateSetListener, TimePickerDialog.OnTimeSetListener {
+public final class InviteNextActivity extends BaseActivity implements OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
     private static final String TAG           = "InviteNextActivity";
 
@@ -149,11 +151,22 @@ public final class InviteNextActivity extends ActionBarActivity implements OnDat
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ome_activity_invite_next);
 
+
+        Toolbar toolbar = getActionBarToolbar();
+        toolbar.setNavigationIcon(R.drawable.ic_up);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                //navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(DetailInfoActivity.this,
+                //        LocalNextActivity.class)));
+            }
+        });
+
         // Note: msportarray items are correponding to msporticonarray of Sport Class
         msportarray = getResources().getStringArray(R.array.sport_type_array);
 
         final Boolean isAvailable = false;// DispatchActivity.getGooglePlayServicesState();
-
 
         //get point according to  current latitude and longitude
         geoPoint = new ParseGeoPoint(Double.valueOf(Application.getCurrentLatitude()), Double.valueOf(Application.getCurrentLongitude()));
@@ -164,7 +177,6 @@ public final class InviteNextActivity extends ActionBarActivity implements OnDat
         } else {
             new getBdNearbyPlace().execute(AppConstant.OMEPARSENULLSTRING);
         }
-
 
         // set workout name
         mworkoutnameText = (EditText)findViewById(R.id.invite_content_text_view);

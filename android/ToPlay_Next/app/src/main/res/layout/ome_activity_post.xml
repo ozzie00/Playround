@@ -7,6 +7,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin" >
 
+    <include layout="@layout/toolbar_actionbar_with_headerbar" />
+
     <EditText
         android:id="@+id/post_edittext"
         android:layout_width="fill_parent"

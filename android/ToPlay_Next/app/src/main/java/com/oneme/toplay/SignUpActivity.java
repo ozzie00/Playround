@@ -47,6 +47,7 @@ import com.oneme.toplay.base.ClientFriendList;
 import com.oneme.toplay.base.Options;
 import com.oneme.toplay.service.CoreService;
 import com.oneme.toplay.service.DataFile;
+import com.oneme.toplay.ui.LocalNextActivity;
 import com.oneme.toplay.venue.OwnerInfoUploadActivity;
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -85,7 +86,7 @@ public class SignUpActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
         setContentView(R.layout.ome_activity_signup);
 
         // Fix for an android 4.1.x bug
@@ -193,10 +194,10 @@ public class SignUpActivity extends ActionBarActivity {
                         } else {
                             // login app
                             if (DispatchActivity.getGooglePlayServicesState()) {
-                                Intent invokeLocalActivityIntent = new Intent(SignUpActivity.this, LocalWithoutMapActivity.class);
+                                Intent invokeLocalActivityIntent = new Intent(SignUpActivity.this, LocalNextActivity.class);//LocalWithoutMapActivity.class);
                                 startActivity(invokeLocalActivityIntent);
                             } else {
-                                Intent invokeCnLocalActivityIntent = new Intent(SignUpActivity.this, CnLocalWithoutMapActivity.class);
+                                Intent invokeCnLocalActivityIntent = new Intent(SignUpActivity.this, LocalNextActivity.class);//CnLocalWithoutMapActivity.class);
                                 startActivity(invokeCnLocalActivityIntent);
                             }
                             setResult(RESULT_OK);

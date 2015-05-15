@@ -70,11 +70,11 @@ public class CommentActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ome_activity_venue_comment);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME
-                | ActionBar.DISPLAY_SHOW_TITLE | ActionBar.DISPLAY_SHOW_CUSTOM);
+     //   ActionBar actionBar = getSupportActionBar();
+     //   actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME
+     //           | ActionBar.DISPLAY_SHOW_TITLE | ActionBar.DISPLAY_SHOW_CUSTOM);
 
 
         // fetch input extra

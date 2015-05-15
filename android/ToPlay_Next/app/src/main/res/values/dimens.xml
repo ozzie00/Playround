@@ -17,7 +17,7 @@
 
 
     <dimen name="margin_zero">0dp</dimen>
-\    <dimen name="margin_small">4dp</dimen>
+    <dimen name="margin_small">4dp</dimen>
     <dimen name="margin_medium">8dp</dimen>
     <dimen name="margin_large">16dp</dimen>
     <dimen name="text_tiny">10sp</dimen>
@@ -25,5 +25,36 @@
     <dimen name="text_smallish">16sp</dimen>
     <dimen name="text_medium">18sp</dimen>
     <dimen name="text_large">22sp</dimen>
+
+
+    <dimen name="swipe_refresh_progress_bar_start_margin">-40dp</dimen>
+    <dimen name="swipe_refresh_progress_bar_end_margin">16dp</dimen>
+
+    <dimen name="navdrawer_chosen_account_height">140dp</dimen>
+    <dimen name="navdrawer_width">260dp</dimen>
+    <dimen name="navdrawer_profile_image_size">40dp</dimen>
+
+    <dimen name="keyline_1">16dp</dimen>
+    <dimen name="keyline_1_minus_8dp">8dp</dimen>
+    <dimen name="keyline_2">72dp</dimen>
+    <dimen name="keyline_2_minus_16dp">56dp</dimen>
+    <dimen name="keyline_2_session_detail">@dimen/keyline_2</dimen>
+
+    <!-- body content -->
+    <dimen name="element_spacing_normal">8dp</dimen>
+    <dimen name="content_padding_normal">16dp</dimen>
+    <dimen name="text_size_xsmall">11sp</dimen>
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_medium">14sp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
+    <dimen name="text_size_xlarge">20sp</dimen>
+    <dimen name="text_size_diff_large_small">6sp</dimen>
+    <dimen name="speaker_image_size">40dp</dimen>
+
+    <dimen name="headerbar_elevation">1dp</dimen>
+    <dimen name="session_detail_max_header_elevation">@dimen/headerbar_elevation</dimen>
+
+
+
 
 </resources>

@@ -16,12 +16,15 @@
 
 package com.oneme.toplay.venue;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.content.IntentCompat;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -40,6 +43,8 @@ import com.oneme.toplay.database.Venue;
 import com.oneme.toplay.database.VenueAsHome;
 import com.oneme.toplay.database.VenueComment;
 
+import com.oneme.toplay.ui.BaseActivity;
+import com.oneme.toplay.ui.LocalNextActivity;
 import com.parse.CountCallback;
 import com.parse.ParseException;
 import com.parse.ParseGeoPoint;
@@ -48,7 +53,7 @@ import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
 
 
-public class DetailInfoActivity extends ActionBarActivity {
+public class DetailInfoActivity extends BaseActivity {
 
     private Venue mvenue = null;
 
@@ -79,8 +84,19 @@ public class DetailInfoActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ome_activity_venue_detail_info);
 
+        Toolbar toolbar = getActionBarToolbar();
+        toolbar.setNavigationIcon(R.drawable.ic_up);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                 finish();
+                //navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(DetailInfoActivity.this,
+                //        LocalNextActivity.class)));
+            }
+        });
+
        // getActionBar().show();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mashomedrawable = getResources().getDrawable(R.drawable.ome_activity_following_background);
         mmyhomedrawable = getResources().getDrawable(R.drawable.ome_activity_follow_background);
@@ -141,7 +157,12 @@ public class DetailInfoActivity extends ActionBarActivity {
             //playernumber.setText(mvenue.getPlayerAsHome(););
 
             TextView maccess = (TextView) findViewById(R.id.venue_detail_info_header_access);
-            maccess.setText(mvenue.getPublic());
+            String maccessvalue = mvenue.getPublic();
+            if (maccessvalue.equals(AppConstant.OMEPARSEVENUEACCESSPUBLIC)) {
+                maccess.setText(getResources().getString(R.string.OMEPARSEVENUEACCESSPUBLIC));
+            } else if (maccessvalue.equals(AppConstant.OMEPARSEVENUEACCESSPRIVATE)) {
+                maccess.setText(getResources().getString(R.string.OMEPARSEVENUEACCESSPRIVATE));
+            }
 
             TextView mdescritpion = (TextView) findViewById(R.id.venue_detail_info_description_content);
             mdescritpion.setText(mvenue.getDescription());

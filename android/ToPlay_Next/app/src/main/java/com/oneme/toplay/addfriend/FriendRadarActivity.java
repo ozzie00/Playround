@@ -56,10 +56,10 @@ public class FriendRadarActivity extends ActionBarActivity {
         // FriendRadarActivity use the searchOtherActivity layout
         setContentView(R.layout.ome_activity_search_other);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setHomeButtonEnabled(true);
         // getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setTitle(getResources().getString(R.string.OMEPARSEADDCONTACTSEARCHDISPLAYRESULTTITLE));
+        //getSupportActionBar().setTitle(getResources().getString(R.string.OMEPARSEADDCONTACTSEARCHDISPLAYRESULTTITLE));
 
         // fetch username
         Bundle extras = getIntent().getExtras();

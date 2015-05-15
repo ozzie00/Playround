@@ -18,8 +18,11 @@ package com.oneme.toplay;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.ComponentName;
 import android.os.Bundle;
+import android.support.v4.content.IntentCompat;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Gravity;
@@ -32,6 +35,8 @@ import android.widget.TextView;
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.base.Time;
 import com.oneme.toplay.database.Message;
+import com.oneme.toplay.ui.BaseActivity;
+import com.oneme.toplay.ui.MessageListActivity;
 import com.parse.ParseACL;
 import com.parse.ParseException;
 import com.parse.ParseGeoPoint;
@@ -41,7 +46,7 @@ import com.parse.SaveCallback;
 /**
  * Activity which displays a login screen to the user, offering registration as well.
  */
-public class MessageReplyActivity extends ActionBarActivity {
+public class MessageReplyActivity extends BaseActivity {
     // UI references.
     private EditText postEditText;
     private TextView characterCountTextView;
@@ -58,6 +63,18 @@ public class MessageReplyActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.ome_activity_message_reply);
+
+        Toolbar toolbar = getActionBarToolbar();
+        toolbar.setNavigationIcon(R.drawable.ic_up);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // finish();
+                navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(MessageReplyActivity.this,
+                        MessageListActivity.class)));
+            }
+        });
+
 
         //Intent intent = getIntent();
         Bundle extras   = getIntent().getExtras();

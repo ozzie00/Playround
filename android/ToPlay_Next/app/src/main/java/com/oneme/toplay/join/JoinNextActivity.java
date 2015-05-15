@@ -19,12 +19,15 @@ package com.oneme.toplay.join;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.content.IntentCompat;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
@@ -56,6 +59,8 @@ import com.oneme.toplay.database.Message;
 import com.oneme.toplay.database.Sport;
 import com.oneme.toplay.database.InviteLike;
 
+import com.oneme.toplay.ui.BaseActivity;
+import com.oneme.toplay.ui.LocalNextActivity;
 import com.parse.CountCallback;
 import com.parse.FindCallback;
 import com.parse.ParseACL;
@@ -68,7 +73,7 @@ import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 
-public class JoinNextActivity extends ActionBarActivity {
+public class JoinNextActivity extends BaseActivity {
 
     private ParseGeoPoint geoPoint;
 
@@ -113,7 +118,18 @@ public class JoinNextActivity extends ActionBarActivity {
         setContentView(R.layout.ome_activity_join_next);
 
        // getActionBar().show();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Toolbar toolbar = getActionBarToolbar();
+        toolbar.setNavigationIcon(R.drawable.ic_up);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               // finish();
+                navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(JoinNextActivity.this,
+                        LocalNextActivity.class)));
+            }
+        });
 
         if (muser != null) {
             musername = muser.getUsername();

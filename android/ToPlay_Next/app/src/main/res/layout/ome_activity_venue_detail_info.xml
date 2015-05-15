@@ -10,6 +10,8 @@
     android:orientation          = "vertical"
     android:background           = "@color/white">
 
+    <include layout="@layout/toolbar_actionbar_with_headerbar" />
+
     <LinearLayout
         android:id                 = "@+id/venue_detail_info_block"
         android:layout_width       = "fill_parent"

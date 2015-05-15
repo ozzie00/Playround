@@ -16,9 +16,12 @@
 
 package com.oneme.toplay.me;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.content.IntentCompat;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -36,6 +39,8 @@ import com.oneme.toplay.addfriend.ShowQRcodeActivity;
 
 import com.oneme.toplay.base.LoadImageFromParseCloud;
 import com.oneme.toplay.base.third.RoundedTransformationBuilder;
+import com.oneme.toplay.ui.BaseActivity;
+
 import com.parse.ParseUser;
 import com.parse.ParseFile;
 
@@ -50,7 +55,7 @@ import com.squareup.picasso.Transformation;
 /**
  * Activity that displays the settings screen.
  */
-public class MeActivity extends ActionBarActivity {
+public class MeActivity extends BaseActivity {
 
     private LinearLayout msettingLinerLayout;
     private Button mloginButton;
@@ -72,7 +77,18 @@ public class MeActivity extends ActionBarActivity {
 
         setContentView(R.layout.ome_activity_me);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Toolbar toolbar = getActionBarToolbar();
+        toolbar.setNavigationIcon(R.drawable.ic_up);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                 finish();
+                //navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(CommentActivity.this,
+               //         JoinNextActivity.class)));
+            }
+        });
+
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         if (ParseUser.getCurrentUser() != null) {
             addUsernameText();
@@ -80,17 +96,6 @@ public class MeActivity extends ActionBarActivity {
             //Toast.makeText(SettingActivity.this, getResources().getString(R.string.OMEPARSEINVITELOGINALERT),
             //         Toast.LENGTH_SHORT).show();
         }
-
-       // addAboutText();
-        addSetting();
-
-        mtransformation = new RoundedTransformationBuilder()
-                .borderColor(Color.WHITE)
-                .borderWidthDp(1)
-                .cornerRadiusDp(AppConstant.OMEPARSEUSERICONRADIUS)
-                .oval(false)
-                .build();
-
 
         // call profile activity
         RelativeLayout profile          = (RelativeLayout) findViewById(R.id.me_profile_block);
@@ -149,26 +154,6 @@ public class MeActivity extends ActionBarActivity {
             }
         });
 
-
-
-        // call setting activity
-        RelativeLayout setting = (RelativeLayout) findViewById(R.id.me_setting_block);
-        setting.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent invokeSettingActivityIntent = new Intent(MeActivity.this, SettingActivity.class);
-                startActivity(invokeSettingActivityIntent);
-            }
-        });
-
-
-    }
-
-
-    public void onClickSetting(View v) {
-
-        Intent invokeSettingActivityIntent = new Intent(MeActivity.this, SettingActivity.class);
-        startActivity(invokeSettingActivityIntent);
     }
 
 
@@ -177,12 +162,6 @@ public class MeActivity extends ActionBarActivity {
         mUsername     = ParseUser.getCurrentUser().getUsername();
         mUsernameText = (TextView) findViewById(R.id.me_username_view);
         mUsernameText.setText(mUsername);
-    }
-
-    // define username text
-    private void addSetting() {
-        mAboutText = (TextView) findViewById(R.id.me_setting);
-        mAboutText.setText(getResources().getString(R.string.OMEPARSEMEMYSETTINGS));
     }
 
     // define username text

@@ -2,10 +2,11 @@
 
 <!-- android:background="@drawable/list_selector"-->
 <RelativeLayout xmlns:android = "http://schemas.android.com/apk/res/android"
-        android:layout_width  = "wrap_content"
-        android:layout_height = "wrap_content"
-        android:orientation   = "horizontal"
-        android:padding       = "8dip" >
+    android:layout_width  = "wrap_content"
+    android:layout_height = "wrap_content"
+    android:orientation   = "horizontal"
+    android:padding       = "8dip"
+    android:background    = "@color/white_absolute">
 
 
     <RelativeLayout xmlns:android = "http://schemas.android.com/apk/res/android"
@@ -21,17 +22,6 @@
             android:layout_height         = "48dp"
             android:layout_centerVertical = "true"/>
 
-        <TextView
-            android:id                    = "@+id/local_username_view"
-            android:layout_width          = "wrap_content"
-            android:layout_height         = "wrap_content"
-            android:paddingTop            = "4dp"
-            android:layout_marginTop      = "8dp"
-            android:layout_below          = "@id/local_avatar_view"
-            android:layout_centerHorizontal = "true"
-            android:textAppearance        = "?android:attr/textAppearanceSmall"
-            android:textSize              = "12sp"
-            android:textColor             = "@color/gray_darker"/>
     </RelativeLayout>
 
     <TextView
@@ -59,11 +49,11 @@
         android:id               = "@+id/local_venue_address"
         android:layout_width     = "180dp"
         android:layout_height    = "wrap_content"
-        android:layout_marginTop = "1dp"
+        android:layout_marginLeft  = "2dp"
+        android:layout_marginRight = "4dp"
         android:layout_alignTop  = "@id/local_venue_icon_view"
         android:layout_toRightOf = "@+id/local_venue_icon_view"
         android:layout_below     = "@id/local_workoutname_view"
-        android:paddingLeft      = "4dp"
         android:textSize         = "12dip"
         android:textColor        = "@color/grey_darkest"/>
 
@@ -73,8 +63,7 @@
         android:layout_height      = "20dp"
         android:layout_marginLeft  = "8dp"
         android:layout_marginRight = "2dp"
-        android:layout_marginTop   = "8dp"
-        android:layout_marginBottom= "2dp"
+        android:layout_marginTop   = "4dp"
         android:layout_toRightOf   = "@id/local_avatar_block"
         android:layout_below       = "@id/local_venue_address"
         android:src                = "@drawable/ome_small_clock" />
@@ -97,8 +86,7 @@
         android:layout_height      = "20dp"
         android:layout_marginLeft  = "4dp"
         android:layout_marginRight = "2dp"
-        android:layout_marginTop   = "8dp"
-        android:layout_marginBottom= "2dp"
+        android:layout_marginTop   = "4dp"
         android:layout_toRightOf   = "@id/local_play_time"
         android:layout_below       = "@id/local_venue_address"
         android:src                = "@drawable/ome_small_distance" />
@@ -114,6 +102,31 @@
         android:layout_below       = "@id/local_venue_address"
         android:textSize           = "12dip"
         android:textColor          = "@color/gray_darker"/>
+
+    <ImageView
+        android:id                 = "@+id/local_at_icon_view"
+        android:layout_width       = "20dp"
+        android:layout_height      = "20dp"
+        android:layout_marginLeft  = "8dp"
+        android:layout_marginRight = "2dp"
+        android:layout_marginTop   = "4dp"
+        android:layout_toRightOf   = "@id/local_avatar_block"
+        android:layout_below       = "@id/local_clock_icon_view"
+        android:src                = "@drawable/ome_small_at" />
+
+    <TextView
+        android:id                    = "@+id/local_username_view"
+        android:layout_width          = "wrap_content"
+        android:layout_height         = "wrap_content"
+        android:layout_marginLeft     = "2dp"
+        android:layout_marginRight    = "4dp"
+        android:layout_alignTop       = "@id/local_at_icon_view"
+        android:layout_toRightOf      = "@+id/local_at_icon_view"
+        android:layout_below          = "@id/local_play_time"
+        android:layout_centerHorizontal = "true"
+        android:textAppearance        = "?android:attr/textAppearanceSmall"
+        android:textSize              = "12dip"
+        android:textColor             = "@color/gray_darker"/>
 
     <ImageView
         android:id                      = "@+id/local_sport_type_icon"

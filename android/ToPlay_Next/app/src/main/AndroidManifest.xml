@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.oneme.toplay"
-    android:versionCode="41"
-    android:versionName="1.0.4.09" >
+    android:versionCode="42"
+    android:versionName="1.0.4.10" >
 
     <uses-sdk
         android:minSdkVersion="9"
@@ -63,7 +63,7 @@
         android:icon        = "@drawable/ome_ic_launcher"
         android:logo        = "@drawable/ome_ic_launcher"
         android:label       = "@string/app_name"
-        android:theme       = "@style/CustomActionBarTheme" >
+        android:theme       = "@style/Theme.Playround.Base" >
 
         <!--
         <service
@@ -259,7 +259,6 @@
 
         <activity
             android:name       = ".invite.SearchActivity"
-            android:label      = "@string/invitesearchactivity_title"
             android:parentActivityName="com.oneme.toplay.invite.InviteNextActivity" >
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
@@ -507,7 +506,7 @@
             android:name = ".me.FeedbackActivity"/>
 
         <activity
-            android:name = ".MessageListActivity"
+            android:name = ".ui.MessageListActivity"
             android:label = "@string/messagelistactivity_title"/>
 
         <activity
@@ -562,7 +561,28 @@
         </activity>
 
         <activity
-            android:name = ".pay.PayBookingVenueActivity">
+            android:name = ".ui.LocalNextActivity"
+            android:label= "@string/localactivity_title"
+            android:theme="@style/Theme.Playround.MySchedule"
+            android:launchMode="singleTop"/>
+
+        <activity
+            android:name = ".ui.VenueNextActivity"
+            android:theme="@style/Theme.Playround.MySchedule" />
+
+        <activity
+            android:name = ".ui.CnMapNextActivity"
+            android:theme="@style/Theme.Playround.MySchedule" />
+
+        <activity
+            android:name = ".ui.SettingNextActivity"
+            android:theme="@style/Theme.Playround.MySchedule" />
+
+
+
+        <activity
+            android:name = ".pay.PayBookingVenueActivity"
+            android:label = "@string/OMEPARSEBOOKINGCONFIRMTITLE">
 
             <meta-data
                 android:name  = "android.support.PARENT_ACTIVITY"
@@ -572,6 +592,7 @@
         <activity
             android:name = ".weather.WeatherActivity"
         />
+
 
 
 

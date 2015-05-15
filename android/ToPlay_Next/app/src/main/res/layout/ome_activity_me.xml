@@ -3,11 +3,9 @@
     android:layout_width    = "match_parent"
     android:layout_height   = "wrap_content"
     android:orientation     = "vertical"
-    android:paddingBottom   = "@dimen/margin_large"
-    android:paddingLeft     = "@dimen/margin_large"
-    android:paddingRight    = "@dimen/margin_large"
-    android:focusableInTouchMode="true"
-    android:paddingTop      = "@dimen/margin_large" >
+    android:focusableInTouchMode="true">
+
+    <include layout="@layout/toolbar_actionbar_with_headerbar" />
 
     <RelativeLayout android:id= "@+id/me_profile_block"
         android:layout_width  = "match_parent"
@@ -117,35 +115,5 @@
             android:background              = "@android:color/white"
             android:text                    = "@string/OMEPARSEMEMYCOURTADDRESS"/>
     </RelativeLayout>
-
-
-    <RelativeLayout android:id= "@+id/me_setting_block"
-
-        android:layout_width     = "match_parent"
-        android:layout_height    = "wrap_content"
-        android:layout_marginTop = "16dp"
-        android:orientation      = "horizontal"
-        android:padding          = "5dip"
-        android:background       = "@android:color/white">
-
-        <ImageView
-            android:id                 = "@+id/me_setting_image"
-            android:layout_width       = "32dp"
-            android:layout_height      = "32dp"
-            android:layout_marginTop   = "8dp"
-            android:layout_marginRight = "16dp"
-            android:src                = "@drawable/ome_me_setting"
-            android:layout_marginLeft  ="16dp" />
-
-        <TextView
-            android:id                      = "@+id/me_setting"
-            android:layout_width            = "wrap_content"
-            android:layout_height           = "32dp"
-            android:layout_marginTop        = "8dp"
-            android:layout_marginLeft       = "70dp"
-            android:layout_alignTop         = "@id/me_setting_image"
-            android:background              = "@android:color/white" />
-    </RelativeLayout>
-
 
 </LinearLayout>

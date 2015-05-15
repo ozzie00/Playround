@@ -17,6 +17,7 @@
 package com.oneme.toplay.join;
 
 import android.app.ProgressDialog;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -25,7 +26,9 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.content.IntentCompat;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -48,6 +51,7 @@ import com.oneme.toplay.database.FollowingPlayer;
 import com.oneme.toplay.database.Group;
 
 import com.oneme.toplay.me.MyProfileActivity;
+import com.oneme.toplay.ui.BaseActivity;
 import com.parse.CountCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
@@ -59,9 +63,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class PlayerActivity extends ActionBarActivity {
+public class PlayerActivity extends BaseActivity {
 
-    private static final String TAG    = "ScoreboardActivity";
+    private static final String TAG    = "PlayerActivity";
     private ParseUser muser            = ParseUser.getCurrentUser();
     private String minviteObjectID     = null;
     private String mgroupAdminUsername = null;
@@ -88,7 +92,18 @@ public class PlayerActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ome_activity_player);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Toolbar toolbar = getActionBarToolbar();
+        toolbar.setNavigationIcon(R.drawable.ic_up);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // finish();
+                navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(PlayerActivity.this,
+                        JoinNextActivity.class)));
+            }
+        });
+
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mfollowingdrawable = getResources().getDrawable(R.drawable.ome_activity_following_background);
         mfollowdrawable    = getResources().getDrawable(R.drawable.ome_activity_follow_background);

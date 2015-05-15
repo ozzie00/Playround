@@ -16,30 +16,19 @@
 
 package com.oneme.toplay.venue;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
-import com.oneme.toplay.Application;
-import com.oneme.toplay.LoginActivity;
-import com.oneme.toplay.MapActivity;
-import com.oneme.toplay.MessageListActivity;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
-import com.oneme.toplay.base.Time;
-import com.oneme.toplay.me.MeActivity;
 import com.oneme.toplay.me.UploadVenueActivity;
-import com.oneme.toplay.service.CoreService;
-import com.parse.ParseGeoPoint;
 import com.parse.ParseUser;
 
 

@@ -17,10 +17,13 @@
 package com.oneme.toplay.me;
 
 import android.app.ProgressDialog;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.content.IntentCompat;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -36,13 +39,14 @@ import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.base.VenueToIntentExtra;
 import com.oneme.toplay.database.Venue;
 
+import com.oneme.toplay.ui.BaseActivity;
 import com.oneme.toplay.venue.DetailInfoActivity;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseGeoPoint;
 import com.parse.ParseQuery;
 
-public class VenueRadarActivity extends ActionBarActivity {
+public class VenueRadarActivity extends BaseActivity {
 
     private static final String TAG = "VenueRadarActivity";
 
@@ -63,8 +67,19 @@ public class VenueRadarActivity extends ActionBarActivity {
         // FriendRadarActivity use the searchOtherActivity layout
         setContentView(R.layout.ome_activity_venue_radar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
+        Toolbar toolbar = getActionBarToolbar();
+        toolbar.setNavigationIcon(R.drawable.ic_up);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //finish();
+                navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(VenueRadarActivity.this,
+                        MeActivity.class)));
+            }
+        });
+
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setHomeButtonEnabled(true);
         // getSupportActionBar().setDisplayShowTitleEnabled(false);
         //getSupportActionBar().setTitle(getResources().getString(R.string.OMEPARSEADDCONTACTSEARCHDISPLAYRESULTTITLE));
 

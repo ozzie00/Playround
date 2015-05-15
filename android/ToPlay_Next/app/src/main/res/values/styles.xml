@@ -1,6 +1,5 @@
 <resources>
 
-
     <!-- <item name="android:background">@drawable/navbar_backgroundselector</item> -->
     <style name="navbar_button">
         <item name="android:layout_width">0dp</item>
@@ -100,6 +99,147 @@
     <style name="PagerSlidingTabStripStyle" parent="">
         <item name="android:textColorPrimary">@color/playround_default</item>
     </style>
+
+    <style name="ActionBarThemeOverlay" parent="">
+        <item name="android:textColorPrimary">#fff</item>
+        <item name="colorControlNormal">#3f00</item>
+        <item name="colorControlHighlight">#3fff</item>
+    </style>
+
+    <style name="ActionBarPopupThemeOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="ActionBar.TitleText" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/grey_darkest</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+
+
+    <!-- according to google IO 2014 theme -->
+
+    <style name="FrameworkRoot.Theme" parent="Theme.AppCompat.Light.NoActionBar" />
+    <style name="FrameworkRoot.Widget" parent="Theme.AppCompat" />
+
+    <!-- Immediate parent theme to specify base values for custom attributes -->
+    <style name="Theme" parent="FrameworkRoot.Theme">
+
+    </style>
+
+    <declare-styleable name="BaseTheme">
+        <attr name="actionBarIconColor" format="color" />
+        <attr name="actionBarInsetStart" format="dimension" />
+        <attr name="spinnerBarInsetStart" format="dimension" />
+        <attr name="popupItemBackground" format="reference" />
+        <attr name="photoItemForeground" format="reference" />
+        <attr name="photoItemForegroundBorderless" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="MultiSwipeRefreshLayout">
+        <attr name="foreground" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="DrawShadowFrameLayout">
+        <attr name="shadowDrawable" format="reference" />
+        <attr name="shadowVisible" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="ScrimInsetsView">
+        <attr name="insetForeground" format="reference|color" />
+    </declare-styleable>
+
+    <declare-styleable name="BezelImageView">
+        <attr name="maskDrawable" format="reference" />
+        <attr name="borderDrawable" format="reference" />
+        <attr name="desaturateOnPress" format="boolean" />
+    </declare-styleable>
+
+
+    <style name="Theme.Playround.Base" parent="Theme">
+        <item name="actionBarIconColor">#fff</item>
+        <item name="actionBarInsetStart">@dimen/keyline_2</item>
+        <item name="homeAsUpIndicator">@drawable/ic_up</item>
+        <item name="spinnerBarInsetStart">@dimen/keyline_2_minus_16dp</item>
+        <item name="popupItemBackground">?android:selectableItemBackground</item>
+        <item name="photoItemForeground">?android:selectableItemBackground</item>
+        <item name="photoItemForegroundBorderless">?android:selectableItemBackground</item>
+
+        <item name="colorPrimary">@color/playround_default</item>
+        <item name="colorPrimaryDark">@color/playround_default</item>
+        <item name="colorAccent">@color/playround_default</item>
+
+        <item name="android:textColorLink">@color/playround_default</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_up</item>
+
+        <!--
+        <item name="android:popupMenuStyle">@style/Widget.Playround.PopupMenu</item>
+        <item name="android:listPopupWindowStyle">@style/Widget.Playround.PopupMenu</item>
+        <item name="android:dropDownListViewStyle">@style/Widget.Playround.ListView.DropDown</item>
+        <item name="android:textAppearanceLargePopupMenu">@style/TextAppearance.LargePopupMenu</item>
+
+        <item name="searchViewStyle">@style/Widget.Playround.SearchView</item>
+        -->
+
+    </style>
+
+    <style name="Theme.Playround" parent="Theme.Playround.Base" />
+
+    <style name="Theme.Playround.WithNavDrawer" parent="Theme.Playround" />
+
+    <!-- My Schedule -->
+    <style name="Theme.Playround.MySchedule" parent="Theme.Playround.WithNavDrawer" />
+
+    <!-- Intermediary theme for SessionDetails (so we can override it on large screens) -->
+    <style name="Theme.Playround.SessionDetails.Base" parent="Theme.Playround">
+
+    </style>
+
+    <!-- Session Details -->
+    <style name="Theme.Playround.SessionDetails" parent="Theme.Playround.SessionDetails.Base" />
+
+    <!-- Social -->
+    <style name="Theme.Playround.Social" parent="Theme.Playround.WithNavDrawer">
+        <item name="android:windowBackground">@color/gray_background</item>
+    </style>
+
+    <!-- Account chooser -->
+    <style name="Theme.Playround.Accounts" parent="Theme.Playround">
+        <item name="android:actionBarStyle">@style/ActionBar.Accounts</item>
+    </style>
+
+    <style name="ActionBar.Accounts" parent="">
+        <item name="android:displayOptions">showHome|useLogo</item>
+    </style>
+
+    <!-- People I've Met -->
+    <style name="Theme.Playround.PeopleIveMet" parent="Theme.Playround.WithNavDrawer" />
+
+    <!-- Experts -->
+    <style name="Theme.Playround.ExpertsDirectory" parent="Theme.Playround.WithNavDrawer" />
+
+    <!-- Misc -->
+    <style name="TabIndicator" />
+
+    <!-- Transparent Action Bar -->
+    <style name="TransparentActionBar" parent="">
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="TranslucentActionBar" parent="">
+        <item name="android:background">@color/translucent_actionbar_background</item>
+    </style>
+
+
+    <style name="HeaderBar">
+        <item name="android:background">@color/white_absolute</item>
+        <item name="android:elevation">@dimen/headerbar_elevation</item>
+    </style>
+
 
 
 </resources>

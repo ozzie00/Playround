@@ -72,9 +72,9 @@ public class SearchVenueActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ome_activity_search_venue);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME
-                | ActionBar.DISPLAY_SHOW_TITLE | ActionBar.DISPLAY_SHOW_CUSTOM);
+        //ActionBar actionBar = getSupportActionBar();
+        //actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME
+        //        | ActionBar.DISPLAY_SHOW_TITLE | ActionBar.DISPLAY_SHOW_CUSTOM);
 
         msuggest   = new ArrayList<Venue>();
 

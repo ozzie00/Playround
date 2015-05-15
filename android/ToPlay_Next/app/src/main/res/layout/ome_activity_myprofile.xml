@@ -22,6 +22,8 @@
         android:layout_height       = "48dip"/>
     -->
 
+    <include layout="@layout/toolbar_actionbar_with_headerbar" />
+
     <RelativeLayout
         android:id            = "@+id/myprofile_avatar_block"
         android:layout_width  = "fill_parent"

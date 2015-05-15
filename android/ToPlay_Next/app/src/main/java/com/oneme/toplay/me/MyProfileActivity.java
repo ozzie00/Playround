@@ -16,12 +16,16 @@
 
 package com.oneme.toplay.me;
 
+import android.content.ComponentName;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.IntentCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -33,6 +37,7 @@ import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.LoadImageFromParseCloud;
 
+import com.oneme.toplay.ui.BaseActivity;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
@@ -40,7 +45,7 @@ import com.parse.ParseUser;
 
 
 
-public class MyProfileActivity extends ActionBarActivity {
+public class MyProfileActivity extends BaseActivity {
 
     private String mmemberusername = null;
 
@@ -101,9 +106,20 @@ public class MyProfileActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ome_activity_myprofile);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle(getResources().getString(R.string.meprofilreactivity_title));
+        Toolbar toolbar = getActionBarToolbar();
+        toolbar.setNavigationIcon(R.drawable.ic_up);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+               // navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(MyProfileActivity.this,
+               //         MeActivity.class)));
+            }
+        });
+
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setHomeButtonEnabled(true);
+//        getSupportActionBar().setTitle(getResources().getString(R.string.meprofilreactivity_title));
 
         // Initialize the ViewPager and set an adapter
         ViewPager profilepager = (ViewPager)findViewById(R.id.myprofile_pager);

@@ -17,9 +17,12 @@
 package com.oneme.toplay.join;
 
 import android.app.ProgressDialog;
+import android.content.ComponentName;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.content.IntentCompat;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -41,6 +44,7 @@ import com.oneme.toplay.base.third.RoundedTransformationBuilder;
 import com.oneme.toplay.database.InviteComment;
 import com.oneme.toplay.database.InviteScore;
 
+import com.oneme.toplay.ui.BaseActivity;
 import com.parse.ParseACL;
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -51,7 +55,7 @@ import com.parse.SaveCallback;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 
-public class ScoreboardActivity extends ActionBarActivity {
+public class ScoreboardActivity extends BaseActivity {
 
     private static final String TAG = "ScoreboardActivity";
 
@@ -74,7 +78,18 @@ public class ScoreboardActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ome_activity_join_next_score);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Toolbar toolbar = getActionBarToolbar();
+        toolbar.setNavigationIcon(R.drawable.ic_up);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // finish();
+                navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(ScoreboardActivity.this,
+                        JoinNextActivity.class)));
+            }
+        });
+
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // fetch input extra
         Bundle extras = getIntent().getExtras();

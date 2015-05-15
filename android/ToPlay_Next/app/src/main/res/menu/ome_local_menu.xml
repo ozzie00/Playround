@@ -9,6 +9,7 @@
         android:title           = "@string/action_search"/>
     -->
 
+    <!--
     <item
         android:id              = "@+id/action_search_venue"
         android:icon            = "@drawable/ic_action_search"
@@ -30,6 +31,7 @@
         android:orderInCategory = "100"
         compat:showAsAction     = "always"
         android:title           = "@string/action_message" />
+        -->
 
     <item
         android:id              = "@+id/action_invite"

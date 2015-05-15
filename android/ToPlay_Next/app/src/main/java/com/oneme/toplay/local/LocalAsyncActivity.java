@@ -28,8 +28,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -51,11 +49,8 @@ import android.widget.Toast;
 
 import com.oneme.toplay.Application;
 import com.oneme.toplay.LoginActivity;
-import com.oneme.toplay.MapActivity;
-import com.oneme.toplay.MessageListActivity;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
-import com.oneme.toplay.base.LoadImageFromParseCloud;
 import com.oneme.toplay.base.Time;
 import com.oneme.toplay.database.Invite;
 import com.oneme.toplay.database.Sport;
@@ -82,7 +77,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import fr.castorflex.android.smoothprogressbar.SmoothProgressBar;
-import fr.castorflex.android.smoothprogressbar.SmoothProgressDrawable;
 
 //import com.shamanland.fab.FloatingActionButton;
 //import com.shamanland.fab.ShowHideOnScroll;
@@ -626,20 +620,20 @@ public class LocalAsyncActivity extends ActionBarActivity implements LocationLis
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle presses on the action bar items
         switch (item.getItemId()) {
-            case R.id.action_search_venue:
-                onSearchRequested();
-                return true;
-            case R.id.action_map:
-                Intent invokeMapActivityIntent = new Intent(LocalAsyncActivity.this, MapActivity.class);
-                invokeMapActivityIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(invokeMapActivityIntent);
-                return true;
-            case R.id.action_message:
+           // case R.id.action_search_venue:
+           //     onSearchRequested();
+           //     return true;
+           // case R.id.action_map:
+           //     Intent invokeMapActivityIntent = new Intent(LocalAsyncActivity.this, MapActivity.class);
+           //     invokeMapActivityIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+           //     startActivity(invokeMapActivityIntent);
+           //     return true;
+           // case R.id.action_message:
                 // Check username
-                Intent invokeMessageIntent = new Intent(LocalAsyncActivity.this, MessageListActivity.class);//MainActivity.class);
-                invokeMessageIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(invokeMessageIntent);
-                return true;
+           //     Intent invokeMessageIntent = new Intent(LocalAsyncActivity.this, MessageListActivity.class);//MainActivity.class);
+           //     invokeMessageIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+           //     startActivity(invokeMessageIntent);
+           //     return true;
             case R.id.action_invite:
                 invokeInviteActivity();
                 return true;

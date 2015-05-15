@@ -991,7 +991,7 @@ public class CnMapActivity extends ActionBarActivity {
 
         setContentView(R.layout.ome_activity_bd_map);
 
-        getSupportActionBar().show();
+        //getSupportActionBar().show();
 
 
 

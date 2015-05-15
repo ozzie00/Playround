@@ -22,9 +22,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.graphics.Typeface;
-import android.location.Location;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -54,22 +52,18 @@ import com.oneme.toplay.Application;
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.base.InviteToIntentExtra;
 import com.oneme.toplay.base.LoadImageFromParseCloud;
-import com.oneme.toplay.base.third.RoundedTransformationBuilder;
 import com.oneme.toplay.base.Time;
-import com.oneme.toplay.CnMapActivity;
 import com.oneme.toplay.database.Invite;
 import com.oneme.toplay.database.Sport;
 import com.oneme.toplay.invite.InviteNextActivity;
 import com.oneme.toplay.join.JoinNextActivity;
 import com.oneme.toplay.LoginActivity;
 import com.oneme.toplay.me.MeActivity;
-import com.oneme.toplay.MessageListActivity;
 import com.oneme.toplay.R;
 import com.oneme.toplay.service.CoreService;
 import com.oneme.toplay.weather.RemoteFetch;
 import com.oneme.toplay.weather.WeatherActivity;
 
-import com.parse.ParseFile;
 import com.parse.ParseGeoPoint;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
@@ -82,23 +76,15 @@ import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
-import com.baidu.mapapi.map.BitmapDescriptorFactory;
 import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
-import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationConfiguration.LocationMode;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.model.LatLngBounds;
 import com.baidu.mapapi.map.Circle;
-import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.SupportMapFragment;
-
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Transformation;
 
 
 public class CnLocalWithoutMapActivity extends ActionBarActivity {
@@ -703,20 +689,20 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle presses on the action bar items
         switch (item.getItemId()) {
-            case R.id.action_search_venue:
-                 onSearchRequested();
-                return true;
-            case R.id.action_map:
-                Intent invokeMapActivityIntent = new Intent(CnLocalWithoutMapActivity.this, CnMapActivity.class);
-                invokeMapActivityIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(invokeMapActivityIntent);
-                return true;
-            case R.id.action_message:
+          //  case R.id.action_search_venue:
+          //       onSearchRequested();
+          //      return true;
+          //  case R.id.action_map:
+          //      Intent invokeMapActivityIntent = new Intent(CnLocalWithoutMapActivity.this, CnMapActivity.class);
+          //      invokeMapActivityIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+          //      startActivity(invokeMapActivityIntent);
+          //      return true;
+          //  case R.id.action_message:
                 // Check username
-                Intent invokeMessageIntent = new Intent(CnLocalWithoutMapActivity.this, MessageListActivity.class);
-                invokeMessageIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(invokeMessageIntent);
-                return true;
+          //      Intent invokeMessageIntent = new Intent(CnLocalWithoutMapActivity.this, MessageListActivity.class);
+          //      invokeMessageIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+          //      startActivity(invokeMessageIntent);
+          //      return true;
             case R.id.action_invite:
                 invokeInviteActivity();
                 return true;

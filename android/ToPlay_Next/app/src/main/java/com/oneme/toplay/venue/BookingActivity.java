@@ -17,10 +17,13 @@
 package com.oneme.toplay.venue;
 
 import android.app.Dialog;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.content.IntentCompat;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
@@ -39,6 +42,7 @@ import com.oneme.toplay.database.BookingVenue;
 import com.oneme.toplay.database.Venue;
 import com.oneme.toplay.pay.PayBookingVenueActivity;
 
+import com.oneme.toplay.ui.BaseActivity;
 import com.parse.ParseACL;
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -53,7 +57,7 @@ import java.util.Currency;
 import java.util.Locale;
 
 
-public class BookingActivity extends ActionBarActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener  {
+public class BookingActivity extends BaseActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener  {
 
     private Venue mvenue = null;
 
@@ -85,8 +89,19 @@ public class BookingActivity extends ActionBarActivity implements DatePickerDial
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ome_activity_venue_booking);
 
-       // getActionBar().show();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Toolbar toolbar = getActionBarToolbar();
+        toolbar.setNavigationIcon(R.drawable.ic_up);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               // finish();
+                navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(BookingActivity.this,
+                        DetailInfoActivity.class)));
+            }
+        });
+
+        // getActionBar().show();
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Locale currentlocale = getResources().getConfiguration().locale;
 
@@ -286,6 +301,9 @@ public class BookingActivity extends ActionBarActivity implements DatePickerDial
             mtime = mdate + AppConstant.OMEPARSESPACESTRING + mhour;
             morder.setTime(mtime);
             morder.setSubmitTime(Time.currentTime());
+            if (mremark != null) {
+                morder.setRemark(mremark);
+            }
             morder.setPayStatus(AppConstant.OMEPARSEBOOKINGPAYSUCCESS);
             morder.setPayNumber(mpaynumber);
             morder.setRefundStatus(AppConstant.OMEPARSEBOOKINGREFUNDNOTSTART);

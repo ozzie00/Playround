@@ -27,6 +27,7 @@ import com.oneme.toplay.local.CnLocalWithoutMapActivity;
 import com.oneme.toplay.database.IdentityDatabase;
 import com.oneme.toplay.service.CoreService;
 import com.oneme.toplay.service.DataFile;
+import com.oneme.toplay.ui.LocalNextActivity;
 import com.oneme.toplay.venue.OwnerInfoUploadActivity;
 import com.oneme.toplay.venue.OwnerMainActivity;
 
@@ -59,7 +60,7 @@ public class LoginActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ome_activity_login);
 
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
 
         // Set up the login form.
         usernameEditText = (EditText) findViewById(R.id.username);
@@ -135,12 +136,12 @@ public class LoginActivity extends ActionBarActivity {
 
                                 if (DispatchActivity.getGooglePlayServicesState()) {
                                     dialog.dismiss();
-                                    Intent invokeLocalActivityIntent = new Intent(LoginActivity.this, LocalWithoutMapActivity.class);
+                                    Intent invokeLocalActivityIntent = new Intent(LoginActivity.this, LocalNextActivity.class);// LocalWithoutMapActivity.class);
                                     startActivity(invokeLocalActivityIntent);
                                     finish();
                                 } else {
                                     dialog.dismiss();
-                                    Intent invokeCnLocalActivityIntent = new Intent(LoginActivity.this, CnLocalWithoutMapActivity.class);
+                                    Intent invokeCnLocalActivityIntent = new Intent(LoginActivity.this, LocalNextActivity.class);//CnLocalWithoutMapActivity.class);
                                     startActivity(invokeCnLocalActivityIntent);
                                     finish();
                                 }

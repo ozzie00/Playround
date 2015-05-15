@@ -20,7 +20,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.location.Location;
 import android.location.LocationListener;
@@ -37,7 +36,6 @@ import android.view.ViewGroup;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.AdapterView;
-import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -48,8 +46,6 @@ import org.json.JSONObject;
 
 import java.text.DecimalFormat;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
 
 import com.oneme.toplay.R;
 import com.oneme.toplay.Application;
@@ -57,13 +53,10 @@ import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.base.InviteToIntentExtra;
 import com.oneme.toplay.base.LoadImageFromParseCloud;
 import com.oneme.toplay.base.Time;
-import com.oneme.toplay.base.third.RoundedTransformationBuilder;
 import com.oneme.toplay.database.Invite;
 import com.oneme.toplay.database.Sport;
 import com.oneme.toplay.invite.InviteNextActivity;
 import com.oneme.toplay.join.JoinNextActivity;
-import com.oneme.toplay.MapActivity;
-import com.oneme.toplay.MessageListActivity;
 import com.oneme.toplay.service.CoreService;
 import com.oneme.toplay.LoginActivity;
 import com.oneme.toplay.me.MeActivity;
@@ -74,8 +67,6 @@ import com.parse.ParseGeoPoint;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
-
-import com.squareup.picasso.Transformation;
 
 //import com.shamanland.fab.FloatingActionButton;
 //import com.shamanland.fab.ShowHideOnScroll;
@@ -698,20 +689,20 @@ public class LocalWithoutMapActivity extends ActionBarActivity implements Locati
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle presses on the action bar items
         switch (item.getItemId()) {
-            case R.id.action_search_venue:
-                onSearchRequested();
-                return true;
-            case R.id.action_map:
-                Intent invokeMapActivityIntent = new Intent(LocalWithoutMapActivity.this, MapActivity.class);
-                invokeMapActivityIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(invokeMapActivityIntent);
-                return true;
-            case R.id.action_message:
+         //   case R.id.action_search_venue:
+         //       onSearchRequested();
+         //       return true;
+         //   case R.id.action_map:
+         //       Intent invokeMapActivityIntent = new Intent(LocalWithoutMapActivity.this, MapActivity.class);
+         //       invokeMapActivityIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+         //       startActivity(invokeMapActivityIntent);
+         //       return true;
+         //   case R.id.action_message:
                 // Check username
-                Intent invokeMessageIntent = new Intent(LocalWithoutMapActivity.this, MessageListActivity.class);//MainActivity.class);
-                invokeMessageIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(invokeMessageIntent);
-                return true;
+         //       Intent invokeMessageIntent = new Intent(LocalWithoutMapActivity.this, MessageListActivity.class);//MainActivity.class);
+         //       invokeMessageIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+         //       startActivity(invokeMessageIntent);
+         //       return true;
             case R.id.action_invite:
                 invokeInviteActivity();
                 return true;

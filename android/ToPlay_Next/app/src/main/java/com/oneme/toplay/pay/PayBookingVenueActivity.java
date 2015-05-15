@@ -1,12 +1,15 @@
 package com.oneme.toplay.pay;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.content.IntentCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
@@ -16,6 +19,8 @@ import com.alipay.sdk.app.PayTask;
 import com.oneme.toplay.Application;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
+import com.oneme.toplay.ui.BaseActivity;
+import com.oneme.toplay.venue.BookingActivity;
 import com.parse.ParseUser;
 
 import org.w3c.dom.Text;
@@ -29,7 +34,7 @@ import java.util.Locale;
 import java.util.Random;
 
 
-public class PayBookingVenueActivity extends ActionBarActivity {
+public class PayBookingVenueActivity extends BaseActivity {
 
 	//商户PID
 	public static final String PARTNER = "2088811640213787";
@@ -121,9 +126,20 @@ public class PayBookingVenueActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.pay_main);
 
-		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-		getSupportActionBar().setCustomView(R.layout.ome_activity_pay_booking_actionbar);
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		Toolbar toolbar = getActionBarToolbar();
+		toolbar.setNavigationIcon(R.drawable.ic_up);
+		toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				// finish();
+				navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(PayBookingVenueActivity.this,
+						BookingActivity.class)));
+			}
+		});
+
+//		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+//		getSupportActionBar().setCustomView(R.layout.ome_activity_pay_booking_actionbar);
+//		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 		Locale currentlocale = getResources().getConfiguration().locale;
 

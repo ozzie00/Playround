@@ -24,6 +24,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -61,9 +62,10 @@ import com.oneme.toplay.DispatchActivity;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.base.third.IfCanAccessGoogleService;
+import com.oneme.toplay.ui.BaseActivity;
 import com.parse.ParseGeoPoint;
 
-public class SearchActivity extends ActionBarActivity  {
+public class SearchActivity extends BaseActivity {
 
     class LocationData {
         String mName;
@@ -85,6 +87,17 @@ public class SearchActivity extends ActionBarActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ome_activity_search_location);
 
+        Toolbar toolbar = getActionBarToolbar();
+        toolbar.setNavigationIcon(R.drawable.ic_up);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                //navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(DetailInfoActivity.this,
+                //        LocalNextActivity.class)));
+            }
+        });
+
         final Boolean isAvailable = false;// DispatchActivity.getGooglePlayServicesState();
 
         msuggest        = new ArrayList<LocationData>();
@@ -95,7 +108,7 @@ public class SearchActivity extends ActionBarActivity  {
             StrictMode.setThreadPolicy(policy);
         }
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // get point according to  current latitude and longitude
         geoPoint = new ParseGeoPoint(Double.valueOf(Application.getCurrentLatitude()), Double.valueOf(Application.getCurrentLongitude()));

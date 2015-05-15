@@ -6,43 +6,7 @@
     android:orientation   = "vertical"
     android:weightSum     = "1">
 
-
-    <!--
-    <LinearLayout
-        android:id            = "@+id/uploadvenue_sporttypelinearlayout"
-        android:layout_width  = "match_parent"
-        android:layout_height = "wrap_content"
-        android:orientation   = "horizontal" >
-
-        <TextView
-            android:id                     = "@+id/uploadvenue_sporttype"
-            android:layout_width           = "100dp"
-            android:layout_height          = "40dp"
-            android:text                   = "@string/OMEPARSEINVITEREQUIREMENTSPORTTYPE"
-            android:layout_alignParentRight= "true"
-            android:layout_alignParentTop  = "true"
-            android:layout_marginTop       = "8dp"
-            android:layout_marginLeft      = "8dp"
-            android:layout_marginRight     = "20dp"/>
-
-        <Spinner
-            android:id                = "@+id/uploadvenue_sport_spinner"
-            android:layout_width      = "fill_parent"
-            android:layout_height     = "wrap_content"
-            android:layout_marginTop  = "8dp"
-            android:drawSelectorOnTop = "true"
-            android:prompt="@string/OMEPARSEINVITESPORTPROMPT"
-            />
-
-    </LinearLayout>
-
-
-    <View
-        android:layout_width  ="fill_parent"
-        android:layout_height = "1dp"
-        android:background    = "#c0c0c0"/>
-
-    -->
+    <include layout="@layout/toolbar_actionbar_with_headerbar" />
 
     <LinearLayout
         android:id            = "@+id/uploadvenue_name_linearlayout"

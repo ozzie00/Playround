@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.LocalNextActivity">
+
+    <!-- Main layout -->
+    <com.oneme.toplay.ui.widget.DrawShadowFrameLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:background="#fff0f0f0"
+        android:layout_height="match_parent"
+        app:shadowDrawable="@drawable/header_shadow">
+
+
+        <LinearLayout
+            android:id="@+id/headerbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:orientation="vertical">
+
+            <include layout="@layout/toolbar_actionbar_with_headerbar" />
+
+            <RelativeLayout
+                android:layout_width  = "fill_parent"
+                android:layout_height = "48dp"
+                android:orientation   = "horizontal">
+
+                <EditText
+                    android:id                    = "@+id/search_venue_content_text_view"
+                    android:layout_width          = "240dp"
+                    android:layout_height         = "20dp"
+                    android:layout_weight         = "1"
+                    android:layout_marginLeft     = "8dp"
+                    android:layout_centerVertical = "true"
+                    android:hint                  = "@string/search_venue_hint"
+                    android:singleLine            = "true"
+                    android:textAppearance        = "?android:attr/textAppearanceSmall"
+                    android:textColor             = "@android:color/black"
+                    android:background            = "@null"
+                    android:focusable             = "true">
+                    <requestFocus />
+                </EditText>
+
+                <ImageView
+                    android:id                      = "@+id/search_venue_content_voice_view"
+                    android:layout_width            = "wrap_content"
+                    android:layout_height           = "wrap_content"
+                    android:layout_marginTop        = "8dp"
+                    android:layout_marginBottom     = "8dp"
+                    android:layout_alignParentRight = "true"
+                    android:paddingLeft             = "8dp"
+                    android:paddingRight            = "16dp"
+                    android:src                     = "@drawable/ome_voice_icon"/>
+            </RelativeLayout>
+
+            <ListView
+                android:id="@+id/search_venue_list"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:divider="@color/white"
+                android:dividerHeight="1.0sp"/>
+
+            <!--
+            <include layout="@layout/toolbar_actionbar" /> -->
+            <!-- placeholder, empty except on L -->
+
+
+        </LinearLayout>
+    </com.oneme.toplay.ui.widget.DrawShadowFrameLayout>
+
+    <!-- Nav drawer -->
+    <include layout="@layout/navdrawer" />
+
+</android.support.v4.widget.DrawerLayout>
+
+

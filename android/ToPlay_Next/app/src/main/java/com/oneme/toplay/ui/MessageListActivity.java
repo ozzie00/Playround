@@ -14,42 +14,36 @@
 * limitations under the License.
 */
 
-package com.oneme.toplay;
+package com.oneme.toplay.ui;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.oneme.toplay.Application;
+import com.oneme.toplay.LoginActivity;
+import com.oneme.toplay.MessageReplyActivity;
+import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.base.third.RoundedTransformationBuilder;
 import com.oneme.toplay.database.Message;
-import com.oneme.toplay.invite.InviteActivity;
-import com.oneme.toplay.local.CnLocalActivity;
-import com.oneme.toplay.local.LocalActivity;
-import com.parse.CountCallback;
-import com.parse.ParseException;
-import com.parse.ParseFile;
+import com.oneme.toplay.ui.widget.DrawShadowFrameLayout;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
-import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 
-public class MessageListActivity extends ActionBarActivity {
+public class MessageListActivity extends BaseActivity {
 
     private static final String TAG = "MessageListActivity";
 
@@ -64,6 +58,8 @@ public class MessageListActivity extends ActionBarActivity {
 
     private static final int MAX_MESSAGE_SEARCH_RESULTS = 100;
 
+    private DrawShadowFrameLayout mDrawShadowFrameLayout;
+
     // Adapter for the Parse query
     private ParseQueryAdapter<Message> messageQueryAdapter;
 
@@ -73,7 +69,9 @@ public class MessageListActivity extends ActionBarActivity {
          //        radius = Application.getSearchDistance();
          //lastRadius = radius;
 
-         setContentView(R.layout.ome_activity_messagelist);
+         setContentView(R.layout.ome_activity_navdrawer_message);
+
+         mDrawShadowFrameLayout = (DrawShadowFrameLayout) findViewById(R.id.main_content);
 
          // Check username, if null then jump to login activity
          if (muser == null) {
@@ -191,6 +189,22 @@ public class MessageListActivity extends ActionBarActivity {
         } else {
             return true;
         }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected int getSelfNavDrawerItem() {
+        return NAVDRAWER_ITEM_MESSAGE;
+    }
+
+    @Override
+    protected void onActionBarAutoShowOrHide(boolean shown) {
+        super.onActionBarAutoShowOrHide(shown);
+        mDrawShadowFrameLayout.setShadowVisible(shown, shown);
     }
 
 }

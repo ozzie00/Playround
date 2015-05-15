@@ -1,26 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/margin_medium"
-    android:paddingLeft="@dimen/margin_large"
-    android:paddingRight="@dimen/margin_large"
     android:focusableInTouchMode="true"
-    android:descendantFocusability="blocksDescendants"
-    android:paddingTop="@dimen/margin_medium">
+    android:descendantFocusability="blocksDescendants">
 
+
+    <include layout="@layout/toolbar_actionbar_with_headerbar" />
 
 
 <!--  List view -->
 <ListView
     android:id="@+id/venue_radar_list"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"/>
+    android:layout_height="wrap_content" />
 
 
 
-</RelativeLayout>
+</LinearLayout>
 
 

@@ -127,9 +127,9 @@ public class Application extends android.app.Application {
     //Ozzie Zhang change default search distance from 250.0f to 6560.0f
     private static final float DEFAULT_SEARCH_DISTANCE = 30*6560.0f;
 
-    private static double CURRENT_LONGITUDE            = 42.3598f;
+    public static double CURRENT_LATITUDE              = 39.989231;
 
-    private static double CURRENT_LATITUDE             = 71.0921f;
+    public static double CURRENT_LONGITUDE             = 116.321337;
 
     private static SharedPreferences preferences;
 
@@ -221,11 +221,21 @@ public class Application extends android.app.Application {
     }
 
     public static String getCurrentLatitude() {
-        return preferences.getString(KEY_CURRENT_LATITUDE, Double.toString(CURRENT_LATITUDE));
+        String mlatitude = preferences.getString(KEY_CURRENT_LATITUDE, Double.toString(CURRENT_LATITUDE));
+
+        if (mlatitude == null) {
+            mlatitude = Double.toString(CURRENT_LATITUDE);
+        }
+        return mlatitude;
     }
 
     public static String getCurrentLongitude() {
-        return preferences.getString(KEY_CURRENT_LONGITUDE, Double.toString(CURRENT_LONGITUDE));
+        String mlongitude = preferences.getString(KEY_CURRENT_LONGITUDE, Double.toString(CURRENT_LONGITUDE));
+
+        if (mlongitude == null) {
+            mlongitude = Double.toString(CURRENT_LONGITUDE);
+        }
+        return mlongitude;
     }
 
     public static ConfigHelper getConfigHelper() {

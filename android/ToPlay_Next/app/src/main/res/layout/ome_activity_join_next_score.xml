@@ -1,40 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<!--
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/margin_large"
-    android:paddingLeft="@dimen/margin_large"
-    android:paddingRight="@dimen/margin_large"
-    android:focusableInTouchMode="true"
-    android:paddingTop="@dimen/margin_large">
-
-
-    <ListView
-        android:id="@+id/join_comment_list"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:divider="#F3F3F3"
-        android:dividerHeight="5.0sp"/>
-
-</RelativeLayout>
-
--->
-
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width         = "fill_parent"
     android:layout_height        = "wrap_content"
     android:orientation          = "vertical"
-    android:paddingBottom        = "@dimen/margin_large"
-    android:paddingLeft          = "@dimen/margin_large"
-    android:paddingRight         = "@dimen/margin_large"
     android:focusableInTouchMode = "true"
-    android:paddingTop           = "@dimen/margin_large"
     android:background           = "@color/white">
+
+    <include layout="@layout/toolbar_actionbar_with_headerbar" />
 
     <!--
        android:layout_weight = "1"
@@ -57,4 +30,4 @@
         android:divider       = "@color/white"
         android:dividerHeight = "5.0sp"/>
 
-</RelativeLayout>
+</LinearLayout>

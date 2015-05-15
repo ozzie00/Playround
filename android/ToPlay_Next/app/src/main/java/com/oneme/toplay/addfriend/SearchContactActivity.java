@@ -58,12 +58,12 @@ public class SearchContactActivity extends ActionBarActivity implements LoaderMa
 
         onSearchRequested();
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setHomeButtonEnabled(true);
+        //getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
-           getSupportActionBar().setIcon(R.drawable.ic_actionbar);
+           //getSupportActionBar().setIcon(R.drawable.ic_actionbar);
         }
 
 

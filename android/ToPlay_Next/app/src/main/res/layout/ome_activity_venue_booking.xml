@@ -3,11 +3,9 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/margin_large"
-    android:paddingLeft="@dimen/margin_large"
-    android:paddingRight="@dimen/margin_large"
-    android:focusableInTouchMode="true"
-    android:paddingTop="@dimen/margin_large">
+    android:focusableInTouchMode="true">
+
+    <include layout="@layout/toolbar_actionbar_with_headerbar" />
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id            = "@+id/venue_booking_time_linearlayout"
@@ -199,6 +197,7 @@
             android:id                        = "@+id/venue_booking_currency"
             android:layout_width              = "wrap_content"
             android:layout_height             = "48dp"
+            android:layout_marginLeft         = "8dp"
             android:layout_alignParentBottom  = "true"
             android:layout_centerVertical     = "true"
             android:textStyle                 = "bold"

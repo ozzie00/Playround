@@ -17,13 +17,16 @@
 package com.oneme.toplay.me;
 
 import android.app.ProgressDialog;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.support.v4.content.IntentCompat;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
@@ -50,11 +53,12 @@ import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.database.Sport;
 import com.oneme.toplay.database.Venue;
 
+import com.oneme.toplay.ui.BaseActivity;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 
-public class VenueSearchActivity extends ActionBarActivity  {
+public class VenueSearchActivity extends BaseActivity {
 
     class VenueData {
         String mType;
@@ -79,6 +83,17 @@ public class VenueSearchActivity extends ActionBarActivity  {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ome_activity_venue_search);
+
+        Toolbar toolbar = getActionBarToolbar();
+        toolbar.setNavigationIcon(R.drawable.ic_up);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //finish();
+                navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(VenueSearchActivity.this,
+                        MyVenueActivity.class)));
+            }
+        });
 
         //msuggest        = new ArrayList<VenueData>();
         mselectlocation = new VenueData();

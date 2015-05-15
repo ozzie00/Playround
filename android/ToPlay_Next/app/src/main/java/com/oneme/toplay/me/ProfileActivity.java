@@ -19,6 +19,7 @@ package com.oneme.toplay.me;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.CursorLoader;
 import android.content.DialogInterface;
@@ -26,15 +27,14 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.graphics.Matrix;
-import android.hardware.Camera;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v4.content.IntentCompat;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -53,7 +53,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.oneme.toplay.base.LoadImageFromParseCloud;
-import com.oneme.toplay.base.third.RoundedTransformationBuilder;
+import com.oneme.toplay.ui.BaseActivity;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
@@ -63,7 +63,6 @@ import com.oneme.toplay.Application;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.base.Constants;
-import com.oneme.toplay.base.FileDialog;
 import com.oneme.toplay.addfriend.ShowQRcodeActivity;
 
 import com.squareup.picasso.Picasso;
@@ -73,7 +72,7 @@ import com.squareup.picasso.Transformation;
 /**
  * Activity that displays the settings screen.
  */
-public class ProfileActivity extends ActionBarActivity {
+public class ProfileActivity extends BaseActivity {
 
     private final String TAG      = "ProfileActivity";
     private final Context context = ProfileActivity.this;
@@ -123,7 +122,19 @@ public class ProfileActivity extends ActionBarActivity {
 
         setContentView(R.layout.ome_activity_me_profile);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Toolbar toolbar = getActionBarToolbar();
+        toolbar.setNavigationIcon(R.drawable.ic_up);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //finish();
+                navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(ProfileActivity.this,
+                         MeActivity.class)));
+            }
+        });
+
+
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Bundle extras = getIntent().getExtras();
 

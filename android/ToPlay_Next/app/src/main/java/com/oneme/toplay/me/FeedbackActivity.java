@@ -16,24 +16,12 @@
 
 package com.oneme.toplay.me;
 
-
-
-
-import com.oneme.toplay.Application;
-import com.oneme.toplay.R;
-import com.oneme.toplay.base.Time;
-import com.oneme.toplay.database.Message;
-
-import com.parse.ParseACL;
-import com.parse.ParseException;
-import com.parse.ParseGeoPoint;
-import com.parse.ParseUser;
-import com.parse.SaveCallback;
-
-
+import android.content.ComponentName;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.support.v4.content.IntentCompat;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Gravity;
@@ -43,11 +31,25 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.oneme.toplay.Application;
+import com.oneme.toplay.R;
+import com.oneme.toplay.base.Time;
+import com.oneme.toplay.database.Message;
+import com.oneme.toplay.ui.BaseActivity;
+import com.oneme.toplay.ui.SettingNextActivity;
+
+import com.parse.ParseACL;
+import com.parse.ParseException;
+import com.parse.ParseGeoPoint;
+import com.parse.ParseUser;
+import com.parse.SaveCallback;
+
+
 
 /**
  * Activity which displays a login screen to the user, offering registration as well.
  */
-public class FeedbackActivity extends Activity {
+public class FeedbackActivity extends BaseActivity {
     // UI references.
     private EditText postEditText;
     private TextView characterCountTextView;
@@ -61,6 +63,17 @@ public class FeedbackActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.ome_activity_post);
+
+        Toolbar toolbar = getActionBarToolbar();
+        toolbar.setNavigationIcon(R.drawable.ic_up);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //finish();
+                navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(FeedbackActivity.this,
+                         SettingNextActivity.class)));
+            }
+        });
 
         //Intent intent = getIntent();
         //Location location = intent.getParcelableExtra(Application.INTENT_EXTRA_LOCATION);

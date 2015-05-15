@@ -3,18 +3,19 @@
     android:layout_width         = "fill_parent"
     android:layout_height        = "wrap_content"
     android:orientation          = "vertical"
-    android:paddingBottom        = "@dimen/margin_large"
-    android:paddingLeft          = "@dimen/margin_large"
-    android:paddingRight         = "@dimen/margin_large"
-    android:focusableInTouchMode = "true"
-    android:paddingTop           = "@dimen/margin_large">
+    android:focusableInTouchMode = "true">
 
+    <include layout="@layout/toolbar_actionbar" />
 
     <LinearLayout
         android:id            = "@+id/invite_search_input_block"
         android:layout_width  = "fill_parent"
         android:layout_height = "48dp"
         android:orientation   = "horizontal"
+        android:layout_marginLeft = "48dp"
+        android:layout_marginRight = "16dp"
+        android:layout_marginTop = "8dp"
+        android:layout_marginBottom = "8dp"
         android:padding       = "2dp"
         android:background    = "@drawable/ome_textfield_rectangle_background" >
 

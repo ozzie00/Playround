@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">动动</string>
-    <string name="app_version">动动 安卓版 v.1.0.4.09</string>
+    <string name="app_version">动动 安卓版 v.1.0.4.10</string>
     
     <!-- Strings related to activity -->
     <string name="action_settings">设置</string>
@@ -19,7 +19,7 @@
     <string name="settingactivity_title">设置</string>
     <string name="inviteactivity_title">邀请</string>
     <string name="joinactivity_title">加入</string>
-    <string name="localactivity_title">附近邀请</string>
+    <string name="localactivity_title">邀请</string>
     <string name="messagelistactivity_title">消息</string>
     <string name="messagereplyactivity_title">回复</string>
     
@@ -530,7 +530,7 @@
     <string name="OMEPARSELIGHTEDTEXT">夜间灯光</string>
     <string name="OMEPARSEINDOORTEXT">室内</string>
     <string name="OMEPARSEPLAYERSTEXT">选手</string>
-    <string name="OMEPARSEACCESSTEXT">对外公开</string>
+    <string name="OMEPARSEACCESSTEXT">属性</string>
 
     <string name="OMEPARSESELECTASHOMEFIELD">选择作为主场</string>
     <string name="OMEPARSEMYHOMEFIELD">我的主场</string>
@@ -561,6 +561,16 @@
     <string name="OMEPARSEBOOKINGRESULTNOTIFICATION">我们将通知您预定结果和原额返还您的预定场馆押金</string>
     <string name="OMEPARSEPHONENUMBERTEXT">手机号码</string>
     <string name="OMEPARSEPAYUSEMETHODTEXT">用支付宝付款</string>
+
+    <!--Add by playround 1.0.4.10 -->
+    <string name="navdrawer_item_explore">发现</string>
+    <string name="navdrawer_item_venue">场馆</string>
+    <string name="navdrawer_item_workout">锻炼</string>
+    <string name="navdrawer_item_map">地图</string>
+    <string name="navdrawer_item_setting">设置</string>
+    <string name="navdrawer_item_message">消息</string>
+    <string name="OMEPARSEVENUEACCESSPUBLIC">公共</string>
+    <string name="OMEPARSEVENUEACCESSPRIVATE">私有</string>
 
 
 
