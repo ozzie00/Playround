@@ -32806,7 +32806,7 @@ com.oneme.toplay.MessageReplyActivity -> com.oneme.toplay.MessageReplyActivity:
     49:49:void access$300(com.oneme.toplay.MessageReplyActivity) -> d
 com.oneme.toplay.MessageReplyActivity$1 -> bep:
     com.oneme.toplay.MessageReplyActivity this$0 -> a
-    73:75:void onClick(android.view.View) -> onClick
+    72:75:void onClick(android.view.View) -> onClick
 com.oneme.toplay.MessageReplyActivity$2 -> beq:
     com.oneme.toplay.MessageReplyActivity this$0 -> a
     91:91:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
@@ -34800,6 +34800,7 @@ com.oneme.toplay.R$layout -> bfe$j:
     int ome_activity_myvenue -> ome_activity_myvenue
     int ome_activity_navbar -> ome_activity_navbar
     int ome_activity_navdrawer_bd_map -> ome_activity_navdrawer_bd_map
+    int ome_activity_navdrawer_bd_without_map -> ome_activity_navdrawer_bd_without_map
     int ome_activity_navdrawer_local -> ome_activity_navdrawer_local
     int ome_activity_navdrawer_message -> ome_activity_navdrawer_message
     int ome_activity_navdrawer_setting -> ome_activity_navdrawer_setting
@@ -37989,7 +37990,7 @@ com.oneme.toplay.join.CommentActivity -> com.oneme.toplay.join.CommentActivity:
     64:64:void access$300(com.oneme.toplay.join.CommentActivity) -> b
 com.oneme.toplay.join.CommentActivity$1 -> bli:
     com.oneme.toplay.join.CommentActivity this$0 -> a
-    94:96:void onClick(android.view.View) -> onClick
+    93:96:void onClick(android.view.View) -> onClick
 com.oneme.toplay.join.CommentActivity$2 -> blj:
     com.oneme.toplay.join.CommentActivity this$0 -> a
     118:119:void done(int,com.parse.ParseException) -> done
@@ -38222,7 +38223,7 @@ com.oneme.toplay.join.JoinNextActivity -> com.oneme.toplay.join.JoinNextActivity
     76:76:java.lang.String access$1700(com.oneme.toplay.join.JoinNextActivity) -> r
 com.oneme.toplay.join.JoinNextActivity$1 -> bmg:
     com.oneme.toplay.join.JoinNextActivity this$0 -> a
-    129:131:void onClick(android.view.View) -> onClick
+    128:131:void onClick(android.view.View) -> onClick
 com.oneme.toplay.join.JoinNextActivity$10 -> bmh:
     com.oneme.toplay.join.JoinNextActivity this$0 -> a
     365:378:void onClick(android.view.View) -> onClick
@@ -38338,7 +38339,7 @@ com.oneme.toplay.join.LikeActivity -> com.oneme.toplay.join.LikeActivity:
     74:74:android.graphics.drawable.Drawable access$400(com.oneme.toplay.join.LikeActivity) -> e
 com.oneme.toplay.join.LikeActivity$1 -> bmz:
     com.oneme.toplay.join.LikeActivity this$0 -> a
-    113:115:void onClick(android.view.View) -> onClick
+    112:115:void onClick(android.view.View) -> onClick
 com.oneme.toplay.join.LikeActivity$2 -> bna:
     com.oneme.toplay.join.LikeActivity this$0 -> a
     139:145:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
@@ -38419,7 +38420,7 @@ com.oneme.toplay.join.PlayerActivity -> com.oneme.toplay.join.PlayerActivity:
     66:66:android.graphics.drawable.Drawable access$500(com.oneme.toplay.join.PlayerActivity) -> f
 com.oneme.toplay.join.PlayerActivity$1 -> bni:
     com.oneme.toplay.join.PlayerActivity this$0 -> a
-    101:103:void onClick(android.view.View) -> onClick
+    100:103:void onClick(android.view.View) -> onClick
 com.oneme.toplay.join.PlayerActivity$2 -> bnj:
     com.oneme.toplay.join.PlayerActivity this$0 -> a
     128:134:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
@@ -38488,7 +38489,7 @@ com.oneme.toplay.join.ScoreboardActivity -> com.oneme.toplay.join.ScoreboardActi
     58:58:java.lang.String access$000(com.oneme.toplay.join.ScoreboardActivity) -> a
 com.oneme.toplay.join.ScoreboardActivity$1 -> bnr:
     com.oneme.toplay.join.ScoreboardActivity this$0 -> a
-    87:89:void onClick(android.view.View) -> onClick
+    86:89:void onClick(android.view.View) -> onClick
 com.oneme.toplay.join.ScoreboardActivity$2 -> bns:
     com.oneme.toplay.join.ScoreboardActivity this$0 -> a
     105:111:com.parse.ParseQuery create() -> create
@@ -39060,7 +39061,7 @@ com.oneme.toplay.me.FeedbackActivity -> com.oneme.toplay.me.FeedbackActivity:
     52:52:void access$200(com.oneme.toplay.me.FeedbackActivity) -> c
 com.oneme.toplay.me.FeedbackActivity$1 -> bpm:
     com.oneme.toplay.me.FeedbackActivity this$0 -> a
-    73:75:void onClick(android.view.View) -> onClick
+    72:75:void onClick(android.view.View) -> onClick
 com.oneme.toplay.me.FeedbackActivity$2 -> bpn:
     com.oneme.toplay.me.FeedbackActivity this$0 -> a
     95:95:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
@@ -39452,7 +39453,7 @@ com.oneme.toplay.me.MySportActivity -> com.oneme.toplay.me.MySportActivity:
     47:47:void access$200(com.oneme.toplay.me.MySportActivity,android.content.Intent,com.oneme.toplay.database.Invite) -> a
 com.oneme.toplay.me.MySportActivity$1 -> bra:
     com.oneme.toplay.me.MySportActivity this$0 -> a
-    69:71:void onClick(android.view.View) -> onClick
+    68:71:void onClick(android.view.View) -> onClick
 com.oneme.toplay.me.MySportActivity$2 -> brb:
     com.oneme.toplay.me.MySportActivity this$0 -> a
     90:95:com.parse.ParseQuery create() -> create
@@ -39476,7 +39477,7 @@ com.oneme.toplay.me.MyVenueActivity -> com.oneme.toplay.me.MyVenueActivity:
     183:248:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
 com.oneme.toplay.me.MyVenueActivity$1 -> bre:
     com.oneme.toplay.me.MyVenueActivity this$0 -> a
-    64:66:void onClick(android.view.View) -> onClick
+    63:66:void onClick(android.view.View) -> onClick
 com.oneme.toplay.me.MyVenueActivity$2 -> brf:
     com.oneme.toplay.me.MyVenueActivity this$0 -> a
     102:105:void onClick(android.view.View) -> onClick
@@ -39617,7 +39618,7 @@ com.oneme.toplay.me.ProfileActivity -> com.oneme.toplay.me.ProfileActivity:
     75:75:com.parse.ParseFile access$500(com.oneme.toplay.me.ProfileActivity) -> f
 com.oneme.toplay.me.ProfileActivity$1 -> brv:
     com.oneme.toplay.me.ProfileActivity this$0 -> a
-    131:133:void onClick(android.view.View) -> onClick
+    130:133:void onClick(android.view.View) -> onClick
 com.oneme.toplay.me.ProfileActivity$2 -> brw:
     com.oneme.toplay.me.ProfileActivity this$0 -> a
     165:215:void onClick(android.view.View) -> onClick
@@ -39666,7 +39667,7 @@ com.oneme.toplay.me.UploadVenueActivity -> com.oneme.toplay.me.UploadVenueActivi
     50:50:void access$600(com.oneme.toplay.me.UploadVenueActivity) -> d
 com.oneme.toplay.me.UploadVenueActivity$1 -> bsd:
     com.oneme.toplay.me.UploadVenueActivity this$0 -> a
-    74:76:void onClick(android.view.View) -> onClick
+    73:76:void onClick(android.view.View) -> onClick
 com.oneme.toplay.me.UploadVenueActivity$2 -> bse:
     com.oneme.toplay.me.UploadVenueActivity this$0 -> a
     85:85:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
@@ -39700,7 +39701,7 @@ com.oneme.toplay.me.VenueRadarActivity -> com.oneme.toplay.me.VenueRadarActivity
     49:49:android.widget.ListView access$000(com.oneme.toplay.me.VenueRadarActivity) -> a
 com.oneme.toplay.me.VenueRadarActivity$1 -> bsj:
     com.oneme.toplay.me.VenueRadarActivity this$0 -> a
-    76:78:void onClick(android.view.View) -> onClick
+    75:78:void onClick(android.view.View) -> onClick
 com.oneme.toplay.me.VenueRadarActivity$2 -> bsk:
     com.oneme.toplay.me.VenueRadarActivity this$0 -> a
     97:101:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
@@ -39731,7 +39732,7 @@ com.oneme.toplay.me.VenueSearchActivity -> com.oneme.toplay.me.VenueSearchActivi
     61:61:java.lang.String access$000(com.oneme.toplay.me.VenueSearchActivity) -> a
 com.oneme.toplay.me.VenueSearchActivity$1 -> bsn:
     com.oneme.toplay.me.VenueSearchActivity this$0 -> a
-    93:95:void onClick(android.view.View) -> onClick
+    92:95:void onClick(android.view.View) -> onClick
 com.oneme.toplay.me.VenueSearchActivity$2 -> bso:
     com.oneme.toplay.me.VenueSearchActivity this$0 -> a
     110:117:boolean onKey(android.view.View,int,android.view.KeyEvent) -> onKey
@@ -39842,7 +39843,7 @@ com.oneme.toplay.pay.PayBookingVenueActivity$1 -> bsy:
     80:121:void handleMessage(android.os.Message) -> handleMessage
 com.oneme.toplay.pay.PayBookingVenueActivity$2 -> bsz:
     com.oneme.toplay.pay.PayBookingVenueActivity this$0 -> a
-    135:137:void onClick(android.view.View) -> onClick
+    134:137:void onClick(android.view.View) -> onClick
 com.oneme.toplay.pay.PayBookingVenueActivity$3 -> bta:
     java.lang.String val$payInfo -> a
     com.oneme.toplay.pay.PayBookingVenueActivity this$0 -> b
@@ -40050,118 +40051,122 @@ com.oneme.toplay.ui.BaseActivity$7$1 -> btr:
     com.oneme.toplay.ui.BaseActivity$7 this$1 -> a
     946:946:void run() -> run
 com.oneme.toplay.ui.CnLocalNextActivity -> com.oneme.toplay.ui.CnLocalNextActivity:
-    java.lang.String TAG -> z
-    int CONNECTION_FAILURE_RESOLUTION_REQUEST -> A
-    int MILLISECONDS_PER_SECOND -> B
-    int UPDATE_INTERVAL_IN_SECONDS -> C
-    int FAST_CEILING_IN_SECONDS -> D
-    long UPDATE_INTERVAL_IN_MILLISECONDS -> E
-    long FAST_INTERVAL_CEILING_IN_MILLISECONDS -> F
-    float METERS_PER_FEET -> G
-    int METERS_PER_KILOMETER -> H
-    double OFFSET_CALCULATION_INIT_DIFF -> I
-    float OFFSET_CALCULATION_ACCURACY -> J
-    int MAX_Invite_SEARCH_RESULTS -> K
-    int MAX_Invite_SEARCH_DISTANCE -> L
-    com.baidu.mapapi.map.SupportMapFragment mapFragment -> M
-    com.baidu.mapapi.map.Circle mapCircle -> N
-    float radius -> O
-    float lastRadius -> P
-    java.util.Map mapMarkers -> Q
-    int mostRecentMapUpdate -> R
-    boolean hasSetUpInitialLocation -> S
-    java.lang.String selectedInviteObjectId -> T
-    com.baidu.location.BDLocation lastLocation -> U
-    com.baidu.location.BDLocation currentLocation -> V
-    com.baidu.mapapi.map.Marker marker -> W
-    com.parse.ParseQueryAdapter inviteQueryAdapter -> X
-    com.parse.ParseGeoPoint userLastLocation -> Y
-    com.parse.ParseGeoPoint mGeoPoint -> Z
-    int mcount -> aa
+    java.lang.String TAG -> K
+    int CONNECTION_FAILURE_RESOLUTION_REQUEST -> L
+    int MILLISECONDS_PER_SECOND -> M
+    int UPDATE_INTERVAL_IN_SECONDS -> N
+    int FAST_CEILING_IN_SECONDS -> O
+    long UPDATE_INTERVAL_IN_MILLISECONDS -> P
+    long FAST_INTERVAL_CEILING_IN_MILLISECONDS -> Q
+    float METERS_PER_FEET -> R
+    int METERS_PER_KILOMETER -> S
+    double OFFSET_CALCULATION_INIT_DIFF -> T
+    float OFFSET_CALCULATION_ACCURACY -> U
+    int MAX_Invite_SEARCH_RESULTS -> V
+    int MAX_Invite_SEARCH_DISTANCE -> W
+    com.baidu.mapapi.map.SupportMapFragment mapFragment -> X
+    com.baidu.mapapi.map.Circle mapCircle -> Y
+    float radius -> Z
+    float lastRadius -> aa
+    java.util.Map mapMarkers -> ab
+    int mostRecentMapUpdate -> ac
+    boolean hasSetUpInitialLocation -> ad
+    java.lang.String selectedInviteObjectId -> ae
+    com.baidu.location.BDLocation lastLocation -> af
+    com.baidu.location.BDLocation currentLocation -> ag
+    com.baidu.mapapi.map.Marker marker -> ah
+    com.parse.ParseQueryAdapter inviteQueryAdapter -> ai
+    com.parse.ParseGeoPoint userLastLocation -> aj
+    com.parse.ParseGeoPoint mGeoPoint -> ak
+    int mcount -> al
+    com.oneme.toplay.ui.widget.DrawShadowFrameLayout mDrawShadowFrameLayout -> am
     com.baidu.location.LocationClient mLocClient -> q
     com.oneme.toplay.ui.CnLocalNextActivity$MyLocationListenner myListener -> r
-    com.baidu.mapapi.map.MyLocationConfiguration$LocationMode mCurrentMode -> ab
+    com.baidu.mapapi.map.MyLocationConfiguration$LocationMode mCurrentMode -> an
     com.baidu.mapapi.map.BitmapDescriptor mCurrentMarker -> s
     com.baidu.mapapi.map.MapView mMapView -> t
     com.baidu.mapapi.map.BaiduMap mBaiduMap -> u
     android.widget.RadioGroup$OnCheckedChangeListener radioButtonListener -> v
     android.widget.Button requestLocButton -> w
-    boolean isFirstLoc -> x
-    int hourpart -> ac
-    com.parse.ParseUser muser -> ad
-    java.lang.String musername -> ae
-    android.widget.ListView localInvitationListView -> af
-    android.os.Handler handler -> y
-    com.oneme.toplay.ui.CnLocalNextActivity$SDKReceiver mReceiver -> ag
-    209:386:void onCreate(android.os.Bundle) -> onCreate
-    390:397:void doListQuery() -> b
-    404:404:com.parse.ParseGeoPoint geoPointFromLocation(com.baidu.location.BDLocation) -> a
-    449:452:void onPause() -> onPause
-    456:491:void onResume() -> onResume
-    496:503:void onDestroy() -> onDestroy
-    507:512:boolean onSearchRequested() -> onSearchRequested
-    516:536:void updateWeatherData(android.widget.TextView,java.lang.String) -> a
-    539:568:void newsetWeatherIcon(android.widget.TextView,int,int) -> a
-    572:578:void renderWeather(android.widget.TextView,org.json.JSONObject) -> a
-    583:681:boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
-    689:708:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
-    720:736:void invokeInviteActivity() -> c
-    88:88:com.baidu.location.BDLocation access$000(com.oneme.toplay.ui.CnLocalNextActivity) -> a
-    88:88:com.baidu.location.BDLocation access$100(com.oneme.toplay.ui.CnLocalNextActivity) -> b
-    88:88:int access$200(com.oneme.toplay.ui.CnLocalNextActivity) -> c
-    88:88:com.parse.ParseGeoPoint access$300() -> a
-    88:88:com.parse.ParseQueryAdapter access$400(com.oneme.toplay.ui.CnLocalNextActivity) -> d
-    88:88:java.lang.String access$502(com.oneme.toplay.ui.CnLocalNextActivity,java.lang.String) -> a
-    88:88:com.baidu.location.BDLocation access$102(com.oneme.toplay.ui.CnLocalNextActivity,com.baidu.location.BDLocation) -> a
-    88:88:com.baidu.location.BDLocation access$002(com.oneme.toplay.ui.CnLocalNextActivity,com.baidu.location.BDLocation) -> b
-    88:88:void access$600(com.oneme.toplay.ui.CnLocalNextActivity) -> e
-    88:88:void access$700(com.oneme.toplay.ui.CnLocalNextActivity,android.widget.TextView,org.json.JSONObject) -> a
-    88:88:com.parse.ParseGeoPoint access$802(com.oneme.toplay.ui.CnLocalNextActivity,com.parse.ParseGeoPoint) -> a
-    88:88:com.parse.ParseUser access$900(com.oneme.toplay.ui.CnLocalNextActivity) -> f
-    88:88:com.parse.ParseGeoPoint access$800(com.oneme.toplay.ui.CnLocalNextActivity) -> g
+    boolean isFirstLoc -> I
+    int hourpart -> ao
+    com.parse.ParseUser muser -> ap
+    java.lang.String musername -> aq
+    android.widget.ListView localInvitationListView -> ar
+    android.os.Handler handler -> J
+    com.oneme.toplay.ui.CnLocalNextActivity$SDKReceiver mReceiver -> as
+    212:390:void onCreate(android.os.Bundle) -> onCreate
+    394:401:void doListQuery() -> b
+    408:408:com.parse.ParseGeoPoint geoPointFromLocation(com.baidu.location.BDLocation) -> a
+    453:456:void onPause() -> onPause
+    460:495:void onResume() -> onResume
+    500:507:void onDestroy() -> onDestroy
+    511:516:boolean onSearchRequested() -> onSearchRequested
+    520:540:void updateWeatherData(android.widget.TextView,java.lang.String) -> a
+    543:572:void newsetWeatherIcon(android.widget.TextView,int,int) -> a
+    576:582:void renderWeather(android.widget.TextView,org.json.JSONObject) -> a
+    587:685:boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    693:712:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    724:740:void invokeInviteActivity() -> c
+    744:745:void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
+    749:749:int getSelfNavDrawerItem() -> t
+    754:756:void onActionBarAutoShowOrHide(boolean) -> h
+    89:89:com.baidu.location.BDLocation access$000(com.oneme.toplay.ui.CnLocalNextActivity) -> a
+    89:89:com.baidu.location.BDLocation access$100(com.oneme.toplay.ui.CnLocalNextActivity) -> b
+    89:89:int access$200(com.oneme.toplay.ui.CnLocalNextActivity) -> c
+    89:89:com.parse.ParseGeoPoint access$300() -> a
+    89:89:com.parse.ParseQueryAdapter access$400(com.oneme.toplay.ui.CnLocalNextActivity) -> d
+    89:89:java.lang.String access$502(com.oneme.toplay.ui.CnLocalNextActivity,java.lang.String) -> a
+    89:89:com.baidu.location.BDLocation access$102(com.oneme.toplay.ui.CnLocalNextActivity,com.baidu.location.BDLocation) -> a
+    89:89:com.baidu.location.BDLocation access$002(com.oneme.toplay.ui.CnLocalNextActivity,com.baidu.location.BDLocation) -> b
+    89:89:void access$600(com.oneme.toplay.ui.CnLocalNextActivity) -> e
+    89:89:void access$700(com.oneme.toplay.ui.CnLocalNextActivity,android.widget.TextView,org.json.JSONObject) -> a
+    89:89:com.parse.ParseGeoPoint access$802(com.oneme.toplay.ui.CnLocalNextActivity,com.parse.ParseGeoPoint) -> a
+    89:89:com.parse.ParseUser access$900(com.oneme.toplay.ui.CnLocalNextActivity) -> f
+    89:89:com.parse.ParseGeoPoint access$800(com.oneme.toplay.ui.CnLocalNextActivity) -> g
 com.oneme.toplay.ui.CnLocalNextActivity$1 -> bts:
     com.oneme.toplay.ui.CnLocalNextActivity this$0 -> a
-    252:267:com.parse.ParseQuery create() -> create
+    256:271:com.parse.ParseQuery create() -> create
 com.oneme.toplay.ui.CnLocalNextActivity$2 -> btt:
     int listPinCount -> a
     android.app.ProgressDialog val$listLoadDialog -> b
     com.oneme.toplay.ui.CnLocalNextActivity this$0 -> c
-    285:341:android.view.View getItemView(com.oneme.toplay.database.Invite,android.view.View,android.view.ViewGroup) -> a
-    279:279:android.view.View getItemView(com.parse.ParseObject,android.view.View,android.view.ViewGroup) -> getItemView
+    289:345:android.view.View getItemView(com.oneme.toplay.database.Invite,android.view.View,android.view.ViewGroup) -> a
+    283:283:android.view.View getItemView(com.parse.ParseObject,android.view.View,android.view.ViewGroup) -> getItemView
 com.oneme.toplay.ui.CnLocalNextActivity$3 -> btu:
     com.oneme.toplay.ui.CnLocalNextActivity this$0 -> a
-    361:382:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    365:386:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.oneme.toplay.ui.CnLocalNextActivity$4 -> btv:
     java.lang.String val$city -> a
     android.widget.TextView val$weatherIcon -> b
     com.oneme.toplay.ui.CnLocalNextActivity this$0 -> c
-    518:534:void run() -> run
+    522:538:void run() -> run
 com.oneme.toplay.ui.CnLocalNextActivity$4$1 -> btw:
     com.oneme.toplay.ui.CnLocalNextActivity$4 this$1 -> a
-    522:525:void run() -> run
+    526:529:void run() -> run
 com.oneme.toplay.ui.CnLocalNextActivity$4$2 -> btx:
     org.json.JSONObject val$json -> a
     com.oneme.toplay.ui.CnLocalNextActivity$4 this$1 -> b
-    530:531:void run() -> run
+    534:535:void run() -> run
 com.oneme.toplay.ui.CnLocalNextActivity$5 -> bty:
     com.oneme.toplay.ui.CnLocalNextActivity this$0 -> a
-    599:602:void onClick(android.view.View) -> onClick
+    603:606:void onClick(android.view.View) -> onClick
 com.oneme.toplay.ui.CnLocalNextActivity$6 -> btz:
     com.oneme.toplay.ui.CnLocalNextActivity this$0 -> a
-    614:621:boolean onMenuItemClick(android.view.MenuItem) -> onMenuItemClick
+    618:625:boolean onMenuItemClick(android.view.MenuItem) -> onMenuItemClick
 com.oneme.toplay.ui.CnLocalNextActivity$7 -> bua:
     com.oneme.toplay.ui.CnLocalNextActivity this$0 -> a
-    636:665:boolean onMenuItemClick(android.view.MenuItem) -> onMenuItemClick
+    640:669:boolean onMenuItemClick(android.view.MenuItem) -> onMenuItemClick
 com.oneme.toplay.ui.CnLocalNextActivity$8 -> bub:
     com.oneme.toplay.ui.CnLocalNextActivity this$0 -> a
-    673:675:boolean onMenuItemClick(android.view.MenuItem) -> onMenuItemClick
+    677:679:boolean onMenuItemClick(android.view.MenuItem) -> onMenuItemClick
 com.oneme.toplay.ui.CnLocalNextActivity$MyLocationListenner -> com.oneme.toplay.ui.CnLocalNextActivity$a:
     com.oneme.toplay.ui.CnLocalNextActivity this$0 -> a
-    416:441:void onReceiveLocation(com.baidu.location.BDLocation) -> onReceiveLocation
-    444:444:void onReceivePoi(com.baidu.location.BDLocation) -> a
+    420:445:void onReceiveLocation(com.baidu.location.BDLocation) -> onReceiveLocation
+    448:448:void onReceivePoi(com.baidu.location.BDLocation) -> a
 com.oneme.toplay.ui.CnLocalNextActivity$SDKReceiver -> com.oneme.toplay.ui.CnLocalNextActivity$SDKReceiver:
     com.oneme.toplay.ui.CnLocalNextActivity this$0 -> a
-    189:197:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    192:200:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.oneme.toplay.ui.CnMapNextActivity -> com.oneme.toplay.ui.CnMapNextActivity:
     java.lang.String TAG -> J
     int CONNECTION_FAILURE_RESOLUTION_REQUEST -> K
@@ -40546,7 +40551,7 @@ com.oneme.toplay.venue.BookingActivity -> com.oneme.toplay.venue.BookingActivity
     60:60:java.lang.String access$700(com.oneme.toplay.venue.BookingActivity) -> i
 com.oneme.toplay.venue.BookingActivity$1 -> buz:
     com.oneme.toplay.venue.BookingActivity this$0 -> a
-    98:100:void onClick(android.view.View) -> onClick
+    97:100:void onClick(android.view.View) -> onClick
 com.oneme.toplay.venue.BookingActivity$2 -> bva:
     com.fourmob.datetimepicker.date.DatePickerDialog val$datePickerDialog -> a
     com.oneme.toplay.venue.BookingActivity this$0 -> b

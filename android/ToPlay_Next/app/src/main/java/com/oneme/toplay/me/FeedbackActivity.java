@@ -69,9 +69,9 @@ public class FeedbackActivity extends BaseActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //finish();
-                navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(FeedbackActivity.this,
-                         SettingNextActivity.class)));
+                finish();
+                //navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(FeedbackActivity.this,
+                //         SettingNextActivity.class)));
             }
         });
 

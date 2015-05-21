@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">动动</string>
-    <string name="app_version">动动 安卓版 v.1.0.4.10</string>
+    <string name="app_version">动动 安卓版 v.1.0.4.11</string>
     
     <!-- Strings related to activity -->
     <string name="action_settings">设置</string>
@@ -239,7 +239,7 @@
     <string name="OMEPARSEMEMYSETTINGSGENERALHEADER">一般信息</string>
     <string name="OMEPARSEMEMYSETTINGMATCHDETAILPLAYERS">加入锻炼的朋友</string>
     <string name="OMEPARSEMEPROFILEPLAYROUNDID">动动号</string>
-    <string name="OMEPARSEMEPROFILEALIAS">别名</string>
+    <string name="OMEPARSEMEPROFILEALIAS">昵称</string>
     <string name="OMEPARSEMEPROFILEAVATAR">头像</string>
     <string name="OMEPARSEMEPROFILEQRCODE">二维码</string>
     <string name="OMEPARSEMEPROFILECHOOSEIMAGE">选择相片</string>

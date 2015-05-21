@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.oneme.toplay"
-    android:versionCode="42"
-    android:versionName="1.0.4.10" >
+    android:versionCode="43"
+    android:versionName="1.0.4.11" >
 
     <uses-sdk
         android:minSdkVersion="9"
@@ -562,6 +562,12 @@
 
         <activity
             android:name = ".ui.LocalNextActivity"
+            android:label= "@string/localactivity_title"
+            android:theme="@style/Theme.Playround.MySchedule"
+            android:launchMode="singleTop"/>
+
+        <activity
+            android:name = ".ui.CnLocalNextActivity"
             android:label= "@string/localactivity_title"
             android:theme="@style/Theme.Playround.MySchedule"
             android:launchMode="singleTop"/>

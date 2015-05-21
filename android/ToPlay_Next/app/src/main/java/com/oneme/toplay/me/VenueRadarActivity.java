@@ -72,9 +72,9 @@ public class VenueRadarActivity extends BaseActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //finish();
-                navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(VenueRadarActivity.this,
-                        MeActivity.class)));
+                finish();
+                //navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(VenueRadarActivity.this,
+                //        MeActivity.class)));
             }
         });
 

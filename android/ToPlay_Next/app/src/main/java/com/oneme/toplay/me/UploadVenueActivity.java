@@ -70,9 +70,9 @@ public class UploadVenueActivity extends BaseActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //finish();
-                navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(UploadVenueActivity.this,
-                        MyVenueActivity.class)));
+                finish();
+                //navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(UploadVenueActivity.this,
+                //        MyVenueActivity.class)));
             }
         });
 

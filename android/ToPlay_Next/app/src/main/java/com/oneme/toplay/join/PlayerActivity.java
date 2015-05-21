@@ -97,9 +97,9 @@ public class PlayerActivity extends BaseActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // finish();
-                navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(PlayerActivity.this,
-                        JoinNextActivity.class)));
+                finish();
+                //navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(PlayerActivity.this,
+                //        JoinNextActivity.class)));
             }
         });
 

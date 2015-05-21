@@ -70,6 +70,7 @@ import com.oneme.toplay.invite.InviteNextActivity;
 import com.oneme.toplay.join.JoinNextActivity;
 import com.oneme.toplay.me.MeActivity;
 import com.oneme.toplay.service.CoreService;
+import com.oneme.toplay.ui.widget.DrawShadowFrameLayout;
 import com.oneme.toplay.weather.RemoteFetch;
 import com.oneme.toplay.weather.WeatherActivity;
 import com.parse.ParseGeoPoint;
@@ -85,7 +86,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class CnLocalNextActivity extends ActionBarActivity {
+public class CnLocalNextActivity extends BaseActivity {
 
     private static final String TAG = "CnLocalNextActivity";
 
@@ -159,6 +160,8 @@ public class CnLocalNextActivity extends ActionBarActivity {
 
     private int mcount = 0;
 
+    private DrawShadowFrameLayout mDrawShadowFrameLayout;
+
     // locate
     LocationClient mLocClient;
     public MyLocationListenner myListener = new MyLocationListenner();
@@ -215,8 +218,9 @@ public class CnLocalNextActivity extends ActionBarActivity {
         mReceiver = new SDKReceiver();
         registerReceiver(mReceiver, iFilter);
 
-        setContentView(R.layout.ome_activity_bd_without_map);
+        setContentView(R.layout.ome_activity_navdrawer_bd_without_map);
 
+        mDrawShadowFrameLayout = (DrawShadowFrameLayout) findViewById(R.id.main_content);
 
         // init map
 
@@ -735,6 +739,21 @@ public class CnLocalNextActivity extends ActionBarActivity {
 
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected int getSelfNavDrawerItem() {
+        return NAVDRAWER_ITEM_EXPLORE;
+    }
+
+    @Override
+    protected void onActionBarAutoShowOrHide(boolean shown) {
+        super.onActionBarAutoShowOrHide(shown);
+        mDrawShadowFrameLayout.setShadowVisible(shown, shown);
+    }
 
 
 }

@@ -131,9 +131,9 @@ public class PayBookingVenueActivity extends BaseActivity {
 		toolbar.setNavigationOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				// finish();
-				navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(PayBookingVenueActivity.this,
-						BookingActivity.class)));
+				 finish();
+				//navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(PayBookingVenueActivity.this,
+				//		BookingActivity.class)));
 			}
 		});
 

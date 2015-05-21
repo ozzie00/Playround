@@ -94,9 +94,9 @@ public class BookingActivity extends BaseActivity implements DatePickerDialog.On
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // finish();
-                navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(BookingActivity.this,
-                        DetailInfoActivity.class)));
+                 finish();
+                //navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(BookingActivity.this,
+                //        DetailInfoActivity.class)));
             }
         });
 
