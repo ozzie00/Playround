@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.oneme.toplay"
-    android:versionCode="43"
-    android:versionName="1.0.4.11" >
+    android:versionCode="44"
+    android:versionName="1.0.4.12" >
 
     <uses-sdk
         android:minSdkVersion="9"
@@ -579,6 +579,12 @@
         <activity
             android:name = ".ui.CnMapNextActivity"
             android:theme="@style/Theme.Playround.MySchedule" />
+
+        <activity
+            android:name = ".ui.MapNextActivity"
+            android:theme="@style/Theme.Playround.MySchedule" />
+
+
 
         <activity
             android:name = ".ui.SettingNextActivity"

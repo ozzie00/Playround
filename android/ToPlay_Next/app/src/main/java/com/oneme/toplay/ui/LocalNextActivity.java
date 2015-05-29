@@ -250,6 +250,7 @@ public class LocalNextActivity extends BaseActivity implements LocationListener 
                     view = View.inflate(getContext(), R.layout.ome_activity_local_list, null);
                 }
 
+                ImageView workoutimageView  = (ImageView) view.findViewById(R.id.local_workoutimage_view);
                 ImageView avatarView        = (ImageView) view.findViewById(R.id.local_avatar_view);
                 TextView usernameView       = (TextView) view.findViewById(R.id.local_username_view);
                 TextView workoutnameView    = (TextView) view.findViewById(R.id.local_workoutname_view);
@@ -259,6 +260,9 @@ public class LocalNextActivity extends BaseActivity implements LocationListener 
                 ImageView sporttypeiconView = (ImageView) view.findViewById(R.id.local_sport_type_icon);
 
                 LoadImageFromParseCloud.getAvatar(LocalNextActivity.this, invite.getUser(), avatarView);
+
+                LoadImageFromParseCloud.getworkoutImage(LocalNextActivity.this, invite, workoutimageView);
+
 
                 String mplaytime = invite.getPlayTime();
                 usernameView.setText(invite.getFromUsername());

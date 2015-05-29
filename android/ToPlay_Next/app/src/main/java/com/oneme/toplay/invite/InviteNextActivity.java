@@ -19,14 +19,21 @@ package com.oneme.toplay.invite;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.CursorLoader;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -50,6 +57,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.RelativeLayout;
@@ -62,6 +70,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -71,6 +80,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 
@@ -80,6 +90,7 @@ import com.oneme.toplay.LoginActivity;
 import com.oneme.toplay.R;
 import com.oneme.toplay.adapter.SportTypeAdapter;
 import com.oneme.toplay.base.AppConstant;
+import com.oneme.toplay.base.Constants;
 import com.oneme.toplay.base.Time;
 import com.oneme.toplay.database.Invite;
 import com.oneme.toplay.database.InviteScore;
@@ -91,6 +102,7 @@ import com.oneme.toplay.invite.SearchActivity;
 
 import com.parse.ParseACL;
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseGeoPoint;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
@@ -140,6 +152,14 @@ public final class InviteNextActivity extends BaseActivity implements OnDateSetL
 
     public MenuItem minviteadd;
 
+    public String photoPath;
+
+    public Uri imageuri = null;
+
+    private ImageView mworkoutImage;
+
+    private ParseFile mworkoutImageFile;
+
 
     // Add spinner for sport type
     String[] msportarray = {
@@ -166,7 +186,7 @@ public final class InviteNextActivity extends BaseActivity implements OnDateSetL
         // Note: msportarray items are correponding to msporticonarray of Sport Class
         msportarray = getResources().getStringArray(R.array.sport_type_array);
 
-        final Boolean isAvailable = false;// DispatchActivity.getGooglePlayServicesState();
+        final Boolean isAvailable = true;// DispatchActivity.getGooglePlayServicesState();
 
         //get point according to  current latitude and longitude
         geoPoint = new ParseGeoPoint(Double.valueOf(Application.getCurrentLatitude()), Double.valueOf(Application.getCurrentLongitude()));
@@ -200,6 +220,65 @@ public final class InviteNextActivity extends BaseActivity implements OnDateSetL
                     mworkoutname = s.toString();
                     minviteadd.setIcon(R.drawable.ome_invite_add_pressed);
                 }
+            }
+        });
+
+        // set photo
+        mworkoutImage              = (ImageView)findViewById(R.id.invite_camera_icon_view);
+        RelativeLayout camerablock = (RelativeLayout)findViewById(R.id.invite_camera_block);
+        camerablock.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                final AlertDialog.Builder builder = new AlertDialog.Builder(InviteNextActivity.this);
+                final CharSequence items[];
+                items = new CharSequence[] {
+                        getResources().getString(R.string.OMEPARSEMEPROFILECHOOSEIMAGE),
+                        getResources().getString(R.string.OMEPARSEMEPROFILETAKEPHOTO),
+                };
+                builder.setItems(items, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        switch (i) {
+                            case 0:
+                                Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                                startActivityForResult(intent, Constants.IMAGE_RESULT);
+                                break;
+
+                            case 1:
+                                Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                                String image_name   = AppConstant.OMEPARSEINVITEWORKOUTIMAGEKEY + new Date().toString();
+                                File storageDir     = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+                                File file           = null;
+                                try {
+                                    // prefix, suffix, directory
+                                    file = File.createTempFile(
+                                            image_name,
+                                            AppConstant.OMETOPLAYIMAGEPNGFORMAT,
+                                            storageDir
+                                    );
+                                } catch (IOException e) {
+                                    if (Application.APPDEBUG) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                                if (file != null) {
+                                    Uri imageUri = Uri.fromFile(file);
+                                    imageuri     = imageUri;
+                                    cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+                                    photoPath    = file.getAbsolutePath();
+
+                                    mworkoutImage.setImageBitmap(BitmapFactory.decodeFile(photoPath));
+
+                                    // saveScaledPhoto(BitmapFactory.decodeFile(photoPath));
+                                }
+                                //cameraIntent.setData(imageuri);
+                                startActivityForResult(cameraIntent, Constants.PHOTO_RESULT);
+                                break;
+
+                        }
+                    }
+                });
+                builder.create().show();
             }
         });
 
@@ -383,6 +462,7 @@ public final class InviteNextActivity extends BaseActivity implements OnDateSetL
             case R.id.action_invite_add:
                 if (mworkoutname.length() > 0) {
                     submitInvitation();
+                    finish();
                 } else {
                     Toast.makeText(InviteNextActivity.this, getResources().getString(R.string.OMEPARSEINVITEFILLWORKOUTNAME), Toast.LENGTH_SHORT).show();
                 }
@@ -437,7 +517,53 @@ public final class InviteNextActivity extends BaseActivity implements OnDateSetL
             mcourtText.setText(data.getStringExtra(Application.INTENT_EXTRA_SEARCHLOCATION));
             mcourt = mcourtText.getText().toString();
         }
+
+        if (requestCode == Constants.IMAGE_RESULT  && resultCode == Activity.RESULT_OK) {
+            Uri uri                 = data.getData();
+            String[] filePathColumn = {MediaStore.Images.Media.DATA, MediaStore.Images.Media.DISPLAY_NAME};
+            String filePath         = null;
+            String fileName         = null;
+            CursorLoader loader     = new CursorLoader(InviteNextActivity.this, uri, filePathColumn, null, null, null);
+            Cursor cursor           = loader.loadInBackground();
+            if (cursor != null) {
+                if (cursor.moveToFirst()) {
+                    int columnIndex   = cursor.getColumnIndexOrThrow(filePathColumn[0]);
+                    filePath          = cursor.getString(columnIndex);
+                    int fileNameIndex = cursor.getColumnIndexOrThrow(filePathColumn[1]);
+                    fileName          = cursor.getString(fileNameIndex);
+                }
+            }
+            try {
+                photoPath = filePath;
+            } catch (Exception e) {
+
+            }
+            if (photoPath != null) {
+                Bitmap mavatar = BitmapFactory.decodeFile(photoPath);
+
+                Bitmap mavatarScaled = Bitmap.createScaledBitmap(mavatar, 96, 96
+                        * mavatar.getHeight() / mavatar.getWidth(), false);
+                mworkoutImage.setImageBitmap(mavatarScaled);
+
+            }
+        }
+
+        if(requestCode==Constants.PHOTO_RESULT && resultCode==Activity.RESULT_OK){
+
+            if (photoPath!=null) {
+
+                Bitmap mavatar = BitmapFactory.decodeFile(photoPath);
+
+                Bitmap mavatarScaled = Bitmap.createScaledBitmap(mavatar, 96, 96
+                        * mavatar.getHeight() / mavatar.getWidth(), false);
+                mworkoutImage.setImageBitmap(mavatarScaled);
+
+                photoPath = null;
+            }
+
+        }
     }
+
 
     private void submitInvitation () {
 
@@ -448,9 +574,9 @@ public final class InviteNextActivity extends BaseActivity implements OnDateSetL
         }
 
         // Set up a progress dialog
-        //   final ProgressDialog dialog = new ProgressDialog(InviteActivity.this);
-        //   dialog.setMessage(getString(R.string.progress_invite));
-        //   dialog.show();
+           final ProgressDialog dialog = new ProgressDialog(InviteNextActivity.this);
+           dialog.setMessage(getString(R.string.progress_invite));
+           dialog.show();
 
         msubmittime = Time.currentTime();
 
@@ -509,6 +635,34 @@ public final class InviteNextActivity extends BaseActivity implements OnDateSetL
 
         if (mother != null) {
             invite.setOther(mother);
+        }
+
+        if (photoPath != null) {
+
+            Bitmap mworkoutImageBitmap = BitmapFactory.decodeFile(photoPath);
+
+            // Resize photo from camera byte array
+            //Bitmap snypImage = BitmapFactory.decodeByteArray(data, 0, data.length);
+            Bitmap mavatarImageScaled = Bitmap.createScaledBitmap(mworkoutImageBitmap, 96, 96
+                    * mworkoutImageBitmap.getHeight() / mworkoutImageBitmap.getWidth(), false);
+
+            // Override Android default landscape orientation and save portrait
+            Matrix matrix = new Matrix();
+            //matrix.postRotate(90);
+            Bitmap rotatedScaledMealImage = Bitmap.createBitmap(mavatarImageScaled, 0,
+                    0, mavatarImageScaled.getWidth(), mavatarImageScaled.getHeight(),
+                    matrix, true);
+
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            rotatedScaledMealImage.compress(Bitmap.CompressFormat.PNG, 100, bos);
+
+            byte[] scaledData = bos.toByteArray();
+
+            // Save the scaled image to Parse
+            mworkoutImageFile = new ParseFile(AppConstant.OMEPARSEINVITEWORKOUTFILENAME, scaledData);
+
+            invite.setWorkoutImage(mworkoutImageFile);
+
         }
 
         ParseACL acl = new ParseACL();
@@ -575,7 +729,7 @@ public final class InviteNextActivity extends BaseActivity implements OnDateSetL
                     macl.setWriteAccess(muser,true);
                     score.saveInBackground();
                 }
-                //      dialog.dismiss();
+                dialog.dismiss();
                 finish();
             }
         });

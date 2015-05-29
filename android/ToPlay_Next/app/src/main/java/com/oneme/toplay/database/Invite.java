@@ -284,6 +284,22 @@ public final class Invite extends ParseObject {
         }
     }
 
+    public ParseFile getWorkoutImage() {
+        if (getParseFile(AppConstant.OMEPARSEINVITEWORKOUTIMAGEFILEKEY) != null) {
+            return getParseFile(AppConstant.OMEPARSEINVITEWORKOUTIMAGEFILEKEY);
+        } else {
+            return null;
+        }
+    }
+
+    public void setWorkoutImage(ParseFile value) {
+        if (value != null) {
+            put(AppConstant.OMEPARSEINVITEWORKOUTIMAGEFILEKEY, value);
+        }
+    }
+
+
+
     public static ParseQuery<Invite> getQuery() {
         return ParseQuery.getQuery(Invite.class);
     }

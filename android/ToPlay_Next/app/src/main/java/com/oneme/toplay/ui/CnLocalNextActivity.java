@@ -290,6 +290,7 @@ public class CnLocalNextActivity extends BaseActivity {
                     view = View.inflate(getContext(), R.layout.ome_activity_local_list, null);
                 }
 
+                ImageView workoutimageView  = (ImageView) view.findViewById(R.id.local_workoutimage_view);
                 ImageView avatarView        = (ImageView) view.findViewById(R.id.local_avatar_view);
                 TextView usernameView       = (TextView) view.findViewById(R.id.local_username_view);
                 TextView workoutnameView    = (TextView) view.findViewById(R.id.local_workoutname_view);
@@ -299,6 +300,7 @@ public class CnLocalNextActivity extends BaseActivity {
                 ImageView sporttypeiconView = (ImageView) view.findViewById(R.id.local_sport_type_icon);
 
                 LoadImageFromParseCloud.getAvatar(CnLocalNextActivity.this, invite.getUser(), avatarView);
+                LoadImageFromParseCloud.getworkoutImage(CnLocalNextActivity.this, invite, workoutimageView);
 
                 String mplaytime = invite.getPlayTime();
                 usernameView.setText(invite.getFromUsername());
@@ -348,10 +350,10 @@ public class CnLocalNextActivity extends BaseActivity {
 
 
         // Disable automatic loading when the adapter is attached to a view.
-        inviteQueryAdapter.setAutoload(false);
+        inviteQueryAdapter.setAutoload(true);
 
         // Enable pagination, we'll not manage the query limit ourselves
-        inviteQueryAdapter.setPaginationEnabled(true);
+        inviteQueryAdapter.setPaginationEnabled(false);
 
         // Attach the query adapter to the view
         localInvitationListView = (ListView) findViewById(R.id.local_without_map_listview);

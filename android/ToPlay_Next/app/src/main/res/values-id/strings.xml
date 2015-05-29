@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Playround</string>
-    <string name="app_version">Playround Android v.1.0.4.11</string>
+    <string name="app_version">Playround Android v.1.0.4.12</string>
 
     <!-- Strings related to activity -->
     <string name="action_settings">Settings</string>
@@ -620,6 +620,10 @@
     <string name="navdrawer_item_message">Messages</string>
     <string name="OMEPARSEVENUEACCESSPUBLIC">Public</string>
     <string name="OMEPARSEVENUEACCESSPRIVATE">Private</string>
+
+    <!--Add by playround 1.0.4.12 -->
+    <string name="OMEPARSEINVITECAMERA">Photo</string>
+
 
 
 

@@ -62,6 +62,10 @@ public final class AppConstant {
     public static final String OMEPARSEZEROSTRING             = "0";
     public static final String OMEPARSECOMMASTRING            = ",";
 
+    // define Image format
+    public static final String OMETOPLAYIMAGEPNGFORMAT        = ".png";
+
+
 
 
 
@@ -262,6 +266,10 @@ public final class AppConstant {
     public static final String OMEPARSEINVITEPUBLICKEY           = "invitePublic";
     public static final String OMEPARSESHARETEXTFILE             = "text/plain";
     public static final String OMEPARSEINVITEWORKNAMEKEY         = "inviteWorkoutName";
+
+    public static final String OMEPARSEINVITEWORKOUTIMAGEFILEKEY = "inviteWorkoutImageFile";
+    public static final String OMEPARSEINVITEWORKOUTIMAGEKEY    = "toplayworkoutimage";
+    public static final String OMEPARSEINVITEWORKOUTFILENAME    = "inviteworkout.png";
 
     // Parse API key corresponding to message
     public static final String OMEPARSEMESSAGEFROMUSERKEY     = "messageFromUser";

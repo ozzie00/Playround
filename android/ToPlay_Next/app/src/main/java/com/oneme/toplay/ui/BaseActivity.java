@@ -52,8 +52,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.oneme.toplay.R;
+import com.oneme.toplay.base.LoadImageFromParseCloud;
 import com.oneme.toplay.ui.widget.MultiSwipeRefreshLayout;
 import com.oneme.toplay.ui.widget.ScrimInsetsScrollView;
+import com.parse.ParseUser;
 
 /**
  * A base activity that handles common functionality in the app. This includes the
@@ -480,7 +482,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         setupNavDrawer();
-      //  setupAccountBox();
+        //setupAccountBox();
 
        // trySetupSwipeRefresh();
        // updateSwipeRefreshProgressBarTop();
@@ -501,6 +503,82 @@ public abstract class BaseActivity extends ActionBarActivity implements
      */
     private void setupAccountBox() {
 
+        final View chosenAccountView = findViewById(R.id.chosen_account_view);
+//        ImageView coverImageView     = (ImageView) chosenAccountView.findViewById(R.id.profile_cover_image);
+        ImageView profileImageView   = (ImageView) chosenAccountView.findViewById(R.id.profile_image);
+        TextView nameTextView        = (TextView) chosenAccountView.findViewById(R.id.profile_name_text);
+
+        ParseUser muser = ParseUser.getCurrentUser();
+        String name     = null;
+
+        if (muser != null) {
+            name = muser.getUsername();
+        }
+
+        if (name == null) {
+            nameTextView.setVisibility(View.GONE);
+        } else {
+            nameTextView.setVisibility(View.VISIBLE);
+            nameTextView.setText(name);
+        }
+
+        if (muser == null) {
+            profileImageView.setVisibility(View.GONE);
+            nameTextView.setVisibility(View.GONE);
+        } else {
+            profileImageView.setVisibility(View.VISIBLE);
+            LoadImageFromParseCloud.getAvatar(BaseActivity.this, muser, profileImageView);
+        }
+
+        if (name == null || name.isEmpty()) {
+            // There's only one account on the device, so no need for a switcher.
+            //mExpandAccountBoxIndicator.setVisibility(View.GONE);
+            //mAccountListContainer.setVisibility(View.GONE);
+            chosenAccountView.setEnabled(false);
+            return;
+        }
+
+        chosenAccountView.setEnabled(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            /*
+            case R.id.menu_about:
+                //HelpUtils.showAbout(this);
+                return true;
+
+            case R.id.menu_wifi:
+                //WiFiUtils.showWiFiDialog(this);
+                return true;
+
+            case R.id.menu_i_o_hunt:
+                //launchIoHunt();
+                return true;
+
+            case R.id.menu_debug:
+                //if (BuildConfig.DEBUG) {
+                //    startActivity(new Intent(this, DebugActionRunnerActivity.class));
+               // }
+                return true;
+
+            case R.id.menu_refresh:
+                //requestDataRefresh();
+                break;
+
+            case R.id.menu_io_extended:
+                //startActivity(new Intent(Intent.ACTION_VIEW,
+                //        Uri.parse(Config.IO_EXTENDED_LINK)));
+                break;
+            */
+            case R.id.action_invite:
+                //startActivity(new Intent(this, UIUtils.getMapActivityClass(this)));
+                //finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void populateAccountList(List<Account> accounts) {
@@ -516,12 +594,6 @@ public abstract class BaseActivity extends ActionBarActivity implements
 
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        return super.onOptionsItemSelected(item);
-    }
 
     private void launchIoHunt() {
 
@@ -535,7 +607,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
         Intent intent;
         switch (item) {
             case NAVDRAWER_ITEM_EXPLORE:
-                intent = new Intent(this, CnLocalNextActivity.class);
+                intent = new Intent(this, LocalNextActivity.class);
                 startActivity(intent);
                 finish();
                 break;
@@ -550,7 +622,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
                // finish();
                // break;
             case NAVDRAWER_ITEM_MAP:
-                intent = new Intent(this, CnMapNextActivity.class);
+                intent = new Intent(this, MapNextActivity.class);
                 startActivity(intent);
                 finish();
                 break;
@@ -740,7 +812,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
 
     //@Override
     public void onPlusInfoLoaded(String accountName) {
-        setupAccountBox();
+        //setupAccountBox();
         populateNavDrawer();
     }
 
@@ -755,9 +827,9 @@ public abstract class BaseActivity extends ActionBarActivity implements
    // @Override
     public void onAuthSuccess(String accountName, boolean newlyAuthenticated) {
 
-        setupAccountBox();
+        //setupAccountBox();
         populateNavDrawer();
-        registerGCMClient();
+        //registerGCMClient();
     }
 
    // @Override

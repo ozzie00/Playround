@@ -98,7 +98,7 @@ public class SearchActivity extends BaseActivity {
             }
         });
 
-        final Boolean isAvailable = false;// DispatchActivity.getGooglePlayServicesState();
+        final Boolean isAvailable = true;// DispatchActivity.getGooglePlayServicesState();
 
         msuggest        = new ArrayList<LocationData>();
         mselectlocation = new LocationData();

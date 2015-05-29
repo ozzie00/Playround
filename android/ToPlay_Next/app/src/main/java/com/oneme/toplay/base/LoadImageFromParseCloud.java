@@ -21,6 +21,7 @@ import android.graphics.Color;
 import android.widget.ImageView;
 
 import com.oneme.toplay.R;
+import com.oneme.toplay.database.Invite;
 import com.oneme.toplay.base.third.RoundedTransformationBuilder;
 
 import com.parse.ParseFile;
@@ -30,6 +31,9 @@ import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 
 public final class LoadImageFromParseCloud {
+
+    private static int INVITE_WORKOUT_IMAGE_SIZE_WIDTH  = 48;
+    private static int INVITE_WORKOUT_IMAGE_SIZE_HEIGHT = 48;
 
     public LoadImageFromParseCloud() {
 
@@ -61,6 +65,27 @@ public final class LoadImageFromParseCloud {
                         .load(R.drawable.ome_default_avatar)
                         .fit()
                         .transform(mtransformation)
+                        .into(imageview);
+            }
+        }
+    }
+
+    // load user avatar in dedicate context to imageview
+    public static void getworkoutImage(Context context, Invite invite, ImageView imageview) {
+
+        if (invite != null) {
+            if (invite.getWorkoutImage() != null) {
+                ParseFile mfile = invite.getWorkoutImage();
+                Picasso.with(context)
+                        .load(mfile.getUrl())
+                        .resize(INVITE_WORKOUT_IMAGE_SIZE_WIDTH, INVITE_WORKOUT_IMAGE_SIZE_HEIGHT)
+                        .centerCrop()
+                        .into(imageview);
+            } else {
+                Picasso.with(context)
+                        .load(R.drawable.ome_workoutimage_default)
+                        .resize(INVITE_WORKOUT_IMAGE_SIZE_WIDTH, INVITE_WORKOUT_IMAGE_SIZE_HEIGHT)
+                        .centerCrop()
                         .into(imageview);
             }
         }
