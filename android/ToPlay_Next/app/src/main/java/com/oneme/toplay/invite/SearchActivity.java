@@ -20,14 +20,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.os.StrictMode;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,10 +54,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.oneme.toplay.Application;
-import com.oneme.toplay.DispatchActivity;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
-import com.oneme.toplay.base.third.IfCanAccessGoogleService;
 import com.oneme.toplay.ui.BaseActivity;
 import com.parse.ParseGeoPoint;
 
@@ -103,13 +97,6 @@ public class SearchActivity extends BaseActivity {
         msuggest        = new ArrayList<LocationData>();
         mselectlocation = new LocationData();
 
-        if (android.os.Build.VERSION.SDK_INT > 9) {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-        }
-
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         // get point according to  current latitude and longitude
         geoPoint = new ParseGeoPoint(Double.valueOf(Application.getCurrentLatitude()), Double.valueOf(Application.getCurrentLongitude()));
 
@@ -132,7 +119,6 @@ public class SearchActivity extends BaseActivity {
                 return false;
             }
         });
-
 
         ImageView mlogo = (ImageView)findViewById(R.id.invite_search_google_logo);
         if (isAvailable) {
@@ -176,7 +162,6 @@ public class SearchActivity extends BaseActivity {
 
     }
 
-
     class getBdPlaceAutocomplete extends AsyncTask<String,String,String>{
 
         @Override
@@ -197,6 +182,7 @@ public class SearchActivity extends BaseActivity {
 
                 URL murl             = new URL(mstringBuilder.toString());
                 mconnection          = (HttpURLConnection) murl.openConnection();
+
                 InputStreamReader in = new InputStreamReader(mconnection.getInputStream());
 
                 // Load the results into a StringBuilder
@@ -204,6 +190,7 @@ public class SearchActivity extends BaseActivity {
                 char[] buff = new char[AppConstant.OMEPARSEBUFFERLENGTH];
                 while ((read = in.read(buff)) != -1) {
                     jsonResults.append(buff, 0, read);
+
                 }
             } catch (MalformedURLException e) {
 
@@ -224,6 +211,8 @@ public class SearchActivity extends BaseActivity {
                 if (mresultJsonArray != null) {
                     // this one for user input string
                     msuggest = new ArrayList<LocationData>(mresultJsonArray.length() + 1);
+
+                    android.util.Log.d("BdPlace length ", Integer.toString(mresultJsonArray.length()));
                 }
 
                 LocationData muserinput = new LocationData();
@@ -633,13 +622,14 @@ public class SearchActivity extends BaseActivity {
                     JSONObject mjsonObject = new JSONObject(jsonResults.toString());
                     String isSuccessful    = mjsonObject.getString(AppConstant.BD_PLACE_STATUS);
 
-
                     if (isSuccessful.equals(AppConstant.OMEPARSEZEROSTRING)) {
                         JSONArray mresultJsonArray = mjsonObject.getJSONArray(AppConstant.BD_PLACE_RESULTS);
 
                         // Extract the Place descriptions from the results
                         if (mresultJsonArray != null) {
                             msuggest = new ArrayList<LocationData>(mresultJsonArray.length());
+                        } else {
+
                         }
 
                         for (int i = 0; i < mresultJsonArray.length(); i++) {
@@ -672,7 +662,11 @@ public class SearchActivity extends BaseActivity {
 
             } catch (MalformedURLException me) {
 
+                android.util.Log.e("log_tag", "MalformedURLException in http connection " + me.toString());
+
             } catch (IOException ie) {
+
+                android.util.Log.e("log_tag", "IOException in http connection " + ie.toString());
 
             } finally {
                 if (mbdconnection != null) {

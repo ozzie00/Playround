@@ -703,9 +703,9 @@ public class CnLocalWithoutMapActivity extends ActionBarActivity {
           //      invokeMessageIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
           //      startActivity(invokeMessageIntent);
           //      return true;
-            case R.id.action_invite:
-                invokeInviteActivity();
-                return true;
+           // case R.id.action_invite:
+           //     invokeInviteActivity();
+           //     return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

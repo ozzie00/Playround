@@ -27,6 +27,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
 import android.util.Log;
 import android.view.Menu;
@@ -250,7 +251,7 @@ public class LocalNextActivity extends BaseActivity implements LocationListener 
                     view = View.inflate(getContext(), R.layout.ome_activity_local_list, null);
                 }
 
-                ImageView workoutimageView  = (ImageView) view.findViewById(R.id.local_workoutimage_view);
+                //ImageView workoutimageView  = (ImageView) view.findViewById(R.id.local_workoutimage_view);
                 ImageView avatarView        = (ImageView) view.findViewById(R.id.local_avatar_view);
                 TextView usernameView       = (TextView) view.findViewById(R.id.local_username_view);
                 TextView workoutnameView    = (TextView) view.findViewById(R.id.local_workoutname_view);
@@ -261,7 +262,7 @@ public class LocalNextActivity extends BaseActivity implements LocationListener 
 
                 LoadImageFromParseCloud.getAvatar(LocalNextActivity.this, invite.getUser(), avatarView);
 
-                LoadImageFromParseCloud.getworkoutImage(LocalNextActivity.this, invite, workoutimageView);
+                //LoadImageFromParseCloud.getworkoutImage(LocalNextActivity.this, invite, workoutimageView);
 
 
                 String mplaytime = invite.getPlayTime();
@@ -345,6 +346,13 @@ public class LocalNextActivity extends BaseActivity implements LocationListener 
         });
 
 
+        // add invitation
+        FloatingActionButton minviteFab = (FloatingActionButton) findViewById(R.id.local_fab);
+        minviteFab.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                invokeInviteActivity();
+            }
+        });
 
 
     }
@@ -718,9 +726,9 @@ public class LocalNextActivity extends BaseActivity implements LocationListener 
             //    invokeMessageIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             //    startActivity(invokeMessageIntent);
             //    return true;
-            case R.id.action_invite:
-                invokeInviteActivity();
-                return true;
+            //case R.id.action_invite:
+            //    invokeInviteActivity();
+            //    return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

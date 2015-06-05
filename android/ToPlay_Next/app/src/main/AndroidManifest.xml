@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.oneme.toplay"
-    android:versionCode="44"
-    android:versionName="1.0.4.12" >
+    android:versionCode="45"
+    android:versionName="1.0.4.13" >
 
     <uses-sdk
         android:minSdkVersion="9"
@@ -573,12 +573,18 @@
             android:launchMode="singleTop"/>
 
         <activity
-            android:name = ".ui.VenueNextActivity"
-            android:theme="@style/Theme.Playround.MySchedule" />
+            android:name = ".venue.VenueNextActivity"
+            android:theme= "@style/Theme.Playround.MySchedule"
+            android:label= "@string/venuesearchactivity_title"/>
 
         <activity
             android:name = ".ui.CnMapNextActivity"
-            android:theme="@style/Theme.Playround.MySchedule" />
+            android:theme= "@style/Theme.Playround.MySchedule" />
+
+        <activity
+            android:name = ".ui.VenueTypeAndSearchActivity"
+            android:theme= "@style/Theme.Playround.MySchedule"
+            android:label= "@string/venuetypesearchactivity_title"/>
 
         <activity
             android:name = ".ui.MapNextActivity"

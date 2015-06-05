@@ -143,8 +143,9 @@
         <attr name="shadowVisible" format="boolean" />
     </declare-styleable>
 
+    <!-- Ozzie ZHang 2015-06-05 change insetForeground to new_insetForeground because redefine insetForeground-->
     <declare-styleable name="ScrimInsetsView">
-        <attr name="insetForeground" format="reference|color" />
+        <attr name="new_insetForeground" format="reference|color" />
     </declare-styleable>
 
     <declare-styleable name="BezelImageView">

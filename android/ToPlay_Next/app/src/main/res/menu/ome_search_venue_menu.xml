@@ -3,10 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/menu_load"
-        android:icon="@drawable/ic_menu_refresh"
-        android:orderInCategory="200"
+        android:id="@+id/search_venue_menu"
+        android:icon="@drawable/ic_action_search"
+        android:orderInCategory="1"
         app:showAsAction="always"
-        android:title="Loading"/>
+        android:title="Searching"/>
+<!--
+    <item
+        android:id="@+id/search_venue_map"
+        android:icon="@drawable/ic_action_place"
+        android:orderInCategory="2"
+        app:showAsAction="always"
+        android:title="Searching"/>
+-->
 
 </menu>

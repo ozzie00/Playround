@@ -26,6 +26,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -57,6 +58,7 @@ import com.baidu.mapapi.map.MyLocationConfiguration.LocationMode;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.map.SupportMapFragment;
 import com.baidu.mapapi.model.LatLng;
+
 import com.oneme.toplay.Application;
 import com.oneme.toplay.LoginActivity;
 import com.oneme.toplay.R;
@@ -73,6 +75,7 @@ import com.oneme.toplay.service.CoreService;
 import com.oneme.toplay.ui.widget.DrawShadowFrameLayout;
 import com.oneme.toplay.weather.RemoteFetch;
 import com.oneme.toplay.weather.WeatherActivity;
+
 import com.parse.ParseGeoPoint;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
@@ -290,7 +293,7 @@ public class CnLocalNextActivity extends BaseActivity {
                     view = View.inflate(getContext(), R.layout.ome_activity_local_list, null);
                 }
 
-                ImageView workoutimageView  = (ImageView) view.findViewById(R.id.local_workoutimage_view);
+               // ImageView workoutimageView  = (ImageView) view.findViewById(R.id.local_workoutimage_view);
                 ImageView avatarView        = (ImageView) view.findViewById(R.id.local_avatar_view);
                 TextView usernameView       = (TextView) view.findViewById(R.id.local_username_view);
                 TextView workoutnameView    = (TextView) view.findViewById(R.id.local_workoutname_view);
@@ -300,7 +303,7 @@ public class CnLocalNextActivity extends BaseActivity {
                 ImageView sporttypeiconView = (ImageView) view.findViewById(R.id.local_sport_type_icon);
 
                 LoadImageFromParseCloud.getAvatar(CnLocalNextActivity.this, invite.getUser(), avatarView);
-                LoadImageFromParseCloud.getworkoutImage(CnLocalNextActivity.this, invite, workoutimageView);
+               // LoadImageFromParseCloud.getworkoutImage(CnLocalNextActivity.this, invite, workoutimageView);
 
                 String mplaytime = invite.getPlayTime();
                 usernameView.setText(invite.getFromUsername());
@@ -389,6 +392,13 @@ public class CnLocalNextActivity extends BaseActivity {
 
         });
 
+        // add invitation
+        FloatingActionButton minviteFab = (FloatingActionButton) findViewById(R.id.cn_without_map_fab);
+        minviteFab.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                invokeInviteActivity();
+            }
+        });
     }
 
 
@@ -707,9 +717,9 @@ public class CnLocalNextActivity extends BaseActivity {
            //     invokeMessageIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
            //     startActivity(invokeMessageIntent);
            //     return true;
-            case R.id.action_invite:
-                invokeInviteActivity();
-                return true;
+            //case R.id.action_invite:
+            //    invokeInviteActivity();
+            //    return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

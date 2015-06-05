@@ -14,18 +14,16 @@
 * limitations under the License.
 */
 
-package com.oneme.toplay.ui;
+package com.oneme.toplay.venue;
 
 import android.app.ProgressDialog;
-import android.app.SearchManager;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -39,8 +37,8 @@ import com.oneme.toplay.adapter.VenueAdapter;
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.base.VenueToIntentExtra;
 import com.oneme.toplay.database.Venue;
+import com.oneme.toplay.ui.BaseActivity;
 import com.oneme.toplay.ui.widget.DrawShadowFrameLayout;
-import com.oneme.toplay.venue.DetailInfoActivity;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseGeoPoint;
@@ -71,18 +69,26 @@ public class VenueNextActivity extends BaseActivity {
 
     private MenuItem menuItem;
 
-    private DrawShadowFrameLayout mDrawShadowFrameLayout;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ome_activity_navdrawer_venue);
+        setContentView(R.layout.ome_activity_venue_next);
         //ActionBar actionBar = getSupportActionBar();
         //actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME
         //        | ActionBar.DISPLAY_SHOW_TITLE | ActionBar.DISPLAY_SHOW_CUSTOM);
 
-        mDrawShadowFrameLayout = (DrawShadowFrameLayout) findViewById(R.id.main_content);
+        Toolbar toolbar = getActionBarToolbar();
+        toolbar.setNavigationIcon(R.drawable.ic_up);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                //navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(JoinNextActivity.this,
+                //        LocalNextActivity.class)));
+            }
+        });
 
         mGeoPoint = new ParseGeoPoint(Double.valueOf(Application.getCurrentLatitude()), Double.valueOf(Application.getCurrentLongitude()));
 
@@ -137,27 +143,6 @@ public class VenueNextActivity extends BaseActivity {
             }
         });
 
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.ome_search_venue_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_load:
-                menuItem = item;
-                menuItem.setActionView(R.layout.ome_activity_search_venue_progressbar);
-                //menuItem.expandActionView();
-                //new getVenueNameAutocomplete().execute(venuequery);
-                break;
-            default:
-                break;
-        }
-        return true;
     }
 
 
@@ -335,174 +320,6 @@ public class VenueNextActivity extends BaseActivity {
         }
 
     }
-
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    protected int getSelfNavDrawerItem() {
-        return NAVDRAWER_ITEM_VENUE;
-    }
-
-    @Override
-    protected void onActionBarAutoShowOrHide(boolean shown) {
-        super.onActionBarAutoShowOrHide(shown);
-        mDrawShadowFrameLayout.setShadowVisible(shown, shown);
-    }
-
-
-    /*
-    class resultListAdapter extends ArrayAdapter<Venue> {
-
-        LayoutInflater mInflater;
-
-        Venue mvenue;
-        ArrayList<Venue> mdata;
-
-        public resultListAdapter(Context c, ArrayList<Venue> data){
-            super(c, 0);
-            this.mInflater = (LayoutInflater)c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            this.mdata     = data;
-        }
-
-        @Override
-        public int getCount() {
-
-            if(mdata!=null){
-                return mdata.size();
-            }else{
-                return 0;
-            }
-        }
-
-        public void setData(ArrayList<Venue> mPpst) {
-            //contains class items data.
-            mdata = mPpst;
-        }
-
-        @Override
-        public Venue getItem(int arg0) {
-            // TODO Auto-generated method stub
-            //return arg0;
-            return mdata.get(arg0);
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            ViewHolder holder;
-            ///int type = getItemViewType(arg0);
-            if(mdata == null ){
-                return null;
-            }
-
-            if (convertView == null) {
-                convertView = mInflater.inflate(R.layout.ome_activity_venue_search_item, null);
-                convertView.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT));
-                // Creates a ViewHolder and store references to the two children views
-                // we want to bind data to.
-                holder         = new ViewHolder();
-                holder.type    = (ImageButton)convertView.findViewById(R.id.venue_sport_type_button);
-                holder.name    = (TextView) convertView.findViewById(R.id.venue_name_view);
-                holder.address = (TextView) convertView.findViewById(R.id.venue_address_view);
-                holder.phone   = (ImageButton)convertView.findViewById(R.id.venue_phone_button);
-
-                // need set imagebutton focusable is false, then onItemClick can work on list view
-                holder.type.setFocusable(false);
-                //holder.phone.setFocusable(false);
-
-                convertView.setTag(holder);
-            } else {
-                holder = (ViewHolder) convertView.getTag();
-            }
-
-            // mlocation = mPostingData.get(position);
-            mvenue = getItem(position);
-
-            if (mvenue.getType() != null) {
-                int index = Sport.msportarraylist.indexOf(mvenue.getType());
-                if (index >= 0) {
-                    holder.type.setImageResource(Sport.msporticonarray[index]);
-                }
-            }
-            if (mvenue.getName()!=null) {
-                holder.name.setText(mvenue.getName());
-            }
-
-            if (mvenue.getAddress()!=null){
-                holder.address.setText(mvenue.getAddress());
-            }
-
-            if (mvenue.getPhone()!=null && mvenue.getPhone().length() > AppConstant.OMEPHONEMINIMUMLENGTH){
-                holder.phone.setVisibility(View.VISIBLE);
-
-                holder.phone.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent invokePhoneCall = new Intent(Intent.ACTION_CALL);
-                        invokePhoneCall.setData(Uri.parse(AppConstant.OMEPARSEINVOKECALLPHONE + mvenue.getPhone()));
-                        startActivity(invokePhoneCall);
-                    }
-                });
-
-            }
-
-
-            return convertView;
-        }
-
-        class ViewHolder {
-            ImageButton type;
-            TextView name;
-            TextView address;
-            ImageButton phone;
-        }
-
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public Filter getFilter() {
-            Filter myFilter = new Filter() {
-                @Override
-                protected FilterResults performFiltering(CharSequence constraint) {
-                    FilterResults filterResults = new FilterResults();
-
-                    // actually this constraint is no useful
-                    if (constraint != null) {
-                        filterResults.values = mdata;
-                        filterResults.count  = mdata.size();
-                        return filterResults;
-                    } else {
-                        filterResults.values = mdata;
-                        filterResults.count  = mdata.size();
-                        return filterResults;
-                    }
-                }
-
-                @Override
-                protected void publishResults(CharSequence contraint, FilterResults results) {
-                    ArrayList<Venue> filteredList = (ArrayList<Venue>) results.values;
-                    if(results != null && results.count > 0) {
-                        clear();
-                        notifyDataSetChanged();
-                        for (Venue string : filteredList) {
-                            add(string);
-                        }
-                    }
-                    else {
-                        notifyDataSetInvalidated();
-                    }
-                }
-            };
-            return myFilter;
-        }
-    }
-    */
 
 
 }

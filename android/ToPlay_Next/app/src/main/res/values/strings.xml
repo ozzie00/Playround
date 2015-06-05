@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Playround</string>
-    <string name="app_version">Playround Android v.1.0.4.12</string>
+    <string name="app_version">Playround Android v.1.0.4.13</string>
 
     <!-- Strings related to activity -->
     <string name="action_settings">Settings</string>
@@ -624,6 +624,12 @@
 
     <!--Add by playround 1.0.4.12 -->
     <string name="OMEPARSEINVITECAMERA">Photo</string>
+
+    <!--Add by playround 1.0.4.13 -->
+    <string name="OMEPARSEVENUESEARCHCITY">City</string>
+    <string name="venuetypesearchactivity_title">Venue</string>
+    <string name="OMEPARSEADDVENUECONTENTPLACEHOLD">Venue Name</string>
+    <string name="OMEPARSEADDVENUETYPE">Type</string>
 
 
 

@@ -11,15 +11,15 @@
 
     <RelativeLayout xmlns:android = "http://schemas.android.com/apk/res/android"
         android:id            = "@+id/local_avatar_block"
-        android:layout_width  = "64dp"
+        android:layout_width  = "48dp"
         android:layout_height = "wrap_content"
         android:orientation   = "vertical"
         android:layout_centerVertical = "true">
 
         <ImageView
-            android:id                    = "@+id/local_workoutimage_view"
-            android:layout_width          = "64dp"
-            android:layout_height         = "64dp"
+            android:id                    = "@+id/local_avatar_view"
+            android:layout_width          = "48dp"
+            android:layout_height         = "48dp"
             android:layout_centerVertical = "true"/>
 
     </RelativeLayout>
@@ -105,7 +105,7 @@
 
 
     <ImageView
-        android:id                 = "@+id/local_avatar_view"
+        android:id                 = "@+id/local_at_view"
         android:layout_width       = "20dp"
         android:layout_height      = "20dp"
         android:layout_marginLeft  = "8dp"
@@ -121,8 +121,8 @@
         android:layout_height         = "wrap_content"
         android:layout_marginLeft     = "2dp"
         android:layout_marginRight    = "4dp"
-        android:layout_alignTop       = "@id/local_avatar_view"
-        android:layout_toRightOf      = "@+id/local_avatar_view"
+        android:layout_alignTop       = "@id/local_at_view"
+        android:layout_toRightOf      = "@+id/local_at_view"
         android:layout_below          = "@id/local_play_time"
         android:layout_centerHorizontal = "true"
         android:textAppearance        = "?android:attr/textAppearanceSmall"

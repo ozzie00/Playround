@@ -32,13 +32,14 @@
         compat:showAsAction     = "always"
         android:title           = "@string/action_message" />
         -->
-
+    <!--
     <item
         android:id              = "@+id/action_invite"
         android:icon            = "@drawable/ome_ic_invite_add"
         android:orderInCategory = "100"
         compat:showAsAction     = "always"
         android:title           = "@string/action_Invite"/>
+    -->
 
 
 

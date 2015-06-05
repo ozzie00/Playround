@@ -31,6 +31,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
@@ -308,7 +309,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
             mActionBarToolbar.setNavigationOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    mDrawerLayout.openDrawer(Gravity.START);
+                    mDrawerLayout.openDrawer(GravityCompat.START);
                 }
             });
         }
@@ -344,7 +345,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
             }
         });
 
-        mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, Gravity.START);
+        mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
 
         // populate the nav drawer with the correct items
         populateNavDrawer();
@@ -375,12 +376,12 @@ public abstract class BaseActivity extends ActionBarActivity implements
     protected void onNavDrawerSlide(float offset) {}
 
     protected boolean isNavDrawerOpen() {
-        return mDrawerLayout != null && mDrawerLayout.isDrawerOpen(Gravity.START);
+        return mDrawerLayout != null && mDrawerLayout.isDrawerOpen(GravityCompat.START);
     }
 
     protected void closeNavDrawer() {
         if (mDrawerLayout != null) {
-            mDrawerLayout.closeDrawer(Gravity.START);
+            mDrawerLayout.closeDrawer(GravityCompat.START);
         }
     }
 
@@ -573,10 +574,10 @@ public abstract class BaseActivity extends ActionBarActivity implements
                 //        Uri.parse(Config.IO_EXTENDED_LINK)));
                 break;
             */
-            case R.id.action_invite:
+            //case R.id.action_invite:
                 //startActivity(new Intent(this, UIUtils.getMapActivityClass(this)));
                 //finish();
-                break;
+            //    break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -612,7 +613,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
                 finish();
                 break;
             case NAVDRAWER_ITEM_VENUE:
-                intent = new Intent(this, VenueNextActivity.class);
+                intent = new Intent(this, VenueTypeAndSearchActivity.class);
                 startActivity(intent);
                 finish();
                 break;
@@ -655,7 +656,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
 
     private void onNavDrawerItemClicked(final int itemId) {
         if (itemId == getSelfNavDrawerItem()) {
-            mDrawerLayout.closeDrawer(Gravity.START);
+            mDrawerLayout.closeDrawer(GravityCompat.START);
             return;
         }
 
@@ -680,7 +681,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
 
         }
 
-        mDrawerLayout.closeDrawer(Gravity.START);
+        mDrawerLayout.closeDrawer(GravityCompat.START);
     }
 
     protected void configureStandardMenuItems(Menu menu) {

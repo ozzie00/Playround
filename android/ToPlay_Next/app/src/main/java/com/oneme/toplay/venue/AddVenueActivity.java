@@ -14,10 +14,9 @@
 * limitations under the License.
 */
 
-package com.oneme.toplay.invite;
+package com.oneme.toplay.venue;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -38,8 +37,29 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
-import android.widget.Toast;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.fourmob.datetimepicker.date.DatePickerDialog;
+import com.fourmob.datetimepicker.date.DatePickerDialog.OnDateSetListener;
+import com.oneme.toplay.Application;
+import com.oneme.toplay.R;
+import com.oneme.toplay.adapter.SportTypeAdapter;
+import com.oneme.toplay.base.AppConstant;
+import com.oneme.toplay.base.Time;
+import com.oneme.toplay.database.Group;
+import com.oneme.toplay.database.Invite;
+import com.oneme.toplay.database.InviteScore;
+import com.oneme.toplay.database.Sport;
+import com.oneme.toplay.invite.SearchActivity;
+import com.oneme.toplay.ui.BaseActivity;
+import com.parse.ParseACL;
+import com.parse.ParseException;
+import com.parse.ParseGeoPoint;
+import com.parse.ParseUser;
+import com.parse.SaveCallback;
+import com.sleepbot.datetimepicker.time.RadialPickerLayout;
+import com.sleepbot.datetimepicker.time.TimePickerDialog;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -54,36 +74,14 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
-import com.oneme.toplay.Application;
-import com.oneme.toplay.R;
-import com.oneme.toplay.adapter.SportTypeAdapter;
-import com.oneme.toplay.base.AppConstant;
-import com.oneme.toplay.base.Time;
-import com.oneme.toplay.database.Invite;
-import com.oneme.toplay.database.InviteScore;
-import com.oneme.toplay.database.Group;
-import com.oneme.toplay.database.Sport;
-import com.oneme.toplay.ui.BaseActivity;
-
-import com.parse.ParseACL;
-import com.parse.ParseException;
-import com.parse.ParseGeoPoint;
-import com.parse.ParseUser;
-import com.parse.SaveCallback;
-
-import com.sleepbot.datetimepicker.time.RadialPickerLayout;
-import com.sleepbot.datetimepicker.time.TimePickerDialog;
-import com.fourmob.datetimepicker.date.DatePickerDialog;
-import com.fourmob.datetimepicker.date.DatePickerDialog.OnDateSetListener;
-
-public final class InviteNextActivity extends BaseActivity implements OnDateSetListener, TimePickerDialog.OnTimeSetListener {
+public final class AddVenueActivity extends BaseActivity implements OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
     private static final String TAG           = "InviteNextActivity";
 
     public static final String DATEPICKER_TAG = "datepicker";
     public static final String TIMEPICKER_TAG = "timepicker";
 
-    private final Context context = InviteNextActivity.this;
+    private final Context context = AddVenueActivity.this;
     private EditText mworkoutnameText;
     private EditText mdescriptionedit;
     private TextView mcourtText;
@@ -114,11 +112,11 @@ public final class InviteNextActivity extends BaseActivity implements OnDateSetL
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ome_activity_invite_next);
+        setContentView(R.layout.ome_activity_venue_add);
 
         Toolbar toolbar = getActionBarToolbar();
         toolbar.setNavigationIcon(R.drawable.ic_up);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        toolbar.setNavigationOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
@@ -130,7 +128,7 @@ public final class InviteNextActivity extends BaseActivity implements OnDateSetL
         // Note: msportarray items are correponding to msporticonarray of Sport Class
         msportarray = getResources().getStringArray(R.array.sport_type_array);
 
-        final Boolean isAvailable = true;// DispatchActivity.getGooglePlayServicesState();
+        final Boolean isAvailable = false;// DispatchActivity.getGooglePlayServicesState();
 
         //get point according to  current latitude and longitude
         geoPoint = new ParseGeoPoint(Double.valueOf(Application.getCurrentLatitude()), Double.valueOf(Application.getCurrentLongitude()));
@@ -171,7 +169,7 @@ public final class InviteNextActivity extends BaseActivity implements OnDateSetL
 
         // choose sport
         Spinner msportspinner              = (Spinner)findViewById(R.id.invite_sport_spinner);
-        SportTypeAdapter msportTypeAdapter = new SportTypeAdapter(InviteNextActivity.this, R.layout.ome_sport_row, msportarray, Sport.msporticonarray);
+        SportTypeAdapter msportTypeAdapter = new SportTypeAdapter(AddVenueActivity.this, R.layout.ome_sport_row, msportarray, Sport.msporticonarray);
         msportspinner.setAdapter(msportTypeAdapter);
 
         msportspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -200,66 +198,12 @@ public final class InviteNextActivity extends BaseActivity implements OnDateSetL
         locationblock.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                 Intent invokeSearchActivityIntent = new Intent(InviteNextActivity.this, SearchActivity.class);
+                 Intent invokeSearchActivityIntent = new Intent(AddVenueActivity.this, SearchActivity.class);
                  startActivityForResult(invokeSearchActivityIntent, AppConstant.OMEPARSEINVITESEARCHLOCATIONRESULT);
 
             }
         });
 
-        // set date and time block
-        RelativeLayout startdate = (RelativeLayout)findViewById(R.id.invite_date_block);
-        RelativeLayout starttime = (RelativeLayout)findViewById(R.id.invite_time_block);
-
-        mdateText = (TextView)findViewById(R.id.invite_date_detail_text_view);
-        mtimeText = (TextView)findViewById(R.id.invite_time_text_view);
-
-        // set for date and time picker
-        final Calendar calendar = Calendar.getInstance();
-
-        mdateText.setText(Time.currentDay());
-        mtimeText.setText(Time.currentHour());
-
-        // reformat the play time, original format is MMM dd yyyy HH:mm
-        mdate =  Integer.toString(calendar.get(Calendar.MONTH)) + AppConstant.OMEPARSESPACESTRING
-                + Integer.toString(calendar.get(Calendar.DAY_OF_MONTH)) + AppConstant.OMEPARSESPACESTRING
-                + Integer.toString(calendar.get(Calendar.YEAR));
-
-
-        // add zero in minute or hour, for example change 21:5 to 21:05
-        if (calendar.get(Calendar.MINUTE) < AppConstant.OMEPARSEINVITETIMETWOBITDIVIDER) {
-
-            mhour = calendar.get(Calendar.HOUR_OF_DAY) + AppConstant.OMEPARSECOLONZEROSTRING + calendar.get(Calendar.MINUTE);
-        } else {
-            mhour = calendar.get(Calendar.HOUR_OF_DAY) + AppConstant.OMEPARSECOLONSTRING + calendar.get(Calendar.MINUTE);
-        }
-
-        final DatePickerDialog datePickerDialog = DatePickerDialog.newInstance(this, calendar.get(Calendar.YEAR),
-                calendar.get(Calendar.MONTH),
-                calendar.get(Calendar.DAY_OF_MONTH),
-                false);
-
-        final TimePickerDialog timePickerDialog = TimePickerDialog.newInstance(this, calendar.get(Calendar.HOUR_OF_DAY),
-                calendar.get(Calendar.MINUTE), false, false);
-
-        startdate.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                datePickerDialog.setVibrate(false);
-                datePickerDialog.setYearRange(AppConstant.OMEPARSEINVITEYEARSTART, AppConstant.OMEPARSEINVITEYEAREND);
-               // datePickerDialog.setCloseOnSingleTapDay(isCloseOnSingleTapDay());
-                datePickerDialog.show(getSupportFragmentManager(), DATEPICKER_TAG);
-            }
-        });
-
-        starttime.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                timePickerDialog.setVibrate(false);
-               // timePickerDialog.setCloseOnSingleTapMinute(isCloseOnSingleTapMinute());
-                timePickerDialog.show(getSupportFragmentManager(), TIMEPICKER_TAG);
-            }
-        });
 
         // set description block
         RelativeLayout mdescription = (RelativeLayout)findViewById(R.id.invite_description_block);
@@ -350,7 +294,7 @@ public final class InviteNextActivity extends BaseActivity implements OnDateSetL
                     submitInvitation();
                     finish();
                 } else {
-                    Toast.makeText(InviteNextActivity.this, getResources().getString(R.string.OMEPARSEINVITEFILLWORKOUTNAME), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddVenueActivity.this, getResources().getString(R.string.OMEPARSEINVITEFILLWORKOUTNAME), Toast.LENGTH_SHORT).show();
                 }
                 return true;
             default:
@@ -410,13 +354,13 @@ public final class InviteNextActivity extends BaseActivity implements OnDateSetL
     private void submitInvitation () {
 
         if (muser == null) {
-            Toast.makeText(InviteNextActivity.this, getResources().getString(R.string.OMEPARSEINVITELOGINALERT), Toast.LENGTH_SHORT).show();
+            Toast.makeText(AddVenueActivity.this, getResources().getString(R.string.OMEPARSEINVITELOGINALERT), Toast.LENGTH_SHORT).show();
             // jump to login activity
             return;
         }
 
         // Set up a progress dialog
-           final ProgressDialog dialog = new ProgressDialog(InviteNextActivity.this);
+           final ProgressDialog dialog = new ProgressDialog(AddVenueActivity.this);
            dialog.setMessage(getString(R.string.progress_invite));
            dialog.show();
 

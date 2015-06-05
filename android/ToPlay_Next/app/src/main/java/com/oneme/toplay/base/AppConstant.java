@@ -650,6 +650,7 @@ public final class AppConstant {
 
     public static final String BD_PLACES_API_SUGGESTION  = "http://api.map.baidu.com/place/v2/suggestion";
     public static final String BD_PLACES_API_SEARCH      = "http://api.map.baidu.com/place/v2/search";
+    public static final String BD_GEOCODER_API           = "http://api.map.baidu.com/geocoder/v2";
     public static final String BD_PLACE_API_KEY          = AppConstant.OMETOPLAYBAIDUPLACEKEY;
     public static final String BD_PLACE_OUT_JSON         = "&output=json";
     public static final String BD_PLACE_REGION           = "&region=全国";
@@ -665,6 +666,22 @@ public final class AppConstant {
     public static final String BD_PLACE_RADIUS           = "&radius=";
     public static final String BD_PLACE_NEARBY_SEARCH    = "运动$羽毛球$网球$健身$篮球$台球$山$森林$公园";//"小区$公司$街$路$银行$酒店$区";
     public static final String BD_PLACE_ADDRESS          = "address";
+    public static final String BD_GEOCODER_KEY           = "/?ak=";
+    public static final String BD_GEOCODER_API_KEY       = AppConstant.OMETOPLAYBAIDUPLACEKEY;
+    public static final String BD_GEOCODER_CALLBACK      = "&callback=renderReverse";
+    public static final String BD_GEOCODER_LOCATION      = "&location=";
+    public static final String BD_GEOCODER_OUT_JSON      = "&output=json";
+    public static final String BD_GEOCODER_POIS          = "&pois=0";
+    public static final String BD_GEOCODER_STATUS        = "status";
+    public static final String BD_GEOCODER_RESULT        = "result";
+
+    public static final String BD_GEOCODER_FORMATTED_ADDRESS = "formatted_address";
+    public static final String BD_GEOCODER_ADDRESS_COMPONENT = "addressComponent";
+    public static final String BD_GEOCODER_CITY              = "city";
+
+
+
+
 
 
 
