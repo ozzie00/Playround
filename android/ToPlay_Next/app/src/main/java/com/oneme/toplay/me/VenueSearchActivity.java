@@ -41,6 +41,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -296,7 +297,7 @@ public class VenueSearchActivity extends BaseActivity {
                 // Creates a ViewHolder and store references to the two children views
                 // we want to bind data to.
                 holder         = new ViewHolder();
-                holder.type    = (ImageButton)convertView.findViewById(R.id.venue_sport_type_button);
+                holder.type    = (ImageView)convertView.findViewById(R.id.venue_sport_type_button);
                 holder.name    = (TextView) convertView.findViewById(R.id.venue_name_view);
                 holder.address = (TextView) convertView.findViewById(R.id.venue_address_view);
                 holder.phone   = (ImageButton)convertView.findViewById(R.id.venue_phone_button);
@@ -349,7 +350,7 @@ public class VenueSearchActivity extends BaseActivity {
         }
 
         class ViewHolder {
-            ImageButton type;
+            ImageView type;
             TextView name;
             TextView address;
             ImageButton phone;

@@ -19,6 +19,14 @@
         android:orientation        = "vertical"
         android:background         = "@android:color/white">
 
+        <ImageView
+            android:id                 = "@+id/venue_detail_info_photo"
+            android:layout_width       = "fill_parent"
+            android:layout_height      = "wrap_content"
+            android:layout_marginLeft  = "8dp"
+            android:layout_marginRight = "8dp"
+            android:contentDescription = "venue photo"/>
+
         <LinearLayout
             android:layout_width     = "wrap_content"
             android:layout_height    = "wrap_content"

@@ -22,6 +22,7 @@ import android.widget.ImageView;
 
 import com.oneme.toplay.R;
 import com.oneme.toplay.database.Invite;
+import com.oneme.toplay.database.Photo;
 import com.oneme.toplay.base.third.RoundedTransformationBuilder;
 
 import com.parse.ParseFile;
@@ -90,4 +91,47 @@ public final class LoadImageFromParseCloud {
             }
         }
     }
+
+    // load user thumb in dedicate context to imageview
+    public static void getPhotoThumb(Context context, Photo photo, ImageView imageview) {
+
+        if (photo != null) {
+            if (photo.getThumbFile() != null) {
+                ParseFile mfile = photo.getThumbFile();
+                Picasso.with(context)
+                        .load(mfile.getUrl())
+                        .resize(INVITE_WORKOUT_IMAGE_SIZE_WIDTH, INVITE_WORKOUT_IMAGE_SIZE_HEIGHT)
+                        .centerCrop()
+                        .into(imageview);
+            } else {
+                Picasso.with(context)
+                        .load(R.drawable.ome_workoutimage_default)
+                        .resize(INVITE_WORKOUT_IMAGE_SIZE_WIDTH, INVITE_WORKOUT_IMAGE_SIZE_HEIGHT)
+                        .centerCrop()
+                        .into(imageview);
+            }
+        }
+    }
+
+    // load user photo in dedicate context to imageview
+    public static void getPhoto(Context context, Photo photo, ImageView imageview) {
+
+        if (photo != null) {
+            if (photo.getPhotoFile() != null) {
+                ParseFile mfile = photo.getPhotoFile();
+                Picasso.with(context)
+                        .load(mfile.getUrl())
+                        .centerCrop()
+                        .into(imageview);
+            } else {
+                Picasso.with(context)
+                        .load(R.drawable.ome_workoutimage_default)
+                        .centerCrop()
+                        .into(imageview);
+            }
+        }
+    }
+
+
+
 }

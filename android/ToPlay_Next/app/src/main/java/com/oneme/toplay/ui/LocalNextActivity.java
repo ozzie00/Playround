@@ -599,6 +599,7 @@ public class LocalNextActivity extends BaseActivity implements LocationListener 
 
         menuInflater.inflate(R.menu.ome_local_menu, menu);
 
+        /*
         Typeface weatherFont;
         weatherFont = Typeface.createFromAsset(LocalNextActivity.this.getAssets(), "fonts/weather.ttf");
 
@@ -617,6 +618,7 @@ public class LocalNextActivity extends BaseActivity implements LocationListener 
             }
         });
         menu.add(0, 1001, 1, weathertv.getText()).setActionView(weathertv).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        */
 
         if (muser != null) {
             MenuItem settingItem = menu.add(getResources().getString(R.string.meactivity_title));

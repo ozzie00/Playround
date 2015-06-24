@@ -242,6 +242,21 @@ public final class Venue extends ParseObject {
         }
     }
 
+    public String getBusiness() {
+        if (getString(AppConstant.OMETOPLAYVENUEBUSINESSKEY) != null) {
+            return getString(AppConstant.OMETOPLAYVENUEBUSINESSKEY);
+        } else {
+            return AppConstant.OMETOPLAYVENUEBUSSINESSFREE;
+        }
+    }
+
+    public void setBusiness(String value) {
+        if (value != null) {
+            put(AppConstant.OMETOPLAYVENUEBUSINESSKEY, value);
+        } else {
+            put(AppConstant.OMETOPLAYVENUEBUSINESSKEY, AppConstant.OMETOPLAYVENUEBUSSINESSFREE);
+        }
+    }
 
 
 

@@ -40,6 +40,7 @@ import com.oneme.toplay.database.Sport;
 import com.oneme.toplay.database.Venue;
 import com.oneme.toplay.ui.widget.DrawShadowFrameLayout;
 import com.oneme.toplay.venue.DetailInfoActivity;
+import com.oneme.toplay.venue.PrimeBusinessActivity;
 import com.oneme.toplay.venue.VenueNextActivity;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -152,6 +153,12 @@ public class VenueTypeAndSearchActivity extends BaseActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.search_venue_prime:
+                menuItem = item;
+                //menuItem.setActionView(R.layout.ome_activity_search_venue_progressbar);
+                Intent invokePrimeBusinessActivityIntent = new Intent(VenueTypeAndSearchActivity.this, PrimeBusinessActivity.class);
+                startActivity(invokePrimeBusinessActivityIntent);
+                break;
             case R.id.search_venue_menu:
                 menuItem = item;
                 //menuItem.setActionView(R.layout.ome_activity_search_venue_progressbar);
@@ -166,6 +173,7 @@ public class VenueTypeAndSearchActivity extends BaseActivity {
            //     Intent invokeVenueMapActivityIntent = new Intent(VenueTypeAndSearchActivity.this, CnMapActivity.class);
            //     startActivity(invokeVenueMapActivityIntent);
            //     break;
+
             default:
                 break;
         }

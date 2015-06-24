@@ -26,14 +26,26 @@ import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.Filter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
+import com.oneme.toplay.base.LoadImageFromParseCloud;
+import com.oneme.toplay.database.Photo;
+import com.oneme.toplay.database.PhotoLink;
 import com.oneme.toplay.database.Sport;
 import com.oneme.toplay.database.Venue;
 
+import com.parse.CountCallback;
+import com.parse.FindCallback;
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class VenueAdapter extends ArrayAdapter<Venue> {
 
@@ -42,6 +54,8 @@ public class VenueAdapter extends ArrayAdapter<Venue> {
 
     Venue mvenue;
     ArrayList<Venue> mdata;
+    ParseQuery<PhotoLink> mlinkquery;
+    ParseQuery<Photo> mphotoquery;
 
     public VenueAdapter(Context c, ArrayList<Venue> data){
         super(c, 0);
@@ -74,7 +88,7 @@ public class VenueAdapter extends ArrayAdapter<Venue> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
+        final ViewHolder holder;
         ///int type = getItemViewType(arg0);
         if(mdata == null ){
             return null;
@@ -87,7 +101,7 @@ public class VenueAdapter extends ArrayAdapter<Venue> {
             // Creates a ViewHolder and store references to the two children views
             // we want to bind data to.
             holder         = new ViewHolder();
-            holder.type    = (ImageButton)convertView.findViewById(R.id.venue_sport_type_button);
+            holder.type    = (ImageView)convertView.findViewById(R.id.venue_sport_type_button);
             holder.name    = (TextView) convertView.findViewById(R.id.venue_name_view);
             holder.address = (TextView) convertView.findViewById(R.id.venue_address_view);
             holder.phone   = (ImageButton)convertView.findViewById(R.id.venue_phone_button);
@@ -104,12 +118,15 @@ public class VenueAdapter extends ArrayAdapter<Venue> {
         // mlocation = mPostingData.get(position);
         mvenue = getItem(position);
 
+        String mvenueobjectId = mvenue.getObjectId();
+
         if (mvenue.getType() != null) {
             int index = Sport.msportarraylist.indexOf(mvenue.getType());
             if (index >= 0) {
                 holder.type.setImageResource(Sport.msporticonarray[index]);
             }
         }
+
         if (mvenue.getName()!=null) {
             holder.name.setText(mvenue.getName());
         }
@@ -137,7 +154,7 @@ public class VenueAdapter extends ArrayAdapter<Venue> {
     }
 
     class ViewHolder {
-        ImageButton type;
+        ImageView type;
         TextView name;
         TextView address;
         ImageButton phone;

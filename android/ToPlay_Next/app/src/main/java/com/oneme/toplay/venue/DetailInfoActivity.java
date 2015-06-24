@@ -37,7 +37,10 @@ import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.base.Homeing;
 import com.oneme.toplay.base.IntentExtraToVenue;
+import com.oneme.toplay.base.LoadImageFromParseCloud;
 import com.oneme.toplay.base.VenueToIntentExtra;
+import com.oneme.toplay.database.Photo;
+import com.oneme.toplay.database.PhotoLink;
 import com.oneme.toplay.database.Sport;
 import com.oneme.toplay.database.Venue;
 import com.oneme.toplay.database.VenueAsHome;
@@ -46,6 +49,7 @@ import com.oneme.toplay.database.VenueComment;
 import com.oneme.toplay.ui.BaseActivity;
 import com.oneme.toplay.ui.LocalNextActivity;
 import com.parse.CountCallback;
+import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseGeoPoint;
 import com.parse.ParseQuery;
@@ -78,6 +82,8 @@ public class DetailInfoActivity extends BaseActivity {
     private TextView mlike;
     private ImageView mlikeimage;
     private boolean mylike  = false;
+    private ImageView mphoto;
+    private ParseQuery<PhotoLink> mlinkquery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,6 +120,46 @@ public class DetailInfoActivity extends BaseActivity {
 
         if (mvenue != null && detailIntent != null) {
             IntentExtraToVenue.getExtra(detailIntent, mvenue);
+
+            mphoto = (ImageView) findViewById(R.id.venue_detail_info_photo);
+           // mphoto.setVisibility(View.GONE);
+            mlinkquery = PhotoLink.getQuery();
+            mlinkquery.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
+            mlinkquery.whereEqualTo(AppConstant.OMETOPLAYPHOTOLINKPHOTOTOBJECTKEY, mvenue.getObjectId());
+
+            android.util.Log.d(" mlinkquery ", " count ");
+
+            mlinkquery.countInBackground(new CountCallback() {
+                @Override
+                public void done(int i, ParseException e) {
+                    if (i >= 1 && e == null) {
+
+                        android.util.Log.d(" mlinkquery ", " count >= 1");
+
+                        mlinkquery.getFirstInBackground(new GetCallback<PhotoLink>() {
+                            @Override
+                            public void done(PhotoLink photoLink, ParseException e) {
+                                ParseQuery<Photo> query = Photo.getQuery();
+                                query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
+                                query.getInBackground(photoLink.getPhotoObjectId(), new GetCallback<Photo>() {
+                                    @Override
+                                    public void done(Photo photo, ParseException e) {
+                                        if (e == null) {
+                                            mphoto.setVisibility(View.VISIBLE);
+                                            LoadImageFromParseCloud.getPhoto(DetailInfoActivity.this, photo, mphoto);
+                                        }
+                                    }
+                                });
+                            }
+                        });
+                    } else {
+                        mphoto.setVisibility(View.GONE);
+                    }
+                }
+            });
+
+
+
 
             TextView venuename = (TextView) findViewById(R.id.venue_detail_info_name);
             venuename.setText(mvenue.getName());

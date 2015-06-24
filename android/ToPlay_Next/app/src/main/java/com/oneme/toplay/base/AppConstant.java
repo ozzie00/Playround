@@ -102,8 +102,8 @@ public final class AppConstant {
     public static final String OMETOPLAYVENUELIKECLASSKEY      = "PlayroundVenueLike";
     public static final String OMETOPLAYVENUEASHOMECLASSKEY    = "PlayroundVenueAsHome";
     public static final String OMETOPLAYBOOKINGVENUECLASSKEY   = "PlayroundBookingVenue";
-
-
+    public static final String OMETOPLAYPHOTOCLASSKEY          = "PlayroundPhoto";
+    public static final String OMETOPLAYPHOTOLINKCLASSKEY      = "PlayroundPhotoLink";
 
     // Parse API key constants related to user :
     public static final String OMEPARSEUSERKEY             = "user";
@@ -188,6 +188,11 @@ public final class AppConstant {
     public static final String OMETOPLAYVENUEPLAYERASHOMEKEY = "venuePlayerAsHome";
     public static final String OMETOPLAYVENUESEARCHKEY       = "venueSearch";
     public static final String OMETOPLAYVENUEDESCRIPTIONKEY  = "venueDescriprion";
+    public static final String OMETOPLAYVENUEBUSINESSKEY     = "venueBusiness";
+
+    // Parse API key constants related to venue business
+    public static final String OMETOPLAYVENUEBUSINESSPRIME   = "venuePrime";
+    public static final String OMETOPLAYVENUEBUSSINESSFREE   = "venueFree";
 
     // Parse API key constants related to venue owner :
     public static final String OMEPARSEVENUEOWNERNAMEKEY         = "ownerName";
@@ -211,6 +216,22 @@ public final class AppConstant {
     public static final String OMEPARSEVENUEOWNERLICENSECOPYKEY  = "ownerLicense";
     public static final String OMEPARSEVENUEOWNERIDCOPYFILENAME  = "ownerId.png";
     public static final String OMEPARSEVENUEOWNERLICENSEFILENAME = "ownerLicense.png";
+
+    // Parse API key constants related to photo
+    public static final String OMETOPLAYPHOTOPICTUREKEY     = "photoFile";
+    public static final String OMETOPLAYPHOTOTHUMBNAILKEY   = "photoThumb";
+    public static final String OMETOPLAYPHOTOUPLOADEDBYKEY  = "photoUploadedby";
+
+    // Parse API key constants related to photo link
+    public static final String OMETOPLAYPHOTOLINKOBJECTKEY         = "photoLinkObject";
+    public static final String OMETOPLAYPHOTOLINKPHOTOTOBJECTKEY   = "photoLinkPhoto";
+    public static final String OMETOPLAYPHOTOLINKTYPEKEY           = "photoLinkType";
+
+    // Parse API key constants related to photo link type
+    public static final String OMETOPLAYPHOTOTYPEVENUE   = "venuePhoto";
+    public static final String OMETOPLAYPHOTOTYPEUSER    = "userPhoto";
+
+
 
     // Invoke activity return result
     public static final int OMEPARSEUSERVENUEASHOMERESULT           = 0;
