@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Playround</string>
-    <string name="app_version">Playround Android v.1.0.4.14</string>
+    <string name="app_version">Playround Android v.1.0.4.15</string>
 
     <!-- Strings related to activity -->
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Pengaturan</string>
 
     <!--third id and key -->
     <string name="facebook_app_id">846009488767381</string>
@@ -12,244 +12,239 @@
     <!-- Strings related to activity -->
     <string name="mainactivity_title">Playround</string>
     <string name="loginactivity_title">Playround</string>
-    <string name="meactivity_title">Me</string>
-    <string name="mysportactivity_title">My Invitation</string>
-    <string name="matchdetailactivity_title">Match Detail</string>
-    <string name="settingactivity_title">Setting</string>
-    <string name="inviteactivity_title">Invite</string>
-    <string name="joinactivity_title">Join</string>
-    <string name="localactivity_title">Invitation</string>
-    <string name="messagelistactivity_title">Message</string>
-    <string name="messagereplyactivity_title">Reply</string>
+    <string name="meactivity_title">Saya</string>
+    <string name="mysportactivity_title">Undangan saya</string>
+    <string name="matchdetailactivity_title">Rincian pertandingan</string>
+    <string name="settingactivity_title">Pengaturan</string>
+    <string name="inviteactivity_title">Mengundang</string>
+    <string name="joinactivity_title">Bergabung</string>
+    <string name="localactivity_title">Undangan</string>
+    <string name="messagelistactivity_title">Pesan</string>
+    <string name="messagereplyactivity_title">Balasan</string>
 
-    <string name="action_Invite">Invite</string>
-    <string name="action_search">Search</string>
-    <string name="action_message">Message</string>
-    <string name="action_map">Map</string>
-    <string name="action_local">Near Invitation</string>
-    <string name="search_hint">Search Places</string>
-    <string name="search_settings">Search Places</string>
+    <string name="action_Invite">Mengundang</string>
+    <string name="action_search">Cari</string>
+    <string name="action_message">Pesan</string>
+    <string name="action_map">Peta</string>
+    <string name="action_local">Dekat undangan</string>
+    <string name="search_hint">Cari tempat</string>
+    <string name="search_settings">Cari tempat</string>
 
     <!-- Strings related to common -->
-    <string name="action_setting">Setting</string>
+    <string name="action_setting">Pengaturan</string>
     <string name="login">Login</string>
-    <string name="signup">Register</string>
-    <string name="logout_full">Log out</string>
-    <string name="post_out_of_range">It is far away.</string>
-    <string name="progress_invite">Inviting&#8230;</string>
-    <string name="progress_send">Sending&#8230;</string>
-    <string name="progress_join">Joining&#8230;</string>
-    <string name="hostplayerusername">Username</string>
-    <string name="progress_local">Loading&#8230;</string>
+    <string name="signup">Daftar</string>
+    <string name="logout_full">Logout</string>
+    <string name="post_out_of_range">Itu adalah jauh.</string>
+    <string name="progress_invite">Mengundang&#8230;</string>
+    <string name="progress_send">Pengiriman&#8230;</string>
+    <string name="progress_join">Bergabung&#8230;</string>
+    <string name="hostplayerusername">Nama pengguna</string>
+    <string name="progress_local">Pemuatan&#8230;</string>
     <string name="OMEPARSELOGOUT">Logout</string>
     <string name="OMEPARSELOGIN">Login</string>
-    <string name="OMEPARSESETTING">Setting</string>
-    <string name="OMEPARSEOK">OK</string>
-    <string name="OMEPARSEYES">Yes</string>
-    <string name="OMEPARSENO">No</string>
+    <string name="OMEPARSESETTING">Pengaturan</string>
+    <string name="OMEPARSEOK">Oke</string>
+    <string name="OMEPARSEYES">Ya</string>
+    <string name="OMEPARSENO">Tidak</string>
 
     <!-- Strings related to invite activity -->
 
     <!-- <string name="OMEPARSEWANTTOKEY">want to </string> -->
-    <string name="OMEPARSEINVITEPLAYDATE">Date</string>
-    <string name="OMEPARSEINVITEPLAYHOUR">Hour</string>
-    <string name="OMEPARSEINVITEPLAYBUTTON">Invite Play</string>
-    <string name="OMEPARSEINVITESPORTTYPECHOOSE">Choose Sport</string>
-    <string name="OMEPARSEINVITEPLAYERLEVELCHOOSE">Choose Level</string>
-    <string name="OMEPARSEINVITEPLAYERNUMBERCHOOSE">Choose Number</string>
-    <string name="OMEPARSEINVITEPLAYFEECHOOSE">Choose Fee</string>
-    <string name="OMEPARSEINVITELOGINALERT">please login or register!</string>
-    <string name="OMEPARSEINVITEREALLYPLAY">Do you really play with someone?</string>
-    <string name="OMEPARSEINVITEOTHERDEFAULT">Good buddy</string>
-    <string name="OMEPARSEINVITECOURTDEFAULT">MIT</string>
+    <string name="OMEPARSEINVITEPLAYDATE">Tanggal</string>
+    <string name="OMEPARSEINVITEPLAYHOUR">Jam</string>
+    <string name="OMEPARSEINVITEPLAYBUTTON">Mengundang bermain</string>
+    <string name="OMEPARSEINVITESPORTTYPECHOOSE">Memilih olahraga</string>
+    <string name="OMEPARSEINVITEPLAYERLEVELCHOOSE">Memilih tingkat</string>
+    <string name="OMEPARSEINVITEPLAYERNUMBERCHOOSE">Memilih nomor</string>
+    <string name="OMEPARSEINVITEPLAYFEECHOOSE">Memilih biaya</string>
+    <string name="OMEPARSEINVITELOGINALERT">silahkan masuk atau mendaftar!</string>
+    <string name="OMEPARSEINVITEREALLYPLAY">Apakah Anda benar-benar bermain dengan seseorang?</string>
+    <string name="OMEPARSEINVITEOTHERDEFAULT">Teman baik</string>
+    <string name="OMEPARSEINVITECOURTDEFAULT"> Jakarta</string>
     <string name="OMEPARSEINVITEFEEDEFAULT">AA</string>
-    <string name="OMEPARSEINVITEFEEFREE">Free</string>
-    <string name="OMEPARSEINVITEPLAYERSUBMITSUCCESSALERTINFO">Successfully submit share, please wait someone for join!</string>
+    <string name="OMEPARSEINVITEFEEFREE">Gratis</string>
+    <string name="OMEPARSEINVITEPLAYERSUBMITSUCCESSALERTINFO">Berhasil mengirimkan berbagi, silahkan menunggu seseorang untuk bergabung!</string>
 
+    <string name="OMEPARSEINVITESPORTPROMPT">Pilih olahraga favorit Anda</string>
 
     <!-- Strings related to sport type for invite activity -->
-
-
-    <string name="OMEPARSEINVITESPORTPROMPT">Select Your Favourite Sport</string>
-
-
-    <!-- Strings related to car brand -->
     <string-array name="sport_type_array">
 
-        <item>Badminton</item>
-        <item>Baseball</item>
-        <item>Basketball</item>
-        <item>Beach Volleyball</item>
+        <item>Bulutangkis</item>
+        <item>Bisbol</item>
+        <item>Bola basket</item>
+        <item>Voli pantai</item>
         <item>Bowling</item>
-        <item>Cricket</item>
-        <item>Football, American</item>
-        <item>Football, Rugby</item>
-        <item>Football, Soccer</item>
+        <item>Kriket</item>
+        <item>Sepak bola, Amerika</item>
+        <item>Sepak bola, Rugby</item>
+        <item>Sepak bola, sepak bola</item>
         <item>Golf</item>
-        <item>Handball</item>
-        <item>Hockey</item>
+        <item>Bola tangan</item>
+        <item>Hoki</item>
         <item>Polo</item>
-        <item>Ice Hockey</item>
+        <item>Hoki es</item>
         <item>Squash</item>
-        <item>Table Soccer</item>
-        <item>Table Tennis</item>
-        <item>Tennis</item>
-        <item>Volleyball</item>
-        <item>Water Polo</item>
+        <item>Sepak bola meja</item>
+        <item>Tenis Meja</item>
+        <item>Tenis</item>
+        <item>Bola voli</item>
+        <item>Polo air</item>
         <item>Snooker</item>
 
-        <item>Cycling Mountain Bike</item>
-        <item>Cycling Road</item>
+        <item>Bersepeda sepeda gunung</item>
+        <item>Bersepeda jalan</item>
         <item>Fitness walking</item>
-        <item>Running</item>
-        <item>Walking</item>
+        <item>Menjalankan</item>
+        <item>Berjalan</item>
         <item>Treadmill</item>
         <item>Trekking</item>
 
-        <item>Canoe</item>
-        <item>Diving</item>
-        <item>Kite surfing</item>
-        <item>Rowing</item>
-        <item>Sailing</item>
+        <item>Kano</item>
+        <item>Menyelam</item>
+        <item>Layang-layang surfing</item>
+        <item>Dayung</item>
+        <item>Berlayar</item>
         <item>Scuba diving</item>
         <item>Surfing</item>
-        <item>Swimming</item>
-        <item>Windsurfing</item>
+        <item>Renang</item>
+        <item>Selancar Angin</item>
 
         <item>Canyoning</item>
-        <item>Caving</item>
-        <item>Climbing</item>
-        <item>Ice climbing</item>
+        <item>Gua</item>
+        <item>Pendakian</item>
+        <item>Es memanjat</item>
         <item>Orienteering</item>
         <item>Skateboarding</item>
 
-        <item>Archery</item>
-        <item>Shooting</item>
-        <item>Dart</item>
+        <item>Panahan</item>
+        <item>Menembak</item>
+        <item>DART</item>
 
-        <item>Alpine Skiing</item>
+        <item>Alpine Ski</item>
         <item>Bobsleigh</item>
-        <item>Cross country ski</item>
+        <item>Lintas negara ski</item>
         <item>Luge</item>
-        <item>Roller skiing</item>
-        <item>Ski Jumping</item>
+        <item>Roller Ski</item>
+        <item>Ski melompat</item>
         <item>Snowboarding</item>
         <item>Snowshoeing</item>
-        <item>Speed skating</item>
-        <item>Short Track Speed Skating</item>
-        <item>Skating</item>
-        <item>Skeleton</item>
-        <item>Curling</item>
+        <item>skating kecepatan</item>
+        <item>Pendek Melacak Speed Skating</item>
+        <item>skat</item>
+        <item>kerangka</item>
+        <item>keriting</item>
 
-        <item>Boxing</item>
-        <item>Dancing</item>
-        <item>Elliptical training</item>
-        <item>Fencing</item>
-        <item>Gymnastics</item>
+        <item>tinju</item>
+        <item>Menari</item>
+        <item>Elips pelatihan</item>
+        <item>Anggar</item>
+        <item>Senam</item>
         <item>Judo</item>
-        <item>Martial arts</item>
+        <item>Seni bela diri</item>
         <item>Pilates</item>
         <item>Poker</item>
-        <item>Riding</item>
+        <item>Kuda</item>
         <item>Taekwondo</item>
-        <item>Trampoline</item>
-        <item>Weight training</item>
-        <item>Wheelchair</item>
-        <item>Wrestling</item>
+        <item>Trampolin</item>
+        <item>Berat badan pelatihan</item>
+        <item>Kursi roda</item>
+        <item>Gulat</item>
         <item>Yoga</item>
-        <item>Other</item>
+        <item>Lainnya</item>
 
 
     </string-array>
 
 
     <!-- Strings related to join activity -->
-    <string name="OMEPARSEINVITEPLAYCOURTPLACEHOLD">Enter court</string>
-    <string name="OMEPARSEINVITEPLAYOTHERPLACEHOLD">Enter other requirement</string>
-    <string name="OMEPARSEINVITEPLAYERALERTINFO">Do you really join play?</string>
-    <string name="OMEPARSEINVITEREQUIREMENTSPORTTYPE">Sport Type</string>
-    <string name="OMEPARSEINVITEREQUIREMENTPLAYERNUMBER">Number</string>
-    <string name="OMEPARSEINVITEREQUIREMENTPLAYERLEVEL">Play Level</string>
-    <string name="OMEPARSEINVITEREQUIREMENTTIME">Time</string>
-    <string name="OMEPARSEINVITEREQUIREMENTCOURT">Court</string>
-    <string name="OMEPARSEINVITEREQUIREMENTFEE">Fee</string>
-    <string name="OMEPARSEINVITEREQUIREMENTOTHER">Other</string>
+    <string name="OMEPARSEINVITEPLAYCOURTPLACEHOLD">Masukkan Lapangan</string>
+    <string name="OMEPARSEINVITEPLAYOTHERPLACEHOLD">Masukkan persyaratan lainnya</string>
+    <string name="OMEPARSEINVITEPLAYERALERTINFO">Apakah Anda benar-benar bergabung bermain?</string>
+    <string name="OMEPARSEINVITEREQUIREMENTSPORTTYPE">Olahraga Type</string>
+    <string name="OMEPARSEINVITEREQUIREMENTPLAYERNUMBER">Nomor</string>
+    <string name="OMEPARSEINVITEREQUIREMENTPLAYERLEVEL">Bermain tingkat</string>
+    <string name="OMEPARSEINVITEREQUIREMENTTIME">Waktu</string>
+    <string name="OMEPARSEINVITEREQUIREMENTCOURT">Lapangan</string>
+    <string name="OMEPARSEINVITEREQUIREMENTFEE">Biaya</string>
+    <string name="OMEPARSEINVITEREQUIREMENTOTHER">Lainnya</string>
     <string name="OMEPARSEINVITEJOINPLAYHEADER"> </string>
-    <string name="OMEPARSEINVITEJOINPLAYBUTTON">Join</string>
-    <string name="OMEPARSEINVITEPLAYERJOINPLAYSUCCESSALERTINFO">Successfully submit request, please wait for reply!</string>
-    <string name="OMEPARSEMESSAGEJOINPLAYREQUESTFIRSTPART">Hi</string>
-    <string name="OMEPARSEMESSAGEJOINPLAYREQUESTSECONDPART">I am</string>
-    <string name="OMEPARSEMESSAGEJOINPLAYREQUESTTHIRDPART"> with you</string>
-    <string name="OMEPARSEWANTTOKEY">want to</string>
+    <string name="OMEPARSEINVITEJOINPLAYBUTTON">Bergabung</string>
+    <string name="OMEPARSEINVITEPLAYERJOINPLAYSUCCESSALERTINFO">Berhasil mengirimkan permintaan, silahkan tunggu Balasan!</string>
+    <string name="OMEPARSEMESSAGEJOINPLAYREQUESTFIRSTPART">Hai</string>
+    <string name="OMEPARSEMESSAGEJOINPLAYREQUESTSECONDPART">Saya</string>
+    <string name="OMEPARSEMESSAGEJOINPLAYREQUESTTHIRDPART"> dengan Anda</string>
+    <string name="OMEPARSEWANTTOKEY">Ingin</string>
 
 
 
 
-    <string name="OMEPARSEINVITETITLEPLAY">play</string>
+    <string name="OMEPARSEINVITETITLEPLAY">Bermain</string>
 
 
 
     <!-- Strings related to login -->
-    <string name="title_activity_login">Login</string>
-    <string name="title_activity_signup">Register</string>
-    <string name="prompt_username">Username</string>
-    <string name="prompt_password">Password</string>
-    <string name="prompt_password_again">Password Again</string>
-    <string name="error_intro">"Please "</string>
-    <string name="error_blank_username">enter a username</string>
-    <string name="error_blank_password">enter a password</string>
-    <string name="error_mismatched_passwords">enter the same password twice</string>
-    <string name="error_join">", and "</string>
+    <string name="title_activity_login">masuk</string>
+    <string name="title_activity_signup">Daftar</string>
+    <string name="prompt_username">Nama pengguna</string>
+    <string name="prompt_password">Sandi</string>
+    <string name="prompt_password_again">Password lagi</string>
+    <string name="error_intro">"Mohon "</string>
+    <string name="error_blank_username">Masukkan nama pengguna</string>
+    <string name="error_blank_password">masukan kata sandi</string>
+    <string name="error_mismatched_passwords">masukkan password yang sama dua kali</string>
+    <string name="error_join">", dan "</string>
     <string name="error_end">.</string>
-    <string name="progress_login">Login&#8230;</string>
-    <string name="progress_signup">Register&#8230;</string>
+    <string name="progress_login">masuk&#8230;</string>
+    <string name="progress_signup">Daftar&#8230;</string>
 
 
 
     <!-- String related to map info -->
-    <string name="current_location_unavailable">Please try again after your location appears on the map.</string>
-    <string name="google_play_service_unavailable">This device does not support google play services !</string>
-    <string name="switch_to_china_map">Switch map service !</string>
-    <string name="cannot_access_server">Cannot access server, please re-login !</string>
-    <string name="locate_fail">Get location failed in 12 seconds，stop locate!</string>
-    <string name="google_map_unavailable">Google Map can not access !</string>
+    <string name="current_location_unavailable">Silakan coba lagi setelah lokasi Anda muncul pada peta.</string>
+    <string name="google_play_service_unavailable">Perangkat ini tidak mendukung google play layanan !</string>
+    <string name="switch_to_china_map">Beralih layanan peta !</string>
+    <string name="cannot_access_server">Tidak dapat mengakses server, silahkan login kembali !</string>
+    <string name="locate_fail">Dapatkan lokasi gagal dalam 12 detik, berhenti mencari!</string>
+    <string name="google_map_unavailable">Google Map tidak dapat mengakses !</string>
 
 
     <!-- String related to feedback -->
-    <string name="OMEPARSEFEEDBACK">Feedback</string>
-    <string name="OMEPARSEFEEDBACKSENDBUTTON">Send</string>
-    <string name="OMEPARSEFEEDBACKSENDING">Sending&#8230;</string>
-    <string name="OMEPARSEFEEDBACKHINT">Thank you for your feedback and suggestion,Playround team will follow your feedback and suggestion to improve Playround app perfomance!\n\n                   @Playround Team</string>
+    <string name="OMEPARSEFEEDBACK">Masukan</string>
+    <string name="OMEPARSEFEEDBACKSENDBUTTON">mengirim</string>
+    <string name="OMEPARSEFEEDBACKSENDING">mengirim&#8230;</string>
+    <string name="OMEPARSEFEEDBACKHINT">Terima kasih atas tanggapan dan saran, Playround tim akan mengikuti umpan balik dan saran untuk meningkatkan kinerja aplikasi Playround!\n\n                   @Playround Team</string>
 
 
     <!-- String related to message reply -->
-    <string name="OMEPARSEMESSAGEREPLYBUTTON">Send</string>
+    <string name="OMEPARSEMESSAGEREPLYBUTTON">mengirim</string>
 
 
     <!--String related to user status-->
     <string name="OMEPARSEUSERSTATUSONLINE">Online</string>
     <string name="OMEPARSEUSERSTATUSOFFLINE">Offline</string>
-    <string name="OMEPARSEUSERSTATUSAWAY">Away</string>
-    <string name="OMEPARSEUSERSTATUSBUSY">Busy</string>
+    <string name="OMEPARSEUSERSTATUSAWAY">jauh</string>
+    <string name="OMEPARSEUSERSTATUSBUSY">sibuk</string>
 
 
 
     <!--String related to me activity-->
-    <string name="OMEPARSEMEMYSPORTTITLE">My Workout</string>
-    <string name="OMEPARSEMEMATCHDETAILTITLE">Workout Detail</string>
-    <string name="OMEPARSEMEMYSPORT">My Sport</string>
-    <string name="OMEPARSEMEMYCOURTADDRESS">My Venue Address</string>
-    <string name="OMEPARSEMEMYSETTINGS">Settings</string>
-    <string name="OMEPARSEMEMYSETTINGSNOTIFICATIONSHEADER">Notifications</string>
-    <string name="OMEPARSEMEMYSETTINGSGENERALHEADER">General Info</string>
-    <string name="OMEPARSEMEMYSETTINGMATCHDETAILPLAYERS">Players</string>
+    <string name="OMEPARSEMEMYSPORTTITLE">Latihan saya</string>
+    <string name="OMEPARSEMEMATCHDETAILTITLE">Latihan Detail</string>
+    <string name="OMEPARSEMEMYSPORT">Olahraga</string>
+    <string name="OMEPARSEMEMYCOURTADDRESS">Alamat tempat saya</string>
+    <string name="OMEPARSEMEMYSETTINGS">Pengaturan</string>
+    <string name="OMEPARSEMEMYSETTINGSNOTIFICATIONSHEADER">Pemberitahuan</string>
+    <string name="OMEPARSEMEMYSETTINGSGENERALHEADER">Info Umum</string>
+    <string name="OMEPARSEMEMYSETTINGMATCHDETAILPLAYERS">Pemain</string>
     <string name="OMEPARSEMEPROFILEPLAYROUNDID">Playround ID</string>
     <string name="OMEPARSEMEPROFILEALIAS">Alias</string>
     <string name="OMEPARSEMEPROFILEAVATAR">Avatar</string>
-    <string name="OMEPARSEMEPROFILEQRCODE">QR Code</string>
-    <string name="OMEPARSEMEPROFILECHOOSEIMAGE">Choose photo</string>
-    <string name="OMEPARSEMEPROFILETAKEPHOTO">Take photo</string>
-    <string name="OMEPARSEMESPORTNOONEPLAYER">No player join this match, Be patient!</string>
+    <string name="OMEPARSEMEPROFILEQRCODE">Kode QR</string>
+    <string name="OMEPARSEMEPROFILECHOOSEIMAGE">Memilih foto</string>
+    <string name="OMEPARSEMEPROFILETAKEPHOTO">Mengambil foto</string>
+    <string name="OMEPARSEMESPORTNOONEPLAYER">Tidak ada pemain bergabung dengan pertandingan ini, bersabar!</string>
 
 
 
@@ -261,11 +256,11 @@
 
 
     <!--String related to chat-->
-    <string name="OMEPARSECHATFILETRANMITFINISH">Finish</string>
-    <string name="OMEPARSECHATFILETRANMITFAILED">Fail</string>
-    <string name="OMEPARSECHATFILETRANMITREQUEST">Request for sending file</string>
-    <string name="OMEPARSECHATFILETRANMITREJECT">Reject</string>
-    <string name="OMEPARSECHATTYPING">typing...</string>
+    <string name="OMEPARSECHATFILETRANMITFINISH">Selesai</string>
+    <string name="OMEPARSECHATFILETRANMITFAILED">Gagal</string>
+    <string name="OMEPARSECHATFILETRANMITREQUEST">Permintaan untuk mengirimkan file</string>
+    <string name="OMEPARSECHATFILETRANMITREJECT">Menolak</string>
+    <string name="OMEPARSECHATTYPING">mengetik...</string>
 
 
 
@@ -273,34 +268,34 @@
 
     <!--String related to add contact-->
     <string name="OMEPARSEADDCONTACTSEARCHHINT">Playround ID</string>
-    <string name="OMEPARSEADDCONTACTSEARCHSETTING">Search Contact</string>
-    <string name="OMEPARSEADDCONTACTMYID">My Playround ID:</string>
-    <string name="OMEPARSEADDCONTACTFRIENDRADAR">Friend Radar</string>
-    <string name="OMEPARSEADDCONTACTNEARBYNOTE">Find friend in your nearby</string>
-    <string name="OMEPARSEADDCONTACTSCANQRCODE">Scan QR Code</string>
-    <string name="OMEPARSEADDCONTACTSCANQRCODENOTE">Scan QR Code name card</string>
-    <string name="OMEPARSEADDCONTACTSEARCHUSERNAMEERROR">Search username could not be empty</string>
-    <string name="OMEPARSEADDCONTACTSEARCHDISPLAYRESULTTITLE">Result</string>
-    <string name="OMEPARSEADDCONTACTSEARCHDISPLAYPROFILE">Profile</string>
-    <string name="OMEPARSEADDCONTACTEXT">Add</string>
-    <string name="OMEPARSEADDCONTACTSENDREQUESTTITLE">Send Request</string>
-    <string name="OMEPARSEADDCONTACTSENDREQUESTTEXT">Send</string>
-    <string name="OMEPARSEADDCONTACTSENDREQUESTMESSAGE">Write a message...</string>
-    <string name="OMEPARSEADDCONTACTSENDREQUESTSUCCESS">Successfully send request message</string>
-    <string name="OMEPARSEADDCONTACTSENDREQUESTINVALIDFRIENDID">Invalid ID</string>
-    <string name="OMEPARSEADDCONTACTSENDREQUESTFRIENDEXIST">Friend exists</string>
-    <string name="OMEPARSEADDCONTACTSENDREQUESTADDYOURSELF">You can not add yourself</string>
-    <string name="OMEPARSEADDCOTACTSHAREQRCODEWITH">Share with</string>
-    <string name="OMEPARSEADDCONTACTADDMENOTE">Scan my QR code to add me on Playround</string>
-    <string name="OMEPARSEADDCONTACTDEFAULTREQUESTMESSAGE">he want to be your friend !</string>
-    <string name="OMEPARSEADDCONTACTREQUESTNOTEIAM">I\'m</string>
+    <string name="OMEPARSEADDCONTACTSEARCHSETTING">Pencarian kontak</string>
+    <string name="OMEPARSEADDCONTACTMYID">Saya ID Playround:</string>
+    <string name="OMEPARSEADDCONTACTFRIENDRADAR">Teman Radar</string>
+    <string name="OMEPARSEADDCONTACTNEARBYNOTE">Menemukan teman di Anda terdekat</string>
+    <string name="OMEPARSEADDCONTACTSCANQRCODE">Pindai kode QR</string>
+    <string name="OMEPARSEADDCONTACTSCANQRCODENOTE">Pindai kode QR kartu nama</string>
+    <string name="OMEPARSEADDCONTACTSEARCHUSERNAMEERROR">Cari pengguna tidak boleh kosong</string>
+    <string name="OMEPARSEADDCONTACTSEARCHDISPLAYRESULTTITLE">Hasil</string>
+    <string name="OMEPARSEADDCONTACTSEARCHDISPLAYPROFILE">Profil</string>
+    <string name="OMEPARSEADDCONTACTEXT">Tambahkan</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTTITLE">Kirim permintaan</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTTEXT">Kirim</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTMESSAGE">Menulis pesan...</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTSUCCESS">Berhasil mengirim pesan permintaan</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTINVALIDFRIENDID">ID tidak valid</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTFRIENDEXIST">Ada teman</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTADDYOURSELF">Anda tidak dapat menambahkan diri</string>
+    <string name="OMEPARSEADDCOTACTSHAREQRCODEWITH">Berbagi dengan</string>
+    <string name="OMEPARSEADDCONTACTADDMENOTE">Pindai kode QR saya untuk menambahkan saya di Playround</string>
+    <string name="OMEPARSEADDCONTACTDEFAULTREQUESTMESSAGE">Dia ingin menjadi teman Anda !</string>
+    <string name="OMEPARSEADDCONTACTREQUESTNOTEIAM">I\ am</string>
 
 
 
 
 
 
-    <string name="notifications">Show Notifications</string>
+    <string name="notifications">Tampilkan pemberitahuan</string>
 
 
 
@@ -324,177 +319,177 @@
 
 
     <!-- Activity titles -->
-    <string name="title_activity_add_friend">Add Contact</string>
-    <string name="title_activity_friend_profile">Friend Profile</string>
+    <string name="title_activity_add_friend">Tambahkan kontak</string>
+    <string name="title_activity_friend_profile">Profil teman</string>
 
     <!-- Navigation / Action Bar -->
-    <string name="add_friend">Add Friend</string>
+    <string name="add_friend">Menambah teman</string>
 
     <!-- Login Activity -->
-    <string name="login_must_fill_in">You must fill in a profile name</string>
+    <string name="login_must_fill_in">Anda harus mengisi nama profil</string>
     <string name="login_login">Login</string>
-    <string name="login_account_hint">Profile Name</string>
-    <string name="login_create_account_text">Create Profile</string>
-    <string name="login_bad_login">no vaild username</string>
+    <string name="login_account_hint">Nama profil</string>
+    <string name="login_create_account_text">Membuat profil</string>
+    <string name="login_bad_login">tidak ada nama pengguna vaild</string>
 
     <!-- Create Account Activity -->
-    <string name="create_name_hint">Profile Name</string>
-    <string name="create_text">Slogan Here</string>
-    <string name="create_register">Register</string>
-    <string name="create_register_incog">Register Incognito</string>
-    <string name="create_skip">Allow anyone to add you using your profile name</string>
-    <string name="create_must_fill_in">You must fill in all fields</string>
-    <string name="create_bad_profile_name">Profile name can\'t contain spaces or backslashes/forwardslashes</string>
+    <string name="create_name_hint">Nama profil</string>
+    <string name="create_text">Slogan di sini</string>
+    <string name="create_register">Daftar</string>
+    <string name="create_register_incog">Mendaftar penyamaran</string>
+    <string name="create_skip">Memungkinkan orang untuk menambahkan Anda menggunakan nama profil Anda</string>
+    <string name="create_must_fill_in">Anda harus mengisi semua bidang</string>
+    <string name="create_bad_profile_name">Nama profil can\'t berisi spasi atau garis miring terbalik forwardslashes</string>
 
     <!-- Main Activity -->
-    <string name="main_no_active_chat">No active chat. Start one by choosing a friend from the pane on the left.</string>
-    <string name="main_message_no">No Message</string>
-    <string name="main_no_internet">No Internet Connection</string>
-    <string name="main_not_connected">No internet connection has been detected. Without an internet connection, you will have
-        limited functionality unless you are using Playround for LAN only</string>
-    <string name="search_all_contacts">Search</string>
+    <string name="main_no_active_chat">Obrolan tidak aktif. Memulai satu dengan memilih teman dari panel di sebelah kiri.</string>
+    <string name="main_message_no">Tidak ada pesan</string>
+    <string name="main_no_internet">Tidak ada koneksi Internet</string>
+    <string name="main_not_connected">Tidak ada koneksi internet telah terdeteksi. Tanpa koneksi internet, Anda akan memiliki
+fungsi terbatas kecuali jika Anda menggunakan Playround untuk LAN hanya</string>
+    <string name="search_all_contacts">Cari</string>
 
     <!-- Chat Activity -->
-    <string name="chat_enter_message">Send a message</string>
-    <string name="chat_file_transfer">File transfer</string>
+    <string name="chat_enter_message">Kirim pesan</string>
+    <string name="chat_file_transfer">transfer file</string>
 
     <!-- Add Friend Activity -->
     <string name="addfriend_friend_key">Playround ID</string>
-    <string name="addfriend_friend_message">Send a message with your request</string>
-    <string name="addfriend_button">Add Friend</string>
-    <string name="addfriend_friend_added">Friend Added</string>
+    <string name="addfriend_friend_message">Mengirim pesan dengan permintaan Anda</string>
+    <string name="addfriend_button">Menambah teman</string>
+    <string name="addfriend_friend_added">Teman ditambahkan</string>
     <!-- <string name="addfriend_friend_exists">Friend already exists</string>-->
-    <string name="scanqr_button">Scan a QR code</string>
+    <string name="scanqr_button">Pindai kode QR</string>
     <!-- <string name="invalid_friend_ID">Invalid ID</string>-->
-    <string name="addfriend_nick_hint">Set a nickname for your friend</string>
-    <string name="addfriend_optional_title">Optional Extras</string>
-    <string name="dialog_pin">Enter your friend\'s pin</string>
-    <string name="addfriend_invalid_pin">Invalid Pin</string>
+    <string name="addfriend_nick_hint">Menentukan sebuah nickname untuk teman Anda</string>
+    <string name="addfriend_optional_title">Opsional ekstra</string>
+    <string name="dialog_pin">Masukkan pin Anda friend\</string>
+    <string name="addfriend_invalid_pin">Pin tidak valid</string>
     <!--  <string name="addfriend_own_key">You cannot add yourself</string> -->
-    <string name="addfriend_friend_pin_title">Enter Friend\'s Pin</string>
-    <string name="addfriend_friend_pin_text">Enter Friend\'s Pin</string>
-    <string name="addfriend_default_message">Hi! Please accept my friend request</string>
+    <string name="addfriend_friend_pin_title">Masukkan Pin Friend\'s</string>
+    <string name="addfriend_friend_pin_text">Masukkan Pin Friend\'s</string>
+    <string name="addfriend_default_message">Hai! Harap menerima permintaan teman saya</string>
 
     <!-- Friend Profile Activity -->
-    <string name="friend_profile_nick">Nickname</string>
+    <string name="friend_profile_nick">Julukan</string>
     <string name="friend_profile_key">ID</string>
     <string name="friend_profile_note">Status</string>
-    <string name="friend_profile_button">Update</string>
-    <string name="friend_profile_updated">The profile has been updated</string>
-    <string name="friend_profile_copied">ID Copied</string>
+    <string name="friend_profile_button">memperbarui</string>
+    <string name="friend_profile_updated">Profil telah diperbarui</string>
+    <string name="friend_profile_copied">ID disalin</string>
 
     <!-- Friend request fragment -->
-    <string name="friend_profile_title">%1$s\'s Profile</string>
-    <string name="friendrequest_accept">Accept</string>
-    <string name="friendrequest_reject">Reject</string>
-    <string name="friend_request">New Friend Request</string>
+    <string name="friend_profile_title">%1$s\'s Profil</string>
+    <string name="friendrequest_accept">Menerima</string>
+    <string name="friendrequest_reject">Menolak</string>
+    <string name="friend_request">Permintaan teman baru</string>
 
     <!-- Contacts Fragment -->
-    <string name="friend_action_profile">Profile</string>
-    <string name="friend_action_delete">Remove Friend</string>
-    <string name="friend_action_delete_chat">Delete Chat Logs</string>
-    <string name="friend_action_block">Block</string>
-    <string name="contacts_actions_on">Actions on</string>
-    <string name="contacts_delimiter_requests">Requests</string>
-    <string name="contacts_delimiter_friends">Friends</string>
+    <string name="friend_action_profile">Profil</string>
+    <string name="friend_action_delete">Menghapus teman</string>
+    <string name="friend_action_delete_chat">Menghapus log Chat</string>
+    <string name="friend_action_block">Blok</string>
+    <string name="contacts_actions_on">Tindakan pada</string>
+    <string name="contacts_delimiter_requests">Permintaan</string>
+    <string name="contacts_delimiter_friends">Teman</string>
     <string name="contacts_delimiter_offline">Offline</string>
     <string name="contacts_delimiter_online">Online</string>
-    <string name="contacts_resend_friend_request">Resend Friend Request</string>
+    <string name="contacts_resend_friend_request">Mengirim permintaan teman</string>
 
     <!-- Delete Friend Dialog -->
-    <string name="friend_action_delete_friend_confirmation">Are you sure you want to remove this friend?</string>
+    <string name="friend_action_delete_friend_confirmation">Apakah Anda yakin Anda ingin menghapus teman ini?</string>
 
     <!-- Delete Chat Logs Dialog -->
-    <string name="friend_action_delete_chat_confirmation">Are you sure you want to delete the chat logs?</string>
+    <string name="friend_action_delete_chat_confirmation">Apakah Anda yakin Anda ingin menghapus log chat?</string>
 
     <!-- Block Friend Dialog -->
-    <string name="friend_action_block_friend_confirmation">Blocking this user will remove them from your friends list and you will no longer see friend
-        requests from them.\n\nAre you sure you wish to continue?</string>
+    <string name="friend_action_block_friend_confirmation">Memblokir pengguna ini akan menghapusnya dari daftar teman Anda dan Anda tidak akan melihat teman
+permintaan dari them.\n\nAre Anda yakin Anda ingin melanjutkan?</string>
 
     <!-- Chat Fragment -->
-    <string name="attachment_photo">Attach photo</string>
-    <string name="attachment_file">Attach File</string>
-    <string name="attachment_takephoto">Take photo</string>
-    <string name="message_copy">Copy message</string>
-    <string name="message_delete">Delete message</string>
+    <string name="attachment_photo">Melampirkan foto</string>
+    <string name="attachment_file">Lampirkan File</string>
+    <string name="attachment_takephoto">Mengambil foto</string>
+    <string name="message_copy">Salinan pesan</string>
+    <string name="message_delete">Menghapus pesan</string>
 
     <!-- Left Pane Fragment -->
-    <string name="titles_recent">Message</string>
-    <string name="titles_contacts">Contact</string>
-    <string name="titles_settings">Setting</string>
+    <string name="titles_recent">Pesan</string>
+    <string name="titles_contacts">Kontak</string>
+    <string name="titles_settings">Pengaturan</string>
 
     <!-- Misc -->
-    <string name="button_confirm">Confirm</string>
-    <string name="button_cancel">Cancel</string>
-    <string name="button_yes">Yes</string>
-    <string name="button_no">No</string>
-    <string name="button_ok">OK</string>
-    <string name="dialog_id">Copy ID to clipboard</string>
-    <string name="share_with">Share with</string>
-    <string name="connection_has">has</string>
-    <string name="connection_online">come online</string>
-    <string name="connection_offline">gone offline</string>
+    <string name="button_confirm">Konfirmasi</string>
+    <string name="button_cancel">Batal</string>
+    <string name="button_yes">Ya</string>
+    <string name="button_no">Tidak</string>
+    <string name="button_ok">Oke</string>
+    <string name="dialog_id">ID salin ke clipboard</string>
+    <string name="share_with">Berbagi dengan</string>
+    <string name="connection_has">memiliki</string>
+    <string name="connection_online">datang online</string>
+    <string name="connection_offline">pergi offline</string>
 
 
     <!-- QR -->
-    <string name="qr_default_title">Install Barcode Scanner?</string>
-    <string name="qr_default_message">This application requires Barcode Scanner. Would you like to install it?</string>
-    <string name="qr_button_yes">Yes</string>
-    <string name="qr_button_no">No</string>
+    <string name="qr_default_title">Menginstal Barcode Scanner?</string>
+    <string name="qr_default_message">Aplikasi ini membutuhkan Barcode Scanner. Anda ingin menginstalnya?</string>
+    <string name="qr_button_yes">Ya</string>
+    <string name="qr_button_no">Tidak</string>
 
 
     <!--Add by playround 1.0.2.09 -->
-    <string name="myvenueactivity_title">My Venue</string>
-    <string name="OMEPARSEMEMYVENUEUPLOAD">Upload Venue Address</string>
-    <string name="OMEPARSEMEMYVENUENAME">Venue Name</string>
-    <string name="OMEPARSEMEMYVENUEADDRESS">Venue Address</string>
-    <string name="OMEPARSEMEMYVENUEPHONE">Venue Phone</string>
-    <string name="OMEPARSEMEMYVENUENAMEPLACEHOLD">Enter Name</string>
-    <string name="OMEPARSEMEMYVENUEADDRESSPLACEHOLD">Enter Address</string>
-    <string name="OMEPARSEMEMYVENUEPHONEPLACEHOLD">Enter Phone</string>
-    <string name="OMEPARSEMEMYVENUESUBMIT">Upload</string>
-    <string name="OMEPARSEMYVENUEHOMEVENUE">Home Field</string>
-    <string name="OMEPARSEMYVENUEBACKUPVENUE">Backup</string>
-    <string name="OMEPARSEMYVENUERADAR">Venue Radar</string>
-    <string name="myvenueradaractivity_title">Nearby Venue</string>
-    <string name="OMEPARSEMEMYVENUEDISTANCEKMNOTE">kilometers away</string>
-    <string name="OMEPARSEMEMYVENUEDISTANCEMETERNOTE">meters away</string>
-    <string name="myvenueuploadactivity_title">Upload Venue</string>
-    <string name="OMEPARSEMEMYVENUEASHOMEPLACEHOLD">Enter Venue Name</string>
-    <string name="OMEPARSESIGNUPDEVICEREGISTERED">this device has registered!</string>
-    <string name="OMEPARSESIGNUPCANNOTGETDEVICEID">can not get device id!</string>
-    <string name="OMEPARSEUSERNAMEMINIMUMLENGTHSHOULDSIX">username length should beyond 6 char!</string>
-    <string name="OMEPARSEUSERPASSWORDMINIMUMLENGTHSHOULDSIX">password length should beyond 6 char!</string>
+    <string name="myvenueactivity_title">Tempat saya</string>
+    <string name="OMEPARSEMEMYVENUEUPLOAD">Meng-upload tempat alamat</string>
+    <string name="OMEPARSEMEMYVENUENAME">Nama tempat</string>
+    <string name="OMEPARSEMEMYVENUEADDRESS">Tempat alamat</string>
+    <string name="OMEPARSEMEMYVENUEPHONE">Tempat telepon</string>
+    <string name="OMEPARSEMEMYVENUENAMEPLACEHOLD">Masukkan nama</string>
+    <string name="OMEPARSEMEMYVENUEADDRESSPLACEHOLD">Masukkan alamat</string>
+    <string name="OMEPARSEMEMYVENUEPHONEPLACEHOLD">Masukkan telepon</string>
+    <string name="OMEPARSEMEMYVENUESUBMIT">Meng-upload</string>
+    <string name="OMEPARSEMYVENUEHOMEVENUE">Lapangan rumah</string>
+    <string name="OMEPARSEMYVENUEBACKUPVENUE">Cadangan</string>
+    <string name="OMEPARSEMYVENUERADAR">Tempat Radar</string>
+    <string name="myvenueradaractivity_title">Tempat terdekat</string>
+    <string name="OMEPARSEMEMYVENUEDISTANCEKMNOTE">kilometer</string>
+    <string name="OMEPARSEMEMYVENUEDISTANCEMETERNOTE">meter</string>
+    <string name="myvenueuploadactivity_title">Meng-upload tempat</string>
+    <string name="OMEPARSEMEMYVENUEASHOMEPLACEHOLD">Masukkan nama tempat</string>
+    <string name="OMEPARSESIGNUPDEVICEREGISTERED">perangkat ini telah terdaftar!</string>
+    <string name="OMEPARSESIGNUPCANNOTGETDEVICEID">tidak bisa mendapatkan id perangkat!</string>
+    <string name="OMEPARSEUSERNAMEMINIMUMLENGTHSHOULDSIX">panjang username harus melampaui 6 char!</string>
+    <string name="OMEPARSEUSERPASSWORDMINIMUMLENGTHSHOULDSIX">panjang sandi harus melampaui 6 char!</string>
 
     <!--Add by playround 1.0.2.12 -->
-    <string name="OMEPARSEMEMYVENUEASBACKUPPLACEHOLD">Enter Venue Name</string>
+    <string name="OMEPARSEMEMYVENUEASBACKUPPLACEHOLD">Masukkan nama tempat</string>
 
 
     <!--Add by playround 1.0.3.01 -->
-    <string name="OMEPARSECANNOTJOINYOURSELFALERT">You can not rejoin this workout!</string>
+    <string name="OMEPARSECANNOTJOINYOURSELFALERT">Anda tidak dapat bergabung kembali latihan ini!</string>
 
     <!--Add by playround 1.0.4.02 -->
-    <string name="search_venue_hint">Enter Venue</string>
-    <string name="search_venue_settings">Search Location</string>
-    <string name="OMEPARSEREGISTERASVENUEOWNERNOTE">Register as Venue</string>
-    <string name="ownerinfouploadactivity_title">Upload Venue Info </string>
-    <string name="OMEPARSESIGNUPERRORNOTE">Register error</string>
+    <string name="search_venue_hint">Masukkan tempat</string>
+    <string name="search_venue_settings">Cari lokasi</string>
+    <string name="OMEPARSEREGISTERASVENUEOWNERNOTE">Mendaftar sebagai tempat</string>
+    <string name="ownerinfouploadactivity_title">Meng-upload tempat Info </string>
+    <string name="OMEPARSESIGNUPERRORNOTE">Daftar kesalahan</string>
     <string name="OMEPARSEVENUEOWNERCONTACTEMAIL">Email</string>
-    <string name="OMEPARSEVENUEOWNERPHONEPLACEHOLD">Enter Phone</string>
-    <string name="OMEPARSELOGINUSERNAMEPASSWORDNOTMATCH">username and password are not match</string>
-    <string name="OMEPARSECANNOTGETVENUEINFO">can not get venue info</string>
-    <string name="OMEPARSEVENUEOWNERCONTACTPLACEHOLD">Enter Email</string>
-    <string name="OMEPARSEVENUEOWNERCHOOSEIDCOPY">Choose ID Copy Photo</string>
-    <string name="OMEPARSEVENUEOWNERTAKEIDCOPY">Take Photo for ID Copy</string>
-    <string name="OMEPARSEVENUEOWNERIDCOPY">Owner ID Copy</string>
-    <string name="OMEPARSEVENUEOWNERLICENSECOPY">Venue License Copy</string>
-    <string name="OMEPARSECANNOTSAVEPARSEFILE">Can not save file !</string>
-    <string name="OMEPARSEVENUEOWNERUPDATE">Update Venue Info</string>
+    <string name="OMEPARSEVENUEOWNERPHONEPLACEHOLD">Masukkan telepon</string>
+    <string name="OMEPARSELOGINUSERNAMEPASSWORDNOTMATCH">nama pengguna dan sandi tidak cocok</string>
+    <string name="OMEPARSECANNOTGETVENUEINFO">tidak bisa mendapatkan tempat info</string>
+    <string name="OMEPARSEVENUEOWNERCONTACTPLACEHOLD">Masukkan Email</string>
+    <string name="OMEPARSEVENUEOWNERCHOOSEIDCOPY">Memilih Foto Copy ID</string>
+    <string name="OMEPARSEVENUEOWNERTAKEIDCOPY">Mengambil foto untuk salinan ID</string>
+    <string name="OMEPARSEVENUEOWNERIDCOPY">Copy ID pemilik</string>
+    <string name="OMEPARSEVENUEOWNERLICENSECOPY">Tempat lisensi Copy</string>
+    <string name="OMEPARSECANNOTSAVEPARSEFILE">Tidak dapat menyimpan file !</string>
+    <string name="OMEPARSEVENUEOWNERUPDATE">Memperbarui Info tempat</string>
 
-    <string name="OMEPARSEVENUEOWNERWAITINGFORVERIFY">Please waiting for our verification</string>
+    <string name="OMEPARSEVENUEOWNERWAITINGFORVERIFY">Harap menunggu verifikasi kami</string>
 
 
-    <string name="change_city">Change city</string>
+    <string name="change_city">Ubah kota</string>
 
     <!-- Put your own APP ID here -->
     <string name="open_weather_maps_app_id">ddc6b650db25f95454deaff67ab9f984</string>
@@ -508,125 +503,143 @@
     <string name="OMEPARSEWEATHERSNOWY">&#xf01b;</string>
     <string name="OMEPARSEWEATHERTHUNDER">&#xf01e;</string>
     <string name="OMEPARSEWEATHERDRIZZLE">&#xf01c;</string>
-    <string name="OMWPARSEWEATHERPLACENOTFOUND">Sorry, no weather data found.</string>
-    <string name="OMEPARSEWEATHERHUMIDITY">Humidity</string>
-    <string name="OMEPARSEWEATHERPRESSURE">Pressure</string>
+    <string name="OMWPARSEWEATHERPLACENOTFOUND">Maaf, tidak ada data cuaca ditemukan.</string>
+    <string name="OMEPARSEWEATHERHUMIDITY">Kelembaban</string>
+    <string name="OMEPARSEWEATHERPRESSURE">Tekanan</string>
 
     <!--Add by playround 1.0.4.05 -->
-    <string name="OMEPARSEINVITECONTENTPLACEHOLD">Workout Name</string>
-    <string name="OMEPARSEINVITESPORT">Sport</string>
-    <string name="OMEPARSEINVITELOCATION">Location</string>
-    <string name="OMEPARSEINVITESTART">Start</string>
-    <string name="OMEPARSEINVITEPARTICIPANT">Participant</string>
-    <string name="OMEPARSEINVITEDESCRIPTION">Description</string>
-    <string name="action_invite_share">Share invitation with</string>
-    <string name="action_invite_add">Add invitation</string>
+    <string name="OMEPARSEINVITECONTENTPLACEHOLD">Nama latihan</string>
+    <string name="OMEPARSEINVITESPORT">Olahraga</string>
+    <string name="OMEPARSEINVITELOCATION">Lokasi</string>
+    <string name="OMEPARSEINVITESTART">Mulai</string>
+    <string name="OMEPARSEINVITEPARTICIPANT">Peserta</string>
+    <string name="OMEPARSEINVITEDESCRIPTION">Deskripsi</string>
+    <string name="action_invite_share">Undangan berbagi dengan</string>
+    <string name="action_invite_add">Tambahkan undangan</string>
     <string name="OMETOPLAYATWORD">at</string>
-    <string name="OMETOPLAYINWORD">in</string>
-    <string name="OMETOPLAYDONEWORD">DONE</string>
+    <string name="OMETOPLAYINWORD">dalam</string>
+    <string name="OMETOPLAYDONEWORD">DILAKUKAN</string>
 
-    <string name="invitesearchactivity_title">Location</string>
-    <string name="OMEPARSEINVITESEARCHLOCATIONPLACEHOLD">Enter a location</string>
-    <string name="OMEPARSEINVITESEARCHLOCATIONCUSTOM">Custom Location</string>
+    <string name="invitesearchactivity_title">Lokasi</string>
+    <string name="OMEPARSEINVITESEARCHLOCATIONPLACEHOLD">Masukkan lokasi</string>
+    <string name="OMEPARSEINVITESEARCHLOCATIONCUSTOM">Lokasi kustom</string>
 
     <string name="joininfofragment_title">Info</string>
     <string name="joinscoreboardfragment_title">Scoreboard</string>
-    <string name="joincommentfragment_title">Comments</string>
+    <string name="joincommentfragment_title">Komentar</string>
 
-    <string name="OMEPARSEJOININFOPLAYERTEXT">PLAYER</string>
-    <string name="OMEPARSEJOININFOICECREAMTEXT">ICECREAM</string>
-    <string name="OMEPARSEJOININFOPRIZETEXT">PRIZE</string>
-    <string name="OMEPARSEJOININFOSCOREBOARDTEXT">SCORE</string>
-    <string name="OMEPARSEDAYLEFTTEXT">DAYS LEFT</string>
-    <string name="OMEPARSEHOURLEFTTEXT">HOURS LEFT</string>
+    <string name="OMEPARSEJOININFOPLAYERTEXT">PEMAIN</string>
+    <string name="OMEPARSEJOININFOICECREAMTEXT">ES KRIM</string>
+    <string name="OMEPARSEJOININFOPRIZETEXT">HADIAH</string>
+    <string name="OMEPARSEJOININFOSCOREBOARDTEXT">SKOR</string>
+    <string name="OMEPARSEDAYLEFTTEXT">HARI TERSISA</string>
+    <string name="OMEPARSEHOURLEFTTEXT">JAM TERSISA</string>
 
 
-    <string name="joincommentactivity_title">Comments</string>
-    <string name="joinlikeactivity_title">Likes</string>
-    <string name="joinscoreactivity_title">Scores</string>
-    <string name="joinplayeractivity_title">Players</string>
-    <string name="meprofilreactivity_title">Profile</string>
+    <string name="joincommentactivity_title">Komentar</string>
+    <string name="joinlikeactivity_title">Suka</string>
+    <string name="joinscoreactivity_title">Nilai</string>
+    <string name="joinplayeractivity_title">Pemain</string>
+    <string name="meprofilreactivity_title">Profil</string>
 
-    <string name="OMEPARSEJOINCOMMENTS">comments</string>
+    <string name="OMEPARSEJOINCOMMENTS">Komentar</string>
 
-    <string name="OMEPARSEVENUEOWNERBOOKMANAGEMENT">Venue Booking Management</string>
+    <string name="OMEPARSEVENUEOWNERBOOKMANAGEMENT">Tempat terakhir manajemen</string>
 
-    <string name="OMEPARSEJOINCOMMENTSUBMITFIRST">you can submit the first comment</string>
-    <string name="OMEPARSEJOINLIKESUBMITFIRST">you can be the first user who likes this invitation</string>
-    <string name="OMEPARSEMESSAGELISTFIRST">no message for you now</string>
+    <string name="OMEPARSEJOINCOMMENTSUBMITFIRST">Anda bisa mengirimkan komentar pertama</string>
+    <string name="OMEPARSEJOINLIKESUBMITFIRST">Anda dapat menjadi pengguna pertama yang suka undangan</string>
+    <string name="OMEPARSEMESSAGELISTFIRST">tidak ada pesan untuk Anda sekarang</string>
 
-    <string name="OMEPARSEINVITEFILLWORKOUTNAME">please fill workout name!</string>
+    <string name="OMEPARSEINVITEFILLWORKOUTNAME">Silahkan isi nama latihan!</string>
 
-    <string name="venuesearchactivity_title">Search</string>
+    <string name="venuesearchactivity_title">Cari</string>
 
     <!--Add by playround 1.0.4.07 -->
-    <string name="OMEPARSEFOLLOWING">FOLLOWING</string>
-    <string name="OMEPARSEFOLLOWERS">FOLLOWERS</string>
-    <string name="OMEPARSEFOLLOW">FOLLOW</string>
-    <string name="OMEPARSEMINUTELEFTTEXT">MINUTES LEFT</string>
-    <string name="OMEPARSEWAITTILLNEXTTEXT">WAIT TILL NEXT</string>
-    <string name="OMEPARSEADDTEXT">ADD</string>
-    <string name="OMEPARSEADDCOMMENTTEXT">Add Comment</string>
-    <string name="OMEPARSEFOLLOWINGLOWERCASE">following</string>
-    <string name="OMEPARSEFOLLOWERLOWERCASE">followers</string>
+    <string name="OMEPARSEFOLLOWING">BERIKUT</string>
+    <string name="OMEPARSEFOLLOWERS">PENGIKUT</string>
+    <string name="OMEPARSEFOLLOW">IKUTI</string>
+    <string name="OMEPARSEMINUTELEFTTEXT">MENIT TERSISA</string>
+    <string name="OMEPARSEWAITTILLNEXTTEXT">TUNGGU SAMPAI BERIKUTNYA</string>
+    <string name="OMEPARSEADDTEXT">TAMBAHKAN</string>
+    <string name="OMEPARSEADDCOMMENTTEXT">Tambahkan komentar</string>
+    <string name="OMEPARSEFOLLOWINGLOWERCASE">Berikut</string>
+    <string name="OMEPARSEFOLLOWERLOWERCASE">pengikut</string>
 
     <!--Add by playround 1.0.4.08 -->
-    <string name="venuedetailinfoactivity_title">Venue Info </string>
-    <string name="myfollowingfragment_title">FOLLOWING</string>
-    <string name="myfollowerfragment_title">FOLLOWERS</string>
-    <string name="venuecommentactivity_title">Comments</string>
+    <string name="venuedetailinfoactivity_title">Tempat Info </string>
+    <string name="myfollowingfragment_title">BERIKUT</string>
+    <string name="myfollowerfragment_title">PENGIKUT</string>
+    <string name="venuecommentactivity_title">Komentar</string>
 
-    <string name="OMEPARSECOURTSTEXT">Courts</string>
-    <string name="OMEPARSELIGHTEDTEXT">Lighted</string>
+    <string name="OMEPARSECOURTSTEXT">Pengadilan</string>
+    <string name="OMEPARSELIGHTEDTEXT">Menyala</string>
     <string name="OMEPARSEINDOORTEXT">Indoor</string>
-    <string name="OMEPARSEPLAYERSTEXT">Players</string>
-    <string name="OMEPARSEACCESSTEXT">Access</string>
-    <string name="OMEPARSESELECTASHOMEFIELD">Select as home field</string>
-    <string name="OMEPARSEMYHOMEFIELD">My home field</string>
+    <string name="OMEPARSEPLAYERSTEXT">Pemain</string>
+    <string name="OMEPARSEACCESSTEXT">Akses</string>
+    <string name="OMEPARSESELECTASHOMEFIELD">Pilih sebagai lapangan rumah</string>
+    <string name="OMEPARSEMYHOMEFIELD">Bidang rumah saya</string>
 
     <!--Add by playround 1.0.4.09 -->
-    <string name="bookingactivity_title">Booking Venue</string>
-    <string name="OMEPARSEDATETEXT">Date</string>
-    <string name="OMEPARSETIMETEXT">Time</string>
-    <string name="OMEPARSEVENUEBOOKINGDEPOSIT">Advance Deposit</string>
-    <string name="OMEPARSEVENUEBOOKINGTHISVENUE">Booking this venue</string>
-    <string name="OMEPARSECONFIRMTEXT">Confirm booking</string>
-    <string name="OMEPARSEREMARK">Remark</string>
-    <string name="OMEPARSEBOOKINGMUSTKNOW">Must know for booking :</string>
-    <string name="OMEPARSEBOOKINGMUSTKNOWONE">1. touch the above every option to set date, time and remark</string>
-    <string name="OMEPARSEBOOKINGMUSTKNOWTWO">2. This 20 is advance deposit</string>
-    <string name="OMEPARSEBOOKINGMUSTKNOWTHREE">3. This advance deposit will refund after you finish workout in the venue</string>
-    <string name="OMEPARSEBOOKINGMUSTKNOWFOUR">4. This advance deposit will refund if booking venue is not be successful </string>
-    <string name="OMEPARSEINVITEMUSTKNOW"> Must know for invitation :</string>
-    <string name="OMEPARSEINVITEMUSTKNOWONE">1. touch the above every option to set sport, location, date, time and description</string>
+    <string name="bookingactivity_title">Tempat terakhir</string>
+    <string name="OMEPARSEDATETEXT">Tanggal</string>
+    <string name="OMEPARSETIMETEXT">Waktu</string>
+    <string name="OMEPARSEVENUEBOOKINGDEPOSIT">Deposit muka</string>
+    <string name="OMEPARSEVENUEBOOKINGTHISVENUE">Terakhir tempat ini</string>
+    <string name="OMEPARSECONFIRMTEXT">Mengkonfirmasi terakhir</string>
+    <string name="OMEPARSEREMARK">Komentar</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOW">Harus tahu untuk Pemesanan :</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWONE">1. menyentuh atas setiap pilihan untuk menetapkan tanggal, waktu dan komentar</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWTWO">2. 20 adalah muka deposit</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWTHREE">3. deposit muka ini akan mengembalikan setelah Anda menyelesaikan latihan di tempat</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWFOUR">4. deposit muka ini akan mengembalikan jika tempat terakhir tidak akan berhasil </string>
+    <string name="OMEPARSEINVITEMUSTKNOW"> Harus tahu untuk undangan :</string>
+    <string name="OMEPARSEINVITEMUSTKNOWONE">1. menyentuh atas setiap pilihan untuk mengatur olahraga, lokasi, tanggal, waktu dan deskripsi</string>
     <string name="OMEPARSEBOOKINGCONFIRMTITLE">Confirm this order</string>
-    <string name="OMEPARSEVENUEBOOKINGDESCRIPTION">According to the contract, refund this advance deposit after finishing workout in venue</string>
-    <string name="OMEPARSEPAYSUCCESS">Pay successfully</string>
-    <string name="OMEPARSEPAYFAIL">Pay failed</string>
-    <string name="OMEPARSEPAYINPROGRESS">Pay in progress</string>
-    <string name="OMEPARSEBOOKINGPAYMUSTKNOW">Must know for payment :</string>
-    <string name="OMEPARSEBOOKINGPAYMUSTKNOWONE">1. Please check venue, time and mobile phone number</string>
-    <string name="OMEPARSEBOOKINGPAYMUSTKNOWTWO">2. Please check payment account if the same as user setting payment account, refund will pay to user setting payment account</string>
-    <string name="OMEPARSEBOOKINGRESULTNOTIFICATION">We will notify booking result and refund advance deposit</string>
-    <string name="OMEPARSEPHONENUMBERTEXT">Mobile Number</string>
-    <string name="OMEPARSEPAYUSEMETHODTEXT">Using Alipay to pay</string>
+    <string name="OMEPARSEVENUEBOOKINGDESCRIPTION">Menurut kontrak, mengembalikan deposit muka ini setelah menyelesaikan latihan di tempat</string>
+    <string name="OMEPARSEPAYSUCCESS">Membayar berhasil</string>
+    <string name="OMEPARSEPAYFAIL">Membayar gagal</string>
+    <string name="OMEPARSEPAYINPROGRESS">Membayar di kemajuan</string>
+    <string name="OMEPARSEBOOKINGPAYMUSTKNOW">Harus tahu untuk pembayaran :</string>
+    <string name="OMEPARSEBOOKINGPAYMUSTKNOWONE">1. Silakan periksa tempat, waktu, dan nomor telepon seluler</string>
+    <string name="OMEPARSEBOOKINGPAYMUSTKNOWTWO">2. Silakan periksa rekening pembayaran jika sama seperti pengguna menetapkan rekening pembayaran, pengembalian dana akan membayar kepada pengguna yang menetapkan rekening pembayaran</string>
+    <string name="OMEPARSEBOOKINGRESULTNOTIFICATION">Kami akan memberitahukan hasil terakhir dan mengembalikan deposit muka</string>
+    <string name="OMEPARSEPHONENUMBERTEXT">Nomer HP</string>
+    <string name="OMEPARSEPAYUSEMETHODTEXT">Menggunakan Alipay untuk membayar</string>
 
     <!--Add by playround 1.0.4.10 -->
-    <string name="navdrawer_item_explore">Explore</string>
-    <string name="navdrawer_item_venue">Venue</string>
-    <string name="navdrawer_item_workout">Workout</string>
-    <string name="navdrawer_item_map">Map</string>
-    <string name="navdrawer_item_setting">Settings</string>
-    <string name="navdrawer_item_message">Messages</string>
-    <string name="OMEPARSEVENUEACCESSPUBLIC">Public</string>
-    <string name="OMEPARSEVENUEACCESSPRIVATE">Private</string>
+    <string name="navdrawer_item_explore">Jelajahi</string>
+    <string name="navdrawer_item_venue">Tempat</string>
+    <string name="navdrawer_item_workout">Latihan</string>
+    <string name="navdrawer_item_map">Peta</string>
+    <string name="navdrawer_item_setting">Pengaturan</string>
+    <string name="navdrawer_item_message">Pesan</string>
+    <string name="OMEPARSEVENUEACCESSPUBLIC">Umum</string>
+    <string name="OMEPARSEVENUEACCESSPRIVATE">Pribadi</string>
 
     <!--Add by playround 1.0.4.12 -->
-    <string name="OMEPARSEINVITECAMERA">Photo</string>
+    <string name="OMEPARSEINVITECAMERA">Foto</string>
 
     <!--Add by playround 1.0.4.13 -->
-    <string name="OMEPARSEVENUESEARCHCITY">City</string>
-    <string name="venuetypesearchactivity_title">Venue</string>
+    <string name="OMEPARSEVENUESEARCHCITY">Kota</string>
+    <string name="venuetypesearchactivity_title">Tempat</string>
+
+    <!--Add by playround 1.0.4.15 -->
+    <string name="OMEPARSEBUYTEXT">BUY</string>
+    <string name="OMEPARSEVENUEPRIMEMEMBERSHIPNOTE">Perdana keanggotaan</string>
+    <string name="OMEPARSEVENUEPRICKPRIMEMEMBERSHIP">Memilih Perdana keanggotaan</string>
+    <string name="buyprimemembershipactivity_title">Perdana keanggotaan</string>
+    <string name="OMEPARSEPRIMETEXT">Perdana</string>
+    <string name="OMEPARSECONFIRMBUYTEXT">Mengkonfirmasi Beli</string>
+    <string name="OMEPARSEBUYPRIMEMEMBERSHIPMUSTKNOW">Harus tahu untuk membeli:</string>
+    <string name="OMEPARSEBUYPRIMEMEMEBERSHIPMUSTKNOWONE">1. Periksa Perdana keanggotaan</string>
+    <string name="OMEPARSEBUYPRIMEMEMEBERSHIPMUSTKNOWTWO">2. sentuhan telepon nomor item untuk mengatur telepon untuk menerima SMS kode verifikasi</string>
+    <string name="OMEPARSEFEETEXT">Biaya</string>
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPMUSTKNOWONE">1. Periksa Perdana, biaya dan nomor telepon</string>
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPMUSTKNOWTWO">2. Jika membayar berhasil, Anda akan menerima kode verifikasi SMS satu, kemudian menggunakannya untuk latihan</string>
+
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPDESCRIPTION">Silahkan SMS kode verifikasi untuk latihan</string>
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPNOTIFICATION">Membayar berhasil, Anda akan menerima SMS kode verifikasi</string>
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPNOCHOOSE">Silakan pilih Perdana!</string>
 
 
 

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="280dp"
+    android:layout_height="wrap_content" >
+
+    <ImageView
+        android:id            = "@+id/phone_dialog_back"
+        android:layout_width  = "16dp"
+        android:layout_height = "40dp"
+        android:background    = "@color/grey"
+        android:src           = "@drawable/ome_back_icon"/>
+
+    <TextView
+        android:id               = "@+id/phone_dialog_title"
+        android:layout_width     = "180dp"
+        android:layout_height    = "40dp"
+        android:layout_toRightOf = "@id/phone_dialog_back"
+        android:gravity          = "center_vertical"
+        android:text             = "@string/OMEPARSEPHONENUMBERTEXT"
+        android:textColor        = "@color/black"
+        android:background       = "@color/grey"/>
+
+    <TextView
+        android:id               = "@+id/phone_dialog_OK"
+        android:layout_width     = "100dp"
+        android:layout_height    = "40dp"
+        android:gravity          = "center"
+        android:text             = "@string/OMETOPLAYDONEWORD"
+        android:textColor        = "@color/white_absolute"
+        android:layout_toRightOf = "@id/phone_dialog_title"
+        android:background       = "@color/playround_default"/>
+
+    <View
+        android:id            = "@+id/phone_dialog_divider"
+        android:layout_width  = "fill_parent"
+        android:layout_height = "1dp"
+        android:background    = "#c0c0c0"
+        android:layout_below  = "@id/phone_dialog_OK"/>
+
+    <EditText
+        android:id            = "@+id/phone_dialog_edittext"
+        android:layout_width  = "280dp"
+        android:layout_height = "80dp"
+        android:layout_below  = "@+id/phone_dialog_divider"
+        android:inputType     = "number"
+        android:background    = "@null"/>
+
+</RelativeLayout>

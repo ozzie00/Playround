@@ -17,27 +17,6 @@
 package com.oneme.toplay.local;
 
 
-import com.oneme.toplay.MainActivity;
-import com.oneme.toplay.MapActivity;
-import com.oneme.toplay.R;
-import com.oneme.toplay.Application;
-import com.oneme.toplay.base.AppConstant;
-import com.oneme.toplay.base.Time;
-import com.oneme.toplay.database.Invite;
-import com.oneme.toplay.invite.InviteActivity;
-import com.oneme.toplay.join.JoinActivity;
-import com.oneme.toplay.me.MeActivity;
-import com.oneme.toplay.me.SettingActivity;
-import com.oneme.toplay.CnMapActivity;
-
-import com.oneme.toplay.LoginActivity;
-
-import com.oneme.toplay.service.CoreService;
-import com.parse.ParseQuery;
-import com.parse.ParseQueryAdapter;
-import com.parse.ParseGeoPoint;
-import com.parse.ParseUser;
-
 //import com.amap.api.maps2d.AMap;
 //import com.amap.api.maps2d.SupportMapFragment;
 //import com.amap.api.maps2d.model.Circle;
@@ -49,32 +28,6 @@ import com.parse.ParseUser;
 //import com.amap.api.location.LocationManagerProxy;
 //import com.amap.api.location.LocationProviderProxy;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.location.Location;
-import android.os.Bundle;
-import android.os.Handler;
-import android.preference.PreferenceManager;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.app.Dialog;
-import android.app.ProgressDialog;
-import android.support.v4.app.DialogFragment;
-import android.support.v7.app.ActionBarActivity;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Toast;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class CnLocalActivity  { // extends ActionBarActivity implements AMapLocationListener,Runnable {
 

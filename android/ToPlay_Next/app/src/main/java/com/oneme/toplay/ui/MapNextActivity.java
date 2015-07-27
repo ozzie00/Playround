@@ -38,12 +38,13 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
 import com.oneme.toplay.Application;
 import com.oneme.toplay.LoginActivity;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.database.Invite;
-import com.oneme.toplay.join.JoinActivity;
+import com.oneme.toplay.join.JoinNextActivity;
 import com.oneme.toplay.me.SettingActivity;
 import com.oneme.toplay.ui.widget.DrawShadowFrameLayout;
 import com.parse.FindCallback;
@@ -289,7 +290,7 @@ public class MapNextActivity extends BaseActivity  implements LocationListener,
                 return;
             }
 
-            Intent invokeJoinActivityIntent = new Intent(MapNextActivity.this, JoinActivity.class);
+            Intent invokeJoinActivityIntent = new Intent(MapNextActivity.this, JoinNextActivity.class);
             invokeJoinActivityIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             invokeJoinActivityIntent.putExtra(Application.INTENT_EXTRA_LOCATION, userLocation);
             startActivity(invokeJoinActivityIntent);

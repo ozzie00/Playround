@@ -17,15 +17,10 @@
 package com.oneme.toplay;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
-import android.telephony.TelephonyManager;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -37,30 +32,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.oneme.toplay.base.AppConstant;
-import com.oneme.toplay.base.Time;
-import com.oneme.toplay.database.IdentityDatabase;
-import com.oneme.toplay.database.Venue;
 import com.oneme.toplay.database.VenueOwner;
-import com.oneme.toplay.local.CnLocalWithoutMapActivity;
-import com.oneme.toplay.local.LocalWithoutMapActivity;
-import com.oneme.toplay.base.ClientFriendList;
-import com.oneme.toplay.base.Options;
-import com.oneme.toplay.service.CoreService;
-import com.oneme.toplay.service.DataFile;
 import com.oneme.toplay.ui.LocalNextActivity;
 import com.oneme.toplay.venue.OwnerInfoUploadActivity;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseGeoPoint;
-import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 import com.parse.SignUpCallback;
-
-import java.io.File;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 //import im.tox.jtoxcore.JTox;
 //import im.tox.jtoxcore.ToxException;

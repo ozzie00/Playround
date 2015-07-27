@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">动动</string>
-    <string name="app_version">动动 安卓版 v.1.0.4.14</string>
+    <string name="app_version">动动 安卓版 v.1.0.4.15</string>
     
     <!-- Strings related to activity -->
     <string name="action_settings">设置</string>
@@ -419,7 +419,6 @@
     <string name="myvenueuploadactivity_title">上传场馆信息</string>
     <string name="OMEPARSEMEMYVENUEASHOMEPLACEHOLD">输入场馆名字</string>
     <string name="OMEPARSESIGNUPDEVICEREGISTERED">设备已经注册过!</string>
-    <string name="myvenuesearchactivity_title">搜索场馆</string>
     <string name="OMEPARSESIGNUPCANNOTGETDEVICEID">不能取得设备号!</string>
     <string name="OMEPARSEUSERNAMEMINIMUMLENGTHSHOULDSIX">用户名长度应超过个6个字符!</string>
     <string name="OMEPARSEUSERPASSWORDMINIMUMLENGTHSHOULDSIX">密码长度应超过6个字符!</string>
@@ -540,7 +539,7 @@
     <string name="OMEPARSEDATETEXT">日期</string>
     <string name="OMEPARSETIMETEXT">时间</string>
     <string name="OMEPARSEVENUEBOOKINGDEPOSIT">场馆预定押金</string>
-    <string name="OMEPARSEVENUEBOOKINGTHISVENUE">预定这个场馆</string>
+    <string name="OMEPARSEVENUEBOOKINGTHISVENUE">预定场馆</string>
     <string name="OMEPARSECONFIRMTEXT">确认预定</string>
     <string name="OMEPARSEREMARK">留言</string>
     <string name="OMEPARSEBOOKINGMUSTKNOW">预定须知 :</string>
@@ -578,6 +577,27 @@
     <!--Add by playround 1.0.4.13 -->
     <string name="OMEPARSEVENUESEARCHCITY">城市</string>
     <string name="venuetypesearchactivity_title">场馆</string>
+
+
+
+    <!--Add by playround 1.0.4.15 -->
+    <string name="OMEPARSEBUYTEXT">购买</string>
+    <string name="OMEPARSEVENUEPRIMEMEMBERSHIPNOTE">会员服务</string>
+    <string name="OMEPARSEVENUEPRICKPRIMEMEMBERSHIP">选择会员服务</string>
+    <string name="buyprimemembershipactivity_title">会员服务</string>
+    <string name="OMEPARSEPRIMETEXT">会员</string>
+    <string name="OMEPARSECONFIRMBUYTEXT">确认购买</string>
+    <string name="OMEPARSEBUYPRIMEMEMBERSHIPMUSTKNOW">购买须知:</string>
+    <string name="OMEPARSEBUYPRIMEMEMEBERSHIPMUSTKNOWONE">1. 核对会员服务类型</string>
+    <string name="OMEPARSEBUYPRIMEMEMEBERSHIPMUSTKNOWTWO">2. 触摸手机号码选项来设置手机号码，用于接受短信认证码</string>
+    <string name="OMEPARSEFEETEXT">费用</string>
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPMUSTKNOWONE">1. 请核实会员，费用和手机号码</string>
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPMUSTKNOWTWO">2. 如果支付成功，将会接收到短信认证码，凭短信认证码去场馆锻炼</string>
+
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPDESCRIPTION">凭短信认证码去场馆锻炼</string>
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPNOTIFICATION">支付成功，将会接收到短信认证码</string>
+
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPNOCHOOSE">请选择会员服务!</string>
 
 
 

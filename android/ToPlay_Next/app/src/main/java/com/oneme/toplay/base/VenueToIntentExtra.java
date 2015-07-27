@@ -34,5 +34,8 @@ public class VenueToIntentExtra {
         intent.putExtra(Application.INTENT_EXTRA_VENUEINDOOR, venue.getIndoor());
         intent.putExtra(Application.INTENT_EXTRA_VENUEPUBLIC, venue.getPublic());
         intent.putExtra(Application.INTENT_EXTRA_INVITEOBJECTID, venue.getObjectId());
+        intent.putExtra(Application.INTENT_EXTRA_VENUEBUSINESS, venue.getBusiness());
+        intent.putExtra(Application.INTENT_EXTRA_VENUEPRICE, venue.getPrice());
+        intent.putExtra(Application.INTENT_EXTRA_VENUEPRIMEINFO, venue.getPrimeInfo());
     }
 }

@@ -16,7 +16,10 @@
 
 package com.oneme.toplay.venue;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.ComponentName;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -26,15 +29,24 @@ import android.support.v4.content.IntentCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.Window;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Locale;
+import java.util.Currency;
 
 import com.oneme.toplay.Application;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
+import com.oneme.toplay.base.CustomCurrency;
 import com.oneme.toplay.base.Homeing;
 import com.oneme.toplay.base.IntentExtraToVenue;
 import com.oneme.toplay.base.LoadImageFromParseCloud;
@@ -55,6 +67,10 @@ import com.parse.ParseGeoPoint;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class DetailInfoActivity extends BaseActivity {
@@ -84,6 +100,25 @@ public class DetailInfoActivity extends BaseActivity {
     private boolean mylike  = false;
     private ImageView mphoto;
     private ParseQuery<PhotoLink> mlinkquery;
+
+    String mcurrency       = AppConstant.OMEPARSENULLSTRING;
+    String mcurrencysymbol = AppConstant.OMEPARSENULLSTRING;
+
+    String m3rd;
+    String mname;
+    String mnameid;
+    String mcardname;
+    String mcardid;
+    String mcardprice;
+
+
+    String[] mprimelist     = {};
+    String[] mcardnamelist  = {};
+    String[] mcardidlist    = {};
+    String[] mcardpricelist = {};
+
+    private int mchoice = -1;
+    private int mjsonarraylength = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,14 +162,10 @@ public class DetailInfoActivity extends BaseActivity {
             mlinkquery.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
             mlinkquery.whereEqualTo(AppConstant.OMETOPLAYPHOTOLINKPHOTOTOBJECTKEY, mvenue.getObjectId());
 
-            android.util.Log.d(" mlinkquery ", " count ");
-
             mlinkquery.countInBackground(new CountCallback() {
                 @Override
                 public void done(int i, ParseException e) {
                     if (i >= 1 && e == null) {
-
-                        android.util.Log.d(" mlinkquery ", " count >= 1");
 
                         mlinkquery.getFirstInBackground(new GetCallback<PhotoLink>() {
                             @Override
@@ -389,7 +420,177 @@ public class DetailInfoActivity extends BaseActivity {
                 Toast.makeText(DetailInfoActivity.this, getResources().getString(R.string.OMEPARSEINVITELOGINALERT), Toast.LENGTH_LONG).show();
             }
 
+            // set prime membership block
+            RelativeLayout mprimeblock = (RelativeLayout)findViewById(R.id.venue_detail_prime_membership_block);
+            TextView mprimemembership  = (TextView)findViewById(R.id.venue_detail_prime_membership_note);
+            Button mprimebuy           = (Button)findViewById(R.id.venue_detail_prime_membership_buy);
+            String mprimeinfo          = mvenue.getPrimeInfo();
+
+            // if business type is venuePrime, then show buy button for prime membership
+            if (mvenue.getBusiness().equals(AppConstant.OMETOPLAYVENUEBUSINESSPRIME) && !mprimeinfo.equals(AppConstant.OMEPARSENULLSTRING)) {
+                mprimeblock.setVisibility(View.VISIBLE);
+                mprimemembership.setVisibility(View.VISIBLE);
+                mprimebuy.setVisibility(View.VISIBLE);
+
+
+                int mlengthest = 0;
+
+
+                try {
+                    // Accordint to json format, Parse prime info json to build prime list
+                    JSONObject jsonRootObject = new JSONObject(mprimeinfo);
+
+                    JSONArray jsonArray       = jsonRootObject.getJSONArray(AppConstant.OMETOPLAYVENUEJSONLIST);
+
+                    mjsonarraylength          = jsonArray.length();
+
+                    m3rd      = jsonRootObject.getString(AppConstant.OMETOPLAYVENUEJSON3RD);
+                    mname     = jsonRootObject.getString(AppConstant.OMETOPLAYVENUEJSONNAME);
+                    mnameid   = jsonRootObject.getString(AppConstant.OMETOPLAYVENUEJSONNAMEID);
+                    mcurrency = jsonRootObject.getString(AppConstant.OMETOPLAYVENUEJSONCURRENCY);
+
+                    mprimelist      = new String[jsonArray.length()];
+                    mcardnamelist   = new String[jsonArray.length()];
+                    mcardidlist     = new String[jsonArray.length()];
+                    mcardpricelist  = new String[jsonArray.length()];
+
+                    for (Locale ll: Locale.getAvailableLocales()){
+                        try {
+                            Currency currency = Currency.getInstance(ll);
+
+                            if (mcurrency.equals(currency.getCurrencyCode()) ) {
+                                mcurrencysymbol = currency.getSymbol();
+                            }
+
+                        }catch (Exception e){
+                            // when the locale is not supported
+                        }
+                    }
+
+                    // iterate the jsonArray and get lengthest card name
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                        mcardnamelist[i]          = jsonObject.getString(AppConstant.OMETOPLAYVENUEJSONCARDNAME);
+                        if (mlengthest >= mcardnamelist[i].length()) {
+
+                        } else {
+                            mlengthest = mcardnamelist[i].length();
+                        }
+                    }
+
+                    // iterate the jsonArray, align the card name via filled with space, then add to mprimelist
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                        mcardnamelist[i]          = jsonObject.getString(AppConstant.OMETOPLAYVENUEJSONCARDNAME);
+                        mcardidlist[i]            = jsonObject.getString(AppConstant.OMETOPLAYVENUEJSONCARDID);
+                        mcardpricelist[i]         = jsonObject.getString(AppConstant.OMETOPLAYVENUEJSONCARDPRICE);
+
+                        for (int j = 0; j < (mlengthest - mcardnamelist[i].length()); j++) {
+                            mcardnamelist[i] = mcardnamelist[i] + " ";
+                        }
+                        mprimelist[i] = mcardnamelist[i]  + "     " +  mcurrencysymbol + " " +jsonObject.getString(AppConstant.OMETOPLAYVENUEJSONCARDPRICE);
+
+                    }
+
+                } catch (JSONException je) {
+                    je.printStackTrace();
+                }
+
+                final ArrayAdapter<String> mbuylist = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_single_choice, mprimelist); // select_dialog_singlechoice
+
+                mprimebuy.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(DetailInfoActivity.this);
+                        // Set the dialog title
+                        builder.setTitle(R.string.OMEPARSEVENUEPRICKPRIMEMEMBERSHIP)
+                                // Specify the list array, the items to be selected by default (null for none),
+                                // and the listener through which to receive callbacks when items are selected
+                                .setSingleChoiceItems(mbuylist, -1, new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                mcardname  = mcardnamelist[which];
+                                                mcardid    = mcardidlist[which] ;
+                                                mcardprice = mcardpricelist[which];
+                                                mchoice    = which;
+                                            }
+                                        })
+                                        // Set the action buttons
+                                .setPositiveButton(R.string.OMEPARSEOK, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int id) {
+
+                                        // check user choose option item
+                                        if (mchoice >= 0 && mjsonarraylength > mchoice ) {
+
+                                            // User clicked OK, so save the mSelectedItems results somewhere
+                                            // or return them to the component that opened the dialog
+
+                                            Intent invokeBuyPrimeMembershipActivityIntent = new Intent(DetailInfoActivity.this, BuyPrimeMembershipActivity.class);
+
+                                            if (m3rd != null) {
+                                                invokeBuyPrimeMembershipActivityIntent.putExtra(Application.INTENT_EXTRA_VENUEJSON3RD, m3rd);
+                                            }
+
+                                            if (mname != null) {
+                                                invokeBuyPrimeMembershipActivityIntent.putExtra(Application.INTENT_EXTRA_VENUEJSONNAME, mname);
+                                            }
+
+                                            if (mnameid != null) {
+                                                invokeBuyPrimeMembershipActivityIntent.putExtra(Application.INTENT_EXTRA_VENUEJSONNAMEID, mnameid);
+                                            }
+
+                                            if (mcurrency != null) {
+                                                invokeBuyPrimeMembershipActivityIntent.putExtra(Application.INTENT_EXTRA_VENUEJSONCURRENCY, mcurrency);
+                                            }
+
+                                            if (mcardname != null) {
+                                                invokeBuyPrimeMembershipActivityIntent.putExtra(Application.INTENT_EXTRA_VENUEJSONCARDNAME, mcardname);
+                                            }
+
+                                            if (mcardid != null) {
+                                                invokeBuyPrimeMembershipActivityIntent.putExtra(Application.INTENT_EXTRA_VENUEJSONCARDID, mcardid);
+                                            }
+
+                                            if (mcardprice != null) {
+                                                invokeBuyPrimeMembershipActivityIntent.putExtra(Application.INTENT_EXTRA_VENUEJSONCARDPRICE, mcardprice);
+                                            }
+
+                                            startActivity(invokeBuyPrimeMembershipActivityIntent);
+                                        } else {
+
+                                            android.widget.Toast.makeText(DetailInfoActivity.this, getResources().getString(R.string.OMEPARSEPAYBUYPRIMEMEMBERSHIPNOCHOOSE),
+                                                    android.widget.Toast.LENGTH_LONG).show();
+                                        }
+                                    }
+                                })
+                                .setNegativeButton(R.string.OMEPARSENO, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int id) {
+
+                                    }
+                                });
+
+                        builder.show();
+
+                    }
+
+
+                });
+
+
+
+            } else {
+                mprimeblock.setVisibility(View.GONE);
+                mprimemembership.setVisibility(View.GONE);
+                mprimebuy.setVisibility(View.GONE);
+            }
+
+
         }
+
+
 
     }
 

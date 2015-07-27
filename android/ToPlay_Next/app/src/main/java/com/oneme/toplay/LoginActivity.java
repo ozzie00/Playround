@@ -1,12 +1,9 @@
 package com.oneme.toplay;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.view.WindowManager;
@@ -14,24 +11,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.io.File;
-import java.util.List;
-
 import com.oneme.toplay.base.AppConstant;
-import com.oneme.toplay.base.ClientFriendList;
-import com.oneme.toplay.base.Options;
 import com.oneme.toplay.base.Time;
 import com.oneme.toplay.database.VenueOwner;
-import com.oneme.toplay.local.LocalWithoutMapActivity;
-import com.oneme.toplay.local.CnLocalWithoutMapActivity;
-import com.oneme.toplay.database.IdentityDatabase;
-import com.oneme.toplay.service.CoreService;
-import com.oneme.toplay.service.DataFile;
 import com.oneme.toplay.ui.LocalNextActivity;
 import com.oneme.toplay.venue.OwnerInfoUploadActivity;
 import com.oneme.toplay.venue.OwnerMainActivity;
 
-import com.parse.FindCallback;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseGeoPoint;

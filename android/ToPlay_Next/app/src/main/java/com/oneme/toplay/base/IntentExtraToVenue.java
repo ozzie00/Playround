@@ -37,6 +37,9 @@ public class IntentExtraToVenue {
             venue.setIndoor(extras.getString(Application.INTENT_EXTRA_VENUEINDOOR));
             venue.setPublic(extras.getString(Application.INTENT_EXTRA_VENUEPUBLIC));
             venue.setObjectId(extras.getString(Application.INTENT_EXTRA_INVITEOBJECTID));
-        }
+            venue.setBusiness(extras.getString(Application.INTENT_EXTRA_VENUEBUSINESS));
+            venue.setPrice(extras.getString(Application.INTENT_EXTRA_VENUEPRICE));
+            venue.setPrimeInfo(extras.getString(Application.INTENT_EXTRA_VENUEPRIMEINFO));
+       }
     }
 }

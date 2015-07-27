@@ -1,13 +1,9 @@
 package com.oneme.toplay.pay;
 
-import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.content.IntentCompat;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -20,10 +16,7 @@ import com.oneme.toplay.Application;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.ui.BaseActivity;
-import com.oneme.toplay.venue.BookingActivity;
 import com.parse.ParseUser;
-
-import org.w3c.dom.Text;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -34,14 +27,14 @@ import java.util.Locale;
 import java.util.Random;
 
 
-public class PayBookingVenueActivity extends BaseActivity {
+public class PayBuyPrimeMembershipActivity extends BaseActivity {
 
 	//商户PID
-	public static final String PARTNER = "2088811640213787";
+	public static final String PARTNER     = "2088811640213787";
 	//商户收款账号
-	public static final String SELLER = "toplayiosandroid@gmail.com";
+	public static final String SELLER      = "toplayiosandroid@gmail.com";
 	//商户私钥，pkcs8格式
-	public static final String RSA_PRIVATE = "MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAMmKAPipLCOzZ3kF\n" +
+	public static final String RSA_PRIVATE= "MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAMmKAPipLCOzZ3kF\n" +
 			"q4yod+TFxsmg2A8t+OXDUfejOI5sxY3wSD5HS5/mX81FJ4wnAajHAQQC+rL2t5Zi\n" +
 			"DVK1cspMxf3JgIhXccbsebZeLcO6S6+ekq8zF10Lm2sM4XoSjTlBY+/vhsopC5Ir\n" +
 			"Y4Lc5uj7lXjg1l7DotO37wuLtnaxAgMBAAECgYAOF/d/bB0pFferb+kSOgnAVtBS\n" +
@@ -56,19 +49,30 @@ public class PayBookingVenueActivity extends BaseActivity {
 			"/zPrOwhTF1DyZO7v90AYo0jZJ176eCcCYieJIwE9rAVLCq8l+H1r7dFr9kxh3WEi\n" +
 			"I9CTaMAmIjhm";
 	//支付宝公钥
-	public static final String RSA_PUBLIC = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCnxj/9qwVfgoUh/y2W89L6BkRAFljhNhgPdyPuBV64bfQNN1PjbCzkIM6qRdKBoLPXmKKMiFYnkd6rAoprih3/PrQEB/VsW8OoM8fxn67UDYuyBTqA23MML9q1+ilIZwBC2AQ2UBVOrFXfFl75p6/B5KsiNG9zpgmLCUYuLkxpLQIDAQAB";
+	public static final String           RSA_PUBLIC = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCnxj/9qwVfgoUh/y2W89L6BkRAFljhNhgPdyPuBV64bfQNN1PjbCzkIM6qRdKBoLPXmKKMiFYnkd6rAoprih3/PrQEB/VsW8OoM8fxn67UDYuyBTqA23MML9q1+ilIZwBC2AQ2UBVOrFXfFl75p6/B5KsiNG9zpgmLCUYuLkxpLQIDAQAB";
+
+	//playround公钥
+	public static final String PLAYROUND_RSA_PUBLIC = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDJigD4qSwjs2d5BauMqHfkxcbJ\n" +
+			"oNgPLfjlw1H3oziObMWN8Eg+R0uf5l/NRSeMJwGoxwEEAvqy9reWYg1StXLKTMX9\n" +
+			"yYCIV3HG7Hm2Xi3DukuvnpKvMxddC5trDOF6Eo05QWPv74bKKQuSK2OC3Obo+5V4\n" +
+			"4NZew6LTt+8Li7Z2sQIDAQAB";
+
 
 	private ParseUser muser = ParseUser.getCurrentUser();
 
-	private String currencysymbol  = null;
-	private String mvenuename      = null;
-	private String mtime           = null;
 	private static String morderTradeNo = null;
 
-	private TextView mpayvenue = null;
-	private TextView mbooktime = null;
-	private TextView mpayprice = null;
-	private TextView mphone    = null;
+	private TextView mpayprimemembershipvenue = null;
+	private TextView mpayfee = null;
+	private TextView mphone  = null;
+
+	String mname;
+	String mnameid;
+	String mcurrencysymbol;
+	String mcardname;
+	String mcardprice;
+	String mphonenumber;
+
 
 
 	private static final int SDK_PAY_FLAG = 1;
@@ -88,22 +92,22 @@ public class PayBookingVenueActivity extends BaseActivity {
 
 				// 判断resultStatus 为“9000”则代表支付成功，具体状态码代表含义可参考接口文档
 				if (TextUtils.equals(resultStatus, "9000")) {
-					Toast.makeText(PayBookingVenueActivity.this, getResources().getString(R.string.OMEPARSEPAYSUCCESS),
+					Toast.makeText(PayBuyPrimeMembershipActivity.this, getResources().getString(R.string.OMEPARSEPAYSUCCESS),
 							Toast.LENGTH_SHORT).show();
 					Intent newIntent = new Intent();
-					newIntent.putExtra(Application.INTENT_EXTRA_VENUEPAYNO, morderTradeNo);
+					newIntent.putExtra(Application.INTENT_EXTRA_PRIMEPAYNO, morderTradeNo);
 					setResult(ActionBarActivity.RESULT_OK, newIntent);
 					finish();
 				} else {
 					// 判断resultStatus 为非“9000”则代表可能支付失败
 					// “8000”代表支付结果因为支付渠道原因或者系统原因还在等待支付结果确认，最终交易是否成功以服务端异步通知为准（小概率状态）
 					if (TextUtils.equals(resultStatus, "8000")) {
-						Toast.makeText(PayBookingVenueActivity.this, getResources().getString(R.string.OMEPARSEPAYINPROGRESS),
+						Toast.makeText(PayBuyPrimeMembershipActivity.this, getResources().getString(R.string.OMEPARSEPAYINPROGRESS),
 								Toast.LENGTH_SHORT).show();
 
 					} else {
 						// 其他值就可以判断为支付失败，包括用户主动取消支付，或者系统返回的错误
-						Toast.makeText(PayBookingVenueActivity.this, getResources().getString(R.string.OMEPARSEPAYFAIL),
+						Toast.makeText(PayBuyPrimeMembershipActivity.this, getResources().getString(R.string.OMEPARSEPAYFAIL),
 								Toast.LENGTH_SHORT).show();
 
 					}
@@ -111,7 +115,7 @@ public class PayBookingVenueActivity extends BaseActivity {
 				break;
 			}
 			case SDK_CHECK_FLAG: {
-				Toast.makeText(PayBookingVenueActivity.this, "检查结果为：" + msg.obj,
+				Toast.makeText(PayBuyPrimeMembershipActivity.this, "检查结果为：" + msg.obj,
 						Toast.LENGTH_SHORT).show();
 				break;
 			}
@@ -124,55 +128,42 @@ public class PayBookingVenueActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.pay_main);
+		setContentView(R.layout.ome_activity_buy_prime_membership_pay);
 
 		Toolbar toolbar = getActionBarToolbar();
 		toolbar.setNavigationIcon(R.drawable.ic_up);
 		toolbar.setNavigationOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				 finish();
+				finish();
 				//navigateUpTo(IntentCompat.makeMainActivity(new ComponentName(PayBookingVenueActivity.this,
 				//		BookingActivity.class)));
 			}
 		});
 
-//		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-//		getSupportActionBar().setCustomView(R.layout.ome_activity_pay_booking_actionbar);
-//		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-		Locale currentlocale = getResources().getConfiguration().locale;
-
-		currencysymbol       = Currency.getInstance(currentlocale).getSymbol();
-
-		// set fee
-		TextView currency    = (TextView) findViewById(R.id.pay_currency);
-		currency.setText(currencysymbol);
-
 		Bundle extras     = getIntent().getExtras();
 
 		if (extras != null) {
-			mtime      = extras.getString(Application.INTENT_EXTRA_TIME);
-			mvenuename = extras.getString(Application.INTENT_EXTRA_VENUE);
+			mname           = extras.getString(Application.INTENT_EXTRA_VENUEJSONNAME);
+			mnameid         = extras.getString(Application.INTENT_EXTRA_VENUEJSONNAMEID);
+			mcurrencysymbol = extras.getString(Application.INTENT_EXTRA_VENUEJSONCURRENCY);
+			mcardname       = extras.getString(Application.INTENT_EXTRA_VENUEJSONCARDNAME);
+			mcardprice      = extras.getString(Application.INTENT_EXTRA_VENUEJSONCARDPRICE);
+			mphonenumber    = extras.getString(Application.INTENT_EXTRA_USERPHONE);
 		}
 
-		mbooktime = (TextView)findViewById(R.id.pay_booking_time);
-		mbooktime.setText(mtime);
+		// set fee
+		TextView currency   = (TextView) findViewById(R.id.pay_prime_membership_currency);
+		currency.setText(mcurrencysymbol);
 
-		mpayvenue = (TextView)findViewById(R.id.pay_venue);
-	    mpayvenue.setText(mvenuename);
+		mpayprimemembershipvenue = (TextView)findViewById(R.id.pay_prime_membership_venue);
+		mpayprimemembershipvenue.setText(mname + " " + mcardname);
 
-		mpayprice = (TextView)findViewById(R.id.pay_price);
-		mpayprice.setText(AppConstant.OMEPARSEBOOKINGVENUEADVANCEDEPOSIT);
+		mpayfee   = (TextView)findViewById(R.id.pay_prime_membership_fee);
+		mpayfee.setText(mcardprice);
 
-		mphone = (TextView)findViewById(R.id.pay_phone_number);
-
-		if (muser != null) {
-			if (muser.getString(AppConstant.OMEPARSEUSERPHONEKEY) != null) {
-				String mphonenumber = muser.getString(AppConstant.OMEPARSEUSERPHONEKEY);
-				mphone.setText(mphonenumber);
-			}
-		}
+		mphone    = (TextView)findViewById(R.id.pay_prime_membership_phone_number);
+		mphone.setText(mphonenumber);
 
 	}
 
@@ -182,19 +173,19 @@ public class PayBookingVenueActivity extends BaseActivity {
 	 */
 	public void pay(View v) {
 		// 订单
-		String orderInfo = getOrderInfo(getResources().getString(R.string.OMEPARSEVENUEBOOKINGDEPOSIT), getResources().getString(R.string.OMEPARSEVENUEBOOKINGDESCRIPTION), AppConstant.OMEPARSEBOOKINGVENUEADVANCEDEPOSIT);
+		String orderInfo = getOrderInfo(mname + " " + mcardname, getResources().getString(R.string.OMEPARSEPAYBUYPRIMEMEMBERSHIPDESCRIPTION), mcardprice);
 
 		// 对订单做RSA 签名
-		String sign = sign(orderInfo);
+		String signature = sign(orderInfo);
 		try {
 			// 仅需对sign 做URL编码
-			sign = URLEncoder.encode(sign, "UTF-8");
+			signature = URLEncoder.encode(signature, "UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
 
 		// 完整的符合支付宝参数规范的订单信息
-		final String payInfo = orderInfo + "&sign=\"" + sign + "\"&"
+		final String payInfo = orderInfo + "&sign=\"" + signature + "\"&"
 				+ getSignType();
 
 		Runnable payRunnable = new Runnable() {
@@ -202,13 +193,13 @@ public class PayBookingVenueActivity extends BaseActivity {
 			@Override
 			public void run() {
 				// 构造PayTask 对象
-				PayTask alipay = new PayTask(PayBookingVenueActivity.this);
+				PayTask alipay = new PayTask(PayBuyPrimeMembershipActivity.this);
 				// 调用支付接口，获取支付结果
 				String result = alipay.pay(payInfo);
 
 				Message msg = new Message();
-				msg.what    = SDK_PAY_FLAG;
-				msg.obj     = result;
+				msg.what = SDK_PAY_FLAG;
+				msg.obj = result;
 				mHandler.sendMessage(msg);
 			}
 		};
@@ -229,13 +220,13 @@ public class PayBookingVenueActivity extends BaseActivity {
 			@Override
 			public void run() {
 				// 构造PayTask 对象
-				PayTask payTask = new PayTask(PayBookingVenueActivity.this);
+				PayTask payTask = new PayTask(PayBuyPrimeMembershipActivity.this);
 				// 调用查询接口，获取查询结果
 				boolean isExist = payTask.checkAccountIfExist();
 
 				Message msg = new Message();
-				msg.what = SDK_CHECK_FLAG;
-				msg.obj = isExist;
+				msg.what    = SDK_CHECK_FLAG;
+				msg.obj     = isExist;
 				mHandler.sendMessage(msg);
 			}
 		};
@@ -251,7 +242,7 @@ public class PayBookingVenueActivity extends BaseActivity {
 	 */
 	public void getSDKVersion() {
 		PayTask payTask = new PayTask(this);
-		String version = payTask.getVersion();
+		String version  = payTask.getVersion();
 		Toast.makeText(this, version, Toast.LENGTH_SHORT).show();
 	}
 
@@ -305,7 +296,7 @@ public class PayBookingVenueActivity extends BaseActivity {
 		// orderInfo += "&extern_token=" + "\"" + extern_token + "\"";
 
 		// 支付宝处理完请求后，当前页面跳转到商户指定页面的路径，可空
-		orderInfo += "&return_url=\"m.alipay.com\"";
+		//orderInfo += "&return_url=\"m.alipay.com\"";
 
 		// 调用银行卡支付，需配置此参数，参与签名， 固定值 （需要签约《无线银行卡快捷支付》才能使用）
 		// orderInfo += "&paymethod=\"expressGateway\"";

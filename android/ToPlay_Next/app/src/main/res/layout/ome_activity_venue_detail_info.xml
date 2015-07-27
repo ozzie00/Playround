@@ -458,6 +458,43 @@
 
         </LinearLayout>
 
+
+
     </LinearLayout>
+
+    <RelativeLayout
+        android:id            = "@+id/venue_detail_prime_membership_block"
+        android:layout_width  = "fill_parent"
+        android:layout_height = "match_parent"
+        android:visibility    = "invisible">
+        <TextView
+            android:id                        = "@+id/venue_detail_prime_membership_note"
+            android:layout_width              = "fill_parent"
+            android:layout_height             = "48dp"
+            android:layout_alignParentBottom  = "true"
+            android:paddingLeft               = "16dp"
+            android:gravity                   = "center_vertical"
+            android:text                      = "@string/OMEPARSEVENUEPRIMEMEMBERSHIPNOTE"
+            android:textColor                 = "@color/white"
+            android:background                = "@color/gray_darker"
+            android:visibility                = "invisible">
+        </TextView>
+        <Button
+            android:id                       = "@+id/venue_detail_prime_membership_buy"
+            android:layout_width             = "128dp"
+            android:layout_height            = "40dp"
+            android:layout_marginLeft        = "8dp"
+            android:layout_marginRight       = "8dp"
+            android:layout_alignParentBottom = "true"
+            android:layout_alignParentRight  = "true"
+            android:gravity                  = "center"
+            android:background               = "@drawable/ome_activity_venue_detail_bottom_button"
+            android:text                     = "@string/OMEPARSEBUYTEXT"
+            android:textColor                = "@color/white_absolute"
+            android:textStyle                = "bold"
+            android:visibility               = "invisible"
+            android:clickable                = "true">
+        </Button>
+    </RelativeLayout>
 
 </LinearLayout>

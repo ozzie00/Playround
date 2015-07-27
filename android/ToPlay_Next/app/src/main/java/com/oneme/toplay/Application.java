@@ -9,8 +9,10 @@ import com.oneme.toplay.database.FollowingPlayer;
 import com.oneme.toplay.database.Invite;
 import com.oneme.toplay.database.InviteComment;
 import com.oneme.toplay.database.InviteLike;
+import com.oneme.toplay.database.PayPrime;
 import com.oneme.toplay.database.Photo;
 import com.oneme.toplay.database.PhotoLink;
+import com.oneme.toplay.database.ThirdRequest;
 import com.oneme.toplay.database.VenueComment;
 import com.oneme.toplay.database.VenueLike;
 import com.oneme.toplay.database.InviteScore;
@@ -46,6 +48,8 @@ public class Application extends android.app.Application {
     public static final String INTENT_EXTRA_USEROBJECTID     = AppConstant.OMETOPLAYINVITECLASSKEY;
 
     public static final String INTENT_EXTRA_USERNAME         = AppConstant.OMEPARSEUSERNAMEKEY;
+
+    public static final String INTENT_EXTRA_USERPHONE        = AppConstant.OMEPARSEUSERPHONEKEY;
 
     public static final String INTENT_EXTRA_USEROMEID        = AppConstant.OMEPARSEUSEROMEIDKEY;
 
@@ -103,14 +107,27 @@ public class Application extends android.app.Application {
 
     public static final String INTENT_EXTRA_VENUEPAYNO       = AppConstant.OMEPARSEBOOKINGPAYNUMBERKEY;
 
+    public static final String INTENT_EXTRA_VENUEBUSINESS    = AppConstant.OMETOPLAYVENUEBUSINESSKEY;
 
+    public static final String INTENT_EXTRA_VENUEPRICE       = AppConstant.OMETOPLAYVENUEPRICEKEY;
 
+    public static final String INTENT_EXTRA_VENUEPRIMEINFO   = AppConstant.OMETOPLAYVENUEPRIMEINFOKEY;
 
+    public static final String INTENT_EXTRA_VENUEJSON3RD     = AppConstant.OMETOPLAYVENUEJSON3RD;
 
+    public static final String INTENT_EXTRA_VENUEJSONNAMEID  = AppConstant.OMETOPLAYVENUEJSONNAMEID;
 
+    public static final String INTENT_EXTRA_VENUEJSONNAME    = AppConstant.OMETOPLAYVENUEJSONNAME;
 
+    public static final String INTENT_EXTRA_VENUEJSONCURRENCY= AppConstant.OMETOPLAYVENUEJSONCURRENCY;
 
+    public static final String INTENT_EXTRA_VENUEJSONCARDID  = AppConstant.OMETOPLAYVENUEJSONCARDID;
 
+    public static final String INTENT_EXTRA_VENUEJSONCARDNAME= AppConstant.OMETOPLAYVENUEJSONCARDNAME;
+
+    public static final String INTENT_EXTRA_VENUEJSONCARDPRICE= AppConstant.OMETOPLAYVENUEJSONCARDPRICE;
+
+    public static final String INTENT_EXTRA_PRIMEPAYNO       = AppConstant.OMEPARSEPRIMEPAYNUMBERKEY;
 
     public static final String INTENT_EXTRA_LATITUDE         = "TOPLAYLATITUDE";
 
@@ -177,6 +194,10 @@ public class Application extends android.app.Application {
         ParseObject.registerSubclass(Photo.class);
 
         ParseObject.registerSubclass(PhotoLink.class);
+
+        ParseObject.registerSubclass(PayPrime.class);
+
+        ParseObject.registerSubclass(ThirdRequest.class);
 
         // init baidu map
         SDKInitializer.initialize(getApplicationContext());

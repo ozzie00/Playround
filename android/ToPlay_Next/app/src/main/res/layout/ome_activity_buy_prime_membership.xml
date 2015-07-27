@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:focusableInTouchMode="true">
+
+    <include layout="@layout/toolbar_actionbar_with_headerbar" />
+
+    <RelativeLayout
+        android:id               = "@+id/prime_membership_venue_block"
+        android:layout_width     = "fill_parent"
+        android:layout_height    = "48dp"
+        android:orientation      = "horizontal"
+        android:layout_marginTop = "12dp"
+        android:background       = "@color/white_absolute">
+
+        <ImageView
+            android:id                 = "@+id/prime_membership_venue_ImageView"
+            android:layout_width       = "32dp"
+            android:layout_height      = "32dp"
+            android:layout_marginLeft  = "8dp"
+            android:layout_marginRight = "8dp"
+            android:layout_marginTop   = "8dp"
+            android:layout_marginBottom= "8dp"
+            android:src                = "@drawable/ome_invite_add"/>
+
+        <TextView
+            android:id               = "@+id/prime_membership_venue_view"
+            android:layout_width     = "wrap_content"
+            android:layout_height    = "wrap_content"
+            android:layout_marginTop = "8dp"
+            android:layout_alignTop  = "@id/prime_membership_venue_ImageView"
+            android:layout_toRightOf = "@id/prime_membership_venue_ImageView"
+            android:paddingLeft      = "8dp"
+            android:paddingRight     = "8dp"
+            android:text             = "@string/OMEPARSEPRIMETEXT"
+            android:textAppearance   = "?android:attr/textAppearanceSmall" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id               = "@+id/prime_membership_phone_block"
+        android:layout_width     = "fill_parent"
+        android:layout_height    = "48dp"
+        android:orientation      = "horizontal"
+        android:layout_marginTop = "12dp"
+        android:background       = "@color/white_absolute">
+
+        <ImageView
+            android:id                 = "@+id/prime_membership_phone_ImageView"
+            android:layout_width       = "32dp"
+            android:layout_height      = "32dp"
+            android:layout_marginLeft  = "8dp"
+            android:layout_marginRight = "8dp"
+            android:layout_marginTop   = "8dp"
+            android:layout_marginBottom= "8dp"
+            android:src                = "@drawable/ome_venue_call"/>
+
+        <TextView
+            android:id               = "@+id/prime_membership_phone_view"
+            android:layout_width     = "wrap_content"
+            android:layout_height    = "wrap_content"
+            android:layout_marginTop = "8dp"
+            android:layout_alignTop  = "@id/prime_membership_phone_ImageView"
+            android:layout_toRightOf = "@id/prime_membership_phone_ImageView"
+            android:paddingLeft      = "8dp"
+            android:paddingRight     = "8dp"
+            android:text             = "@string/OMEPARSEPHONENUMBERTEXT"
+            android:textAppearance   = "?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id                      = "@+id/prime_membership_phone_text_view"
+            android:layout_width            = "180dp"
+            android:layout_height           = "20dp"
+            android:layout_alignTop         = "@id/prime_membership_phone_view"
+            android:layout_toRightOf        = "@id/prime_membership_phone_view"
+            android:layout_alignParentRight = "true"
+            android:paddingRight            = "16dp"
+            android:textAppearance          = "?android:attr/textAppearanceSmall"
+            android:textColor               = "@android:color/black" />
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:id               = "@+id/prime_membership_confirm_block"
+        android:layout_width     = "fill_parent"
+        android:layout_height    = "48dp"
+        android:layout_marginTop = "12dp"
+        android:orientation      = "horizontal">
+        <TextView
+            android:id                        = "@+id/prime_membership_currency"
+            android:layout_width              = "wrap_content"
+            android:layout_height             = "48dp"
+            android:layout_marginLeft         = "8dp"
+            android:layout_alignParentBottom  = "true"
+            android:layout_centerVertical     = "true"
+            android:textStyle                 = "bold"
+            android:background                = "@drawable/ome_booking_venue_fee_background"
+            android:visibility                = "visible"/>
+        <TextView
+            android:id                        = "@+id/prime_membership_fee_text"
+            android:layout_width              = "64dp"
+            android:layout_height             = "48dp"
+            android:layout_toRightOf          = "@id/prime_membership_currency"
+            android:layout_alignParentBottom  = "true"
+            android:textStyle                 = "bold"
+            android:background                = "@drawable/ome_booking_venue_fee_background"
+            android:visibility                = "visible">
+        </TextView>
+        <Button
+            android:id                       = "@+id/prime_membership_confirm_button"
+            android:layout_width             = "64dp"
+            android:layout_height            = "48dp"
+            android:layout_alignParentBottom = "true"
+            android:layout_alignParentRight  = "true"
+            android:layout_toRightOf         = "@id/prime_membership_fee_text"
+            android:background               = "@color/playround_default"
+            android:text                     = "@string/OMEPARSECONFIRMBUYTEXT"
+            android:textColor                = "@color/white_absolute"
+            android:textStyle                = "bold"
+            android:visibility               = "visible"
+            android:clickable                = "true">
+        </Button>
+    </RelativeLayout>
+
+    <TextView
+        android:id                 = "@+id/prime_membership_must_know_note"
+        android:layout_width       = "wrap_content"
+        android:layout_height      = "wrap_content"
+        android:layout_marginLeft  = "12dp"
+        android:layout_marginRight = "12dp"
+        android:layout_marginTop   = "12dp"
+        android:text               = "@string/OMEPARSEBUYPRIMEMEMBERSHIPMUSTKNOW"
+        android:visibility         = "visible"/>
+
+    <TextView
+        android:id                 = "@+id/prime_membership_must_know_one"
+        android:layout_width       = "wrap_content"
+        android:layout_height      = "wrap_content"
+        android:layout_marginLeft  = "12dp"
+        android:layout_marginRight = "12dp"
+        android:layout_marginTop   = "4dp"
+        android:text               = "@string/OMEPARSEBUYPRIMEMEMEBERSHIPMUSTKNOWONE"
+        android:visibility         = "visible"/>
+
+    <TextView
+        android:id                 = "@+id/prime_membership_must_know_two"
+        android:layout_width       = "wrap_content"
+        android:layout_height      = "wrap_content"
+        android:layout_marginLeft  = "12dp"
+        android:layout_marginRight = "12dp"
+        android:layout_marginTop   = "4dp"
+        android:text               = "@string/OMEPARSEBUYPRIMEMEMEBERSHIPMUSTKNOWTWO"
+        android:visibility         = "visible"/>
+
+
+
+
+
+</LinearLayout>

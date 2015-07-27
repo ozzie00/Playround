@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.oneme.toplay"
-    android:versionCode="46"
-    android:versionName="1.0.4.14" >
+    android:versionCode="47"
+    android:versionName="1.0.4.15" >
 
     <uses-sdk
         android:minSdkVersion="9"
@@ -231,28 +231,6 @@
         </service>
 
 
-
-
-        <activity
-            android:name       = ".invite.InviteActivity"
-            android:label      = "@string/inviteactivity_title"
-            android:launchMode = "singleTop">
-
-            <intent-filter>
-
-                <action android:name="android.intent.action.SEARCH" />
-            </intent-filter>
-
-            <!-- Points to searchable activity -->
-            <meta-data android:name="android.app.default_searchable"
-                android:value=".invite.InviteActivity" />
-
-            <!-- Points to searchable meta data -->
-            <meta-data android:name="android.app.searchable"
-                android:resource="@xml/ome_searchable"/>
-
-        </activity>
-
         <activity
             android:name       = ".invite.InviteNextActivity"
             android:label      = "@string/inviteactivity_title"/>
@@ -369,14 +347,6 @@
         </activity>
 
 
-
-
-
-        <activity
-            android:name  = ".join.JoinActivity"
-            android:label = "@string/joinactivity_title"/>
-
-
         <activity
             android:name  = ".join.JoinNextActivity"
             android:label = "@string/joinactivity_title"/>
@@ -397,20 +367,6 @@
             android:name  = ".join.PlayerActivity"
             android:label = "@string/joinplayeractivity_title"/>
 
-        <activity
-            android:name  = ".local.LocalActivity"
-            android:label = "@string/localactivity_title"/>
-
-
-
-        <activity
-            android:name  = ".local.LocalWithoutMapActivity"
-            android:label = "@string/localactivity_title">
-            <!-- enable the search dialog to send searches to SearchableActivity -->
-            <meta-data
-                android:name  = "android.app.default_searchable"
-                android:value = ".SearchVenueActivity" />
-        </activity>
 
         <activity
             android:name  = ".local.LocalAsyncActivity"
@@ -428,15 +384,6 @@
             android:name  = ".local.CnLocalActivity"
             android:label = "@string/localactivity_title"/>
         -->
-
-        <activity
-            android:name  = ".local.CnLocalWithoutMapActivity"
-            android:label = "@string/localactivity_title">
-            <!-- enable the search dialog to send searches to SearchableActivity -->
-            <meta-data
-                android:name  = "android.app.default_searchable"
-                android:value = ".SearchVenueActivity" />
-        </activity>
 
 
         <activity
@@ -561,6 +508,15 @@
         </activity>
 
         <activity
+            android:name = ".venue.BuyPrimeMembershipActivity"
+            android:label= "@string/buyprimemembershipactivity_title" >
+
+            <meta-data
+                android:name  = "android.support.PARENT_ACTIVITY"
+                android:value = ".venue.DetailInfoActivity"/>
+        </activity>
+
+        <activity
             android:name = ".venue.VenueNextActivity"
             android:theme= "@style/Theme.Playround.MySchedule"
             android:label= "@string/venuesearchactivity_title"/>
@@ -568,6 +524,10 @@
         <activity
             android:name = ".venue.PrimeBusinessActivity"
             android:theme= "@style/Theme.Playround.MySchedule" />
+
+
+
+
 
         <activity
             android:name = ".ui.LocalNextActivity"
@@ -612,6 +572,16 @@
         </activity>
 
         <activity
+            android:name = ".pay.PayBuyPrimeMembershipActivity"
+            android:label = "@string/OMEPARSEBOOKINGCONFIRMTITLE">
+
+            <meta-data
+                android:name  = "android.support.PARENT_ACTIVITY"
+                android:value = ".venue.BuyPrimeMembershipActivity"/>
+        </activity>
+
+
+        <activity
             android:name = ".weather.WeatherActivity"
         />
 
@@ -654,6 +624,23 @@
             android:authorities="com.oneme.toplay.VenueSuggestionProvider" />
 
 
+
+        <!-- alipay sdk begin -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind">
+        </activity>
+
+        <!-- alipay sdk end -->
 
     </application>
 

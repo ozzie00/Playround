@@ -258,6 +258,47 @@ public final class Venue extends ParseObject {
         }
     }
 
+    public String getPrice() {
+        if (getString(AppConstant.OMETOPLAYVENUEPRICEKEY) != null) {
+            return getString(AppConstant.OMETOPLAYVENUEPRICEKEY);
+        } else {
+            return AppConstant.OMEPARSENULLSTRING;
+        }
+    }
+
+    public void setPrice(String value) {
+        if (value != null) {
+            put(AppConstant.OMETOPLAYVENUEPRICEKEY, value);
+        } else {
+            put(AppConstant.OMETOPLAYVENUEPRICEKEY, AppConstant.OMEPARSENULLSTRING);
+        }
+    }
+
+    // if venue is prime business, get prime membership info via json format
+    // the json format :
+    // {"3rd":"xxxxx","name id":14,"name":"xxxxx","currency":"CNY",
+    // "list":[{"card id":63,"card name":"xxxxx","card price":151}]}
+    public String getPrimeInfo() {
+        if (getString(AppConstant.OMETOPLAYVENUEPRIMEINFOKEY) != null) {
+            return getString(AppConstant.OMETOPLAYVENUEPRIMEINFOKEY);
+        } else {
+            return AppConstant.OMEPARSENULLSTRING;
+        }
+    }
+
+    // if venue is prime business, set prime membership info via json format
+    // the json format :
+    // {"3rd":"xxxxx","name id":14,"name":"xxxxx","currency":"CNY",
+    // "list":[{"card id":63,"card name":"xxxxx","card price":151}]}
+    public void setPrimeInfo(String value) {
+        if (value != null) {
+            put(AppConstant.OMETOPLAYVENUEPRIMEINFOKEY, value);
+        } else {
+            put(AppConstant.OMETOPLAYVENUEPRIMEINFOKEY, AppConstant.OMEPARSENULLSTRING);
+        }
+    }
+
+
 
 
     public static ParseQuery<Venue> getQuery() {

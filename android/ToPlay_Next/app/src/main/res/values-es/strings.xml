@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Playround</string>
-    <string name="app_version">Playround Android v.1.0.4.14</string>
+    <string name="app_version">Playround Android v.1.0.4.15</string>
 
     <!-- Strings related to activity -->
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Ajustes</string>
 
     <!--third id and key -->
     <string name="facebook_app_id">846009488767381</string>
@@ -12,244 +12,240 @@
     <!-- Strings related to activity -->
     <string name="mainactivity_title">Playround</string>
     <string name="loginactivity_title">Playround</string>
-    <string name="meactivity_title">Me</string>
+    <string name="meactivity_title">yo</string>
     <string name="mysportactivity_title">My Invitation</string>
-    <string name="matchdetailactivity_title">Workout Detail</string>
-    <string name="settingactivity_title">Setting</string>
-    <string name="inviteactivity_title">Invite</string>
-    <string name="joinactivity_title">Join</string>
-    <string name="localactivity_title">Invitation</string>
-    <string name="messagelistactivity_title">Message</string>
-    <string name="messagereplyactivity_title">Reply</string>
+    <string name="matchdetailactivity_title">Detalle del ejercicio</string>
+    <string name="settingactivity_title">Ajuste</string>
+    <string name="inviteactivity_title">Invitar a</string>
+    <string name="joinactivity_title">Únete</string>
+    <string name="localactivity_title">Invitación</string>
+    <string name="messagelistactivity_title">Mensaje</string>
+    <string name="messagereplyactivity_title">Respuesta</string>
 
-    <string name="action_Invite">Invite</string>
-    <string name="action_search">Search</string>
-    <string name="action_message">Message</string>
-    <string name="action_map">Map</string>
-    <string name="action_local">Near Invitation</string>
-    <string name="search_hint">Search Places</string>
-    <string name="search_settings">Search Places</string>
+    <string name="action_Invite">Invitar a</string>
+    <string name="action_search">Búsqueda de</string>
+    <string name="action_message">Mensaje</string>
+    <string name="action_map">Mapa</string>
+    <string name="action_local">Invitación próximo</string>
+    <string name="search_hint">Lugares de búsqueda</string>
+    <string name="search_settings">Buscar Lugares</string>
 
     <!-- Strings related to common -->
-    <string name="action_setting">Setting</string>
-    <string name="login">Login</string>
-    <string name="signup">Register</string>
-    <string name="logout_full">Log out</string>
-    <string name="post_out_of_range">It is far away.</string>
-    <string name="progress_invite">Inviting&#8230;</string>
-    <string name="progress_send">Sending&#8230;</string>
-    <string name="progress_join">Joining&#8230;</string>
-    <string name="hostplayerusername">Username</string>
-    <string name="progress_local">Loading&#8230;</string>
-    <string name="OMEPARSELOGOUT">Logout</string>
-    <string name="OMEPARSELOGIN">Login</string>
-    <string name="OMEPARSESETTING">Setting</string>
+    <string name="action_setting">ajuste</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="signup">Registrarse</string>
+    <string name="logout_full">cerrar sesión</string>
+    <string name="post_out_of_range">Está muy lejos.</string>
+    <string name="progress_invite">invitando&#8230;</string>
+    <string name="progress_send">Enviando&#8230;</string>
+    <string name="progress_join">unión&#8230;</string>
+    <string name="hostplayerusername">Nombre de usuario</string>
+    <string name="progress_local">cargando&#8230;</string>
+    <string name="OMEPARSELOGOUT">Cerrar Sesión</string>
+    <string name="OMEPARSELOGIN">Iniciar Sesión</string>
+    <string name="OMEPARSESETTING">ajuste</string>
     <string name="OMEPARSEOK">OK</string>
-    <string name="OMEPARSEYES">Yes</string>
-    <string name="OMEPARSENO">No</string>
+    <string name="OMEPARSEYES">sí</string>
+    <string name="OMEPARSENO">no</string>
 
     <!-- Strings related to invite activity -->
 
     <!-- <string name="OMEPARSEWANTTOKEY">want to </string> -->
-    <string name="OMEPARSEINVITEPLAYDATE">Date</string>
-    <string name="OMEPARSEINVITEPLAYHOUR">Hour</string>
-    <string name="OMEPARSEINVITEPLAYBUTTON">Invite Play</string>
-    <string name="OMEPARSEINVITESPORTTYPECHOOSE">Choose Sport</string>
-    <string name="OMEPARSEINVITEPLAYERLEVELCHOOSE">Choose Level</string>
-    <string name="OMEPARSEINVITEPLAYERNUMBERCHOOSE">Choose Number</string>
-    <string name="OMEPARSEINVITEPLAYFEECHOOSE">Choose Fee</string>
-    <string name="OMEPARSEINVITELOGINALERT">please login or register!</string>
-    <string name="OMEPARSEINVITEREALLYPLAY">Do you really play with someone?</string>
-    <string name="OMEPARSEINVITEOTHERDEFAULT">Good buddy</string>
-    <string name="OMEPARSEINVITECOURTDEFAULT">MIT</string>
+    <string name="OMEPARSEINVITEPLAYDATE">fecha</string>
+    <string name="OMEPARSEINVITEPLAYHOUR">hora</string>
+    <string name="OMEPARSEINVITEPLAYBUTTON">invitar Juego</string>
+    <string name="OMEPARSEINVITESPORTTYPECHOOSE">Elija Deporte</string>
+    <string name="OMEPARSEINVITEPLAYERLEVELCHOOSE">Elija Nivel</string>
+    <string name="OMEPARSEINVITEPLAYERNUMBERCHOOSE">Elija Número</string>
+    <string name="OMEPARSEINVITEPLAYFEECHOOSE">Elija Fee</string>
+    <string name="OMEPARSEINVITELOGINALERT">Por favor, inicie sesión o regístrese!</string>
+    <string name="OMEPARSEINVITEREALLYPLAY">¿De verdad jugar con alguien?</string>
+    <string name="OMEPARSEINVITEOTHERDEFAULT">Buen amigo</string>
+    <string name="OMEPARSEINVITECOURTDEFAULT">‎Madrid</string>
     <string name="OMEPARSEINVITEFEEDEFAULT">AA</string>
-    <string name="OMEPARSEINVITEFEEFREE">Free</string>
-    <string name="OMEPARSEINVITEPLAYERSUBMITSUCCESSALERTINFO">Successfully submit share, please wait someone for join!</string>
+    <string name="OMEPARSEINVITEFEEFREE">Gratis</string>
+    <string name="OMEPARSEINVITEPLAYERSUBMITSUCCESSALERTINFO">Someter con éxito compartir, por favor espere alguien para unirse a!</string>
+
+    <string name="OMEPARSEINVITESPORTPROMPT">Selecciona tu deporte favorito</string>
 
 
     <!-- Strings related to sport type for invite activity -->
-
-
-    <string name="OMEPARSEINVITESPORTPROMPT">Select Your Favourite Sport</string>
-
-
-    <!-- Strings related to car brand -->
     <string-array name="sport_type_array">
 
-        <item>Badminton</item>
-        <item>Baseball</item>
-        <item>Basketball</item>
-        <item>Beach Volleyball</item>
+        <item>Bádminton</item>
+        <item>Béisbol</item>
+        <item>Baloncesto</item>
+        <item>Voleibol de playa</item>
         <item>Bowling</item>
-        <item>Cricket</item>
-        <item>Football, American</item>
-        <item>Football, Rugby</item>
-        <item>Football, Soccer</item>
+        <item>Grillo</item>
+        <item>Fútbol, americano</item>
+        <item>Fútbol, Rugby</item>
+        <item>Fútbol, fútbol</item>
         <item>Golf</item>
-        <item>Handball</item>
+        <item>Balonmano</item>
         <item>Hockey</item>
         <item>Polo</item>
-        <item>Ice Hockey</item>
-        <item>Squash</item>
-        <item>Table Soccer</item>
-        <item>Table Tennis</item>
-        <item>Tennis</item>
-        <item>Volleyball</item>
+        <item>Hockey sobre hielo</item>
+        <item>Calabaza</item>
+        <item>Fútbol de mesa</item>
+        <item>Tenis de mesa</item>
+        <item>Tenis</item>
+        <item>Voleibol</item>
         <item>Water Polo</item>
-        <item>Snooker</item>
+        <item>Billar</item>
 
-        <item>Cycling Mountain Bike</item>
-        <item>Cycling Road</item>
-        <item>Fitness walking</item>
-        <item>Running</item>
-        <item>Walking</item>
-        <item>Treadmill</item>
-        <item>Trekking</item>
+        <item>Ciclismo bicicleta de montaña</item>
+        <item>Cliclismo de ruta</item>
+        <item>Fitness caminar</item>
+        <item>Funcionando</item>
+        <item>Caminando</item>
+        <item>Cinta de correr</item>
+        <item>Senderismo</item>
 
-        <item>Canoe</item>
-        <item>Diving</item>
-        <item>Kite surfing</item>
-        <item>Rowing</item>
-        <item>Sailing</item>
-        <item>Scuba diving</item>
+        <item>Canoa</item>
+        <item>Buceo</item>
+        <item>Kite surf</item>
+        <item>De remo</item>
+        <item>Vela</item>
+        <item>Buceo</item>
         <item>Surfing</item>
-        <item>Swimming</item>
-        <item>Windsurfing</item>
+        <item>Natación</item>
+        <item>Windsurf</item>
 
-        <item>Canyoning</item>
-        <item>Caving</item>
-        <item>Climbing</item>
-        <item>Ice climbing</item>
-        <item>Orienteering</item>
+        <item>Descenso de barrancos</item>
+        <item>Espeleología</item>
+        <item>Escalada</item>
+        <item>Escalada en hielo</item>
+        <item>Orientación</item>
         <item>Skateboarding</item>
 
-        <item>Archery</item>
-        <item>Shooting</item>
-        <item>Dart</item>
+        <item>Tiro con arco</item>
+        <item>De Disparos</item>
+        <item>DART</item>
 
-        <item>Alpine Skiing</item>
+        <item>Esquí alpino</item>
         <item>Bobsleigh</item>
-        <item>Cross country ski</item>
+        <item>Cruz de esquí del país</item>
         <item>Luge</item>
-        <item>Roller skiing</item>
-        <item>Ski Jumping</item>
-        <item>Snowboarding</item>
-        <item>Snowshoeing</item>
-        <item>Speed skating</item>
-        <item>Short Track Speed Skating</item>
-        <item>Skating</item>
-        <item>Skeleton</item>
-        <item>Curling</item>
+        <item>Rodillo de esquí</item>
+        <item>Salto en esquí</item>
+        <item>Snowboard</item>
+        <item>Raquetas de nieve</item>
+        <item>Patinaje de velocidad</item>
+        <item>Patinaje de velocidad pista corta</item>
+        <item>Patinaje sobre</item>
+        <item>Esqueleto</item>
+        <item>Que se encrespa</item>
 
-        <item>Boxing</item>
-        <item>Dancing</item>
-        <item>Elliptical training</item>
-        <item>Fencing</item>
-        <item>Gymnastics</item>
+        <item>Boxeo</item>
+        <item>Bailando</item>
+        <item>Entrenamiento elíptico</item>
+        <item>Esgrima</item>
+        <item>Gimnasia</item>
         <item>Judo</item>
-        <item>Martial arts</item>
+        <item>Artes marciales</item>
         <item>Pilates</item>
         <item>Poker</item>
-        <item>Riding</item>
+        <item>Montar a caballo</item>
         <item>Taekwondo</item>
-        <item>Trampoline</item>
-        <item>Weight training</item>
-        <item>Wheelchair</item>
-        <item>Wrestling</item>
+        <item>Cama elástica</item>
+        <item>Entrenamiento con pesas</item>
+        <item>Silla de ruedas</item>
+        <item>Lucha libre</item>
         <item>Yoga</item>
-        <item>Other</item>
+        <item>Otros</item>
 
 
     </string-array>
 
 
     <!-- Strings related to join activity -->
-    <string name="OMEPARSEINVITEPLAYCOURTPLACEHOLD">Enter court</string>
-    <string name="OMEPARSEINVITEPLAYOTHERPLACEHOLD">Enter other requirement</string>
-    <string name="OMEPARSEINVITEPLAYERALERTINFO">Do you really join play?</string>
-    <string name="OMEPARSEINVITEREQUIREMENTSPORTTYPE">Sport Type</string>
-    <string name="OMEPARSEINVITEREQUIREMENTPLAYERNUMBER">Number</string>
-    <string name="OMEPARSEINVITEREQUIREMENTPLAYERLEVEL">Play Level</string>
-    <string name="OMEPARSEINVITEREQUIREMENTTIME">Time</string>
-    <string name="OMEPARSEINVITEREQUIREMENTCOURT">Court</string>
-    <string name="OMEPARSEINVITEREQUIREMENTFEE">Fee</string>
-    <string name="OMEPARSEINVITEREQUIREMENTOTHER">Other</string>
+    <string name="OMEPARSEINVITEPLAYCOURTPLACEHOLD">Entrar en corte</string>
+    <string name="OMEPARSEINVITEPLAYOTHERPLACEHOLD">Entrar otro requisito</string>
+    <string name="OMEPARSEINVITEPLAYERALERTINFO">Usted realmente unirse a juego?</string>
+    <string name="OMEPARSEINVITEREQUIREMENTSPORTTYPE">Tipo de deporte</string>
+    <string name="OMEPARSEINVITEREQUIREMENTPLAYERNUMBER">Número</string>
+    <string name="OMEPARSEINVITEREQUIREMENTPLAYERLEVEL">Nivel de juego</string>
+    <string name="OMEPARSEINVITEREQUIREMENTTIME">Tiempo</string>
+    <string name="OMEPARSEINVITEREQUIREMENTCOURT">Corte</string>
+    <string name="OMEPARSEINVITEREQUIREMENTFEE">Tarifa</string>
+    <string name="OMEPARSEINVITEREQUIREMENTOTHER">Otros</string>
     <string name="OMEPARSEINVITEJOINPLAYHEADER"> </string>
-    <string name="OMEPARSEINVITEJOINPLAYBUTTON">Join</string>
-    <string name="OMEPARSEINVITEPLAYERJOINPLAYSUCCESSALERTINFO">Successfully submit request, please wait for reply!</string>
-    <string name="OMEPARSEMESSAGEJOINPLAYREQUESTFIRSTPART">Hi</string>
-    <string name="OMEPARSEMESSAGEJOINPLAYREQUESTSECONDPART">I am</string>
-    <string name="OMEPARSEMESSAGEJOINPLAYREQUESTTHIRDPART"> with you</string>
-    <string name="OMEPARSEWANTTOKEY">want to</string>
+    <string name="OMEPARSEINVITEJOINPLAYBUTTON">Únete</string>
+    <string name="OMEPARSEINVITEPLAYERJOINPLAYSUCCESSALERTINFO">Solicitar con éxito, por favor, espere respuesta!</string>
+    <string name="OMEPARSEMESSAGEJOINPLAYREQUESTFIRSTPART">Hay</string>
+    <string name="OMEPARSEMESSAGEJOINPLAYREQUESTSECONDPART">Soy</string>
+    <string name="OMEPARSEMESSAGEJOINPLAYREQUESTTHIRDPART"> con usted</string>
+    <string name="OMEPARSEWANTTOKEY">Quiero</string>
 
 
 
 
-    <string name="OMEPARSEINVITETITLEPLAY">play</string>
+    <string name="OMEPARSEINVITETITLEPLAY">juego</string>
 
 
 
     <!-- Strings related to login -->
-    <string name="title_activity_login">Login</string>
-    <string name="title_activity_signup">Register</string>
-    <string name="prompt_username">Username</string>
-    <string name="prompt_password">Password</string>
-    <string name="prompt_password_again">Password Again</string>
-    <string name="error_intro">"Please "</string>
-    <string name="error_blank_username">enter a username</string>
-    <string name="error_blank_password">enter a password</string>
-    <string name="error_mismatched_passwords">enter the same password twice</string>
-    <string name="error_join">", and "</string>
+    <string name="title_activity_login">Inicio de sesión</string>
+    <string name="title_activity_signup">Registro</string>
+    <string name="prompt_username">Nombre de usuario</string>
+    <string name="prompt_password">Contraseña</string>
+    <string name="prompt_password_again">Contraseña otra vez</string>
+    <string name="error_intro">"Por favor, "</string>
+    <string name="error_blank_username">Escriba un nombre de usuario</string>
+    <string name="error_blank_password">Escriba una contraseña</string>
+    <string name="error_mismatched_passwords">introduce la misma contraseña dos veces</string>
+    <string name="error_join">", y "</string>
     <string name="error_end">.</string>
-    <string name="progress_login">Login&#8230;</string>
-    <string name="progress_signup">Register&#8230;</string>
+    <string name="progress_login">Inicio de sesión&#8230;</string>
+    <string name="progress_signup">Registro&#8230;</string>
 
 
 
     <!-- String related to map info -->
-    <string name="current_location_unavailable">Please try again after your location appears on the map.</string>
-    <string name="google_play_service_unavailable">This device does not support google play services !</string>
-    <string name="switch_to_china_map">Switch map service !</string>
-    <string name="cannot_access_server">Cannot access server, please re-login !</string>
-    <string name="locate_fail">Get location failed in 12 seconds，stop locate!</string>
-    <string name="google_map_unavailable">Google Map can not access !</string>
+    <string name="current_location_unavailable">Por favor, inténtelo de nuevo después de que su ubicación aparecerá en el mapa.</string>
+    <string name="google_play_service_unavailable">Este dispositivo no es compatible con servicios de google play !</string>
+    <string name="switch_to_china_map">Servicio de mapas de interruptor !</string>
+    <string name="cannot_access_server">No puede acceder a servidor, por favor, re !</string>
+    <string name="locate_fail">Obtener ubicación falló en 12 segundos, localizar parada!</string>
+    <string name="google_map_unavailable">Mapa de Google no puede acceder a !</string>
 
 
     <!-- String related to feedback -->
-    <string name="OMEPARSEFEEDBACK">Feedback</string>
-    <string name="OMEPARSEFEEDBACKSENDBUTTON">Send</string>
-    <string name="OMEPARSEFEEDBACKSENDING">Sending&#8230;</string>
-    <string name="OMEPARSEFEEDBACKHINT">Thank you for your feedback and suggestion,Playround team will follow your feedback and suggestion to improve Playround app perfomance!\n\n                   @Playround Team</string>
+    <string name="OMEPARSEFEEDBACK">Retroalimentación</string>
+    <string name="OMEPARSEFEEDBACKSENDBUTTON">Enviar</string>
+    <string name="OMEPARSEFEEDBACKSENDING">Envío de&#8230;</string>
+    <string name="OMEPARSEFEEDBACKHINT">Gracias por tus comentarios y sugerencia, Playround equipo seguirá tus comentarios y sugerencia para mejorar el rendimiento de aplicación Playround!\n\n                   @Playround Team</string>
 
 
     <!-- String related to message reply -->
-    <string name="OMEPARSEMESSAGEREPLYBUTTON">Send</string>
+    <string name="OMEPARSEMESSAGEREPLYBUTTON">Enviar</string>
 
 
     <!--String related to user status-->
-    <string name="OMEPARSEUSERSTATUSONLINE">Online</string>
-    <string name="OMEPARSEUSERSTATUSOFFLINE">Offline</string>
-    <string name="OMEPARSEUSERSTATUSAWAY">Away</string>
-    <string name="OMEPARSEUSERSTATUSBUSY">Busy</string>
+    <string name="OMEPARSEUSERSTATUSONLINE">En línea</string>
+    <string name="OMEPARSEUSERSTATUSOFFLINE">Fuera de línea</string>
+    <string name="OMEPARSEUSERSTATUSAWAY">Distancia</string>
+    <string name="OMEPARSEUSERSTATUSBUSY">Ocupado</string>
 
 
 
     <!--String related to me activity-->
-    <string name="OMEPARSEMEMYSPORTTITLE">My Workout</string>
-    <string name="OMEPARSEMEMATCHDETAILTITLE">Workout Detail</string>
-    <string name="OMEPARSEMEMYSPORT">My Sport</string>
-    <string name="OMEPARSEMEMYCOURTADDRESS">My Venue Address</string>
-    <string name="OMEPARSEMEMYSETTINGS">Settings</string>
-    <string name="OMEPARSEMEMYSETTINGSNOTIFICATIONSHEADER">Notifications</string>
-    <string name="OMEPARSEMEMYSETTINGSGENERALHEADER">General Info</string>
-    <string name="OMEPARSEMEMYSETTINGMATCHDETAILPLAYERS">Players</string>
+    <string name="OMEPARSEMEMYSPORTTITLE">Mi entrenamiento</string>
+    <string name="OMEPARSEMEMATCHDETAILTITLE">Detalle del ejercicio</string>
+    <string name="OMEPARSEMEMYSPORT">Mi deporte</string>
+    <string name="OMEPARSEMEMYCOURTADDRESS">Mi dirección de sede</string>
+    <string name="OMEPARSEMEMYSETTINGS">Configuración</string>
+    <string name="OMEPARSEMEMYSETTINGSNOTIFICATIONSHEADER">Notificaciones</string>
+    <string name="OMEPARSEMEMYSETTINGSGENERALHEADER">Información general</string>
+    <string name="OMEPARSEMEMYSETTINGMATCHDETAILPLAYERS">Jugadores</string>
     <string name="OMEPARSEMEPROFILEPLAYROUNDID">Playround ID</string>
     <string name="OMEPARSEMEPROFILEALIAS">Alias</string>
     <string name="OMEPARSEMEPROFILEAVATAR">Avatar</string>
-    <string name="OMEPARSEMEPROFILEQRCODE">QR Code</string>
-    <string name="OMEPARSEMEPROFILECHOOSEIMAGE">Choose photo</string>
-    <string name="OMEPARSEMEPROFILETAKEPHOTO">Take photo</string>
-    <string name="OMEPARSEMESPORTNOONEPLAYER">No player join this match, Be patient!</string>
+    <string name="OMEPARSEMEPROFILEQRCODE">Código QR</string>
+    <string name="OMEPARSEMEPROFILECHOOSEIMAGE">Elegir la foto</string>
+    <string name="OMEPARSEMEPROFILETAKEPHOTO">Tomar la foto</string>
+    <string name="OMEPARSEMESPORTNOONEPLAYER">Ningún jugador unirse este partido, sea paciente!</string>
 
 
 
@@ -261,11 +257,11 @@
 
 
     <!--String related to chat-->
-    <string name="OMEPARSECHATFILETRANMITFINISH">Finish</string>
-    <string name="OMEPARSECHATFILETRANMITFAILED">Fail</string>
-    <string name="OMEPARSECHATFILETRANMITREQUEST">Request for sending file</string>
-    <string name="OMEPARSECHATFILETRANMITREJECT">Reject</string>
-    <string name="OMEPARSECHATTYPING">typing...</string>
+    <string name="OMEPARSECHATFILETRANMITFINISH">Acabado</string>
+    <string name="OMEPARSECHATFILETRANMITFAILED">Humor</string>
+    <string name="OMEPARSECHATFILETRANMITREQUEST">Solicitud de envío de archivo</string>
+    <string name="OMEPARSECHATFILETRANMITREJECT">Rechazar</string>
+    <string name="OMEPARSECHATTYPING">escribir...</string>
 
 
 
@@ -273,34 +269,34 @@
 
     <!--String related to add contact-->
     <string name="OMEPARSEADDCONTACTSEARCHHINT">Playround ID</string>
-    <string name="OMEPARSEADDCONTACTSEARCHSETTING">Search Contact</string>
+    <string name="OMEPARSEADDCONTACTSEARCHSETTING">Buscar contacto</string>
     <string name="OMEPARSEADDCONTACTMYID">My Playround ID:</string>
-    <string name="OMEPARSEADDCONTACTFRIENDRADAR">Friend Radar</string>
-    <string name="OMEPARSEADDCONTACTNEARBYNOTE">Find friend in your nearby</string>
-    <string name="OMEPARSEADDCONTACTSCANQRCODE">Scan QR Code</string>
-    <string name="OMEPARSEADDCONTACTSCANQRCODENOTE">Scan QR Code name card</string>
-    <string name="OMEPARSEADDCONTACTSEARCHUSERNAMEERROR">Search username could not be empty</string>
-    <string name="OMEPARSEADDCONTACTSEARCHDISPLAYRESULTTITLE">Result</string>
-    <string name="OMEPARSEADDCONTACTSEARCHDISPLAYPROFILE">Profile</string>
-    <string name="OMEPARSEADDCONTACTEXT">Add</string>
-    <string name="OMEPARSEADDCONTACTSENDREQUESTTITLE">Send Request</string>
-    <string name="OMEPARSEADDCONTACTSENDREQUESTTEXT">Send</string>
-    <string name="OMEPARSEADDCONTACTSENDREQUESTMESSAGE">Write a message...</string>
-    <string name="OMEPARSEADDCONTACTSENDREQUESTSUCCESS">Successfully send request message</string>
-    <string name="OMEPARSEADDCONTACTSENDREQUESTINVALIDFRIENDID">Invalid ID</string>
-    <string name="OMEPARSEADDCONTACTSENDREQUESTFRIENDEXIST">Friend exists</string>
-    <string name="OMEPARSEADDCONTACTSENDREQUESTADDYOURSELF">You can not add yourself</string>
-    <string name="OMEPARSEADDCOTACTSHAREQRCODEWITH">Share with</string>
-    <string name="OMEPARSEADDCONTACTADDMENOTE">Scan my QR code to add me on Playround</string>
-    <string name="OMEPARSEADDCONTACTDEFAULTREQUESTMESSAGE">he want to be your friend !</string>
-    <string name="OMEPARSEADDCONTACTREQUESTNOTEIAM">I\'m</string>
+    <string name="OMEPARSEADDCONTACTFRIENDRADAR">Radar de amigo</string>
+    <string name="OMEPARSEADDCONTACTNEARBYNOTE">Buscar amigo en su cercana</string>
+    <string name="OMEPARSEADDCONTACTSCANQRCODE">Escanear código QR</string>
+    <string name="OMEPARSEADDCONTACTSCANQRCODENOTE">Analizar tarjeta código QR</string>
+    <string name="OMEPARSEADDCONTACTSEARCHUSERNAMEERROR">Buscar nombre de usuario no puede ser vacío</string>
+    <string name="OMEPARSEADDCONTACTSEARCHDISPLAYRESULTTITLE">Resultado</string>
+    <string name="OMEPARSEADDCONTACTSEARCHDISPLAYPROFILE">Perfil</string>
+    <string name="OMEPARSEADDCONTACTEXT">Añadir</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTTITLE">Enviar solicitud</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTTEXT">Enviar</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTMESSAGE">Escribir un mensaje...</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTSUCCESS">Enviar correctamente un mensaje de solicitud</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTINVALIDFRIENDID">ID no válido</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTFRIENDEXIST">Amigo existe</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTADDYOURSELF">No puede agregar usted mismo</string>
+    <string name="OMEPARSEADDCOTACTSHAREQRCODEWITH">Compartir con</string>
+    <string name="OMEPARSEADDCONTACTADDMENOTE">Escanear código QR para agregarme en Playround</string>
+    <string name="OMEPARSEADDCONTACTDEFAULTREQUESTMESSAGE">él quiere ser tu amigo!</string>
+    <string name="OMEPARSEADDCONTACTREQUESTNOTEIAM">I \ estoy</string>
 
 
 
 
 
 
-    <string name="notifications">Show Notifications</string>
+    <string name="notifications">Mostrar las notificaciones</string>
 
 
 
@@ -324,177 +320,177 @@
 
 
     <!-- Activity titles -->
-    <string name="title_activity_add_friend">Add Contact</string>
-    <string name="title_activity_friend_profile">Friend Profile</string>
+    <string name="title_activity_add_friend">Agregar contacto</string>
+    <string name="title_activity_friend_profile">Perfil de amigo</string>
 
     <!-- Navigation / Action Bar -->
-    <string name="add_friend">Add Friend</string>
+    <string name="add_friend">Añadir amigo</string>
 
     <!-- Login Activity -->
-    <string name="login_must_fill_in">You must fill in a profile name</string>
-    <string name="login_login">Login</string>
+    <string name="login_must_fill_in">Debe rellenar un nombre de perfil</string>
+    <string name="login_login">Inicio de sesión</string>
     <string name="login_account_hint">Profile Name</string>
-    <string name="login_create_account_text">Create Profile</string>
-    <string name="login_bad_login">no vaild username</string>
+    <string name="login_create_account_text">Crear perfil</string>
+    <string name="login_bad_login">ningún nombre de usuario válido</string>
 
     <!-- Create Account Activity -->
-    <string name="create_name_hint">Profile Name</string>
-    <string name="create_text">Slogan Here</string>
-    <string name="create_register">Register</string>
-    <string name="create_register_incog">Register Incognito</string>
-    <string name="create_skip">Allow anyone to add you using your profile name</string>
-    <string name="create_must_fill_in">You must fill in all fields</string>
-    <string name="create_bad_profile_name">Profile name can\'t contain spaces or backslashes/forwardslashes</string>
+    <string name="create_name_hint">Nombre de perfil</string>
+    <string name="create_text">Lema de aquí</string>
+    <string name="create_register">Registro</string>
+    <string name="create_register_incog">Registro de Incognito</string>
+    <string name="create_skip">Permitir que nadie te agregue usando tu nombre de perfil</string>
+    <string name="create_must_fill_in">Debe rellenar todos los campos</string>
+    <string name="create_bad_profile_name">Nombre de perfil no \'\t contienen espacios o barras invertidas/forwardslashes</string>
 
     <!-- Main Activity -->
-    <string name="main_no_active_chat">No active chat. Start one by choosing a friend from the pane on the left.</string>
-    <string name="main_message_no">No Message</string>
-    <string name="main_no_internet">No Internet Connection</string>
-    <string name="main_not_connected">No internet connection has been detected. Without an internet connection, you will have
-        limited functionality unless you are using Playround for LAN only</string>
-    <string name="search_all_contacts">Search</string>
+    <string name="main_no_active_chat">No hay chat activo. Empezar por elegir a un amigo desde el panel de la izquierda.</string>
+    <string name="main_message_no">Ningún mensaje</string>
+    <string name="main_no_internet">No hay conexión a Internet</string>
+    <string name="main_not_connected">Se ha detectado ninguna conexión a internet. Sin conexión a internet, usted tendrá
+una funcionalidad limitada, a menos que utilice Playround para LAN sólo</string>
+    <string name="search_all_contacts">Búsqueda de</string>
 
     <!-- Chat Activity -->
-    <string name="chat_enter_message">Send a message</string>
-    <string name="chat_file_transfer">File transfer</string>
+    <string name="chat_enter_message">Enviar un mensaje</string>
+    <string name="chat_file_transfer">Transferencia de archivos</string>
 
     <!-- Add Friend Activity -->
     <string name="addfriend_friend_key">Playround ID</string>
-    <string name="addfriend_friend_message">Send a message with your request</string>
-    <string name="addfriend_button">Add Friend</string>
-    <string name="addfriend_friend_added">Friend Added</string>
+    <string name="addfriend_friend_message">Enviar un mensaje con su petición</string>
+    <string name="addfriend_button">Añadir amigo</string>
+    <string name="addfriend_friend_added">Amigo agregado</string>
     <!-- <string name="addfriend_friend_exists">Friend already exists</string>-->
-    <string name="scanqr_button">Scan a QR code</string>
+    <string name="scanqr_button">Escanear un código QR</string>
     <!-- <string name="invalid_friend_ID">Invalid ID</string>-->
-    <string name="addfriend_nick_hint">Set a nickname for your friend</string>
-    <string name="addfriend_optional_title">Optional Extras</string>
-    <string name="dialog_pin">Enter your friend\'s pin</string>
-    <string name="addfriend_invalid_pin">Invalid Pin</string>
+    <string name="addfriend_nick_hint">Establecer un apodo para tu amigo</string>
+    <string name="addfriend_optional_title">Extras opcionales</string>
+    <string name="dialog_pin">Introduce pin de su friend\</string>
+    <string name="addfriend_invalid_pin">Pin inválido</string>
     <!--  <string name="addfriend_own_key">You cannot add yourself</string> -->
-    <string name="addfriend_friend_pin_title">Enter Friend\'s Pin</string>
-    <string name="addfriend_friend_pin_text">Enter Friend\'s Pin</string>
-    <string name="addfriend_default_message">Hi! Please accept my friend request</string>
+    <string name="addfriend_friend_pin_title">Introducir Pin del Friend\</string>
+    <string name="addfriend_friend_pin_text">Introduzca amigo \'\s Pin</string>
+    <string name="addfriend_default_message">Hola! Por favor acepta mi petición de amistad</string>
 
     <!-- Friend Profile Activity -->
-    <string name="friend_profile_nick">Nickname</string>
+    <string name="friend_profile_nick">Apodo de</string>
     <string name="friend_profile_key">ID</string>
-    <string name="friend_profile_note">Status</string>
-    <string name="friend_profile_button">Update</string>
-    <string name="friend_profile_updated">The profile has been updated</string>
-    <string name="friend_profile_copied">ID Copied</string>
+    <string name="friend_profile_note">Estado</string>
+    <string name="friend_profile_button">Actualización</string>
+    <string name="friend_profile_updated">El perfil ha sido actualizado</string>
+    <string name="friend_profile_copied">Copiadas de identificación</string>
 
     <!-- Friend request fragment -->
-    <string name="friend_profile_title">%1$s\'s Profile</string>
-    <string name="friendrequest_accept">Accept</string>
-    <string name="friendrequest_reject">Reject</string>
-    <string name="friend_request">New Friend Request</string>
+    <string name="friend_profile_title">%1$s\'s Perfil</string>
+    <string name="friendrequest_accept">Aceptar</string>
+    <string name="friendrequest_reject">Rechazar</string>
+    <string name="friend_request">Nueva solicitud de amigo</string>
 
     <!-- Contacts Fragment -->
-    <string name="friend_action_profile">Profile</string>
-    <string name="friend_action_delete">Remove Friend</string>
-    <string name="friend_action_delete_chat">Delete Chat Logs</string>
-    <string name="friend_action_block">Block</string>
-    <string name="contacts_actions_on">Actions on</string>
-    <string name="contacts_delimiter_requests">Requests</string>
-    <string name="contacts_delimiter_friends">Friends</string>
-    <string name="contacts_delimiter_offline">Offline</string>
-    <string name="contacts_delimiter_online">Online</string>
-    <string name="contacts_resend_friend_request">Resend Friend Request</string>
+    <string name="friend_action_profile">Perfil</string>
+    <string name="friend_action_delete">Eliminar amigo</string>
+    <string name="friend_action_delete_chat">Eliminar registros de Chat</string>
+    <string name="friend_action_block">Bloque</string>
+    <string name="contacts_actions_on">Acciones en</string>
+    <string name="contacts_delimiter_requests">Solicitudes de</string>
+    <string name="contacts_delimiter_friends">Amigos</string>
+    <string name="contacts_delimiter_offline">Fuera de línea</string>
+    <string name="contacts_delimiter_online">En línea</string>
+    <string name="contacts_resend_friend_request">Enviar solicitud de amigo</string>
 
     <!-- Delete Friend Dialog -->
-    <string name="friend_action_delete_friend_confirmation">Are you sure you want to remove this friend?</string>
+    <string name="friend_action_delete_friend_confirmation">¿Está seguro que desea eliminar este amigo?</string>
 
     <!-- Delete Chat Logs Dialog -->
-    <string name="friend_action_delete_chat_confirmation">Are you sure you want to delete the chat logs?</string>
+    <string name="friend_action_delete_chat_confirmation">¿Está seguro que desea eliminar los registros de chat?</string>
 
     <!-- Block Friend Dialog -->
-    <string name="friend_action_block_friend_confirmation">Blocking this user will remove them from your friends list and you will no longer see friend
-        requests from them.\n\nAre you sure you wish to continue?</string>
+    <string name="friend_action_block_friend_confirmation">Bloquear a este usuario les eliminará de tu lista de amigos y no se ven amigo
+¿peticiones de them.\n\nAre desea continuar?</string>
 
     <!-- Chat Fragment -->
-    <string name="attachment_photo">Attach photo</string>
-    <string name="attachment_file">Attach File</string>
-    <string name="attachment_takephoto">Take photo</string>
-    <string name="message_copy">Copy message</string>
-    <string name="message_delete">Delete message</string>
+    <string name="attachment_photo">Adjuntar foto</string>
+    <string name="attachment_file">Adjuntar archivo</string>
+    <string name="attachment_takephoto">Tomar la foto</string>
+    <string name="message_copy">Mensaje de copia</string>
+    <string name="message_delete">Borrar mensaje</string>
 
     <!-- Left Pane Fragment -->
-    <string name="titles_recent">Message</string>
-    <string name="titles_contacts">Contact</string>
-    <string name="titles_settings">Setting</string>
+    <string name="titles_recent">Mensaje</string>
+    <string name="titles_contacts">Contacto</string>
+    <string name="titles_settings">Ajuste</string>
 
     <!-- Misc -->
-    <string name="button_confirm">Confirm</string>
-    <string name="button_cancel">Cancel</string>
-    <string name="button_yes">Yes</string>
+    <string name="button_confirm">Confirmar</string>
+    <string name="button_cancel">Cancelar</string>
+    <string name="button_yes">Sí</string>
     <string name="button_no">No</string>
-    <string name="button_ok">OK</string>
-    <string name="dialog_id">Copy ID to clipboard</string>
-    <string name="share_with">Share with</string>
-    <string name="connection_has">has</string>
-    <string name="connection_online">come online</string>
-    <string name="connection_offline">gone offline</string>
+    <string name="button_ok">Vale</string>
+    <string name="dialog_id">ID de la copia en el portapapeles</string>
+    <string name="share_with">Compartir con</string>
+    <string name="connection_has">ha</string>
+    <string name="connection_online">en línea</string>
+    <string name="connection_offline">ido fuera de línea</string>
 
 
     <!-- QR -->
-    <string name="qr_default_title">Install Barcode Scanner?</string>
-    <string name="qr_default_message">This application requires Barcode Scanner. Would you like to install it?</string>
-    <string name="qr_button_yes">Yes</string>
+    <string name="qr_default_title">Instalar Barcode Scanner?</string>
+    <string name="qr_default_message">Esta aplicación requiere Barcode Scanner. ¿Quieres instalarlo?</string>
+    <string name="qr_button_yes">Sí</string>
     <string name="qr_button_no">No</string>
 
 
     <!--Add by playround 1.0.2.09 -->
-    <string name="myvenueactivity_title">My Venue</string>
-    <string name="OMEPARSEMEMYVENUEUPLOAD">Upload Venue Address</string>
-    <string name="OMEPARSEMEMYVENUENAME">Venue Name</string>
-    <string name="OMEPARSEMEMYVENUEADDRESS">Venue Address</string>
-    <string name="OMEPARSEMEMYVENUEPHONE">Venue Phone</string>
-    <string name="OMEPARSEMEMYVENUENAMEPLACEHOLD">Enter Name</string>
-    <string name="OMEPARSEMEMYVENUEADDRESSPLACEHOLD">Enter Address</string>
-    <string name="OMEPARSEMEMYVENUEPHONEPLACEHOLD">Enter Phone</string>
-    <string name="OMEPARSEMEMYVENUESUBMIT">Upload</string>
-    <string name="OMEPARSEMYVENUEHOMEVENUE">Home Field</string>
-    <string name="OMEPARSEMYVENUEBACKUPVENUE">Backup</string>
-    <string name="OMEPARSEMYVENUERADAR">Venue Radar</string>
-    <string name="myvenueradaractivity_title">Nearby Venue</string>
-    <string name="OMEPARSEMEMYVENUEDISTANCEKMNOTE">kilometers away</string>
-    <string name="OMEPARSEMEMYVENUEDISTANCEMETERNOTE">meters away</string>
-    <string name="myvenueuploadactivity_title">Upload Venue</string>
-    <string name="OMEPARSEMEMYVENUEASHOMEPLACEHOLD">Enter Venue Name</string>
-    <string name="OMEPARSESIGNUPDEVICEREGISTERED">this device has registered!</string>
-    <string name="OMEPARSESIGNUPCANNOTGETDEVICEID">can not get device id!</string>
-    <string name="OMEPARSEUSERNAMEMINIMUMLENGTHSHOULDSIX">username length should beyond 6 char!</string>
-    <string name="OMEPARSEUSERPASSWORDMINIMUMLENGTHSHOULDSIX">password length should beyond 6 char!</string>
+    <string name="myvenueactivity_title">Mi lugar</string>
+    <string name="OMEPARSEMEMYVENUEUPLOAD">Subir dirección sede</string>
+    <string name="OMEPARSEMEMYVENUENAME">Lugar nombre</string>
+    <string name="OMEPARSEMEMYVENUEADDRESS">Dirección sede</string>
+    <string name="OMEPARSEMEMYVENUEPHONE">Teléfono de la sede</string>
+    <string name="OMEPARSEMEMYVENUENAMEPLACEHOLD">Introduzca nombre</string>
+    <string name="OMEPARSEMEMYVENUEADDRESSPLACEHOLD">Ingrese Dirección</string>
+    <string name="OMEPARSEMEMYVENUEPHONEPLACEHOLD">Ingresar teléfono</string>
+    <string name="OMEPARSEMEMYVENUESUBMIT">Subir</string>
+    <string name="OMEPARSEMYVENUEHOMEVENUE">Casa campo</string>
+    <string name="OMEPARSEMYVENUEBACKUPVENUE">Copia de seguridad</string>
+    <string name="OMEPARSEMYVENUERADAR">Radar local</string>
+    <string name="myvenueradaractivity_title">Lugar cercano</string>
+    <string name="OMEPARSEMEMYVENUEDISTANCEKMNOTE">kilómetros de distancia</string>
+    <string name="OMEPARSEMEMYVENUEDISTANCEMETERNOTE">metros de distancia</string>
+    <string name="myvenueuploadactivity_title">Lugar de subir</string>
+    <string name="OMEPARSEMEMYVENUEASHOMEPLACEHOLD">Lugar nombre</string>
+    <string name="OMEPARSESIGNUPDEVICEREGISTERED">Este dispositivo se ha registrado!</string>
+    <string name="OMEPARSESIGNUPCANNOTGETDEVICEID">no puede conseguir el id de dispositivo!</string>
+    <string name="OMEPARSEUSERNAMEMINIMUMLENGTHSHOULDSIX">longitud de nombre de usuario debe más allá de 6 caracteres!</string>
+    <string name="OMEPARSEUSERPASSWORDMINIMUMLENGTHSHOULDSIX">longitud de la contraseña debe más allá de 6 caracteres!</string>
 
     <!--Add by playround 1.0.2.12 -->
-    <string name="OMEPARSEMEMYVENUEASBACKUPPLACEHOLD">Enter Venue Name</string>
+    <string name="OMEPARSEMEMYVENUEASBACKUPPLACEHOLD">Lugar nombre</string>
 
 
     <!--Add by playround 1.0.3.01 -->
-    <string name="OMEPARSECANNOTJOINYOURSELFALERT">You can not rejoin this workout!</string>
+    <string name="OMEPARSECANNOTJOINYOURSELFALERT">Usted no puede unirse a este entrenamiento!</string>
 
     <!--Add by playround 1.0.4.02 -->
-    <string name="search_venue_hint">Enter Venue</string>
-    <string name="search_venue_settings">Search Location</string>
-    <string name="OMEPARSEREGISTERASVENUEOWNERNOTE">Register as Venue</string>
-    <string name="ownerinfouploadactivity_title">Upload Venue Info </string>
-    <string name="OMEPARSESIGNUPERRORNOTE">Register error</string>
-    <string name="OMEPARSEVENUEOWNERCONTACTEMAIL">Email</string>
-    <string name="OMEPARSEVENUEOWNERPHONEPLACEHOLD">Enter Phone</string>
-    <string name="OMEPARSELOGINUSERNAMEPASSWORDNOTMATCH">username and password are not match</string>
-    <string name="OMEPARSECANNOTGETVENUEINFO">can not get venue info</string>
-    <string name="OMEPARSEVENUEOWNERCONTACTPLACEHOLD">Enter Email</string>
-    <string name="OMEPARSEVENUEOWNERCHOOSEIDCOPY">Choose ID Copy Photo</string>
-    <string name="OMEPARSEVENUEOWNERTAKEIDCOPY">Take Photo for ID Copy</string>
-    <string name="OMEPARSEVENUEOWNERIDCOPY">Owner ID Copy</string>
-    <string name="OMEPARSEVENUEOWNERLICENSECOPY">Venue License Copy</string>
-    <string name="OMEPARSECANNOTSAVEPARSEFILE">Can not save file !</string>
-    <string name="OMEPARSEVENUEOWNERUPDATE">Update Venue Info</string>
+    <string name="search_venue_hint">Entrar en lugar</string>
+    <string name="search_venue_settings">Ubicación de búsqueda</string>
+    <string name="OMEPARSEREGISTERASVENUEOWNERNOTE">Registrarse como lugar</string>
+    <string name="ownerinfouploadactivity_title">Subir información de lugar </string>
+    <string name="OMEPARSESIGNUPERRORNOTE">Error de registro</string>
+    <string name="OMEPARSEVENUEOWNERCONTACTEMAIL">Correo electrónico</string>
+    <string name="OMEPARSEVENUEOWNERPHONEPLACEHOLD">Ingresar teléfono</string>
+    <string name="OMEPARSELOGINUSERNAMEPASSWORDNOTMATCH">nombre de usuario y contraseña no son partido</string>
+    <string name="OMEPARSECANNOTGETVENUEINFO">no se puede obtener información del lugar</string>
+    <string name="OMEPARSEVENUEOWNERCONTACTPLACEHOLD">Introduzca correo electrónico</string>
+    <string name="OMEPARSEVENUEOWNERCHOOSEIDCOPY">Elegir ID copia foto</string>
+    <string name="OMEPARSEVENUEOWNERTAKEIDCOPY">Tomar foto para copia de identificación</string>
+    <string name="OMEPARSEVENUEOWNERIDCOPY">Copia de identificación del propietario</string>
+    <string name="OMEPARSEVENUEOWNERLICENSECOPY">Copia de licencia de sede</string>
+    <string name="OMEPARSECANNOTSAVEPARSEFILE">No puede guardar archivo !</string>
+    <string name="OMEPARSEVENUEOWNERUPDATE">Actualizar información de lugar</string>
 
-    <string name="OMEPARSEVENUEOWNERWAITINGFORVERIFY">Please waiting for our verification</string>
+    <string name="OMEPARSEVENUEOWNERWAITINGFORVERIFY">Por favor espera nuestra verificación</string>
 
 
-    <string name="change_city">Change city</string>
+    <string name="change_city">Ciudad de cambio</string>
 
     <!-- Put your own APP ID here -->
     <string name="open_weather_maps_app_id">ddc6b650db25f95454deaff67ab9f984</string>
@@ -508,125 +504,143 @@
     <string name="OMEPARSEWEATHERSNOWY">&#xf01b;</string>
     <string name="OMEPARSEWEATHERTHUNDER">&#xf01e;</string>
     <string name="OMEPARSEWEATHERDRIZZLE">&#xf01c;</string>
-    <string name="OMWPARSEWEATHERPLACENOTFOUND">Sorry, no weather data found.</string>
-    <string name="OMEPARSEWEATHERHUMIDITY">Humidity</string>
-    <string name="OMEPARSEWEATHERPRESSURE">Pressure</string>
+    <string name="OMWPARSEWEATHERPLACENOTFOUND">Lo sentimos, no hay datos encontrados.</string>
+    <string name="OMEPARSEWEATHERHUMIDITY">Humedad</string>
+    <string name="OMEPARSEWEATHERPRESSURE">Presión</string>
 
     <!--Add by playround 1.0.4.05 -->
-    <string name="OMEPARSEINVITECONTENTPLACEHOLD">Workout Name</string>
-    <string name="OMEPARSEINVITESPORT">Sport</string>
-    <string name="OMEPARSEINVITELOCATION">Location</string>
-    <string name="OMEPARSEINVITESTART">Start</string>
-    <string name="OMEPARSEINVITEPARTICIPANT">Participant</string>
-    <string name="OMEPARSEINVITEDESCRIPTION">Description</string>
-    <string name="action_invite_share">Share invitation with</string>
-    <string name="action_invite_add">Add invitation</string>
-    <string name="OMETOPLAYATWORD">at</string>
-    <string name="OMETOPLAYINWORD">in</string>
-    <string name="OMETOPLAYDONEWORD">DONE</string>
+    <string name="OMEPARSEINVITECONTENTPLACEHOLD">Nombre de entrenamiento</string>
+    <string name="OMEPARSEINVITESPORT">Deporte</string>
+    <string name="OMEPARSEINVITELOCATION">Ubicación</string>
+    <string name="OMEPARSEINVITESTART">Inicio</string>
+    <string name="OMEPARSEINVITEPARTICIPANT">Participante</string>
+    <string name="OMEPARSEINVITEDESCRIPTION">Descripción</string>
+    <string name="action_invite_share">Invitación de compartir con</string>
+    <string name="action_invite_add">Agregar invitación</string>
+    <string name="OMETOPLAYATWORD">Añadir a</string>
+    <string name="OMETOPLAYINWORD">en</string>
+    <string name="OMETOPLAYDONEWORD">HECHO</string>
 
-    <string name="invitesearchactivity_title">Location</string>
-    <string name="OMEPARSEINVITESEARCHLOCATIONPLACEHOLD">Enter a location</string>
-    <string name="OMEPARSEINVITESEARCHLOCATIONCUSTOM">Custom Location</string>
+    <string name="invitesearchactivity_title">Ubicación</string>
+    <string name="OMEPARSEINVITESEARCHLOCATIONPLACEHOLD">Introduzca una ubicación</string>
+    <string name="OMEPARSEINVITESEARCHLOCATIONCUSTOM">Lugar a la medida</string>
 
-    <string name="joininfofragment_title">Info</string>
-    <string name="joinscoreboardfragment_title">Scoreboard</string>
-    <string name="joincommentfragment_title">Comments</string>
+    <string name="joininfofragment_title">Información</string>
+    <string name="joinscoreboardfragment_title">Cuadro de indicadores de</string>
+    <string name="joincommentfragment_title">Comentarios</string>
 
-    <string name="OMEPARSEJOININFOPLAYERTEXT">PLAYER</string>
-    <string name="OMEPARSEJOININFOICECREAMTEXT">ICECREAM</string>
-    <string name="OMEPARSEJOININFOPRIZETEXT">PRIZE</string>
-    <string name="OMEPARSEJOININFOSCOREBOARDTEXT">SCORE</string>
-    <string name="OMEPARSEDAYLEFTTEXT">DAYS LEFT</string>
-    <string name="OMEPARSEHOURLEFTTEXT">HOURS LEFT</string>
+    <string name="OMEPARSEJOININFOPLAYERTEXT">JUGADOR</string>
+    <string name="OMEPARSEJOININFOICECREAMTEXT">HELADO</string>
+    <string name="OMEPARSEJOININFOPRIZETEXT">PREMIO</string>
+    <string name="OMEPARSEJOININFOSCOREBOARDTEXT">PUNTUACIÓN</string>
+    <string name="OMEPARSEDAYLEFTTEXT">DÍAS RESTANTES</string>
+    <string name="OMEPARSEHOURLEFTTEXT">QUEDAN HORAS</string>
 
 
-    <string name="joincommentactivity_title">Comments</string>
-    <string name="joinlikeactivity_title">Likes</string>
-    <string name="joinscoreactivity_title">Scores</string>
-    <string name="joinplayeractivity_title">Players</string>
-    <string name="meprofilreactivity_title">Profile</string>
+    <string name="joincommentactivity_title">Comentarios</string>
+    <string name="joinlikeactivity_title">Le gusta</string>
+    <string name="joinscoreactivity_title">Partituras</string>
+    <string name="joinplayeractivity_title">Jugadores</string>
+    <string name="meprofilreactivity_title">Perfil</string>
 
-    <string name="OMEPARSEJOINCOMMENTS">comments</string>
+    <string name="OMEPARSEJOINCOMMENTS">Comentarios</string>
 
-    <string name="OMEPARSEVENUEOWNERBOOKMANAGEMENT">Venue Booking Management</string>
+    <string name="OMEPARSEVENUEOWNERBOOKMANAGEMENT">Gestión de reserva de lugar</string>
 
-    <string name="OMEPARSEJOINCOMMENTSUBMITFIRST">you can submit the first comment</string>
-    <string name="OMEPARSEJOINLIKESUBMITFIRST">you can be the first user who likes this invitation</string>
-    <string name="OMEPARSEMESSAGELISTFIRST">no message for you now</string>
+    <string name="OMEPARSEJOINCOMMENTSUBMITFIRST">puede enviar el primer comentario</string>
+    <string name="OMEPARSEJOINLIKESUBMITFIRST">puede ser el primer usuario que le gusta esta invitación</string>
+    <string name="OMEPARSEMESSAGELISTFIRST">no hay mensaje para ti ahora</string>
 
-    <string name="OMEPARSEINVITEFILLWORKOUTNAME">please fill workout name!</string>
+    <string name="OMEPARSEINVITEFILLWORKOUTNAME">por favor rellena el nombre de entrenamiento!</string>
 
-    <string name="venuesearchactivity_title">Search</string>
+    <string name="venuesearchactivity_title">Búsqueda de</string>
 
     <!--Add by playround 1.0.4.07 -->
-    <string name="OMEPARSEFOLLOWING">FOLLOWING</string>
-    <string name="OMEPARSEFOLLOWERS">FOLLOWERS</string>
-    <string name="OMEPARSEFOLLOW">FOLLOW</string>
-    <string name="OMEPARSEMINUTELEFTTEXT">MINUTES LEFT</string>
-    <string name="OMEPARSEWAITTILLNEXTTEXT">WAIT TILL NEXT</string>
-    <string name="OMEPARSEADDTEXT">ADD</string>
-    <string name="OMEPARSEADDCOMMENTTEXT">Add Comment</string>
-    <string name="OMEPARSEFOLLOWINGLOWERCASE">following</string>
-    <string name="OMEPARSEFOLLOWERLOWERCASE">followers</string>
+    <string name="OMEPARSEFOLLOWING">SIGUIENDO</string>
+    <string name="OMEPARSEFOLLOWERS">ES FAVORITO DE:</string>
+    <string name="OMEPARSEFOLLOW">SIGA</string>
+    <string name="OMEPARSEMINUTELEFTTEXT">MINUTOS QUE QUEDAN</string>
+    <string name="OMEPARSEWAITTILLNEXTTEXT">ESPERAR HASTA EL SIGUIENTE</string>
+    <string name="OMEPARSEADDTEXT">AÑADIR</string>
+    <string name="OMEPARSEADDCOMMENTTEXT">Añadir comentario</string>
+    <string name="OMEPARSEFOLLOWINGLOWERCASE">siguientes</string>
+    <string name="OMEPARSEFOLLOWERLOWERCASE">es favorito de:</string>
 
     <!--Add by playround 1.0.4.08 -->
-    <string name="venuedetailinfoactivity_title">Venue Info </string>
-    <string name="myfollowingfragment_title">FOLLOWING</string>
-    <string name="myfollowerfragment_title">FOLLOWERS</string>
-    <string name="venuecommentactivity_title">Comments</string>
+    <string name="venuedetailinfoactivity_title">Info del lugar </string>
+    <string name="myfollowingfragment_title">SIGUIENDO</string>
+    <string name="myfollowerfragment_title">ES FAVORITO DE:</string>
+    <string name="venuecommentactivity_title">Comentarios</string>
 
-    <string name="OMEPARSECOURTSTEXT">Courts</string>
-    <string name="OMEPARSELIGHTEDTEXT">Lighted</string>
-    <string name="OMEPARSEINDOORTEXT">Indoor</string>
-    <string name="OMEPARSEPLAYERSTEXT">Players</string>
-    <string name="OMEPARSEACCESSTEXT">Access</string>
-    <string name="OMEPARSESELECTASHOMEFIELD">Select as home field</string>
-    <string name="OMEPARSEMYHOMEFIELD">My home field</string>
+    <string name="OMEPARSECOURTSTEXT">Tribunales</string>
+    <string name="OMEPARSELIGHTEDTEXT">Iluminado</string>
+    <string name="OMEPARSEINDOORTEXT">Interior</string>
+    <string name="OMEPARSEPLAYERSTEXT">Jugadores</string>
+    <string name="OMEPARSEACCESSTEXT">Acceso</string>
+    <string name="OMEPARSESELECTASHOMEFIELD">Seleccione como campo</string>
+    <string name="OMEPARSEMYHOMEFIELD">Mi campo</string>
 
     <!--Add by playround 1.0.4.09 -->
-    <string name="bookingactivity_title">Booking Venue</string>
-    <string name="OMEPARSEDATETEXT">Date</string>
-    <string name="OMEPARSETIMETEXT">Time</string>
-    <string name="OMEPARSEVENUEBOOKINGDEPOSIT">Advance Deposit</string>
-    <string name="OMEPARSEVENUEBOOKINGTHISVENUE">Booking this venue</string>
-    <string name="OMEPARSECONFIRMTEXT">Confirm booking</string>
-    <string name="OMEPARSEREMARK">Remark</string>
-    <string name="OMEPARSEBOOKINGMUSTKNOW">Must know for booking :</string>
-    <string name="OMEPARSEBOOKINGMUSTKNOWONE">1. touch the above every option to set date, time and remark</string>
-    <string name="OMEPARSEBOOKINGMUSTKNOWTWO">2. This 20 is advance deposit</string>
-    <string name="OMEPARSEBOOKINGMUSTKNOWTHREE">3. This advance deposit will refund after you finish workout in the venue</string>
-    <string name="OMEPARSEBOOKINGMUSTKNOWFOUR">4. This advance deposit will refund if booking venue is not be successful </string>
-    <string name="OMEPARSEINVITEMUSTKNOW"> Must know for invitation :</string>
-    <string name="OMEPARSEINVITEMUSTKNOWONE">1. touch the above every option to set sport, location, date, time and description</string>
-    <string name="OMEPARSEBOOKINGCONFIRMTITLE">Confirm this order</string>
-    <string name="OMEPARSEVENUEBOOKINGDESCRIPTION">According to the contract, refund this advance deposit after finishing workout in venue</string>
-    <string name="OMEPARSEPAYSUCCESS">Pay successfully</string>
-    <string name="OMEPARSEPAYFAIL">Pay failed</string>
-    <string name="OMEPARSEPAYINPROGRESS">Pay in progress</string>
-    <string name="OMEPARSEBOOKINGPAYMUSTKNOW">Must know for payment :</string>
-    <string name="OMEPARSEBOOKINGPAYMUSTKNOWONE">1. Please check venue, time and mobile phone number</string>
-    <string name="OMEPARSEBOOKINGPAYMUSTKNOWTWO">2. Please check payment account if the same as user setting payment account, refund will pay to user setting payment account</string>
-    <string name="OMEPARSEBOOKINGRESULTNOTIFICATION">We will notify booking result and refund advance deposit</string>
-    <string name="OMEPARSEPHONENUMBERTEXT">Mobile Number</string>
-    <string name="OMEPARSEPAYUSEMETHODTEXT">Using Alipay to pay</string>
+    <string name="bookingactivity_title">Reserva de lugar</string>
+    <string name="OMEPARSEDATETEXT">Fecha</string>
+    <string name="OMEPARSETIMETEXT">Tiempo</string>
+    <string name="OMEPARSEVENUEBOOKINGDEPOSIT">Depósito anticipado</string>
+    <string name="OMEPARSEVENUEBOOKINGTHISVENUE">Reserva este lugar</string>
+    <string name="OMEPARSECONFIRMTEXT">Confirmar reserva</string>
+    <string name="OMEPARSEREMARK">Observación</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOW">Debe conocer para la reserva :</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWONE">1. tocar lo anterior todas las opciones para fijar fecha, hora y observación</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWTWO">2. Esta 20 es depósito anticipado</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWTHREE">3. Este depósito anticipado le reembolsará después de haber terminado el entrenamiento en el lugar</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWFOUR">4. Este depósito anticipado le reembolsará si lugar de reserva no es ser exitosa </string>
+    <string name="OMEPARSEINVITEMUSTKNOW"> Debe saber de la invitación :</string>
+    <string name="OMEPARSEINVITEMUSTKNOWONE">1. tocar lo anterior cada opción para definir el deporte, ubicación, fecha, hora y descripción</string>
+    <string name="OMEPARSEBOOKINGCONFIRMTITLE">Confirmar esta orden</string>
+    <string name="OMEPARSEVENUEBOOKINGDESCRIPTION">Según el contrato, devolver este depósito anticipado al finalizar entrenamiento en sede</string>
+    <string name="OMEPARSEPAYSUCCESS">Pagar con éxito</string>
+    <string name="OMEPARSEPAYFAIL">Pago fallido</string>
+    <string name="OMEPARSEPAYINPROGRESS">Pagar en progreso</string>
+    <string name="OMEPARSEBOOKINGPAYMUSTKNOW">Debe saber para el pago :</string>
+    <string name="OMEPARSEBOOKINGPAYMUSTKNOWONE">1. Compruebe por favor el lugar, tiempo y número de teléfono móvil</string>
+    <string name="OMEPARSEBOOKINGPAYMUSTKNOWTWO">2. Por favor comprueba la cuenta de pago si la misma cuenta de usuario ajuste pago, reembolso se paga a configuración de cuenta de pago por el usuario</string>
+    <string name="OMEPARSEBOOKINGRESULTNOTIFICATION">Notificaremos el resultado de la reserva y reembolso depósito anticipado</string>
+    <string name="OMEPARSEPHONENUMBERTEXT">Número de teléfono móvil</string>
+    <string name="OMEPARSEPAYUSEMETHODTEXT">Uso de Alipay para pagar</string>
 
     <!--Add by playround 1.0.4.10 -->
-    <string name="navdrawer_item_explore">Explore</string>
-    <string name="navdrawer_item_venue">Venue</string>
-    <string name="navdrawer_item_workout">Workout</string>
-    <string name="navdrawer_item_map">Map</string>
-    <string name="navdrawer_item_setting">Settings</string>
-    <string name="navdrawer_item_message">Messages</string>
-    <string name="OMEPARSEVENUEACCESSPUBLIC">Public</string>
-    <string name="OMEPARSEVENUEACCESSPRIVATE">Private</string>
+    <string name="navdrawer_item_explore">Explorar</string>
+    <string name="navdrawer_item_venue">Lugar de celebración</string>
+    <string name="navdrawer_item_workout">Entrenamiento</string>
+    <string name="navdrawer_item_map">Mapa</string>
+    <string name="navdrawer_item_setting">Configuración</string>
+    <string name="navdrawer_item_message">Mensajes</string>
+    <string name="OMEPARSEVENUEACCESSPUBLIC">Público</string>
+    <string name="OMEPARSEVENUEACCESSPRIVATE">Privado</string>
 
     <!--Add by playround 1.0.4.12 -->
-    <string name="OMEPARSEINVITECAMERA">Photo</string>
+    <string name="OMEPARSEINVITECAMERA">Foto</string>
 
     <!--Add by playround 1.0.4.13 -->
-    <string name="OMEPARSEVENUESEARCHCITY">City</string>
-    <string name="venuetypesearchactivity_title">Venue</string>
+    <string name="OMEPARSEVENUESEARCHCITY">Ciudad</string>
+    <string name="venuetypesearchactivity_title">Lugar de celebración</string>
+
+    <!--Add by playround 1.0.4.15 -->
+    <string name="OMEPARSEBUYTEXT">BUY</string>
+    <string name="OMEPARSEVENUEPRIMEMEMBERSHIPNOTE">Membresía Prime</string>
+    <string name="OMEPARSEVENUEPRICKPRIMEMEMBERSHIP">Escoger membresía prime</string>
+    <string name="buyprimemembershipactivity_title">Membresía Prime</string>
+    <string name="OMEPARSEPRIMETEXT">Primer</string>
+    <string name="OMEPARSECONFIRMBUYTEXT">Confirmar compra</string>
+    <string name="OMEPARSEBUYPRIMEMEMBERSHIPMUSTKNOW">Debe saber para comprar:</string>
+    <string name="OMEPARSEBUYPRIMEMEMEBERSHIPMUSTKNOWONE">1. comprobar la pertenencia primordial</string>
+    <string name="OMEPARSEBUYPRIMEMEMEBERSHIPMUSTKNOWTWO">2. toque el elemento número teléfono para configurar el teléfono para recibir el código de verificación SMS</string>
+    <string name="OMEPARSEFEETEXT">Tarifa</string>
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPMUSTKNOWONE">1. por favor compruebe prime, cargo y número de teléfono</string>
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPMUSTKNOWTWO">2. Si paga con éxito, se recibe un código de verificación SMS, luego usar para entrenamiento</string>
+
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPDESCRIPTION">Por favor el código de verificación SMS para entrenamiento</string>
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPNOTIFICATION">Pago exitosamente, usted recibirá el código de verificación SMS</string>
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPNOCHOOSE">Por favor, elija el primer!</string>
 
 
 

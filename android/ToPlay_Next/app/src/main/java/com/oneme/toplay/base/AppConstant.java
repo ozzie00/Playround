@@ -104,6 +104,8 @@ public final class AppConstant {
     public static final String OMETOPLAYBOOKINGVENUECLASSKEY   = "PlayroundBookingVenue";
     public static final String OMETOPLAYPHOTOCLASSKEY          = "PlayroundPhoto";
     public static final String OMETOPLAYPHOTOLINKCLASSKEY      = "PlayroundPhotoLink";
+    public static final String OMETOPLAYPAYPRIMECLASSKEY       = "PlayroundPayPrime";
+    public static final String OMETOPLAYTHIRDAPIREQUESTCLASSKEY= "PlayroundThirdRequest";
 
     // Parse API key constants related to user :
     public static final String OMEPARSEUSERKEY             = "user";
@@ -189,10 +191,23 @@ public final class AppConstant {
     public static final String OMETOPLAYVENUESEARCHKEY       = "venueSearch";
     public static final String OMETOPLAYVENUEDESCRIPTIONKEY  = "venueDescriprion";
     public static final String OMETOPLAYVENUEBUSINESSKEY     = "venueBusiness";
+    public static final String OMETOPLAYVENUEPRICEKEY        = "venuePrice";
+    public static final String OMETOPLAYVENUEPRIMEINFOKEY    = "venuePrimeInfo";
 
     // Parse API key constants related to venue business
     public static final String OMETOPLAYVENUEBUSINESSPRIME   = "venuePrime";
     public static final String OMETOPLAYVENUEBUSSINESSFREE   = "venueFree";
+
+    // Parse API key constants related to venue prime membership json format
+    public static final String OMETOPLAYVENUEJSON3RD         = "3rd";
+    public static final String OMETOPLAYVENUEJSONNAMEID      = "name id";
+    public static final String OMETOPLAYVENUEJSONNAME        = "name";
+    public static final String OMETOPLAYVENUEJSONLIST        = "list";
+    public static final String OMETOPLAYVENUEJSONCURRENCY    = "currency";
+    public static final String OMETOPLAYVENUEJSONCARDID      = "card id";
+    public static final String OMETOPLAYVENUEJSONCARDNAME    = "card name";
+    public static final String OMETOPLAYVENUEJSONCARDPRICE   = "card price";
+
 
     // Parse API key constants related to venue owner :
     public static final String OMEPARSEVENUEOWNERNAMEKEY         = "ownerName";
@@ -242,6 +257,7 @@ public final class AppConstant {
     public static final int OMEPARSEVENUOWNERLICENSECOPYPHOTORESULT = 5;
     public static final int OMEPARSEINVITESEARCHLOCATIONRESULT      = 6;
     public static final int OMEPARSEBOOKINGVENUEPAYRESULT           = 7;
+    public static final int OMEPARSEBUYPRIMEMEMBERSHIPPAYRESULT     = 8;
 
 
     // Parse API Constant corresponding to add friend
@@ -375,7 +391,6 @@ public final class AppConstant {
     public static final String OMEPARSEVENUEACCESSPUBLIC      = "Public";
     public static final String OMEPARSEVENUEACCESSPRIVATE     = "Private";
 
-
     // Parse API key corresponding to booking venue key
     public static final String OMEPARSEBOOKINGAUTHORKEY        = "bookingAuthor";
     public static final String OMEPARSEBOOKINGAUTHORNAMEKEY    = "bookingAuthorName";
@@ -403,12 +418,45 @@ public final class AppConstant {
     public static final String OMEPARSEBOOKINGFINISHCANCEL     = "CANCEL";
     public static final String OMEPARSEBOOKINGFINISHOTHER      = "OTHER";
 
+    // Parse API key corresponding to prime membership key
+    public static final String OMEPARSEPRIMEUSERNAMEKEY        = "primeUsername";
+    public static final String OMEPARSEPRIMEUSERPHONEKEY       = "primeUserphone";
+    public static final String OMEPARSEPRIME3RDKEY             = "prime3rd";
+    public static final String OMEPARSEPRIMEVENUENAMEKEY       = "primeVenuename";
+    public static final String OMEPARSEPRIMEVENUEIDKEY         = "primeVenueId";
+    public static final String OMEPARSEPRIMECARDNAMEKEY        = "primeCardname";
+    public static final String OMEPARSEPRIMECARDIDKEY          = "primeCardId";
+    public static final String OMEPARSEPRIMECARDPRICEKEY       = "primeCardPrice";
+    public static final String OMEPARSEPRIMEPAYTIMEKEY         = "primePayTime";
+    public static final String OMEPARSEPRIMEPAYNUMBERKEY       = "primePayNumber";
+    public static final String OMEPARSEPRIMESMSCODEKEY         = "primeSMSCode";
+    public static final String OMEPARSEPRIMEPAYCURRENCYKEY     = "primePayCurrency";
+    public static final String OMEPARSEPRIMEOTHERKEY           = "primeOther";
+
+    // Parse API key corresponding to third request key
+    public static final String OMEPARSETHIRDNAMEKEY            = "thirdName";
+    public static final String OMEPARSETHIRDSERVICEKEY         = "thirdService";
+    public static final String OMEPARSETHIRDREQUESTHTTPKEY     = "thirdRequestHttp";
+
+    // Parse API key corresponding to third request service type
+    public static final String OMEPARSETHIRDSERVICEPRIME       = "Prime";
+    public static final String OMEPARSETHIRDSERVICEMAPPLACE    = "MapPlace";
+
+    // Parse API key corresponding to third request http json format
+    public static final String OMEPARSETHIRDHTTPJSONAPIBASE    = "api base";
+    public static final String OMEPARSETHIRDHTTPJSONAPIMOBILE  = "api mobile";
+    public static final String OMEPARSETHIRDHTTPJSONAPICARDID  = "api cardid";
+    public static final String OMEPARSETHIRDHTTPJSONAPICARDNUMBER  = "api cardnumber";
+    public static final String OMEPARSETHIRDHTTPJSONAPIPAYNUMBER   = "api paynumber";
+
+
+
     // Parse API default value for invite score
     public static final int OMEPARSEINVITESCOREZERO            = 0;
     public static final int OMEPARSEINVITESCOREPERFECT         = 100;
 
     // Parse API default value for booking venue
-    public static final String OMEPARSEBOOKINGVENUEADVANCEDEPOSIT = "20.00";
+    public static final String OMEPARSEBOOKINGVENUEADVANCEDEPOSIT = "0.01";//"20.00";
 
 
     // NSNotification userInfo keys:
@@ -642,7 +690,7 @@ public final class AppConstant {
 
     // Define constant variable for Map
 
-    public static final String PLACE_API_BASE           = "https://maps.googleapis.com/maps/api/place";
+    public static final String PLACE_API_BASE            = "https://maps.googleapis.com/maps/api/place";
     public static final String PLACE_TYPE_AUTOCOMPLETE   = "/autocomplete";
     public static final String PLACE_TYPE_NEARBY         = "/nearbysearch";
     public static final String PLACE_KEY                 = "?key=";
@@ -701,6 +749,12 @@ public final class AppConstant {
     public static final String BD_GEOCODER_CITY              = "city";
 
 
+    // Define constant variable for json request return
+    public static final String SPORT_JSON_3RD           = "3rd";
+    public static final String SPORT_JSON_PAYNO         = "paynumber";
+    public static final String SPORT_JSON_SMSCODE       = "smscode";
+    public static final String SPORT_JSON_ERRCODE       = "errcode";
+    public static final String SPORT_JSON_SUCCESS       = "0";
 
 
 

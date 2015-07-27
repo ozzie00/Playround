@@ -86,31 +86,13 @@ public final class PrimeBusinessActivity extends BaseActivity  {
 
     private static final String TAG           = "PrimeBusinessActivity";
 
-    public static final String DATEPICKER_TAG = "datepicker";
-    public static final String TIMEPICKER_TAG = "timepicker";
 
     private final Context context = PrimeBusinessActivity.this;
-    private EditText mworkoutnameText;
-    private EditText mdescriptionedit;
-    private TextView mcourtText;
-    private TextView mdateText;
-    private TextView mtimeText;
-    private TextView mdescriptionText;
 
     private ParseGeoPoint mGeoPoint;
     private ParseUser muser        = ParseUser.getCurrentUser();
     private String mworkoutname    = null;
     private String msporttype      = null;
-    private String msporttypevalue = null;
-    private String minviteplaytime = null;
-    private String mcourt          = null;
-    private String mother          = null;
-    private String msubmittime     = null;
-
-    private String mdate           = null;
-    private String mhour           = null;
-
-    public MenuItem minviteadd;
 
     private static final int MAX_VENUE_SEARCH_RESULTS = 200;
 
@@ -218,6 +200,9 @@ public final class PrimeBusinessActivity extends BaseActivity  {
                                     mvenue.setIndoor(venue.getIndoor());
                                     mvenue.setPublic(venue.getPublic());
                                     mvenue.setObjectId(venue.getObjectId());
+                                    mvenue.setBusiness(venue.getBusiness());
+                                    mvenue.setPrice(venue.getPrice());
+                                    mvenue.setPrimeInfo(venue.getPrimeInfo());
 
                                     if (msuggest.size() < MAX_VENUE_SEARCH_RESULTS) {
                                         msuggest.add(mvenue);
@@ -288,6 +273,9 @@ public final class PrimeBusinessActivity extends BaseActivity  {
                                     mvenue.setIndoor(venue.getIndoor());
                                     mvenue.setPublic(venue.getPublic());
                                     mvenue.setObjectId(venue.getObjectId());
+                                    mvenue.setBusiness(venue.getBusiness());
+                                    mvenue.setPrice(venue.getPrice());
+                                    mvenue.setPrimeInfo(venue.getPrimeInfo());
 
                                     if (msuggest.size() < MAX_VENUE_SEARCH_RESULTS) {
                                         msuggest.add(mvenue);

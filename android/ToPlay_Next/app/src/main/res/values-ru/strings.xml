@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Playround</string>
+    <string name="app_version">Playround Android v.1.0.4.15</string>
+
+    <!-- Strings related to activity -->
+    <string name="action_settings">Settings</string>
+
+    <!--third id and key -->
+    <string name="facebook_app_id">846009488767381</string>
+
+    <!-- Strings related to activity -->
+    <string name="mainactivity_title">Playround</string>
+    <string name="loginactivity_title">Playround</string>
+    <string name="meactivity_title">Меня</string>
+    <string name="mysportactivity_title">Мое приглашение</string>
+    <string name="matchdetailactivity_title">Деталь тренировки</string>
+    <string name="settingactivity_title">Настройка</string>
+    <string name="inviteactivity_title">Пригласить</string>
+    <string name="joinactivity_title">Присоединиться к</string>
+    <string name="localactivity_title">Приглашение</string>
+    <string name="messagelistactivity_title">Сообщение</string>
+    <string name="messagereplyactivity_title">Ответ</string>
+
+    <string name="action_Invite">Пригласить</string>
+    <string name="action_search">Поиск</string>
+    <string name="action_message">Сообщение</string>
+    <string name="action_map">Карта</string>
+    <string name="action_local">Вблизи приглашение</string>
+    <string name="search_hint">Поиск места</string>
+    <string name="search_settings">Поиск места</string>
+
+    <!-- Strings related to common -->
+    <string name="action_setting">Настройка</string>
+    <string name="login">Логин</string>
+    <string name="signup">Зарегистрироваться</string>
+    <string name="logout_full">Выход</string>
+    <string name="post_out_of_range">Это далеко.</string>
+    <string name="progress_invite">Приглашение&#8230;</string>
+    <string name="progress_send">Отправка&#8230;</string>
+    <string name="progress_join">Присоединение&#8230;</string>
+    <string name="hostplayerusername">Имя пользователя</string>
+    <string name="progress_local">Загрузка&#8230;</string>
+    <string name="OMEPARSELOGOUT">Выход</string>
+    <string name="OMEPARSELOGIN">Логин</string>
+    <string name="OMEPARSESETTING">Настройка</string>
+    <string name="OMEPARSEOK">Хорошо</string>
+    <string name="OMEPARSEYES">Да</string>
+    <string name="OMEPARSENO">Нет</string>
+
+    <!-- Strings related to invite activity -->
+
+    <!-- <string name="OMEPARSEWANTTOKEY">want to </string> -->
+    <string name="OMEPARSEINVITEPLAYDATE">Дата</string>
+    <string name="OMEPARSEINVITEPLAYHOUR">Стойка</string>
+    <string name="OMEPARSEINVITEPLAYBUTTON">Пригласите играть</string>
+    <string name="OMEPARSEINVITESPORTTYPECHOOSE">Выберите Спорт</string>
+    <string name="OMEPARSEINVITEPLAYERLEVELCHOOSE">Выбрать уровень</string>
+    <string name="OMEPARSEINVITEPLAYERNUMBERCHOOSE">Выбрать номер</string>
+    <string name="OMEPARSEINVITEPLAYFEECHOOSE">Выберите плату</string>
+    <string name="OMEPARSEINVITELOGINALERT">Войдите или Зарегистрируйтесь!</string>
+    <string name="OMEPARSEINVITEREALLYPLAY">Вы действительно играть с кем-то?</string>
+    <string name="OMEPARSEINVITEOTHERDEFAULT">Хороший приятель</string>
+    <string name="OMEPARSEINVITECOURTDEFAULT">Москва</string>
+    <string name="OMEPARSEINVITEFEEDEFAULT">AA</string>
+    <string name="OMEPARSEINVITEFEEFREE">Бесплатно</string>
+    <string name="OMEPARSEINVITEPLAYERSUBMITSUCCESSALERTINFO">Успешно представить долю, пожалуйста, подождите, кто-то для соединения!</string>
+
+    <string name="OMEPARSEINVITESPORTPROMPT">Выберите ваш любимый вид спорта</string>
+
+    <!-- Strings related to sport type for invite activity -->
+    <string-array name="sport_type_array">
+
+        <item>Бадминтон</item>
+        <item>Бейсбол</item>
+        <item>Баскетбол</item>
+        <item>Пляжный волейбол</item>
+        <item>Боулинг</item>
+        <item>Крикет</item>
+        <item>Футбол, американский</item>
+        <item>Футбол, регби</item>
+        <item>Футбол, футбол</item>
+        <item>Гольф</item>
+        <item>Гандбол</item>
+        <item>Хоккей</item>
+        <item>Поло</item>
+        <item>Хоккей на льду</item>
+        <item>Сквош</item>
+        <item>Настольный футбол</item>
+        <item>Настольный теннис</item>
+        <item>Теннис</item>
+        <item>Волейбол</item>
+        <item>Водное поло</item>
+        <item>Снукер</item>
+
+        <item>Велоспорт Горный велосипед</item>
+        <item>Велоспорт дорога</item>
+        <item>Фитнес ходьбе</item>
+        <item>Запуск</item>
+        <item>ходьба</item>
+        <item>бегущая дорожка</item>
+        <item>Поход</item>
+
+        <item>каноэ</item>
+        <item>дайвинг</item>
+        <item>кайтсерфинг</item>
+        <item>гребля</item>
+        <item>парусный спорт</item>
+        <item>подводное плавание с аквалангом</item>
+        <item>серфинг</item>
+        <item>плавание</item>
+        <item>виндсерфинг</item>
+
+        <item>Каньонинг</item>
+        <item>Обрушение</item>
+        <item>Альпинизм</item>
+        <item>ледолазание</item>
+        <item>спортивное ориентирование</item>
+        <item>Скейтбординг</item>
+
+        <item>стрельба из лука</item>
+        <item>стрельба</item>
+        <item>дартс</item>
+
+        <item>Горные Лыжи</item>
+        <item>бобслей</item>
+        <item>Беговые лыжи</item>
+        <item>тобогган-одиночка</item>
+        <item>Ролик на лыжах</item>
+        <item>Прыжки С Трамплина</item>
+        <item>спорт</item>
+        <item>Прогулка на снегоступах</item>
+        <item>конькобежный спорт</item>
+        <item>Краткое катание треку</item>
+        <item>катание на коньках</item>
+        <item>скелет</item>
+        <item>керлинг</item>
+
+        <item>бокс</item>
+        <item>танцы</item>
+        <item>Эллиптический обучение</item>
+        <item>ограждение</item>
+        <item>гимнастика</item>
+        <item>дзюдо</item>
+        <item>боевые искусства</item>
+        <item>пилатес</item>
+        <item>покер</item>
+        <item>верховая езда</item>
+        <item>тхэквондо</item>
+        <item>Trampoline</item>
+        <item>силовые тренировки</item>
+        <item>инвалидное кресло</item>
+        <item>борьба</item>
+        <item>йога</item>
+        <item>другой</item>
+
+
+    </string-array>
+
+
+    <!-- Strings related to join activity -->
+    <string name="OMEPARSEINVITEPLAYCOURTPLACEHOLD">Введите суд</string>
+    <string name="OMEPARSEINVITEPLAYOTHERPLACEHOLD">Введите другое требование</string>
+    <string name="OMEPARSEINVITEPLAYERALERTINFO">Вы действительно присоединиться игру?</string>
+    <string name="OMEPARSEINVITEREQUIREMENTSPORTTYPE">Спорт Тип</string>
+    <string name="OMEPARSEINVITEREQUIREMENTPLAYERNUMBER">число</string>
+    <string name="OMEPARSEINVITEREQUIREMENTPLAYERLEVEL">Играть уровень</string>
+    <string name="OMEPARSEINVITEREQUIREMENTTIME">время</string>
+    <string name="OMEPARSEINVITEREQUIREMENTCOURT">суд</string>
+    <string name="OMEPARSEINVITEREQUIREMENTFEE">плата</string>
+    <string name="OMEPARSEINVITEREQUIREMENTOTHER">другой</string>
+    <string name="OMEPARSEINVITEJOINPLAYHEADER"> </string>
+    <string name="OMEPARSEINVITEJOINPLAYBUTTON">другой</string>
+    <string name="OMEPARSEINVITEPLAYERJOINPLAYSUCCESSALERTINFO">Успешно отправить запрос, пожалуйста, подождите ответа!</string>
+    <string name="OMEPARSEMESSAGEJOINPLAYREQUESTFIRSTPART">Привет</string>
+    <string name="OMEPARSEMESSAGEJOINPLAYREQUESTSECONDPART">я</string>
+    <string name="OMEPARSEMESSAGEJOINPLAYREQUESTTHIRDPART"> с тобой</string>
+    <string name="OMEPARSEWANTTOKEY">хочу</string>
+
+
+
+
+    <string name="OMEPARSEINVITETITLEPLAY">играть</string>
+
+
+
+    <!-- Strings related to login -->
+    <string name="title_activity_login">Войти</string>
+    <string name="title_activity_signup">Регистр</string>
+    <string name="prompt_username">Имя пользователя</string>
+    <string name="prompt_password">пароль</string>
+    <string name="prompt_password_again">Пароль Снова</string>
+    <string name="error_intro">"пожалуйста "</string>
+    <string name="error_blank_username">введите имя пользователя</string>
+    <string name="error_blank_password">Введите пароль</string>
+    <string name="error_mismatched_passwords">введите тот же пароль дважды</string>
+    <string name="error_join">", и "</string>
+    <string name="error_end">.</string>
+    <string name="progress_login">Войти&#8230;</string>
+    <string name="progress_signup">Регистр&#8230;</string>
+
+
+
+    <!-- String related to map info -->
+    <string name="current_location_unavailable">Пожалуйста, попробуйте еще раз после того, как появляется на карте ваше местоположение.</string>
+    <string name="google_play_service_unavailable">Это устройство не поддерживает Google Play услуги !</string>
+    <string name="switch_to_china_map">Переключить карту сервис !</string>
+    <string name="cannot_access_server">Не можете получить доступ к серверу, пожалуйста, повторно Войти !</string>
+    <string name="locate_fail">Получить место не удалось в 12 секунд, остановка найти!</string>
+    <string name="google_map_unavailable">Карта Google не может получить доступ !</string>
+
+
+    <!-- String related to feedback -->
+    <string name="OMEPARSEFEEDBACK">обратная связь</string>
+    <string name="OMEPARSEFEEDBACKSENDBUTTON">послать</string>
+    <string name="OMEPARSEFEEDBACKSENDING">Отправка&#8230;</string>
+    <string name="OMEPARSEFEEDBACKHINT">Спасибо за ваши отзывы и предложения, Playround команды будет следовать ваши отзывы и предложения по улучшению Playround приложение Perfomance!\n\n                   @Playround Team</string>
+
+
+    <!-- String related to message reply -->
+    <string name="OMEPARSEMESSAGEREPLYBUTTON">послать</string>
+
+
+    <!--String related to user status-->
+    <string name="OMEPARSEUSERSTATUSONLINE">онлайн</string>
+    <string name="OMEPARSEUSERSTATUSOFFLINE">оффлайне</string>
+    <string name="OMEPARSEUSERSTATUSAWAY">далеко</string>
+    <string name="OMEPARSEUSERSTATUSBUSY">Занят</string>
+
+
+
+    <!--String related to me activity-->
+    <string name="OMEPARSEMEMYSPORTTITLE">Мой тренировки</string>
+    <string name="OMEPARSEMEMATCHDETAILTITLE">Тренировка Деталь</string>
+    <string name="OMEPARSEMEMYSPORT">Мой Спорт</string>
+    <string name="OMEPARSEMEMYCOURTADDRESS">Мой Место Адрес</string>
+    <string name="OMEPARSEMEMYSETTINGS">настройки</string>
+    <string name="OMEPARSEMEMYSETTINGSNOTIFICATIONSHEADER">Уведомления</string>
+    <string name="OMEPARSEMEMYSETTINGSGENERALHEADER">Общая Информация</string>
+    <string name="OMEPARSEMEMYSETTINGMATCHDETAILPLAYERS">игроки</string>
+    <string name="OMEPARSEMEPROFILEPLAYROUNDID">Playround ID</string>
+    <string name="OMEPARSEMEPROFILEALIAS">псевдоним</string>
+    <string name="OMEPARSEMEPROFILEAVATAR">псевдоним</string>
+    <string name="OMEPARSEMEPROFILEQRCODE">QR код</string>
+    <string name="OMEPARSEMEPROFILECHOOSEIMAGE">Выберите фото</string>
+    <string name="OMEPARSEMEPROFILETAKEPHOTO">Фотографировать</string>
+    <string name="OMEPARSEMESPORTNOONEPLAYER">Ни один игрок не присоединиться в этом матче, будьте терпеливы!</string>
+
+
+
+
+
+
+
+
+
+
+    <!--String related to chat-->
+    <string name="OMEPARSECHATFILETRANMITFINISH">отделка</string>
+    <string name="OMEPARSECHATFILETRANMITFAILED">провал</string>
+    <string name="OMEPARSECHATFILETRANMITREQUEST">Запрос на отправку файла</string>
+    <string name="OMEPARSECHATFILETRANMITREJECT">отклонить</string>
+    <string name="OMEPARSECHATTYPING">набрав...</string>
+
+
+
+
+
+    <!--String related to add contact-->
+    <string name="OMEPARSEADDCONTACTSEARCHHINT">Playround ID</string>
+    <string name="OMEPARSEADDCONTACTSEARCHSETTING">Поиск Контакты</string>
+    <string name="OMEPARSEADDCONTACTMYID">Мой Playround ID:</string>
+    <string name="OMEPARSEADDCONTACTFRIENDRADAR">Друг Радар</string>
+    <string name="OMEPARSEADDCONTACTNEARBYNOTE">Найти друга в ваш неподалеку</string>
+    <string name="OMEPARSEADDCONTACTSCANQRCODE">Сканирование QR-код</string>
+    <string name="OMEPARSEADDCONTACTSCANQRCODENOTE">Сканирование QR-код визитную карточку</string>
+    <string name="OMEPARSEADDCONTACTSEARCHUSERNAMEERROR">Поиск Имя пользователя не может быть пустым</string>
+    <string name="OMEPARSEADDCONTACTSEARCHDISPLAYRESULTTITLE">результат</string>
+    <string name="OMEPARSEADDCONTACTSEARCHDISPLAYPROFILE">профиль</string>
+    <string name="OMEPARSEADDCONTACTEXT">добавить</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTTITLE">Послать Запрос</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTTEXT">послать</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTMESSAGE">Написать сообщение...</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTSUCCESS">Успешно отправить сообщение с запросом</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTINVALIDFRIENDID">Неверный ID</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTFRIENDEXIST">Друг существует</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTADDYOURSELF">Вы не можете добавить себя</string>
+    <string name="OMEPARSEADDCOTACTSHAREQRCODEWITH">Поделиться с</string>
+    <string name="OMEPARSEADDCONTACTADDMENOTE">Сканирование мой QR код, чтобы добавить меня в Playround</string>
+    <string name="OMEPARSEADDCONTACTDEFAULTREQUESTMESSAGE">он хочет быть вашим другом !</string>
+    <string name="OMEPARSEADDCONTACTREQUESTNOTEIAM">я</string>
+
+
+
+
+
+
+    <string name="notifications">Показать Уведомления</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Activity titles -->
+    <string name="title_activity_add_friend">Добавить Контакт</string>
+    <string name="title_activity_friend_profile">Друг профиля</string>
+
+    <!-- Navigation / Action Bar -->
+    <string name="add_friend">Добавить Друга</string>
+
+    <!-- Login Activity -->
+    <string name="login_must_fill_in">Вы должны заполнить имя профиля</string>
+    <string name="login_login">Войти</string>
+    <string name="login_account_hint">Имя Профиля</string>
+    <string name="login_create_account_text">Создать профиль</string>
+    <string name="login_bad_login">нет непросроченный имя пользователя</string>
+
+    <!-- Create Account Activity -->
+    <string name="create_name_hint">Имя Профиля</string>
+    <string name="create_text">Слоган Здесь</string>
+    <string name="create_register">Регистр</string>
+    <string name="create_register_incog">Регистрация Инкогнито</string>
+    <string name="create_skip">Разрешить всем, чтобы добавить вам, используя имя профиля</string>
+    <string name="create_must_fill_in">Вы должны заполнить все поля</string>
+    <string name="create_bad_profile_name">Имя профиля может, Нотт содержать пробелы или слэш / forwardslashes</string>
+
+    <!-- Main Activity -->
+    <string name="main_no_active_chat">Нет активного чат. Начните, выбрав один друг из панели слева.</string>
+    <string name="main_message_no">Нет Сообщений</string>
+    <string name="main_no_internet">Подключение К Интернету Отсутствует</string>
+    <string name="main_not_connected">Нет подключение к интернету не обнаружено. Без подключения к интернету, вы будете иметь
+         ограниченная функциональность если вы используете Playround для локальной сети только</string>
+    <string name="search_all_contacts">поиск</string>
+
+    <!-- Chat Activity -->
+    <string name="chat_enter_message">Отправить сообщение</string>
+    <string name="chat_file_transfer">передача файлов</string>
+
+    <!-- Add Friend Activity -->
+    <string name="addfriend_friend_key">Playround ID</string>
+    <string name="addfriend_friend_message">Отправить сообщение с просьбой</string>
+    <string name="addfriend_button">Добавить Друга</string>
+    <string name="addfriend_friend_added">Друг Добавлено</string>
+    <!-- <string name="addfriend_friend_exists">Friend already exists</string>-->
+    <string name="scanqr_button">Сканирование QR код</string>
+    <!-- <string name="invalid_friend_ID">Invalid ID</string>-->
+    <string name="addfriend_nick_hint">Установите прозвище для вашего друга</string>
+    <string name="addfriend_optional_title">Дополнительные опции</string>
+    <string name="dialog_pin">Введите PIN-код другом  ы</string>
+    <string name="addfriend_invalid_pin">Неверный Pin</string>
+    <!--  <string name="addfriend_own_key">You cannot add yourself</string> -->
+    <string name="addfriend_friend_pin_title">Введите Друг  Pin</string>
+    <string name="addfriend_friend_pin_text">Введите Друг Pin</string>
+    <string name="addfriend_default_message">Привет! Примите мою просьбу друга</string>
+
+    <!-- Friend Profile Activity -->
+    <string name="friend_profile_nick">прозвище</string>
+    <string name="friend_profile_key">ID</string>
+    <string name="friend_profile_note">статус</string>
+    <string name="friend_profile_button">обновление</string>
+    <string name="friend_profile_updated">Профиль был обновлен</string>
+    <string name="friend_profile_copied">ID скопированных</string>
+
+    <!-- Friend request fragment -->
+    <string name="friend_profile_title">%1$ S\'Профиль</string>
+    <string name="friendrequest_accept">принимать</string>
+    <string name="friendrequest_reject">отклонить</string>
+    <string name="friend_request">Новый друг Запрос</string>
+
+    <!-- Contacts Fragment -->
+    <string name="friend_action_profile">профиль</string>
+    <string name="friend_action_delete">Удалить друзья</string>
+    <string name="friend_action_delete_chat">Удалить логи чатов</string>
+    <string name="friend_action_block">блок</string>
+    <string name="contacts_actions_on">Действия по</string>
+    <string name="contacts_delimiter_requests">Запросы</string>
+    <string name="contacts_delimiter_friends">Друзья</string>
+    <string name="contacts_delimiter_offline">Автономный режим</string>
+    <string name="contacts_delimiter_online">Онлайн</string>
+    <string name="contacts_resend_friend_request">Отправить запрос о дружбе</string>
+
+    <!-- Delete Friend Dialog -->
+    <string name="friend_action_delete_friend_confirmation">Вы уверены, что хотите удалить этот друг?</string>
+
+    <!-- Delete Chat Logs Dialog -->
+    <string name="friend_action_delete_chat_confirmation">Вы уверены, что вы хотите удалить журналы чата?</string>
+
+    <!-- Block Friend Dialog -->
+    <string name="friend_action_block_friend_confirmation">Блокировка этого пользователя будет удалить их из вашего списка друзей, и вы больше не увидите друг
+запросы от them.\n\nAre вы уверены, что вы хотите продолжить?</string>
+
+    <!-- Chat Fragment -->
+    <string name="attachment_photo">Прикрепить фото</string>
+    <string name="attachment_file">Прикрепить файл</string>
+    <string name="attachment_takephoto">Возьмите фото</string>
+    <string name="message_copy">Скопировать сообщение</string>
+    <string name="message_delete">Удалить сообщение</string>
+
+    <!-- Left Pane Fragment -->
+    <string name="titles_recent">Сообщение</string>
+    <string name="titles_contacts">Контакт</string>
+    <string name="titles_settings">Настройка</string>
+
+    <!-- Misc -->
+    <string name="button_confirm">Подтвердите</string>
+    <string name="button_cancel">Отмена</string>
+    <string name="button_yes">Да</string>
+    <string name="button_no">Не</string>
+    <string name="button_ok">Хорошо</string>
+    <string name="dialog_id">Скопируйте код в буфер обмена</string>
+    <string name="share_with">Поделиться с</string>
+    <string name="connection_has">имеет</string>
+    <string name="connection_online">оперативный</string>
+    <string name="connection_offline">пошли в автономном режиме</string>
+
+
+    <!-- QR -->
+    <string name="qr_default_title">Установка сканера штрих-кодов?</string>
+    <string name="qr_default_message">Это приложение требует сканер штрих-кодов. Вы хотели бы установить его?</string>
+    <string name="qr_button_yes">Да</string>
+    <string name="qr_button_no">Не</string>
+
+
+    <!--Add by playround 1.0.2.09 -->
+    <string name="myvenueactivity_title">Мои места</string>
+    <string name="OMEPARSEMEMYVENUEUPLOAD">Добавлено место адрес</string>
+    <string name="OMEPARSEMEMYVENUENAME">Название объекта общепита</string>
+    <string name="OMEPARSEMEMYVENUEADDRESS">Адрес места проведения</string>
+    <string name="OMEPARSEMEMYVENUEPHONE">Место проведения телефону</string>
+    <string name="OMEPARSEMEMYVENUENAMEPLACEHOLD">Введите имя</string>
+    <string name="OMEPARSEMEMYVENUEADDRESSPLACEHOLD">Введите адрес</string>
+    <string name="OMEPARSEMEMYVENUEPHONEPLACEHOLD">Введите номер телефона</string>
+    <string name="OMEPARSEMEMYVENUESUBMIT">Загрузить</string>
+    <string name="OMEPARSEMYVENUEHOMEVENUE">Дом поле</string>
+    <string name="OMEPARSEMYVENUEBACKUPVENUE">Резервное копирование</string>
+    <string name="OMEPARSEMYVENUERADAR">Место проведения радар</string>
+    <string name="myvenueradaractivity_title">Близлежащие места</string>
+    <string name="OMEPARSEMEMYVENUEDISTANCEKMNOTE">километров</string>
+    <string name="OMEPARSEMEMYVENUEDISTANCEMETERNOTE">метров отсюда</string>
+    <string name="myvenueuploadactivity_title">Добавлено место</string>
+    <string name="OMEPARSEMEMYVENUEASHOMEPLACEHOLD">Введите название объекта общепита</string>
+    <string name="OMEPARSESIGNUPDEVICEREGISTERED">Это устройство зарегистрированный!</string>
+    <string name="OMEPARSESIGNUPCANNOTGETDEVICEID">не могу получить идентификатор устройства!</string>
+    <string name="OMEPARSEUSERNAMEMINIMUMLENGTHSHOULDSIX">Длина имени пользователя должна за пределами 6 char!</string>
+    <string name="OMEPARSEUSERPASSWORDMINIMUMLENGTHSHOULDSIX">Длина пароля должна за пределами 6 char!</string>
+
+    <!--Add by playround 1.0.2.12 -->
+    <string name="OMEPARSEMEMYVENUEASBACKUPPLACEHOLD">Введите название объекта общепита</string>
+
+
+    <!--Add by playround 1.0.3.01 -->
+    <string name="OMEPARSECANNOTJOINYOURSELFALERT">Вы не можете присоединиться к этой тренировки!</string>
+
+    <!--Add by playround 1.0.4.02 -->
+    <string name="search_venue_hint">Введите место</string>
+    <string name="search_venue_settings">Место поиска</string>
+    <string name="OMEPARSEREGISTERASVENUEOWNERNOTE">Зарегистрироваться в качестве места проведения</string>
+    <string name="ownerinfouploadactivity_title">Добавлено информация экспоцентра</string>
+    <string name="OMEPARSESIGNUPERRORNOTE">Ошибка регистра</string>
+    <string name="OMEPARSEVENUEOWNERCONTACTEMAIL">Отправить по электронной почте</string>
+    <string name="OMEPARSEVENUEOWNERPHONEPLACEHOLD">Введите номер телефона</string>
+    <string name="OMEPARSELOGINUSERNAMEPASSWORDNOTMATCH">имя пользователя и пароль являются не матч</string>
+    <string name="OMEPARSECANNOTGETVENUEINFO">не может получить место информация</string>
+    <string name="OMEPARSEVENUEOWNERCONTACTPLACEHOLD">Введите адрес электронной почты</string>
+    <string name="OMEPARSEVENUEOWNERCHOOSEIDCOPY">Выберите ID копия фото</string>
+    <string name="OMEPARSEVENUEOWNERTAKEIDCOPY">Сфотографироваться для копирования ID</string>
+    <string name="OMEPARSEVENUEOWNERIDCOPY">Копия ID владельца</string>
+    <string name="OMEPARSEVENUEOWNERLICENSECOPY">Копия лицензии место</string>
+    <string name="OMEPARSECANNOTSAVEPARSEFILE">Не может сохранить файл!</string>
+    <string name="OMEPARSEVENUEOWNERUPDATE">Обновление информации о месте</string>
+
+    <string name="OMEPARSEVENUEOWNERWAITINGFORVERIFY">Пожалуйста ждет нашей проверки</string>
+
+
+    <string name="change_city">Изменить город</string>
+
+    <!-- Put your own APP ID here -->
+    <string name="open_weather_maps_app_id">ddc6b650db25f95454deaff67ab9f984</string>
+
+    <string name="OMEPARSEWEATHERSUNNY">&#xf00d;</string>
+    <string name="OMEPARSEWEATHERCLEARNIGHT">&#xf02e;</string>
+
+    <string name="OMEPARSEWEATHERFOGGY">&#xf014;</string>
+    <string name="OMEPARSEWEATHERCLOUDY">&#xf013;</string>
+    <string name="OMEPARSEWEATHERRAINY">&#xf019;</string>
+    <string name="OMEPARSEWEATHERSNOWY">&#xf01b;</string>
+    <string name="OMEPARSEWEATHERTHUNDER">&#xf01e;</string>
+    <string name="OMEPARSEWEATHERDRIZZLE">&#xf01c;</string>
+    <string name="OMWPARSEWEATHERPLACENOTFOUND">К сожалению, данные погоды найдены.</string>
+    <string name="OMEPARSEWEATHERHUMIDITY">Влажность</string>
+    <string name="OMEPARSEWEATHERPRESSURE">Давление</string>
+
+    <!--Add by playround 1.0.4.05 -->
+    <string name="OMEPARSEINVITECONTENTPLACEHOLD">Имя тренировки</string>
+    <string name="OMEPARSEINVITESPORT">Спорт</string>
+    <string name="OMEPARSEINVITELOCATION">Местоположение</string>
+    <string name="OMEPARSEINVITESTART">Начало</string>
+    <string name="OMEPARSEINVITEPARTICIPANT">Участник</string>
+    <string name="OMEPARSEINVITEDESCRIPTION">Описание</string>
+    <string name="action_invite_share">Доля приглашение с</string>
+    <string name="action_invite_add">Добавить предложение</string>
+    <string name="OMETOPLAYATWORD">в</string>
+    <string name="OMETOPLAYINWORD">в</string>
+    <string name="OMETOPLAYDONEWORD">Договорились</string>
+
+    <string name="invitesearchactivity_title">Местоположение</string>
+    <string name="OMEPARSEINVITESEARCHLOCATIONPLACEHOLD">Введите местоположение</string>
+    <string name="OMEPARSEINVITESEARCHLOCATIONCUSTOM">Пользовательское местоположение</string>
+
+    <string name="joininfofragment_title">Информация</string>
+    <string name="joinscoreboardfragment_title">Турнирная таблица</string>
+    <string name="joincommentfragment_title">Комментарии</string>
+
+    <string name="OMEPARSEJOININFOPLAYERTEXT">ИГРОК</string>
+    <string name="OMEPARSEJOININFOICECREAMTEXT">МОРОЖЕНОЕ</string>
+    <string name="OMEPARSEJOININFOPRIZETEXT">ПРЕМИЯ</string>
+    <string name="OMEPARSEJOININFOSCOREBOARDTEXT">ОЦЕНКА</string>
+    <string name="OMEPARSEDAYLEFTTEXT">ОСТАЛОСЬ ДНЕЙ</string>
+    <string name="OMEPARSEHOURLEFTTEXT">ЧАСОВ ОСТАЛОСЬ</string>
+
+
+    <string name="joincommentactivity_title">Комментарии</string>
+    <string name="joinlikeactivity_title">Любит</string>
+    <string name="joinscoreactivity_title">Баллы</string>
+    <string name="joinplayeractivity_title">Игроки</string>
+    <string name="meprofilreactivity_title">Профиль</string>
+
+    <string name="OMEPARSEJOINCOMMENTS">Комментарии</string>
+
+    <string name="OMEPARSEVENUEOWNERBOOKMANAGEMENT">Место проведения бронирования управления</string>
+
+    <string name="OMEPARSEJOINCOMMENTSUBMITFIRST">Вы можете представить первый комментарий</string>
+    <string name="OMEPARSEJOINLIKESUBMITFIRST">Вы можете быть первым пользователем, который любит это приглашение</string>
+    <string name="OMEPARSEMESSAGELISTFIRST">сообщение не для вас сейчас</string>
+
+    <string name="OMEPARSEINVITEFILLWORKOUTNAME">Пожалуйста, заполните Имя тренировки!</string>
+
+    <string name="venuesearchactivity_title">Поиск</string>
+
+
+    <!--Add by playround 1.0.4.07 -->
+    <string name="OMEPARSEFOLLOWING">ПОСЛЕ</string>
+    <string name="OMEPARSEFOLLOWERS">ПОСЛЕДОВАТЕЛИ</string>
+    <string name="OMEPARSEFOLLOW">СЛЕДУЙТЕ</string>
+    <string name="OMEPARSEMINUTELEFTTEXT">МИНУТЫ</string>
+    <string name="OMEPARSEWAITTILLNEXTTEXT">ПОДОЖДИТЕ ДО СЛЕДУЮЩЕГО</string>
+    <string name="OMEPARSEADDTEXT">ДОБАВИТЬ</string>
+    <string name="OMEPARSEADDCOMMENTTEXT">Добавить комментарий</string>
+    <string name="OMEPARSEFOLLOWINGLOWERCASE">следующие</string>
+    <string name="OMEPARSEFOLLOWERLOWERCASE">последователи</string>
+
+    <!--Add by playround 1.0.4.08 -->
+    <string name="venuedetailinfoactivity_title">Информация о месте</string>
+    <string name="myfollowingfragment_title">ПОСЛЕ</string>
+    <string name="myfollowerfragment_title">ПОСЛЕДОВАТЕЛИ</string>
+    <string name="venuecommentactivity_title">Комментарии</string>
+
+    <string name="OMEPARSECOURTSTEXT">Суды</string>
+    <string name="OMEPARSELIGHTEDTEXT">Освещенный</string>
+    <string name="OMEPARSEINDOORTEXT">Крытый</string>
+    <string name="OMEPARSEPLAYERSTEXT">Игроки</string>
+    <string name="OMEPARSEACCESSTEXT">Доступ к</string>
+    <string name="OMEPARSESELECTASHOMEFIELD">Выберите в качестве домашнего поля</string>
+    <string name="OMEPARSEMYHOMEFIELD">Мой дом поле</string>
+
+    <!--Add by playround 1.0.4.09 -->
+    <string name="bookingactivity_title">Бронирование места</string>
+    <string name="OMEPARSEDATETEXT">Дата</string>
+    <string name="OMEPARSETIMETEXT">Время</string>
+    <string name="OMEPARSEVENUEBOOKINGDEPOSIT">Аванс-депозит</string>
+    <string name="OMEPARSEVENUEBOOKINGTHISVENUE">Бронирование это место</string>
+    <string name="OMEPARSECONFIRMTEXT">Подтвердить заказ</string>
+    <string name="OMEPARSEREMARK">Замечание</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOW">Необходимо знать для бронирования:</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWONE">1. Коснитесь пункта выше каждый параметр, чтобы задать дату, время и замечание</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWTWO">2. Этот 20-аванс-депозита</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWTHREE">3. этот аванс-депозита будет возвращена после окончания тренировки в зале</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWFOUR">4. этот аванс-депозита будет возвращена если бронирование места быть не успешный</string>
+    <string name="OMEPARSEINVITEMUSTKNOW">Необходимо знать для приглашения:</string>
+    <string name="OMEPARSEINVITEMUSTKNOWONE">1. Коснитесь пункта выше каждый параметр, чтобы задать спорта, место, Дата, время и описание</string>
+    <string name="OMEPARSEBOOKINGCONFIRMTITLE">Подтвердите этот заказ</string>
+    <string name="OMEPARSEVENUEBOOKINGDESCRIPTION">Согласно контракту, возврат этот аванс-депозита после окончания тренировки в месте</string>
+    <string name="OMEPARSEPAYSUCCESS">Оплатить успешно</string>
+    <string name="OMEPARSEPAYFAIL">Платить не удалось</string>
+    <string name="OMEPARSEPAYINPROGRESS">Платить в прогресс</string>
+    <string name="OMEPARSEBOOKINGPAYMUSTKNOW">Необходимо знать для оплаты:</string>
+    <string name="OMEPARSEBOOKINGPAYMUSTKNOWONE">1. Пожалуйста, проверьте место, время и номер мобильного телефона</string>
+    <string name="OMEPARSEBOOKINGPAYMUSTKNOWTWO">2. Пожалуйста, проверьте платежный счет, если же учетной записью пользователя параметр оплата, возврат будет выплачивать настройки оплаты учетной записи пользователя</string>
+    <string name="OMEPARSEBOOKINGRESULTNOTIFICATION">Мы будем уведомлять результат бронирования и возврата аванса</string>
+    <string name="OMEPARSEPHONENUMBERTEXT">Номер мобильного телефона</string>
+    <string name="OMEPARSEPAYUSEMETHODTEXT">С помощью Alipay платить</string>
+
+    <!--Add by playround 1.0.4.10 -->
+    <string name="navdrawer_item_explore">Исследовать</string>
+    <string name="navdrawer_item_venue">Место проведения</string>
+    <string name="navdrawer_item_workout">Тренировки</string>
+    <string name="navdrawer_item_map">Карта</string>
+    <string name="navdrawer_item_setting">Параметры</string>
+    <string name="navdrawer_item_message">Сообщения</string>
+    <string name="OMEPARSEVENUEACCESSPUBLIC">Общественности</string>
+    <string name="OMEPARSEVENUEACCESSPRIVATE">Частные</string>
+
+    <!--Add by playround 1.0.4.12 -->
+    <string name="OMEPARSEINVITECAMERA">Фото</string>
+
+    <!--Add by playround 1.0.4.13 -->
+    <string name="OMEPARSEVENUESEARCHCITY">Город</string>
+    <string name="venuetypesearchactivity_title">Место проведения</string>
+    <string name="OMEPARSEADDVENUECONTENTPLACEHOLD">Название объекта общепита</string>
+    <string name="OMEPARSEADDVENUETYPE">Тип</string>
+
+    <!--Add by playround 1.0.4.15 -->
+    <string name="OMEPARSEBUYTEXT">BUY</string>
+    <string name="OMEPARSEVENUEPRIMEMEMBERSHIPNOTE">Простое членство</string>
+    <string name="OMEPARSEVENUEPRICKPRIMEMEMBERSHIP">Выбрать премьер членство</string>
+    <string name="buyprimemembershipactivity_title">Простое членство</string>
+    <string name="OMEPARSEPRIMETEXT">Премьер</string>
+    <string name="OMEPARSECONFIRMBUYTEXT">Подтвердить купить</string>
+    <string name="OMEPARSEBUYPRIMEMEMBERSHIPMUSTKNOW">Необходимо знать для покупки:</string>
+    <string name="OMEPARSEBUYPRIMEMEMEBERSHIPMUSTKNOWONE">1. проверить премьер членство</string>
+    <string name="OMEPARSEBUYPRIMEMEMEBERSHIPMUSTKNOWTWO">2. Выберите пункт номер телефона для установки телефона для получения СМС с верификационным кодом</string>
+    <string name="OMEPARSEFEETEXT">Плата</string>
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPMUSTKNOWONE">1. Пожалуйста, проверьте премьер, сбор и номер телефона</string>
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPMUSTKNOWTWO">2. Если оплата произведена успешно, вы будете получать одно СМС с верификационным кодом, затем использовать его для тренировки</string>
+
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPDESCRIPTION">Пожалуйста, SMS код для тренировки</string>
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPNOTIFICATION">Оплатить успешно, вы будете получать SMS код проверки</string>
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPNOCHOOSE">Пожалуйста, выберите премьер!</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</resources>

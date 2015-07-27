@@ -4,7 +4,7 @@ package com.oneme.toplay;
 import com.oneme.toplay.R;
 import com.oneme.toplay.database.Invite;
 import com.oneme.toplay.base.AppConstant;
-import com.oneme.toplay.join.JoinActivity;
+import com.oneme.toplay.join.JoinNextActivity;
 import com.oneme.toplay.me.SettingActivity;
 
 import com.oneme.toplay.LoginActivity;
@@ -293,7 +293,7 @@ public class MapActivity extends ActionBarActivity  implements LocationListener,
                 return;
             }
 
-            Intent invokeJoinActivityIntent = new Intent(MapActivity.this, JoinActivity.class);
+            Intent invokeJoinActivityIntent = new Intent(MapActivity.this, JoinNextActivity.class);
             invokeJoinActivityIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             invokeJoinActivityIntent.putExtra(Application.INTENT_EXTRA_LOCATION, userLocation);
             startActivity(invokeJoinActivityIntent);

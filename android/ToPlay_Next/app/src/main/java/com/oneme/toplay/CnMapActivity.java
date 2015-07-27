@@ -791,38 +791,17 @@ public class CnMapActivity extends FragmentActivity implements LocationSource, A
 
 
 
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
 
-import android.app.Activity;
-import android.app.PendingIntent;
-import android.content.Intent;
-import android.graphics.Color;
 import android.location.Location;
-import android.os.Bundle;
-import android.os.Handler;
-import android.support.v4.app.FragmentActivity;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.RadioGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
 
 import java.util.HashMap;
@@ -832,23 +811,14 @@ import java.util.Map;
 import java.util.Set;
 
 
-import com.baidu.mapapi.map.OverlayOptions;
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.database.Invite;
-import com.oneme.toplay.invite.InviteActivity;
-import com.oneme.toplay.join.JoinActivity;
-import com.oneme.toplay.local.CnLocalActivity;
-import com.oneme.toplay.local.LocalActivity;
-import com.oneme.toplay.me.SettingActivity;
-
-import com.oneme.toplay.LoginActivity;
 
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseGeoPoint;
-import com.parse.ParseUser;
 
 
 //import com.oneme.toplay.SDKReceiver;
@@ -863,13 +833,11 @@ import com.baidu.mapapi.map.BitmapDescriptorFactory;
 import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
-import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationConfiguration.LocationMode;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
 import com.baidu.mapapi.map.Circle;
-import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.SupportMapFragment;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Playround</string>
-    <string name="app_version">Playround Android v.1.0.4.14</string>
+    <string name="app_version">Playround Android v.1.0.4.15</string>
 
     <!-- Strings related to activity -->
     <string name="action_settings">Settings</string>
@@ -66,14 +66,9 @@
     <string name="OMEPARSEINVITEFEEFREE">Free</string>
     <string name="OMEPARSEINVITEPLAYERSUBMITSUCCESSALERTINFO">Successfully submit share, please wait someone for join!</string>
 
-
-    <!-- Strings related to sport type for invite activity -->
-
-
     <string name="OMEPARSEINVITESPORTPROMPT">Select Your Favourite Sport</string>
 
-
-    <!-- Strings related to car brand -->
+    <!-- Strings related to sport type for invite activity -->
     <string-array name="sport_type_array">
 
         <item>Badminton</item>
@@ -609,7 +604,7 @@
     <string name="OMEPARSEBOOKINGPAYMUSTKNOWONE">1. Please check venue, time and mobile phone number</string>
     <string name="OMEPARSEBOOKINGPAYMUSTKNOWTWO">2. Please check payment account if the same as user setting payment account, refund will pay to user setting payment account</string>
     <string name="OMEPARSEBOOKINGRESULTNOTIFICATION">We will notify booking result and refund advance deposit</string>
-    <string name="OMEPARSEPHONENUMBERTEXT">Mobile Number</string>
+    <string name="OMEPARSEPHONENUMBERTEXT">Phone Number</string>
     <string name="OMEPARSEPAYUSEMETHODTEXT">Using Alipay to pay</string>
 
     <!--Add by playround 1.0.4.10 -->
@@ -630,6 +625,26 @@
     <string name="venuetypesearchactivity_title">Venue</string>
     <string name="OMEPARSEADDVENUECONTENTPLACEHOLD">Venue Name</string>
     <string name="OMEPARSEADDVENUETYPE">Type</string>
+
+    <!--Add by playround 1.0.4.15 -->
+    <string name="OMEPARSEBUYTEXT">BUY</string>
+    <string name="OMEPARSEVENUEPRIMEMEMBERSHIPNOTE">Prime membership</string>
+    <string name="OMEPARSEVENUEPRICKPRIMEMEMBERSHIP">Pick prime membership</string>
+    <string name="buyprimemembershipactivity_title">Prime Membership</string>
+    <string name="OMEPARSEPRIMETEXT">Prime</string>
+    <string name="OMEPARSECONFIRMBUYTEXT">Confirm Buy</string>
+    <string name="OMEPARSEBUYPRIMEMEMBERSHIPMUSTKNOW">Must know for buying :</string>
+    <string name="OMEPARSEBUYPRIMEMEMEBERSHIPMUSTKNOWONE">1. check prime membership</string>
+    <string name="OMEPARSEBUYPRIMEMEMEBERSHIPMUSTKNOWTWO">2. touch phone number item to set phone for receiving SMS verification code</string>
+    <string name="OMEPARSEFEETEXT">Fee</string>
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPMUSTKNOWONE">1. Please check prime,fee and phone number</string>
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPMUSTKNOWTWO">2. If pay successfully, you will receive one SMS verification code, then use it to workout</string>
+
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPDESCRIPTION">Please the SMS verification code to workout</string>
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPNOTIFICATION">Pay successfully, you will receive SMS verification code</string>
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPNOCHOOSE">Please choose prime!</string>
+
+
 
 
 
