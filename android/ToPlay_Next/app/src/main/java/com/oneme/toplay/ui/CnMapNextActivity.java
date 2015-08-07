@@ -337,6 +337,10 @@ public class CnMapNextActivity extends BaseActivity {
             cleanUpMarkers(new HashSet<String>());
             return;
         }
+
+        Application.setCurrentLatitude(Double.toString(myLoc.getLatitude()));
+        Application.setCurrentLongitude(Double.toString(myLoc.getLongitude()));
+
         final ParseGeoPoint myPoint = geoPointFromLocation(myLoc);
 
 
@@ -602,8 +606,10 @@ public class CnMapNextActivity extends BaseActivity {
 
 
             // map view
-            if (location == null || mMapView == null)
+            if (location == null || mMapView == null) {
                 return;
+            }
+
             MyLocationData locData = new MyLocationData.Builder()
                     .accuracy(location.getRadius())
                             // map directory

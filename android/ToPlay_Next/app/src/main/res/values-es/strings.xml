@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Playround</string>
-    <string name="app_version">Playround Android v.1.0.4.15</string>
+    <string name="app_version">Playround Android v.1.0.4.16</string>
 
     <!-- Strings related to activity -->
     <string name="action_settings">Ajustes</string>
@@ -153,7 +153,9 @@
         <item>Silla de ruedas</item>
         <item>Lucha libre</item>
         <item>Yoga</item>
-        <item>Otros</item>
+        <item>gimnasio</item>
+        <item>Patinaje en línea</item>
+        <item>Karting</item>
 
 
     </string-array>
@@ -642,6 +644,10 @@ una funcionalidad limitada, a menos que utilice Playround para LAN sólo</string
     <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPNOTIFICATION">Pago exitosamente, usted recibirá el código de verificación SMS</string>
     <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPNOCHOOSE">Por favor, elija el primer!</string>
 
+    <!--Add by playround 1.0.4.16 -->
+    <!-- Font family used when drawing letters for letter tile avatars.
+         Do not translate. -->
+    <string name="letter_tile_letter_font_family">sans-serif-light</string>
 
 
 

@@ -36,6 +36,7 @@ import android.widget.ListView;
 
 import com.oneme.toplay.adapter.VenueAdapter;
 import com.oneme.toplay.base.AppConstant;
+import com.oneme.toplay.base.CopyVenue;
 import com.oneme.toplay.base.VenueToIntentExtra;
 import com.oneme.toplay.database.Venue;
 import com.oneme.toplay.venue.DetailInfoActivity;
@@ -186,17 +187,7 @@ public class SearchVenueActivity extends ActionBarActivity {
                             if (e == null) {
                                 for (Venue venue : venueList) {
                                     Venue mvenue = new Venue();
-                                    mvenue.setName(venue.getName());
-                                    mvenue.setLevel(venue.getLevel());
-                                    mvenue.setType(venue.getType());
-                                    mvenue.setAddress(venue.getAddress());
-                                    // mvenue.setLocation(venue.getLocation());
-                                    mvenue.setPhone(venue.getPhone());
-                                    mvenue.setCourtNumber(venue.getCourtNumber());
-                                    mvenue.setLighted(venue.getLighted());
-                                    mvenue.setIndoor(venue.getIndoor());
-                                    mvenue.setPublic(venue.getPublic());
-                                    mvenue.setObjectId(venue.getObjectId());
+                                    CopyVenue.Done(venue, mvenue);
 
                                     if (msuggest.size() < mlimit) {
                                         msuggest.add(mvenue);
@@ -218,17 +209,7 @@ public class SearchVenueActivity extends ActionBarActivity {
                             if (e == null) {
                                 for (Venue venue : venueList) {
                                     Venue mvenue = new Venue();
-                                    mvenue.setName(venue.getName());
-                                    mvenue.setLevel(venue.getLevel());
-                                    mvenue.setType(venue.getType());
-                                    mvenue.setAddress(venue.getAddress());
-                                   // mvenue.setLocation(venue.getLocation());
-                                    mvenue.setPhone(venue.getPhone());
-                                    mvenue.setCourtNumber(venue.getCourtNumber());
-                                    mvenue.setLighted(venue.getLighted());
-                                    mvenue.setIndoor(venue.getIndoor());
-                                    mvenue.setPublic(venue.getPublic());
-                                    mvenue.setObjectId(venue.getObjectId());
+                                    CopyVenue.Done(venue, mvenue);
 
                                     if (msuggest.size() < mlimit) {
                                         msuggest.add(mvenue);

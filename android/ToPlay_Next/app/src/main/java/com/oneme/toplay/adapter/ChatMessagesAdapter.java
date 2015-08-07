@@ -10,7 +10,6 @@ import android.os.AsyncTask;
 import android.os.Environment;
 import android.support.v4.widget.ResourceCursorAdapter;
 import android.text.ClipboardManager;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;

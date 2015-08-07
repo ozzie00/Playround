@@ -756,8 +756,7 @@ public final class AppConstant {
     public static final String SPORT_JSON_ERRCODE       = "errcode";
     public static final String SPORT_JSON_SUCCESS       = "0";
 
-
-
-
+    // Used for lookup URI that contains an encoded JSON string.
+    public static final String LOOKUP_URI_ENCODED = "encoded";
 
 }

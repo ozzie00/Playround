@@ -29,7 +29,6 @@ import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -496,7 +495,7 @@ public class LocalAsyncActivity extends ActionBarActivity implements LocationLis
             JSONObject details      = detailsindex.getJSONArray("weather").getJSONObject(0);
             newsetWeatherIcon(weatherIcon, details.getInt("id"), 0);
         }catch(Exception e){
-            Log.e("SimpleWeather", "One or more fields not found in the JSON data  " + e.getMessage());
+
         }
     }
 

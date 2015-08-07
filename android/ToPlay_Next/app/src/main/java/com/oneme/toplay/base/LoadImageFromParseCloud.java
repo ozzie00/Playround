@@ -18,12 +18,15 @@ package com.oneme.toplay.base;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
-import com.oneme.toplay.R;
+import com.oneme.toplay.base.third.ContactPhotoManager;
+import com.oneme.toplay.base.third.ContactPhotoManager.DefaultImageRequest;
+import com.oneme.toplay.base.third.RoundedTransformationBuilder;
 import com.oneme.toplay.database.Invite;
 import com.oneme.toplay.database.Photo;
-import com.oneme.toplay.base.third.RoundedTransformationBuilder;
+import com.oneme.toplay.R;
 
 import com.parse.ParseFile;
 import com.parse.ParseUser;
@@ -62,11 +65,16 @@ public final class LoadImageFromParseCloud {
                         .transform(mtransformation)
                         .into(imageview);
             } else {
-                Picasso.with(context)
-                        .load(R.drawable.ome_default_avatar)
-                        .fit()
-                        .transform(mtransformation)
-                        .into(imageview);
+                Drawable drawable = ContactPhotoManager.getDefaultAvatarDrawableForContact(context.getResources(),
+                        false, new DefaultImageRequest(user.getUsername(), user.getUsername(), true));
+
+                imageview.setImageDrawable(drawable);
+
+                //Picasso.with(context)
+                //        .load(R.drawable.ome_default_avatar)
+                //        .fit()
+                //        .transform(mtransformation)
+                //        .into(imageview);
             }
         }
     }

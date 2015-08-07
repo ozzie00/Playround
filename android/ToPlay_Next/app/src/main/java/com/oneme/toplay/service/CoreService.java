@@ -10,7 +10,6 @@ import android.os.IBinder;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 import android.preference.PreferenceManager;
-import android.util.Log;
 
 import com.oneme.toplay.Application;
 

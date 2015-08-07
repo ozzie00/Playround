@@ -316,13 +316,15 @@ public class JoinNextActivity extends BaseActivity {
             mylikequery.findInBackground(new FindCallback<InviteLike>() {
                 @Override
                 public void done(List<InviteLike> inviteLikes, ParseException e) {
-                    for (InviteLike like : inviteLikes) {
-                        // This does not require a network access.
-                        String username = like.getAuthorUsername();
-                        if (musername.equals(username)) {
-                            mylike = true;
-                            mlikeimage.setImageDrawable(getResources().getDrawable(R.drawable.ic_menu_star_enable));
-                            break;
+                    if (e == null && !inviteLikes.isEmpty()) {
+                        for (InviteLike like : inviteLikes) {
+                            // This does not require a network access.
+                            String username = like.getAuthorUsername();
+                            if (musername.equals(username)) {
+                                mylike = true;
+                                mlikeimage.setImageDrawable(getResources().getDrawable(R.drawable.ic_menu_star_enable));
+                                break;
+                            }
                         }
                     }
                 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Playround</string>
-    <string name="app_version">Playround Android v.1.0.4.15</string>
+    <string name="app_version">Playround Android v.1.0.4.16</string>
 
     <!-- Strings related to activity -->
     <string name="action_settings">Settings</string>
@@ -152,7 +152,10 @@
         <item>инвалидное кресло</item>
         <item>борьба</item>
         <item>йога</item>
-        <item>другой</item>
+        <item>тренажерный зал</item>
+        <item>Роликовые коньки</item>
+        <item>Картинг</item>
+
 
 
     </string-array>
@@ -644,6 +647,11 @@
     <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPNOTIFICATION">Оплатить успешно, вы будете получать SMS код проверки</string>
     <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPNOCHOOSE">Пожалуйста, выберите премьер!</string>
 
+
+    <!--Add by playround 1.0.4.16 -->
+    <!-- Font family used when drawing letters for letter tile avatars.
+         Do not translate. -->
+    <string name="letter_tile_letter_font_family">sans-serif-light</string>
 
 
 

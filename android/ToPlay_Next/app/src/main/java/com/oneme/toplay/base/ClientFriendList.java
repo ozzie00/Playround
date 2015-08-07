@@ -1,6 +1,5 @@
 package com.oneme.toplay.base;
 
-import android.util.Log;
 
 import com.oneme.toplay.Application;
 

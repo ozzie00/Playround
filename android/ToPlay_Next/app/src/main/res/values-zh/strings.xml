@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">动动</string>
-    <string name="app_version">动动 安卓版 v.1.0.4.15</string>
+    <string name="app_version">动动 安卓版 v.1.0.4.16</string>
     
     <!-- Strings related to activity -->
     <string name="action_settings">设置</string>
@@ -157,7 +157,9 @@
         <item>轮椅运动</item>
         <item>摔跤</item>
         <item>瑜伽</item>
-        <item>其他</item>
+        <item>健身</item>
+        <item>轮滑</item>
+        <item>卡丁车</item>
 
 
 
@@ -599,6 +601,11 @@
 
     <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPNOCHOOSE">请选择会员服务!</string>
 
+
+    <!--Add by playround 1.0.4.16 -->
+    <!-- Font family used when drawing letters for letter tile avatars.
+         Do not translate. -->
+    <string name="letter_tile_letter_font_family">sans-serif-light</string>
 
 
 

@@ -26,7 +26,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -528,10 +527,10 @@ public final class AddVenueActivity extends BaseActivity implements OnDateSetLis
                 }
 
             } catch (MalformedURLException e) {
-                Log.e(TAG, "Error processing Places API URL", e);
+
 
             } catch (IOException e) {
-                Log.e(TAG, "Error connecting to Places API", e);
+
 
             } finally {
                 if (mconnection != null) {

@@ -26,6 +26,7 @@ public final class Sport {
 
     // Note: IndexOf is corresponding to getSportTypeValue of Invite class, and also is the same as
     // sport_type_array of strings.xml in values
+    // Other exchange with GYM because of history reason
     public static final ArrayList<String> msportarraylist = new ArrayList<>(Arrays.asList(
             "Badminton",
             "Baseball",
@@ -102,9 +103,14 @@ public final class Sport {
             "Wheelchair",
             "Wrestling",
             "Yoga",
-            "Other"));
+            "Other",
+            "Inline skating",
+            "Karting"
+    ));
 
-
+    // Note: IndexOf is corresponding to getSportTypeValue of Invite class, and also is the same as
+    // sport_type_array of strings.xml in values
+    // Other exchange with GYM because of history reason
     public static final int msporticonarray[] = {
             R.drawable.ome_badminton_icon,
             R.drawable.ome_baseball_icon,
@@ -181,6 +187,8 @@ public final class Sport {
             R.drawable.ome_wheelchair_icon,
             R.drawable.ome_wrestling_icon,
             R.drawable.ome_yoga_icon,
-            R.drawable.ome_other_icon
+            R.drawable.ome_gym_icon,
+            R.drawable.ome_inline_skating_icon,
+            R.drawable.ome_karting_icon
     };
 }

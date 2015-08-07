@@ -211,8 +211,6 @@ public class SearchActivity extends BaseActivity {
                 if (mresultJsonArray != null) {
                     // this one for user input string
                     msuggest = new ArrayList<LocationData>(mresultJsonArray.length() + 1);
-
-                    android.util.Log.d("BdPlace length ", Integer.toString(mresultJsonArray.length()));
                 }
 
                 LocationData muserinput = new LocationData();
@@ -662,11 +660,9 @@ public class SearchActivity extends BaseActivity {
 
             } catch (MalformedURLException me) {
 
-                android.util.Log.e("log_tag", "MalformedURLException in http connection " + me.toString());
 
             } catch (IOException ie) {
 
-                android.util.Log.e("log_tag", "IOException in http connection " + ie.toString());
 
             } finally {
                 if (mbdconnection != null) {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Playround</string>
-    <string name="app_version">Playround Android v.1.0.4.15</string>
+    <string name="app_version">Playround Android v.1.0.4.16</string>
 
     <!-- Strings related to activity -->
     <string name="action_settings">Pengaturan</string>
@@ -152,7 +152,9 @@
         <item>Kursi roda</item>
         <item>Gulat</item>
         <item>Yoga</item>
-        <item>Lainnya</item>
+        <item>Pusat Kebugaran</item>
+        <item>Inline skating</item>
+        <item>Karting</item>
 
 
     </string-array>
@@ -640,6 +642,11 @@ permintaan dari them.\n\nAre Anda yakin Anda ingin melanjutkan?</string>
     <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPDESCRIPTION">Silahkan SMS kode verifikasi untuk latihan</string>
     <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPNOTIFICATION">Membayar berhasil, Anda akan menerima SMS kode verifikasi</string>
     <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPNOCHOOSE">Silakan pilih Perdana!</string>
+
+    <!--Add by playround 1.0.4.16 -->
+    <!-- Font family used when drawing letters for letter tile avatars.
+         Do not translate. -->
+    <string name="letter_tile_letter_font_family">sans-serif-light</string>
 
 
 
