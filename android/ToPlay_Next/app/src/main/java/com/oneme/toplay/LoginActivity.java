@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.base.Time;
 import com.oneme.toplay.database.VenueOwner;
-import com.oneme.toplay.ui.LocalNextActivity;
+import com.oneme.toplay.ui.CnLocalNextActivity;
 import com.oneme.toplay.venue.OwnerInfoUploadActivity;
 import com.oneme.toplay.venue.OwnerMainActivity;
 
@@ -122,12 +122,12 @@ public class LoginActivity extends ActionBarActivity {
 
                                 if (DispatchActivity.getGooglePlayServicesState()) {
                                     dialog.dismiss();
-                                    Intent invokeLocalActivityIntent = new Intent(LoginActivity.this, LocalNextActivity.class);// LocalWithoutMapActivity.class);
+                                    Intent invokeLocalActivityIntent = new Intent(LoginActivity.this, CnLocalNextActivity.class);// LocalWithoutMapActivity.class);
                                     startActivity(invokeLocalActivityIntent);
                                     finish();
                                 } else {
                                     dialog.dismiss();
-                                    Intent invokeCnLocalActivityIntent = new Intent(LoginActivity.this, LocalNextActivity.class);//CnLocalWithoutMapActivity.class);
+                                    Intent invokeCnLocalActivityIntent = new Intent(LoginActivity.this, CnLocalNextActivity.class);//CnLocalWithoutMapActivity.class);
                                     startActivity(invokeCnLocalActivityIntent);
                                     finish();
                                 }

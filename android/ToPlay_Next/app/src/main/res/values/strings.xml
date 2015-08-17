@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">Playround</string>
-    <string name="app_version">Playround Android v.1.0.4.16</string>
+    <string name="app_version">Playround Android v.1.0.4.18</string>
 
     <!-- Strings related to activity -->
     <string name="action_settings">Settings</string>
@@ -18,7 +19,7 @@
     <string name="settingactivity_title">Setting</string>
     <string name="inviteactivity_title">Invite</string>
     <string name="joinactivity_title">Join</string>
-    <string name="localactivity_title">Invitation</string>
+    <string name="localactivity_title">Explore</string>
     <string name="messagelistactivity_title">Message</string>
     <string name="messagereplyactivity_title">Reply</string>
 
@@ -126,6 +127,8 @@
         <item>Bobsleigh</item>
         <item>Cross country ski</item>
         <item>Luge</item>
+
+
         <item>Roller skiing</item>
         <item>Ski Jumping</item>
         <item>Snowboarding</item>
@@ -342,7 +345,7 @@
     <string name="create_register_incog">Register Incognito</string>
     <string name="create_skip">Allow anyone to add you using your profile name</string>
     <string name="create_must_fill_in">You must fill in all fields</string>
-    <string name="create_bad_profile_name">Profile name can\'t contain spaces or backslashes/forwardslashes</string>
+    <string name="create_bad_profile_name">Profile name can not contain spaces or backslashes/forwardslashes</string>
 
     <!-- Main Activity -->
     <string name="main_no_active_chat">No active chat. Start one by choosing a friend from the pane on the left.</string>
@@ -361,9 +364,9 @@
     <string name="addfriend_friend_message">Send a message with your request</string>
     <string name="addfriend_button">Add Friend</string>
     <string name="addfriend_friend_added">Friend Added</string>
-   <!-- <string name="addfriend_friend_exists">Friend already exists</string>-->
+    <!-- <string name="addfriend_friend_exists">Friend already exists</string>-->
     <string name="scanqr_button">Scan a QR code</string>
-   <!-- <string name="invalid_friend_ID">Invalid ID</string>-->
+    <!-- <string name="invalid_friend_ID">Invalid ID</string>-->
     <string name="addfriend_nick_hint">Set a nickname for your friend</string>
     <string name="addfriend_optional_title">Optional Extras</string>
     <string name="dialog_pin">Enter your friend\'s pin</string>
@@ -654,8 +657,8 @@
     <string name="letter_tile_letter_font_family">sans-serif-light</string>
 
 
-
-
+    <!--Add by playround 1.0.4.17 -->
+    <string name="invitevenuenote">Venue</string>
 
 
 

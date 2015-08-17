@@ -102,14 +102,14 @@
 
     <style name="ActionBarThemeOverlay" parent="">
         <item name="android:textColorPrimary">#fff</item>
-        <item name="colorControlNormal">#3f00</item>
+        <item name="colorControlNormal">@color/playround_default</item>
         <item name="colorControlHighlight">#3fff</item>
     </style>
 
     <style name="ActionBarPopupThemeOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="ActionBar.TitleText" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textColor">@color/grey_darkest</item>
+        <item name="android:textColor">@color/playround_default</item>
         <item name="android:textSize">18sp</item>
     </style>
 

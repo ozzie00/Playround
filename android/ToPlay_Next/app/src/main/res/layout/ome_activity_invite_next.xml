@@ -157,7 +157,7 @@
             android:layout_marginTop   = "8dp"
             android:layout_marginBottom= "8dp"
             android:layout_centerVertical="true"
-            android:src                = "@drawable/ome_small_distance"/>
+            android:src                = "@drawable/ome_invite_venue"/>
 
         <TextView
             android:id                    = "@+id/invite_location_text_view"
@@ -167,7 +167,7 @@
             android:layout_marginRight    = "8dp"
             android:layout_toRightOf      = "@id/invite_location_icon_view"
             android:layout_centerVertical = "true"
-            android:text                  = "@string/OMEPARSEINVITELOCATION"
+            android:text                  = "@string/invitevenuenote"
             android:paddingLeft           = "8dp"
             android:paddingRight          = "8dp"
             android:textAppearance        = "?android:attr/textAppearanceSmall" />

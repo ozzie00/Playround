@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Playround</string>
-    <string name="app_version">Playround Android v.1.0.4.16</string>
+    <string name="app_version">Playround Android v.1.0.4.18</string>
 
     <!-- Strings related to activity -->
     <string name="action_settings">Settings</string>
@@ -18,7 +18,7 @@
     <string name="settingactivity_title">Настройка</string>
     <string name="inviteactivity_title">Пригласить</string>
     <string name="joinactivity_title">Присоединиться к</string>
-    <string name="localactivity_title">Приглашение</string>
+    <string name="localactivity_title">Исследовать</string>
     <string name="messagelistactivity_title">Сообщение</string>
     <string name="messagereplyactivity_title">Ответ</string>
 
@@ -652,6 +652,11 @@
     <!-- Font family used when drawing letters for letter tile avatars.
          Do not translate. -->
     <string name="letter_tile_letter_font_family">sans-serif-light</string>
+
+
+    <!--Add by playround 1.0.4.17 -->
+    <string name="invitevenuenote">Место проведения</string>
+
 
 
 

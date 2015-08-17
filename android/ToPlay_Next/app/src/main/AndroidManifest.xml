@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.oneme.toplay"
-    android:versionCode="48"
-    android:versionName="1.0.4.16" >
+    android:versionCode="50"
+    android:versionName="1.0.4.18" >
 
     <uses-sdk
         android:minSdkVersion="9"
@@ -585,20 +585,12 @@
             android:name = ".weather.WeatherActivity"
         />
 
-
-
-
-
-
-
-
         <activity
             android:name               = ".DispatchActivity"
             android:noHistory          = "true" >
             <intent-filter>
                 <action android:name   = "android.intent.action.MAIN" />
-
-                <category android:name = "android.intent.category.LAUNCHER" />
+          <category android:name = "android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 

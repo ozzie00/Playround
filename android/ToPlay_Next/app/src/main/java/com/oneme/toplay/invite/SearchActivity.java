@@ -16,6 +16,7 @@
 
 package com.oneme.toplay.invite;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -47,6 +48,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import org.json.JSONArray;
@@ -55,9 +57,15 @@ import org.json.JSONObject;
 
 import com.oneme.toplay.Application;
 import com.oneme.toplay.R;
+import com.oneme.toplay.adapter.VenueAdapter;
 import com.oneme.toplay.base.AppConstant;
+import com.oneme.toplay.base.CopyVenue;
+import com.oneme.toplay.database.Venue;
 import com.oneme.toplay.ui.BaseActivity;
+import com.parse.FindCallback;
+import com.parse.ParseException;
 import com.parse.ParseGeoPoint;
+import com.parse.ParseQuery;
 
 public class SearchActivity extends BaseActivity {
 
@@ -104,7 +112,7 @@ public class SearchActivity extends BaseActivity {
             // show nearby place for user
             new getNearbyPlace().execute(AppConstant.OMEPARSENULLSTRING);
         } else {
-            new getBdNearbyPlace().execute(AppConstant.OMEPARSENULLSTRING);
+            new getVenueRadarAutocomplete().execute(geoPoint);
         }
 
         final EditText searchedittext = (EditText) findViewById(R.id.invite_search_content_text_view);
@@ -678,6 +686,74 @@ public class SearchActivity extends BaseActivity {
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
+        }
+
+    }
+
+
+    class getVenueRadarAutocomplete extends AsyncTask<ParseGeoPoint,String,String> {
+        private ProgressDialog venueLoadDialog;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            venueLoadDialog = new ProgressDialog(SearchActivity.this);
+            venueLoadDialog.show();
+        }
+
+        @Override
+        protected String doInBackground(ParseGeoPoint...key) {
+            final ParseGeoPoint geoPoint = key[0];
+            msuggest = new ArrayList<LocationData>();
+
+            final int mlimit = 40;
+
+            runOnUiThread(new Runnable() {
+                public void run() {
+
+                    ParseQuery<Venue> query = Venue.getQuery();
+                    query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
+                    query.whereNear(AppConstant.OMETOPLAYVENUELOCATIONKEY, geoPoint);
+                    query.setLimit(mlimit);
+                    query.findInBackground(new FindCallback<Venue>() {
+                        public void done(List<Venue> venueList, ParseException e) {
+                            if (e == null) {
+                                for (Venue venue : venueList) {
+                                    LocationData mlocationdata = new LocationData();
+                                    String mname               = venue.getName();
+                                    String maddress            = venue.getAddress();
+
+                                    mlocationdata.mName    = mname;
+                                    mlocationdata.mAddress = maddress;
+
+                                    if (msuggest.size() < mlimit) {
+                                        msuggest.add(mlocationdata);
+                                    }
+                                }
+
+                                if (msuggest.size() >= 1) {
+                                    madapter = new resultListAdapter(SearchActivity.this, msuggest);
+                                    msearchresult.setAdapter(madapter);
+                                    madapter.notifyDataSetChanged();
+                                }
+
+
+                            } else {
+
+                            }
+                        }
+                    });
+
+                }
+            });
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            venueLoadDialog.dismiss();
         }
 
     }

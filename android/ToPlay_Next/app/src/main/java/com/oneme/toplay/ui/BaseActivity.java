@@ -608,7 +608,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
         Intent intent;
         switch (item) {
             case NAVDRAWER_ITEM_EXPLORE:
-                intent = new Intent(this, LocalNextActivity.class);
+                intent = new Intent(this, CnLocalNextActivity.class);
                 startActivity(intent);
                 finish();
                 break;
@@ -623,7 +623,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
                // finish();
                // break;
             case NAVDRAWER_ITEM_MAP:
-                intent = new Intent(this, MapNextActivity.class);
+                intent = new Intent(this, CnMapNextActivity.class);
                 startActivity(intent);
                 finish();
                 break;

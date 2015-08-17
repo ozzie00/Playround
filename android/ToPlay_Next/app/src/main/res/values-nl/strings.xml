@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Playround</string>
+    <string name="app_version">Playround Android v.1.0.4.18</string>
+
+
+    <!--third id and key -->
+    <string name="facebook_app_id">846009488767381</string>
+
+    <!-- Strings related to activity -->
+    <string name="action_settings"> instellingen</string>
+    <string name="mainactivity_title"> Playround</string>
+    <string name="loginactivity_title"> Playround</string>
+    <string name="meactivity_title"> me</string>
+    <string name="mysportactivity_title"> mijn uitnodiging</string>
+    <string name="matchdetailactivity_title"> training Detail</string>
+    <string name="settingactivity_title"> instellen</string>
+    <string name="inviteactivity_title"> uitnodigen</string>
+    <string name="joinactivity_title"> lid worden</string>
+    <string name="localactivity_title"> verkennen</string>
+    <string name="messagelistactivity_title"> bericht</string>
+    <string name="messagereplyactivity_title"> antwoord</string>
+
+    <string name="action_Invite"> uitnodigen</string>
+    <string name="action_search"> Zoek</string>
+    <string name="action_message"> bericht</string>
+    <string name="action_map"> kaart</string>
+    <string name="action_local"> in de buurt van uitnodiging</string>
+    <string name="search_hint"> Zoek plaatsen</string>
+    <string name="search_settings"> Zoek plaatsen</string>
+
+    <!--Tekenreeksen aan gemeenschappelijke--> gerelateerde
+    <string name="action_setting"> instellen</string>
+    <string name="login"> login</string>
+    <string name="signup"> registreren</string>
+    <string name="logout_full"> uitloggen</string>
+    <string name="post_out_of_range"> het is ver.</string>
+    <string name="progress_invite"> uit te nodigen &#8230;</string>
+    <string name="progress_send"> verzenden van &#8230;</string>
+    <string name="progress_join"> bij &#8230;</string>
+    <string name="hostplayerusername"> gebruikersnaam</string>
+    <string name="progress_local"> laden &#8230;</string>
+    <string name="OMEPARSELOGOUT"> logout</string>
+    <string name="OMEPARSELOGIN"> login</string>
+    <string name="OMEPARSESETTING"> instellen</string>
+    <string name="OMEPARSEOK"> OK</string>
+    <string name="OMEPARSEYES"> Ja</string>
+    <string name="OMEPARSENO"> no</string>
+
+    <!--Strings gerelateerde uit te nodigen activiteit-->
+
+    <!--<string name="OMEPARSEWANTTOKEY"> wilt</string>-->
+    <string name="OMEPARSEINVITEPLAYDATE"> datum</string>
+    <string name="OMEPARSEINVITEPLAYHOUR"> uur</string>
+    <string name="OMEPARSEINVITEPLAYBUTTON"> Play uitnodigen</string>
+    <string name="OMEPARSEINVITESPORTTYPECHOOSE"> Kies Sport</string>
+    <string name="OMEPARSEINVITEPLAYERLEVELCHOOSE"> Kies niveau</string>
+    <string name="OMEPARSEINVITEPLAYERNUMBERCHOOSE"> Kies nummer</string>
+    <string name="OMEPARSEINVITEPLAYFEECHOOSE"> Kies vergoeding</string>
+    <string name="OMEPARSEINVITELOGINALERT"> gelieve in te loggen of te registreren!</string>
+    <string name="OMEPARSEINVITEREALLYPLAY"> speel je echt met iemand?</string>
+    <string name="OMEPARSEINVITEOTHERDEFAULT"> goede vriend</string>
+    <string name="OMEPARSEINVITECOURTDEFAULT"> Amsterdam</string>
+    <string name="OMEPARSEINVITEFEEDEFAULT"> AA</string>
+    <string name="OMEPARSEINVITEFEEFREE"> gratis</string>
+    <string name="OMEPARSEINVITEPLAYERSUBMITSUCCESSALERTINFO"> met succes dienen aandeel, wacht op iemand voor join!</string>
+
+    <string name="OMEPARSEINVITESPORTPROMPT"> Selecteer uw favoriete Sport</string>
+
+    <!-- Strings related to sport type for invite activity -->
+    <string-array name="sport_type_array">
+
+        <item>Badminton</item>
+        <item>Honkbal</item>
+        <item>Basketbal</item>
+        <item>Beachvolleybal</item>
+        <item>Bowlen</item>
+        <item>Cricket</item>
+        <item>Voetbal, American</item>
+        <item>Voetbal, Rugby</item>
+        <item>Voetbal, voetbal</item>
+        <item>Golf</item>
+        <item>Handbal</item>
+        <item>Hockey</item>
+        <item>Polo</item>
+        <item>Ijshockey</item>
+        <item>Squash</item>
+        <item>Tafelvoetbal</item>
+        <item>Tafeltennis</item>
+        <item>Tennis</item>
+        <item>Volleybal</item>
+        <item>Waterpolo</item>
+        <item>Snooker</item>
+
+        <item>Fietsen mountainbike</item>
+        <item>Wielersport weg</item>
+        <item>Fitness walking</item>
+        <item>Uitgevoerd</item>
+        <item>Wandelen</item>
+        <item>Loopband</item>
+        <item>Wandelen</item>
+
+        <item>Kano</item>
+        <item>Duiken</item>
+        <item>Kite surfen</item>
+        <item>Roeien</item>
+        <item>Zeilen</item>
+        <item>Scuba diving</item>
+        <item>Surfen</item>
+        <item>Zwemmen</item>
+        <item>Windsurfen</item>
+
+        <item>Canyoning</item>
+        <item>Speleologie</item>
+        <item>Klimmen</item>
+        <item>Ijs-klimmen</item>
+        <item>Oriëntatielopen</item>
+        <item>Skateboarden</item>
+
+        <item>Boogschieten</item>
+        <item>Schieten</item>
+        <item>Dart</item>
+
+        <item>Alpine skiën</item>
+        <item>Bobsleeën</item>
+        <item>Land ski cross</item>
+        <item>Rodelen</item>
+
+
+        <item>Roller skiën</item>
+        <item>Schansspringen</item>
+        <item>Snowboarden</item>
+        <item>Sneeuwschoenwandelen</item>
+        <item>Schaatsen</item>
+        <item>Shorttrack</item>
+        <item>Schaatsen</item>
+        <item>Skeleton</item>
+        <item>Curling</item>
+
+        <item>Boksen</item>
+        <item>Dansen</item>
+        <item>Elliptische opleiding</item>
+        <item>Schermen</item>
+        <item>Turnen</item>
+        <item>Judo</item>
+        <item>Martial arts</item>
+        <item>Pilates</item>
+        <item>Poker</item>
+        <item>Paardrijden</item>
+        <item>Taekwondo</item>
+        <item>Trampoline</item>
+        <item>Gewicht opleiding</item>
+        <item>Rolstoel</item>
+        <item>Worstelen</item>
+        <item>Yoga</item>
+        <item>Sportschool</item>
+        <item>Inline skating</item>
+        <item>Karting</item>
+
+
+    </string-array>
+
+
+    <!-- Strings related to join activity -->
+    <string name="OMEPARSEINVITEPLAYCOURTPLACEHOLD"> Enter Hof</string>
+    <string name="OMEPARSEINVITEPLAYOTHERPLACEHOLD"> Voer andere eis</string>
+    <string name="OMEPARSEINVITEPLAYERALERTINFO"> kan je echt deelnemen aan spelen?</string>
+    <string name="OMEPARSEINVITEREQUIREMENTSPORTTYPE"> sport Type</string>
+    <string name="OMEPARSEINVITEREQUIREMENTPLAYERNUMBER"> nummer</string>
+    <string name="OMEPARSEINVITEREQUIREMENTPLAYERLEVEL"> niveau spelen</string>
+    <string name="OMEPARSEINVITEREQUIREMENTTIME"> tijd</string>
+    <string name="OMEPARSEINVITEREQUIREMENTCOURT"> Hof</string>
+    <string name="OMEPARSEINVITEREQUIREMENTFEE"> vergoeding</string>
+    <string name="OMEPARSEINVITEREQUIREMENTOTHER"> andere</string>
+    <string name="OMEPARSEINVITEJOINPLAYHEADER"></string>
+    <string name="OMEPARSEINVITEJOINPLAYBUTTON"> lid worden</string>
+    <string name="OMEPARSEINVITEPLAYERJOINPLAYSUCCESSALERTINFO"> met succes verzoek indienen, kunt u wachten op antwoord!</string>
+    <string name="OMEPARSEMESSAGEJOINPLAYREQUESTFIRSTPART"> Hallo</string>
+    <string name="OMEPARSEMESSAGEJOINPLAYREQUESTSECONDPART"> Ik ben</string>
+    <string name="OMEPARSEMESSAGEJOINPLAYREQUESTTHIRDPART"> met u</string>
+    <string name="OMEPARSEWANTTOKEY"> wilt</string>
+
+
+
+
+    <string name="OMEPARSEINVITETITLEPLAY"> spelen</string>
+
+
+
+    <!--Tekenreeksen aan login gerelateerde-->
+    <string name="title_activity_login"> login</string>
+    <string name="title_activity_signup"> registreren</string>
+    <string name="prompt_username"> gebruikersnaam</string>
+    <string name="prompt_password"> wachtwoord</string>
+    <string name="prompt_password_again"> wachtwoord nogmaals</string>
+    <string name="error_intro"> "Gelieve"</string>
+    <string name="error_blank_username"> Vul een gebruikersnaam in</string>
+    <string name="error_blank_password"> Voer een wachtwoord in</string>
+    <string name="error_mismatched_passwords"> Voer hetzelfde wachtwoord tweemaal</string>
+    <string name="error_join"> ", en"</string>
+    <string name="error_end">.</string>
+    <string name="progress_login"> login &#8230;</string>
+    <string name="progress_signup"> registreren &#8230;</string>
+
+
+
+    <!--String aan kaart info gerelateerde-->
+    <string name="current_location_unavailable"> Probeer het opnieuw na uw locatie wordt weergegeven op de kaart.</string>
+    <string name="google_play_service_unavailable"> Dit apparaat biedt geen ondersteuning voor google play diensten!</string>
+    <string name="switch_to_china_map"> switch kaart service!</string>
+    <string name="cannot_access_server"> kan niet toegang tot server, please re-login!</string>
+    <string name="locate_fail"> get locatie in 12 seconden mislukt, stop Zoek!</string>
+    <string name="google_map_unavailable"> Google kaart kan geen toegang tot!</string>
+
+
+    <!--String aan feedback gerelateerde-->
+    <string name="OMEPARSEFEEDBACK"> feedback</string>
+    <string name="OMEPARSEFEEDBACKSENDBUTTON"> verzenden</string>
+    <string name="OMEPARSEFEEDBACKSENDING"> verzenden van &#8230;</string>
+    <string name="OMEPARSEFEEDBACKHINT"> dank u voor uw feedback en suggestie, Playround team zal volgen uw feedback en suggestie om Playround app perfomance! \n\n @Playround Team</string>
+
+
+    <!--String aan antwoord van het tekstbericht gerelateerde-->
+    <string name="OMEPARSEMESSAGEREPLYBUTTON"> verzenden</string>
+
+
+    <!--String aan gebruikersstatus gerelateerde-->
+    <string name="OMEPARSEUSERSTATUSONLINE"> online</string>
+    <string name="OMEPARSEUSERSTATUSOFFLINE"> off line</string>
+    <string name="OMEPARSEUSERSTATUSAWAY"> weg</string>
+    <string name="OMEPARSEUSERSTATUSBUSY"> drukke</string>
+
+
+    <!--String related to me activity-->
+    <string name="OMEPARSEMEMYSPORTTITLE"> mijn training</string>
+    <string name="OMEPARSEMEMATCHDETAILTITLE"> training Detail</string>
+    <string name="OMEPARSEMEMYSPORT"> mijn Sport</string>
+    <string name="OMEPARSEMEMYCOURTADDRESS"> Mijn locatie adres</string>
+    <string name="OMEPARSEMEMYSETTINGS"> instellingen</string>
+    <string name="OMEPARSEMEMYSETTINGSNOTIFICATIONSHEADER"> meldingen</string>
+    <string name="OMEPARSEMEMYSETTINGSGENERALHEADER"> Algemene Info</string>
+    <string name="OMEPARSEMEMYSETTINGMATCHDETAILPLAYERS"> spelers</string>
+    <string name="OMEPARSEMEPROFILEPLAYROUNDID"> Playround ID</string>
+    <string name="OMEPARSEMEPROFILEALIAS"> alias</string>
+    <string name="OMEPARSEMEPROFILEAVATAR"> avatar</string>
+    <string name="OMEPARSEMEPROFILEQRCODE"> QR Code</string>
+    <string name="OMEPARSEMEPROFILECHOOSEIMAGE"> Kies foto</string>
+    <string name="OMEPARSEMEPROFILETAKEPHOTO"> foto nemen</string>
+    <string name="OMEPARSEMESPORTNOONEPLAYER"> geen enkele speler deelnemen aan deze wedstrijd, wees geduldig!</string>
+
+
+
+
+
+
+
+
+
+
+    <!--String gerelateerde om te chatten-->
+    <string name="OMEPARSECHATFILETRANMITFINISH"> Voltooien</string>
+    <string name="OMEPARSECHATFILETRANMITFAILED"> mislukken</string>
+    <string name="OMEPARSECHATFILETRANMITREQUEST"> aanvragen voor het verzenden van bestand</string>
+    <string name="OMEPARSECHATFILETRANMITREJECT"> verwerpen</string>
+    <string name="OMEPARSECHATTYPING"> typen...</string>
+
+
+
+
+
+    <!--String gerelateerde om toe te voegen contact-->
+    <string name="OMEPARSEADDCONTACTSEARCHHINT"> Playround ID</string>
+    <string name="OMEPARSEADDCONTACTSEARCHSETTING"> Zoek Contact</string>
+    <string name="OMEPARSEADDCONTACTMYID"> mijn Playround-ID:</string>
+    <string name="OMEPARSEADDCONTACTFRIENDRADAR"> vriend Radar</string>
+    <string name="OMEPARSEADDCONTACTNEARBYNOTE"> find vriend in uw nabijgelegen</string>
+    <string name="OMEPARSEADDCONTACTSCANQRCODE"> QR Code scannen</string>
+    <string name="OMEPARSEADDCONTACTSCANQRCODENOTE"> QR Code scannen naam kaart</string>
+    <string name="OMEPARSEADDCONTACTSEARCHUSERNAMEERROR"> Zoek gebruikersnaam kan niet leeg zijn</string>
+    <string name="OMEPARSEADDCONTACTSEARCHDISPLAYRESULTTITLE"> resultaat</string>
+    <string name="OMEPARSEADDCONTACTSEARCHDISPLAYPROFILE"> profiel</string>
+    <string name="OMEPARSEADDCONTACTEXT"> toevoegen</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTTITLE"> aanvraag verzenden</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTTEXT"> verzenden</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTMESSAGE"> Schrijf een bericht...</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTSUCCESS"> request-bericht verzenden</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTINVALIDFRIENDID"> Ongeldige ID</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTFRIENDEXIST"> vriend bestaat</string>
+    <string name="OMEPARSEADDCONTACTSENDREQUESTADDYOURSELF"> je kunt jezelf niet toevoegen</string>
+    <string name="OMEPARSEADDCOTACTSHAREQRCODEWITH"> delen met</string>
+    <string name="OMEPARSEADDCONTACTADDMENOTE"> Scan mijn QR code om toe te voegen me op Playround</string>
+    <string name="OMEPARSEADDCONTACTDEFAULTREQUESTMESSAGE"> hij wil je vriend!</string>
+    <string name="OMEPARSEADDCONTACTREQUESTNOTEIAM"> I\ ben</string>
+
+
+
+
+
+
+    <string name="notifications"> meldingen weergeven</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Activity titles -->
+    <string name="title_activity_add_friend"> contactpersoon toevoegen</string>
+    <string name="title_activity_friend_profile"> Profiel van vriend</string>
+
+    <!--Navigatie / Action Bar-->
+    <string name="add_friend"> Voeg vriend toe</string>
+
+    <!--Login Activiteit-->
+    <string name="login_must_fill_in"> u moet een profielnaam invullen</string>
+    <string name="login_login"> login</string>
+    <string name="login_account_hint"> Profielnaam</string>
+    <string name="login_create_account_text"> profiel aanmaken</string>
+    <string name="login_bad_login"> geen vaild gebruikersnaam</string>
+
+    <!--Accountactiviteit--> maken
+    <string name="create_name_hint"> Profielnaam</string>
+    <string name="create_text"> slogan hier</string>
+    <string name="create_register"> registreren</string>
+    <string name="create_register_incog"> registreren van Incognito</string>
+    <string name="create_skip"> toestaan dat iemand u met behulp van de naam van uw profiel toe te voegen</string>
+    <string name="create_must_fill_in"> u moet alle velden invullen</string>
+    <string name="create_bad_profile_name"> Profielnaam mag geen bevatten spaties of backslashes/forwardslashes</string>
+
+    <!--Hoofdactiviteit-->
+    <string name="main_no_active_chat"> geen actieve chat. Starten van een door een vriend te kiezen in het deelvenster aan de linkerkant.</string>
+    <string name="main_message_no"> geen bericht</string>
+    <string name="main_no_internet"> geen internetverbinding</string>
+<string name="main_not_connected"> geen internet-verbinding is geconstateerd. Zonder een internetverbinding zul je
+een beperkte functionaliteit tenzij u Playround voor LAN alleen gebruikt</string>
+    <string name="search_all_contacts"> Zoek</string>
+
+    <!--Chat Activiteit-->
+    <string name="chat_enter_message"> Stuur een bericht</string>
+    <string name="chat_file_transfer"> bestandsoverdracht</string>
+
+    <!--Vriend Activiteit--> toevoegen
+    <string name="addfriend_friend_key"> Playround ID</string>
+    <string name="addfriend_friend_message"> Stuur een bericht met uw verzoek</string>
+    <string name="addfriend_button"> Voeg vriend toe</string>
+    <string name="addfriend_friend_added"> vriend toegevoegd</string>
+    <!--<string name="addfriend_friend_exists"> vriend al bestaat</string>-->
+    <string name="scanqr_button"> een QR code scannen</string>
+    <!--<string name="invalid_friend_ID"> Ongeldige ID</string>-->
+    <string name="addfriend_nick_hint"> instellen van een bijnaam voor uw vriend</string>
+    <string name="addfriend_optional_title"> optionele extra\'s</string>
+    <string name="dialog_pin"> Voer de pincode van uw friend\</string>
+    <string name="addfriend_invalid_pin"> Ongeldige Pin</string>
+    <!--<string name="addfriend_own_key"> u kunt uzelf niet toevoegen</string>-->
+    <string name="addfriend_friend_pin_title"> de Friend\ Pin invoeren</string>
+    <string name="addfriend_friend_pin_text"> de Friend\ Pin invoeren</string>
+    <string name="addfriend_default_message"> Hallo! Ga akkoord met het verzoek van mijn vriend</string>
+
+    <!--Vriend Profiel Activiteit-->
+    <string name="friend_profile_nick"> bijnaam</string>
+    <string name="friend_profile_key"> ID</string>
+    <string name="friend_profile_note"> status</string>
+    <string name="friend_profile_button"> Update</string>
+    <string name="friend_profile_updated"> het profiel is bijgewerkt</string>
+    <string name="friend_profile_copied"> ID gekopieerd</string>
+
+    <!--Vriend verzoek fragment-->
+    <string name="friend_profile_title"> Profiel van %1$s\'s</string>
+    <string name="friendrequest_accept"> accepteren</string>
+    <string name="friendrequest_reject"> verwerpen</string>
+    <string name="friend_request"> nieuwe vriend verzoeken</string>
+
+    <!--Fragment--> contacten
+    <string name="friend_action_profile"> profiel</string>
+    <string name="friend_action_delete"> vriend verwijderen</string>
+    <string name="friend_action_delete_chat"> Chat Logs verwijderen</string>
+    <string name="friend_action_block"> blok</string>
+    <string name="contacts_actions_on"> acties op</string>
+    <string name="contacts_delimiter_requests"> aanvragen</string>
+    <string name="contacts_delimiter_friends"> vrienden</string>
+    <string name="contacts_delimiter_offline"> off line</string>
+    <string name="contacts_delimiter_online"> online</string>
+    <string name="contacts_resend_friend_request"> Resend vriend verzoeken</string>
+
+    <!--Dialoogvenster voor Vriend--> verwijderen
+    <string name="friend_action_delete_friend_confirmation"> weet u zeker dat u wilt verwijderen van deze vriend?</string>
+
+    <!--Chat Logs Dialoogvenster--> verwijderen
+    <string name="friend_action_delete_chat_confirmation"> weet u zeker dat u wilt verwijderen van de chat logs?</string>
+
+    <!--Vriend Dialoogvenster--> blokkeren
+<string name="friend_action_block_friend_confirmation"> deze gebruiker blokkeren zal verwijderen ze uit uw vriendenlijst en u zult niet langer zien vriend
+aanvragen van them.\n\nAre u zeker dat u wilt blijven?</string>
+
+    <!-- Chat Fragment -->
+    <string name="attachment_photo"> foto toevoegen</string>
+    <string name="attachment_file"> bestand bijvoegen</string>
+    <string name="attachment_takephoto"> foto nemen</string>
+    <string name="message_copy"> kopie bericht</string>
+    <string name="message_delete"> bericht verwijderen</string>
+
+    <!--Links Deelvenster Fragment-->
+    <string name="titles_recent"> bericht</string>
+    <string name="titles_contacts"> contact</string>
+    <string name="titles_settings"> instellen</string>
+
+    <!--Misc-->
+    <string name="button_confirm"> bevestigen</string>
+    <string name="button_cancel"> Annuleren</string>
+    <string name="button_yes"> Ja</string>
+    <string name="button_no"> no</string>
+    <string name="button_ok"> OK</string>
+    <string name="dialog_id"> Kopie ID naar Klembord</string>
+    <string name="share_with"> delen met</string>
+    <string name="connection_has"> heeft</string>
+    <string name="connection_online"> online komen</string>
+    <string name="connection_offline"> off line gegaan</string>
+
+
+    <!-- QR -->
+    <string name="qr_default_title"> Barcode Scanner installeren?</string>
+    <string name="qr_default_message"> deze toepassing vereist Barcode Scanner. Zou u willen installeren?</string>
+    <string name="qr_button_yes"> Ja</string>
+    <string name="qr_button_no"> no</string>
+
+
+    <!--Toevoegen door playround 1.0.2.09-->
+    <string name="myvenueactivity_title"> Mijn locatie</string>
+    <string name="OMEPARSEMEMYVENUEUPLOAD"> locatie adres uploaden</string>
+    <string name="OMEPARSEMEMYVENUENAME"> locatie naam</string>
+    <string name="OMEPARSEMEMYVENUEADDRESS"> locatie adres</string>
+    <string name="OMEPARSEMEMYVENUEPHONE"> locatie telefoon</string>
+    <string name="OMEPARSEMEMYVENUENAMEPLACEHOLD"> Voer naam in</string>
+    <string name="OMEPARSEMEMYVENUEADDRESSPLACEHOLD"> adres invoeren</string>
+    <string name="OMEPARSEMEMYVENUEPHONEPLACEHOLD"> telefoon invoeren</string>
+    <string name="OMEPARSEMEMYVENUESUBMIT"> uploaden</string>
+    <string name="OMEPARSEMYVENUEHOMEVENUE"> thuisveld</string>
+    <string name="OMEPARSEMYVENUEBACKUPVENUE"> back-up</string>
+    <string name="OMEPARSEMYVENUERADAR"> locatie Radar</string>
+    <string name="myvenueradaractivity_title"> nabijgelegen locatie</string>
+    <string name="OMEPARSEMEMYVENUEDISTANCEKMNOTE"> kilometer</string>
+    <string name="OMEPARSEMEMYVENUEDISTANCEMETERNOTE"> meter</string>
+    <string name="myvenueuploadactivity_title"> locatie uploaden</string>
+    <string name="OMEPARSEMEMYVENUEASHOMEPLACEHOLD"> locatie opgeven</string>
+    <string name="OMEPARSESIGNUPDEVICEREGISTERED"> Dit apparaat heeft zichzelf getagd!</string>
+    <string name="OMEPARSESIGNUPCANNOTGETDEVICEID"> kan niet krijgen apparatenidentiteitskaart!</string>
+    <string name="OMEPARSEUSERNAMEMINIMUMLENGTHSHOULDSIX"> gebruikersnaam lengte moet dan 6 char!</string>
+    <string name="OMEPARSEUSERPASSWORDMINIMUMLENGTHSHOULDSIX"> wachtwoordlengte moet dan 6 char!</string>
+
+    <!--Toevoegen door playround 1.0.2.12-->
+    <string name="OMEPARSEMEMYVENUEASBACKUPPLACEHOLD"> locatie opgeven</string>
+
+
+    <!--Toevoegen door playround 1.0.3.01-->
+    <string name="OMEPARSECANNOTJOINYOURSELFALERT"> u kunt niet opnieuw lid worden van deze training!</string>
+
+    <!--Toevoegen door playround 1.0.4.02-->
+    <string name="search_venue_hint"> Voer de locatie</string>
+    <string name="search_venue_settings"> zoeklocatie</string>
+    <string name="OMEPARSEREGISTERASVENUEOWNERNOTE"> registreren als locatie</string>
+    <string name="ownerinfouploadactivity_title"> uploaden locatie Info</string>
+    <string name="OMEPARSESIGNUPERRORNOTE"> registreren van fout</string>
+    <string name="OMEPARSEVENUEOWNERCONTACTEMAIL"> e-mail</string>
+    <string name="OMEPARSEVENUEOWNERPHONEPLACEHOLD"> telefoon invoeren</string>
+    <string name="OMEPARSELOGINUSERNAMEPASSWORDNOTMATCH"> gebruikersnaam en wachtwoord zijn niet overeen</string>
+    <string name="OMEPARSECANNOTGETVENUEINFO"> kan niet krijgen locatie info</string>
+    <string name="OMEPARSEVENUEOWNERCONTACTPLACEHOLD"> Voer e-mailadres</string>
+    <string name="OMEPARSEVENUEOWNERCHOOSEIDCOPY"> Kies ID kopie foto</string>
+    <string name="OMEPARSEVENUEOWNERTAKEIDCOPY"> nemen van de foto voor de kopie ID</string>
+    <string name="OMEPARSEVENUEOWNERIDCOPY"> eigenaar-ID kopie</string>
+    <string name="OMEPARSEVENUEOWNERLICENSECOPY"> locatie licentie kopie</string>
+    <string name="OMEPARSECANNOTSAVEPARSEFILE"> kan bestand niet opslaan!</string>
+    <string name="OMEPARSEVENUEOWNERUPDATE"> Locatie Info bijwerken</string>
+
+    <string name="OMEPARSEVENUEOWNERWAITINGFORVERIFY"> wees zo goed wachten op onze controle</string>
+
+
+    <string name="change_city"> verandering stad</string>
+
+
+    <!-- Put your own APP ID here -->
+    <string name="open_weather_maps_app_id">ddc6b650db25f95454deaff67ab9f984</string>
+
+    <string name="OMEPARSEWEATHERSUNNY">&#xf00d;</string>
+    <string name="OMEPARSEWEATHERCLEARNIGHT">&#xf02e;</string>
+
+    <string name="OMEPARSEWEATHERFOGGY">&#xf014;</string>
+    <string name="OMEPARSEWEATHERCLOUDY">&#xf013;</string>
+    <string name="OMEPARSEWEATHERRAINY">&#xf019;</string>
+    <string name="OMEPARSEWEATHERSNOWY">&#xf01b;</string>
+    <string name="OMEPARSEWEATHERTHUNDER">&#xf01e;</string>
+    <string name="OMEPARSEWEATHERDRIZZLE">&#xf01c;</string>
+    <string name="OMWPARSEWEATHERPLACENOTFOUND"> Sorry, geen weergegevens gevonden.</string>
+    <string name="OMEPARSEWEATHERHUMIDITY"> vochtigheid</string>
+    <string name="OMEPARSEWEATHERPRESSURE"> Druk</string>
+
+    <!--Toevoegen door playround 1.0.4.05-->
+    <string name="OMEPARSEINVITECONTENTPLACEHOLD"> naam van training</string>
+    <string name="OMEPARSEINVITESPORT"> sport</string>
+    <string name="OMEPARSEINVITELOCATION"> locatie</string>
+    <string name="OMEPARSEINVITESTART"> Start</string>
+    <string name="OMEPARSEINVITEPARTICIPANT"> deelnemer</string>
+    <string name="OMEPARSEINVITEDESCRIPTION"> Beschrijving</string>
+    <string name="action_invite_share"> uitnodiging voor aandeel met</string>
+    <string name="action_invite_add"> toevoegen-uitnodiging</string>
+    <string name="OMETOPLAYATWORD"> op</string>
+    <string name="OMETOPLAYINWORD"> in</string>
+    <string name="OMETOPLAYDONEWORD"> gedaan</string>
+
+    <string name="invitesearchactivity_title"> locatie</string>
+    <string name="OMEPARSEINVITESEARCHLOCATIONPLACEHOLD"> Geef een locatie op</string>
+    <string name="OMEPARSEINVITESEARCHLOCATIONCUSTOM"> aangepaste locatie</string>
+
+    <string name="joininfofragment_title"> info</string>
+    <string name="joinscoreboardfragment_title"> scorebord</string>
+    <string name="joincommentfragment_title"> opmerkingen</string>
+
+    <string name="OMEPARSEJOININFOPLAYERTEXT"> speler</string>
+    <string name="OMEPARSEJOININFOICECREAMTEXT"> ICECREAM</string>
+    <string name="OMEPARSEJOININFOPRIZETEXT"> prijs</string>
+    <string name="OMEPARSEJOININFOSCOREBOARDTEXT"> SCORE</string>
+    <string name="OMEPARSEDAYLEFTTEXT"> dagen links</string>
+    <string name="OMEPARSEHOURLEFTTEXT"> uur links</string>
+
+
+    <string name="joincommentactivity_title"> opmerkingen</string>
+    <string name="joinlikeactivity_title"> houdt van</string>
+    <string name="joinscoreactivity_title"> scores</string>
+    <string name="joinplayeractivity_title"> spelers</string>
+    <string name="meprofilreactivity_title"> profiel</string>
+
+    <string name="OMEPARSEJOINCOMMENTS"> opmerkingen</string>
+
+    <string name="OMEPARSEVENUEOWNERBOOKMANAGEMENT"> locatie beheer boeken</string>
+
+    <string name="OMEPARSEJOINCOMMENTSUBMITFIRST"> kunt u de eerste opmerking</string>
+    <string name="OMEPARSEJOINLIKESUBMITFIRST"> u mag de eerste gebruiker die houdt van deze uitnodiging</string>
+    <string name="OMEPARSEMESSAGELISTFIRST"> geen bericht voor u nu</string>
+
+    <string name="OMEPARSEINVITEFILLWORKOUTNAME"> Vul training naam!</string>
+
+    <string name="venuesearchactivity_title"> Zoek</string>
+
+
+    <!--Toevoegen door playround 1.0.4.07-->
+    <string name="OMEPARSEFOLLOWING"> na</string>
+    <string name="OMEPARSEFOLLOWERS"> VOLGELINGEN</string>
+    <string name="OMEPARSEFOLLOW"> Ga als volgt te</string>
+    <string name="OMEPARSEMINUTELEFTTEXT"> minuten links</string>
+    <string name="OMEPARSEWAITTILLNEXTTEXT"> wachten tot volgende</string>
+    <string name="OMEPARSEADDTEXT"> toevoegen</string>
+    <string name="OMEPARSEADDCOMMENTTEXT"> Opmerking toevoegen</string>
+    <string name="OMEPARSEFOLLOWINGLOWERCASE"> na</string>
+    <string name="OMEPARSEFOLLOWERLOWERCASE"> volgelingen</string>
+
+    <!--Toevoegen door playround 1.0.4.08-->
+    <string name="venuedetailinfoactivity_title"> Locatie Info</string>
+    <string name="myfollowingfragment_title"> na</string>
+    <string name="myfollowerfragment_title"> VOLGELINGEN</string>
+    <string name="venuecommentactivity_title"> opmerkingen</string>
+
+    <string name="OMEPARSECOURTSTEXT"> rechtbanken</string>
+    <string name="OMEPARSELIGHTEDTEXT"> verlicht</string>
+    <string name="OMEPARSEINDOORTEXT"> binnen</string>
+    <string name="OMEPARSEPLAYERSTEXT"> spelers</string>
+    <string name="OMEPARSEACCESSTEXT"> toegang</string>
+    <string name="OMEPARSESELECTASHOMEFIELD"> Selecteer als thuisveld</string>
+    <string name="OMEPARSEMYHOMEFIELD"> mijn huis veld</string>
+
+
+    <!--Add by playround 1.0.4.09 -->
+    <string name="bookingactivity_title"> reserveren trefpunt</string>
+    <string name="OMEPARSEDATETEXT"> datum</string>
+    <string name="OMEPARSETIMETEXT"> tijd</string>
+    <string name="OMEPARSEVENUEBOOKINGDEPOSIT"> aanbetaling</string>
+    <string name="OMEPARSEVENUEBOOKINGTHISVENUE"> boeking van deze locatie</string>
+    <string name="OMEPARSECONFIRMTEXT"> Bevestig boeking</string>
+    <string name="OMEPARSEREMARK"> Opmerking</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOW"> moet weten te boeken:</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWONE"> 1. Raak het bovenstaande elke optie instellen datum, tijd en Opmerking</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWTWO"> 2. deze 20 is aanbetaling</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWTHREE"> 3. Deze aanbetaling betaalt nadat u klaar bent met training in de zaal</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWFOUR"> 4. Deze aanbetaling betaalt als boeking locatie is niet succesvol worden</string>
+    <string name="OMEPARSEINVITEMUSTKNOW"> voor uitnodiging moet weten:</string>
+    <string name="OMEPARSEINVITEMUSTKNOWONE"> 1. Raak het bovenstaande elke optie om sport, locatie, datum, tijd en beschrijving</string>
+    <string name="OMEPARSEBOOKINGCONFIRMTITLE"> Bevestig deze bestelling</string>
+    <string name="OMEPARSEVENUEBOOKINGDESCRIPTION"> volgens het contract, restitutie deze aanbetaling na het beëindigen van training in zaal</string>
+    <string name="OMEPARSEPAYSUCCESS"> betalen met succes</string>
+    <string name="OMEPARSEPAYFAIL"> mislukte betalen</string>
+    <string name="OMEPARSEPAYINPROGRESS"> betalen in vooruitgang</string>
+    <string name="OMEPARSEBOOKINGPAYMUSTKNOW"> voor betaling moet weten:</string>
+    <string name="OMEPARSEBOOKINGPAYMUSTKNOWONE"> 1. Controleer of locatie, tijd en mobiele telefoon nummer</string>
+    <string name="OMEPARSEBOOKINGPAYMUSTKNOWTWO"> 2. Vink aan rekening voor betalingen als hetzelfde als instelling betaling gebruikersaccount, restitutie betaalt aan gebruiker rekening voor betalingen instellen</string>
+    <string name="OMEPARSEBOOKINGRESULTNOTIFICATION"> we boeken resultaat in kennis en terugbetaling van de aanbetaling</string>
+    <string name="OMEPARSEPHONENUMBERTEXT"> telefoonnummer</string>
+    <string name="OMEPARSEPAYUSEMETHODTEXT"> Met behulp van Alipay te betalen</string>
+
+    <!--Toevoegen door playround 1.0.4.10-->
+    <string name="navdrawer_item_explore"> verkennen</string>
+    <string name="navdrawer_item_venue"> locatie</string>
+    <string name="navdrawer_item_workout"> training</string>
+    <string name="navdrawer_item_map"> kaart</string>
+    <string name="navdrawer_item_setting"> instellingen</string>
+    <string name="navdrawer_item_message"> berichten</string>
+    <string name="OMEPARSEVENUEACCESSPUBLIC"> openbare</string>
+    <string name="OMEPARSEVENUEACCESSPRIVATE"> privé</string>
+
+    <!--Toevoegen door playround 1.0.4.12-->
+    <string name="OMEPARSEINVITECAMERA"> foto</string>
+
+    <!--Toevoegen door playround 1.0.4.13-->
+    <string name="OMEPARSEVENUESEARCHCITY"> stad</string>
+    <string name="venuetypesearchactivity_title"> locatie</string>
+    <string name="OMEPARSEADDVENUECONTENTPLACEHOLD"> locatie naam</string>
+    <string name="OMEPARSEADDVENUETYPE"> type</string>
+
+    <!--Toevoegen door playround 1.0.4.15-->
+    <string name="OMEPARSEBUYTEXT"> kopen</string>
+    <string name="OMEPARSEVENUEPRIMEMEMBERSHIPNOTE"> Prime lidmaatschap</string>
+    <string name="OMEPARSEVENUEPRICKPRIMEMEMBERSHIP"> Pick prime lidmaatschap</string>
+    <string name="buyprimemembershipactivity_title"> Prime lidmaatschap</string>
+    <string name="OMEPARSEPRIMETEXT"> Prime</string>
+    <string name="OMEPARSECONFIRMBUYTEXT"> Koop bevestigen</string>
+    <string name="OMEPARSEBUYPRIMEMEMBERSHIPMUSTKNOW"> moet weten voor het kopen van:</string>
+    <string name="OMEPARSEBUYPRIMEMEMEBERSHIPMUSTKNOWONE"> 1. controleren eerste lidmaatschap</string>
+    <string name="OMEPARSEBUYPRIMEMEMEBERSHIPMUSTKNOWTWO"> 2. touch telefoon nummer item als u wilt instellen van de telefoon voor het ontvangen van SMS-verificatiecode</string>
+    <string name="OMEPARSEFEETEXT"> vergoeding</string>
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPMUSTKNOWONE"> 1. Controleer prime, vergoeding en telefoon nummer</string>
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPMUSTKNOWTWO"> 2. als betalen met succes, zal u een SMS-verificatiecode ontvangen, dan gebruiken om training</string>
+
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPDESCRIPTION"> gelieve de SMS-verificatiecode te trainen</string>
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPNOTIFICATION"> betalen met succes, u ontvangt SMS-verificatiecode</string>
+    <string name="OMEPARSEPAYBUYPRIMEMEMBERSHIPNOCHOOSE"> Kies prime!</string>
+
+
+
+    <!--Add by playround 1.0.4.16 -->
+    <!-- Font family used when drawing letters for letter tile avatars.
+         Do not translate. -->
+    <string name="letter_tile_letter_font_family">sans-serif-light</string>
+
+
+    <!--Add by playround 1.0.4.17 -->
+    <string name="invitevenuenote">locatie</string>
+
+
+</resources>

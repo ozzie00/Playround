@@ -33,7 +33,7 @@ import android.widget.Toast;
 
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.database.VenueOwner;
-import com.oneme.toplay.ui.LocalNextActivity;
+import com.oneme.toplay.ui.CnLocalNextActivity;
 import com.oneme.toplay.venue.OwnerInfoUploadActivity;
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -174,10 +174,10 @@ public class SignUpActivity extends ActionBarActivity {
                         } else {
                             // login app
                             if (DispatchActivity.getGooglePlayServicesState()) {
-                                Intent invokeLocalActivityIntent = new Intent(SignUpActivity.this, LocalNextActivity.class);//LocalWithoutMapActivity.class);
+                                Intent invokeLocalActivityIntent = new Intent(SignUpActivity.this, CnLocalNextActivity.class);//LocalWithoutMapActivity.class);
                                 startActivity(invokeLocalActivityIntent);
                             } else {
-                                Intent invokeCnLocalActivityIntent = new Intent(SignUpActivity.this, LocalNextActivity.class);//CnLocalWithoutMapActivity.class);
+                                Intent invokeCnLocalActivityIntent = new Intent(SignUpActivity.this, CnLocalNextActivity.class);//CnLocalWithoutMapActivity.class);
                                 startActivity(invokeCnLocalActivityIntent);
                             }
                             setResult(RESULT_OK);

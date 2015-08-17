@@ -181,8 +181,8 @@ public class LetterTileDrawable extends Drawable {
         // The email should already have been normalized by the ContactRequest.
 
         // Using random only for fun, wish users like this way
-        //Random random = new Random();
-        //final int color = random.nextInt(sColors.length());
+        // Random random = new Random();
+        // final int color = random.nextInt(sColors.length());
         final int color = Math.abs(identifier.hashCode()) % sColors.length();
         return sColors.getColor(color, sDefaultColor);
     }
