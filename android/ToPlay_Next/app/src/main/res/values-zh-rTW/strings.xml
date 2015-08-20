@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">動動</string>
-    <string name="app_version">動動 安卓版 v.1.0.4.18</string>
+    <string name="app_version">動動 安卓版 v.1.0.4.19</string>
 
     <!-- Strings related to activity -->
     <string name="action_settings">設置</string>

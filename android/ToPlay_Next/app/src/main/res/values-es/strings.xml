@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Playround</string>
-    <string name="app_version">Playround Android v.1.0.4.18</string>
+    <string name="app_version">Playround Android v.1.0.4.19</string>
 
     <!-- Strings related to activity -->
     <string name="action_settings">Ajustes</string>
