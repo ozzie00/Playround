@@ -15,11 +15,7 @@
 */
 package com.oneme.toplay.base;
 
-import android.content.Context;
-
-import com.oneme.toplay.R;
 import com.oneme.toplay.database.FollowingPlayer;
-
 import com.parse.CountCallback;
 import com.parse.FindCallback;
 import com.parse.ParseACL;

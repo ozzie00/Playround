@@ -5,7 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Environment;
-import android.util.Log;
+//import android.util.Log;
 
 import com.oneme.toplay.Application;
 
@@ -49,7 +49,7 @@ public class FileDialog {
             builder.setPositiveButton("Select directory", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     if (Application.APPDEBUG) {
-                        Log.d(TAG, currentPath.getPath());
+                        //Log.d(TAG, currentPath.getPath());
                     }
                     fireDirectorySelectedEvent(currentPath);
                 }

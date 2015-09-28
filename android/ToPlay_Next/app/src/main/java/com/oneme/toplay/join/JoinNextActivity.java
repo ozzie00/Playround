@@ -18,59 +18,44 @@ package com.oneme.toplay.join;
 
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
-import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.content.IntentCompat;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Calendar;
-import java.util.List;
-
 import com.oneme.toplay.Application;
 import com.oneme.toplay.LoginActivity;
-import com.oneme.toplay.database.Group;
-import com.oneme.toplay.database.InviteScore;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.base.Time;
+import com.oneme.toplay.database.Group;
 import com.oneme.toplay.database.InviteComment;
+import com.oneme.toplay.database.InviteLike;
+import com.oneme.toplay.database.InviteScore;
 import com.oneme.toplay.database.Message;
 import com.oneme.toplay.database.Sport;
-import com.oneme.toplay.database.InviteLike;
-
 import com.oneme.toplay.ui.BaseActivity;
-import com.oneme.toplay.ui.LocalNextActivity;
 import com.parse.CountCallback;
 import com.parse.FindCallback;
 import com.parse.ParseACL;
 import com.parse.ParseException;
-import com.parse.GetCallback;
 import com.parse.ParseGeoPoint;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
+
+import java.util.Calendar;
+import java.util.List;
 
 
 public class JoinNextActivity extends BaseActivity {
@@ -384,7 +369,9 @@ public class JoinNextActivity extends BaseActivity {
         msendimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+               // final Intent intent = new Intent(JoinNextActivity.this, TrackListActivity.class);
+               // startActivity(intent);
+                //finish();
             }
         });
 

@@ -16,14 +16,6 @@
 
 package com.oneme.toplay.base;
 
-import android.view.Display;
-import android.graphics.Point;
-import android.app.Activity;
-import android.util.DisplayMetrics;
-import android.view.WindowManager;
-import android.content.Context;
-
-
 public final class Screen {
 
 

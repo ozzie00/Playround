@@ -16,18 +16,6 @@
 
 package com.oneme.toplay.addfriend;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
-
-import com.oneme.toplay.Application;
-import com.oneme.toplay.R;
-import com.oneme.toplay.base.AppConstant;
-
 public class SendFriendRequestActivity { //extends ActionBarActivity {
 
     /*

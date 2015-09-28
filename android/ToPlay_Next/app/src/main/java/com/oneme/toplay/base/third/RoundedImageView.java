@@ -27,7 +27,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
 import android.util.AttributeSet;
-import android.util.Log;
+//import android.util.Log;
 import android.widget.ImageView;
 
 import com.oneme.toplay.R;
@@ -243,7 +243,7 @@ public class RoundedImageView extends ImageView {
       try {
         d = rsrc.getDrawable(mResource);
       } catch (Exception e) {
-        Log.w(TAG, "Unable to find resource: " + mResource, e);
+       // Log.w(TAG, "Unable to find resource: " + mResource, e);
         // Don't try again.
         mResource = 0;
       }

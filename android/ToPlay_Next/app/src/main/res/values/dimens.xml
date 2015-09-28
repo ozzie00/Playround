@@ -66,8 +66,17 @@
     <dimen name="contact_browser_list_item_gap_between_image_and_text">15dp</dimen>
     <dimen name="contact_browser_list_top_margin">12dp</dimen>
 
+    <dimen name="widget_margin">8dp</dimen>
 
 
+
+
+    <!-- The width and height of the notification icon -->
+    <dimen name="notification_icon_size">64dip</dimen>
+    <!-- Size of notification text (see TextAppearance.StatusBar.EventContent) -->
+    <dimen name="notification_text_size">14dp</dimen>
+    <!-- Size of notification text titles (see TextAppearance.StatusBar.EventContent.Title) -->
+    <dimen name="notification_title_text_size">18dp</dimen>
 
 
 </resources>

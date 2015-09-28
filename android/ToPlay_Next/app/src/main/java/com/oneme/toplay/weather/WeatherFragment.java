@@ -4,22 +4,19 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.util.Log;
+//import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.oneme.toplay.R;
 
 import org.json.JSONObject;
 
 import java.text.DateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.Locale;
-
-import com.oneme.toplay.R;
 
 public class WeatherFragment extends Fragment {
 	
@@ -174,7 +171,7 @@ public class WeatherFragment extends Fragment {
             }
 
     	}catch(Exception e){
-    		Log.e("SimpleWeather", "One or more fields not found in the JSON data  " + e.getMessage());
+    		//Log.e("SimpleWeather", "One or more fields not found in the JSON data  " + e.getMessage());
     	}
     }
 
@@ -225,7 +222,7 @@ public class WeatherFragment extends Fragment {
             newsetWeatherIcon(details.getInt("id"), 0);
 
         }catch(Exception e){
-            Log.e("SimpleWeather", "One or more fields not found in the JSON data  " + e.getMessage());
+            //Log.e("SimpleWeather", "One or more fields not found in the JSON data  " + e.getMessage());
         }
     }
     

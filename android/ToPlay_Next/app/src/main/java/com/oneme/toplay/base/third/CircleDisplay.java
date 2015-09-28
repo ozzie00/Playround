@@ -14,7 +14,7 @@ import android.graphics.PointF;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.util.Log;
+//import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.MotionEvent;
@@ -182,7 +182,7 @@ public class CircleDisplay extends View implements OnGestureListener {
             c.drawText(mCustomText[index], getWidth() / 2,
                     getHeight() / 2 + mTextPaint.descent(), mTextPaint);
         } else {
-            Log.e(LOG_TAG, "Custom text array not long enough.");
+           // Log.e(LOG_TAG, "Custom text array not long enough.");
         }        
     }
 
@@ -558,8 +558,8 @@ public class CircleDisplay extends View implements OnGestureListener {
         if (mTouchEnabled) {
 
             if (mListener == null)
-                Log.w(LOG_TAG,
-                        "No SelectionListener specified. Use setSelectionListener(...) to set a listener for callbacks when selecting values.");
+                //Log.w(LOG_TAG,
+                //        "No SelectionListener specified. Use setSelectionListener(...) to set a listener for callbacks when selecting values.");
 
             // if the detector recognized a gesture, consume it
             if (mGestureDetector.onTouchEvent(e))

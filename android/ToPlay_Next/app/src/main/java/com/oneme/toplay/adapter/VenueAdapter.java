@@ -15,7 +15,6 @@
 */
 package com.oneme.toplay.adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -31,21 +30,13 @@ import android.widget.TextView;
 
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
-import com.oneme.toplay.base.LoadImageFromParseCloud;
 import com.oneme.toplay.database.Photo;
 import com.oneme.toplay.database.PhotoLink;
 import com.oneme.toplay.database.Sport;
 import com.oneme.toplay.database.Venue;
-
-import com.parse.CountCallback;
-import com.parse.FindCallback;
-import com.parse.GetCallback;
-import com.parse.ParseException;
-import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class VenueAdapter extends ArrayAdapter<Venue> {
 

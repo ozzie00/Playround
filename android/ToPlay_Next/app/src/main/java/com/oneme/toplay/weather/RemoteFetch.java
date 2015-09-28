@@ -2,17 +2,16 @@ package com.oneme.toplay.weather;
 
 import android.content.Context;
 
+import com.oneme.toplay.Application;
+import com.oneme.toplay.R;
+
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.util.Locale;
-
-import com.oneme.toplay.Application;
-import com.oneme.toplay.R;
 
 public class RemoteFetch {
 

@@ -1,36 +1,5 @@
 package com.oneme.toplay;
 
-import android.database.Cursor;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-
-import java.util.ArrayList;
-
-import com.oneme.toplay.Application;
-import com.oneme.toplay.R;
-import com.oneme.toplay.adapter.MessageAdapter;
-import com.oneme.toplay.database.Database;
-
-import com.oneme.toplay.service.Singleton;
-
-import com.oneme.toplay.base.FriendInfo;
-
-import rx.Observable;
-import rx.Observer;
-import rx.Subscriber;
-import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
-import rx.schedulers.Schedulers;
-import rx.subscriptions.Subscriptions;
-
 public class MessageFragment { //extends Fragment {
 
     /*

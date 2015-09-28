@@ -43,7 +43,7 @@ public class Homeing {
                 @Override
                 public void done(int i, ParseException e) {
 
-                    android.util.Log.d("Homeing ", " my home field  " + i);
+                    //android.util.Log.d("Homeing ", " my home field  " + i);
                     if (e == null) {
                         if (i < 1) {
                             // Create a venue as home if current user has not followed this user before

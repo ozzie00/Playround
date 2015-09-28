@@ -17,14 +17,10 @@
 package com.oneme.toplay.base;
 
 
-
-import android.os.Bundle;
-import android.app.DialogFragment;
-import android.app.Dialog;
 import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
-import android.text.format.DateFormat;
-
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.os.Bundle;
 
 import java.util.Calendar;
 

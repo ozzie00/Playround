@@ -3,7 +3,7 @@ package com.oneme.toplay.service;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.util.Log;
+//import android.util.Log;
 
 import com.oneme.toplay.Application;
 
@@ -36,16 +36,16 @@ public class DataFile {
 	public boolean doesFileExist() {
         if (mcontext==null) {
             if (Application.APPDEBUG) {
-                Log.d("DataFile", "Context is null!");
+                //Log.d("DataFile", "Context is null!");
             }
         }
         if (Application.APPDEBUG) {
-            Log.d("DataFile", "fileName: " + fileName);
+            //Log.d("DataFile", "fileName: " + fileName);
         }
 		File myFile = mcontext.getFileStreamPath(fileName);
         if (myFile == null) {
             if (Application.APPDEBUG) {
-                Log.d("DataFile", "myFile is null!");
+               // Log.d("DataFile", "myFile is null!");
             }
         }
 		return myFile.exists();

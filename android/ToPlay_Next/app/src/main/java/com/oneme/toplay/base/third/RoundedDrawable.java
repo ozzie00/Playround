@@ -32,7 +32,7 @@ import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
-import android.util.Log;
+//import android.util.Log;
 import android.widget.ImageView.ScaleType;
 
 @SuppressWarnings("UnusedDeclaration")
@@ -130,7 +130,7 @@ public class RoundedDrawable extends Drawable {
       drawable.draw(canvas);
     } catch (Exception e) {
       e.printStackTrace();
-      Log.w(TAG, "Failed to create bitmap from drawable!");
+     // Log.w(TAG, "Failed to create bitmap from drawable!");
       bitmap = null;
     }
 

@@ -5,10 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
+//import android.util.Log;
 
 import com.oneme.toplay.Application;
-import com.oneme.toplay.R;
 
 import java.util.ArrayList;
 
@@ -69,13 +68,13 @@ public class IdentityDatabase extends SQLiteOpenHelper {
 
         if (Application.APPDEBUG) {
 
-            Log.d(TAG, " database " + db.getPath()
-                    + " lockedbycurrenThread  " + db.isDbLockedByCurrentThread()
-                    + " lockedbyotherThread " + db.isDbLockedByOtherThreads()
-                    + " " + db.query("users",
-                    null, null, null, null, null, null));
+            //Log.d(TAG, " database " + db.getPath()
+            //        + " lockedbycurrenThread  " + db.isDbLockedByCurrentThread()
+            //        + " lockedbyotherThread " + db.isDbLockedByOtherThreads()
+            //        + " " + db.query("users",
+            //        null, null, null, null, null, null));
 
-            Log.d(TAG, " database version " + db.getVersion());
+            //Log.d(TAG, " database version " + db.getVersion());
 
         }
 
@@ -118,12 +117,12 @@ public class IdentityDatabase extends SQLiteOpenHelper {
         int count         = cursor.getInt(0);
 
         if (Application.APPDEBUG) {
-            Log.d(TAG, " user count \n" + cursor.getCount());
+            //Log.d(TAG, " user count \n" + cursor.getCount());
             int i = cursor.getCount();
             while (i-- > 0) {
-                Log.d(TAG, "  " + cursor.getString(i)
-                        + " " + cursor.getColumnName(i)
-                        + " \n" + cursor.getColumnNames());
+               // Log.d(TAG, "  " + cursor.getString(i)
+               //         + " " + cursor.getColumnName(i)
+               //         + " \n" + cursor.getColumnNames());
             }
          }
 

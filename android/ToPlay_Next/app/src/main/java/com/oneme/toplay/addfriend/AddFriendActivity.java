@@ -1,43 +1,5 @@
 package com.oneme.toplay.addfriend;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.net.Uri;
-import android.os.AsyncTask;
-import android.os.Build;
-import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.NavUtils;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.app.ActionBarActivity;
-import android.util.Base64;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.WindowManager;
-import android.widget.EditText;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.oneme.toplay.Application;
-import com.oneme.toplay.QR.IntentIntegrator;
-import com.oneme.toplay.QR.IntentResult;
-import com.oneme.toplay.R;
-import com.oneme.toplay.base.AppConstant;
-import com.oneme.toplay.base.Constants;
-import com.oneme.toplay.database.Database;
-import com.oneme.toplay.PinDialogFragment;
-import com.oneme.toplay.service.Singleton;
-import com.parse.ParseUser;
-
-import org.xbill.DNS.Lookup;
-import org.xbill.DNS.Record;
-import org.xbill.DNS.TXTRecord;
-import org.xbill.DNS.Type;
-
 //import im.tox.jtoxcore.FriendExistsException;
 //import im.tox.jtoxcore.ToxException;
 

@@ -18,7 +18,6 @@ package com.oneme.toplay.database;
 
 import com.oneme.toplay.R;
 
-import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 

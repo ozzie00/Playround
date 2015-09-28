@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.oneme.toplay"
-    android:versionCode="51"
-    android:versionName="1.0.4.19" >
+    android:versionCode="52"
+    android:versionName="1.0.5.1"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-sdk
         android:minSdkVersion="9"
@@ -27,6 +28,99 @@
     <uses-permission android:name = "android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name = "android.permission.WRITE_SETTINGS" />
     <uses-permission android:name = "com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name = "com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
+
+    <!-- Permission to initialize services -->
+    <uses-permission android:name = "android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- Permissions to record locations -->
+    <uses-permission android:name = "android.permission.BLUETOOTH" />
+    <uses-permission android:name = "android.permission.BLUETOOTH_ADMIN" />
+    <!-- Permissions to upload tracks -->
+    <uses-permission android:name = "android.permission.GET_ACCOUNTS" />
+
+    <uses-permission android:name = "android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name = "android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name = "com.google.android.googleapps.permission.GOOGLE_AUTH" />
+    <uses-permission android:name = "com.google.android.googleapps.permission.GOOGLE_AUTH.local" />
+    <!-- Permission for Android sync provider -->
+    <uses-permission android:name = "android.permission.READ_SYNC_STATS" />
+    <uses-permission android:name = "android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name = "android.permission.WRITE_SYNC_SETTINGS" />
+    <!--  Permission to read contacts -->
+    <uses-permission android:name = "android.permission.READ_CONTACTS" />
+    <uses-permission android:name = "com.oneme.toplay.track.MYTRACKS_NOTIFICATIONS" />
+    <uses-permission android:name = "com.oneme.toplay.track.READ_TRACK_DATA" />
+    <uses-permission android:name = "com.oneme.toplay.track.WRITE_TRACK_DATA" />
+
+    <!-- Permissions to access My Tracks data -->
+
+    <!-- Permission to receive My Tracks internal broadcasts -->
+    <permission
+        android:description="@string/permission_notification_label"
+        android:label="@string/permission_notification_label"
+        android:name="com.oneme.toplay.track.MYTRACKS_NOTIFICATIONS"
+        android:permissionGroup="android.permission-group.LOCATION"
+        android:protectionLevel="signature" />
+    <!-- Permission to read track data -->
+    <permission
+        android:description="@string/permission_read_description"
+        android:label="@string/permission_read_label"
+        android:name="com.oneme.toplay.track.READ_TRACK_DATA"
+        android:permissionGroup="android.permission-group.LOCATION"
+        android:protectionLevel="dangerous" />
+    <!-- Permission to receive track start/end broadcasts -->
+    <permission
+        android:description="@string/permission_notification_description"
+        android:label="@string/permission_notification_label"
+        android:name="com.oneme.toplay.track.TRACK_NOTIFICATIONS"
+        android:permissionGroup="android.permission-group.LOCATION"
+        android:protectionLevel="dangerous" />
+    <!-- Permission to write track data, either directly or through service calls -->
+    <permission
+        android:description="@string/permission_write_description"
+        android:label="@string/permission_write_label"
+        android:name="com.oneme.toplay.track.WRITE_TRACK_DATA"
+        android:permissionGroup="android.permission-group.LOCATION"
+        android:protectionLevel="dangerous" />
+    <!-- Permission for map view v2. Note the prefix must be the application package name -->
+
+    <!-- Required features -->
+
+    <uses-feature
+        android:name="android.hardware.location"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.location.gps"
+        android:required="true" />
+    <!-- Optional features -->
+    <uses-feature
+        android:name="android.hardware.bluetooth"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.faketouch"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.location.network"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.sensor.compass"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.telephony.gsm"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.touchscreen.multitouch"
+        android:required="false" />
+
 
 
     <!-- Ozzie Zhang 2014-11-20 add-->
@@ -61,6 +155,7 @@
         android:allowBackup = "true"
         android:icon        = "@drawable/ome_ic_launcher"
         android:logo        = "@drawable/ome_ic_launcher"
+        tools:replace="android:label"
         android:label       = "@string/app_name"
         android:theme       = "@style/Theme.Playround.Base" >
 
@@ -182,11 +277,11 @@
             android:value       = "@integer/google_play_services_version" />
 
         <!--ToPlay Google release key-->
-        <!--
+
         <meta-data
             android:name  = "com.google.android.maps.v2.API_KEY"
             android:value = "AIzaSyCwPhVEURLwyW1C7qi-BNI8j3F4siYPCDI" />
-        -->
+
 
         <!--ToPlay Google debug key-->
         <!--
@@ -632,6 +727,102 @@
         </activity>
 
         <!-- alipay sdk end -->
+
+
+
+        <!-- track feature  begin -->
+
+
+
+
+        <activity android:name="com.oneme.toplay.track.MarkerEditActivity" />
+        <activity android:name="com.oneme.toplay.track.MarkerDetailActivity" />
+        <activity
+            android:label="@string/menu_markers"
+            android:name="com.oneme.toplay.track.MarkerListActivity" >
+        </activity>
+
+        <activity
+            android:name="com.oneme.toplay.track.TrackDetailActivity"
+            android:parentActivityName="com.oneme.toplay.track.TrackListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.oneme.toplay.track.TrackListActivity" />
+        </activity>
+        <activity
+            android:name="com.oneme.toplay.track.TrackDetailNextActivity"
+            android:parentActivityName="com.oneme.toplay.track.TrackListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.oneme.toplay.track.TrackListActivity" />
+        </activity>
+        <activity android:name="com.oneme.toplay.track.TrackEditActivity" />
+        <activity android:name="com.oneme.toplay.track.TrackListActivity"
+                  android:label= "@string/navdrawer_item_workout">
+
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:value="com.oneme.toplay.track.SearchListActivity" />
+        </activity>
+
+        <activity android:name="com.oneme.toplay.track.io.file.exporter.SaveActivity" />
+
+        <activity android:name="com.oneme.toplay.track.settings.AdvancedSettingsActivity" />
+        <activity android:name="com.oneme.toplay.track.settings.ChartSettingsActivity" />
+        <activity android:name="com.oneme.toplay.track.settings.MapSettingsActivity" />
+        <activity android:name="com.oneme.toplay.track.settings.RecordingSettingsActivity" />
+        <!--<activity android:name="com.google.android.apps.mytracks.settings.SensorSettingsActivity" /> -->
+        <activity android:name="com.oneme.toplay.track.settings.SettingsActivity" />
+        <activity android:name="com.oneme.toplay.track.settings.StatsSettingsActivity" />
+        <activity
+            android:label="@string/track_widget_config_title"
+            android:name="com.oneme.toplay.track.widgets.TrackWidgetConfigActivity" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
+        <!-- Services -->
+        <service
+            android:name="com.oneme.toplay.track.services.ActivityRecognitionIntentService" />
+        <service
+            android:exported="false"
+            android:name="com.oneme.toplay.track.services.ControlRecordingService" />
+        <service
+            android:enabled="true"
+            android:exported="true"
+            android:icon="@drawable/ic_arrow_320"
+            android:label="@string/my_tracks_recording_service"
+            android:name="com.oneme.toplay.track.services.TrackRecordingService"
+            android:permission="com.oneme.toplay.track.WRITE_TRACK_DATA" />
+        <!-- Receivers -->
+        <receiver android:name="com.oneme.toplay.track.BootReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.oneme.toplay.track.widgets.TrackWidgetProvider" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.oneme.toplay.track.TRACK_PAUSED" />
+                <action android:name="com.oneme.toplay.track.TRACK_RESUMED" />
+                <action android:name="com.oneme.toplay.track.TRACK_STARTED" />
+                <action android:name="com.oneme.toplay.track.TRACK_STOPPED" />
+                <action android:name="com.oneme.toplay.track.TRACK_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/track_widget_info" />
+        </receiver>
+        <!-- Providers -->
+        <!-- My Tracks data provider -->
+        <provider
+            android:authorities="com.oneme.toplay"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:name="com.oneme.toplay.track.content.TracksProvider"
+            android:readPermission="com.oneme.toplay.track.READ_TRACK_DATA"
+            android:writePermission="com.oneme.toplay.track.WRITE_TRACK_DATA" />
 
     </application>
 

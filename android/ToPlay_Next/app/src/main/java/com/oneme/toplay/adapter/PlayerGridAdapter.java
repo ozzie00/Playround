@@ -26,8 +26,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.oneme.toplay.R;
-import com.oneme.toplay.database.PlayerIcon;
 import com.oneme.toplay.base.third.ImageLoader;
+import com.oneme.toplay.database.PlayerIcon;
 
 import java.util.ArrayList;
 

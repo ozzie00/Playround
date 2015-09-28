@@ -22,7 +22,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
@@ -40,7 +39,6 @@ import com.oneme.toplay.base.CopyVenue;
 import com.oneme.toplay.base.VenueToIntentExtra;
 import com.oneme.toplay.database.Venue;
 import com.oneme.toplay.venue.DetailInfoActivity;
-
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;

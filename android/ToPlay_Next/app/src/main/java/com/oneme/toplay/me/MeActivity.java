@@ -16,36 +16,27 @@
 
 package com.oneme.toplay.me;
 
-import android.content.ComponentName;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.content.IntentCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.util.List;
-
 import com.oneme.toplay.Application;
 import com.oneme.toplay.R;
-import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.addfriend.ShowQRcodeActivity;
-
+import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.base.LoadImageFromParseCloud;
-import com.oneme.toplay.base.third.RoundedTransformationBuilder;
 import com.oneme.toplay.ui.BaseActivity;
-
-import com.parse.ParseUser;
 import com.parse.ParseFile;
-
-
+import com.parse.ParseUser;
 import com.squareup.picasso.Transformation;
+
+import java.util.List;
 
 //import com.nostra13.universalimageloader.core.ImageLoader;
 

@@ -16,32 +16,28 @@
 
 package com.oneme.toplay.me;
 
-import android.content.ComponentName;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.content.IntentCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.List;
-
 import com.astuetz.PagerSlidingTabStrip;
 import com.oneme.toplay.Application;
-import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.R;
+import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.base.LoadImageFromParseCloud;
-
 import com.oneme.toplay.ui.BaseActivity;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+
+import java.util.List;
 
 
 

@@ -19,7 +19,6 @@ package com.oneme.toplay.base.third;
 import android.app.ActivityManager;
 import android.content.ComponentCallbacks2;
 import android.content.ContentResolver;
-import android.content.ContentUris;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -43,12 +42,11 @@ import android.os.Message;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.Contacts;
 import android.provider.ContactsContract.Contacts.Photo;
-import android.provider.ContactsContract.Data;
 import android.provider.ContactsContract.Directory;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.text.TextUtils;
-import android.util.Log;
+//import android.util.Log;
 import android.util.LruCache;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,17 +54,10 @@ import android.widget.ImageView;
 
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.third.lettertiles.LetterTileDrawable;
-import com.oneme.toplay.base.third.BitmapUtil;
-import com.oneme.toplay.base.third.UriUtils;
 
-
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import java.lang.ref.Reference;
 import java.lang.ref.SoftReference;
-import java.net.URL;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -240,8 +231,8 @@ public abstract class ContactPhotoManager implements ComponentCallbacks2 {
                 request.isCircular = Boolean.valueOf(isCircular);
             }
         } catch (NumberFormatException e) {
-            Log.w(TAG, "Invalid DefaultImageRequest image parameters provided, ignoring and using "
-                    + "defaults.");
+            //Log.w(TAG, "Invalid DefaultImageRequest image parameters provided, ignoring and using "
+            //        + "defaults.");
         }
 
         return request;
@@ -430,7 +421,7 @@ public abstract class ContactPhotoManager implements ComponentCallbacks2 {
                 (ContactPhotoManager) applicationContext.getSystemService(CONTACT_PHOTO_SERVICE);
         if (service == null) {
             service = createContactPhotoManager(applicationContext);
-            Log.e(TAG, "No contact photo service in context: " + applicationContext);
+           // Log.e(TAG, "No contact photo service in context: " + applicationContext);
         }
         return service;
     }
@@ -708,10 +699,10 @@ class ContactPhotoManagerImpl extends ContactPhotoManager implements Callback {
             }
         };
         mBitmapHolderCacheRedZoneBytes = (int) (holderCacheSize * 0.75);
-        Log.i(TAG, "Cache adj: " + cacheSizeAdjustment);
+        //Log.i(TAG, "Cache adj: " + cacheSizeAdjustment);
         if (DEBUG) {
-            Log.d(TAG, "Cache size: " + btk(mBitmapHolderCache.maxSize())
-                    + " + " + btk(mBitmapCache.maxSize()));
+          //  Log.d(TAG, "Cache size: " + btk(mBitmapHolderCache.maxSize())
+          //          + " + " + btk(mBitmapCache.maxSize()));
         }
 
         mThumbnailSize = context.getResources().getDimensionPixelSize(
@@ -748,14 +739,14 @@ class ContactPhotoManagerImpl extends ContactPhotoManager implements Callback {
                     bitmapBytes += b.getByteCount();
                 }
             }
-            Log.d(TAG, "L1: " + btk(rawBytes) + " + " + btk(bitmapBytes) + " = "
-                    + btk(rawBytes + bitmapBytes) + ", " + numHolders + " holders, "
-                    + numBitmaps + " bitmaps, avg: "
-                    + btk(safeDiv(rawBytes, numHolders))
-                    + "," + btk(safeDiv(bitmapBytes, numBitmaps)));
-            Log.d(TAG, "L1 Stats: " + mBitmapHolderCache.toString()
-                    + ", overwrite: fresh=" + mFreshCacheOverwrite.get()
-                    + " stale=" + mStaleCacheOverwrite.get());
+            //Log.d(TAG, "L1: " + btk(rawBytes) + " + " + btk(bitmapBytes) + " = "
+            //        + btk(rawBytes + bitmapBytes) + ", " + numHolders + " holders, "
+            //        + numBitmaps + " bitmaps, avg: "
+            //        + btk(safeDiv(rawBytes, numHolders))
+            //        + "," + btk(safeDiv(bitmapBytes, numBitmaps)));
+            //Log.d(TAG, "L1 Stats: " + mBitmapHolderCache.toString()
+            //        + ", overwrite: fresh=" + mFreshCacheOverwrite.get()
+            //        + " stale=" + mStaleCacheOverwrite.get());
         }
 
         {
@@ -765,15 +756,15 @@ class ContactPhotoManagerImpl extends ContactPhotoManager implements Callback {
                 numBitmaps++;
                 bitmapBytes += b.getByteCount();
             }
-            Log.d(TAG, "L2: " + btk(bitmapBytes) + ", " + numBitmaps + " bitmaps"
-                    + ", avg: " + btk(safeDiv(bitmapBytes, numBitmaps)));
+            //Log.d(TAG, "L2: " + btk(bitmapBytes) + ", " + numBitmaps + " bitmaps"
+            //        + ", avg: " + btk(safeDiv(bitmapBytes, numBitmaps)));
             // We don't get from L2 cache, so L2 stats is meaningless.
         }
     }
 
     @Override
     public void onTrimMemory(int level) {
-        if (DEBUG) Log.d(TAG, "onTrimMemory: " + level);
+       // if (DEBUG) Log.d(TAG, "onTrimMemory: " + level);
         if (level >= ComponentCallbacks2.TRIM_MEMORY_MODERATE) {
             // Clear the caches.  Note all pending requests will be removed too.
             clear();
@@ -794,7 +785,7 @@ class ContactPhotoManagerImpl extends ContactPhotoManager implements Callback {
             defaultProvider.applyDefaultImage(view, -1, darkTheme, defaultImageRequest);
             mPendingRequests.remove(view);
         } else {
-            if (DEBUG) Log.d(TAG, "loadPhoto request: " + photoId);
+          //  if (DEBUG) Log.d(TAG, "loadPhoto request: " + photoId);
             loadPhotoByIdOrUri(view, Request.createFromThumbnailId(photoId, darkTheme, isCircular,
                     defaultProvider));
         }
@@ -810,7 +801,7 @@ class ContactPhotoManagerImpl extends ContactPhotoManager implements Callback {
                     defaultImageRequest);
             mPendingRequests.remove(view);
         } else {
-            if (DEBUG) Log.d(TAG, "loadPhoto request: " + photoUri);
+           // if (DEBUG) Log.d(TAG, "loadPhoto request: " + photoUri);
             if (isDefaultImageUri(photoUri)) {
                 createAndApplyDefaultImageForUri(view, photoUri, requestedExtent, darkTheme,
                         isCircular, defaultProvider);
@@ -878,10 +869,10 @@ class ContactPhotoManagerImpl extends ContactPhotoManager implements Callback {
     @Override
     public void refreshCache() {
         if (mBitmapHolderCacheAllUnfresh) {
-            if (DEBUG) Log.d(TAG, "refreshCache -- no fresh entries.");
+           // if (DEBUG) Log.d(TAG, "refreshCache -- no fresh entries.");
             return;
         }
-        if (DEBUG) Log.d(TAG, "refreshCache");
+        //if (DEBUG) Log.d(TAG, "refreshCache");
         mBitmapHolderCacheAllUnfresh = true;
         for (BitmapHolder holder : mBitmapHolderCache.snapshot().values()) {
             holder.fresh = false;
@@ -1031,9 +1022,9 @@ class ContactPhotoManagerImpl extends ContactPhotoManager implements Callback {
             holder.bitmap = bitmap;
             holder.bitmapRef = new SoftReference<Bitmap>(bitmap);
             if (DEBUG) {
-                Log.d(TAG, "inflateBitmap " + btk(bytes.length) + " -> "
-                        + bitmap.getWidth() + "x" + bitmap.getHeight()
-                        + ", " + btk(bitmap.getByteCount()));
+                //Log.d(TAG, "inflateBitmap " + btk(bytes.length) + " -> "
+                //        + bitmap.getWidth() + "x" + bitmap.getHeight()
+                //        + ", " + btk(bitmap.getByteCount()));
             }
         } catch (OutOfMemoryError e) {
             // Do nothing - the photo will appear to be missing
@@ -1041,7 +1032,7 @@ class ContactPhotoManagerImpl extends ContactPhotoManager implements Callback {
     }
 
     public void clear() {
-        if (DEBUG) Log.d(TAG, "clear");
+       // if (DEBUG) Log.d(TAG, "clear");
         mPendingRequests.clear();
         mBitmapHolderCache.evictAll();
         mBitmapCache.evictAll();
@@ -1148,15 +1139,15 @@ class ContactPhotoManagerImpl extends ContactPhotoManager implements Callback {
         if (DEBUG) {
             BitmapHolder prev = mBitmapHolderCache.get(key);
             if (prev != null && prev.bytes != null) {
-                Log.d(TAG, "Overwriting cache: key=" + key + (prev.fresh ? " FRESH" : " stale"));
+                //Log.d(TAG, "Overwriting cache: key=" + key + (prev.fresh ? " FRESH" : " stale"));
                 if (prev.fresh) {
                     mFreshCacheOverwrite.incrementAndGet();
                 } else {
                     mStaleCacheOverwrite.incrementAndGet();
                 }
             }
-            Log.d(TAG, "Caching data: key=" + key + ", " +
-                    (bytes == null ? "<null>" : btk(bytes.length)));
+           // Log.d(TAG, "Caching data: key=" + key + ", " +
+           //         (bytes == null ? "<null>" : btk(bytes.length)));
         }
         BitmapHolder holder = new BitmapHolder(bytes,
                 bytes == null ? -1 : BitmapUtil.getSmallerExtentFromBytes(bytes));

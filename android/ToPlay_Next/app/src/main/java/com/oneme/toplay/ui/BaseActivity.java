@@ -37,7 +37,6 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -49,14 +48,16 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.LoadImageFromParseCloud;
+import com.oneme.toplay.ui.widget.BezelImageView;
 import com.oneme.toplay.ui.widget.MultiSwipeRefreshLayout;
 import com.oneme.toplay.ui.widget.ScrimInsetsScrollView;
+import com.oneme.toplay.track.TrackListActivity;
 import com.parse.ParseUser;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A base activity that handles common functionality in the app. This includes the
@@ -97,8 +98,8 @@ public abstract class BaseActivity extends ActionBarActivity implements
     // not a list of items that are necessarily *present* in the Nav Drawer; rather,
     // it's a list of all possible items.
     protected static final int NAVDRAWER_ITEM_EXPLORE = 0;
-    protected static final int NAVDRAWER_ITEM_VENUE = 1;
-    protected static final int NAVDRAWER_ITEM_WORKOUT = 2;
+    protected static final int NAVDRAWER_ITEM_WORKOUT = 1;
+    protected static final int NAVDRAWER_ITEM_VENUE = 2;
     protected static final int NAVDRAWER_ITEM_MAP = 3;
     protected static final int NAVDRAWER_ITEM_MESSAGE = 4;
     protected static final int NAVDRAWER_ITEM_SIGN_IN = 5;
@@ -112,8 +113,8 @@ public abstract class BaseActivity extends ActionBarActivity implements
     // titles for navdrawer items (indices must correspond to the above)
     private static final int[] NAVDRAWER_TITLE_RES_ID = new int[]{
             R.string.navdrawer_item_explore,
-            R.string.navdrawer_item_venue,
             R.string.navdrawer_item_workout,
+            R.string.navdrawer_item_venue,
             R.string.navdrawer_item_map,
             R.string.navdrawer_item_message,
             R.string.navdrawer_item_explore,
@@ -123,8 +124,8 @@ public abstract class BaseActivity extends ActionBarActivity implements
     // icons for navdrawer items (indices must correspond to above array)
     private static final int[] NAVDRAWER_ICON_RES_ID = new int[] {
             R.drawable.ic_drawer_explore,  // My Schedule
-            R.drawable.ic_drawer_experts,  // Explore
             R.drawable.ic_drawer_my_schedule, // Map
+            R.drawable.ic_drawer_experts,  // Explore
             R.drawable.ic_drawer_map, // Social
             R.drawable.ic_drawer_social, // Video Library
             0, // Sign in
@@ -400,12 +401,13 @@ public abstract class BaseActivity extends ActionBarActivity implements
       //      mNavDrawerItems.add(NAVDRAWER_ITEM_SIGN_IN);
       //  }
 
+        mNavDrawerItems.add(NAVDRAWER_ITEM_WORKOUT);
+
         // Explore is always shown
         mNavDrawerItems.add(NAVDRAWER_ITEM_VENUE);
 
         // If the attendee is on-site, show Map on the nav drawer
         //if (attendeeAtVenue) {
-            mNavDrawerItems.add(NAVDRAWER_ITEM_WORKOUT);
        // }
         mNavDrawerItems.add(NAVDRAWER_ITEM_SEPARATOR);
 
@@ -506,7 +508,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
 
         final View chosenAccountView = findViewById(R.id.chosen_account_view);
 //        ImageView coverImageView     = (ImageView) chosenAccountView.findViewById(R.id.profile_cover_image);
-        ImageView profileImageView   = (ImageView) chosenAccountView.findViewById(R.id.profile_image);
+//        BezelImageView profileImageView   = (BezelImageView) chosenAccountView.findViewById(R.id.profile_image);
         TextView nameTextView        = (TextView) chosenAccountView.findViewById(R.id.profile_name_text);
 
         ParseUser muser = ParseUser.getCurrentUser();
@@ -524,11 +526,11 @@ public abstract class BaseActivity extends ActionBarActivity implements
         }
 
         if (muser == null) {
-            profileImageView.setVisibility(View.GONE);
+        //    profileImageView.setVisibility(View.GONE);
             nameTextView.setVisibility(View.GONE);
         } else {
-            profileImageView.setVisibility(View.VISIBLE);
-            LoadImageFromParseCloud.getAvatar(BaseActivity.this, muser, profileImageView);
+        //    profileImageView.setVisibility(View.VISIBLE);
+        //    LoadImageFromParseCloud.getAvatar(BaseActivity.this, muser, profileImageView);
         }
 
         if (name == null || name.isEmpty()) {
@@ -579,6 +581,11 @@ public abstract class BaseActivity extends ActionBarActivity implements
                 //finish();
             //    break;
         }
+        // Handle home menu item, up navigation
+        if (item.getItemId() == android.R.id.home) {
+            onHomeSelected();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -618,10 +625,10 @@ public abstract class BaseActivity extends ActionBarActivity implements
                 finish();
                 break;
             case NAVDRAWER_ITEM_WORKOUT:
-               // intent = new Intent(this, UIUtils.getMapActivityClass(this));
-               // startActivity(intent);
-               // finish();
-               // break;
+                intent = new Intent(this, TrackListActivity.class);
+                startActivity(intent);
+                finish();
+                break;
             case NAVDRAWER_ITEM_MAP:
                 intent = new Intent(this, CnMapNextActivity.class);
                 startActivity(intent);
@@ -752,9 +759,9 @@ public abstract class BaseActivity extends ActionBarActivity implements
         return intent;
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
+   // @Override
+   // public void onStart() {
+   //     super.onStart();
 
         // Perform one-time bootstrap setup, if needed
      //   if (!PrefUtils.isDataBootstrapDone(this) && mDataBootstrapThread == null) {
@@ -763,7 +770,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
      //   }
 
  //       startLoginProcess();
-    }
+   // }
 
     /**
      * Performs the one-time data bootstrap. This means taking our prepackaged conference data
@@ -1102,5 +1109,14 @@ public abstract class BaseActivity extends ActionBarActivity implements
     @Override
     public boolean canSwipeRefreshChildScrollUp() {
         return false;
+    }
+
+
+    /**
+     * Callback when the home menu item is selected. E.g., setup the back stack
+     * when home is selected.
+     */
+    protected void onHomeSelected() {
+        finish();
     }
 }

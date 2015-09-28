@@ -1,51 +1,14 @@
 package com.oneme.toplay;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Build;
-import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.support.v7.app.ActionBarActivity;
-import android.util.Base64;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.WindowManager;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.Toast;
-
 //import org.abstractj.kalium.crypto.Box;
 //import org.abstractj.kalium.encoders.Hex;
 //import org.abstractj.kalium.encoders.Raw;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import com.oneme.toplay.Application;
-import com.oneme.toplay.R;
-import com.oneme.toplay.database.IdentityDatabase;
-
-import com.oneme.toplay.service.DataFile;
-
-import com.oneme.toplay.service.CoreService;
-import com.oneme.toplay.base.ClientFriend;
-import com.oneme.toplay.base.ClientFriendList;
-import com.oneme.toplay.base.Options;
-import com.oneme.toplay.MainActivity;
+//import org.apache.http.HttpEntity;
+//import org.apache.http.HttpResponse;
+//import org.apache.http.client.HttpClient;
+//import org.apache.http.client.methods.HttpPost;
+//import org.apache.http.entity.StringEntity;
+//import org.apache.http.impl.client.DefaultHttpClient;
 
 //import im.tox.jtoxcore.JTox;
 //import im.tox.jtoxcore.ToxException;

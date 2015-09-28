@@ -1,7 +1,5 @@
 package com.oneme.toplay.base.third;
 
-import com.oneme.toplay.R;
-
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.oneme.toplay.R;
 
 public class LazyAdapter extends BaseAdapter {
     

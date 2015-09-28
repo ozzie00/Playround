@@ -39,6 +39,13 @@
     <color name="tab_focus">#1DA155</color>
     <color name="actionbar_background">#f3f3f3</color>
     <color name="playround_default">#f3b64d</color>
+    <color name="playround_backup">#E19F38</color>
+    <color name="playround_blue">#247291</color>
+    <color name="playround_green">#1DA155</color>
+    <color name="playround_red">#DF354A</color>
+
+
+
 
 
 
@@ -203,6 +210,35 @@
 
     <!-- Color of image view placeholder. -->
     <color name="image_placeholder">#DDDDDD</color>
+
+    <color name="chart_cadence_border">#FFF128F3</color> <!-- pink -->
+    <color name="chart_cadence_fill">#40F128F3</color> <!-- transparent pink -->
+    <color name="chart_elevation_border">#FF339933</color> <!-- green -->
+    <color name="chart_elevation_fill">#40B3CFB3</color> <!-- transparent green -->
+    <color name="chart_heart_rate_border">#FFCC3300</color> <!-- red -->
+    <color name="chart_heart_rate_fill">#40E88A70</color> <!-- transparent red -->
+    <color name="chart_pace_border">#FF0066FF</color> <!-- blue -->
+    <color name="chart_pace_fill">#40C8E0FF</color> <!-- transparent blue -->
+    <color name="chart_power_border">#FF401465</color> <!-- purple -->
+    <color name="chart_power_fill">#40401465</color> <!-- transparent purple -->
+    <color name="chart_speed_border">#FF0066FF</color> <!-- blue -->
+    <color name="chart_speed_fill">#40C8E0FF</color> <!-- transparent blue -->
+    <color name="holo_orange_dark">@color/playround_default</color>
+    <color name="list_empty_text">#FFCCCCCC</color>
+    <color name="recording_text">#FFBE161B</color> <!-- red -->
+    <color name="stats_large_label">@color/playround_default</color> <!-- orange -->
+    <color name="stats_separator">#99999999</color> <!-- light gray -->
+    <color name="text_gradient_center">#B2000000</color> <!-- black 70% opacity -->
+    <color name="text_gradient_end">#00000000</color> <!-- black 0% opacity -->
+    <color name="text_gradient_start">#FF000000</color> <!-- black 100% opacity -->
+    <color name="track_color_fast">@color/playround_red</color> <!-- red color #F7DF0101 -->
+    <color name="track_color_normal">#F75858FA</color> <!-- blue color -->
+    <color name="track_color_slow">#F774DF00</color> <!-- green color -->
+    <color name="track_controller_background">#FF0E0E0E</color> <!-- dark gray -->
+
+    <color name="black_87p">#de000000</color>
+    <color name="black_54p">#8a000000</color>
+    <color name="black_16p">#28000000</color>
 
 
 </resources>

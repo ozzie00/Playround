@@ -32,7 +32,6 @@ import android.text.TextUtils;
 import com.oneme.toplay.R;
 
 import junit.framework.Assert;
-import java.util.Random;
 
 /**
  * A drawable that encapsulates all the functionality needed to display a letter tile to

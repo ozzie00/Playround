@@ -1,41 +1,5 @@
 package com.oneme.toplay.adapter;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.AsyncTask;
-import android.os.Environment;
-import android.support.v4.widget.ResourceCursorAdapter;
-import android.text.ClipboardManager;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-
-import com.oneme.toplay.Application;
-import com.oneme.toplay.R;
-import com.oneme.toplay.base.BitmapManager;
-import com.oneme.toplay.base.ChatMessages;
-import com.oneme.toplay.base.Constants;
-import com.oneme.toplay.base.PrettyTimestamp;
-import com.oneme.toplay.base.Tuple;
-import com.oneme.toplay.database.Database;
-import com.oneme.toplay.service.Singleton;
-
-import java.io.File;
-import java.sql.Timestamp;
-import java.util.HashSet;
-
 public class ChatMessagesAdapter {// extends ResourceCursorAdapter {
     /*
 

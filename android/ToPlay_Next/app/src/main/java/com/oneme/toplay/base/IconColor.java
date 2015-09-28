@@ -1,7 +1,5 @@
 package com.oneme.toplay.base;
 
-import android.graphics.Color;
-
 /*
 import im.tox.jtoxcore.ToxUserStatus;
 */

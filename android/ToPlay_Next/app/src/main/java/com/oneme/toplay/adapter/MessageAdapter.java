@@ -1,22 +1,5 @@
 package com.oneme.toplay.adapter;
 
-import android.content.Context;
-import android.database.Cursor;
-import android.support.v4.widget.ResourceCursorAdapter;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import com.oneme.toplay.R;
-import com.oneme.toplay.base.IconColor;
-import com.oneme.toplay.base.PrettyTimestamp;
-import com.oneme.toplay.base.UserStatus;
-import com.oneme.toplay.service.Singleton;
-
-import java.sql.Timestamp;
-
 public class MessageAdapter { //extends ResourceCursorAdapter {
     /*
 	Context context;

@@ -2,7 +2,7 @@ package com.oneme.toplay.base;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
+//import android.util.Log;
 
 import com.oneme.toplay.Application;
 
@@ -58,7 +58,7 @@ public class DownloadNodes extends AsyncTask<Void, Void, Void> {
             /* Get nodes from json-formatted data */
             JSONObject json = JsonReader.readJsonFromUrl("https://dist-build.tox.im/Nodefile.json");//"https://s3.amazonaws.com/www.onemee.net/Nodefile.json");//"https://dist-build.tox.im/Nodefile.json");//"https://s3.amazonaws.com/www.onemee.net/Nodefile.json");
             if (Application.APPDEBUG) {
-                Log.d(TAG, json.toString());
+                //Log.d(TAG, json.toString());
             }
             JSONArray serverArray = json.getJSONArray("servers");
             for(int i = 0; i < serverArray.length(); i++) {
@@ -71,12 +71,12 @@ public class DownloadNodes extends AsyncTask<Void, Void, Void> {
             }
 
             if (Application.APPDEBUG) {
-                Log.d(TAG, "Nodes fetched from online");
+                //Log.d(TAG, "Nodes fetched from online");
             }
 
         } catch (Exception exp) {
             if (Application.APPDEBUG) {
-                Log.d(TAG, "Failed to connect to Tox CDN for nodes");
+               // Log.d(TAG, "Failed to connect to Tox CDN for nodes");
             }
 
             DHTNodes.ipv4.add("192.254.75.98");
@@ -111,7 +111,7 @@ public class DownloadNodes extends AsyncTask<Void, Void, Void> {
         }
 
         if (Application.APPDEBUG) {
-            Log.d(TAG, "DhtNode size: " + DHTNodes.ipv4.size());
+            //Log.d(TAG, "DhtNode size: " + DHTNodes.ipv4.size());
         }
 
         return null;

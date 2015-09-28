@@ -17,13 +17,8 @@ package com.oneme.toplay.database;
 
 import com.oneme.toplay.base.AppConstant;
 import com.parse.ParseClassName;
-import com.parse.ParseFile;
-import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 //
 // define data model for third http request

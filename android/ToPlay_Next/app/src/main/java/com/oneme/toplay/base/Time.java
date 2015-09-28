@@ -16,12 +16,12 @@
 
 package com.oneme.toplay.base;
 
+import java.sql.Timestamp;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.sql.Timestamp;
 
 public final class Time {
 

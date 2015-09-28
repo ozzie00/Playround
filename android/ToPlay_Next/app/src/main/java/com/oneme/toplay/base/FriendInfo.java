@@ -1,7 +1,5 @@
 package com.oneme.toplay.base;
 
-import java.sql.Timestamp;
-
 public class FriendInfo { // extends Friend {
 
     /*

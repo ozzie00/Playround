@@ -40,7 +40,6 @@ import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.base.LoadImageFromParseCloud;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
-import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.FileNotFoundException;

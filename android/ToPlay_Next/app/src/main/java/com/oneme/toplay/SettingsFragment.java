@@ -1,33 +1,6 @@
 package com.oneme.toplay;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Bundle;
-import android.preference.EditTextPreference;
-import android.preference.ListPreference;
-import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceCategory;
-import android.preference.PreferenceManager;
-import android.support.v4.app.DialogFragment;
-
-import java.util.Random;
-
-import com.oneme.toplay.base.AppConstant;
-import com.oneme.toplay.base.Time;
-import com.oneme.toplay.database.Database;
-import com.oneme.toplay.database.IdentityDatabase;
-
-import com.oneme.toplay.service.CoreService;
-import com.oneme.toplay.service.Singleton;
-
-import com.oneme.toplay.base.Options;
-import com.oneme.toplay.base.UserStatus;
-import com.parse.ParseGeoPoint;
-import com.parse.ParseUser;
 
 //import im.tox.jtoxcore.ToxException;
 //import im.tox.jtoxcore.ToxUserStatus;

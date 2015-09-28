@@ -17,35 +17,25 @@
 package com.oneme.toplay.me;
 
 import android.app.ProgressDialog;
-import android.content.ComponentName;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.IntentCompat;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Button;
-import android.widget.RelativeLayout;
+import android.widget.EditText;
 
 import com.oneme.toplay.Application;
 import com.oneme.toplay.R;
-import com.oneme.toplay.base.Time;
-import com.oneme.toplay.database.Invite;
 import com.oneme.toplay.database.Venue;
-
 import com.oneme.toplay.ui.BaseActivity;
 import com.parse.ParseACL;
 import com.parse.ParseException;
 import com.parse.ParseGeoPoint;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
-
-import org.w3c.dom.Text;
 
 public class UploadVenueActivity extends BaseActivity {
 

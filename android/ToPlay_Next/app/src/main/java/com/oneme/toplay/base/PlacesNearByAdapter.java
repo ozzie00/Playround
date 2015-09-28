@@ -17,15 +17,13 @@
 package com.oneme.toplay.base;
 
 
-
-import com.parse.ParseGeoPoint;
-
-
 import android.content.Context;
-import android.util.Log;
+//import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
+
+import com.parse.ParseGeoPoint;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -127,10 +125,10 @@ public class PlacesNearByAdapter extends ArrayAdapter<String> implements Filtera
                 jsonResults.append(buff, 0, read);
             }
         } catch (MalformedURLException e) {
-            Log.e(LOG_TAG, "Error processing Places API URL", e);
+            //Log.e(LOG_TAG, "Error processing Places API URL", e);
             return resultList;
         } catch (IOException e) {
-            Log.e(LOG_TAG, "Error connecting to Places API", e);
+            //Log.e(LOG_TAG, "Error connecting to Places API", e);
             return resultList;
         } finally {
             if (mconnection != null) {
@@ -152,7 +150,7 @@ public class PlacesNearByAdapter extends ArrayAdapter<String> implements Filtera
                 resultList.add(predsJsonArray.getJSONObject(i).getString("name"));
             }
         } catch (JSONException e) {
-            Log.e(LOG_TAG, "Cannot process JSON results", e);
+            //Log.e(LOG_TAG, "Cannot process JSON results", e);
         }
 
         return resultList;

@@ -13,12 +13,10 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.oneme.toplay.R;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
-
-import com.oneme.toplay.R;
 
 import ai.wit.sdk.IWitListener;
 import ai.wit.sdk.Wit;

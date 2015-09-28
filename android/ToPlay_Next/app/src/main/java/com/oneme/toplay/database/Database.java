@@ -8,7 +8,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.preference.PreferenceManager;
-import android.util.Log;
+//import android.util.Log;
 
 import com.oneme.toplay.Application;
 import com.oneme.toplay.base.Constants;
@@ -16,7 +16,6 @@ import com.oneme.toplay.base.Friend;
 import com.oneme.toplay.base.FriendRequest;
 import com.oneme.toplay.base.Message;
 import com.oneme.toplay.base.Tuple;
-import com.oneme.toplay.base.UserStatus;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -222,7 +221,7 @@ public class Database {
         String selectQuery = "SELECT message FROM messages WHERE ome_key = '" + key + "' AND (type == 3 OR type == 4) AND message_id == " +
                 fileNumber;
         Cursor cursor = mSQLiteDatabase.rawQuery(selectQuery, null);
-        Log.d("getFilePath count: ", Integer.toString(cursor.getCount()) + " filenumber: " + fileNumber);
+        //Log.d("getFilePath count: ", Integer.toString(cursor.getCount()) + " filenumber: " + fileNumber);
         if (cursor.moveToFirst()) {
             path = cursor.getString(0);
         }
@@ -261,7 +260,7 @@ public class Database {
 
     public void fileFinished(String key, int fileNumber) {
         if (Application.APPDEBUG) {
-            Log.d(TAG, " fileFinished ");
+           // Log.d(TAG, " fileFinished ");
         }
         this.open(false);
         String query = "UPDATE messages SET " + Constants.COLUMN_NAME_HAS_BEEN_RECEIVED + "=1, message_id = -1 WHERE (type == 3 OR type == 4) AND message_id == " + fileNumber + " AND ome_key = '" + key + "'";
@@ -437,7 +436,7 @@ public class Database {
                 int m_id       = cursor.getInt(2);
 
                 if (Application.APPDEBUG) {
-                    Log.d(TAG, "UNSENT MESAGE ID: " + " " + m_id);
+                    //Log.d(TAG, "UNSENT MESAGE ID: " + " " + m_id);
                 }
                 String k         = cursor.getString(3);
                 String m         = cursor.getString(4);
@@ -457,7 +456,7 @@ public class Database {
 
     public void updateUnsentMessage(int m_id) {
         if (Application.APPDEBUG) {
-            Log.d(TAG, "UPDATE UNSENT MESSAGE - ID : " +  " " + m_id);
+           // Log.d(TAG, "UPDATE UNSENT MESSAGE - ID : " +  " " + m_id);
         }
         String messageId     = m_id + "";
         this.open(true);
@@ -494,7 +493,7 @@ public class Database {
         mSQLiteDatabase.execSQL(query);
         this.close();
         if (Application.APPDEBUG) {
-            Log.d(TAG, " " +  "marked incoming messages as read");
+           // Log.d(TAG, " " +  "marked incoming messages as read");
         }
     }
 
@@ -505,7 +504,7 @@ public class Database {
         this.close();
 
         if (Application.APPDEBUG) {
-            Log.d(TAG, " " + "Deleted message");
+           // Log.d(TAG, " " + "Deleted message");
         }
     }
 

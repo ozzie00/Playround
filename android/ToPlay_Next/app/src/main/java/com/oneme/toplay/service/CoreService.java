@@ -1,18 +1,5 @@
 package com.oneme.toplay.service;
 
-import android.app.Service;
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.IBinder;
-import android.os.PowerManager;
-import android.os.PowerManager.WakeLock;
-import android.preference.PreferenceManager;
-
-import com.oneme.toplay.Application;
-
 public class CoreService { // extends Service {
     /*
 

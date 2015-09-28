@@ -1,11 +1,5 @@
 package com.oneme.toplay.jni;
 
-import android.content.Context;
-
-import com.oneme.toplay.base.ClientFriend;
-import com.oneme.toplay.database.Database;
-import com.oneme.toplay.service.Singleton;
-
 //import im.tox.jtoxcore.ToxUserStatus;
 //import im.tox.jtoxcore.callbacks.OnUserStatusCallback;
 

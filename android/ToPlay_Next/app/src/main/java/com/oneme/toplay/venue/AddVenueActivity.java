@@ -70,7 +70,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Locale;
 
 public final class AddVenueActivity extends BaseActivity implements OnDateSetListener, TimePickerDialog.OnTimeSetListener {

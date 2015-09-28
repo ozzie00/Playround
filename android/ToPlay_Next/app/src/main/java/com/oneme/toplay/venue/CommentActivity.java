@@ -18,7 +18,6 @@ package com.oneme.toplay.venue;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -34,12 +33,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.oneme.toplay.Application;
+import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.base.LoadImageFromParseCloud;
 import com.oneme.toplay.base.Time;
 import com.oneme.toplay.database.VenueComment;
-import com.oneme.toplay.R;
-
 import com.parse.CountCallback;
 import com.parse.ParseACL;
 import com.parse.ParseException;

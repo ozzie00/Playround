@@ -41,15 +41,12 @@ import com.baidu.mapapi.map.MyLocationConfiguration.LocationMode;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.map.SupportMapFragment;
 import com.baidu.mapapi.model.LatLng;
-
-
 import com.oneme.toplay.Application;
 import com.oneme.toplay.LoginActivity;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.database.Invite;
 import com.oneme.toplay.invite.InviteNextActivity;
-
 import com.parse.ParseGeoPoint;
 import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;

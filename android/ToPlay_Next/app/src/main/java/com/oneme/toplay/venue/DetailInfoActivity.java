@@ -17,19 +17,14 @@
 package com.oneme.toplay.venue;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.content.IntentCompat;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -39,14 +34,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.Locale;
-import java.util.Currency;
-
 import com.oneme.toplay.Application;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
-import com.oneme.toplay.base.CustomCurrency;
 import com.oneme.toplay.base.Homeing;
 import com.oneme.toplay.base.IntentExtraToVenue;
 import com.oneme.toplay.base.LoadImageFromParseCloud;
@@ -57,13 +47,10 @@ import com.oneme.toplay.database.Sport;
 import com.oneme.toplay.database.Venue;
 import com.oneme.toplay.database.VenueAsHome;
 import com.oneme.toplay.database.VenueComment;
-
 import com.oneme.toplay.ui.BaseActivity;
-import com.oneme.toplay.ui.LocalNextActivity;
 import com.parse.CountCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
-import com.parse.ParseGeoPoint;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
@@ -71,6 +58,9 @@ import com.parse.ParseUser;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.Currency;
+import java.util.Locale;
 
 
 public class DetailInfoActivity extends BaseActivity {

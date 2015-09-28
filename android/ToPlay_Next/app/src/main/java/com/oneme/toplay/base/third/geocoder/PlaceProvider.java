@@ -1,24 +1,6 @@
 package com.oneme.toplay.base.third.geocoder;
 
 
-import com.oneme.toplay.Application;
-import com.oneme.toplay.base.AppConstant;
-
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.List;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.SearchManager;
 import android.content.ContentProvider;
 import android.content.ContentValues;
@@ -26,7 +8,22 @@ import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.net.Uri;
-import android.util.Log;
+//import android.util.Log;
+
+import com.oneme.toplay.Application;
+import com.oneme.toplay.base.AppConstant;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.List;
 
 public class PlaceProvider extends ContentProvider {
 	
@@ -248,7 +245,7 @@ public class PlaceProvider extends ContentProvider {
 
         }catch(Exception e){
             if (Application.APPDEBUG) {
-                Log.d("downloading url", e.toString());
+                //Log.d("downloading url", e.toString());
             }
         }finally{
                 iStream.close();
@@ -327,7 +324,7 @@ public class PlaceProvider extends ContentProvider {
             data = downloadUrl(url);
         }catch(Exception e){
             if (Application.APPDEBUG) {
-                Log.d("Background Task", e.toString());
+                //Log.d("Background Task", e.toString());
             }
         }
         return data;    	

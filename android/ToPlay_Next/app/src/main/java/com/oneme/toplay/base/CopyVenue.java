@@ -16,10 +16,6 @@
 
 package com.oneme.toplay.base;
 
-import android.content.Intent;
-import android.os.Bundle;
-
-import com.oneme.toplay.Application;
 import com.oneme.toplay.database.Venue;
 
 public class CopyVenue {

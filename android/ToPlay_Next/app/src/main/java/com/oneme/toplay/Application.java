@@ -3,30 +3,28 @@ package com.oneme.toplay;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.baidu.mapapi.SDKInitializer;
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.database.BookingVenue;
 import com.oneme.toplay.database.FollowingPlayer;
+import com.oneme.toplay.database.Group;
 import com.oneme.toplay.database.Invite;
 import com.oneme.toplay.database.InviteComment;
 import com.oneme.toplay.database.InviteLike;
+import com.oneme.toplay.database.InviteScore;
+import com.oneme.toplay.database.Message;
 import com.oneme.toplay.database.PayPrime;
 import com.oneme.toplay.database.Photo;
 import com.oneme.toplay.database.PhotoLink;
-import com.oneme.toplay.database.ThirdRequest;
-import com.oneme.toplay.database.VenueComment;
-import com.oneme.toplay.database.VenueLike;
-import com.oneme.toplay.database.InviteScore;
-import com.oneme.toplay.database.Group;
-import com.oneme.toplay.database.Message;
 import com.oneme.toplay.database.Player;
+import com.oneme.toplay.database.ThirdRequest;
 import com.oneme.toplay.database.Venue;
 import com.oneme.toplay.database.VenueAsHome;
+import com.oneme.toplay.database.VenueComment;
+import com.oneme.toplay.database.VenueLike;
 import com.oneme.toplay.database.VenueOwner;
-
 import com.parse.Parse;
 import com.parse.ParseObject;
-
-import com.baidu.mapapi.SDKInitializer;
 
 public class Application extends android.app.Application {
 

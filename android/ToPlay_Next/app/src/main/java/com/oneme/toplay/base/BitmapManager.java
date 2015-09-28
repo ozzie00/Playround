@@ -2,7 +2,7 @@ package com.oneme.toplay.base;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.util.Log;
+//import android.util.Log;
 import android.util.LruCache;
 import android.widget.ImageView;
 
@@ -79,7 +79,7 @@ public final class BitmapManager {
                 return false;
         } catch (FileNotFoundException e) {
             if (Application.APPDEBUG) {
-                Log.d("BitMapManager", "File not found when trying to be used for FileInputStream in checkValidImage");
+                //Log.d("BitMapManager", "File not found when trying to be used for FileInputStream in checkValidImage");
             }
             e.printStackTrace();
             return false;
@@ -120,12 +120,12 @@ public final class BitmapManager {
 
         if(bitmap != null) {
             if (Application.APPDEBUG) {
-                Log.d("BitmapManager", "Found image in cache");
+                //Log.d("BitmapManager", "Found image in cache");
             }
             imageView.setImageBitmap(bitmap);
         } else {
             if (Application.APPDEBUG) {
-                Log.d("BitmapManager", "Image not in cache");
+               // Log.d("BitmapManager", "Image not in cache");
             }
             // Read file into byte array and decode that
             FileInputStream fis;
@@ -148,7 +148,7 @@ public final class BitmapManager {
                 addBitmapToMemoryCache(imageKey, bitmap);
             } catch(FileNotFoundException e) {
                 if (Application.APPDEBUG) {
-                    Log.d("BitMapManager", "File not found when trying to be used for FileInputStream");
+                    //Log.d("BitMapManager", "File not found when trying to be used for FileInputStream");
                 }
                 e.printStackTrace();
             }

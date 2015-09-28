@@ -32,6 +32,22 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.oneme.toplay.Application;
+import com.oneme.toplay.R;
+import com.oneme.toplay.base.AppConstant;
+import com.oneme.toplay.base.Time;
+import com.oneme.toplay.database.PayPrime;
+import com.oneme.toplay.database.ThirdRequest;
+import com.oneme.toplay.pay.PayBuyPrimeMembershipActivity;
+import com.oneme.toplay.pay.SignUtils;
+import com.oneme.toplay.ui.BaseActivity;
+import com.parse.FindCallback;
+import com.parse.ParseACL;
+import com.parse.ParseException;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
+import com.parse.SaveCallback;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -45,23 +61,6 @@ import java.net.URLEncoder;
 import java.util.Currency;
 import java.util.List;
 import java.util.Locale;
-
-import com.oneme.toplay.Application;
-import com.oneme.toplay.R;
-import com.oneme.toplay.base.AppConstant;
-import com.oneme.toplay.base.Time;
-import com.oneme.toplay.database.PayPrime;
-import com.oneme.toplay.database.ThirdRequest;
-import com.oneme.toplay.pay.PayBuyPrimeMembershipActivity;
-import com.oneme.toplay.pay.SignUtils;
-import com.oneme.toplay.ui.BaseActivity;
-
-import com.parse.FindCallback;
-import com.parse.ParseACL;
-import com.parse.ParseException;
-import com.parse.ParseQuery;
-import com.parse.ParseUser;
-import com.parse.SaveCallback;
 
 public class BuyPrimeMembershipActivity extends BaseActivity {
 

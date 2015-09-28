@@ -19,7 +19,6 @@ package com.oneme.toplay.me;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.CursorLoader;
 import android.content.DialogInterface;
@@ -33,7 +32,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
-import android.support.v4.content.IntentCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
@@ -45,13 +43,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileDescriptor;
-import java.io.IOException;
-import java.util.Date;
-import java.util.List;
-
+import com.oneme.toplay.Application;
+import com.oneme.toplay.R;
+import com.oneme.toplay.addfriend.ShowQRcodeActivity;
+import com.oneme.toplay.base.AppConstant;
+import com.oneme.toplay.base.Constants;
 import com.oneme.toplay.base.LoadImageFromParseCloud;
 import com.oneme.toplay.ui.BaseActivity;
 import com.parse.ParseException;
@@ -59,14 +55,12 @@ import com.parse.ParseFile;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
-import com.oneme.toplay.Application;
-import com.oneme.toplay.R;
-import com.oneme.toplay.base.AppConstant;
-import com.oneme.toplay.base.Constants;
-import com.oneme.toplay.addfriend.ShowQRcodeActivity;
-
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Transformation;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileDescriptor;
+import java.io.IOException;
+import java.util.Date;
+import java.util.List;
 
 
 /**

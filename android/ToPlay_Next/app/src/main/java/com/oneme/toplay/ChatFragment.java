@@ -1,67 +1,7 @@
 package com.oneme.toplay;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.CursorLoader;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.Environment;
-import android.preference.PreferenceManager;
-import android.provider.MediaStore;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.NavUtils;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.LayoutInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
-import android.view.WindowManager;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
-
-import com.oneme.toplay.Application;
-import com.oneme.toplay.R;
-import com.oneme.toplay.base.AppConstant;
-import com.oneme.toplay.adapter.ChatMessagesAdapter;
-import com.oneme.toplay.database.Database;
-
-import com.oneme.toplay.service.Singleton;
-
-import com.oneme.toplay.base.ClientFriend;
-import com.oneme.toplay.base.ChatMessages;
-import com.oneme.toplay.base.Constants;
-import com.oneme.toplay.base.FileDialog;
-import com.oneme.toplay.base.FriendInfo;
-import com.oneme.toplay.base.IconColor;
-import com.oneme.toplay.base.Tuple;
-
 //import im.tox.jtoxcore.ToxException;
 //import im.tox.jtoxcore.ToxUserStatus;
-
-import rx.Observable;
-import rx.Observer;
-import rx.Subscriber;
-import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
-import rx.schedulers.Schedulers;
-import rx.subscriptions.Subscriptions;
 
 
 public class ChatFragment { //extends Fragment {

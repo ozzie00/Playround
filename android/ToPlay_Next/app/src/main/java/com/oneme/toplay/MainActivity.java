@@ -1,46 +1,8 @@
 package com.oneme.toplay;
 
-import android.app.AlertDialog;
-import android.app.NotificationManager;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.media.AudioManager;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Build;
-import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
-import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.WindowManager;
-
-import com.oneme.toplay.base.AppConstant;
-import com.oneme.toplay.database.Database;
-import com.oneme.toplay.base.BitmapManager;
-import com.oneme.toplay.base.ClientFriend;
-import com.oneme.toplay.base.Constants;
-import com.oneme.toplay.base.Triple;
-import com.oneme.toplay.addfriend.AddFriendActivity;
-import com.oneme.toplay.service.Singleton;
-
-import java.util.Locale;
-
 //import im.tox.jtoxcore.ToxCallType;
 //import im.tox.jtoxcore.ToxCodecSettings;
 //import im.tox.jtoxcore.ToxException;
-
-import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
 
 
 public class MainActivity { // extends ActionBarActivity implements DialogID.DialogIDListener {

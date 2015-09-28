@@ -30,7 +30,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.oneme.toplay.Application;
-import com.oneme.toplay.CnMapActivity;
 import com.oneme.toplay.R;
 import com.oneme.toplay.adapter.SportTypeAdapter;
 import com.oneme.toplay.adapter.VenueAdapter;

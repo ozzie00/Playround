@@ -21,16 +21,14 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
+import com.oneme.toplay.R;
 import com.oneme.toplay.base.third.ContactPhotoManager;
 import com.oneme.toplay.base.third.ContactPhotoManager.DefaultImageRequest;
 import com.oneme.toplay.base.third.RoundedTransformationBuilder;
 import com.oneme.toplay.database.Invite;
 import com.oneme.toplay.database.Photo;
-import com.oneme.toplay.R;
-
 import com.parse.ParseFile;
 import com.parse.ParseUser;
-
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 

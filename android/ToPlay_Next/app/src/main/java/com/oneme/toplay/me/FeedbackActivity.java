@@ -16,11 +16,8 @@
 
 package com.oneme.toplay.me;
 
-import android.content.ComponentName;
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.v4.content.IntentCompat;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -36,12 +33,9 @@ import com.oneme.toplay.R;
 import com.oneme.toplay.base.Time;
 import com.oneme.toplay.database.Message;
 import com.oneme.toplay.ui.BaseActivity;
-import com.oneme.toplay.ui.SettingNextActivity;
-
 import com.parse.ParseACL;
 import com.parse.ParseException;
 import com.parse.ParseGeoPoint;
-import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 

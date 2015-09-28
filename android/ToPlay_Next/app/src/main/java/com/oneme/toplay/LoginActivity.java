@@ -17,13 +17,12 @@ import com.oneme.toplay.database.VenueOwner;
 import com.oneme.toplay.ui.CnLocalNextActivity;
 import com.oneme.toplay.venue.OwnerInfoUploadActivity;
 import com.oneme.toplay.venue.OwnerMainActivity;
-
+import com.parse.GetCallback;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseGeoPoint;
-import com.parse.ParseUser;
 import com.parse.ParseQuery;
-import com.parse.GetCallback;
+import com.parse.ParseUser;
 
 //import im.tox.jtoxcore.JTox;
 //import im.tox.jtoxcore.ToxException;

@@ -1,67 +1,11 @@
 package com.oneme.toplay.service;
 
-import android.app.NotificationManager;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.AsyncTask;
-import android.os.Environment;
-import android.os.SystemClock;
-import android.preference.PreferenceManager;
-import android.util.Log;
-
-import com.oneme.toplay.Application;
-import com.oneme.toplay.base.AppConstant;
-import com.oneme.toplay.database.Database;
-import com.oneme.toplay.jni.ActionCallback;
-import com.oneme.toplay.jni.ConnectionStatusCallback;
-import com.oneme.toplay.jni.FriendRequestCallback;
-import com.oneme.toplay.jni.MessageCallback;
-import com.oneme.toplay.jni.NameChangeCallback;
-import com.oneme.toplay.jni.ReadReceiptCallback;
-import com.oneme.toplay.jni.StatusMessageCallback;
-import com.oneme.toplay.jni.TypingChangeCallback;
-import com.oneme.toplay.jni.UserStatusCallback;
-import com.oneme.toplay.base.ClientFriend;
-import com.oneme.toplay.base.ClientFriendList;
-import com.oneme.toplay.base.Constants;
-import com.oneme.toplay.base.DHTNodes;
-import com.oneme.toplay.base.DownloadNodes;
-import com.oneme.toplay.base.Friend;
-import com.oneme.toplay.base.FriendInfo;
-import com.oneme.toplay.base.FriendRequest;
-import com.oneme.toplay.base.Message;
-import com.oneme.toplay.base.Options;
-import com.oneme.toplay.base.Triple;
-import com.oneme.toplay.base.Tuple;
-import com.oneme.toplay.base.UserStatus;
-import com.parse.ParseUser;
-
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-
 //import im.tox.jtoxcore.JTox;
 //import im.tox.jtoxcore.ToxException;
 //import im.tox.jtoxcore.ToxFileControl;
 //import im.tox.jtoxcore.ToxOptions;
 //import im.tox.jtoxcore.ToxUserStatus;
 //import im.tox.jtoxcore.callbacks.CallbackHandler;
-
-import rx.Observable;
-import rx.functions.Func2;
-import rx.functions.Func3;
-import rx.schedulers.Schedulers;
-import rx.subjects.BehaviorSubject;
-import rx.subjects.PublishSubject;
-
-import static rx.Observable.combineLatest;
 
 public class Singleton {
 

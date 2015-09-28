@@ -17,11 +17,8 @@
 package com.oneme.toplay.me;
 
 import android.app.ProgressDialog;
-import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.IntentCompat;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,19 +26,15 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.oneme.toplay.Application;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.database.Invite;
 import com.oneme.toplay.database.Sport;
-import com.oneme.toplay.addfriend.ContactProfileActivity;
-
 import com.oneme.toplay.ui.BaseActivity;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
-import com.parse.ParseUser;
 
 
 public class MySportActivity extends BaseActivity {

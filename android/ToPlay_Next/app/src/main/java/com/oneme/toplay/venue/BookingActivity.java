@@ -17,17 +17,15 @@
 package com.oneme.toplay.venue;
 
 import android.app.Dialog;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.IntentCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
-import android.widget.EditText;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,7 +39,6 @@ import com.oneme.toplay.base.Time;
 import com.oneme.toplay.database.BookingVenue;
 import com.oneme.toplay.database.Venue;
 import com.oneme.toplay.pay.PayBookingVenueActivity;
-
 import com.oneme.toplay.ui.BaseActivity;
 import com.parse.ParseACL;
 import com.parse.ParseException;
@@ -49,8 +46,6 @@ import com.parse.ParseUser;
 import com.parse.SaveCallback;
 import com.sleepbot.datetimepicker.time.RadialPickerLayout;
 import com.sleepbot.datetimepicker.time.TimePickerDialog;
-
-import org.w3c.dom.Text;
 
 import java.util.Calendar;
 import java.util.Currency;

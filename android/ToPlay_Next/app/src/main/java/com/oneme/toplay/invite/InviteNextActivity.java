@@ -17,7 +17,6 @@
 package com.oneme.toplay.invite;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -37,8 +36,28 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
-import android.widget.Toast;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.fourmob.datetimepicker.date.DatePickerDialog;
+import com.fourmob.datetimepicker.date.DatePickerDialog.OnDateSetListener;
+import com.oneme.toplay.Application;
+import com.oneme.toplay.R;
+import com.oneme.toplay.adapter.SportTypeAdapter;
+import com.oneme.toplay.base.AppConstant;
+import com.oneme.toplay.base.Time;
+import com.oneme.toplay.database.Group;
+import com.oneme.toplay.database.Invite;
+import com.oneme.toplay.database.InviteScore;
+import com.oneme.toplay.database.Sport;
+import com.oneme.toplay.ui.BaseActivity;
+import com.parse.ParseACL;
+import com.parse.ParseException;
+import com.parse.ParseGeoPoint;
+import com.parse.ParseUser;
+import com.parse.SaveCallback;
+import com.sleepbot.datetimepicker.time.RadialPickerLayout;
+import com.sleepbot.datetimepicker.time.TimePickerDialog;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -52,28 +71,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
-
-import com.oneme.toplay.Application;
-import com.oneme.toplay.R;
-import com.oneme.toplay.adapter.SportTypeAdapter;
-import com.oneme.toplay.base.AppConstant;
-import com.oneme.toplay.base.Time;
-import com.oneme.toplay.database.Invite;
-import com.oneme.toplay.database.InviteScore;
-import com.oneme.toplay.database.Group;
-import com.oneme.toplay.database.Sport;
-import com.oneme.toplay.ui.BaseActivity;
-
-import com.parse.ParseACL;
-import com.parse.ParseException;
-import com.parse.ParseGeoPoint;
-import com.parse.ParseUser;
-import com.parse.SaveCallback;
-
-import com.sleepbot.datetimepicker.time.RadialPickerLayout;
-import com.sleepbot.datetimepicker.time.TimePickerDialog;
-import com.fourmob.datetimepicker.date.DatePickerDialog;
-import com.fourmob.datetimepicker.date.DatePickerDialog.OnDateSetListener;
 
 public final class InviteNextActivity extends BaseActivity implements OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 

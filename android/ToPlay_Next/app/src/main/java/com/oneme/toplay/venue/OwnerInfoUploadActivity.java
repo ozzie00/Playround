@@ -45,7 +45,6 @@ import android.widget.Toast;
 import com.oneme.toplay.Application;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
-import com.oneme.toplay.base.Constants;
 import com.oneme.toplay.database.Venue;
 import com.oneme.toplay.database.VenueOwner;
 import com.parse.GetCallback;

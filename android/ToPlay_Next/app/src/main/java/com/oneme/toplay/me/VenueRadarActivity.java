@@ -17,20 +17,14 @@
 package com.oneme.toplay.me;
 
 import android.app.ProgressDialog;
-import android.content.ComponentName;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.content.IntentCompat;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import com.oneme.toplay.Application;
 import com.oneme.toplay.R;
@@ -39,13 +33,15 @@ import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.base.CopyVenue;
 import com.oneme.toplay.base.VenueToIntentExtra;
 import com.oneme.toplay.database.Venue;
-
 import com.oneme.toplay.ui.BaseActivity;
 import com.oneme.toplay.venue.DetailInfoActivity;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseGeoPoint;
 import com.parse.ParseQuery;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class VenueRadarActivity extends BaseActivity {
 

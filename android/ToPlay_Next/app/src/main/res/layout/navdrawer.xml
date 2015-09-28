@@ -44,11 +44,19 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/keyline_1"
-                android:paddingRight="@dimen/keyline_1"
-                android:paddingTop="@dimen/keyline_1"
                 android:id="@+id/chosen_account_content_view">
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/keyline_1"
+                    android:paddingRight="@dimen/keyline_1"
+                    android:paddingTop="@dimen/keyline_1"
+                    android:paddingBottom="@dimen/keyline_1"
+
+                    android:id="@+id/profile_name_and_image">
+
+                    <!--
                 <com.oneme.toplay.ui.widget.BezelImageView
                     android:id="@+id/profile_image"
                     android:layout_width="@dimen/navdrawer_profile_image_size"
@@ -56,6 +64,25 @@
                     android:src="@drawable/person_image_empty"
                     android:scaleType="centerCrop"
                     app:maskDrawable="@drawable/circle_mask" />
+
+                     android:layout_alignTop="@id/profile_image"
+                    android:layout_toRightOf="@id/profile_image"
+                    -->
+
+                <TextView
+                    android:id="@+id/profile_name_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:paddingTop="8dp"
+
+                    android:textSize="@dimen/text_size_large"
+                    android:textColor="@color/white_absolute"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:layout_centerVertical="true"/>
+                </RelativeLayout>
 
                 <ImageView
                     android:id="@+id/expand_account_box_indicator"
@@ -74,7 +101,7 @@
                     android:id="@+id/profile_email_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@id/profile_image"
+                    android:layout_alignLeft="@id/profile_name_and_image"
                     android:layout_toLeftOf="@id/expand_account_box_indicator"
                     android:layout_alignParentBottom="true"
                     android:paddingBottom="16dp"
@@ -84,18 +111,7 @@
                     android:singleLine="true"
                     android:ellipsize="end" />
 
-                <TextView
-                    android:id="@+id/profile_name_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_above="@id/profile_email_text"
-                    android:layout_alignLeft="@id/profile_image"
-                    android:layout_toLeftOf="@id/expand_account_box_indicator"
-                    android:textSize="@dimen/text_size_large"
-                    android:textColor="@color/playround_default"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:ellipsize="end" />
+
 
             </RelativeLayout>
 

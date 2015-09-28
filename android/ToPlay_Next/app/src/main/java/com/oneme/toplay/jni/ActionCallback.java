@@ -1,9 +1,5 @@
 package com.oneme.toplay.jni;
 
-import android.content.Context;
-
-import com.oneme.toplay.base.ClientFriend;
-
 //import im.tox.jtoxcore.callbacks.OnActionCallback;
 
 public class ActionCallback { // implements OnActionCallback<ClientFriend> {

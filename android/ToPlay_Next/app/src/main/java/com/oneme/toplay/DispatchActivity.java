@@ -1,27 +1,18 @@
 package com.oneme.toplay;
 
 
-
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Intent;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.telephony.TelephonyManager;
 import android.widget.Toast;
-import android.location.Geocoder;
 
-import android.location.Address;
-
-import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.ConnectionResult;
-
+import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.database.VenueOwner;
 import com.oneme.toplay.ui.CnLocalNextActivity;
 import com.oneme.toplay.venue.OwnerInfoUploadActivity;
 import com.oneme.toplay.venue.OwnerMainActivity;
-
 import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;

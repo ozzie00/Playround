@@ -1,7 +1,5 @@
 package com.oneme.toplay.base;
 
-import java.util.ArrayList;
-
 /*
 import im.tox.jtoxcore.ToxFriend;
 import im.tox.jtoxcore.ToxUserStatus;

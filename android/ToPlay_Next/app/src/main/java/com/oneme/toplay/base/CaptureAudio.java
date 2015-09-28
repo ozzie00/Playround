@@ -1,15 +1,5 @@
 package com.oneme.toplay.base;
 
-import android.media.AudioFormat;
-import android.media.AudioRecord;
-import android.media.MediaRecorder;
-import android.os.AsyncTask;
-import android.util.Log;
-
-import com.oneme.toplay.Application;
-
-import com.oneme.toplay.service.Singleton;
-
 public class CaptureAudio { // extends AsyncTask<String, Void, Void> {
     /*
     private int bufferSizeBytes;

@@ -14,14 +14,12 @@ import android.widget.Toast;
 import com.alipay.sdk.app.PayTask;
 import com.oneme.toplay.Application;
 import com.oneme.toplay.R;
-import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.ui.BaseActivity;
 import com.parse.ParseUser;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
-import java.util.Currency;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Random;

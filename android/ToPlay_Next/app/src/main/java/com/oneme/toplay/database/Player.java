@@ -16,16 +16,12 @@
 
 package com.oneme.toplay.database;
 
-import android.media.Image;
-
-import java.util.List;
-
 import com.oneme.toplay.base.AppConstant;
 import com.parse.ParseClassName;
+import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
-import com.parse.ParseFile;
 /*
 public class Player {
 

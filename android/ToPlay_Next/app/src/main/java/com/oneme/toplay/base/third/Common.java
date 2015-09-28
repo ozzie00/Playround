@@ -17,8 +17,6 @@
 
 package com.oneme.toplay.base.third;
 
-import android.util.DisplayMetrics;
-
 /**
  * Created by ozzie on 10/24/14.
  */

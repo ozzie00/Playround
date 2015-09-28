@@ -1,29 +1,5 @@
 package com.oneme.toplay.adapter;
 
-import android.app.Activity;
-import android.content.Context;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.Filter;
-import android.widget.Filterable;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import com.oneme.toplay.Application;
-import com.oneme.toplay.R;
-import com.oneme.toplay.base.Constants;
-import com.oneme.toplay.base.IconColor;
-import com.oneme.toplay.base.LeftPaneItem;
-import com.oneme.toplay.base.PrettyTimestamp;
-import com.oneme.toplay.database.Database;
-import com.oneme.toplay.service.Singleton;
-
-import java.util.ArrayList;
-
 public class LeftPaneAdapter { // extends BaseAdapter implements Filterable {
 
     /*
