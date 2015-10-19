@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.oneme.toplay"
-    android:versionCode="52"
-    android:versionName="1.0.5.1"
+    android:versionCode="54"
+    android:versionName="1.0.5.03"
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-sdk
@@ -277,18 +277,18 @@
             android:value       = "@integer/google_play_services_version" />
 
         <!--ToPlay Google release key-->
-
-        <meta-data
-            android:name  = "com.google.android.maps.v2.API_KEY"
-            android:value = "AIzaSyCwPhVEURLwyW1C7qi-BNI8j3F4siYPCDI" />
-
-
-        <!--ToPlay Google debug key-->
         <!--
         <meta-data
             android:name  = "com.google.android.maps.v2.API_KEY"
-            android:value = "AIzaSyB1oKFcraix0-A-Fr_DgQPFOqSupmhoJqM" />
+            android:value = "AIzaSyCwPhVEURLwyW1C7qi-BNI8j3F4siYPCDI" />
         -->
+
+        <!--ToPlay Google debug key-->
+
+        <meta-data
+            android:name  = "com.google.android.maps.v2.API_KEY"
+            android:value = "AIzaSyB1oKFcraix0-A-Fr_DgQPFOqSupmhoJqM" />
+
 
         <!--ToPlay Amap release key-->
 
@@ -305,18 +305,18 @@
         -->
 
         <!--ToPlay Baidu release key-->
-
-        <meta-data
-            android:name="com.baidu.lbsapi.API_KEY"
-            android:value="uLS9PD8T26iDgPyfLLxYqcfp" />
-
-
-        <!--ToPlay Baidu debug key-->
         <!--
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="QqCWKsVTzLPOKRPjdbGIkhf1" />
+            android:value="uLS9PD8T26iDgPyfLLxYqcfp" />
         -->
+
+        <!--ToPlay Baidu debug key-->
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="QqCWKsVTzLPOKRPjdbGIkhf1" />
+
 
         <service
             android:name="com.baidu.location.f"
@@ -763,6 +763,10 @@
             <meta-data
                 android:name="android.app.default_searchable"
                 android:value="com.oneme.toplay.track.SearchListActivity" />
+        </activity>
+
+        <activity android:name="com.oneme.toplay.track.TrackHistoryActivity"
+            android:label= "@string/navdrawer_item_history">
         </activity>
 
         <activity android:name="com.oneme.toplay.track.io.file.exporter.SaveActivity" />

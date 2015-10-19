@@ -42,17 +42,17 @@ import java.util.List;
  */
 public class TrackIconUtils {
 
-  public static final String AIRPLANE = "AIRPLANE";
+  //public static final String AIRPLANE = "AIRPLANE";
   public static final String BIKE = "BIKE";
-  public static final String BOAT = "BOAT";
-  public static final String DRIVE = "DRIVE";
+  //public static final String BOAT = "BOAT";
+  //public static final String DRIVE = "DRIVE";
   public static final String RUN = "RUN";
   public static final String SKI = "SKI";
   public static final String SNOW_BOARDING = "SNOW_BOARDING";
   public static final String WALK = "WALK";
 
-  private static final int[] AIRPLANE_LIST = new int[] { R.string.activity_type_airplane,
-      R.string.activity_type_commercial_airplane, R.string.activity_type_rc_airplane };
+ // private static final int[] AIRPLANE_LIST = new int[] { R.string.activity_type_airplane,
+ //     R.string.activity_type_commercial_airplane, R.string.activity_type_rc_airplane };
   private static final int[] BIKE_LIST = new int[] { R.string.activity_type_biking,
       R.string.activity_type_cycling, R.string.activity_type_dirt_bike,
       R.string.activity_type_motor_bike, R.string.activity_type_mountain_biking,
@@ -90,8 +90,8 @@ public class TrackIconUtils {
         SKI, new Pair<Integer, Integer>(R.string.activity_type_skiing, R.drawable.ic_track_ski));
     MAP.put(SNOW_BOARDING, new Pair<Integer, Integer>(
         R.string.activity_type_snow_boarding, R.drawable.ic_track_snow_boarding));
-    MAP.put(AIRPLANE,
-        new Pair<Integer, Integer>(R.string.activity_type_airplane, R.drawable.ic_track_airplane));
+    //MAP.put(AIRPLANE,
+    //    new Pair<Integer, Integer>(R.string.activity_type_airplane, R.drawable.ic_track_airplane));
     //MAP.put(
     //    BOAT, new Pair<Integer, Integer>(R.string.activity_type_boat, R.drawable.ic_track_boat));
   }
@@ -151,9 +151,9 @@ public class TrackIconUtils {
     if (activityType == null || activityType.equals("")) {
       return "";
     }
-    if (inList(context, activityType, AIRPLANE_LIST)) {
-      return AIRPLANE;
-    }
+    //if (inList(context, activityType, AIRPLANE_LIST)) {
+    //  return AIRPLANE;
+    //}
     if (inList(context, activityType, BIKE_LIST)) {
       return BIKE;
     }

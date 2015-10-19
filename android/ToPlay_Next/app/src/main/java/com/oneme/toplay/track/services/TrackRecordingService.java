@@ -45,6 +45,7 @@ import com.google.android.gms.common.GooglePlayServicesClient.OnConnectionFailed
 import com.google.android.gms.location.ActivityRecognitionClient;
 import com.google.android.gms.location.DetectedActivity;
 import com.google.android.gms.location.LocationListener;
+
 import com.oneme.toplay.R;
 import com.oneme.toplay.track.Constants;
 import com.oneme.toplay.track.TrackDetailNextActivity;
@@ -815,9 +816,9 @@ public class TrackRecordingService extends Service {
         if (activityRecognitionType != PreferencesUtils.ACTIVITY_RECOGNITION_TYPE_DEFAULT) {
           String iconValue = null;
           switch (activityRecognitionType) {
-            case DetectedActivity.IN_VEHICLE:
-              iconValue = TrackIconUtils.DRIVE;
-              break;
+            //case DetectedActivity.IN_VEHICLE:
+              //iconValue = TrackIconUtils.DRIVE;
+            //  break;
             case DetectedActivity.ON_BICYCLE:
               iconValue = TrackIconUtils.BIKE;
               break;
@@ -1111,6 +1112,9 @@ public class TrackRecordingService extends Service {
       myTracksLocationManager.requestLocationUpdates(
           interval, locationListenerPolicy.getMinDistance(), locationListener);
       currentRecordingInterval = interval;
+
+      android.util.Log.e(TAG, " need add for baidu map.");
+
     } catch (RuntimeException e) {
       //Log.e(TAG, "Could not register location listener.", e);
     }

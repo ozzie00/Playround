@@ -61,34 +61,34 @@ public class TracksProviderUtilsImpl implements TracksProviderUtils {
 
   @Override
   public Track createTrack(Cursor cursor) {
-    int idIndex = cursor.getColumnIndexOrThrow(TracksColumns._ID);
-    int nameIndex = cursor.getColumnIndexOrThrow(TracksColumns.NAME);
-    int descriptionIndex = cursor.getColumnIndexOrThrow(TracksColumns.DESCRIPTION);
-    int categoryIndex = cursor.getColumnIndexOrThrow(TracksColumns.CATEGORY);
-    int startIdIndex = cursor.getColumnIndexOrThrow(TracksColumns.STARTID);
-    int stopIdIndex = cursor.getColumnIndexOrThrow(TracksColumns.STOPID);
-    int startTimeIndex = cursor.getColumnIndexOrThrow(TracksColumns.STARTTIME);
-    int stopTimeIndex = cursor.getColumnIndexOrThrow(TracksColumns.STOPTIME);
-    int numPointsIndex = cursor.getColumnIndexOrThrow(TracksColumns.NUMPOINTS);
+    int idIndex            = cursor.getColumnIndexOrThrow(TracksColumns._ID);
+    int nameIndex          = cursor.getColumnIndexOrThrow(TracksColumns.NAME);
+    int descriptionIndex   = cursor.getColumnIndexOrThrow(TracksColumns.DESCRIPTION);
+    int categoryIndex      = cursor.getColumnIndexOrThrow(TracksColumns.CATEGORY);
+    int startIdIndex       = cursor.getColumnIndexOrThrow(TracksColumns.STARTID);
+    int stopIdIndex        = cursor.getColumnIndexOrThrow(TracksColumns.STOPID);
+    int startTimeIndex     = cursor.getColumnIndexOrThrow(TracksColumns.STARTTIME);
+    int stopTimeIndex      = cursor.getColumnIndexOrThrow(TracksColumns.STOPTIME);
+    int numPointsIndex     = cursor.getColumnIndexOrThrow(TracksColumns.NUMPOINTS);
     int totalDistanceIndex = cursor.getColumnIndexOrThrow(TracksColumns.TOTALDISTANCE);
-    int totalTimeIndex = cursor.getColumnIndexOrThrow(TracksColumns.TOTALTIME);
-    int movingTimeIndex = cursor.getColumnIndexOrThrow(TracksColumns.MOVINGTIME);
-    int minLatIndex = cursor.getColumnIndexOrThrow(TracksColumns.MINLAT);
-    int maxLatIndex = cursor.getColumnIndexOrThrow(TracksColumns.MAXLAT);
-    int minLonIndex = cursor.getColumnIndexOrThrow(TracksColumns.MINLON);
-    int maxLonIndex = cursor.getColumnIndexOrThrow(TracksColumns.MAXLON);
-    int maxSpeedIndex = cursor.getColumnIndexOrThrow(TracksColumns.MAXSPEED);
-    int minElevationIndex = cursor.getColumnIndexOrThrow(TracksColumns.MINELEVATION);
-    int maxElevationIndex = cursor.getColumnIndexOrThrow(TracksColumns.MAXELEVATION);
+    int totalTimeIndex     = cursor.getColumnIndexOrThrow(TracksColumns.TOTALTIME);
+    int movingTimeIndex    = cursor.getColumnIndexOrThrow(TracksColumns.MOVINGTIME);
+    int minLatIndex        = cursor.getColumnIndexOrThrow(TracksColumns.MINLAT);
+    int maxLatIndex        = cursor.getColumnIndexOrThrow(TracksColumns.MAXLAT);
+    int minLonIndex        = cursor.getColumnIndexOrThrow(TracksColumns.MINLON);
+    int maxLonIndex        = cursor.getColumnIndexOrThrow(TracksColumns.MAXLON);
+    int maxSpeedIndex      = cursor.getColumnIndexOrThrow(TracksColumns.MAXSPEED);
+    int minElevationIndex  = cursor.getColumnIndexOrThrow(TracksColumns.MINELEVATION);
+    int maxElevationIndex  = cursor.getColumnIndexOrThrow(TracksColumns.MAXELEVATION);
     int elevationGainIndex = cursor.getColumnIndexOrThrow(TracksColumns.ELEVATIONGAIN);
-    int minGradeIndex = cursor.getColumnIndexOrThrow(TracksColumns.MINGRADE);
-    int maxGradeIndex = cursor.getColumnIndexOrThrow(TracksColumns.MAXGRADE);
-    int iconIndex = cursor.getColumnIndexOrThrow(TracksColumns.ICON);
-    int driveIdIndex = cursor.getColumnIndexOrThrow(TracksColumns.DRIVEID);
-    int modifiedTimeIndex = cursor.getColumnIndexOrThrow(TracksColumns.MODIFIEDTIME);
-    int sharedWithMeIndex = cursor.getColumnIndexOrThrow(TracksColumns.SHAREDWITHME);
-    int sharedOwnerIndex = cursor.getColumnIndexOrThrow(TracksColumns.SHAREDOWNER);
-    int caloriesIndex = cursor.getColumnIndexOrThrow(TracksColumns.CALORIE);
+    int minGradeIndex      = cursor.getColumnIndexOrThrow(TracksColumns.MINGRADE);
+    int maxGradeIndex      = cursor.getColumnIndexOrThrow(TracksColumns.MAXGRADE);
+    int iconIndex          = cursor.getColumnIndexOrThrow(TracksColumns.ICON);
+    int driveIdIndex       = cursor.getColumnIndexOrThrow(TracksColumns.DRIVEID);
+    int modifiedTimeIndex  = cursor.getColumnIndexOrThrow(TracksColumns.MODIFIEDTIME);
+    int sharedWithMeIndex  = cursor.getColumnIndexOrThrow(TracksColumns.SHAREDWITHME);
+    int sharedOwnerIndex   = cursor.getColumnIndexOrThrow(TracksColumns.SHAREDOWNER);
+    int caloriesIndex      = cursor.getColumnIndexOrThrow(TracksColumns.CALORIE);
     
     Track track = new Track();
     TripStatistics tripStatistics = track.getTripStatistics();
@@ -363,36 +363,36 @@ public class TracksProviderUtilsImpl implements TracksProviderUtils {
 
   @Override
   public Waypoint createWaypoint(Cursor cursor) {
-    int idIndex = cursor.getColumnIndexOrThrow(WaypointsColumns._ID);
-    int nameIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.NAME);
-    int descriptionIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.DESCRIPTION);
-    int categoryIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.CATEGORY);
-    int iconIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.ICON);
-    int trackIdIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.TRACKID);
-    int typeIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.TYPE);
-    int lengthIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.LENGTH);
-    int durationIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.DURATION);
-    int startTimeIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.STARTTIME);
-    int startIdIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.STARTID);
-    int stopIdIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.STOPID);
-    int longitudeIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.LONGITUDE);
-    int latitudeIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.LATITUDE);
-    int timeIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.TIME);
-    int altitudeIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.ALTITUDE);
-    int accuracyIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.ACCURACY);
-    int speedIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.SPEED);
-    int bearingIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.BEARING);
+    int idIndex            = cursor.getColumnIndexOrThrow(WaypointsColumns._ID);
+    int nameIndex          = cursor.getColumnIndexOrThrow(WaypointsColumns.NAME);
+    int descriptionIndex   = cursor.getColumnIndexOrThrow(WaypointsColumns.DESCRIPTION);
+    int categoryIndex      = cursor.getColumnIndexOrThrow(WaypointsColumns.CATEGORY);
+    int iconIndex          = cursor.getColumnIndexOrThrow(WaypointsColumns.ICON);
+    int trackIdIndex       = cursor.getColumnIndexOrThrow(WaypointsColumns.TRACKID);
+    int typeIndex          = cursor.getColumnIndexOrThrow(WaypointsColumns.TYPE);
+    int lengthIndex        = cursor.getColumnIndexOrThrow(WaypointsColumns.LENGTH);
+    int durationIndex      = cursor.getColumnIndexOrThrow(WaypointsColumns.DURATION);
+    int startTimeIndex     = cursor.getColumnIndexOrThrow(WaypointsColumns.STARTTIME);
+    int startIdIndex       = cursor.getColumnIndexOrThrow(WaypointsColumns.STARTID);
+    int stopIdIndex        = cursor.getColumnIndexOrThrow(WaypointsColumns.STOPID);
+    int longitudeIndex     = cursor.getColumnIndexOrThrow(WaypointsColumns.LONGITUDE);
+    int latitudeIndex      = cursor.getColumnIndexOrThrow(WaypointsColumns.LATITUDE);
+    int timeIndex          = cursor.getColumnIndexOrThrow(WaypointsColumns.TIME);
+    int altitudeIndex      = cursor.getColumnIndexOrThrow(WaypointsColumns.ALTITUDE);
+    int accuracyIndex      = cursor.getColumnIndexOrThrow(WaypointsColumns.ACCURACY);
+    int speedIndex         = cursor.getColumnIndexOrThrow(WaypointsColumns.SPEED);
+    int bearingIndex       = cursor.getColumnIndexOrThrow(WaypointsColumns.BEARING);
     int totalDistanceIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.TOTALDISTANCE);
-    int totalTimeIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.TOTALTIME);
-    int movingTimeIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.MOVINGTIME);
-    int maxSpeedIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.MAXSPEED);
-    int minElevationIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.MINELEVATION);
-    int maxElevationIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.MAXELEVATION);
+    int totalTimeIndex     = cursor.getColumnIndexOrThrow(WaypointsColumns.TOTALTIME);
+    int movingTimeIndex    = cursor.getColumnIndexOrThrow(WaypointsColumns.MOVINGTIME);
+    int maxSpeedIndex      = cursor.getColumnIndexOrThrow(WaypointsColumns.MAXSPEED);
+    int minElevationIndex  = cursor.getColumnIndexOrThrow(WaypointsColumns.MINELEVATION);
+    int maxElevationIndex  = cursor.getColumnIndexOrThrow(WaypointsColumns.MAXELEVATION);
     int elevationGainIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.ELEVATIONGAIN);
-    int minGradeIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.MINGRADE);
-    int maxGradeIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.MAXGRADE);
-    int calorieIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.CALORIE);
-    int photoUrlIndex = cursor.getColumnIndexOrThrow(WaypointsColumns.PHOTOURL);
+    int minGradeIndex      = cursor.getColumnIndexOrThrow(WaypointsColumns.MINGRADE);
+    int maxGradeIndex      = cursor.getColumnIndexOrThrow(WaypointsColumns.MAXGRADE);
+    int calorieIndex       = cursor.getColumnIndexOrThrow(WaypointsColumns.CALORIE);
+    int photoUrlIndex      = cursor.getColumnIndexOrThrow(WaypointsColumns.PHOTOURL);
     
     Waypoint waypoint = new Waypoint();
 
@@ -1154,15 +1154,15 @@ public class TracksProviderUtilsImpl implements TracksProviderUtils {
     public final int sensorIndex;
 
     public CachedTrackPointsIndexes(Cursor cursor) {
-      idIndex = cursor.getColumnIndex(TrackPointsColumns._ID);
+      idIndex        = cursor.getColumnIndex(TrackPointsColumns._ID);
       longitudeIndex = cursor.getColumnIndexOrThrow(TrackPointsColumns.LONGITUDE);
-      latitudeIndex = cursor.getColumnIndexOrThrow(TrackPointsColumns.LATITUDE);
-      timeIndex = cursor.getColumnIndexOrThrow(TrackPointsColumns.TIME);
-      altitudeIndex = cursor.getColumnIndexOrThrow(TrackPointsColumns.ALTITUDE);
-      accuracyIndex = cursor.getColumnIndexOrThrow(TrackPointsColumns.ACCURACY);
-      speedIndex = cursor.getColumnIndexOrThrow(TrackPointsColumns.SPEED);
-      bearingIndex = cursor.getColumnIndexOrThrow(TrackPointsColumns.BEARING);
-      sensorIndex = cursor.getColumnIndexOrThrow(TrackPointsColumns.SENSOR);
+      latitudeIndex  = cursor.getColumnIndexOrThrow(TrackPointsColumns.LATITUDE);
+      timeIndex      = cursor.getColumnIndexOrThrow(TrackPointsColumns.TIME);
+      altitudeIndex  = cursor.getColumnIndexOrThrow(TrackPointsColumns.ALTITUDE);
+      accuracyIndex  = cursor.getColumnIndexOrThrow(TrackPointsColumns.ACCURACY);
+      speedIndex     = cursor.getColumnIndexOrThrow(TrackPointsColumns.SPEED);
+      bearingIndex   = cursor.getColumnIndexOrThrow(TrackPointsColumns.BEARING);
+      sensorIndex    = cursor.getColumnIndexOrThrow(TrackPointsColumns.SENSOR);
     }
   }
 

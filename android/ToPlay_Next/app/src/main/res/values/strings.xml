@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Playround</string>
-    <string name="app_version">Playround Android v.1.0.5.1</string>
+    <string name="app_version">Playround Android v.1.0.5.03</string>
 
     <!-- Strings related to activity -->
     <string name="action_settings">Settings</string>
@@ -1307,7 +1307,7 @@
     </string>
     <string name="track_detail_map_tab"
       translation_description="In the track detail page, the title of the tab showing the map.">
-      Map
+      Route
     </string>
     <string name="track_detail_stats_tab"
       translation_description="In the track detail page, the title of the tab showing the stats.">
@@ -3690,4 +3690,14 @@
       completion suggestion for a waypoint.">
     waypoint
   </string>
+
+
+
+
+
+
+    <!--Add by playround 1.0.5.03 -->
+    <string name="navdrawer_item_history">History</string>
+
+
 </resources>

@@ -28,6 +28,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 
+
 import com.oneme.toplay.R;
 import com.oneme.toplay.track.content.Waypoint;
 import com.oneme.toplay.track.content.Waypoint.WaypointType;
@@ -257,7 +258,7 @@ public class MapOverlay {
         if (cachedLocation.valid) {
           MarkerOptions markerOptions = new MarkerOptions().position(cachedLocation.getLatLng())
               .anchor(MARKER_X_ANCHOR, MARKER_Y_ANCHOR).draggable(false).visible(true)
-              .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_marker_red_paddle));
+              .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_marker_green_paddle));
           googleMap.addMarker(markerOptions);
           break;
         }
@@ -271,7 +272,7 @@ public class MapOverlay {
       if (cachedLocation.valid) {
         MarkerOptions markerOptions = new MarkerOptions().position(cachedLocation.getLatLng())
             .anchor(MARKER_X_ANCHOR, MARKER_Y_ANCHOR).draggable(false).visible(true)
-            .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_marker_green_paddle));
+            .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_marker_red_paddle));
         googleMap.addMarker(markerOptions);
         hasStartMarker = true;
         break;

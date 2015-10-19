@@ -126,7 +126,7 @@ public final class InviteNextActivity extends BaseActivity implements OnDateSetL
         // Note: msportarray items are correponding to msporticonarray of Sport Class
         msportarray = getResources().getStringArray(R.array.sport_type_array);
 
-        final Boolean isAvailable = false;// DispatchActivity.getGooglePlayServicesState();
+        final Boolean isAvailable = true;// DispatchActivity.getGooglePlayServicesState();
 
         //get point according to  current latitude and longitude
         geoPoint = new ParseGeoPoint(Double.valueOf(Application.getCurrentLatitude()), Double.valueOf(Application.getCurrentLongitude()));
