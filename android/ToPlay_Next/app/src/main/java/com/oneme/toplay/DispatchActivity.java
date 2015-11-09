@@ -11,6 +11,7 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.database.VenueOwner;
 import com.oneme.toplay.ui.CnLocalNextActivity;
+import com.oneme.toplay.ui.LocalNextActivity;
 import com.oneme.toplay.venue.OwnerInfoUploadActivity;
 import com.oneme.toplay.venue.OwnerMainActivity;
 import com.parse.GetCallback;
@@ -51,7 +52,7 @@ public class DispatchActivity extends Activity {
                     if (user.getString(AppConstant.OMEPARSEUSERTAGKEY).equalsIgnoreCase(AppConstant.OMEPARSEUSERTAGPLAYER)) {
 
                         // Start an intent for the logged in activity
-                        startActivity(new Intent(this, CnLocalNextActivity.class));//LocalWithoutMapActivity.class));
+                        startActivity(new Intent(this, LocalNextActivity.class));//LocalWithoutMapActivity.class));
                         finish();
                     } else if (user.getString(AppConstant.OMEPARSEUSERTAGKEY).equalsIgnoreCase(AppConstant.OMEPARSEUSERTAGVENUE)) {
                         ParseQuery<VenueOwner> query = VenueOwner.getQuery();
@@ -90,7 +91,7 @@ public class DispatchActivity extends Activity {
 
                 } else {
                     // Start and intent for the logged out activity
-                    startActivity(new Intent(this, CnLocalNextActivity.class));//LocalWithoutMapActivity.class));
+                    startActivity(new Intent(this, LocalNextActivity.class));//LocalWithoutMapActivity.class));
                     finish();
                 }
             } else {

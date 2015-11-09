@@ -55,6 +55,7 @@ import com.baidu.mapapi.map.MyLocationConfiguration.LocationMode;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.map.SupportMapFragment;
 import com.baidu.mapapi.model.LatLng;
+
 import com.oneme.toplay.Application;
 import com.oneme.toplay.LoginActivity;
 import com.oneme.toplay.R;
@@ -70,6 +71,7 @@ import com.oneme.toplay.me.MeActivity;
 import com.oneme.toplay.service.CoreService;
 import com.oneme.toplay.ui.widget.DrawShadowFrameLayout;
 import com.oneme.toplay.weather.RemoteFetch;
+
 import com.parse.ParseGeoPoint;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
@@ -234,7 +236,7 @@ public class CnLocalNextActivity extends BaseActivity {
         option.setOpenGps(true);
         option.setCoorType("bd09ll");
         // time span  1s = 1000 ms
-        option.setScanSpan(1000*60*5);
+        option.setScanSpan(1000*60*2);
         mLocClient.setLocOption(option);
         mLocClient.start();
 
@@ -254,8 +256,8 @@ public class CnLocalNextActivity extends BaseActivity {
 
                         // check mylocation is null
                         if (myLocation != null) {
-                            Application.setCurrentLatitude(Double.toString(myLocation.getLatitude()));
-                            Application.setCurrentLongitude(Double.toString(myLocation.getLongitude()));
+                            Application.setCurrentLatitude(String.valueOf(myLocation.getLatitude()));
+                            Application.setCurrentLongitude(String.valueOf(myLocation.getLongitude()));
                         }
 
                         ParseQuery<Invite> query = Invite.getQuery();
@@ -445,8 +447,8 @@ public class CnLocalNextActivity extends BaseActivity {
             }
 
             // set current location
-            Application.setCurrentLatitude(Double.toString(location.getLatitude()));
-            Application.setCurrentLongitude(Double.toString(location.getLongitude()));
+            Application.setCurrentLatitude(String.valueOf(location.getLatitude()));
+            Application.setCurrentLongitude(String.valueOf(location.getLongitude()));
             doListQuery();
         }
 
@@ -737,8 +739,8 @@ public class CnLocalNextActivity extends BaseActivity {
             }
 
             //set current latitude and longitude
-            Application.setCurrentLatitude(Double.toString(mLocation.getLatitude()));
-            Application.setCurrentLongitude(Double.toString(mLocation.getLongitude()));
+            Application.setCurrentLatitude(String.valueOf(mLocation.getLatitude()));
+            Application.setCurrentLongitude(String.valueOf(mLocation.getLongitude()));
 
             //Ozzie Zhang 10-29-2014 please change JoinActivity to InviteActivity, now only for test
             Intent intent = new Intent(CnLocalNextActivity.this, InviteNextActivity.class);

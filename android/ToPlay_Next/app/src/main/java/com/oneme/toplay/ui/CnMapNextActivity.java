@@ -239,7 +239,7 @@ public class CnMapNextActivity extends BaseActivity {
         option.setOpenGps(true);
         option.setCoorType("bd09ll");
         // time span  1s = 1000 ms
-        option.setScanSpan(1000*60*5);
+        option.setScanSpan(1000*60*2);
         mLocClient.setLocOption(option);
         mLocClient.start();
 
@@ -339,8 +339,8 @@ public class CnMapNextActivity extends BaseActivity {
             return;
         }
 
-        Application.setCurrentLatitude(Double.toString(myLoc.getLatitude()));
-        Application.setCurrentLongitude(Double.toString(myLoc.getLongitude()));
+        Application.setCurrentLatitude(String.valueOf(myLoc.getLatitude()));
+        Application.setCurrentLongitude(String.valueOf(myLoc.getLongitude()));
 
         final ParseGeoPoint myPoint = geoPointFromLocation(myLoc);
 

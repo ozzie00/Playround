@@ -656,8 +656,8 @@ public class LocalAsyncActivity extends ActionBarActivity implements LocationLis
             }
 
             //set current latitude and longitude
-            Application.setCurrentLatitude(Double.toString(mLocation.getLatitude()));
-            Application.setCurrentLongitude(Double.toString(mLocation.getLongitude()));
+            Application.setCurrentLatitude(String.valueOf(mLocation.getLatitude()));
+            Application.setCurrentLongitude(String.valueOf(mLocation.getLongitude()));
 
             //Ozzie Zhang 10-29-2014 please change JoinActivity to InviteActivity, now only for test
             Intent invokeInviteActivityIntent = new Intent(LocalAsyncActivity.this, InviteNextActivity.class);
@@ -791,8 +791,8 @@ public class LocalAsyncActivity extends ActionBarActivity implements LocationLis
 
                     // update user newest location
                     Location myLocation = (currentLocation == null) ? lastLocation : currentLocation;
-                    Application.setCurrentLatitude(Double.toString(myLocation.getLatitude()));
-                    Application.setCurrentLongitude(Double.toString(myLocation.getLongitude()));
+                    Application.setCurrentLatitude(String.valueOf(myLocation.getLatitude()));
+                    Application.setCurrentLongitude(String.valueOf(myLocation.getLongitude()));
 
                     // get current geo point
                     mGeoPoint = new ParseGeoPoint(Double.valueOf(Application.getCurrentLatitude()), Double.valueOf(Application.getCurrentLongitude()));

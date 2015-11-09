@@ -54,7 +54,12 @@ public class CnTrackPathUtils {
       ArrayList<LatLng> pathPoints = new ArrayList<LatLng>();
       pathPoints.addAll(lastPolyline.getPoints());
       pathPoints.addAll(points);
-      lastPolyline.setPoints(pathPoints);
+
+      // according to baidu exception "points count can not less than 2 or more than 10000"
+      if (points.size() >= 2 && points.size() < 10000) {
+        lastPolyline.setPoints(pathPoints);
+      }
+
     } else {
 
       // according to baidu exception "points count can not less than 2 or more than 10000"

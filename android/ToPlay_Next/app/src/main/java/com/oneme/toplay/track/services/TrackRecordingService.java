@@ -39,6 +39,7 @@ import android.support.v4.app.TaskStackBuilder;
 //import android.util.Log;
 import android.widget.RemoteViews;
 
+
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient.ConnectionCallbacks;
 import com.google.android.gms.common.GooglePlayServicesClient.OnConnectionFailedListener;
@@ -46,7 +47,18 @@ import com.google.android.gms.location.ActivityRecognitionClient;
 import com.google.android.gms.location.DetectedActivity;
 import com.google.android.gms.location.LocationListener;
 
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
+import com.baidu.mapapi.map.MapStatusUpdate;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
+import com.baidu.mapapi.map.MyLocationData;
+import com.baidu.mapapi.model.LatLng;
+
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+
 import com.oneme.toplay.R;
+import com.oneme.toplay.base.CheckGoogleService;
 import com.oneme.toplay.track.Constants;
 import com.oneme.toplay.track.TrackDetailNextActivity;
 import com.oneme.toplay.track.TrackListActivity;
@@ -119,8 +131,9 @@ public class TrackRecordingService extends Service {
   private Context context;
   private TracksProviderUtils myTracksProviderUtils;
   private Handler handler;
-  private TracksLocationManager myTracksLocationManager;
-  private PendingIntent activityRecognitionPendingIntent;  
+  private TracksLocationManager myTracksLocationManager = null;
+  private CnTracksLocationManager myCnTracksLocationManager = null;
+  private PendingIntent activityRecognitionPendingIntent;
   private ActivityRecognitionClient activityRecognitionClient;
   private PeriodicTaskExecutor voiceExecutor;
   private PeriodicTaskExecutor splitExecutor;
@@ -143,10 +156,19 @@ public class TrackRecordingService extends Service {
   private Location lastLocation;
   private boolean currentSegmentHasLocation;
   private boolean isIdle; // true if idle
+  private static boolean maccessgoogleservice;
 
   private ServiceBinder binder = new ServiceBinder(this);
 
   private NotificationManager mNotificationManager;
+
+  private LocationClient bdlocationClient;
+
+
+  boolean isFirstLoc = true;
+
+  public MyLocationListener myListener = new MyLocationListener();
+
 
   // Constants for intent information
   // Make this a large number to avoid the alarm ID's which seem to be 1, 2, ...
@@ -249,7 +271,9 @@ public class TrackRecordingService extends Service {
   private LocationListener locationListener = new LocationListener() {
       @Override
     public void onLocationChanged(final Location location) {
-      if (myTracksLocationManager == null || executorService == null
+
+
+        if (myTracksLocationManager == null || executorService == null
           || !myTracksLocationManager.isAllowed() || executorService.isShutdown()
           || executorService.isTerminated()) {
         return;
@@ -263,14 +287,44 @@ public class TrackRecordingService extends Service {
     }
   };
 
+
+  private BDLocationListener bdlocationListener = new BDLocationListener() {
+    @Override
+    public void onReceiveLocation(final BDLocation bdlocation) {
+
+
+      if (myCnTracksLocationManager == null || executorService == null
+              || !myCnTracksLocationManager.isAllowed() || executorService.isShutdown()
+              || executorService.isTerminated()) {
+        return;
+      }
+
+      // convert BDLocation to Location
+      final Location location = new Location("");
+      location.setAltitude(bdlocation.getAltitude());
+      location.setLatitude(bdlocation.getLatitude());
+      location.setLongitude(bdlocation.getLongitude());
+      location.setSpeed(bdlocation.getSpeed());
+      location.setTime(Long.valueOf(bdlocation.getTime()));
+
+      executorService.submit(new Runnable() {
+        @Override
+        public void run() {
+          onLocationChangedAsync(location);
+        }
+      });
+    }
+  };
+
+
   private final ConnectionCallbacks activityRecognitionCallbacks = new ConnectionCallbacks() {
       @Override
     public void onDisconnected() {}
 
       @Override
     public void onConnected(Bundle bundle) {
-      activityRecognitionClient.requestActivityUpdates(
-          ONE_MINUTE, activityRecognitionPendingIntent);
+        activityRecognitionClient.requestActivityUpdates(
+                ONE_MINUTE, activityRecognitionPendingIntent);
     }
   };
 
@@ -305,15 +359,36 @@ public class TrackRecordingService extends Service {
     context = this;
     myTracksProviderUtils = TracksProviderUtils.Factory.get(this);
     handler = new Handler();
-    myTracksLocationManager = new TracksLocationManager(this, handler.getLooper(), true);
+
+
+    // check google service
+    if (CheckGoogleService.access(this)) {
+      maccessgoogleservice    = true;
+      myTracksLocationManager = new TracksLocationManager(this, handler.getLooper(), true);
+    } else {
+      maccessgoogleservice      = false;
+      myCnTracksLocationManager = new CnTracksLocationManager(this, handler.getLooper(), true);
+
+      bdlocationClient = new LocationClient(context);
+      bdlocationClient.registerLocationListener(myListener);
+      LocationClientOption option = new LocationClientOption();
+      option.setOpenGps(true);
+      option.setCoorType("bd09ll");
+      option.setScanSpan(1000 * 60 * 1);
+      option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
+      bdlocationClient.setLocOption(option);
+      bdlocationClient.start();
+    }
+
+
     activityRecognitionPendingIntent = PendingIntent.getService(context, 0,
         new Intent(context, ActivityRecognitionIntentService.class),
         PendingIntent.FLAG_UPDATE_CURRENT);
     activityRecognitionClient = new ActivityRecognitionClient(
         context, activityRecognitionCallbacks, activityRecognitionFailedListener);
     activityRecognitionClient.connect();
-    voiceExecutor = new PeriodicTaskExecutor(this, new AnnouncementPeriodicTaskFactory());
-    splitExecutor = new PeriodicTaskExecutor(this, new SplitPeriodicTaskFactory());
+    voiceExecutor     = new PeriodicTaskExecutor(this, new AnnouncementPeriodicTaskFactory());
+    splitExecutor     = new PeriodicTaskExecutor(this, new SplitPeriodicTaskFactory());
     sharedPreferences = getSharedPreferences(Constants.SETTINGS_NAME, Context.MODE_PRIVATE);
     sharedPreferences.registerOnSharedPreferenceChangeListener(sharedPreferenceChangeListener);
 
@@ -322,7 +397,8 @@ public class TrackRecordingService extends Service {
 
     // Require voiceExecutor and splitExecutor to be created.
     sharedPreferenceChangeListener.onSharedPreferenceChanged(sharedPreferences, null);
-    
+
+
     handler.post(registerLocationRunnable);
     
     /*
@@ -403,9 +479,15 @@ public class TrackRecordingService extends Service {
     }
     activityRecognitionClient.disconnect();
     activityRecognitionPendingIntent.cancel();
-    
-    myTracksLocationManager.close();
-    myTracksLocationManager = null;
+
+    if (CheckGoogleService.access(this)) {
+      myTracksLocationManager.close();
+      myTracksLocationManager = null;
+    } else {
+      myCnTracksLocationManager.close();
+      myCnTracksLocationManager = null;
+    }
+
     myTracksProviderUtils = null;        
 
     binder.detachFromService();
@@ -783,7 +865,7 @@ public class TrackRecordingService extends Service {
     }
 
     // Need to remember the recordingTrackId before setting it to -1L
-    long trackId = recordingTrackId;
+    long trackId   = recordingTrackId;
     boolean paused = recordingTrackPaused;
 
     // Update shared preferences
@@ -1103,32 +1185,65 @@ public class TrackRecordingService extends Service {
    * Registers the location listener.
    */
   private void registerLocationListener() {
-    if (myTracksLocationManager == null) {
-      //Log.e(TAG, "locationManager is null.");
-      return;
-    }
-    try {
-      long interval = locationListenerPolicy.getDesiredPollingInterval();
-      myTracksLocationManager.requestLocationUpdates(
-          interval, locationListenerPolicy.getMinDistance(), locationListener);
-      currentRecordingInterval = interval;
 
-      android.util.Log.e(TAG, " need add for baidu map.");
 
-    } catch (RuntimeException e) {
-      //Log.e(TAG, "Could not register location listener.", e);
+    if (maccessgoogleservice) {
+      if (myTracksLocationManager == null) {
+        //Log.e(TAG, "locationManager is null.");
+        return;
+      }
+      try {
+        long interval = locationListenerPolicy.getDesiredPollingInterval();
+        myTracksLocationManager.requestLocationUpdates(
+                interval, locationListenerPolicy.getMinDistance(), locationListener);
+        currentRecordingInterval = interval;
+
+      } catch (RuntimeException e) {
+        //Log.e(TAG, "Could not register location listener.", e);
+      }
+
+    } else {
+      if (myCnTracksLocationManager == null) {
+        //Log.e(TAG, "locationManager is null.");
+        return;
+      }
+      try {
+        long interval = locationListenerPolicy.getDesiredPollingInterval();
+        myCnTracksLocationManager.requestLocationUpdates(
+                interval, locationListenerPolicy.getMinDistance(), myListener);
+        currentRecordingInterval = interval;
+
+      } catch (RuntimeException e) {
+        //Log.e(TAG, "Could not register location listener.", e);
+      }
+
     }
+
+
   }
 
   /**
    * Unregisters the location manager.
    */
   private void unregisterLocationListener() {
-    if (myTracksLocationManager == null) {
-      //Log.e(TAG, "locationManager is null.");
-      return;
+
+    if (maccessgoogleservice) {
+
+      if (myTracksLocationManager == null) {
+        //Log.e(TAG, "locationManager is null.");
+        return;
+      }
+      myTracksLocationManager.removeLocationUpdates(locationListener);
+    } else {
+
+      if (myCnTracksLocationManager == null) {
+        //Log.e(TAG, "locationManager is null.");
+        return;
+      }
+      myCnTracksLocationManager.removeLocationUpdates(bdlocationListener);
     }
-    myTracksLocationManager.removeLocationUpdates(locationListener);
+
+
   }
 
   /**
@@ -1332,7 +1447,20 @@ public class TrackRecordingService extends Service {
       if (!canAccess()) {
         return;
       }
-      trackRecordingService.locationListener.onLocationChanged(location);
+      // check google service
+      if (maccessgoogleservice) {
+        trackRecordingService.locationListener.onLocationChanged(location);
+      } else {
+        BDLocation bdlocation = new BDLocation();
+        bdlocation.setAltitude(location.getAltitude());
+        bdlocation.setLongitude(location.getLongitude());
+        bdlocation.setLatitude(location.getLatitude());
+        bdlocation.setSpeed(location.getSpeed());
+       // bdlocation.setTime(Long.toString(location.getTime()));
+
+        trackRecordingService.bdlocationListener.onReceiveLocation(bdlocation);
+      }
+
     }
 
 
@@ -1411,5 +1539,59 @@ public class TrackRecordingService extends Service {
         markerTripStatisticsUpdater.updateCalorie(calories[1]);
       }
     });
+  }
+
+
+  /**
+   *  locationListener SDK
+   */
+  public class MyLocationListener implements BDLocationListener {
+
+    @Override
+    public void onReceiveLocation(BDLocation bdlocation) {
+
+
+      if (bdlocation == null)
+        return;
+
+      if (myCnTracksLocationManager == null || executorService == null
+              || !myCnTracksLocationManager.isAllowed() || executorService.isShutdown()
+              || executorService.isTerminated()) {
+        return;
+      }
+
+      // convert BDLocation to Location
+      final Location location = new Location("");
+      location.setAltitude(bdlocation.getAltitude());
+      location.setLatitude(bdlocation.getLatitude());
+      location.setLongitude(bdlocation.getLongitude());
+      location.setSpeed(bdlocation.getSpeed());
+//      location.setTime(Long.valueOf(bdlocation.getTime()));
+
+
+
+      executorService.submit(new Runnable() {
+        @Override
+        public void run() {
+          onLocationChangedAsync(location);
+        }
+      });
+
+      MyLocationData locData = new MyLocationData.Builder()
+              .accuracy(bdlocation.getRadius())
+                      // get directory 0-360
+              .direction(100).latitude(bdlocation.getLatitude())
+              .longitude(bdlocation.getLongitude()).build();
+
+      if (isFirstLoc) {
+        isFirstLoc = false;
+        LatLng ll = new LatLng(bdlocation.getLatitude(),
+                bdlocation.getLongitude());
+        MapStatusUpdate u = MapStatusUpdateFactory.newLatLng(ll);
+      }
+    }
+
+    public void onReceivePoi(BDLocation poiLocation) {
+    }
   }
 }

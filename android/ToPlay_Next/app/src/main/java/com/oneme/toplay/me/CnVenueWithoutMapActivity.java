@@ -265,8 +265,8 @@ public class CnVenueWithoutMapActivity extends ActionBarActivity {
             }
 
             // set current location
-            Application.setCurrentLatitude(Double.toString(location.getLatitude()));
-            Application.setCurrentLongitude(Double.toString(location.getLongitude()));
+            Application.setCurrentLatitude(String.valueOf(location.getLatitude()));
+            Application.setCurrentLongitude(String.valueOf(location.getLongitude()));
             doListQuery();
         }
 
@@ -348,8 +348,8 @@ public class CnVenueWithoutMapActivity extends ActionBarActivity {
             }
 
             //set current latitude and longitude
-            Application.setCurrentLatitude(Double.toString(mLocation.getLatitude()));
-            Application.setCurrentLongitude(Double.toString(mLocation.getLongitude()));
+            Application.setCurrentLatitude(String.valueOf(mLocation.getLatitude()));
+            Application.setCurrentLongitude(String.valueOf(mLocation.getLongitude()));
 
             //Ozzie Zhang 10-29-2014 please change JoinActivity to InviteActivity, now only for test
             Intent intent = new Intent(CnVenueWithoutMapActivity.this, InviteNextActivity.class);

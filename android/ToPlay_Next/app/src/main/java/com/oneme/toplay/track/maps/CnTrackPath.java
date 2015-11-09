@@ -46,6 +46,6 @@ public interface CnTrackPath {
    * @param startIndex the start index
    * @param points the points
    */
-  public void updatePath(BaiduMap googleMap, ArrayList<Polyline> paths, int startIndex,
+  public void updatePath(BaiduMap bdMap, ArrayList<Polyline> paths, int startIndex,
                          List<CachedLocation> points);
 }

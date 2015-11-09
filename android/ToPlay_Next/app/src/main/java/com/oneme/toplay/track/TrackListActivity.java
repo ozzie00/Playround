@@ -48,8 +48,10 @@ import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
+
 import com.oneme.toplay.R;
 //import com.oneme.toplay.track.BuildConfig;
+import com.oneme.toplay.base.CheckGoogleService;
 import com.oneme.toplay.track.content.TracksProviderUtils;
 import com.oneme.toplay.track.content.Track;
 import com.oneme.toplay.track.content.TracksColumns;
@@ -58,6 +60,7 @@ import com.oneme.toplay.track.io.file.TrackFileFormat;
 import com.oneme.toplay.track.io.file.exporter.SaveActivity;
 import com.oneme.toplay.track.services.ITrackRecordingService;
 import com.oneme.toplay.track.services.TracksLocationManager;
+import com.oneme.toplay.track.services.CnTracksLocationManager;
 import com.oneme.toplay.track.services.TrackRecordingServiceConnection;
 import com.oneme.toplay.track.util.ApiAdapterFactory;
 import com.oneme.toplay.track.util.GoogleLocationUtils;
@@ -305,6 +308,8 @@ public class TrackListActivity extends BaseActivity implements FileTypeCaller {
   private boolean startGps = false; // true to start gps
   private boolean startNewRecording = false; // true to start a new recording
 
+  private static boolean maccessgoogleservice;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -316,6 +321,13 @@ public class TrackListActivity extends BaseActivity implements FileTypeCaller {
     setContentView(R.layout.ome_activity_navdrawer_workout);
 
     mDrawShadowFrameLayout = (DrawShadowFrameLayout) findViewById(R.id.main_content);
+
+    // check google service
+    if (CheckGoogleService.access(TrackListActivity.this)) {
+      maccessgoogleservice    = true;
+    } else {
+      maccessgoogleservice    = false;
+    }
 
     myTracksProviderUtils = TracksProviderUtils.Factory.get(this);
     sharedPreferences = getSharedPreferences(Constants.SETTINGS_NAME, Context.MODE_PRIVATE);
@@ -480,43 +492,84 @@ public class TrackListActivity extends BaseActivity implements FileTypeCaller {
     Intent intent;
     switch (item.getItemId()) {
       case R.id.track_list_start_gps:
-        TracksLocationManager myTracksLocationManager = new TracksLocationManager(
-            this, Looper.myLooper(), false);
-        if (!myTracksLocationManager.isGpsProviderEnabled()) {
-          intent = GoogleLocationUtils.newLocationSettingsIntent(TrackListActivity.this);
-          startActivity(intent);
-        } else {
-          startGps = !TrackRecordingServiceConnectionUtils.isRecordingServiceRunning(
-              this);      
-
-          // Show toast
-          Toast toast = Toast.makeText(
-              this, startGps ? R.string.gps_starting : R.string.gps_stopping, Toast.LENGTH_SHORT);
-          toast.setGravity(Gravity.CENTER, 0, 0);
-          toast.show();
-
-          // Invoke trackRecordingService
-          if (startGps) {
-            trackRecordingServiceConnection.startAndBind();
-            bindChangedCallback.run();
+        if (maccessgoogleservice) {
+          TracksLocationManager myTracksLocationManager = new TracksLocationManager(
+                  this, Looper.myLooper(), false);
+          if (!myTracksLocationManager.isGpsProviderEnabled()) {
+            intent = GoogleLocationUtils.newLocationSettingsIntent(TrackListActivity.this);
+            startActivity(intent);
           } else {
-            ITrackRecordingService trackRecordingService = trackRecordingServiceConnection
-                .getServiceIfBound();
-            if (trackRecordingService != null) {
-              try {
-                trackRecordingService.stopGps();
-              } catch (RemoteException e) {
-                //Log.e(TAG, "Unable to stop gps.", e);
+            startGps = !TrackRecordingServiceConnectionUtils.isRecordingServiceRunning(
+                    this);
+
+            // Show toast
+            Toast toast = Toast.makeText(
+                    this, startGps ? R.string.gps_starting : R.string.gps_stopping, Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+
+            // Invoke trackRecordingService
+            if (startGps) {
+              trackRecordingServiceConnection.startAndBind();
+              bindChangedCallback.run();
+            } else {
+              ITrackRecordingService trackRecordingService = trackRecordingServiceConnection
+                      .getServiceIfBound();
+              if (trackRecordingService != null) {
+                try {
+                  trackRecordingService.stopGps();
+                } catch (RemoteException e) {
+                  //Log.e(TAG, "Unable to stop gps.", e);
+                }
               }
+              trackRecordingServiceConnection.unbindAndStop();
             }
-            trackRecordingServiceConnection.unbindAndStop();
+
+            // Update menu after starting or stopping gps
+            ApiAdapterFactory.getApiAdapter().invalidMenu(this);
           }
-          
-          // Update menu after starting or stopping gps
-          ApiAdapterFactory.getApiAdapter().invalidMenu(this);
+          myTracksLocationManager.close();
+          return true;
+        } else {
+          CnTracksLocationManager myTracksLocationManager = new CnTracksLocationManager(
+                  this, Looper.myLooper(), false);
+          if (!myTracksLocationManager.isGpsProviderEnabled()) {
+            intent = GoogleLocationUtils.newLocationSettingsIntent(TrackListActivity.this);
+            startActivity(intent);
+          } else {
+            startGps = !TrackRecordingServiceConnectionUtils.isRecordingServiceRunning(
+                    this);
+
+            // Show toast
+            Toast toast = Toast.makeText(
+                    this, startGps ? R.string.gps_starting : R.string.gps_stopping, Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+
+            // Invoke trackRecordingService
+            if (startGps) {
+              trackRecordingServiceConnection.startAndBind();
+              bindChangedCallback.run();
+            } else {
+              ITrackRecordingService trackRecordingService = trackRecordingServiceConnection
+                      .getServiceIfBound();
+              if (trackRecordingService != null) {
+                try {
+                  trackRecordingService.stopGps();
+                } catch (RemoteException e) {
+                  //Log.e(TAG, "Unable to stop gps.", e);
+                }
+              }
+              trackRecordingServiceConnection.unbindAndStop();
+            }
+
+            // Update menu after starting or stopping gps
+            ApiAdapterFactory.getApiAdapter().invalidMenu(this);
+          }
+          myTracksLocationManager.close();
+          return true;
         }
-        myTracksLocationManager.close();
-        return true;
+
       default:
         return super.onOptionsItemSelected(item);
     }

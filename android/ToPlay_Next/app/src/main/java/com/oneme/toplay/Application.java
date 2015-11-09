@@ -246,19 +246,19 @@ public class Application extends android.app.Application {
     }
 
     public static String getCurrentLatitude() {
-        String mlatitude = preferences.getString(KEY_CURRENT_LATITUDE, Double.toString(CURRENT_LATITUDE));
+        String mlatitude = preferences.getString(KEY_CURRENT_LATITUDE, String.valueOf(CURRENT_LATITUDE));
 
         if (mlatitude == null) {
-            mlatitude = Double.toString(CURRENT_LATITUDE);
+            mlatitude = String.valueOf(CURRENT_LATITUDE);
         }
         return mlatitude;
     }
 
     public static String getCurrentLongitude() {
-        String mlongitude = preferences.getString(KEY_CURRENT_LONGITUDE, Double.toString(CURRENT_LONGITUDE));
+        String mlongitude = preferences.getString(KEY_CURRENT_LONGITUDE, String.valueOf(CURRENT_LONGITUDE));
 
         if (mlongitude == null) {
-            mlongitude = Double.toString(CURRENT_LONGITUDE);
+            mlongitude = String.valueOf(CURRENT_LONGITUDE);
         }
         return mlongitude;
     }

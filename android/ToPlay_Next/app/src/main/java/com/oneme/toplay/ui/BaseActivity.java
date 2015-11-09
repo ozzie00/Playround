@@ -49,6 +49,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.oneme.toplay.R;
+import com.oneme.toplay.base.CheckGoogleService;
 import com.oneme.toplay.base.LoadImageFromParseCloud;
 import com.oneme.toplay.track.TrackHistoryActivity;
 import com.oneme.toplay.ui.widget.BezelImageView;
@@ -100,12 +101,12 @@ public abstract class BaseActivity extends ActionBarActivity implements
     // it's a list of all possible items.
     protected static final int NAVDRAWER_ITEM_EXPLORE = 0;
     protected static final int NAVDRAWER_ITEM_WORKOUT = 1;
-    protected static final int NAVDRAWER_ITEM_HISTORY = 2;
-    protected static final int NAVDRAWER_ITEM_VENUE = 3;
-    protected static final int NAVDRAWER_ITEM_MAP = 4;
-    protected static final int NAVDRAWER_ITEM_MESSAGE = 5;
-    protected static final int NAVDRAWER_ITEM_SIGN_IN = 6;
-    protected static final int NAVDRAWER_ITEM_SETTINGS = 7;
+   // protected static final int NAVDRAWER_ITEM_HISTORY = 2;
+    protected static final int NAVDRAWER_ITEM_VENUE = 2;
+    protected static final int NAVDRAWER_ITEM_MAP = 3;
+    protected static final int NAVDRAWER_ITEM_MESSAGE = 4;
+    protected static final int NAVDRAWER_ITEM_SIGN_IN = 5;
+    protected static final int NAVDRAWER_ITEM_SETTINGS = 6;
    // protected static final int NAVDRAWER_ITEM_EXPERTS_DIRECTORY = 7;
    // protected static final int NAVDRAWER_ITEM_PEOPLE_IVE_MET = 8;
     protected static final int NAVDRAWER_ITEM_INVALID = -1;
@@ -116,7 +117,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
     private static final int[] NAVDRAWER_TITLE_RES_ID = new int[]{
             R.string.navdrawer_item_explore,
             R.string.navdrawer_item_workout,
-            R.string.navdrawer_item_history,
+      //      R.string.navdrawer_item_history,
             R.string.navdrawer_item_venue,
             R.string.navdrawer_item_map,
             R.string.navdrawer_item_message,
@@ -128,7 +129,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
     private static final int[] NAVDRAWER_ICON_RES_ID = new int[] {
             R.drawable.ic_drawer_explore,  // My Schedule
             R.drawable.ic_drawer_my_schedule, // Map
-            R.drawable.ic_drawer_history, // History
+     //       R.drawable.ic_drawer_history, // History
             R.drawable.ic_drawer_experts,  // Explore
             R.drawable.ic_drawer_map, // Social
             R.drawable.ic_drawer_social, // Video Library
@@ -407,7 +408,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
 
         mNavDrawerItems.add(NAVDRAWER_ITEM_WORKOUT);
 
-        mNavDrawerItems.add(NAVDRAWER_ITEM_HISTORY);
+       // mNavDrawerItems.add(NAVDRAWER_ITEM_HISTORY);
 
 
         // Explore is always shown
@@ -622,10 +623,17 @@ public abstract class BaseActivity extends ActionBarActivity implements
         Intent intent;
         switch (item) {
             case NAVDRAWER_ITEM_EXPLORE:
-                intent = new Intent(this, LocalNextActivity.class);
-                startActivity(intent);
-                finish();
-                break;
+                if (CheckGoogleService.access(BaseActivity.this)) {
+                    intent = new Intent(this, LocalNextActivity.class);
+                    startActivity(intent);
+                    finish();
+                    break;
+                } else {
+                    intent = new Intent(this, CnLocalNextActivity.class);
+                    startActivity(intent);
+                    finish();
+                    break;
+                }
             case NAVDRAWER_ITEM_VENUE:
                 intent = new Intent(this, VenueTypeAndSearchActivity.class);
                 startActivity(intent);
@@ -636,16 +644,24 @@ public abstract class BaseActivity extends ActionBarActivity implements
                 startActivity(intent);
                 finish();
                 break;
-            case NAVDRAWER_ITEM_HISTORY:
-                intent = new Intent(this, TrackHistoryActivity.class);
-                startActivity(intent);
-                finish();
-                break;
+          //  case NAVDRAWER_ITEM_HISTORY:
+          //      intent = new Intent(this, TrackHistoryActivity.class);
+          //      startActivity(intent);
+          //      finish();
+          //      break;
             case NAVDRAWER_ITEM_MAP:
-                intent = new Intent(this, MapNextActivity.class);
-                startActivity(intent);
-                finish();
-                break;
+                if (CheckGoogleService.access(BaseActivity.this)) {
+                    intent = new Intent(this, MapNextActivity.class);
+                    startActivity(intent);
+                    finish();
+                    break;
+                } else {
+                    intent = new Intent(this, CnMapNextActivity.class);
+                    startActivity(intent);
+                    finish();
+                    break;
+                }
+
             case NAVDRAWER_ITEM_MESSAGE:
                 intent = new Intent(this, MessageListActivity.class);
                 startActivity(intent);

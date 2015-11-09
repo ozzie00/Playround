@@ -689,7 +689,8 @@ public class TrackHistoryActivity extends BaseActivity implements FileTypeCaller
 
   @Override
   protected int getSelfNavDrawerItem() {
-    return NAVDRAWER_ITEM_HISTORY;
+    // Ozzie Zhang, please modify this line code to right return value
+    return 0;//NAVDRAWER_ITEM_HISTORY;
   }
 
   @Override

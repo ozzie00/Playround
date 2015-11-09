@@ -24,19 +24,23 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesClient.ConnectionCallbacks;
-import com.google.android.gms.common.GooglePlayServicesClient.OnConnectionFailedListener;
+//import com.google.android.gms.common.ConnectionResult;
+//import com.google.android.gms.common.GooglePlayServicesClient.ConnectionCallbacks;
+//import com.google.android.gms.common.GooglePlayServicesClient.OnConnectionFailedListener;
 
-import com.google.android.gms.location.LocationClient;
-import com.google.android.gms.location.LocationListener;
-import com.google.android.gms.location.LocationRequest;
+//import com.google.android.gms.location.LocationClient;
+//import com.google.android.gms.location.LocationListener;
+//import com.google.android.gms.location.LocationRequest;
 
+import com.baidu.mapapi.map.MapStatusUpdate;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
+import com.baidu.mapapi.map.MyLocationData;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
 
-//import com.baidu.location.BDLocation;
-//import com.baidu.location.BDLocationListener;
-//import com.baidu.location.LocationClient;
-//import com.baidu.location.LocationClientOption;
 
 
 import com.oneme.toplay.track.util.GoogleLocationUtils;
@@ -66,60 +70,40 @@ public class CnTracksLocationManager {
     }
   }
 
-  private final ConnectionCallbacks connectionCallbacks = new ConnectionCallbacks() {
-      @Override
-    public void onDisconnected() {}
 
-      @Override
-    public void onConnected(Bundle bunlde) {
-      handler.post(new Runnable() {
-          @Override
-        public void run() {
-          if (requestLastLocation != null && locationClient.isConnected()) {
-            requestLastLocation.onLocationChanged(locationClient.getLastLocation());
-            requestLastLocation = null;
-          }
-          if (requestLocationUpdates != null && locationClient.isConnected()) {
-            LocationRequest locationRequest = new LocationRequest().setPriority(
-                LocationRequest.PRIORITY_HIGH_ACCURACY).setInterval(requestLocationUpdatesTime)
-                .setFastestInterval(requestLocationUpdatesTime)
-                .setSmallestDisplacement(requestLocationUpdatesDistance);
-            locationClient.requestLocationUpdates(
-                locationRequest, requestLocationUpdates, handler.getLooper());
-          }
-        }
-      });
-    }
-  };
-
-  private final OnConnectionFailedListener
-      onConnectionFailedListener = new OnConnectionFailedListener() {
-          @Override
-        public void onConnectionFailed(ConnectionResult connectionResult) {}
-      };
 
   private final Context context;
   private final Handler handler;
-  private final LocationClient locationClient;
+  private final LocationClient bdlocationClient;
   private final LocationManager locationManager;
   private final ContentResolver contentResolver;
   private final GoogleSettingsObserver observer;
 
   private boolean isAllowed;
-  private LocationListener requestLastLocation;
-  private LocationListener requestLocationUpdates;
+  private BDLocationListener requestLastLocationListener;
+  private BDLocationListener requestLocationUpdatesListener;
   private float requestLocationUpdatesDistance;
   private long requestLocationUpdatesTime;
+
+  boolean isFirstLoc = true;
+
+  public MyLocationListener myListener = new MyLocationListener();
 
   public CnTracksLocationManager(Context context, Looper looper, boolean enableLocaitonClient) {
     this.context = context;
     this.handler = new Handler(looper);
 
     if (enableLocaitonClient) {
-      locationClient = new LocationClient(context, connectionCallbacks, onConnectionFailedListener);
-      locationClient.connect();
+      bdlocationClient = new LocationClient(context);
+      bdlocationClient.registerLocationListener(myListener);
+      LocationClientOption option = new LocationClientOption();
+      option.setOpenGps(true);
+      option.setCoorType("bd09ll");
+      option.setScanSpan(1000*60*1);
+      bdlocationClient.setLocOption(option);
+      bdlocationClient.start();
     } else {
-      locationClient = null;
+      bdlocationClient = null;
     }
 
     locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
@@ -136,8 +120,8 @@ public class CnTracksLocationManager {
    * Closes the {@link CnTracksLocationManager}.
    */
   public void close() {
-    if (locationClient != null) {
-      locationClient.disconnect();
+    if (bdlocationClient != null) {
+      bdlocationClient.stop();
     }
     contentResolver.unregisterContentObserver(observer);
   }
@@ -168,18 +152,18 @@ public class CnTracksLocationManager {
   /**
    * Request last location.
    * 
-   * @param locationListener location listener
+   * @param bdlocationListener location listener
    */
-  public void requestLastLocation(final LocationListener locationListener) {
+  public void requestLastLocation(final BDLocationListener bdlocationListener) {
     handler.post(new Runnable() {
         @Override
       public void run() {
         if (!isAllowed()) {
-          requestLastLocation = null;
-          locationListener.onLocationChanged(null);
+          requestLastLocationListener = null;
+          bdlocationListener.onReceiveLocation(null);
         } else {
-          requestLastLocation = locationListener;
-          connectionCallbacks.onConnected(null);
+          requestLastLocationListener = bdlocationListener;
+          bdlocationClient.getLastKnownLocation();
         }
       }
     });
@@ -191,17 +175,17 @@ public class CnTracksLocationManager {
    * 
    * @param minTime the minimal time
    * @param minDistance the minimal distance
-   * @param locationListener the location listener
+   * @param bdlocationListener the location listener
    */
   public void requestLocationUpdates(
-      final long minTime, final float minDistance, final LocationListener locationListener) {
+      final long minTime, final float minDistance, final BDLocationListener bdlocationListener) {
     handler.post(new Runnable() {
         @Override
       public void run() {
-        requestLocationUpdatesTime = minTime;
-        requestLocationUpdatesDistance = minDistance;
-        requestLocationUpdates = locationListener;
-        connectionCallbacks.onConnected(null);
+        requestLocationUpdatesTime       = minTime;
+        requestLocationUpdatesDistance   = minDistance;
+          requestLocationUpdatesListener = bdlocationListener;
+          bdlocationClient.requestLocation();
       }
     });
   }
@@ -209,17 +193,46 @@ public class CnTracksLocationManager {
   /**
    * Removes location updates.
    * 
-   * @param locationListener the location listener
+   * @param bdlocationListener the location listener
    */
-  public void removeLocationUpdates(final LocationListener locationListener) {
+  public void removeLocationUpdates(final BDLocationListener bdlocationListener) {
     handler.post(new Runnable() {
         @Override
       public void run() {
-        requestLocationUpdates = null;
-        if (locationClient != null && locationClient.isConnected()) {
-          locationClient.removeLocationUpdates(locationListener);
+        requestLocationUpdatesListener = null;
+        if (bdlocationClient != null && bdlocationClient.isStarted()) {
+          bdlocationClient.unRegisterLocationListener(bdlocationListener);
         }
       }
     });
   }
+
+  /**
+   *  locationListener SDK
+   */
+  public class MyLocationListener implements BDLocationListener {
+
+    @Override
+    public void onReceiveLocation(BDLocation bdlocation) {
+
+
+      if (bdlocation == null)
+        return;
+      MyLocationData locData = new MyLocationData.Builder()
+              .accuracy(bdlocation.getRadius())
+                      // get directory 0-360
+              .direction(100).latitude(bdlocation.getLatitude())
+              .longitude(bdlocation.getLongitude()).build();
+      if (isFirstLoc) {
+        isFirstLoc = false;
+        LatLng ll = new LatLng(bdlocation.getLatitude(),
+                bdlocation.getLongitude());
+        MapStatusUpdate u = MapStatusUpdateFactory.newLatLng(ll);
+      }
+    }
+
+    public void onReceivePoi(BDLocation poiLocation) {
+    }
+  }
+
 }

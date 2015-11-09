@@ -42,6 +42,7 @@ import android.widget.TextView;
 import com.oneme.toplay.Application;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.AppConstant;
+import com.oneme.toplay.base.CheckGoogleService;
 import com.oneme.toplay.database.Venue;
 import com.oneme.toplay.ui.BaseActivity;
 import com.parse.FindCallback;
@@ -96,7 +97,7 @@ public class SearchActivity extends BaseActivity {
             }
         });
 
-        final Boolean isAvailable = true;// DispatchActivity.getGooglePlayServicesState();
+        final Boolean isAvailable = CheckGoogleService.access(SearchActivity.this);
 
         msuggest        = new ArrayList<LocationData>();
         mselectlocation = new LocationData();

@@ -12,9 +12,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.oneme.toplay.base.AppConstant;
+import com.oneme.toplay.base.CheckGoogleService;
 import com.oneme.toplay.base.Time;
 import com.oneme.toplay.database.VenueOwner;
 import com.oneme.toplay.ui.CnLocalNextActivity;
+import com.oneme.toplay.ui.LocalNextActivity;
 import com.oneme.toplay.venue.OwnerInfoUploadActivity;
 import com.oneme.toplay.venue.OwnerMainActivity;
 import com.parse.GetCallback;
@@ -119,9 +121,9 @@ public class LoginActivity extends ActionBarActivity {
                             // check user tag, according to user tag login respectively main activity
                             if (user.getString(AppConstant.OMEPARSEUSERTAGKEY).equalsIgnoreCase(AppConstant.OMEPARSEUSERTAGPLAYER)) {
 
-                                if (DispatchActivity.getGooglePlayServicesState()) {
+                                if (CheckGoogleService.access(LoginActivity.this)) {
                                     dialog.dismiss();
-                                    Intent invokeLocalActivityIntent = new Intent(LoginActivity.this, CnLocalNextActivity.class);// LocalWithoutMapActivity.class);
+                                    Intent invokeLocalActivityIntent = new Intent(LoginActivity.this, LocalNextActivity.class);// LocalWithoutMapActivity.class);
                                     startActivity(invokeLocalActivityIntent);
                                     finish();
                                 } else {

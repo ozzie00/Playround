@@ -37,8 +37,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.google.android.gms.location.LocationListener;
-
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
@@ -74,7 +72,7 @@ import com.oneme.toplay.track.content.TrackDataType;
 import com.oneme.toplay.track.content.TracksProviderUtils;
 import com.oneme.toplay.track.content.TracksProviderUtils.Factory;
 import com.oneme.toplay.track.content.Waypoint;
-import com.oneme.toplay.track.services.TracksLocationManager;
+import com.oneme.toplay.track.services.CnTracksLocationManager;
 import com.oneme.toplay.track.stats.TripStatistics;
 import com.oneme.toplay.track.util.ApiAdapterFactory;
 import com.oneme.toplay.track.util.GoogleLocationUtils;
@@ -133,10 +131,10 @@ public class CnTracksMapFragment extends SupportMapFragment implements TrackData
    * 2. user manually zooms/pans
    */
   private boolean keepCurrentLocationVisible;
-  private TracksLocationManager myTracksLocationManager;
+  private CnTracksLocationManager myCnTracksLocationManager;
 
-  // LocationListener for periodic location request
-  private LocationListener locationListener;
+  // BDLocationListener for periodic location request
+  private BDLocationListener bdlocationListener;
 
  // private OnLocationChangedListener onLocationChangedListener;
 
@@ -287,8 +285,8 @@ public class CnTracksMapFragment extends SupportMapFragment implements TrackData
     long markerId = ((TrackDetailNextActivity) getActivity()).getMarkerId();
     resumeTrackDataHub();
 
-    myTracksLocationManager = new TracksLocationManager(getActivity(), Looper.myLooper(), true);
-    boolean isGpsProviderEnabled = myTracksLocationManager.isGpsProviderEnabled();
+    myCnTracksLocationManager = new CnTracksLocationManager(getActivity(), Looper.myLooper(), true);
+    boolean isGpsProviderEnabled = myCnTracksLocationManager.isGpsProviderEnabled();
 
     if (mBaiduMap != null) {
 
@@ -338,11 +336,11 @@ public class CnTracksMapFragment extends SupportMapFragment implements TrackData
   public void onPause() {
     super.onPause();
     pauseTrackDataHub();
-    if (locationListener != null) {
-      myTracksLocationManager.removeLocationUpdates(locationListener);
-      locationListener = null;
+    if (bdlocationListener != null) {
+      myCnTracksLocationManager.removeLocationUpdates(bdlocationListener);
+      bdlocationListener = null;
     }
-    myTracksLocationManager.close();
+    myCnTracksLocationManager.close();
   }
 
   @Override

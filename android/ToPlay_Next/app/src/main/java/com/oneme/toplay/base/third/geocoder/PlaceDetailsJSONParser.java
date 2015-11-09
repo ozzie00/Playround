@@ -31,8 +31,8 @@ public class PlaceDetailsJSONParser {
 		}
 		
 		
-		hm.put("lat", Double.toString(lat));
-		hm.put("lng", Double.toString(lng));
+		hm.put("lat", String.valueOf(lat));
+		hm.put("lng", String.valueOf(lng));
 		hm.put("formatted_address",formattedAddress);
 		
 		list.add(hm);

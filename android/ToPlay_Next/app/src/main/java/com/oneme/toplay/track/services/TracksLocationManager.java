@@ -67,17 +67,17 @@ public class TracksLocationManager {
       handler.post(new Runnable() {
           @Override
         public void run() {
-          if (requestLastLocation != null && locationClient.isConnected()) {
-            requestLastLocation.onLocationChanged(locationClient.getLastLocation());
-            requestLastLocation = null;
+          if (requestLastLocationListener != null && locationClient.isConnected()) {
+            requestLastLocationListener.onLocationChanged(locationClient.getLastLocation());
+            requestLastLocationListener = null;
           }
-          if (requestLocationUpdates != null && locationClient.isConnected()) {
+          if (requestLocationUpdatesListener != null && locationClient.isConnected()) {
             LocationRequest locationRequest = new LocationRequest().setPriority(
                 LocationRequest.PRIORITY_HIGH_ACCURACY).setInterval(requestLocationUpdatesTime)
                 .setFastestInterval(requestLocationUpdatesTime)
                 .setSmallestDisplacement(requestLocationUpdatesDistance);
             locationClient.requestLocationUpdates(
-                locationRequest, requestLocationUpdates, handler.getLooper());
+                    locationRequest, requestLocationUpdatesListener, handler.getLooper());
           }
         }
       });
@@ -98,8 +98,8 @@ public class TracksLocationManager {
   private final GoogleSettingsObserver observer;
 
   private boolean isAllowed;
-  private LocationListener requestLastLocation;
-  private LocationListener requestLocationUpdates;
+  private LocationListener requestLastLocationListener;
+  private LocationListener requestLocationUpdatesListener;
   private float requestLocationUpdatesDistance;
   private long requestLocationUpdatesTime;
 
@@ -116,9 +116,9 @@ public class TracksLocationManager {
 
     locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
     contentResolver = context.getContentResolver();
-    observer = new GoogleSettingsObserver(handler);
+    observer        = new GoogleSettingsObserver(handler);
 
-    isAllowed = GoogleLocationUtils.isAllowed(context);
+    isAllowed       = GoogleLocationUtils.isAllowed(context);
 
     contentResolver.registerContentObserver(
         GoogleLocationUtils.USE_LOCATION_FOR_SERVICES_URI, false, observer);
@@ -148,13 +148,13 @@ public class TracksLocationManager {
    */
   public boolean isGpsProviderEnabled() {
     if (!isAllowed()) {
-      return false;
+      return true;//false;
     }
-    String provider = LocationManager.GPS_PROVIDER;
+    String provider = LocationManager.NETWORK_PROVIDER;// GPS_PROVIDER;
     if (locationManager.getProvider(provider) == null) {
-      return false;
+      return true;//false;
     }
-    return locationManager.isProviderEnabled(provider);
+    return true;//locationManager.isProviderEnabled(provider);
   }
 
   /**
@@ -163,14 +163,16 @@ public class TracksLocationManager {
    * @param locationListener location listener
    */
   public void requestLastLocation(final LocationListener locationListener) {
+
+
     handler.post(new Runnable() {
         @Override
       public void run() {
         if (!isAllowed()) {
-          requestLastLocation = null;
+          requestLastLocationListener = null;
           locationListener.onLocationChanged(null);
         } else {
-          requestLastLocation = locationListener;
+          requestLastLocationListener = locationListener;
           connectionCallbacks.onConnected(null);
         }
       }
@@ -187,12 +189,14 @@ public class TracksLocationManager {
    */
   public void requestLocationUpdates(
       final long minTime, final float minDistance, final LocationListener locationListener) {
+
+
     handler.post(new Runnable() {
         @Override
       public void run() {
-        requestLocationUpdatesTime = minTime;
-        requestLocationUpdatesDistance = minDistance;
-        requestLocationUpdates = locationListener;
+        requestLocationUpdatesTime       = minTime;
+        requestLocationUpdatesDistance   = minDistance;
+          requestLocationUpdatesListener = locationListener;
         connectionCallbacks.onConnected(null);
       }
     });
@@ -204,10 +208,12 @@ public class TracksLocationManager {
    * @param locationListener the location listener
    */
   public void removeLocationUpdates(final LocationListener locationListener) {
+
+
     handler.post(new Runnable() {
         @Override
       public void run() {
-        requestLocationUpdates = null;
+          requestLocationUpdatesListener = null;
         if (locationClient != null && locationClient.isConnected()) {
           locationClient.removeLocationUpdates(locationListener);
         }

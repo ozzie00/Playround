@@ -613,7 +613,8 @@ pede de them.\n\nAre certeza de que deseja continuar?</string>
 
 
 
-
+    <!--Add by playround 1.0.5.03 -->
+    <string name="navdrawer_item_history">History</string>
 
 
 

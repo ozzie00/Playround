@@ -32,8 +32,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.oneme.toplay.base.AppConstant;
+import com.oneme.toplay.base.CheckGoogleService;
 import com.oneme.toplay.database.VenueOwner;
 import com.oneme.toplay.ui.CnLocalNextActivity;
+import com.oneme.toplay.ui.LocalNextActivity;
 import com.oneme.toplay.venue.OwnerInfoUploadActivity;
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -173,8 +175,8 @@ public class SignUpActivity extends ActionBarActivity {
                             Toast.makeText(SignUpActivity.this, getResources().getString(R.string.OMEPARSESIGNUPERRORNOTE), Toast.LENGTH_LONG).show();
                         } else {
                             // login app
-                            if (DispatchActivity.getGooglePlayServicesState()) {
-                                Intent invokeLocalActivityIntent = new Intent(SignUpActivity.this, CnLocalNextActivity.class);//LocalWithoutMapActivity.class);
+                            if (CheckGoogleService.access(SignUpActivity.this)) {
+                                Intent invokeLocalActivityIntent = new Intent(SignUpActivity.this, LocalNextActivity.class);//LocalWithoutMapActivity.class);
                                 startActivity(invokeLocalActivityIntent);
                             } else {
                                 Intent invokeCnLocalActivityIntent = new Intent(SignUpActivity.this, CnLocalNextActivity.class);//CnLocalWithoutMapActivity.class);

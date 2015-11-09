@@ -37,6 +37,7 @@ import android.widget.TabHost.TabSpec;
 import android.widget.Toast;
 
 import com.oneme.toplay.R;
+import com.oneme.toplay.base.CheckGoogleService;
 import com.oneme.toplay.track.content.Track;
 import com.oneme.toplay.track.content.TrackDataHub;
 import com.oneme.toplay.track.content.TracksProviderUtils;
@@ -50,6 +51,7 @@ import com.oneme.toplay.track.fragments.FrequencyDialogFragment;
 import com.oneme.toplay.track.fragments.MapLayerDialogFragment;
 import com.oneme.toplay.track.fragments.StatsNextFragment;
 import com.oneme.toplay.track.fragments.CnTracksMapFragment;
+import com.oneme.toplay.track.fragments.TracksMapFragment;
 import com.oneme.toplay.track.services.TrackRecordingServiceConnection;
 import com.oneme.toplay.track.util.ApiAdapterFactory;
 import com.oneme.toplay.track.util.CalorieUtils;
@@ -253,10 +255,23 @@ public class TrackDetailNextActivity extends BaseActivity
 
     tabsAdapter = new TabsAdapter(this, tabHost, viewPager);
 
-    TabSpec mapTabSpec = tabHost.newTabSpec(CnTracksMapFragment.MAP_FRAGMENT_TAG).setIndicator(
-        getString(R.string.track_detail_map_tab),
-        getResources().getDrawable(R.drawable.ic_tab_map));
-    tabsAdapter.addTab(mapTabSpec, CnTracksMapFragment.class, null);
+    if (CheckGoogleService.access(TrackDetailNextActivity.this)) {
+
+
+      TabSpec mapTabSpec = tabHost.newTabSpec(TracksMapFragment.MAP_FRAGMENT_TAG).setIndicator(
+              getString(R.string.track_detail_map_tab),
+              getResources().getDrawable(R.drawable.ic_tab_map));
+      tabsAdapter.addTab(mapTabSpec, TracksMapFragment.class, null);
+    } else {
+
+
+      TabSpec mapTabSpec = tabHost.newTabSpec(CnTracksMapFragment.MAP_FRAGMENT_TAG).setIndicator(
+              getString(R.string.track_detail_map_tab),
+              getResources().getDrawable(R.drawable.ic_tab_map));
+      tabsAdapter.addTab(mapTabSpec, CnTracksMapFragment.class, null);
+    }
+
+
 
     //TabSpec chartTabSpec = tabHost.newTabSpec(ChartFragment.CHART_FRAGMENT_TAG).setIndicator(
     //    getString(R.string.track_detail_chart_tab),
