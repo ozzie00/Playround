@@ -47,6 +47,7 @@ import com.oneme.toplay.base.AppConstant;
 import com.oneme.toplay.base.InviteToIntentExtra;
 import com.oneme.toplay.base.LoadImageFromParseCloud;
 import com.oneme.toplay.base.Time;
+import com.oneme.toplay.base.third.Common;
 import com.oneme.toplay.database.Invite;
 import com.oneme.toplay.database.Sport;
 import com.oneme.toplay.invite.InviteNextActivity;
@@ -273,8 +274,21 @@ public class LocalNextActivity extends BaseActivity implements LocationListener 
                     // the new version time format contains space
                     // reformat the play time, original format is MMM dd yyyy HH:mm
                     String[] mpart   = mplaytime.split(AppConstant.OMEPARSESPACESTRING);
+
+                    // check if mpart[0] is integer, because old version can be "mar", this will
+                    // lead to app crash
+                    boolean bmonth = Common.isInteger(mpart[0]);
+                    int imonth     = 0;
+
+                    if (bmonth) {
+                        imonth = Integer.parseInt(mpart[0]);
+                    } else {
+                        // set default value is 1
+                        imonth = 1;
+                    }
+
                     // MMM's first month january is 0, then when show it, need add 1
-                    String mmonth    = Integer.toString(Integer.parseInt(mpart[0]) + 1);
+                    String mmonth    = Integer.toString(imonth + 1);
                     String mday      = mpart[1];
                     String mhour     = mpart[hourpart];
                     playtimeView.setText(mday + AppConstant.OMEPARSESLASHSTRING + mmonth + AppConstant.OMEPARSESPACESTRING + mhour);

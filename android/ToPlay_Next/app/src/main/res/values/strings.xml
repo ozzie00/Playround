@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Playround</string>
-    <string name="app_version">Playround Android v.1.0.5.03</string>
+    <string name="app_version">Playround Android v.1.0.6.01</string>
 
     <!-- Strings related to activity -->
     <string name="action_settings">Settings</string>
