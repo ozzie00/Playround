@@ -327,7 +327,7 @@ public class LocalNextActivity extends BaseActivity implements LocationListener 
         inviteQueryAdapter.setPaginationEnabled(false);
 
         // Attach the query adapter to the view
-        localInvitationListView = (ListView) findViewById(R.id.local_listview);
+        localInvitationListView = (ListView) findViewById(R.id.navdrawer_local_listview);
         localInvitationListView.setAdapter(inviteQueryAdapter);
 
 

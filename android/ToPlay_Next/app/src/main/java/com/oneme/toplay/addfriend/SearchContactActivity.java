@@ -25,7 +25,7 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.app.NavUtils;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -36,7 +36,7 @@ import com.oneme.toplay.Application;
 import com.oneme.toplay.R;
 import com.oneme.toplay.base.third.geocoder.PlaceProvider;
 
-public class SearchContactActivity extends ActionBarActivity implements LoaderManager.LoaderCallbacks<Cursor>   {
+public class SearchContactActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>   {
 
     // Places Listview
     ListView contactlist;

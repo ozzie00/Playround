@@ -141,12 +141,17 @@ public class VenueSearchActivity extends BaseActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String newText  = s.toString();
-                new getVenueNameAutocomplete().execute(newText);
+                if (newText.length() > 1) {
+                    new getVenueNameAutocomplete().execute(newText);
+                }
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                String newText  = s.toString();
+                if (newText.length() > 1) {
+                    new getVenueNameAutocomplete().execute(newText);
+                }
             }
         });
 
@@ -157,19 +162,17 @@ public class VenueSearchActivity extends BaseActivity {
 
 
     class getVenueNameAutocomplete extends AsyncTask<String,String,String>{
-        private ProgressDialog venueLoadDialog;
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            venueLoadDialog = new ProgressDialog(VenueSearchActivity.this);
-            venueLoadDialog.show();
         }
 
         @Override
         protected String doInBackground(String... key) {
             mnameKey = key[0];
             mnameKey = mnameKey.trim();
+            mnameKey = mnameKey.replace(AppConstant.OMEPARSESPACESTRING, AppConstant.OMEPARSEPLUSSTRING);
             msuggest = new ArrayList<VenueData>();
 
             final int mlimit = MAX_VENUE_SEARCH_RESULTS + MAX_VENUE_SEARCH_RESULTS;
@@ -237,7 +240,6 @@ public class VenueSearchActivity extends BaseActivity {
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            venueLoadDialog.dismiss();
         }
 
     }

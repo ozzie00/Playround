@@ -13,6 +13,7 @@
         android:layout_height    = "wrap_content"
         android:orientation      = "horizontal"
         android:layout_marginTop = "16dp"
+        android:padding          = "2dp"
         android:background       ="@color/white_absolute">
 
         <ImageView
@@ -33,6 +34,7 @@
             android:layout_height    = "wrap_content"
             android:layout_marginTop = "24dp"
             android:layout_toRightOf = "@id/myvenue_home_icon_view"
+            android:layout_gravity   = "center_vertical"
             android:text             = "@string/OMEPARSEMYVENUEHOMEVENUE"
             android:paddingLeft      = "8dp"
             android:textAppearance   = "?android:attr/textAppearanceSmall" />
@@ -81,6 +83,7 @@
             android:layout_height    = "wrap_content"
             android:layout_marginTop = "24dp"
             android:layout_toRightOf = "@id/myvenue_backup_icon_view"
+            android:layout_gravity   = "center_vertical"
             android:text             = "@string/OMEPARSEMYVENUEBACKUPVENUE"
             android:paddingLeft      = "8dp"
             android:textAppearance   = "?android:attr/textAppearanceSmall" />

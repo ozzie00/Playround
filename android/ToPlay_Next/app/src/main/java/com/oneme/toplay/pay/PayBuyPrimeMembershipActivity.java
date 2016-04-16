@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
@@ -94,7 +94,7 @@ public class PayBuyPrimeMembershipActivity extends BaseActivity {
 							Toast.LENGTH_SHORT).show();
 					Intent newIntent = new Intent();
 					newIntent.putExtra(Application.INTENT_EXTRA_PRIMEPAYNO, morderTradeNo);
-					setResult(ActionBarActivity.RESULT_OK, newIntent);
+					setResult(AppCompatActivity.RESULT_OK, newIntent);
 					finish();
 				} else {
 					// 判断resultStatus 为非“9000”则代表可能支付失败

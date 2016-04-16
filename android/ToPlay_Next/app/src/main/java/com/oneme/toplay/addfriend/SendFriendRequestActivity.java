@@ -16,7 +16,7 @@
 
 package com.oneme.toplay.addfriend;
 
-public class SendFriendRequestActivity { //extends ActionBarActivity {
+public class SendFriendRequestActivity { //extends AppCompatActivity {
 
     /*
     private static final String TAG = "SendFriendRequestActivity";

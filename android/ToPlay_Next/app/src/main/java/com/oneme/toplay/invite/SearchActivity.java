@@ -162,6 +162,12 @@ public class SearchActivity extends BaseActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
+                String newText  = s.toString();
+                if (isAvailable == true) {
+                    new getPlaceAutocomplete().execute(newText);
+                } else {
+                    new getBdPlaceAutocomplete().execute(newText);
+                }
             }
         });
 
@@ -173,7 +179,7 @@ public class SearchActivity extends BaseActivity {
         protected String doInBackground(String... key) {
             String newText = key[0];
             newText = newText.trim();
-            // newText = newText.replace(" ", "+");
+            newText = newText.replace(AppConstant.OMEPARSESPACESTRING, AppConstant.OMEPARSEPLUSSTRING);
 
             HttpURLConnection mconnection = null;
             StringBuilder jsonResults     = new StringBuilder();
@@ -219,7 +225,8 @@ public class SearchActivity extends BaseActivity {
                 }
 
                 LocationData muserinput = new LocationData();
-                muserinput.mName        = newText ;
+                String mnewText         = newText.replace(AppConstant.OMEPARSEPLUSSTRING, AppConstant.OMEPARSESPACESTRING);
+                muserinput.mName        = mnewText ;
                 muserinput.mAddress     = getResources().getString(R.string.OMEPARSEINVITESEARCHLOCATIONCUSTOM);
                 msuggest.add(muserinput);
 
@@ -276,7 +283,7 @@ public class SearchActivity extends BaseActivity {
         protected String doInBackground(String... key) {
             String newText = key[0];
             newText = newText.trim();
-           // newText = newText.replace(" ", "+");
+            newText = newText.replace(AppConstant.OMEPARSESPACESTRING, AppConstant.OMEPARSEPLUSSTRING);
 
             HttpURLConnection mconnection = null;
             StringBuilder jsonResults     = new StringBuilder();
@@ -317,7 +324,8 @@ public class SearchActivity extends BaseActivity {
                 }
 
                 LocationData muserinput = new LocationData();
-                muserinput.mName        = newText ;
+                String mnewText         = newText.replace(AppConstant.OMEPARSEPLUSSTRING, AppConstant.OMEPARSESPACESTRING);
+                muserinput.mName        = mnewText ;
                 muserinput.mAddress     = getResources().getString(R.string.OMEPARSEINVITESEARCHLOCATIONCUSTOM);
                 msuggest.add(muserinput);
 
@@ -349,7 +357,7 @@ public class SearchActivity extends BaseActivity {
                     if (mmerge.size() > 1) {
                         int j= 1;
                         for (; j < mmerge.size() - 1; j++) {
-                            msb.append(mmerge.get(j)).append(", ");
+                            msb.append(mmerge.get(j)).append(AppConstant.OMEPARSECOMMASTRING + AppConstant.OMEPARSESPACESTRING);
                         }
                         msb.append(mmerge.get(j));
                     }

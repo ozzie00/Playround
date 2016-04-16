@@ -793,7 +793,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.location.Location;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
@@ -833,7 +833,7 @@ import java.util.Set;
 //import com.oneme.toplay.SDKReceiver;
 
 
-public class CnMapActivity extends ActionBarActivity {
+public class CnMapActivity extends AppCompatActivity {
 
     private static final String TAG = "CnMapActivity";
 

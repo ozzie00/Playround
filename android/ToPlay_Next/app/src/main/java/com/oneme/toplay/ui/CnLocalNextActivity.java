@@ -369,7 +369,7 @@ public class CnLocalNextActivity extends BaseActivity {
         inviteQueryAdapter.setPaginationEnabled(false);
 
         // Attach the query adapter to the view
-        localInvitationListView = (ListView) findViewById(R.id.local_without_map_listview);
+        localInvitationListView = (ListView) findViewById(R.id.navdrawer_local_without_map_listview);
         localInvitationListView.setAdapter(inviteQueryAdapter);
 
 

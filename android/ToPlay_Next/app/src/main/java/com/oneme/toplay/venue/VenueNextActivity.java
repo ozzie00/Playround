@@ -101,7 +101,7 @@ public class VenueNextActivity extends BaseActivity {
         //new getVenueNameAutocomplete().execute("beijing");//venuequery);
 
         // setting search name list view
-        msearchresult = (ListView) findViewById(R.id.search_venue_list);
+        msearchresult = (ListView) findViewById(R.id.venue_next_search_venue_list);
         msearchresult.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -113,7 +113,7 @@ public class VenueNextActivity extends BaseActivity {
             }
         });
 
-        final EditText searchedittext = (EditText) findViewById(R.id.search_venue_content_text_view);
+        final EditText searchedittext = (EditText) findViewById(R.id.venue_next_search_venue_content_text_view);
         searchedittext.setOnKeyListener(new View.OnKeyListener() {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 // if the event is a key-down event on the "enter" button

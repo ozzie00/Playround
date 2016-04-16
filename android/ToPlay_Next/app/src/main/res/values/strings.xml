@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Playround</string>
-    <string name="app_version">Playround Android v.1.0.6.01</string>
+    <string name="app_version">Playround Android v.1.0.6.02</string>
 
     <!-- Strings related to activity -->
     <string name="action_settings">Settings</string>
@@ -446,10 +446,7 @@
 
     <!--Add by playround 1.0.2.09 -->
     <string name="myvenueactivity_title">My Venue</string>
-    <string name="OMEPARSEMEMYVENUEUPLOAD">Upload Venue Address</string>
-    <string name="OMEPARSEMEMYVENUENAME">Venue Name</string>
-    <string name="OMEPARSEMEMYVENUEADDRESS">Venue Address</string>
-    <string name="OMEPARSEMEMYVENUEPHONE">Venue Phone</string>
+
     <string name="OMEPARSEMEMYVENUENAMEPLACEHOLD">Enter Name</string>
     <string name="OMEPARSEMEMYVENUEADDRESSPLACEHOLD">Enter Address</string>
     <string name="OMEPARSEMEMYVENUEPHONEPLACEHOLD">Enter Phone</string>
@@ -596,7 +593,7 @@
     <string name="OMEPARSEREMARK">Remark</string>
     <string name="OMEPARSEBOOKINGMUSTKNOW">Must know for booking :</string>
     <string name="OMEPARSEBOOKINGMUSTKNOWONE">1. touch the above every option to set date, time and remark</string>
-    <string name="OMEPARSEBOOKINGMUSTKNOWTWO">2. This 20 is advance deposit</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWTWO">2. This 10 is advance deposit</string>
     <string name="OMEPARSEBOOKINGMUSTKNOWTHREE">3. This advance deposit will refund after you finish workout in the venue</string>
     <string name="OMEPARSEBOOKINGMUSTKNOWFOUR">4. This advance deposit will refund if booking venue is not be successful </string>
     <string name="OMEPARSEINVITEMUSTKNOW"> Must know for invitation :</string>
@@ -3698,6 +3695,19 @@
 
     <!--Add by playround 1.0.5.03 -->
     <string name="navdrawer_item_history">History</string>
+
+    <!--Add by playround 1.0.6.02 -->
+    <string name="OMEPARSEBOOKVENUEFEE">10</string>
+    <string name="OMEPARSEUPLOADVENUEADDRESS">Address</string>
+    <string name="OMEPARSEUPLOADVENUEPHONE">Phone</string>
+    <string name="action_uploadvenue_add">Add Venue</string>
+    <string name="OMEPARSEUPLOADVENUEALERT">please fill venue name, address and phone!</string>
+    <string name="uploadvenueactivity_title">Venue info</string>
+    <string name="OMEPARSEMEMYVENUEUPLOAD">Upload venue info</string>
+    <string name="OMEPARSEMEMYVENUENAME">Name</string>
+    <string name="OMEPARSEMEMYVENUEADDRESS">Venue Address</string>
+    <string name="OMEPARSEMEMYVENUEPHONE">Phone</string>
+
 
 
 </resources>

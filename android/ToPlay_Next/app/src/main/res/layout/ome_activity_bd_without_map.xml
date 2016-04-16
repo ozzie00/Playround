@@ -26,7 +26,9 @@
         android:id="@+id/local_without_map_listview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:divider="@color/grey"
+        android:dividerHeight="0.1dip"/>
 
 
     <!--

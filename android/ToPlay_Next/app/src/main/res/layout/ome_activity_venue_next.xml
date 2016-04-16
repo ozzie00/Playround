@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width         = "fill_parent"
     android:layout_height        = "wrap_content"
     android:focusableInTouchMode = "true"
     android:orientation          = "vertical"
     android:background           = "@color/white">
 
-    <include layout="@layout/toolbar_actionbar_with_headerbar" />
+    <include layout="@layout/toolbar_actionbar" />
+
+        <LinearLayout
+            android:id            = "@+id/venue_next_search_input_block"
+            android:layout_width  = "fill_parent"
+            android:layout_height = "48dp"
+            android:orientation   = "horizontal"
+            android:layout_marginLeft = "48dp"
+            android:layout_marginRight = "16dp"
+            android:layout_marginTop = "4dp"
+            android:layout_marginBottom = "8dp"
+            android:padding       = "2dp"
+            android:background    = "@drawable/ome_textfield_rectangle_background" >
 
             <RelativeLayout
                 android:layout_width  = "fill_parent"
@@ -14,7 +26,7 @@
                 android:orientation   = "horizontal">
 
                 <EditText
-                    android:id                    = "@+id/search_venue_content_text_view"
+                    android:id                    = "@+id/venue_next_search_venue_content_text_view"
                     android:layout_width          = "240dp"
                     android:layout_height         = "20dp"
                     android:layout_weight         = "1"
@@ -30,7 +42,7 @@
                 </EditText>
 
                 <ImageView
-                    android:id                      = "@+id/search_venue_content_voice_view"
+                    android:id                      = "@+id/venue_next_search_venue_content_voice_view"
                     android:layout_width            = "wrap_content"
                     android:layout_height           = "wrap_content"
                     android:layout_marginTop        = "8dp"
@@ -40,15 +52,17 @@
                     android:paddingRight            = "16dp"
                     android:src                     = "@drawable/ome_voice_icon"/>
             </RelativeLayout>
+    </LinearLayout>
 
             <ListView
-                android:id="@+id/search_venue_list"
+                android:id="@+id/venue_next_search_venue_list"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:layout_below = "@id/venue_next_search_input_block"
                 android:layout_weight="1"
                 android:divider="@color/white"
-                android:dividerHeight="1.0sp"/>
+                android:dividerHeight="0.1sp"/>
 
-</LinearLayout>
+</RelativeLayout>
 
 

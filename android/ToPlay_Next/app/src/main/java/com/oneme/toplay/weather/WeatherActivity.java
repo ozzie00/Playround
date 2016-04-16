@@ -3,7 +3,7 @@ package com.oneme.toplay.weather;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,7 +11,7 @@ import android.widget.EditText;
 
 import com.oneme.toplay.R;
 
-public class WeatherActivity extends ActionBarActivity {
+public class WeatherActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

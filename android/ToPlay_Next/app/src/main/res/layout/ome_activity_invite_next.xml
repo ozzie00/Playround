@@ -10,7 +10,7 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width  ="fill_parent"
         android:layout_height = "48dp"
-        android:layout_marginTop = "12dp"
+        android:layout_marginTop = "16dp"
         android:layout_marginBottom= "4dp"
         android:layout_marginLeft  = "2dp"
         android:layout_marginRight = "2dp"
@@ -235,7 +235,7 @@
         </RelativeLayout>
 
         <View
-            android:layout_width     = "1dp"
+            android:layout_width     = "0.1dp"
             android:layout_height    = "64dp"
             android:layout_marginTop = "12dp"
             android:layout_alignTop  = "@id/invite_date_block"
@@ -359,6 +359,7 @@
 
     </RelativeLayout>
 
+    <!--
     <TextView
         android:id                = "@+id/invite_must_know_note"
         android:layout_width      = "wrap_content"
@@ -375,6 +376,7 @@
         android:layout_marginLeft = "8dp"
         android:text              = "@string/OMEPARSEINVITEMUSTKNOWONE"
         android:visibility        = "visible"/>
+    -->
 
     <!--
     <RelativeLayout

@@ -22,7 +22,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
@@ -257,7 +257,7 @@ public class BuyPrimeMembershipActivity extends BaseActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == AppConstant.OMEPARSEBUYPRIMEMEMBERSHIPPAYRESULT && resultCode == ActionBarActivity.RESULT_OK) {
+        if (requestCode == AppConstant.OMEPARSEBUYPRIMEMEMBERSHIPPAYRESULT && resultCode == AppCompatActivity.RESULT_OK) {
             Toast.makeText(BuyPrimeMembershipActivity.this, getResources().getString(R.string.OMEPARSEPAYBUYPRIMEMEMBERSHIPNOTIFICATION),
                     Toast.LENGTH_LONG).show();
             mpayno = data.getStringExtra(Application.INTENT_EXTRA_PRIMEPAYNO);

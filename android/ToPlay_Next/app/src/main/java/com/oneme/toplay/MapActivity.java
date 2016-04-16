@@ -9,7 +9,7 @@ import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -58,7 +58,7 @@ import java.util.Set;
 
 
 
-public class MapActivity extends ActionBarActivity  implements LocationListener,
+public class MapActivity extends AppCompatActivity  implements LocationListener,
     GooglePlayServicesClient.ConnectionCallbacks,
     GooglePlayServicesClient.OnConnectionFailedListener{
 

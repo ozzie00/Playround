@@ -20,7 +20,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
@@ -273,7 +273,7 @@ public class BookingActivity extends BaseActivity implements DatePickerDialog.On
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == AppConstant.OMEPARSEBOOKINGVENUEPAYRESULT && resultCode == ActionBarActivity.RESULT_OK) {
+        if (requestCode == AppConstant.OMEPARSEBOOKINGVENUEPAYRESULT && resultCode == AppCompatActivity.RESULT_OK) {
             Toast.makeText(BookingActivity.this, getResources().getString(R.string.OMEPARSEBOOKINGRESULTNOTIFICATION),
                     Toast.LENGTH_LONG).show();
             mpaynumber  = data.getStringExtra(Application.INTENT_EXTRA_VENUEPAYNO);

@@ -209,7 +209,7 @@
             android:layout_height             = "48dp"
             android:layout_toRightOf         = "@id/venue_booking_currency"
             android:layout_alignParentBottom  = "true"
-            android:text                      = "20"
+            android:text                      = "@string/OMEPARSEBOOKVENUEFEE"
             android:textStyle                 = "bold"
             android:hint                      = "@string/OMEPARSEADDCOMMENTTEXT"
             android:background                = "@drawable/ome_booking_venue_fee_background"

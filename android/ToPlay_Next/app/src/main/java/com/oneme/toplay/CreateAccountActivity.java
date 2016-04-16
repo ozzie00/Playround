@@ -15,7 +15,7 @@ package com.oneme.toplay;
 //import im.tox.jtoxcore.ToxOptions;
 //import im.tox.jtoxcore.callbacks.CallbackHandler;
 
-public class CreateAccountActivity {// extends ActionBarActivity {
+public class CreateAccountActivity {// extends AppCompatActivity {
 
     /*
     @Override

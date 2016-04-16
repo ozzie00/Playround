@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.oneme.toplay"
-    android:versionCode="56"
-    android:versionName="1.0.6.01"
+    android:versionCode="57"
+    android:versionName="1.0.6.02"
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-sdk
@@ -277,18 +277,18 @@
             android:value       = "@integer/google_play_services_version" />
 
         <!--ToPlay Google release key-->
-        <!--
+
         <meta-data
             android:name  = "com.google.android.maps.v2.API_KEY"
             android:value = "AIzaSyCwPhVEURLwyW1C7qi-BNI8j3F4siYPCDI" />
-        -->
+
 
         <!--ToPlay Google debug key-->
-
+        <!--
         <meta-data
             android:name  = "com.google.android.maps.v2.API_KEY"
             android:value = "AIzaSyB1oKFcraix0-A-Fr_DgQPFOqSupmhoJqM" />
-
+        -->
 
         <!--ToPlay Amap release key-->
 
@@ -305,18 +305,18 @@
         -->
 
         <!--ToPlay Baidu release key-->
-        <!--
+
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="uLS9PD8T26iDgPyfLLxYqcfp" />
-        -->
+
 
         <!--ToPlay Baidu debug key-->
-
+        <!--
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="QqCWKsVTzLPOKRPjdbGIkhf1" />
-
+        -->
 
         <service
             android:name="com.baidu.location.f"
@@ -462,17 +462,6 @@
             android:label = "@string/joinplayeractivity_title"/>
 
 
-        <activity
-            android:name  = ".local.LocalAsyncActivity"
-            android:label = "@string/localactivity_title">
-            <!-- enable the search dialog to send searches to SearchableActivity -->
-            <meta-data
-                android:name  = "android.app.default_searchable"
-                android:value = ".SearchVenueActivity" />
-        </activity>
-
-
-
         <!--
         <activity
             android:name  = ".local.CnLocalActivity"
@@ -503,7 +492,14 @@
 
         <activity
             android:name = ".me.UploadVenueActivity"
-            android:label="@string/myvenueactivity_title"/>
+            android:label="@string/uploadvenueactivity_title"/>
+
+        <activity
+            android:name = ".me.SearchAddressActivity"
+            android:label="@string/venuesearchactivity_title"/>
+
+
+
 
 
 

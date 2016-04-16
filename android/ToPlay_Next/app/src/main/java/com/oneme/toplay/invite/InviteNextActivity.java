@@ -154,6 +154,8 @@ public final class InviteNextActivity extends BaseActivity implements OnDateSetL
                 if (s.length() > 0) {
                     mworkoutname = s.toString();
                     minviteadd.setIcon(R.drawable.ome_invite_add_pressed);
+                } else {
+                    minviteadd.setIcon(R.drawable.ome_invite_add);
                 }
             }
 
@@ -162,6 +164,8 @@ public final class InviteNextActivity extends BaseActivity implements OnDateSetL
                 if (s.length() > 0) {
                     mworkoutname = s.toString();
                     minviteadd.setIcon(R.drawable.ome_invite_add_pressed);
+                } else {
+                    minviteadd.setIcon(R.drawable.ome_invite_add);
                 }
             }
         });

@@ -10,14 +10,16 @@
     <RelativeLayout android:id= "@+id/me_profile_block"
         android:layout_width  = "match_parent"
         android:layout_height = "wrap_content"
+        android:layout_marginTop = "16dp"
+        android:padding          = "2dp"
         android:orientation   = "horizontal"
-        android:padding       = "5dip"
         android:background    = "@android:color/white">
 
         <ImageView
             android:id                    = "@+id/me_avatar_view"
             android:layout_width          = "48dp"
             android:layout_height         = "48dp"
+            android:layout_marginLeft     = "16dp"
             android:layout_marginRight    = "8dp"
             android:layout_centerVertical = "true"/>
 
@@ -45,13 +47,14 @@
             android:id                 = "@+id/me_qrcode_view"
             android:layout_width       = "64dp"
             android:layout_height      = "64dp"
-            android:layout_marginLeft  = "70dp"
-            android:layout_marginRight = "8dp"
+            android:layout_marginRight = "16dp"
             android:layout_alignTop    = "@id/me_username_view"
-            android:layout_toRightOf   = "@+id/me_content_view"
             android:gravity            = "right"
             android:clickable          = "true"
-            android:src                = "@drawable/ome_me_barcode"/>
+            android:src                = "@drawable/ome_me_barcode"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="false" />
     </RelativeLayout>
 
     <RelativeLayout android:id= "@+id/me_sport_block"
@@ -59,7 +62,6 @@
         android:layout_height    = "wrap_content"
         android:orientation      = "horizontal"
         android:layout_marginTop = "16dp"
-        android:padding          = "5dip"
         android:background       = "@android:color/white">
 
         <ImageView
@@ -85,7 +87,9 @@
 
     <View
         android:layout_width  = "match_parent"
-        android:layout_height = "1dp"
+        android:layout_height = "0.1dp"
+        android:layout_marginLeft  = "16dp"
+        android:layout_marginRight = "16dp"
         android:orientation   = "horizontal"
         android:background    = "#c0c0c0"/>
 
@@ -93,7 +97,6 @@
         android:layout_width     = "match_parent"
         android:layout_height    = "wrap_content"
         android:orientation      = "horizontal"
-        android:padding          = "5dip"
         android:background       = "@android:color/white">
 
         <ImageView

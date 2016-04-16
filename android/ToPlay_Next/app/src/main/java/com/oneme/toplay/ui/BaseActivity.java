@@ -35,7 +35,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -65,7 +65,7 @@ import java.util.List;
  * A base activity that handles common functionality in the app. This includes the
  * navigation drawer, login and authentication, Action Bar tweaks, amongst others.
  */
-public abstract class BaseActivity extends ActionBarActivity implements
+public abstract class BaseActivity extends AppCompatActivity implements
         SharedPreferences.OnSharedPreferenceChangeListener,
         MultiSwipeRefreshLayout.CanChildScrollUpCallback {
 //    private static final String TAG = makeLogTag(BaseActivity.class);
@@ -1036,9 +1036,9 @@ public abstract class BaseActivity extends ActionBarActivity implements
     protected void onDestroy() {
         super.onDestroy();
 
-        if (mGCMRegisterTask != null) {
-            mGCMRegisterTask.cancel(true);
-        }
+      //  if (mGCMRegisterTask != null) {
+      //      mGCMRegisterTask.cancel(true);
+      //  }
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         sp.unregisterOnSharedPreferenceChangeListener(this);

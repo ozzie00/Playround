@@ -2,7 +2,7 @@ package com.oneme.toplay.voice;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -26,7 +26,7 @@ import ai.wit.sdk.model.WitOutcome;
 
 
 
-public class WitActivity extends ActionBarActivity implements IWitListener {
+public class WitActivity extends AppCompatActivity implements IWitListener {
 
     Wit _wit;
     WitMic _witmic;

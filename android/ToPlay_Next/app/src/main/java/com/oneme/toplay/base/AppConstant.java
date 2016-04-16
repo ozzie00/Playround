@@ -61,6 +61,7 @@ public final class AppConstant {
     public static final String OMEPARSEDISTANCEFORMATSTRING   = "##.00";
     public static final String OMEPARSEZEROSTRING             = "0";
     public static final String OMEPARSECOMMASTRING            = ",";
+    public static final String OMEPARSEPLUSSTRING             = "+";
 
     // define Image format
     public static final String OMETOPLAYIMAGEPNGFORMAT        = ".png";
@@ -246,8 +247,6 @@ public final class AppConstant {
     public static final String OMETOPLAYPHOTOTYPEVENUE   = "venuePhoto";
     public static final String OMETOPLAYPHOTOTYPEUSER    = "userPhoto";
 
-
-
     // Invoke activity return result
     public static final int OMEPARSEUSERVENUEASHOMERESULT           = 0;
     public static final int OMEPARSEUSERVENUEASBACKUPRESULT         = 1;
@@ -258,6 +257,10 @@ public final class AppConstant {
     public static final int OMEPARSEINVITESEARCHLOCATIONRESULT      = 6;
     public static final int OMEPARSEBOOKINGVENUEPAYRESULT           = 7;
     public static final int OMEPARSEBUYPRIMEMEMBERSHIPPAYRESULT     = 8;
+    public static final int OMEPARSEUPLOADVENUESEARCHLOCATIONRESULT = 9;
+
+    // Parse API Constant corresponding to upload venue key
+    public static final String OMEPARSEUPLOADVENUEKEY            = "uploadByUser";
 
 
     // Parse API Constant corresponding to add friend
@@ -456,7 +459,7 @@ public final class AppConstant {
     public static final int OMEPARSEINVITESCOREPERFECT         = 100;
 
     // Parse API default value for booking venue
-    public static final String OMEPARSEBOOKINGVENUEADVANCEDEPOSIT = "0.01";//"20.00";
+    public static final String OMEPARSEBOOKINGVENUEADVANCEDEPOSIT = "10.00";
 
 
     // NSNotification userInfo keys:
@@ -731,9 +734,12 @@ public final class AppConstant {
     public static final String BD_PLACE_STATUS           = "status";
     public static final String BD_PLACE_CITY             = "city";
     public static final String BD_PLACE_DISTRICT         = "district";
+    public static final String BD_PLACE_STREET           = "street";
+    public static final String BD_PLACE_STREET_NUM       = "street_number";
     public static final String BD_PLACE_LOCATION         = "&location=";
     public static final String BD_PLACE_RADIUS           = "&radius=";
     public static final String BD_PLACE_NEARBY_SEARCH    = "运动$羽毛球$网球$健身$篮球$台球$山$森林$公园";//"小区$公司$街$路$银行$酒店$区";
+    public static final String BD_PLACE_SEARCH_ADDRESS   = "小区$公司$街$路$银行$酒店$区";
     public static final String BD_PLACE_ADDRESS          = "address";
     public static final String BD_GEOCODER_KEY           = "/?ak=";
     public static final String BD_GEOCODER_API_KEY       = AppConstant.OMETOPLAYBAIDUPLACEKEY;

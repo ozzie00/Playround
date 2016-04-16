@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Playround</string>
-    <string name="app_version">Playround Android v.1.0.6.01</string>
+    <string name="app_version">Playround Android v.1.0.6.02</string>
 
 
     <!--third id and key -->
@@ -583,7 +583,7 @@ demande de them.\n\nAre vous assurer que vous voulez continuer?</string>
     <string name="OMEPARSEREMARK"> Remarque</string>
     <string name="OMEPARSEBOOKINGMUSTKNOW"> devez savoir pour réservation :</string>
     <string name="OMEPARSEBOOKINGMUSTKNOWONE"> 1. Touchez ce qui précède toutes les options pour définir la date, l\'heure et Remarque</string>
-    <string name="OMEPARSEBOOKINGMUSTKNOWTWO"> 2. 20 ce est dépôt préalable de</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWTWO"> 2. 10 ce est dépôt préalable de</string>
     <string name="OMEPARSEBOOKINGMUSTKNOWTHREE"> 3. ce dépôt préalable vous remboursera après avoir terminé la séance d\'entraînement dans la salle de</string>
     <string name="OMEPARSEBOOKINGMUSTKNOWFOUR"> 4. ce dépôt préalable vous remboursera si le lieu de réservation n\'est pas réussir</string>
     <string name="OMEPARSEINVITEMUSTKNOW"> devez savoir pour l\'invitation :</string>
@@ -662,5 +662,8 @@ ne sera supprimé de l\'appareil ni de Google Drive.</string><string name="sett
 
     <!--Add by playround 1.0.5.03 -->
     <string name="navdrawer_item_history">History</string>
+
+    <!--Add by playround 1.0.6.02 -->
+    <string name="OMEPARSEBOOKVENUEFEE">10</string>
 
 </resources>

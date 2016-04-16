@@ -20,7 +20,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +37,7 @@ import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
 
-public class SearchOtherActivity extends ActionBarActivity {
+public class SearchOtherActivity extends AppCompatActivity {
 
 
     private static final String TAG = "SearchOtherActivity";

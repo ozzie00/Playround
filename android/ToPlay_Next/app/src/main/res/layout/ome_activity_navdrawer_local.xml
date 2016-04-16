@@ -42,10 +42,12 @@
             <include layout="@layout/toolbar_actionbar_with_headerbar" />
 
             <ListView
-                android:id="@+id/local_listview"
+                android:id="@+id/navdrawer_local_listview"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:divider="@color/grey"
+                android:dividerHeight="0.1dip"/>
 
             <!--
             <include layout="@layout/toolbar_actionbar" /> -->

@@ -10,8 +10,9 @@
     <RelativeLayout android:id= "@+id/profile_avatar_block"
         android:layout_width  = "match_parent"
         android:layout_height = "wrap_content"
+        android:layout_marginTop="16dp"
+        android:padding       = "2dp"
         android:orientation   = "horizontal"
-        android:padding       = "5dip"
         android:background    = "@android:color/white">
 
         <TextView
@@ -19,7 +20,7 @@
             android:layout_width      = "wrap_content"
             android:layout_height     = "40dp"
             android:layout_marginTop  = "8dp"
-            android:layout_marginLeft = "8dp"
+            android:layout_marginLeft = "16dp"
             android:layout_gravity    = "center_vertical"
             android:gravity           = "center"
             android:textAppearance    = "?android:attr/textAppearanceSmall"
@@ -29,8 +30,7 @@
             android:id                 = "@+id/profile_avatar_image"
             android:layout_width       = "48dp"
             android:layout_height      = "48dp"
-            android:layout_marginRight = "8dp"
-            android:layout_marginLeft  = "70dp"
+            android:layout_marginRight = "16dp"
             android:layout_gravity     = "center_vertical"
             android:layout_alignParentRight="true"/>
 
@@ -62,7 +62,9 @@
 
     <View
         android:layout_width  = "match_parent"
-        android:layout_height = "1dp"
+        android:layout_height = "0.1dp"
+        android:layout_marginLeft  = "16dp"
+        android:layout_marginRight = "16dp"
         android:orientation   = "horizontal"
         android:background    = "#c0c0c0"/>
 
@@ -70,7 +72,6 @@
         android:layout_width     = "match_parent"
         android:layout_height    = "wrap_content"
         android:orientation      = "horizontal"
-        android:padding          = "5dip"
         android:background       = "@android:color/white">
 
 
@@ -78,8 +79,8 @@
             android:id                      = "@+id/profile_alias"
             android:layout_width            = "wrap_content"
             android:layout_height           = "40dp"
+            android:layout_marginLeft       = "16dp"
             android:layout_marginTop        = "8dp"
-            android:layout_marginLeft       = "8dp"
             android:layout_gravity          = "center_vertical"
             android:gravity                 = "center"
             android:background              = "@android:color/white"
@@ -90,7 +91,7 @@
             android:layout_width            = "wrap_content"
             android:layout_height           = "40dp"
             android:layout_marginTop        = "8dp"
-            android:layout_marginRight      = "8dp"
+            android:layout_marginRight      = "16dp"
             android:layout_alignTop         = "@id/profile_alias"
             android:layout_toRightOf        = "@id/profile_alias"
             android:gravity                 = "right"
@@ -102,7 +103,9 @@
 
     <View
         android:layout_width  = "match_parent"
-        android:layout_height = "1dp"
+        android:layout_height = "0.1dp"
+        android:layout_marginLeft  = "16dp"
+        android:layout_marginRight = "16dp"
         android:orientation   = "horizontal"
         android:background    = "#c0c0c0"/>
 
@@ -110,15 +113,14 @@
         android:layout_width     = "match_parent"
         android:layout_height    = "wrap_content"
         android:orientation      = "horizontal"
-        android:padding          = "5dip"
         android:background       = "@android:color/white">
 
         <TextView
             android:id                      = "@+id/profile_ID"
             android:layout_width            = "wrap_content"
             android:layout_height           = "40dp"
+            android:layout_marginLeft       = "16dp"
             android:layout_marginTop        = "8dp"
-            android:layout_marginLeft       = "8dp"
             android:layout_gravity          = "center_vertical"
             android:gravity                 = "center"
             android:background              = "@android:color/white"
@@ -129,7 +131,7 @@
             android:layout_width            = "wrap_content"
             android:layout_height           = "40dp"
             android:layout_marginTop        = "8dp"
-            android:layout_marginRight      = "8dp"
+            android:layout_marginRight      = "16dp"
             android:layout_toRightOf        = "@id/profile_ID"
             android:layout_alignTop         = "@id/profile_ID"
             android:gravity                 = "right"
@@ -139,7 +141,9 @@
 
     <View
         android:layout_width  = "match_parent"
-        android:layout_height = "1dp"
+        android:layout_height = "0.1dp"
+        android:layout_marginLeft  = "16dp"
+        android:layout_marginRight = "16dp"
         android:orientation   = "horizontal"
         android:background    = "#c0c0c0"/>
 
@@ -148,7 +152,6 @@
         android:layout_width     = "match_parent"
         android:layout_height    = "wrap_content"
         android:orientation      = "horizontal"
-        android:padding          = "5dip"
         android:background       = "@android:color/white">
 
 
@@ -156,8 +159,8 @@
             android:id                      = "@+id/profile_QR"
             android:layout_width            = "wrap_content"
             android:layout_height           = "40dp"
-            android:layout_marginTop        = "16dp"
-            android:layout_marginLeft       = "8dp"
+            android:layout_marginTop        = "8dp"
+            android:layout_marginLeft       = "16dp"
             android:layout_gravity          = "center_vertical"
             android:gravity                 = "center"
             android:text                    = "@string/OMEPARSEMEPROFILEQRCODE"
@@ -167,8 +170,8 @@
             android:id                 = "@+id/profile_QR_image"
             android:layout_width       = "wrap_content"
             android:layout_height      = "40dp"
-            android:layout_marginTop   = "16dp"
-            android:layout_marginRight = "8dp"
+            android:layout_marginTop   = "8dp"
+            android:layout_marginRight = "16dp"
             android:layout_alignParentRight="true"
             android:src                = "@drawable/ome_me_barcode"
             android:layout_marginLeft  ="16dp" />
@@ -178,7 +181,9 @@
 
     <View
         android:layout_width  = "match_parent"
-        android:layout_height = "1dp"
+        android:layout_height = "0.1dp"
+        android:layout_marginLeft  = "16dp"
+        android:layout_marginRight = "16dp"
         android:orientation   = "horizontal"
         android:background    = "#c0c0c0"/>
 
@@ -186,7 +191,6 @@
         android:layout_width     = "match_parent"
         android:layout_height    = "wrap_content"
         android:orientation      = "horizontal"
-        android:padding          = "5dip"
         android:background       = "@android:color/white">
 
 
@@ -195,7 +199,7 @@
             android:layout_width            = "wrap_content"
             android:layout_height           = "40dp"
             android:layout_marginTop        = "8dp"
-            android:layout_marginLeft       = "8dp"
+            android:layout_marginLeft       = "16dp"
             android:layout_gravity          = "center_vertical"
             android:gravity                 = "center"
             android:background              = "@android:color/white"
@@ -206,7 +210,7 @@
             android:layout_width            = "wrap_content"
             android:layout_height           = "40dp"
             android:layout_marginTop        = "8dp"
-            android:layout_marginRight      = "8dp"
+            android:layout_marginRight      = "16dp"
             android:layout_alignTop         = "@id/profile_mobile"
             android:layout_toRightOf        = "@id/profile_mobile"
             android:gravity                 = "right"

@@ -21,7 +21,7 @@ import android.app.SearchManager;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
@@ -46,11 +46,11 @@ import com.parse.ParseQuery;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchVenueActivity extends ActionBarActivity {
+public class SearchVenueActivity extends AppCompatActivity {
 
     private static final String TAG = "SearchVenueActivity";
 
-    private static final int MAX_VENUE_SEARCH_RESULTS = 5;
+    private static final int MAX_VENUE_SEARCH_RESULTS = 10;
 
     private Bundle appData;
 

@@ -21,7 +21,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
@@ -57,7 +57,7 @@ import java.util.Map;
 //import com.oneme.toplay.SDKReceiver;
 
 
-public class CnVenueWithoutMapActivity extends ActionBarActivity {
+public class CnVenueWithoutMapActivity extends AppCompatActivity {
 
     private static final String TAG = "CnLocalWithoutMapActivity";
 

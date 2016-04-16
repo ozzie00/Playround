@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.oneme.toplay.database.Database;
 
-public class FriendProfileActivity extends ActionBarActivity {
+public class FriendProfileActivity extends AppCompatActivity {
 
     String friendName = null;
     String friendKey = null;

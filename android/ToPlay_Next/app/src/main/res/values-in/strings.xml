@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Playround</string>
-    <string name="app_version">Playround Android v.1.0.6.01</string>
+    <string name="app_version">Playround Android v.1.0.6.02</string>
 
     <!-- Strings related to activity -->
     <string name="action_settings">Pengaturan</string>
@@ -591,7 +591,7 @@ permintaan dari them.\n\nAre Anda yakin Anda ingin melanjutkan?</string>
     <string name="OMEPARSEREMARK">Komentar</string>
     <string name="OMEPARSEBOOKINGMUSTKNOW">Harus tahu untuk Pemesanan :</string>
     <string name="OMEPARSEBOOKINGMUSTKNOWONE">1. menyentuh atas setiap pilihan untuk menetapkan tanggal, waktu dan komentar</string>
-    <string name="OMEPARSEBOOKINGMUSTKNOWTWO">2. 20 adalah muka deposit</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWTWO">2. 10 adalah muka deposit</string>
     <string name="OMEPARSEBOOKINGMUSTKNOWTHREE">3. deposit muka ini akan mengembalikan setelah Anda menyelesaikan latihan di tempat</string>
     <string name="OMEPARSEBOOKINGMUSTKNOWFOUR">4. deposit muka ini akan mengembalikan jika tempat terakhir tidak akan berhasil </string>
     <string name="OMEPARSEINVITEMUSTKNOW"> Harus tahu untuk undangan :</string>
@@ -673,5 +673,8 @@ permintaan dari them.\n\nAre Anda yakin Anda ingin melanjutkan?</string>
 
     <!--Add by playround 1.0.5.03 -->
     <string name="navdrawer_item_history">History</string>
+
+    <!--Add by playround 1.0.6.02 -->
+    <string name="OMEPARSEBOOKVENUEFEE">10</string>
 
 </resources>

@@ -30,7 +30,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -61,7 +61,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 
-public class OwnerInfoUploadActivity extends ActionBarActivity {
+public class OwnerInfoUploadActivity extends AppCompatActivity {
 
 
     private final String TAG= "OwnerInfoUploadActivity";
@@ -505,11 +505,6 @@ public class OwnerInfoUploadActivity extends ActionBarActivity {
 
 
     private void submitVenue () {
-
-        // Set up a progress dialog
-        final ProgressDialog messageListLoadDialog = new ProgressDialog(OwnerInfoUploadActivity.this);
-        messageListLoadDialog.show();
-
         // Create an invitation.
         Venue venue = new Venue();
 
@@ -534,7 +529,6 @@ public class OwnerInfoUploadActivity extends ActionBarActivity {
         venue.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
-                messageListLoadDialog.dismiss();
             }
         });
 

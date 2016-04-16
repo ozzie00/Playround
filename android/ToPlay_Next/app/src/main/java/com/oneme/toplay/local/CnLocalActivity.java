@@ -29,7 +29,7 @@ package com.oneme.toplay.local;
 //import com.amap.api.location.LocationProviderProxy;
 
 
-public class CnLocalActivity  { // extends ActionBarActivity implements AMapLocationListener,Runnable {
+public class CnLocalActivity  { // extends AppCompatActivity implements AMapLocationListener,Runnable {
 
 /*
     private static final String TAG = "CnLocalActivity";

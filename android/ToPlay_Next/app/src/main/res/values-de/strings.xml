@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Playround</string>
-    <string name="app_version">Playround Android v.1.0.6.01</string>
+    <string name="app_version">Playround Android v.1.0.6.02</string>
 
     <!--third id and key -->
     <string name="facebook_app_id">846009488767381</string>
@@ -559,7 +559,7 @@ fordert vom them.\n\nAre Sie sicher, dass Sie fortfahren möchten?</string>
     <string name="OMEPARSEREMARK"> Bemerkung</string>
     <string name="OMEPARSEBOOKINGMUSTKNOW"> benötigen zur Buchung:</string>
     <string name="OMEPARSEBOOKINGMUSTKNOWONE"> 1. Tippen Sie auf die oben genannten jede Option zum Festlegen von Datum, Uhrzeit und Bemerkung</string>
-    <string name="OMEPARSEBOOKINGMUSTKNOWTWO"> 2. dieser 20 ist Anzahlung</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWTWO"> 2. dieser 10 ist Anzahlung</string>
     <string name="OMEPARSEBOOKINGMUSTKNOWTHREE"> 3. Diese Anzahlung erstattet nach Abschluss der Training in der Halle</string>
     <string name="OMEPARSEBOOKINGMUSTKNOWFOUR"> 4. Diese Anzahlung erstattet, wenn Buchung Ort wird nicht erfolgreich sein</string>
     <string name="OMEPARSEINVITEMUSTKNOW"> für Einladung wissen müssen:</string>
@@ -636,5 +636,8 @@ fordert vom them.\n\nAre Sie sicher, dass Sie fortfahren möchten?</string>
 
     <!--Add by playround 1.0.5.03 -->
     <string name="navdrawer_item_history">History</string>
+
+    <!--Add by playround 1.0.6.02 -->
+    <string name="OMEPARSEBOOKVENUEFEE">10</string>
 
 </resources>

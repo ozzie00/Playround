@@ -158,46 +158,47 @@ public class MyFollowingFragment extends Fragment {
             mnameKey = key[0];
             mnameKey = mnameKey.trim();
 
-            if(getActivity() == null) {
-                return null;
-            }
+            Activity mactivity = getActivity();
 
-            getActivity().runOnUiThread(new Runnable() {
-                public void run() {
-                    ParseQuery<FollowingPlayer> followingquery = FollowingPlayer.getQuery();
-                    followingquery.setCachePolicy(ParseQuery.CachePolicy.NETWORK_ELSE_CACHE);
-                    followingquery.include(AppConstant.OMEPARSEFOLLOWINGPLAYERUSERKEY);
-                    followingquery.include(AppConstant.OMEPARSEFOLLOWERPLAYERUSERKEY);
-                    followingquery.whereEqualTo(AppConstant.OMEPARSEFOLLOWERPLAYERUSERNAMEKEY, mnameKey);
-                    followingquery.orderByDescending(AppConstant.OMEPARSECREATEDATKEY);
-                    followingquery.setLimit(MAX_FOLLOWING_SEARCH_RESULTS);
-                    followingquery.findInBackground(new FindCallback<FollowingPlayer>() {
-                        public void done(List<FollowingPlayer> followingList, ParseException e) {
-                            if (e == null) {
-                                mfollowingnumber.setText(Integer.toString(followingList.size()));
-                                mfollowingtext.setText(getResources().getString(R.string.OMEPARSEFOLLOWINGLOWERCASE));
-                                for (FollowingPlayer following : followingList) {
-                                    FollowingPlayer mfollowing = new FollowingPlayer();
-                                    mfollowing.setFollowingUser(following.getFollowingUser());
-                                    mfollowing.setFollowingUsername(following.getFollowingUsername());
-                                    mfollowing.setFollowerUser(following.getFollowerUser());
-                                    mfollowing.setFollowerUsername(following.getFollowerUsername());
+            if (mactivity != null && isAdded()) {
+                mactivity.runOnUiThread(new Runnable() {
+                    public void run() {
+                        ParseQuery<FollowingPlayer> followingquery = FollowingPlayer.getQuery();
+                        followingquery.setCachePolicy(ParseQuery.CachePolicy.NETWORK_ELSE_CACHE);
+                        followingquery.include(AppConstant.OMEPARSEFOLLOWINGPLAYERUSERKEY);
+                        followingquery.include(AppConstant.OMEPARSEFOLLOWERPLAYERUSERKEY);
+                        followingquery.whereEqualTo(AppConstant.OMEPARSEFOLLOWERPLAYERUSERNAMEKEY, mnameKey);
+                        followingquery.orderByDescending(AppConstant.OMEPARSECREATEDATKEY);
+                        followingquery.setLimit(MAX_FOLLOWING_SEARCH_RESULTS);
+                        followingquery.findInBackground(new FindCallback<FollowingPlayer>() {
+                            public void done(List<FollowingPlayer> followingList, ParseException e) {
+                                if (e == null) {
+                                    mfollowingnumber.setText(Integer.toString(followingList.size()));
+                                    mfollowingtext.setText(getResources().getString(R.string.OMEPARSEFOLLOWINGLOWERCASE));
+                                    for (FollowingPlayer following : followingList) {
+                                        FollowingPlayer mfollowing = new FollowingPlayer();
+                                        mfollowing.setFollowingUser(following.getFollowingUser());
+                                        mfollowing.setFollowingUsername(following.getFollowingUsername());
+                                        mfollowing.setFollowerUser(following.getFollowerUser());
+                                        mfollowing.setFollowerUsername(following.getFollowerUsername());
 
-                                    if (msuggest.size() < MAX_FOLLOWING_SEARCH_RESULTS) {
-                                        msuggest.add(mfollowing);
+                                        if (msuggest.size() < MAX_FOLLOWING_SEARCH_RESULTS) {
+                                            msuggest.add(mfollowing);
+                                        }
                                     }
+                                    msearchresult.setAdapter(madapter);
+                                    madapter.notifyDataSetChanged();
+
+                                } else {
+
                                 }
-                                msearchresult.setAdapter(madapter);
-                                madapter.notifyDataSetChanged();
-
-                            } else {
-
                             }
-                        }
-                    });
+                        });
 
-                }
-            });
+                    }
+                });
+
+            }
 
             return null;
         }

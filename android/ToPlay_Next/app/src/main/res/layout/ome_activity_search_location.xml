@@ -8,16 +8,16 @@
     <include layout="@layout/toolbar_actionbar" />
 
     <LinearLayout
-        android:id            = "@+id/invite_search_input_block"
-        android:layout_width  = "fill_parent"
-        android:layout_height = "48dp"
-        android:orientation   = "horizontal"
-        android:layout_marginLeft = "48dp"
-        android:layout_marginRight = "16dp"
-        android:layout_marginTop = "8dp"
+        android:id                  = "@+id/invite_search_input_block"
+        android:layout_width        = "fill_parent"
+        android:layout_height       = "48dp"
+        android:orientation         = "horizontal"
+        android:layout_marginLeft   = "48dp"
+        android:layout_marginRight  = "16dp"
+        android:layout_marginTop    = "4dp"
         android:layout_marginBottom = "8dp"
-        android:padding       = "2dp"
-        android:background    = "@drawable/ome_textfield_rectangle_background" >
+        android:padding             = "2dp"
+        android:background          = "@drawable/ome_textfield_rectangle_background" >
 
         <RelativeLayout
             android:layout_width  = "fill_parent"
@@ -25,6 +25,8 @@
             android:orientation   = "horizontal">
 
             <EditText
+                android:imeOptions            = "actionSearch"
+                android:inputType             = "text"
                 android:id                    = "@+id/invite_search_content_text_view"
                 android:layout_width          = "240dp"
                 android:layout_height         = "20dp"
@@ -63,7 +65,7 @@
         android:layout_below     = "@id/invite_search_input_block"
         android:layout_weight    = "1"
         android:divider          = "#F3F3F3"
-        android:dividerHeight    = "1.0sp"/>
+        android:dividerHeight    = "0.1sp"/>
 
     <ImageView
         android:id                      = "@+id/invite_search_google_logo"

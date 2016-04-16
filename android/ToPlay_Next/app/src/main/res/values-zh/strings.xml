@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">动动</string>
-    <string name="app_version">动动 安卓版 v.1.0.6.01</string>
+    <string name="app_version">动动 安卓版 v.1.0.6.02</string>
     
     <!-- Strings related to activity -->
     <string name="action_settings">设置</string>
@@ -404,10 +404,6 @@
 
     <!--Add by playround 1.0.2.09 -->
     <string name="myvenueactivity_title">我的场馆</string>
-    <string name="OMEPARSEMEMYVENUEUPLOAD">上传场馆地址</string>
-    <string name="OMEPARSEMEMYVENUENAME">场馆名字</string>
-    <string name="OMEPARSEMEMYVENUEADDRESS">场馆地址</string>
-    <string name="OMEPARSEMEMYVENUEPHONE">场馆电话</string>
     <string name="OMEPARSEMEMYVENUENAMEPLACEHOLD">输入名字</string>
     <string name="OMEPARSEMEMYVENUEADDRESSPLACEHOLD">输入地址</string>
     <string name="OMEPARSEMEMYVENUEPHONEPLACEHOLD">输入电话</string>
@@ -432,7 +428,7 @@
     <string name="OMEPARSECANNOTJOINYOURSELFALERT">不能再次加入自己的比赛!</string>
 
     <!--Add by playround 1.0.4.02 -->
-    <string name="search_venue_hint">搜索场地</string>
+    <string name="search_venue_hint">搜索场馆</string>
     <string name="search_venue_settings">搜索位置</string>
     <string name="OMEPARSEREGISTERASVENUEOWNERNOTE">场馆注册</string>
     <string name="ownerinfouploadactivity_title">上传场馆信息</string>
@@ -546,7 +542,7 @@
     <string name="OMEPARSEREMARK">留言</string>
     <string name="OMEPARSEBOOKINGMUSTKNOW">预定须知 :</string>
     <string name="OMEPARSEBOOKINGMUSTKNOWONE">1. 触摸上面的每一项，来设置日期，时间和留言</string>
-    <string name="OMEPARSEBOOKINGMUSTKNOWTWO">2. 这个20元是场馆预定押金</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWTWO">2. 这个10元是场馆预定押金</string>
     <string name="OMEPARSEBOOKINGMUSTKNOWTHREE">3. 用户按约在场馆完成比赛，现场支付场馆费用，预定押金将原额返还</string>
     <string name="OMEPARSEBOOKINGMUSTKNOWFOUR">4. 场馆预定不成功，预定押金将原额返还</string>
     <string name="OMEPARSEINVITEMUSTKNOW">邀请须知:</string>
@@ -637,5 +633,18 @@
 
     <!--Add by playround 1.0.5.03 -->
     <string name="navdrawer_item_history">历史</string>
+
+    <!--Add by playround 1.0.6.02 -->
+    <string name="OMEPARSEBOOKVENUEFEE">10</string>
+    <string name="OMEPARSEUPLOADVENUEADDRESS">地址</string>
+    <string name="OMEPARSEUPLOADVENUEPHONE">电话</string>
+    <string name="action_uploadvenue_add">增加场馆</string>
+    <string name="OMEPARSEUPLOADVENUEALERT">请填写场馆名称，地址和电话!</string>
+    <string name="uploadvenueactivity_title">场馆信息</string>
+    <string name="OMEPARSEMEMYVENUEUPLOAD">上传场馆信息</string>
+    <string name="OMEPARSEMEMYVENUENAME">名称</string>
+    <string name="OMEPARSEMEMYVENUEADDRESS">场馆地址</string>
+    <string name="OMEPARSEMEMYVENUEPHONE">场馆电话</string>
+
 
 </resources>

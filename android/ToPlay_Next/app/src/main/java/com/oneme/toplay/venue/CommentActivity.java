@@ -18,7 +18,7 @@ package com.oneme.toplay.venue;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
@@ -46,7 +46,7 @@ import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
-public class CommentActivity extends ActionBarActivity {
+public class CommentActivity extends AppCompatActivity {
 
     private static final String TAG = "CommentActivity";
 

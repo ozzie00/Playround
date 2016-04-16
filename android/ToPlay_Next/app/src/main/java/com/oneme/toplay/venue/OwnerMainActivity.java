@@ -20,7 +20,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,7 +32,7 @@ import com.oneme.toplay.me.UploadVenueActivity;
 import com.parse.ParseUser;
 
 
-public class OwnerMainActivity extends ActionBarActivity {
+public class OwnerMainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

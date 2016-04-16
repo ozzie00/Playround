@@ -19,7 +19,7 @@ package com.oneme.toplay.addfriend;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -40,7 +40,7 @@ import com.squareup.picasso.Transformation;
 
 import java.util.List;
 
-public class ContactProfileActivity extends ActionBarActivity {
+public class ContactProfileActivity extends AppCompatActivity {
 
 
     private static final String TAG = "SearchOtherActivity";

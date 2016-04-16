@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Playround</string>
-    <string name="app_version">Playround Android v.1.0.6.01</string>
+    <string name="app_version">Playround Android v.1.0.6.02</string>
 
 
     <!--third id and key -->
@@ -592,7 +592,7 @@ aanvragen van them.\n\nAre u zeker dat u wilt blijven?</string>
     <string name="OMEPARSEREMARK"> Opmerking</string>
     <string name="OMEPARSEBOOKINGMUSTKNOW"> moet weten te boeken:</string>
     <string name="OMEPARSEBOOKINGMUSTKNOWONE"> 1. Raak het bovenstaande elke optie instellen datum, tijd en Opmerking</string>
-    <string name="OMEPARSEBOOKINGMUSTKNOWTWO"> 2. deze 20 is aanbetaling</string>
+    <string name="OMEPARSEBOOKINGMUSTKNOWTWO"> 2. deze 10 is aanbetaling</string>
     <string name="OMEPARSEBOOKINGMUSTKNOWTHREE"> 3. Deze aanbetaling betaalt nadat u klaar bent met training in de zaal</string>
     <string name="OMEPARSEBOOKINGMUSTKNOWFOUR"> 4. Deze aanbetaling betaalt als boeking locatie is niet succesvol worden</string>
     <string name="OMEPARSEINVITEMUSTKNOW"> voor uitnodiging moet weten:</string>
@@ -665,5 +665,8 @@ aanvragen van them.\n\nAre u zeker dat u wilt blijven?</string>
 
     <!--Add by playround 1.0.5.03 -->
     <string name="navdrawer_item_history">History</string>
+
+    <!--Add by playround 1.0.6.02 -->
+    <string name="OMEPARSEBOOKVENUEFEE">10</string>
 
 </resources>

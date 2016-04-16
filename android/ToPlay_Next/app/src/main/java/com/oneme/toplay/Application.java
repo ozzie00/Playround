@@ -127,6 +127,8 @@ public class Application extends android.app.Application {
 
     public static final String INTENT_EXTRA_PRIMEPAYNO       = AppConstant.OMEPARSEPRIMEPAYNUMBERKEY;
 
+    public static final String INTENT_EXTRA_SEARCHADDRESS    = AppConstant.OMEPARSEUPLOADVENUEKEY;
+
     public static final String INTENT_EXTRA_LATITUDE         = "TOPLAYLATITUDE";
 
     public static final String INTENT_EXTRA_LONGITUDE        = "TOPLAYLONGITUDE";

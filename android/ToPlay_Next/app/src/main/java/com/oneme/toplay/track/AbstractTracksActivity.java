@@ -18,7 +18,7 @@ package com.oneme.toplay.track;
 
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -30,7 +30,7 @@ import com.oneme.toplay.track.util.TrackIconUtils;
  * 
  * @author Jimmy Shih
  */
-public abstract class AbstractTracksActivity extends ActionBarActivity {
+public abstract class AbstractTracksActivity extends AppCompatActivity {
 
   protected static final int GOOGLE_PLAY_SERVICES_REQUEST_CODE = 4;
 

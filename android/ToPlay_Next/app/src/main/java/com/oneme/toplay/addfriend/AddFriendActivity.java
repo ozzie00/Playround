@@ -7,7 +7,7 @@ package com.oneme.toplay.addfriend;
 //import com.google.zxing.integration.android.IntentResult;
 
 
-public class AddFriendActivity { //extends ActionBarActivity implements PinDialogFragment.PinDialogListener {
+public class AddFriendActivity { //extends AppCompatActivity implements PinDialogFragment.PinDialogListener {
 
     /*
     private static String TAG = "AddFriendActivity";

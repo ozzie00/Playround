@@ -5,7 +5,7 @@ package com.oneme.toplay;
 //import im.tox.jtoxcore.ToxException;
 
 
-public class MainActivity { // extends ActionBarActivity implements DialogID.DialogIDListener {
+public class MainActivity { // extends AppCompatActivity implements DialogID.DialogIDListener {
 
     /*
     public DrawerLayout pane;

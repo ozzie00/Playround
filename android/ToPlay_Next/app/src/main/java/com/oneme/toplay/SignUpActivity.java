@@ -20,7 +20,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -50,7 +50,7 @@ import com.parse.SignUpCallback;
 //import im.tox.jtoxcore.callbacks.CallbackHandler;
 
 
-public class SignUpActivity extends ActionBarActivity {
+public class SignUpActivity extends AppCompatActivity {
 
     private static final String TAG = "SignUpActivity";
     private ParseGeoPoint userLastLocation;
