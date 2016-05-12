@@ -28,7 +28,7 @@ tools:context=".ui.MapNextActivity">
         <include layout="@layout/toolbar_actionbar_with_headerbar" />
 
         <fragment
-            android:id            = "@+id/map_fragment"
+            android:id            = "@+id/navdrawer_map_fragment"
             android:name          = "com.google.android.gms.maps.SupportMapFragment"
             android:layout_width  = "fill_parent"
             android:layout_height = "fill_parent" />

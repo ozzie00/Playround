@@ -26,9 +26,9 @@ public final class CheckGoogleService {
     public static boolean access(Context context) {
         int code = GooglePlayServicesUtil.isGooglePlayServicesAvailable(context);
         if (code != ConnectionResult.SUCCESS) {
-            return true;
-        } else {
             return false;
+        } else {
+            return true;
         }
 
     }

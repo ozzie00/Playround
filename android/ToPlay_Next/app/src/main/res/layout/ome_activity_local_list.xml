@@ -56,7 +56,7 @@
         android:layout_below       = "@id/local_workoutname_view"
         android:textSize           = "12dip"
         android:textColor          = "@color/grey_darkest"/>
-
+    <!--
     <ImageView
         android:id                 = "@+id/local_venue_icon_view"
         android:layout_width       = "20dp"
@@ -81,7 +81,7 @@
         android:layout_below     = "@id/local_play_time"
         android:textSize         = "12dip"
         android:textColor        = "@color/grey_darkest"/>
-
+    -->
 
     <ImageView
         android:id                 = "@+id/local_distance_icon_view"
@@ -91,7 +91,7 @@
         android:layout_marginRight = "2dp"
         android:layout_marginTop   = "4dp"
         android:layout_toRightOf   = "@id/local_avatar_block"
-        android:layout_below       = "@id/local_venue_address"
+        android:layout_below       = "@id/local_clock_icon_view"
         android:src                = "@drawable/ome_small_distance" />
 
     <TextView
@@ -102,7 +102,7 @@
         android:layout_marginRight = "4dp"
         android:layout_alignTop    = "@id/local_distance_icon_view"
         android:layout_toRightOf   = "@+id/local_distance_icon_view"
-        android:layout_below       = "@id/local_venue_address"
+        android:layout_below       = "@id/local_clock_icon_view"
         android:textSize           = "12dip"
         android:textColor          = "@color/gray_darker"/>
 

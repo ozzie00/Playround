@@ -289,6 +289,7 @@ public final class AppConstant {
     public static final String OMEPARSEWANTTOKEY               = "want to";
     public static final String OMEPARSEINVITEPLAYSUBMITTIMEKEY = "invitePlaySubmitTime";
     public static final String OMEPARSEREPLYTIMEKEY            = "replyTime";
+    public static final String OMEPARSEINVITEDEFAULTSPORTVALUE = "Walking";
 
     // Parse API key corresponding to invite requirment
     public static final String OMEPARSEINVITESPORTTYPEKEY        = "inviteSportType";

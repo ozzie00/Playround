@@ -218,7 +218,7 @@ public class MapNextActivity extends BaseActivity  implements LocationListener,
         // });
         
         // Set up the map fragment
-        mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map_fragment);
+        mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.navdrawer_map_fragment);
         
         mapFragment.getMap().getUiSettings().setZoomControlsEnabled(true);
         //mapFragment.getMap().getUiSettings().setMyLocationButtonEnabled(false);

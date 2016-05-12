@@ -58,6 +58,7 @@ tools:context=".ui.CnLocalNextActivity">
         app:elevation="4sp"
         app:borderWidth="0dp"
         android:src="@drawable/ic_action_new" />
+    <!--  app:borderWidth="0dp"  // this enable floating button from square to circle-->
 
 </com.oneme.toplay.ui.widget.DrawShadowFrameLayout>
 

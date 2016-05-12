@@ -154,8 +154,7 @@
         <attr name="desaturateOnPress" format="boolean" />
     </declare-styleable>
 
-
-    <style name="Theme.Playround.Base" parent="Theme.AppCompat.Light">
+    <style name="Theme.Playround.Base" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="actionBarIconColor">#fff</item>
         <item name="actionBarInsetStart">@dimen/keyline_2</item>
         <item name="homeAsUpIndicator">@drawable/ic_up</item>
@@ -171,7 +170,8 @@
         <item name="android:textColorLink">@color/playround_default</item>
 
         <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+      <!--  <item name="windowNoTitle">true</item>-->
+        <item name="android:windowNoTitle">true</item>
 
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowBackground">@color/white</item>

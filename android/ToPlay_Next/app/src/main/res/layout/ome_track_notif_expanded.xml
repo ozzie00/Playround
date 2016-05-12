@@ -54,7 +54,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:singleLine="true"
-                    android:textAppearance="@style/TextAppearance.StatusBar.EventContent.Title" />
+                     />
             </LinearLayout>
 
             <TextView
@@ -65,7 +65,7 @@
                 android:ellipsize="marquee"
                 android:fadingEdge="horizontal"
                 android:singleLine="true"
-                android:textAppearance="@style/TextAppearance.StatusBar.EventContent"
+
                 android:visibility="gone" />
         </LinearLayout>
     </FrameLayout>
@@ -101,7 +101,7 @@
                 android:gravity="start|center_vertical"
                 android:paddingLeft="8dp"
                 android:singleLine="true"
-                android:textAppearance="@style/TextAppearance.StatusBar.EventContent" />
+                 />
 
             <TextView
                 android:id="@+id/swn_right_button"
@@ -114,7 +114,8 @@
                 android:gravity="start|center_vertical"
                 android:paddingLeft="8dp"
                 android:singleLine="true"
-                android:textAppearance="@style/TextAppearance.StatusBar.EventContent" />
+                 />
+            <!--android:textAppearance="@style/TextAppearance.StatusBar.EventContent" -->
         </LinearLayout>
     </FrameLayout>
 

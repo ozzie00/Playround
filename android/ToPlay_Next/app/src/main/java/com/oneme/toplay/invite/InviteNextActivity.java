@@ -174,6 +174,7 @@ public final class InviteNextActivity extends BaseActivity implements OnDateSetL
         Spinner msportspinner              = (Spinner)findViewById(R.id.invite_sport_spinner);
         SportTypeAdapter msportTypeAdapter = new SportTypeAdapter(InviteNextActivity.this, R.layout.ome_sport_row, msportarray, Sport.msporticonarray);
         msportspinner.setAdapter(msportTypeAdapter);
+        msportspinner.setSelection(Sport.msportarraylist.indexOf(AppConstant.OMEPARSEINVITEDEFAULTSPORTVALUE));
 
         msportspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {

@@ -2,6 +2,7 @@ package com.oneme.toplay;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.support.multidex.MultiDex;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.oneme.toplay.base.AppConstant;
@@ -163,6 +164,9 @@ public class Application extends android.app.Application {
     public void onCreate() {
         super.onCreate();
 
+        Parse.initialize(getApplicationContext(), AppConstant.OMETOPLAYPARSEAPPLICATIONID,
+                AppConstant.OMETOPLAYPARSECLIENTKEY);
+
         ParseObject.registerSubclass(Invite.class);
 
         ParseObject.registerSubclass(Message.class);
@@ -205,8 +209,6 @@ public class Application extends android.app.Application {
         // Ozzie Zhang 2014-12-31 change this code
         // this --> getApplicationContext()
         // Application ID and Client Key
-        Parse.initialize(getApplicationContext(), AppConstant.OMETOPLAYPARSEAPPLICATIONID,
-                AppConstant.OMETOPLAYPARSECLIENTKEY);
 
         preferences = getSharedPreferences(AppConstant.OMETOPLAYPACKAGENAME, Context.MODE_PRIVATE);
 
@@ -235,6 +237,13 @@ public class Application extends android.app.Application {
 
 
 
+    }
+
+    // support multiDex
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
     }
 
     public void updateLeftPane() {

@@ -239,8 +239,9 @@ public class JoinNextActivity extends BaseActivity {
             msportimage.setImageDrawable(getResources().getDrawable(Sport.msporticonarray[Integer.parseInt(msporttypevalue)]));
         }
 
-        TextView mworkoutlocation = (TextView)findViewById(R.id.join_next_info_workout_location);
-        mworkoutlocation.setText(mcourt);
+        //Disable user location to protect user privacy
+       // TextView mworkoutlocation = (TextView)findViewById(R.id.join_next_info_workout_location);
+       // mworkoutlocation.setText(mcourt);
 
         TextView mworkoutdescription = (TextView)findViewById(R.id.join_next_info_workout_description_content);
         mworkoutdescription.setText(mother);

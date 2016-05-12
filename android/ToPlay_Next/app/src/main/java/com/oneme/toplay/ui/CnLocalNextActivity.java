@@ -294,7 +294,8 @@ public class CnLocalNextActivity extends BaseActivity {
                 ImageView avatarView        = (ImageView) view.findViewById(R.id.local_avatar_view);
                 TextView usernameView       = (TextView) view.findViewById(R.id.local_username_view);
                 TextView workoutnameView    = (TextView) view.findViewById(R.id.local_workoutname_view);
-                TextView venueaddressView   = (TextView) view.findViewById(R.id.local_venue_address);
+                // Disable venue address to protect user privacy
+               //TextView venueaddressView   = (TextView) view.findViewById(R.id.local_venue_address);
                 TextView playtimeView       = (TextView) view.findViewById(R.id.local_play_time);
                 TextView distanceView       = (TextView) view.findViewById(R.id.local_distance_to_me);
                 ImageView sporttypeiconView = (ImageView) view.findViewById(R.id.local_sport_type_icon);
@@ -305,7 +306,7 @@ public class CnLocalNextActivity extends BaseActivity {
                 String mplaytime = invite.getPlayTime();
                 usernameView.setText(invite.getFromUsername());
                 workoutnameView.setText(invite.getWorkoutName());
-                venueaddressView.setText(invite.getCourt());
+                //venueaddressView.setText(invite.getCourt());
 
                 if (mplaytime.contains(AppConstant.OMEPARSESLASHSTRING)) {
                     // the old version time format contains slash

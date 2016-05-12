@@ -293,7 +293,7 @@
                 android:layout_marginRight = "8dp"
                 android:src                = "@drawable/ome_tennis_icon"
                 android:contentDescription = "sport type icon"/>
-
+            <!--
             <TextView
                 android:id                 = "@+id/join_next_info_workout_location"
                 android:layout_width       = "wrap_content"
@@ -303,6 +303,7 @@
                 android:layout_marginRight = "8dp"
                 android:textAppearance     = "?android:attr/textAppearanceSmall"
                 android:textColor          = "@android:color/darker_gray"/>
+            -->
 
             <TextView
                 android:id                 = "@+id/join_next_info_workout_description"
